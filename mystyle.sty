@@ -5,13 +5,18 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 
+\newcommand{\mc}{\mathcal}
+
 \newcommand{\Maps}{\operatorname{Maps}}
 \newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\supp}{\operatorname{supp}}
 
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\can}{\operatorname{can}}
 
-\newcommand{\mc}{\mathcal}
+\newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
+\newcommand{\vspan}{\operatorname{span}}
+\newcommand{\kchar}{\operatorname{char}}
 
 \newtheorem{defi}{Definition}
 \newcounter{saetze}
@@ -20,6 +25,30 @@
 \newtheorem*{claim}{Claim}
 
 \theoremstyle{definition}
-\newtheorem*{expl}{Example(s)}
+\newtheorem*{expl}{Example}
+\newtheorem*{expls}{Examples}
 \newtheorem*{rem}{Remark}
 \newtheorem*{note}{Note}
+\newtheorem*{warn}{Warning}
+
+% keine leere Seite zu Beginn von \mainmatter
+\makeatletter
+\renewcommand\mainmatter{%
+    \clearpage
+  \@mainmattertrue
+  \pagenumbering{arabic}}
+\makeatother
+
+% \bigdotcup
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+\newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
