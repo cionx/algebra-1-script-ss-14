@@ -104,13 +104,13 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
 
 
 \begin{defi}
- Let $G$ be a group and $X, Y$ $G$-sets. Then $f : X \to Y$ is called G-equivalent if
+ Let $G$ be a group and $X, Y$ $G$-sets. Then $f : X \to Y$ is called $G$-equivariant if
  \[
   f(g.x) = g.f(x)
  \]
  for all $g \in G, x \in X$. Denote
  \[
-  \Hom_G(X,Y) = \{f : X \to Y | f \text{ is $G$-equivalent}\}.
+  \Hom_G(X,Y) = \{f : X \to Y | f \text{ is $G$-equivariant}\}.
  \]
 \end{defi}
 
@@ -127,13 +127,13 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
 \begin{expls}
  \begin{enumerate}
   \item
-   Let $G$ be a group and look at $G$ as a regular $G$-set. Then $f : G \to G$ is $G$-equivalent if and only if $f$ is given by right multiplication with some element $a \in G$ (i.e $f(g) = ga$ for all $g \in G$).
+   Let $G$ be a group and look at $G$ as a regular $G$-set. Then $f : G \to G$ is $G$-equivariant if and only if $f$ is given by right multiplication with some element $a \in G$ (i.e $f(g) = ga$ for all $g \in G$).
    \begin{proof}
     Assume there exists $a \in G$ such that $f(g) = ga$ for all $g \in G$. Then
     \[
      f(g.x) = f(gx) = (gx)a = g(xa) = g.f(x)
     \]
-    for all $g, x \in G$. To show the other direction set $a := f(e)$. Because $f$ is $G$-equivalent we then have
+    for all $g, x \in G$. To show the other direction set $a := f(e)$. Because $f$ is $G$-equivariant we then have
     \[
      f(g) = f(ge) = f(g.e) = g.f(e) = g.a = ga
     \]
@@ -163,7 +163,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
  \[
   \can : X \to X/G, x \mapsto \text{orbit of } x
  \]
- is $G$-equivalent, since
+ is $G$-equivariant, since
  \[
   \can(g.x) = \text{orbit of $g.x$} = \text{orbit of $x$} = \can(x) = g.\can(x)
  \]
@@ -368,7 +368,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
    \[
     \Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)
    \]
-   is $G$-equivalent. Thus we get the desired isomorphism by taking invariants on both sides.
+   is $G$-equivariant. Thus we get the desired isomorphism by taking invariants on both sides.
  \end{enumerate}
 \end{proof}
 
