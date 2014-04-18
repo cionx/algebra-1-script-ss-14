@@ -33,7 +33,7 @@ Given a group action $\pi : G \times X \to X$ any  $g \in G$ defines $\pi_g \in 
 \]
 
 
-\begin{lem}
+\begin{lem}\label{lem: G-actions = group homos G -> S(X)}
  Fix $G$ a group, $X$ a set. Then there is a 1:1-correspondence
  \[
  \begin{matrix}
@@ -341,7 +341,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 \begin{lem}
  Let $X$ be a finite $G$-set. Assume that $X = X_1 \cup X_2$ with $X_1, X_2 \neq \emptyset$ and $X_1 \cap X_2 = \emptyset$ such that
- \begin{equation}\tag{$\ast$}\label{eqn:X_1 X_2 closed}
+ \begin{equation}\tag{\ensuremath{\ast}}\label{eqn:X_1 X_2 closed}
   g.x_1 \in X_1 \text{ and } g.x_2 \in X_2 \text{ for all } x_1 \in X_1, x_2 \in X_2, g \in G.
  \end{equation}
  Then
@@ -410,7 +410,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 \end{expl}
 
 
-\begin{lem}
+\begin{lem}\label{lem: group action by ring automorphisms}
  Assume $G$ acts on $R$ where $R$ is a set but also a ring. Assume $G$ acts by ring automorphisms (i.e. if $\pi : G \times R \to R$ is the action then $\pi_g : r \mapsto g.r$ is an ring automorphism of $R$ for all $g \in G$). Then $R^G = \{\text{$G$-invarints of $R$}\}$ forms again a ring, namely a subring of $R$.
 \end{lem}
 \begin{proof}
@@ -426,27 +426,310 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 \end{proof}
 
 
+\begin{rem}
+ Here rings don't necessarily have an 1-element.
+\end{rem}
 
 
+\begin{expl}
+ Let $X$ be a $G$-set and $k$ a field (or a ring). Then:
+ \begin{enumerate}[a)]
+  \item
+   $\Maps(X,k)$ forms a ring via pointwise addition and multiplication.
+  \item
+   The usual $G$-action on $\Maps(X,k)$ (i.e. $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G, x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
+ \end{enumerate}
+ \begin{proof}
+  \begin{enumerate}[a)]
+   \item
+    We leave this as an exercise to the reader.
+   \item
+    For all $f_1, f_2 \in \Maps(X,k), x \in X$ we have
+    \begin{align*}
+     (g.(f_1+f_2))(x) &= \left(f_1+f_2)(g^{-1}.x\right) = f_1\left(g^{-1}.x\right) + f_2\left(g^{-1}.x\right) \\
+     &= (g.f_1)(x) + (g.f_2)(x) = ((g.f_1)+(g.f_2))(x)
+    \end{align*}
+    and
+    \begin{align*}
+     (g.(f_1 f_2))(x) &= (f_1 f_2)\left(g^{-1}.x\right) = f_1\left(g^{-1}.x\right) f_2\left(g^{-1}.x\right) \\
+     &= (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x),
+    \end{align*}
+    so $G$ acts by ring homomorphisms. Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms. The rest is a consequence of Lemma \ref{lem: group action by ring automorphisms}.
+  \end{enumerate}
+ \end{proof}
+\end{expl}
 
 
+\begin{rem}
+ Similar statements hold for $kX$ and $(kX)^G$ (with the same proofs).
+\end{rem}
 
 
+\begin{defi}
+ Let $G$ and $H$ be groups, $X$ a set such that $\pi : G \times X \to X$ and $\pi' : H \times X \to X$ are group actions (i.e. $X$ is a $G$-set and $H$-set). Then the actions commute if
+ \[
+  h.(g.x) = g.(h.x)
+ \]
+ for all $g \in G, h \in H, x \in X$.
+\end{defi}
 
 
+\begin{rem}
+ In this case we have that $\pi_g$ is an $H$-equivariant map for all $g \in G$ and $\pi'_h$ is an $G$-equivariant map for all $h \in H$, because
+ \[
+  g.\pi_h(x) = \pi_g(h.x) = g.(h.x) = h.(g.x) = h.\pi_g(x) = \pi_h(g.x)
+ \]
+ for all $g \in G, h \in H$.
+\end{rem}
 
 
+\begin{expls}
+ \begin{enumerate}[a)]
+  \item
+   Let $G$ be a group. Then the left regular action and the right regular action of $G$ on $G$ commute.
+  \item
+   Let $G$ be a group. The left regular action and conjugation action of $G$ on $G$ commute if and only if $G$ is abelian: If $.$ denotes the left regular action and $*$ the conjugation then
+   \begin{align*}
+    g_1*(g_2.x) &= g_1 (g_2 x) g_1^{-1} = g_1 g_2 x g_1^{-1} \text{ and} \tag{\ensuremath{\ast}}\\
+    g_2.(g_1*x) &= g_2 \left(g_1 x g_1^{-1}\right) = g_2 g_1 x g_1^{-1} \tag{\ensuremath{\ast\ast}},
+   \end{align*}
+   for all $g_1, g_2, x \in G$. So
+   \begin{align*}
+    (\ast) = (\ast\ast) \text{ for all } g_1, g_2, x \in G
+    &\Leftrightarrow g_1 g_2 = g_2 g_1 \text{ for all } g_1, g_2 \in G \\
+    &\Leftrightarrow \text{$G$ is abelian}.
+   \end{align*}
+  \item
+   Let $G = \GL(2,\R)$. $G$ acts on $\R^2$ in the natural way. Consider
+   \[
+    H := \left\{ \left. \vect{\lambda&0\\0&\lambda} \right| \lambda \in \R, \lambda \neq 0 \right\} \subseteq \GL(2,\R).
+   \]
+   Then $H$ acts on $\R^2$ by restriction of the $G$-action. The two actions commute since $gh = hg$ for all $g \in G, h \in H$. (Notice that $H$ is the center of $G$.)
+ \end{enumerate}
+\end{expls}
 
 
+\begin{defi}
+ Let $G$ be a group, $V$ a $k$-vector space and $\pi : G \times V \to V$ be a group action. The action is linear if $\pi_g : V \to V, v \mapsto g.v$ is $k$-linear for all $g \in G$. $V$ is then called a $G$-space.
+\end{defi}
 
 
+\begin{expl}
+ The natural action of $\GL(2,\R)$ on $\R^2$ in the previous example is $\R$-linear.
+\end{expl}
 
 
+For a $k$-vector space $V$ we set
+\[
+ \GL(V) := \{f : V \to V | f \text{ is $k$-linear and invertible}\}.
+\]
 
 
+\begin{lem}
+ Let $G$ be a group and $V$ a $k$-vector space. Then there is a 1:1-correspondence
+ \[
+    \left\{\text{linear $G$-actions on $X$}\right\}
+  \overset{1:1}{\longleftrightarrow}
+  \left\{\text{group homomorphisms $G \to \GL(V)$}\right\}.
+ \]
+\end{lem}
+\begin{proof}
+ As in Lemma \ref{lem: G-actions = group homos G -> S(X)}.
+\end{proof}
 
 
+\begin{rem}
+ A $G$-space $V$ or equivalently a vector space $V$ with a group homomorphism $G \to \GL(V)$ is called a representation of $G$.
+\end{rem}
 
+
+\begin{expls}
+ \begin{enumerate}[a)]
+  \item
+   Let $V$ be a $k$-vector space. Then $\GL(V)$ acts linearly on $V$ in a natural way. (The action corresponds to the group homomorphism $\id_{\GL(V)} : \GL(V) \to \GL(V)$.)
+  \item
+   If $X$ is a $G$-set then $kX$ is naturally a $G$-space by setting
+   \[
+    g.\left(\sum_{x \in X} a_x \chi_x\right) = \sum_{x \in X} a_x \chi_{g.x}
+   \]
+   where almost all $a_x$ are zero. This agrees with the previous action on $kX$, because
+   \[
+    (g.\chi_x)(y)
+    = \chi_x(g^{-1}.y)
+    = \begin{cases} 1 & \text{if } x = g^{-1}.y, \\ 0 & \text{otherwise}, \end{cases}
+    = \begin{cases} 1 & \text{if } g.x = y, \\ 0 & \text{otherwise}, \end{cases}
+    = \chi_{g.x}(y)
+   \]
+   for all $y \in X$.
+  \item
+   Let $V$ and $W$ be $G$-spaces over the same field. Then $V \oplus W$ and $V \otimes W$ are $G$-spaces via
+   \begin{align*}
+    g.(v,w) &= (g.v,g.w) \text{ and }  \tag{1} \\
+    g.(v \otimes w) &= (g.v) \otimes (g.w) \tag{2}
+   \end{align*}
+   for all $v \in V, w \in W, g \in G$.
+ \end{enumerate}
+ 
+ Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$: If $\pi : G \times V \to V$ is the action on $V$ and $\pi' : G \times W \to W$ is the action on $W$ then the action $\tau : G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$. The action $\tau': G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$. So $\tau'$ it is the unique action making the diagram in figure \ref{fig: action on product and tensor} commute for all $g \in G$.
+ \begin{figure}\label{fig: action on product and tensor}\centering
+  \begin{tikzpicture}[node distance = 3.5cm, auto]
+   % the nodes
+   \node (V times W) {$V \times W$};
+   \node (V times W 2) [right of = V times W] {$V \times W$};
+   \node (V tensor W) [below of = V times W, node distance = 1.5cm] {$V \otimes W$};
+   \node (V tensor W 2) [right of = V tensor W] {$V \otimes W$};
+   % the arrows
+   \draw[->] (V times W) to node {$\pi_g \times \pi'_g$} (V times W 2);
+   \draw[->] (V times W) to (V tensor W);
+   \draw[->] (V times W 2) to (V tensor W 2);
+   \draw[->] (V tensor W) to node [swap] {$\pi_g \otimes \pi'_g$} (V tensor W 2);
+  \end{tikzpicture}
+  \caption{The action of $g \in G$ on $V \times W$ and $V \otimes W$.}
+ \end{figure}
+ 
+ If $v_1, \ldots, v_n$ is a basis of $V$ and $w_1, \ldots, w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp. $W$, as a matrix $A$, resp. $B$. The actions $(1)$ and $(2)$ are then given by matrices
+ \[
+  \begin{pmatrix}
+   A & 0 \\
+   0 & B
+  \end{pmatrix}
+  \text{ and }
+  \begin{pmatrix}
+   a_{11} B & a_{12} B & \cdots & a_{1m} B \\
+   a_{21} B & a_{22} B & \cdots & a_{2m} B \\
+    \vdots  &  \vdots  & \ddots &  \vdots  \\
+   a_{n1} B & a_{n2} B & \cdots & a_{nm} B
+  \end{pmatrix}
+\]
+with respect to the basis $v_1, \ldots, v_n, w_1, \ldots, w_m$ of $V \oplus W$ and $v_1 \otimes w_1, v_1 \otimes w_2, \ldots, v_n \otimes w_m$ of $V \otimes W$.
+\end{expls}
+
+
+\begin{defi}
+  Let $V$ ba a $G$-space or equivalently a representation of $G$.
+
+  A subrepresentation of $V$ is a vector subspace $U$ of $V$ such that $g.u \in U$ for all $u \in U, g \in G$. A subrepresentation $U$ of $V$ is proper if $U \neq V$.
+  
+  $V$ is indecomposable if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
+  
+  $V$ is irreducible if it has no nontrivial proper subrepresentation.
+\end{defi}
+
+It is clear that every irreducible representation is also indecomposable. The converse is not true in general as the following example shows.
+
+\begin{expl}
+ Let
+ \[
+  G := \left\{ \left. \vect{a&b\\0&c} \right| a,b,c \in \C \text{ and } a, c \neq 0 \right\}.
+ \]
+ $G$ acts on $V := \C^2$ in the natural way. Notice that $V$ is not irreducible because $U := \vspan(e_1)$ is a subrepresentation since
+ \[
+  \vect{a&b\\0&c} \vect{\alpha\\0} = \vect{\alpha a\\0} \in U
+ \]
+ for all $\alpha \in \C$. But $V$ is indecomposible because $U$ is the unique $1$-dimensional subrepresentation of $V$.  Therefore there exist no proper subrepresentations $U_1, U_2$ of $V$ with $V = U_1 \oplus U_2$. To show that $U$ is the unique $1$-dimensional subrepresentation of $V$ let $W$ be an $1$-dimensional subrepresentation of $V$. Then
+ \[
+  W = \vspan\left\{ \vect{\alpha\\\beta} \right\} \text{ for some } \vect{\alpha\\\beta} \in \C^2.
+ \]
+ Because $W$ is a subrepresentation of $V$ we have
+ \[
+  \vect{1&1\\0&1} \vect{\alpha\\\beta} = \vect{\alpha+\beta\\\beta} \in W.
+ \]
+ and therefore
+ \[
+  \vect{\beta\\0} \in W.
+ \]
+ So we find that
+ \[
+  \vect{1\\0} \in W
+ \]
+ and thus
+ \[
+  W = \vspan\left\{\vect{1\\0}\right\} = U.
+ \]
+\end{expl}
+
+
+\begin{warn}
+ As seen above subrepresentations have not always complements which are again subrepresentations.
+\end{warn}
+
+
+\begin{defi}
+ Let $k$ be a field (or a ring) and $G$ a group. Then the group algebra of $G$ over $k$ is the $k$-algebra with $1$ given by the $k$-vector space
+ \[
+  kG := \{f : G \to k | f(g) \neq 0 \text{ for only finitely many } g \in G\}
+ \]
+ with (1) pointwise addition and scalar multiplication and (2) multiplication given by convolution, i.e.
+ \[
+  (f_1 \cdot f_2)(x) = \sum_{y \in G} f_1(y) f_2\left(y^{-1}x\right)
+ \]
+ for all $f_1, f_2 \in kG, x \in G$.
+\end{defi}
+
+The unit of the group algebra is given by the function $\chi_e$. We leave it as an exercise to the reader to check that this is a $k$-algebra.
+
+To make it easier to work with this algebra we provide another way to think about it:
+
+We can write $f \in kG$ as $f = \sum_{g \in G} a_g \chi_g$ with $a_g \in k$ for all $g \in G$ where almost all $a_g$ are zero. We also write $\sum_{g \in G} a_g g$ as a shorter notation for the sum above. The addition and scalar multiplication as in (1) can then be written as
+\begin{gather*}
+ \left( \sum_{g \in G} a_g g \right) + \left( \sum_{g \in G} b_g g \right) = \sum_{g \in G} (a_g+b_g) g \text{ and}\\
+ \lambda \left( \sum_{g \in G} a_g g \right) = \sum_{g \in G} (\lambda a_g) g \text{ for all } \lambda \in k
+\end{gather*}
+and the multiplication (2) as
+\[
+ \left( \sum_{g \in G} a_g g \right) \cdot \left( \sum_{g \in G} b_g g \right)
+ = \sum_{h, g \in G} a_g b_{g^{-1}h} h
+ = \sum_{g, g' \in G} a_g b_{g'} (g g').
+\]
+To verify that this multiplication is equivalent to (2) it is enough to check this on a basis, because both multiplications are $k$-bilinear.
+
+Multiplying in the first way gives us
+\begin{align*}
+ \left( \chi_{g_1} \cdot \chi_{g_2} \right)(h)
+ &= \sum_{y \in G} \chi_{g_1}(y) \chi_{g_2}\left(y^{-1} h\right)
+ = \chi_{g_2}\left(g_1^{-1}h\right) \\
+ &= \begin{cases} 1 & \text{if } g_2 = g_1^{-1}h, \\ 0 & \text{otherwise}, \end{cases}
+ = \begin{cases} 1 & \text{if } g_1 g_2 = h, \\ 0 & \text{otherwise}, \end{cases}
+ = \chi_{g_1 g_2}(h),
+\end{align*}
+so $\chi_{g_1} \cdot \chi_{g_2} = \chi_{g_1 g_2}$ for all $g_1, g_2 \in G$.
+For multiplication in the second way we write $\chi_g$ as $\sum_{h \in G} a^g_h h$ where
+\[
+ a^g_h = \begin{cases} 1 & \text{if } h = g, \\ 0 & \text{otherwise}, \end{cases}
+\]
+for all $g \in G$. For $g_1, g_2 \in G$ multiplying $\chi_{g_1}$ and $\chi_{g_2}$ in the second way gives us
+\[
+ \chi_{g_1} \cdot \chi_{g_2}
+ = \left( \sum_{g \in G} a^{g_1}_g g \right) \cdot \left( \sum_{g \in G} a^{g_2}_g g \right)
+ = \sum_{g,g' \in G} a^{g_1}_g a^{g_2}_{g'} (g g')
+ = (g_1 g_2)
+ = \chi_{g_1 g_2}.
+\]
+This shows that the multiplications the same.
+
+So we can think of the multiplication in $kG$ as the $k$-bilinear extension of the multiplication in $G$. Also note that $kG$ is commutative if and only if $G$ is commutative.
+
+
+\begin{lem}
+ Let $G$ be a group and $V$ a $k$-vector space. Then there is a 1:1-correspondence
+ \[
+ \begin{matrix}
+    \left\{\text{linear $G$-actions on $V$}\right\}
+  & \overset{1:1}{\longleftrightarrow}
+  & \left\{\text{$kG$-module structures on $V$}\right\} \\
+    \pi
+  & \longmapsto
+  & \hat{\pi}
+  \end{matrix}
+ \]
+ where $\pi : G \times V \to V, (g,v) \mapsto g.v$ is a linear group action and
+ \[
+  \hat{\pi} : kG \times V \to V, \left(\sum_{g \in G} a_g g, v\right) \mapsto \sum_{g \in G} a_g (g.v).
+ \]
+\end{lem}
+\begin{proof}
+ The proof is left as an exercise to the reader and will most likely appear on some exercise sheet in the future.
+\end{proof}
 
 
 
