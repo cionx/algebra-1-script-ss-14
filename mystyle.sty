@@ -24,12 +24,13 @@
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{%
- \markboth{\Roman{chapter}.\ \MakeUppercase{#1}}{}%
+ \markboth{\Roman{chapter}. \MakeUppercase{#1}}{}%
 }
 \fancyhead{}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyfoot[C]{\thepage}
 
+\renewcommand{\thechapter}{\Roman{chapter}}
 
 \newtheorem{defi}{Definition}[chapter]
 \newcounter{saetze}[chapter]
