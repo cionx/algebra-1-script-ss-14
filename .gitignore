@@ -1,5 +1,6 @@
 *.aux
 *.log
 *.tex.backup
+*.sty.backup
 *.dvi
 *.toc
