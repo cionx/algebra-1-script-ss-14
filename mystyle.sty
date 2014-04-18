@@ -1,3 +1,50 @@
+% die verschiedenen benutzen Pakete
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{stmaryrd} %für \mapsfrom
+\usepackage{extarrows} %für \xlongequal
+\usepackage{tikz} %für Diagrame
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+% keine leere Seite zu Beginn von \mainmatter
+\makeatletter
+\renewcommand\mainmatter{%
+    \clearpage
+  \@mainmattertrue
+  \pagenumbering{arabic}}
+\makeatother
+
+% das Ausshen der Seitenheader und Seitenzahlanzeige
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{%
+ \markboth{\Roman{chapter}. \MakeUppercase{#1}}{}%
+}
+\fancyhead{}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+
+% die Umgebungen mit kursiver Schrift
+\newtheorem{defi}{Definition}[chapter]
+\newcounter{saetze}[chapter]
+\newtheorem{lem}[saetze]{Lemma}
+\newtheorem{thrm}[saetze]{Theorem}
+\newtheorem*{claim}{Claim}
+
+% die Umgebungen mit normaler Schrift
+\theoremstyle{definition}
+\newtheorem*{expl}{Example}
+\newtheorem*{expls}{Examples}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{warn}{Warning}
+
+% Kapitelzahl in römischen Ziffern
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -22,38 +69,8 @@
 
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{%
- \markboth{\Roman{chapter}. \MakeUppercase{#1}}{}%
-}
-\fancyhead{}
-\fancyhead[RE]{\slshape \leftmark}
-\fancyfoot[C]{\thepage}
 
-\renewcommand{\thechapter}{\Roman{chapter}}
-
-\newtheorem{defi}{Definition}[chapter]
-\newcounter{saetze}[chapter]
-\newtheorem{lem}[saetze]{Lemma}
-\newtheorem{thrm}[saetze]{Theorem}
-\newtheorem*{claim}{Claim}
-
-\theoremstyle{definition}
-\newtheorem*{expl}{Example}
-\newtheorem*{expls}{Examples}
-\newtheorem*{rem}{Remark}
-\newtheorem*{note}{Note}
-\newtheorem*{warn}{Warning}
-
-% keine leere Seite zu Beginn von \mainmatter
-\makeatletter
-\renewcommand\mainmatter{%
-    \clearpage
-  \@mainmattertrue
-  \pagenumbering{arabic}}
-\makeatother
-
-% \bigdotcup
+% technischer Kram für \bigdotcup
 \makeatletter
 \def\moverlay{\mathpalette\mov@rlay}
 \def\mov@rlay#1#2{\leavevmode\vtop{%
