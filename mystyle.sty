@@ -22,8 +22,17 @@
 
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
-\newtheorem{defi}{Definition}
-\newcounter{saetze}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{%
+ \markboth{\Roman{chapter}.\ \MakeUppercase{#1}}{}%
+}
+\fancyhead{}
+\fancyhead[RE]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+
+
+\newtheorem{defi}{Definition}[chapter]
+\newcounter{saetze}[chapter]
 \newtheorem{lem}[saetze]{Lemma}
 \newtheorem{thrm}[saetze]{Theorem}
 \newtheorem*{claim}{Claim}

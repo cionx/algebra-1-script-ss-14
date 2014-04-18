@@ -1,0 +1,56 @@
+\chapter{Invariant polynomial functions and covariants}
+
+
+In this chapter $k$ is an infinite field. We also fix a finite-dimensional $k$-vector space $V$ with basis $(v_1, \ldots, v_n)$.
+
+
+\begin{defi}
+ By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e. $f \in \mc{P}(V)$ if and only if $f : V \to k$ and there is some $p \in k[X_1, \ldots, X_n]$ such that
+ \[
+  f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \ldots, \lambda_n)
+ \]
+ for all $\lambda_1, \ldots, \lambda_n \in k$.
+\end{defi}
+
+
+This definition does not depend on the chosen basis. If $(w_1, \ldots, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for $i=1,\ldots,n$ then
+\begin{align*}
+ f\left( \sum_{i=1}^n \lambda_i w_i \right)
+ &= f\left( \sum_{i,j=1}^n \lambda_i a_{ij} v_j \right)
+ = p\left( \sum_{i=1}^n \lambda_i a_{i1}, \ldots, \sum_{i=1}^n \lambda_{i} a_{in} \right)\\
+ &= p'(\lambda_1, \ldots, \lambda_n)
+\end{align*}
+for some $p' \in k[X_1, \ldots, X_n]$. So if $f : V \to k$ is a polynomial in $(v_1, \ldots, v_n)$ then also in $(w_1, \ldots, w_n)$.
+
+
+\begin{rem}
+ If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
+\end{rem}
+
+
+\begin{lem}
+ There is an isomorphism of rings, even $k$-algebras
+ \[
+  \mc{P} \xlongrightarrow{\sim} k[X_1, \ldots, X_n]
+ \]
+ where $n = \dim V$.
+\end{lem}
+\begin{proof}
+ For $1 \leq j \leq n$ define the $j$-th coordinate function (with respect to the chosen basis) as
+ \[
+  \varphi_j : V \to k, \sum_{i=1}^n \lambda_i v_i \mapsto \lambda_j.
+ \]
+ By the universal property of the polynomial ring the assignment $X_j \to \varphi_j$ extends to a ring homomorphism
+ \[
+  \Phi: k[X_1, \ldots, X_n] \to \mc{P}(V), p \mapsto \Phi(p)
+ \]
+ where
+ \[
+  \Phi(p)\left(\sum_{i=1}^n \lambda_i v_i\right) = p(\lambda_1, \ldots, \lambda_n).
+ \]
+ Is it clear that $\Phi$ is surjective. It is left as an exercise to the reader to check that $\Phi$ is injective.
+\end{proof}
+
+
+
+
