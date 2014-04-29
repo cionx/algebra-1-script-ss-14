@@ -31,6 +31,7 @@
 \newcounter{saetze}[chapter]
 \newtheorem{lem}[saetze]{Lemma}
 \newtheorem{thrm}[saetze]{Theorem}
+\newtheorem*{cor}{Corollary}
 \newtheorem*{claim}{Claim}
 
 % die Umgebungen mit normaler Schrift
@@ -43,6 +44,8 @@
 
 % Kapitelzahl in römischen Ziffern
 \renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thedefi}{\arabic{chapter}.\arabic{defi}}
+
 
 
 \newcommand{\N}{\mathbb{N}}
