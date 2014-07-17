@@ -696,6 +696,126 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 \end{rem}
 
 
+\begin{thrm}[Fundamental Theorem of symmetric functions]
+ The symmetric polynomials $e^{(n)}_1, \ldots, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \ldots, X_n]^{S_n}$. Moreover they are algebraically independent. Hence
+ \[
+  k[X_1, \ldots, X_n]^{S_n} \cong k\left[e^{(n)}_1, \ldots, e^{(n)}_n\right] \text{ via } X_i \mapsto e^{(n)}_i
+ \]
+ as $k$-algebras.
+\end{thrm}
+
+
+\begin{lem}
+ A polynomial $f \in k[X_1, \ldots, X_n]$ is symmetric if and only if its homogeneous parts are symmetric.
+\end{lem}
+\begin{proof}
+ We have $k[X_1, \ldots, X_n] = \bigoplus_{d \geq 0} k[X_1, \ldots, X_n]_d$ as graded $k$-algebras. We write $f = \sum_{d \geq 0} f_d$ where $f_d$ is the homogenous part of $f$ of degree $d$ and only finitely many $f_d$ are non-zero. We need to show that $f$ is symmetric if and only if $f_d$ is symmetric for all $d \geq 0$.
+ 
+ Is is clear that $f$ is symmetric if all $f_d$ are symmetric. If $f$ is symmetric we notice that the decomposition $k[X_1, \ldots, X_n] = \bigoplus_{d \geq 0} k[X_1, \ldots, X_n]$ into vector subspaces is also a decomposition into subrepresentations of $S_n$. Because $f$ is the symmetric we have for all $\sigma \in S_n$
+ \[
+  f = \sum_{d \geq 0} f_d = \sigma.\left( \sum_{d \geq 0} f_d \right) = \sum_{d \geq 0} \sigma.f_d.
+ \]
+ Because the sum is direct and $\sigma.f_d \in k[X_1, \ldots, X_n]$ for all $d \geq 0$ we have $\sigma.f_d = f_d$ for all $d \geq 0$.
+\end{proof}
+
+
+\begin{proof}[Proof of the Fundamental Theorem]
+ Note that
+ \begin{align*}
+  e^{(n)}_1 &= X_1 + \ldots + X_n = e_1^{(n-1)} + X_n, \\
+  e^{(n)}_2 &= \sum_{1 \leq i_1 < i_2 \leq n} X_{i_1} X_{i_2} = e_2^{(n-1)} + X_n e_1^{(n-1)}, \\
+            &\vdots \tag{$\ast$}\\ 
+  e^{(n)}_r &= e^{(n-1)}_r + X_n e^{(n-1)}_{r-1} \text{ for } 1 \leq r \leq n-1, \\
+            &\vdots \\
+  e^{(n)}_n &= X_1 \cdots X_{n-1} X_n = X_n e^{(n-1)}_{n-1}.
+ \end{align*}
+ \begin{claim}
+  A polynomial $f \in k[X_1, \ldots, X_n]$ is symmetric if and only if $f$ can be written as a polyonmial in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e. we have
+  \[
+   k\left[e^{(n)}_1, \ldots, e^{(n)}_n\right] = k[X_1, \ldots, X_n]^{S_n}.
+  \]
+ \end{claim}
+ \begin{proof}[Proof of claim]
+  It is clear that $k\left[e^{(n)}_1, \ldots, e^{(n)}_n\right] \subseteq k[X_1, \ldots, X_n]$. We show the other inclusion by induction over $n$.
+  
+  For $n = 1$ the claim is clear. Let $n \geq 2$ and suppose that the claim holds for $n-1$. We show the claim for $n$ by induction over $\deg f$. For $\deg f = 0$ the claim is clear. Let $d \geq 1$ and suppose the claim holds for $0, \ldots, d-1$. By the previous Lemma we may assume that $f$ is homogenous of degree $d$. (The homogenous parts of lower degree are by induction hypothesis expressable as polynomials in $e^{(n)}_1, \ldots, e^{(n)}_n$.) Let
+  \[
+   q : k[X_1, \ldots, X_n] \to k[X_1, \ldots, X_n]/(X_n) \cong k[X_1, \ldots, X_{n-1}]
+  \]
+  be the evaluation at $X_n = 0$. By $(\ast)$ we have
+  \begin{align*}
+   q\left( e^{(n)}_r \right) &= e^{(n-1)}_r \text{ for all } 1 \leq r < n \text{ and}\\
+   q\left( e^{(n)}_n \right) &= 0.
+  \end{align*}
+  We notice that $q(f) \in k[X_1, \ldots, X_{n-1}]$ is symmetric: Because $f$ is symmetric we have
+  \[
+   f = f(X_1, \ldots, X_n) = f(X_{\sigma(1)}, \ldots, X_{\sigma(n)})
+  \]
+  for every $\sigma \in S_n$. Thus we have
+  \[
+   f(X_1, \ldots, X_{n-1}, 0) = f(X_{\tau(1)}, \ldots, X_{\tau(n-1)}, 0).
+  \]
+  for every $\tau \in S_{n-1}$. Because $q(f) \in k[X_1, \ldots, X_{n-1}]$ is symmetric we can use the induction hypothesis (from the induction on $n$) to write
+  \[
+   q(f) = P\left(e^{(n-1)}_1, \ldots, e^{(n-1)}_{n-1}\right)
+  \]
+  for some polynomial $P \in k[X_1, \ldots, X_{n-1}]$. Consider the symmetric polynomial
+  \[
+   g := P\left(e^{(n)}_1, \ldots, e^{(n)}_{n-1}\right) \in k[X_1, \ldots, X_n].
+  \]
+  Because $q$ is a $k$-algebra homomorphism we have
+  \begin{align*}
+   q(g)
+   &= q\left( P\left(e^{(n)}_1, \ldots, e^{(n)}_{n-1}\right) \right) \\
+   &= P\left( q\left(e^{(n)}_1\right), \ldots, q\left(e^{(n)}_{n-1}\right) \right) \\
+   &= P\left( e^{(n-1)}_1, \ldots, e^{(n-1)}_{n-1} \right) \\
+   &= q(f)
+  \end{align*}
+  and therefore
+  \[
+   q(f-g) = 0.
+  \]
+  Because $\ker q = (X_n)$ this means that $X_n \mid (f-g)$. Because $f-g$ is symmetric (because $f$ and $g$ are symmetric) it follows that $X_i \mid (f-g)$ for all $1 \leq i \leq n$. Therefore $X_1 \cdots X_n \mid (f-g)$ and we can set
+  \[
+   h := \frac{f-g}{X_1 \cdots X_n} = \frac{f-g}{e^{(n)}_n}.
+  \]
+  (Here we use that $k[X_1, \ldots, X_n]$ is an unique factorization domain.) We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$. By induction hypothesis (of the induction on $d$) we can write $h$ as a polynomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ and therefore also $f = h e^{(n)}_n$.
+  % TODO: Warum ist deg(g) <= deg(f)? Wofür die Homogenität von f? %
+ \end{proof}
+  All that is left to show is that $e^{(n)}_1, \ldots, e^{(n)}_n$ are algebraically independent. We prove this by induction over $n$.
+  
+  For $n = 1$ this is clear, since $e^{(1)}_1 = X_1$. Now suppose $n \geq 2$ and that the elements $e^{(n-1)}_1, \ldots, e^{(n-1)}_{n-1}$ are algebraically independent. Suppose that
+  \[
+   F\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) = 0
+  \]
+  for some polynomial $F \in k[X_1, \ldots, X_n]$ with $F \neq 0$ of minimal possible degree. Then
+  \begin{align*}
+   0
+   &= q\left(F\left(e^{(n)}_1, \ldots, e^{(n)}_{n-1} ,e^{(n)}_n\right)\right) \\
+   &= F\left( q\left(e^{(n)}_1\right), \ldots, q\left(e^{(n)}_{n-1}\right), q\left(e^{(n)}_n\right) \right) \\
+   &= F\left( e^{n-1}_1, \ldots e^{(n-1)}_{n-1}, 0 \right).
+  \end{align*}
+  Using the induction hypothesis we find that $F(X_1, \ldots, X_{n-1}, 0) = 0$. Therefore $X_n \mid F$. This means that there exists some $\hat{F} \in k[X_1, \ldots, X_n]$ with $F = X_n \hat{F}$. In particular $\hat{F} \neq 0$. We have
+  \[
+   0
+   = F\left(e^{(n)}_1, \ldots, e^{(n)}_n\right)
+   = e^{(n)}_n \hat{F}\left(e^{(n)}_1, \ldots, e^{(n)}_n\right).
+  \]
+  Because $k[X_1, \ldots, X_n]$ is an integral domain and $e^{(n)}_n \neq 0$ it follows that
+  \[
+   \hat{F}\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) = 0.
+  \]
+  Because $\hat{F} \neq 0$ and $\deg \hat{F} < \deg F$ this contradicts the assumption that $F$ is of lowest possible degree.
+\end{proof}
+
+
+\begin{rem}
+ The Fundamental Theorem is even true for $k = \Z$.
+\end{rem}
+
+
+
+
 
 
 
