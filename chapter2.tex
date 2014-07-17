@@ -623,6 +623,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
  \end{align*}
 \end{rem}
 
+
 \begin{expl}
  In $k[X_1, X_2, X_3]$ we have the symmetric polynomials
  \begin{align*}
@@ -647,6 +648,22 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
  \]
  We also set $e_0^{(n)} := 1$ and $e_r^{(n)} = 0$ for $r > n$.
 \end{expl}
+
+
+\begin{lem}
+ For all $n \in \N$ we have
+ \[
+  \prod_{i=1}^n (t-X_i) = \sum_{r=0}^n (-1)^r e_r^{(n)} t^{n-r} \in k[X_1, \ldots, X_n][t].
+ \]
+\end{lem}
+\begin{proof}
+ For $n = 0$ the statement is clear (notice that $e_0^{(n)} = 1$). For $n \geq 1$ the coefficient of the left-hand side of $t^{n-r}$ is $1 = e^{(n)}_0$ for $r = 0$ and
+ \[
+  \sum_{1 \leq i_1 < \ldots < i_r \leq n} (-X_{i_1}) \cdots (-X_{i_r}) = (-1)^r e^{(n)}_r.
+ \]
+ for $0 < r \leq n$.
+\end{proof}
+
 
 
 
