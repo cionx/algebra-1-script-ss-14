@@ -158,8 +158,14 @@ is an isomorphism of $k$-algebras.
 \begin{rem}
  If $A$ is a $k$-Algebra with $1$, then $A$ is a graded $k$-Algebra if and only if $A$ is a graded ring such that $k1 \subseteq A_0$.
 \end{rem}
-\begin{proof} %TODO:  Add proof.
- ($\Rightarrow$) [The proof given in the lecture has a flaw, so I will add a working proof at some point.]
+\begin{proof}
+ ($\Rightarrow$) Because $A$ is a graded $k$-Algebra there exists a decomposition $A = \bigoplus_{d \in \Z} A_d$ into vector subspaces such that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$. It is clear that this is also a decomposition into $\Z$-modules.
+ 
+ We first notice that $1 \in A_0$: Because $1 \in A = \bigoplus_{d \in \Z} A_d$ there exist unique $e_i \in A_i$ with $1 = \sum_{i \in \Z} e_i$ with $e_i = 0$ for all but finitely many $i$. For every $j \in \Z$ and $a \in A_j$ we have
+ \[
+  a = a \cdot 1 = a \cdot \sum_{i \in \Z} e_i = \sum_{i \in \Z} \underbrace{a e_i}_{\in A_{i+j}}.
+ \]
+ Because the sum $A = \bigoplus_{d \in \Z} A_d$ is direct we find that $a = a e_0$. Because $A = \bigoplus_{d \in \Z} A_d}$ we find that $a e_0 = a$ for all $a \in A$. This shows that $1 = e_0$ and therefore $1 \in A_0$. Because $A_0$ is a vector subspace it follows that $\lambda 1 \in A_0$ for all $\lambda \in k$.
  
  ($\Leftarrow$) Suppose $A = \bigoplus_{d \in \Z} A_d$ such that $A_d$ is a $\Z$-module for all $d \in \Z$ and $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$. We only need to check that $A_d$ is closed under scalar multiplication. This holds because
  \[
@@ -546,7 +552,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   \[
    \begin{cases}
     U_1 \cong U_2 & \text{if } n = 2, \kchar k = 2,\\
-    U_1 \ncong U_2 & \text{if } n > 2 \text{ or } \kchar k \neq 2.
+    U_1 \ncong U_2 & \text{otherwise}.
    \end{cases}
   \]
   \item
@@ -641,31 +647,6 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
  \]
  We also set $e_0^{(n)} := 1$ and $e_r^{(n)} = 0$ for $r > n$.
 \end{expl}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
