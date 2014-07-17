@@ -525,6 +525,125 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 \end{expl}
 
 
+\begin{defi}
+ Let $k$ be a group and $W$ any $k$-vector space. Then $g.w = w$ for all $g \in G, w \in W$ defines a representation $W$ of $G$. This is called the trivial representation. For each fixed dimension there is (up to isomorphism) one trivial representation. Therefore we usually say \emph{the} trivial representation of $G$ (of dimension $\dim W$).
+\end{defi}
+
+
+\begin{lem}
+ Let $\{e_1, \ldots, e_n\}$ denote the standard basis von $k^n$. $G = S_n$ acts linearly on $k^n$ as in the previous example.
+ \begin{enumerate}[a)]
+  \item
+  The vector subspaces
+  \begin{gather*}
+   U_1 := \vspan\left( \sum_{i=1}^n e_i\right)
+  \shortintertext{and}
+   U_2 := \left\{ (\lambda_1, \ldots, \lambda_n) \in k^n \,\middle|\, \sum_{i=1}^n \lambda_i = 0 \right\}
+  \end{gather*}
+  are subrepresentations.
+  \item
+  $U_1$ is the trivial $1$-dimensional subrepresentation and
+  \[
+   \begin{cases}
+    U_1 \cong U_2 & \text{if } n = 2, \kchar k = 2,\\
+    U_1 \ncong U_2 & \text{if } n > 2 \text{ or } \kchar k \neq 2.
+   \end{cases}
+  \]
+  \item
+  In the second case $V$ is completely irreducible, in the first case it isn't.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}
+  \item
+  It is clear that $U_1$ and $U_2$ are vector subspaces. Since
+  \[
+   g.\left(\sum_{i=1}^n e_i\right)
+   = \sum_{i=1}^n e_{g(i)}
+   = \sum_{i=1}^n e_i
+   \tag{$\ast$}
+  \]
+  we have $g.u \in U_1$ for all $g \in G, u \in U_1$, thus $U_1$ is a subrepresentation. Since
+  \[
+   g.(\lambda_1, \ldots, \lambda_n) = \left( \lambda_{g^{-1}(1)}, \ldots, \lambda_{g^{-1}(n)} \right)
+  \]
+  we have $g.u \in U_2$ for all $g \in G, u \in U_2$, thus $U_2$ is a subrepresentation.
+  \item
+  We have that $g.u = u$ for all $u \in U$ by ($\ast$).  If $n > 2$ then
+  \[
+   \dim U_1 = 1 \neq \dim U_2
+  \]
+  and thus $U_1 \ncong U_2$.
+  
+  If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$. So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.  If $\kchar k = 2$ then $U_1 = U_2$ and in particular $U_1 \cong U_2$. 
+  \item
+  This part of the proof still needs to be typed. \qedhere
+  %TODO: Beweis vervollständigen.
+ \end{enumerate}
+\end{proof}
+
+
+\begin{rem}
+ In the case of $n = 2$ the representation $U_2$ is called the sign representation.
+ %TODO: Sign-Darstellung besser erklären.
+\end{rem}
+
+
+\begin{defi}
+ Let $k$ be a field. $G := S_n$ acts linearly on $k[X_1, \ldots, X_n]$ by extending
+ \[
+  g.X^{\alpha_1} \cdots X_n^{\alpha_n} = X_{g(1)}^{\alpha_1} \cdots X_{g(n)}^{\alpha_n} \text{ for all } g \in G
+ \]
+ linearly. A polynomial $f \in k[X_1, \ldots, X_n]^{S_n}$ is called a symmetric polynomial (in $n$ variables).
+\end{defi}
+
+
+\begin{rem}
+ For $k$ infinite and $V = k^n$ we have an isomorphism of representations
+ \[
+  \Phi : k[X_1, \ldots, X_n] \to \mc{P}(V), X_i \mapsto \varphi_i,
+ \]
+ where $G$ acts on $\mc{P}(V)$ via
+ \[
+  (g.f)(v) = f\left( g^{-1}.v \right) \text{ for all } g \in G, f \in \mc{P}(V), v \in V.
+ \]
+ We know that $\Phi$ is an isomorphism of $k$-vector spaces. It is $G$-equivariant, since for all $g \in G, p = X_1^{\alpha_1} \cdots X_n^{\alpha_n} \in k[X_1, \ldots, X_n], (\lambda_1, \ldots, \lambda_n) \in k^n = V$
+ \begin{align*}
+  \Phi(g.p)(v)
+  &= \Phi\left( X_{g(1)}^{\alpha_1} \cdots X_{g(n)}^{\alpha_n} \right)(v)
+  = \lambda_{g(1)}^{\alpha_1} \cdots \lambda_{g(n)}^{\alpha_n} \\
+  &= \Phi(p)\left( g^{-1}.(\lambda_1, \ldots, \lambda_n) \right)
+  = (g.\Phi(p))(\lambda_1, \ldots, \lambda_n).
+ \end{align*}
+\end{rem}
+
+\begin{expl}
+ In $k[X_1, X_2, X_3]$ we have the symmetric polynomials
+ \begin{align*}
+  p_2 &:= X_1^2 + X_2^2 + X_3^2, \\
+  h_2 &:= X_1^2 + X_1 X_2 + X_1 X_3 + X_2^2 + X_2 X_3 + X_3^2, \\
+  e_2 &:= X_1 X_2 + X_1 X_3 + X_2 X_3 \text{ and} \\
+  m_{(4,4,2)} &:= X_1^4 X_2^2 X_3^2 + X_1^2 X_2^4 X_3^2 + X_1^2 X_2^2 X_3^4.
+ \end{align*}
+ More generally in $k[X_1, \ldots, X_n]$ we have the following symmmetric polynomials:
+
+ The $r$-th power symmetric polynomial, also called the $r$-th power sum,
+ \[
+  p_r := p_r^{(n)} = X_1^r + \ldots + X_n^r,
+ \]
+ the $r$-th completely symmetric polynomial
+ \[
+  h_r := h_r^{(n)} = \sum_{|\alpha|=r} X_1^{\alpha_1} \cdots X_n^{\alpha_n}.
+ \]
+ and the $r$-th elementary symmetric polynomial
+ \[
+  e_r := e_r^{(n)} = \sum_{1 \leq i_1 < \ldots < i_r \leq n} X_{i_1} \cdots X_{i_r}
+ \]
+ We also set $e_0^{(n)} := 1$ and $e_r^{(n)} = 0$ for $r > n$.
+\end{expl}
+
+
+
 
 
 
