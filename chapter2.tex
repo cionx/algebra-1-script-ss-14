@@ -551,12 +551,12 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   $U_1$ is the trivial $1$-dimensional subrepresentation and
   \[
    \begin{cases}
-    U_1 \cong U_2 & \text{if } n = 2, \kchar k = 2,\\
+    U_1 = U_2 & \text{if } n = 2, \kchar k = 2,\\
     U_1 \ncong U_2 & \text{otherwise}.
    \end{cases}
   \]
   \item
-  In the second case $V$ is completely irreducible, in the first case it isn't.
+  If $n = 2$ then $V$ is completely reducible if and only if $\kchar k \neq 2$.
  \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -581,10 +581,10 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   \]
   and thus $U_1 \ncong U_2$.
   
-  If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$. So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.  If $\kchar k = 2$ then $U_1 = U_2$ and in particular $U_1 \cong U_2$. 
+  If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$. So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.  If $\kchar k = 2$ then $U_1$ and $U_2$ are both spanned by $(1,1)$ and thus $U_1 = U_2$.
   \item
-  This part of the proof still needs to be typed. \qedhere
-  %TODO: Beweis vervollständigen.
+  If $\kchar k \neq 2$ then $V$ is completely reducible by Maschke’s Theorem. If $\kchar k = 2$ then $U_1 = U_2$. This is the only one-dimensonal subrepresentation of $V$: If $U \subseteq V$ is a subrepresentation such that there exists $(\lambda, \mu) \in U$ with $\lambda \neq \mu$, then $(\mu, \lambda) \in U$ and thus $U = V$. Thus $V$ is indecomposible but reducible.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
