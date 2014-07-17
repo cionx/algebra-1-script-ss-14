@@ -665,6 +665,38 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 \end{proof}
 
 
+\begin{cor}[Newton Identity]
+ For all $n \in \N$ we have
+ \[
+  \sum_{r=0}^n (-1)^{n-r} e_{n-r}^{(n)} p_r^{(n)} = 0.
+ \]
+\end{cor}
+\begin{proof}
+ For $n = 0$ we have $p_0^{(0)} = 0$. For $n > 0$ we have
+ \[
+  \prod_{i=1}^n (t-X_i) = \sum_{r=0}^n (-1)^{n-r} e^{(n)}_{n-r} t^r
+ \]
+ and evaluating at $t = X_j$ for some fixed $1 \leq j \leq n$ gives
+ \[
+  \sum_{r=0}^n (-1)^{n-r} e^{(n)}_{n-r} X_j^r = 0.
+ \]
+ By summing over all $1 \leq j \leq n$ we get
+ \[
+  \sum_{r=0}^n (-1)^{n-r} e^{(n)}_{n-r} p^{(n)}_r = 0.
+ \]
+\end{proof}
+
+
+\begin{rem}
+ More generally
+ \[
+  (-1)^{m+1} m e^{(n)}_m = p^{(n)}_m - e^{(n)}_1 p^{(n)}_{m-1} + \ldots + (-1)^{m-1} e^{(n)}_{m-1} p^{(n)}_1
+ \]
+ for all $m \geq 0$.
+\end{rem}
+
+
+
 
 
 
