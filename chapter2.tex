@@ -697,11 +697,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 
 
 \begin{thrm}[Fundamental Theorem of symmetric functions]
- The symmetric polynomials $e^{(n)}_1, \ldots, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \ldots, X_n]^{S_n}$. Moreover they are algebraically independent. Hence
- \[
-  k[X_1, \ldots, X_n]^{S_n} \cong k\left[e^{(n)}_1, \ldots, e^{(n)}_n\right] \text{ via } X_i \mapsto e^{(n)}_i
- \]
- as $k$-algebras.
+ The symmetric polynomials $e^{(n)}_1, \ldots, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \ldots, X_n]^{S_n}$. Moreover they are algebraically independent.
 \end{thrm}
 
 
@@ -779,7 +775,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   \[
    h := \frac{f-g}{X_1 \cdots X_n} = \frac{f-g}{e^{(n)}_n}.
   \]
-  (Here we use that $k[X_1, \ldots, X_n]$ is an unique factorization domain.) We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$. By induction hypothesis (of the induction on $d$) we can write $h$ as a polynomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ and therefore also $f = h e^{(n)}_n$.
+  (Here we use that $k[X_1, \ldots, X_n]$ is an unique factorization domain.) We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$. [I have no idea why $\deg g \leq \deg f$.] By induction hypothesis (of the induction on $d$) we can write $h$ as a polynomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ and therefore also $f-g = h e^{(n)}_n$. Since $g$ is a Polynomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ so is $f$.
   % TODO: Warum ist deg(g) <= deg(f)? Wofür die Homogenität von f? %
  \end{proof}
   All that is left to show is that $e^{(n)}_1, \ldots, e^{(n)}_n$ are algebraically independent. We prove this by induction over $n$.
@@ -807,6 +803,11 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   \]
   Because $\hat{F} \neq 0$ and $\deg \hat{F} < \deg F$ this contradicts the assumption that $F$ is of lowest possible degree.
 \end{proof}
+
+
+\begin{rem}
+ The proof gives an inductive algorithm how to express a symmetric polynomial $f$ in terms of $e^{(n)}_1, \ldots, e^{(n)}_n$.
+\end{rem}
 
 
 \begin{rem}
