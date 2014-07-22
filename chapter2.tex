@@ -815,6 +815,55 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 \end{rem}
 
 
+\begin{defi}
+ $\lambda = (\lambda_1, \ldots, \lambda_s) \in \N^s$ is a partition of $|\lambda| := \sum_{i=1}^s \lambda_i$ if
+ \[
+  \lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_s \geq 0.
+ \]
+ The $\lambda_i$ are the parts of $\lambda$ and $l(\lambda) := s$ is the length of  $\lambda$.
+ 
+ An infinite partition is a sequence $\lambda_1, \lambda_2, \ldots \in \N$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \ldots, \lambda_s)$ is a partition. For a partition $(\lambda_1, \ldots, \lambda_s) \in \N^s$ the infinite partition associated to $\lambda$ is defined as
+ \[
+  \hat{\lambda} :=
+  \begin{cases}
+   \lambda_i & \text{for } 1 \leq i \leq l(\lambda) \\
+           0 & \text{otherwise}.
+  \end{cases}
+ \]
+ 
+ The transposed partition of a partition $\lambda$ is defined as
+ \[
+  \lambda'_i := |\{j \mid \lambda_j \geq i\}|.
+ \]
+\end{defi}
+
+Partitions are often displayed in terms of Young diagrams. The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
+
+
+\begin{expl}
+ $\lambda = (4,2,2)$ is a partition of $8$ and $\lambda' = (3,3,1,1)$ is the transposed partion. The Young diagram corresponding to $\lambda'$ is the `transposition' of the Young diagram corresponding to $\lambda$. (See figure \ref{fig: Young diagram example}.)
+ \begin{figure}
+  \centering
+  \yng(4,2,2)
+  \qquad
+  \yng(3,3,1,1)
+  \caption{The Young diagrams corresponding to $\lambda$ (left) and to $\lambda'$ (right).}
+  \label{fig: Young diagram example}
+ \end{figure}
+\end{expl}
+
+
+\begin{defi}
+ For $n \in \N$ we write
+ \[
+  \Par(n) := \{\text{partitions of $n$}\}
+ \]
+ and we set
+ \[
+  \Par := \bigcup_{n \in \N} \Par(n).
+ \]
+\end{defi}
+
 
 
 

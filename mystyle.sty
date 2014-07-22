@@ -5,6 +5,7 @@
 \usepackage{mathtools}
 \usepackage{stmaryrd} %für \mapsfrom
 \usepackage{extarrows} %für \xlongequal
+\usepackage[vcentermath]{youngtab} %für Young-Diagramme
 \usepackage{tikz} %für Diagrame
 \usepackage{enumerate}
 \usepackage{fancyhdr}
@@ -45,7 +46,7 @@
 % Kapitelzahl in römischen Ziffern
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thedefi}{\arabic{chapter}.\arabic{defi}}
-
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -61,6 +62,7 @@
 \newcommand{\End}{\operatorname{End}}
 \newcommand{\Mat}{\operatorname{Mat}}
 \newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Par}{\operatorname{Par}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\gr}{\operatorname{gr}}
