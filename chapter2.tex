@@ -863,6 +863,53 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
   \Par := \bigcup_{n \in \N} \Par(n).
  \]
 \end{defi}
+ 
+
+\begin{defi}
+ Let $\lambda$ and $\mu$ be partititions. We say that $\lambda \geq \mu$ if $|\lambda| = |\mu|$ and $\sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \mu_i$ for all $r$.
+\end{defi}
+
+
+\begin{expls}
+ The following is a simple example of partitions of $6$.
+ \[
+  \yng(6) > \yng(4,2) > \yng(3,3) > \yng(3,2,1) > \yng(1,1,1,1,1,1)
+ \]
+ The partitions
+ \[
+  \yng(2,2) \text{ and } \yng(1,1)
+ \]
+ are not comparable (because $4 \neq 2$ in $\N$). The partitions
+ \[
+  \yng(4,2,1,1,1) \text{ and } \yng(3,3,2,1)
+ \]
+ are also not comparable. (Because $4+2+1 = 7 < 8 = 3+3+2$ in $\N$.)
+\end{expls}
+
+
+\begin{lem}
+ $\geq$ defines a partial ordering on $\Par$.
+\end{lem}
+\begin{proof}
+ It is clear that $\geq$ is reflexive.
+ 
+ If $\lambda$ and $\mu$ are partitions with $\lambda \geq \mu$ and $\lambda \leq \mu$ then $\lambda = \mu$: Because $\lambda \geq \mu$ we have $\lambda_1 \geq \mu_1$ and because $\lambda \leq \mu$ we have $\lambda_1 \leq \mu_1$. Thus we have $\lambda_1 = \mu_1$. In the same way we find that $\lambda_1 + \lambda_2 = \mu_1 + \mu_2$, and from $\lambda_1 = \mu_1$ we get that $\lambda_2 = \mu_2$. Because $|\lambda| = |\mu|$ we find inductively that $l(\lambda) = l(\mu)$ and $\lambda_i = \mu_i$ for all $1 \leq i \leq l(\lambda)$.
+ 
+ if $\lambda, \mu$ and $\sigma$ are partitions with $\lambda \geq \mu$ and $\mu \geq \sigma$ then $\lambda \geq \sigma$: Because $\lambda \geq \mu$ we have $|\lambda| = |\mu|$ and because $\mu \geq \sigma$ we have $|\mu| = |\sigma|$. Thus we have $|\lambda| = |\sigma|$. For all $r \geq 1$ we have
+ \[
+  \sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \mu_i
+ \]
+ because $\lambda \geq \mu$ and
+ \[
+  \sum_{i=1}^r \mu_i \geq \sum_{i=1}^r \sigma_i
+ \]
+ because $\mu \geq \sigma$, and therefore
+ \[
+  \sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \sigma_i.
+ \]
+\end{proof}
+ 
+
 
 
 
