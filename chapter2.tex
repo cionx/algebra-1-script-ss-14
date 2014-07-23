@@ -844,9 +844,9 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
  $\lambda = (4,2,2)$ is a partition of $8$ and $\lambda' = (3,3,1,1)$ is the transposed partion. The Young diagram corresponding to $\lambda'$ is the `transposition' of the Young diagram corresponding to $\lambda$. (See figure \ref{fig: Young diagram example}.)
  \begin{figure}
   \centering
-  \yng(4,2,2)
+  \ydiagram{4,2,2}
   \qquad
-  \yng(3,3,1,1)
+  \ydiagram{3,3,1,1}
   \caption{The Young diagrams corresponding to $\lambda$ (left) and to $\lambda'$ (right).}
   \label{fig: Young diagram example}
  \end{figure}
@@ -873,15 +873,15 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
 \begin{expls}
  The following is a simple example of partitions of $6$.
  \[
-  \yng(6) > \yng(4,2) > \yng(3,3) > \yng(3,2,1) > \yng(1,1,1,1,1,1)
+  \ydiagram{6} > \ydiagram{4,2} > \ydiagram{3,3} > \ydiagram{3,2,1} > \ydiagram{1,1,1,1,1,1}
  \]
  The partitions
  \[
-  \yng(2,2) \quad \text{and} \quad \yng(1,1)
+  \ydiagram{2,2} \quad \text{and} \quad \ydiagram{1,1}
  \]
  are not comparable (because $4 \neq 2$ in $\N$). The partitions
  \[
-  \yng(4,2,1,1,1) \quad \text{and} \quad \yng(3,3,2,1)
+  \ydiagram{4,2,1,1,1} \quad \text{and} \quad \ydiagram{3,3,2,1}
  \]
  are also not comparable. (Because $4+2+1 = 7 < 8 = 3+3+2$ in $\N$.)
 \end{expls}
@@ -1007,15 +1007,37 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
   \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n\}
  \]
  is linear independent.
-
 \end{proof}
 
 
+\begin{defi}
+ Let $\lambda, \mu \in \Par$. We define the partition $\lambda+\mu$ of length $l(\lambda+\mu) = \max\{ l(\lambda), l(\mu) \}$ as
+ \[
+  (\lambda+\mu)_i =
+  \begin{cases}
+   \lambda_i + \mu_i & \text{if } i \leq l(\lambda),l(\mu), \\
+   \lambda_i         & \text{if } i \leq l(\lambda), i > l(\mu), \\
+   \mu_i             & \text{if } i \leq l(\mu), i > l(\lambda).
+  \end{cases}
+ \]
+ So $\lambda+\mu$ is the partition of minimal length with
+ \[
+  \hat{\lambda}_i + \hat{\mu}_i = \widehat{\lambda+\mu}_i \text{ for all } i \geq 0.
+ \]
+\end{defi}
 
 
-
-
-
+\begin{expl}
+ For $\lambda = (4,4,2,2)$ and $\mu = (3,2,1)$ we have $\lambda+\mu = (7,6,3,2)$. The addition of two partitions can also easily be visualized with Young diagrams, see figure \ref{fig: addition partition young diagrams}.
+ \begin{figure}\centering
+  \[
+   \ydiagram[*(gray)]{4,4,2,2} + \ydiagram[*(light-gray)]{3,2,1}
+   = \ydiagram[*(light-gray)] {4+3,4+2,2+1} *[*(gray)]{7,6,3,2}
+  \]
+  \caption{Addition of partitions in term of Young diagrams.}
+  \label{fig: addition partition young diagrams}
+ \end{figure}
+\end{expl}
 
 
 

@@ -5,7 +5,8 @@
 \usepackage{mathtools}
 \usepackage{stmaryrd} %für \mapsfrom
 \usepackage{extarrows} %für \xlongequal
-\usepackage[vcentermath]{youngtab} %für Young-Diagramme
+\usepackage[centertableaux,boxsize=1.2em]{ytableau}
+\usepackage{color}
 \usepackage{tikz} %für Diagrame
 \usepackage{enumerate}
 \usepackage{fancyhdr}
@@ -26,6 +27,9 @@
 \fancyhead{}
 \fancyhead[RE]{\slshape \leftmark}
 \fancyfoot[C]{\thepage}
+
+%Farben
+\definecolor{light-gray}{gray}{0.9}
 
 % die Umgebungen mit kursiver Schrift
 \newtheorem{defi}{Definition}[chapter]
