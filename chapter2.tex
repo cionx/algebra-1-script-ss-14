@@ -960,6 +960,59 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
 \end{expl}
 
 
+\begin{lem}
+ The set of monomial symmetric polynomials
+ \[
+  \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n\}
+ \]
+ forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$ (as a $k$-vector space). More precisely
+ \[
+  \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d \}
+ \]
+ forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}_d$.
+\end{lem}
+\begin{proof}
+ Is is clear that
+ \[
+  \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d \} \subseteq k[X_1, \ldots, X_n]^{S_n}_d.
+ \]
+ On the other side let $f \in k[X_1, \ldots, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
+ \[
+  f \in \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d\}.
+ \]
+ For $f = 0$ this is clear. Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \ldots, X_n]^{S_n}_d$ which consists of fewer monomials than $f$. Because $\{X^\alpha \mid \alpha \in \N^n, |\alpha|=d \}$ is a $k$-basis of $k[X_1, \ldots, X_n]_d$ we can write
+ \[
+  f = \sum_{\substack{\alpha \in \N^n \\ |\alpha|=d}} c(\alpha) X^\alpha.
+ \]
+ with unique $c(\alpha) \in k$ such that $c(\alpha) \neq 0$ for only finitely many $\alpha$. Because $f$ is symmetric we find that
+ \[
+  c(\alpha) = c(\pi.\alpha) \text{ for all } \alpha \in \N^n, \pi \in S_n
+ \]
+ (where the action of $S_n$ on $\N^n$ is defined as above). Let $X^\beta$ be a monomial of $f$. Because $f \in k[X_1, \ldots, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \ldots, X_n]_d$ and thus $c(\beta) m_\beta \in k[X_1, \ldots, X_n]^{S_n}_d$. Because $c(\beta) \neq 0$ and $c(\beta) = c(\pi.\beta)$ for every $\pi \in S_n$ we find that $f-c(\beta)m_\beta$ consists of fewer monomials than $f$. Because $f-c(\beta)m_\beta \in k[X_1, \ldots, X_n]^{S_n}_d$ we find by induction hypothesis that
+ \[
+  f - c(\beta)m_\beta \in \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d\}.
+ \]
+ The statement for $f$ follows directly.
+ 
+ To show that
+ \[
+  \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n\}
+ \]
+ is linear independent we notice that for $\lambda, \mu \in \Par$ with $\lambda \neq \mu$ the polynomials $m_\lambda$ and $m_\mu$ have no monomials in common. Because
+ \[
+  \{X^\alpha \mid \alpha \in \N^n\}
+ \]
+ is linear independent it then follows that
+ \[
+  \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n\}
+ \]
+ is linear independent.
+
+\end{proof}
+
+
+
+
 
 
 
