@@ -646,7 +646,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
  \[
   e_r := e_r^{(n)} = \sum_{1 \leq i_1 < \ldots < i_r \leq n} X_{i_1} \cdots X_{i_r}
  \]
- We also set $e_0^{(n)} := 1$ and $e_r^{(n)} = 0$ for $r > n$.
+ We also set $e_0^{(n)} := 1$ and $e_r^{(n)} = 0$ for $r > n$. (We will generalize $m_\lambda$ later on.)
 \end{expl}
 
 
@@ -877,11 +877,11 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
  \]
  The partitions
  \[
-  \yng(2,2) \text{ and } \yng(1,1)
+  \yng(2,2) \quad \text{and} \quad \yng(1,1)
  \]
  are not comparable (because $4 \neq 2$ in $\N$). The partitions
  \[
-  \yng(4,2,1,1,1) \text{ and } \yng(3,3,2,1)
+  \yng(4,2,1,1,1) \quad \text{and} \quad \yng(3,3,2,1)
  \]
  are also not comparable. (Because $4+2+1 = 7 < 8 = 3+3+2$ in $\N$.)
 \end{expls}
@@ -908,7 +908,65 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
   \sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \sigma_i.
  \]
 \end{proof}
- 
+
+
+\begin{defi}
+ Let $\lambda = (\lambda_1, \ldots, \lambda_r)$ be a partition. We define the elementary symmetric polynomial
+ \[
+  e^{(n)}_\lambda := e^{(n)}_{\lambda_1} \cdots e^{(n)}_{\lambda_r},
+ \]
+ the complete symmetric polynomial
+ \[
+  h^{(n)}_\lambda := h^{(n)}_{\lambda_1} \cdots h^{(n)}_{\lambda_r},
+ \]
+ the power symmetric polynomial
+ \[
+  p^{(n)}_\lambda := p^{(n)}_{\lambda_1} \cdots p^{(n)}_{\lambda_r}
+ \]
+ and the monomial symmetric polynomials
+ \[
+  m_\lambda := X_1^{\lambda_1} \cdots X_r^{\lambda_r} + \text{ all distinct permutations of this monomial}.
+ \]
+\end{defi}
+
+
+One can also define $m_\lambda$ in a formal way: Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \cdots X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials. To formalize this we let $S_r$ act on $\N^r$ by permuting the entries, i.e.
+\[
+ \pi.(a_1, \ldots, a_r) = \left( a_{\pi^{-1}(1)}, \ldots, a_{\pi^{-1}(r)} \right)
+\]
+for all $\pi \in S_r$ and $(a_1, \ldots, a_r) \in \N^r$. The set of all distinct permutations of $\lambda$ is precisely the orbit of $\lambda$ under this action. As we know from basic group theory we have an isomorphism of $G$-sets
+\[
+ S_r / U \to S_r \lambda, [\pi] \mapsto \pi.\lambda
+\]
+where $U$ is the stabilizer group of $\lambda$ and $S_r \lambda$ is the orbit of $\lambda$. (Note that $U$ is not necessarily a normal subgroup in $S_r$ and $S_r/U$ is only the set of left cosets.) Thus we can write
+\[
+ m_\lambda
+ = \sum_{[\pi] \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \cdots X_r^{\lambda_{\pi^{-1}(r)}}
+ = \sum_{[\pi] \in S_r/U} X_{\pi(1)}^{\lambda_1} \cdots X_{\pi(r)}^{\lambda_r}.
+\]
+Also notice that
+\[
+ U \cong S_{\nu_0} \times \cdots \times S_{\nu_m}
+\]
+where
+\[
+ \nu_n := \left|\left\{ 1 \leq i \leq r \mid \lambda_i = n \right\}\right|
+\]
+and $m := \max_{i=1,\ldots,r} \lambda_i$.
+
+
+\begin{expl}[]
+ [Here should be a part about Schur polynomials. However, some of the statements are unclear or wrong.] 
+\end{expl}
+
+
+
+
+
+
+
+
+
 
 
 
