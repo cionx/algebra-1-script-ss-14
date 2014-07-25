@@ -1,3 +1,4 @@
+*.kilepr
 *.aux
 *.log
 *.tex.backup
