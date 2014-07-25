@@ -1051,6 +1051,105 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
  Exercise sheet.
 \end{proof}
 
+[The following proposition is slightly altered from the one given in the lecture and is, in a certain way, stronger. This allows us to given a shorter and easier proof than the one given in the lecture.]
+\begin{prop}
+ The set
+ \[
+  B := \left\{ e^{(n)}_\lambda \,\middle|\, \lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0 \right\}
+ \]
+ forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$ and the $e^{(n)}_\lambda$ are pairwise different. More precisely
+ \[
+  B_d := \left\{ e^{(n)}_\lambda \,\middle|\, \lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0, |\lambda| = d \right\}
+ \]
+ forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}_d$ for all $d \geq 0$.
+\end{prop}
+\begin{proof}[Proof]
+ We already know that the $e^{(n)}_1, \ldots, e^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and that they are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e. the polynomials
+ \[
+  \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \text{ for } \alpha \in \N^n,
+ \]
+ form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. Let $M$ denote the set of these monomials. We claim that $B = M$.
+
+ To show this let
+ \[
+  f : \N^n \to M,
+  \alpha \mapsto \left( e^{(n)}_1 \right)^{\alpha_1} \cdots \left( e^{(n)}_n \right)^{\alpha_n}.
+ \]
+ We know that $f$ is injective because the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ are linearly independent and thus in particular pairwise different, and $f$ is also clearly surjective. So $f$ is a bijection. Further let
+ \[
+  P := \{\lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0\}
+ \]
+ and
+ \[
+  g : P \to B, \lambda \mapsto e^{(n)}_\lambda.
+ \]
+ It is clear that $g$ is surjective by definition of $B$. To show that $M$ and $B$ are the same basis we construct a bijection $\varphi : \N^n \to P$ such that $f = g \varphi$. We then have
+ \[
+  M = \im f = \im (g \varphi) = \im g = B
+ \]
+ and the $e^{(n)}_\lambda$ for $\lambda \in P$ are pairwise different since $g = f \varphi^{-1}$ is a bijection. (As $M$ and $B$ are the same basis of $k[X_1, \ldots, X_n]$ one can think of $\N^n$ and $P$ as parametrizations of this basis and $\varphi$ as a `translation' between this two parametrizations. See figure \ref{fig:  gleiche Basis}.)
+ 
+ \begin{figure}\centering
+  \begin{tikzpicture}[auto, node distance = 6em]
+   \node (M) {$M$};
+   \node (N^n) [above left of = M] {$\N^n$};
+   \node (P) [above right of = M] {$P$};
+   \draw[->] (N^n) to node {$\varphi$} (P);
+   \draw[->] (N^n) to node[swap] {$f$} (M);
+   \draw[->] (P) to node {$g$} (M);
+  \end{tikzpicture}
+  \caption{The translation between $\N^n$ and $P$.}
+  \label{fig: gleiche Basis}
+ \end{figure}
+ 
+ We definie $\varphi$ as
+ \[
+  \varphi : \N^n \to P, (\alpha_1, \ldots, \alpha_n) \mapsto (\underbrace{n, \ldots, n}_{\alpha_n}, \underbrace{n-1, \ldots, n-1}_{\alpha_{n-1}}, \ldots, \underbrace{1, \ldots, 1}_{\alpha_1}),
+ \]
+ and also define
+ \[
+  \psi : P \to \N^n, \lambda \mapsto (\nu_1(\lambda), \ldots, \nu_n(\lambda))
+ \]
+ where
+ \[
+  \nu_j(\lambda) := |\{1 \leq i \leq l(\lambda) \mid \lambda_i = j\}.
+ \]
+ It is clear that $\psi \varphi = \id_{\N^n}$. To see that $\varphi \psi = \id_P$ we notice that for $\lambda \in P$ we have
+ \[
+  n \geq \lambda_1 \geq \lambda_i \geq \lambda_{l(\lambda)} > 0
+ \]
+ for all $1 \leq i \leq l(\lambda)$, Therefore $\lambda$ is of the form
+ \[
+  \lambda = (\underbrace{n, \ldots, n}_{\nu_n(\lambda)}, \underbrace{n-1, \ldots, n-1}_{\nu_{n-1}(\lambda)}, \ldots, \underbrace{1, \ldots, 1}_{\nu_1(\lambda)}).
+ \]
+ 
+ That $f = g \varphi$ is clear, because for all $\alpha \in \N^n$
+ \begin{align*}
+  g \varphi(\alpha)
+  &= g(\underbrace{n, \ldots, n}_{\alpha_n}, \underbrace{n-1, \ldots, n-1}_{\alpha_{n-1}}, \ldots, \underbrace{1, \ldots, 1}_{\alpha_1}) \\
+  &= \underbrace{e^{(n)}_n \cdots e^{(n)}_n}_{\alpha_n} \cdot \underbrace{e^{(n)}_{n-1} \cdots e^{(n)}_{n-1}}_{\alpha_{n-1}} \cdots \underbrace{e^{(n)}_1 \cdots e^{(n)}_1}_{\alpha_1} \\
+  &= \left( e^{(n)}_1 \right)^{\alpha_1} \cdots \left( e^{(n)}_n \right)^{\alpha_n} \\
+  &= f(\alpha).
+ \end{align*}
+ 
+ All that’s left to show is that $B_d$ is a basis of $k[X_1, \ldots, X_n]^{S_n}_d$. This follows directly because
+ \[
+  k[X_1, \ldots, X_n]^{S_n} = \bigoplus_{d \geq 0} k[X_1, \ldots, X_n]^{S_n}_d
+ \]
+ and $B_d = B \cap k[X_1, \ldots, X_n]^{S_n}_d$ for all $d \geq 0$ where $B = \bigdotcup_{d \geq 0} B_d$ is a basis of $k[X_1, \ldots, X_n]^{S_n}_d$.
+\end{proof}
+
+
+\begin{rem}
+ In the proposition given in the lecure $B$ is defined without the restraint that $\lambda_{l(\lambda)} \neq 0$. This has the uncomfortable side effect that different partitions describe the same polynomial. If $(\lambda_1, \ldots, \lambda_s)$ is a partition with $\lambda_1 \leq n$ and $\lambda_s \neq 0$ then we have
+ $e^{(n)}_\lambda = e^{(n)}_{\lambda_m}$ for all $m \geq 0$ for
+ \[
+  \lambda_m := (\lambda_1, \ldots, \lambda_s, \underbrace{0, \ldots, 0}_{m}).
+ \]
+\end{rem}
+
+
+
 
 
 
