@@ -741,7 +741,64 @@ in $k[t]$. We will formalize this observation in the following lemma.
 \end{proof}
 
 
+Using this Lemma we can now easily prove the Fundamental Theorem. We will give two possible proofs. The first one is shorter and more intuitive while the second one was given in the lecture.
+
+
 \begin{proof}[Proof of the Fundamental Theorem]
+To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \ldots, X_n]$: We first order the monomials by their power of $X_1$ from lowest to highest. The monomials with the same power of $X_1$ are then ordered in the same way by their power of $X_2$, then those with the same power of $X_2$ by their power of $X_3$, and so on. In a more formal way: For monomials $X^\alpha = X_1^{\alpha_1} \cdots X_n^{\alpha_n}$ and $X^\beta = X_1^{\beta_1} \cdots X_n^{\beta_n}$ we have $X^\alpha > X^\beta$ if and only if there exists $1 \leq i \leq n$ such that $\alpha_1 = \beta_1, \alpha_2 = \beta_2, \ldots, \alpha_{i-1} = \beta_{i-1}$ and $\alpha_i > \beta_i$. This gives us a total order on the monomials in $k[X_1, \ldots, X_n]$.
+ 
+ For a polynomial $p \in k[X_1, \ldots X_n]$ with $p \neq 0$ we define $\init p$ to be the highest monomial occuring in $p$, including its coefficient. One can easily check the following properties:
+ \begin{enumerate}
+  \item
+   If $p$ is symmetrical and $\init p = c X_1^{\alpha_1} \cdots X_n^{\alpha_n}$ we have $\alpha_1 \geq \alpha_2 \geq \ldots \geq \alpha_n$.
+  \item
+   For $q \in k[X_1, \ldots, X_n], q \neq 0$ we have $\init (p \cdot q) = \init p \cdot \init q$.
+  \item
+   $\init e^{(n)}_k = X_1 \cdots X_k$ for all $1 \leq k \leq n$.
+ \end{enumerate}
+ We are now well-equipped to prove the Theorem. 
+ 
+ We first show that $e^{(n)}_1, \ldots, e^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra. For this let $f \in k[X_1, \ldots, X_n]^{S_n}$ with $f \neq 0$. By the previous Lemma we may assume that $f$ is homogeneous of degree $d \geq 0$. For
+ \[
+  \init f = c X_1^{\alpha_1} \cdots X_n^{\alpha_n}
+ \]
+ we define
+ \[
+  p = c \left(e^{(n)}_1\right)^{\alpha_1 - \alpha_2} \cdots \left(e^{(n)}_{n-1}\right)^{\alpha_{n-1} - \alpha_n} \left(e^{(n)}_n\right)^{\alpha_n}.
+ \]
+ From the properties listed above it directly follows that that $p$ is well defined with $\init p = \init f$. Because $e^{(n)}_k$ is homogenous of degree $k$ it follows that $p$ is homogeneous of degree
+ \begin{align*}
+   &\,(\alpha_1-\alpha_2) + 2(\alpha_2-\alpha_3) + \ldots + (n-1)(\alpha_{n-1}-\alpha_n)+n\alpha_n \\
+  =&\, \alpha_1 + \ldots + \alpha_n
+  = d.
+ \end{align*}
+ (Because $f$ is homogenous we have $d = \deg f = \deg \init f = \alpha_1 + \ldots + \alpha_n$.) Combining these observations we find that $f-p$ is a homogeneous symmetric polynomial of degree $d$ with either $f-p = 0$ or at least $\init (f-p) < \init f$. Because there are only finitely many monomials of degree $d$ repeating this procedure must lead us to the zero polynomial in finitely many steps.
+ 
+ To show that $e^{(n)}_1, \ldots, e^{(n)}_n$ are algebraically independent we need to show that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e.
+ \[
+  \left(e^{(n)}\right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \ldots, \alpha_n)
+ \]
+ are linearly independent. For this we notice that for $(\alpha_1, \ldots, \alpha_n) \neq (\beta_1, \ldots, \beta_n)$ we have
+ \begin{align*}
+      &\, \init \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \\
+     =&\, X_1^{\alpha_1 + \ldots + \alpha_n} X_2^{\alpha_1 + \ldots + \alpha_{n-1}} \cdots X_n^{\alpha_n} \\
+  \neq&\, X_1^{\beta_1 + \ldots + \beta_n} X_2^{\beta_1 + \ldots + \beta_{n-1}} \cdots X_n^{\beta_n} \\
+     =&\, \init \left(e^{(n)}_1\right)^{\beta_1} \cdots \left(e^{(n)}_n\right)^{\beta_n}.
+ \end{align*}
+ Now suppose that
+ \[
+  0 = \lambda_1 \left(e^{(n)}\right)^{\alpha_1} + \ldots + \lambda_s \left(e^{(n)}\right)^{\alpha_s}
+ \]
+ with $s \geq 1$, $\alpha_i \neq \alpha_j$ for $i \neq j$ and $\lambda_i \neq 0$ for all $1 \leq i \leq s$. We can assume w.l.o.g. that 
+ \[
+  \init \left(e^{(n)}\right)^{\alpha_1} > \init \left(e^{(n)}\right)^{\alpha_2} > \ldots > \init \left(e^{(n)}\right)^{\alpha_s}.
+ \]
+ With this we directly find that the $\init \left(e^{(n)}\right)^{\alpha_1}$ only occures in $\left(e^{(n)}\right)^{\alpha_1}$ and thus $\lambda_1 = 0$, in contradiction to $\lambda_1 \neq 0$.
+\end{proof}
+
+
+
+\begin{proof}[Proof of the Fundamental Theorem (lecture)]
  Note that
  \begin{align*}
   e^{(n)}_1 &= X_1 + \ldots + X_n = e_1^{(n-1)} + X_n, \\
