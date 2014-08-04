@@ -19,7 +19,7 @@
   \pagenumbering{arabic}}
 \makeatother
 
-% das Ausshen der Seitenheader und Seitenzahlanzeige
+% das Aussehen der Seitenheader und Seitenzahlanzeige
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{%
  \markboth{\Roman{chapter}. \MakeUppercase{#1}}{}%
@@ -62,28 +62,27 @@
 
 \newcommand{\mc}{\mathcal}
 
-\newcommand{\Maps}{\operatorname{Maps}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\End}{\operatorname{End}}
-\newcommand{\Mat}{\operatorname{Mat}}
-\newcommand{\GL}{\operatorname{GL}}
-\newcommand{\Par}{\operatorname{Par}}
-\newcommand{\supp}{\operatorname{supp}}
-\newcommand{\im}{\operatorname{im}}
-\newcommand{\gr}{\operatorname{gr}}
+\DeclareMathOperator{\Maps}{Maps}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Par}{Par}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\gr}{gr}
 
-\newcommand{\id}{\operatorname{id}}
-\newcommand{\can}{\operatorname{can}}
-\newcommand{\init}{\operatorname{init}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\can}{can}
+\DeclareMathOperator{\init}{init}
 
 \newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
-\newcommand{\vspan}{\operatorname{span}}
-\newcommand{\kchar}{\operatorname{char}}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\kchar}{char}
 
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
-
 
 % technischer Kram für \bigdotcup
 \makeatletter
