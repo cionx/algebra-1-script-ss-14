@@ -897,6 +897,67 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
 \end{rem}
 
 
+To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \ldots, X_n]\dblbrack{t}$, i.e.
+\begin{align*}
+ E(t) &:= \sum_{k \geq 0} e^{(n)}_k t^k, \\
+ H(t) &:= \sum_{k \geq 0} h^{(n)}_k t^k \text{ and} \\
+ P(t) &:= \sum_{k \geq 0} p^{(n)}_k t^k.
+\end{align*}
+
+
+\begin{prop}
+ We have the following equalities of power series:
+ \begin{enumerate}[1)]
+  \item
+   $E(t) = \prod_{i=1}^n (1 + X_i t)$.
+  \item
+   $H(t) = \prod_{i=1}^n \frac{1}{1 - X_i t}$.
+  \item
+   $P(t) = \sum_{i=1}^n \frac{1}{1 - X_i t}$. More generally
+   \[
+    \sum_{k \geq 0} p^{(n)}_{k+l} t^k = \sum_{i=1}^n \frac{X_i^l}{1 - X_i t}.
+   \]
+   for all $l \geq 0$.
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ \begin{enumerate}[1)]
+  \item
+   The coefficient of $t^r$ on the right hand side of the equation is
+   \[
+    \sum_{\substack{I \subseteq \{1, \ldots, n\} \\ |I| = r}} \prod_{i \in I} X_i,
+   \]
+   which is precisely $e^{(n)}_r$.
+  \item
+   It is clear that $1-X_i t$ is invertible in $k[X_1, \ldots, X_n]\dblbrack{t}$. (For a commutative ring $R$ a power series $\sum_{i \in \N} a_i t^i \in R\dblbrack{t}$ is invertible if and only if $a_0 \in R^\times$.) For $1 \leq i \leq n$ let
+   \[
+    Q_i := \frac{1}{1-X_i t} \in k[X_1, \ldots, X_n] \dblbrack{t}.
+   \]
+   We then have
+   \[
+    \prod_{i=1}^n \frac{1}{1-X_i t} = Q_1 \cdots Q_n.
+   \]
+   By using the geometric series it is now easy to see that
+   \[
+    Q_i = 1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \ldots.
+   \]
+   With this we find that the coefficient of $t^r$ in $Q_1 \cdots Q_n$ is
+   \[
+    \sum_{|\alpha| = r} X_1^{\alpha_1} \cdots X_n^{\alpha_n},
+   \]
+   which is precisely $h^{(n)}_r$.
+  \item
+   We have
+   \begin{align*}
+     &\, \sum_{i=1}^n \frac{X_i^l}{1-X_i t}
+    =    \sum_{i=1}^n X_i^l Q_i \\
+    =&\, \sum_{i=1}^n (X_i^l + X_i^{l+1} t + X_i^{l+2} t^2 + X_i^{l+3} t^3 + \ldots) \\
+    =&\, p^{(n)}_l + p^{(n)}_{l+1} t + p^{(n)}_{l+2} t^2 + p^{(n)}_{l+3} t^3 + \ldots
+   \end{align*}\qedhere
+ \end{enumerate}
+\end{proof}
+
+
 \begin{defi}
  $\lambda = (\lambda_1, \ldots, \lambda_s) \in \N^s$ is a partition of $|\lambda| := \sum_{i=1}^s \lambda_i$ if
  \[
