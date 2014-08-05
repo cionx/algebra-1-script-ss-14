@@ -900,13 +900,9 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
 \begin{align*}
  E(t) &:= \sum_{k \geq 0} e^{(n)}_k t^k, \\
  H(t) &:= \sum_{k \geq 0} h^{(n)}_k t^k \text{ and} \\
- P(t) &:= \sum_{k \geq 0} p^{(n)}_k t^k.
+ P(t) &:= \sum_{k \geq 0} p^{(n)}_{k+1} t^k.
 \end{align*}
-We also set
-\[
- P_l(t) := \sum_{k \geq 0} p^{(n)}_{k+l} t^k
-\]
-for all $l \geq 0$. (Notice that $P = P_0$.)
+(Notice that for $P(t)$ we shift the index by $1$.)
 
 
 \begin{prop}
@@ -917,7 +913,7 @@ for all $l \geq 0$. (Notice that $P = P_0$.)
   \item
    $H(t) = \prod_{i=1}^n \frac{1}{1 - X_i t}$.
   \item
-   $P(t) = \sum_{i=1}^n \frac{1}{1 - X_i t}$. More generally $P_l(t) = \sum_{i=1}^n \frac{X_i^l}{1 - X_i t}$ for all $l \geq 0$.
+   $P(t) = \sum_{i=1}^n \frac{X_i}{1 - X_i t}$. More generally $\sum_{k \geq 0} p_{k+l} t^k = \sum_{i=1}^n \frac{X_i^l}{1 - X_i t}$ for all $l \geq 0$.
  \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -995,7 +991,7 @@ From this equalities we can now easily derive more equalities.
  \[
   H'(t) = \sum_{i=1}^n \frac{X_i}{(1-X_i t)^2} \prod_{j \neq i} \frac{1}{1 - X_j t}
   = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \prod_{j=1}^n \frac{1}{1 - X_j t}
-  = P_1(t) H(t).
+  = P(t) H(t).
  \]
  By comparing the $(r-1)$-th coefficient on both expressions we find that
  \[
@@ -1018,7 +1014,7 @@ In the same way we can derive Newton’s identities as another corollary.
   E'(t)
   = \sum_{i=1}^n X_i \prod_{j \neq i} (1 + X_j t)
   = \sum_{i=1}^n \frac{X_i}{1 + X_i t} \prod_{j=1}^n (1 + X_j t)
-  = P_1(-t)E(t).
+  = P(-t)E(t).
  \]
  Comparing the $(r-1)$-th coefficient of both expressions gives us
  \[
