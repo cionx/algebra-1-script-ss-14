@@ -903,6 +903,12 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
  H(t) &:= \sum_{k \geq 0} h^{(n)}_k t^k \text{ and} \\
  P(t) &:= \sum_{k \geq 0} p^{(n)}_k t^k.
 \end{align*}
+We also set
+\[
+ P_l(t) := \sum_{k \geq 0} p^{(n)}_{k+l} t^k
+\]
+for all $l \geq 0$. (Notice that $P = P_0$.)
+
 
 
 \begin{prop}
@@ -913,11 +919,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
   \item
    $H(t) = \prod_{i=1}^n \frac{1}{1 - X_i t}$.
   \item
-   $P(t) = \sum_{i=1}^n \frac{1}{1 - X_i t}$. More generally
-   \[
-    \sum_{k \geq 0} p^{(n)}_{k+l} t^k = \sum_{i=1}^n \frac{X_i^l}{1 - X_i t}.
-   \]
-   for all $l \geq 0$.
+   $P(t) = \sum_{i=1}^n \frac{1}{1 - X_i t}$. More generally $P_l(t) = \sum_{i=1}^n \frac{X_i^l}{1 - X_i t}$ for all $l \geq 0$.
  \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -955,6 +957,53 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
     =&\, p^{(n)}_l + p^{(n)}_{l+1} t + p^{(n)}_{l+2} t^2 + p^{(n)}_{l+3} t^3 + \ldots
    \end{align*}\qedhere
  \end{enumerate}
+\end{proof}
+
+
+From this equalities we can now easily derive more equalities.
+
+
+\begin{cor}
+ For all $s \geq 1$ we have
+ \[
+  h_s - e_1 h_{s-1} + e_2 h_{s-2} + \ldots + (-1)^{s-1} e^{s-1} h_1 + (-1)^s e_s = 0
+ \]
+ as well as
+ \[
+  e_s - h_1 e_{s-1} + h_2 e_{s-2} + \ldots + (-1)^{s-1} h^{s-1} e_1 + (-1)^s h_s = 0.
+ \]
+\end{cor}
+\begin{proof}
+ From the previous proposition it follows that
+ \[
+  E(-t)H(t) = H(-t)E(t) = 1.
+ \]
+ The first sum is the $s$-th coefficient of $E(-t)H(t)$ and the second sum is the $s$-th coefficient of $H(-t)E(t)$. One equation can also be obtained from the other by multiplying with $(-1)^s$.
+\end{proof}
+
+
+\begin{cor}
+ For all $r \geq 1$ we have
+ \[
+  r h^{(n)}_r = p^{(n)}_1 h^{(n)}_{r-1} + p^{(n)}_2 h^{(n)}_{r-2} + \ldots + p^{(n)}_{n-1} h^{(n)}_1 + p^{(n)}_n.
+ \]
+\end{cor}
+\begin{proof}
+ By $H'(t)$ we denote the formal derivative of $H$ with respect to $t$. On the one hand we have
+ \[
+  H'(t) = \sum_{k \geq 1} k h^{(n)}_k t^{k-1}.
+ \]
+ On the other hand we have
+ \[
+  H'(t) = \sum_{i=1}^n \frac{X_i}{(1-X_i t)^2} \prod_{j \neq i} \frac{1}{1 - X_j t}
+  = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \prod_{j=1}^n \frac{1}{1 - X_j t}
+  = P_1(t) H(t).
+ \]
+ By comparing the $(r-1)$-th coefficient on both expressions we find that
+ \[
+  r h^{(n)}_r = \sum_{i=0}^{r-1} p^{(n)}_{1+i} h_{r-1-i} = \sum_{i=1}^r p^{(n)}_i h^{(n)}_{r-i}
+ \]
+ for all $r \geq 1$.
 \end{proof}
 
 
