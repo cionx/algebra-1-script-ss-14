@@ -6,3 +6,5 @@
 *.dvi
 *.toc
 *.directory
+*.auxlock
+*.synctex.gz
