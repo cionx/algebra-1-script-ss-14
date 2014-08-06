@@ -1131,6 +1131,33 @@ Using the same argumentation we find that for a symmetric polynomial $f \in \Q[X
 both $F$ and $G$ must have integer coefficients.
 
 
+\begin{expl}
+ Another example of formal power series are Hilbert series. Given a graded $k$-algebra $A = \bigoplus_{d \geq 0} A_d$ ($A_d = 0$ for $d < 0$) with $\dim_k A_d < \infty$ for all $d$ the corresponding Hilbert series is defined as
+ \[
+  P_A(t) := \sum_{d \geq 0} \left( \dim_k A_d \right) t^d \in k\dblbrack{t}.
+ \]
+ If $\dim_k A < \infty$ we have $P_A(t) \in k[t] \subseteq k\dblbrack{t}$.
+ 
+ If $A = \bigoplus_{d \geq 0} A_d$ and $B = \bigoplus_{d \geq 0} B_d$ are graded $k$-algebras then $A \otimes_k B$ is a $k$-algebra via
+ \[
+  (a_1 \otimes b_1) (a_2 \otimes b_2) = (a_1 a_2) \otimes (b_1 b_2)
+ \]
+ and a graded $k$-algebra $A \otimes B = \bigoplus_{d \geq 0} (A \otimes B)_d$ by setting
+ \[
+  (A \otimes B)_d = \bigoplus_{i=0}^d (A_i \otimes B_{d-i}).
+ \]
+ We than have
+ \[
+  \dim_k (A \otimes B)_d = \sum_{i=0}^d \dim_k (A_i \otimes B_{d-i}) = \sum_{i=0}^d (\dim_k A_i) (\dim_k B_{d-i})
+ \]
+ for all $d \geq 0$ and thus
+ \[
+  P_{A \otimes B}(t) = P_A(t) P_B(t).
+ \]
+\end{expl}
+
+
+
 \begin{defi}
  $\lambda = (\lambda_1, \ldots, \lambda_s) \in \N^s$ is a partition of $|\lambda| := \sum_{i=1}^s \lambda_i$ if
  \[
@@ -1416,9 +1443,6 @@ form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these poly
 
 
 % TODO: Basis aus Schurpolynomen hinzufügen.
-
-
-
 
 
 
