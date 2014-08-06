@@ -8,6 +8,12 @@
 \usepackage[centertableaux,boxsize=1.2em]{ytableau}
 \usepackage{color}
 \usepackage{tikz} %für Diagrame
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/]
+\tikzset{external/system call={%
+  xelatex \tikzexternalcheckshellescape
+  -halt-on-error -interaction=batchmode
+  -jobname "\image" "\texsource"}}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
 

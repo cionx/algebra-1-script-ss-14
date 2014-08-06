@@ -1,0 +1,1 @@
+\begingroup \toks 0={macro:->[auto, node distance = 6em] \node (M) {$M$}; \node (N^n) [above left of = M] {$\N ^n$}; \node (P) [above right of = M] {$P$}; \draw [->] (N^n) to node {$\varphi $} (P); \draw [->] (N^n) to node[swap] {$f$} (M); \draw [->] (P) to node {$g$} (M); }\xdef \tikzexternallastkey {\the \toks 0 }\endgroup %

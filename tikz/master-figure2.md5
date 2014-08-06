@@ -1,0 +1,1 @@
+\begingroup \toks 0={macro:->[node distance = 6em, auto] \node (U) {$U$}; \node (V) [right of = U] {$V$}; \draw [->] (U.20) to node {$\iota $}(V.160); \draw [->] (V.200) to node {$\hat {p}$} (U.340); }\xdef \tikzexternallastkey {\the \toks 0 }\endgroup %
