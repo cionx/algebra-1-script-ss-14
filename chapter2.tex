@@ -1131,7 +1131,6 @@ Using the same argumentation we find that for a symmetric polynomial $f \in \Q[X
 both $F$ and $G$ must have integer coefficients.
 
 
-
 \begin{defi}
  $\lambda = (\lambda_1, \ldots, \lambda_s) \in \N^s$ is a partition of $|\lambda| := \sum_{i=1}^s \lambda_i$ if
  \[
@@ -1141,7 +1140,7 @@ both $F$ and $G$ must have integer coefficients.
  
  An infinite partition is a sequence $\lambda_1, \lambda_2, \ldots \in \N$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \ldots, \lambda_s)$ is a partition. For a partition $(\lambda_1, \ldots, \lambda_s) \in \N^s$ the infinite partition associated to $\lambda$ is defined as
  \[
-  \hat{\lambda} :=
+  \hat{\lambda}_i :=
   \begin{cases}
    \lambda_i & \text{for } 1 \leq i \leq l(\lambda) \\
            0 & \text{otherwise}.
@@ -1183,7 +1182,7 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
  
 
 \begin{defi}
- Let $\lambda$ and $\mu$ be partititions. We say that $\lambda \geq \mu$ if $|\lambda| = |\mu|$ and $\sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \mu_i$ for all $r$.
+ Let $\lambda$ and $\mu$ be partitions. We say that $\lambda \geq \mu$ if $|\lambda| = |\mu|$ and $\sum_{i=1}^r \hat{\lambda}_i \geq \sum_{i=1}^r \hat{\mu}_i$ for all $r$.
 \end{defi}
 
 
@@ -1212,15 +1211,13 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
  
  If $\lambda$ and $\mu$ are partitions with $\lambda \geq \mu$ and $\lambda \leq \mu$ then $\lambda = \mu$: Because $\lambda \geq \mu$ we have $\lambda_1 \geq \mu_1$ and because $\lambda \leq \mu$ we have $\lambda_1 \leq \mu_1$. Thus we have $\lambda_1 = \mu_1$. In the same way we find that $\lambda_1 + \lambda_2 = \mu_1 + \mu_2$, and from $\lambda_1 = \mu_1$ we get that $\lambda_2 = \mu_2$. Because $|\lambda| = |\mu|$ we find inductively that $l(\lambda) = l(\mu)$ and $\lambda_i = \mu_i$ for all $1 \leq i \leq l(\lambda)$.
  
- if $\lambda, \mu$ and $\sigma$ are partitions with $\lambda \geq \mu$ and $\mu \geq \sigma$ then $\lambda \geq \sigma$: Because $\lambda \geq \mu$ we have $|\lambda| = |\mu|$ and because $\mu \geq \sigma$ we have $|\mu| = |\sigma|$. Thus we have $|\lambda| = |\sigma|$. For all $r \geq 1$ we have
+ If $\lambda, \mu$ and $\sigma$ are partitions with $\lambda \geq \mu$ and $\mu \geq \sigma$ then $\lambda \geq \sigma$: Because $\lambda \geq \mu$ we have $|\lambda| = |\mu|$ and because $\mu \geq \sigma$ we have $|\mu| = |\sigma|$. Thus we have $|\lambda| = |\sigma|$. For all $r \geq 1$ we have
  \[
   \sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \mu_i
- \]
- because $\lambda \geq \mu$ and
- \[
+  \text{ and }
   \sum_{i=1}^r \mu_i \geq \sum_{i=1}^r \sigma_i
  \]
- because $\mu \geq \sigma$, and therefore
+ because $\lambda \geq \mu$ and $\mu \geq \sigma$, and therefore
  \[
   \sum_{i=1}^r \lambda_i \geq \sum_{i=1}^r \sigma_i.
  \]
@@ -1300,15 +1297,15 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
  \]
  For $f = 0$ this is clear. Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \ldots, X_n]^{S_n}_d$ which consists of fewer monomials than $f$. Because $\{X^\alpha \mid \alpha \in \N^n, |\alpha|=d \}$ is a $k$-basis of $k[X_1, \ldots, X_n]_d$ we can write
  \[
-  f = \sum_{\substack{\alpha \in \N^n \\ |\alpha|=d}} c(\alpha) X^\alpha.
+  f = \sum_{\substack{\alpha \in \N^n \\ |\alpha|=d}} c_\alpha X^\alpha.
  \]
- with unique $c(\alpha) \in k$ such that $c(\alpha) \neq 0$ for only finitely many $\alpha$. Because $f$ is symmetric we find that
+ with unique $c_\alpha \in k$ such that $c_\alpha \neq 0$ for only finitely many $\alpha$. Because $f$ is symmetric we find that
  \[
-  c(\alpha) = c(\pi.\alpha) \text{ for all } \alpha \in \N^n, \pi \in S_n
+  c_\alpha = c_{\pi.\alpha} \text{ for all } \alpha \in \N^n, \pi \in S_n
  \]
- (where the action of $S_n$ on $\N^n$ is defined as above). Let $X^\beta$ be a monomial of $f$. Because $f \in k[X_1, \ldots, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \ldots, X_n]_d$ and thus $c(\beta) m_\beta \in k[X_1, \ldots, X_n]^{S_n}_d$. Because $c(\beta) \neq 0$ and $c(\beta) = c(\pi.\beta)$ for every $\pi \in S_n$ we find that $f-c(\beta)m_\beta$ consists of fewer monomials than $f$. Because $f-c(\beta)m_\beta \in k[X_1, \ldots, X_n]^{S_n}_d$ we find by induction hypothesis that
+ (where the action of $S_n$ on $\N^n$ is defined as above). Let $X^\beta$ be a monomial of $f$. Because $f \in k[X_1, \ldots, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \ldots, X_n]_d$ and thus $c_\beta m_\beta \in k[X_1, \ldots, X_n]^{S_n}_d$. Because $c_\beta \neq 0$ and $c_\beta = c_{\pi.\beta}$ for every $\pi \in S_n$ we find that $f-c_{\beta}m_\beta$ consists of fewer monomials than $f$. Because $f-c_{\beta}m_\beta$ is symmetric we find by induction hypothesis that
  \[
-  f - c(\beta)m_\beta \in \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d\}.
+  f - c_{\beta}m_\beta \in \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d\}.
  \]
  The statement for $f$ follows directly.
  
@@ -1366,11 +1363,39 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
  for suitable $a^\nu_{\lambda,\mu} \in k$. (This also holds for $k = \Z$.)
 \end{lem}
 \begin{proof}
- Exercise sheet.
+ This is an exercise on the 4th exercise sheet.
 \end{proof}
 
-[The following proposition is slightly altered from the one given in the lecture and is, in a certain way, stronger. This allows us to given a shorter and easier proof than the one given in the lecture.]
+
+We know from the Fundamental Theorem that $e^{(n)}_1, \ldots, e^{(n)}_n$ generate the $k$-algebra of symmetric polynomials $k[X_1, \ldots, X_n]^{S_n}$ and are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e.
+\[
+ \left( e^{(n)} \right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \ldots, \alpha_n)
+\]
+form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these polynomials in term of partitions.
+
+
 \begin{prop}
+ The monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ are precisely the polynomials $e^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
+\end{prop}
+\begin{proof}
+ On the one side the monomial $e_1^{\alpha_1} \cdots e_n^{\alpha_n}$ is the same as $e_\lambda$ for the partition
+ \[
+  \lambda = (\underbrace{n, \ldots, n}_{\alpha_n}, \underbrace{n-1, \ldots, n-1}_{\alpha_{n-1}}, \ldots, \underbrace{1, \ldots, 1}_{\alpha_1}).
+ \]
+ On the other side the polynomial $e_\lambda$ equals the monomial $e_1^{\nu_1(\lambda)} \cdots e_n^{\nu_n(\lambda)}$ for the exponents
+ \[
+  \nu_j(\lambda) = |\{1 \leq i \leq l(\lambda) \mid \lambda_i = j\}|.
+ \]
+ 
+ Notice that for $\lambda \neq \mu$ there exists some $1 \leq j \leq n$ with $\nu_j(\lambda) \neq \nu_j(\mu)$ (here we use that $1 \leq \lambda_i \leq n$ for all $1 \leq i \leq l(\lambda)$ and the same for $\mu$) and therefore
+ \[
+  e_1^{\nu_1(\lambda)} \cdots e_n^{\nu_n(\lambda)} \neq e_1^{\nu_1(\mu)} \cdots e_n^{\nu_n(\mu)}
+ \]
+ because the monomials in $e_1, \ldots, e_n$ are linearly independent.
+\end{proof}
+
+
+\begin{cor}
  The set
  \[
   B := \left\{ e^{(n)}_\lambda \,\middle|\, \lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0 \right\}
@@ -1380,105 +1405,17 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
   B_d := \left\{ e^{(n)}_\lambda \,\middle|\, \lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0, |\lambda| = d \right\}
  \]
  forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}_d$ for all $d \geq 0$.
-\end{prop}
-\begin{proof}[Proof]
- We already know that the $e^{(n)}_1, \ldots, e^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and that they are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e. the polynomials
- \[
-  \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \text{ for } \alpha \in \N^n,
- \]
- form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. Let $M$ denote the set of these monomials. We claim that $B = M$.
-
- To show this let
- \[
-  f : \N^n \to M,
-  \alpha \mapsto \left( e^{(n)}_1 \right)^{\alpha_1} \cdots \left( e^{(n)}_n \right)^{\alpha_n}.
- \]
- We know that $f$ is injective because the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ are linearly independent and thus in particular pairwise different, and $f$ is also clearly surjective. So $f$ is a bijection. Further let
- \[
-  P := \{\lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0\}
- \]
- and
- \[
-  g : P \to B, \lambda \mapsto e^{(n)}_\lambda.
- \]
- It is clear that $g$ is surjective by definition of $B$. To show that $M$ and $B$ are the same basis we construct a bijection $\varphi : \N^n \to P$ such that $f = g \varphi$. We then have
- \[
-  M = \im f = \im (g \varphi) = \im g = B
- \]
- and the $e^{(n)}_\lambda$ for $\lambda \in P$ are pairwise different since $g = f \varphi^{-1}$ is a bijection. (As $M$ and $B$ are the same basis of $k[X_1, \ldots, X_n]$ one can think of $\N^n$ and $P$ as parametrizations of this basis and $\varphi$ as a `translation' between this two parametrizations. See figure \ref{fig:  gleiche Basis}.)
- 
- \begin{figure}\centering
-  \begin{tikzpicture}[auto, node distance = 6em]
-   \node (M) {$M$};
-   \node (N^n) [above left of = M] {$\N^n$};
-   \node (P) [above right of = M] {$P$};
-   \draw[->] (N^n) to node {$\varphi$} (P);
-   \draw[->] (N^n) to node[swap] {$f$} (M);
-   \draw[->] (P) to node {$g$} (M);
-  \end{tikzpicture}
-  \caption{The translation between $\N^n$ and $P$.}
-  \label{fig: gleiche Basis}
- \end{figure}
- 
- We definie $\varphi$ as
- \[
-  \varphi : \N^n \to P, (\alpha_1, \ldots, \alpha_n) \mapsto (\underbrace{n, \ldots, n}_{\alpha_n}, \underbrace{n-1, \ldots, n-1}_{\alpha_{n-1}}, \ldots, \underbrace{1, \ldots, 1}_{\alpha_1}),
- \]
- and also define
- \[
-  \psi : P \to \N^n, \lambda \mapsto (\nu_1(\lambda), \ldots, \nu_n(\lambda))
- \]
- where
- \[
-  \nu_j(\lambda) := |\{1 \leq i \leq l(\lambda) \mid \lambda_i = j\}.
- \]
- It is clear that $\psi \varphi = \id_{\N^n}$. To see that $\varphi \psi = \id_P$ we notice that for $\lambda \in P$ we have
- \[
-  n \geq \lambda_1 \geq \lambda_i \geq \lambda_{l(\lambda)} > 0
- \]
- for all $1 \leq i \leq l(\lambda)$, Therefore $\lambda$ is of the form
- \[
-  \lambda = (\underbrace{n, \ldots, n}_{\nu_n(\lambda)}, \underbrace{n-1, \ldots, n-1}_{\nu_{n-1}(\lambda)}, \ldots, \underbrace{1, \ldots, 1}_{\nu_1(\lambda)}).
- \]
- 
- That $f = g \varphi$ is clear, because for all $\alpha \in \N^n$
- \begin{align*}
-  g \varphi(\alpha)
-  &= g(\underbrace{n, \ldots, n}_{\alpha_n}, \underbrace{n-1, \ldots, n-1}_{\alpha_{n-1}}, \ldots, \underbrace{1, \ldots, 1}_{\alpha_1}) \\
-  &= \underbrace{e^{(n)}_n \cdots e^{(n)}_n}_{\alpha_n} \cdot \underbrace{e^{(n)}_{n-1} \cdots e^{(n)}_{n-1}}_{\alpha_{n-1}} \cdots \underbrace{e^{(n)}_1 \cdots e^{(n)}_1}_{\alpha_1} \\
-  &= \left( e^{(n)}_1 \right)^{\alpha_1} \cdots \left( e^{(n)}_n \right)^{\alpha_n} \\
-  &= f(\alpha).
- \end{align*}
- 
- All that’s left to show is that $B_d$ is a basis of $k[X_1, \ldots, X_n]^{S_n}_d$. This follows directly because
- \[
-  k[X_1, \ldots, X_n]^{S_n} = \bigoplus_{d \geq 0} k[X_1, \ldots, X_n]^{S_n}_d
- \]
- and $B_d = B \cap k[X_1, \ldots, X_n]^{S_n}_d$ for all $d \geq 0$ where $B = \bigdotcup_{d \geq 0} B_d$ is a basis of $k[X_1, \ldots, X_n]^{S_n}_d$.
-\end{proof}
+\end{cor}
 
 
 \begin{rem}
- In the proposition given in the lecure $B$ is defined without the restraint that $\lambda_{l(\lambda)} \neq 0$. This has the uncomfortable side effect that different partitions describe the same polynomial. If $(\lambda_1, \ldots, \lambda_s)$ is a partition with $\lambda_1 \leq n$ and $\lambda_s \neq 0$ then we have
- $e^{(n)}_\lambda = e^{(n)}_{\lambda_m}$ for all $m \geq 0$ for
- \[
-  \lambda_m := (\lambda_1, \ldots, \lambda_s, \underbrace{0, \ldots, 0}_{m}).
- \]
-\end{rem}   
-
-
-\begin{rem}
- One can also show that
- \[
-  \left\{ h^{(n)}_\lambda \mid \lambda \in \Par, \lambda_1 \leq n, |\lambda| = d \right\}
- \]
- and
- \[
-  \left\{ p^{(n)}_\lambda \mid \lambda \in \Par, \lambda_1 \leq n, |\lambda| = d \right\}
- \]
- each forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}_d$.
- % TODO: Basis aus Schurpolynomen hinzufügen.
+ Since $h^{(n)}_1, \ldots, h^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we can show the same statements for the polynomials $h^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
+ 
+ In the case that $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we can show the same for the polynomials $p^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
 \end{rem}
+
+
+% TODO: Basis aus Schurpolynomen hinzufügen.
 
 
 
