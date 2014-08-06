@@ -5,3 +5,4 @@
 *.sty.backup
 *.dvi
 *.toc
+*.directory
