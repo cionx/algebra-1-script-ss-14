@@ -1514,6 +1514,36 @@ From here on let $k$ be an infinite field.
 \end{expl}
 
 
+It is easy to see that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category. We will denote this category by $\cpol_k$  Also notice that every linear map between finite-dimensional $k$-vector spaces is a polynomial map. Therefore $\cvect_k$ is a subcategory of $\cpol_k$.
+
+
+\begin{lem}
+ For a finite-dimensional $k$-vector space $V$ the map $\id_V : V \to V$ is a polynomial map. If $U$ and $W$ are finite-dimensonial vector spaces and $f : W \to V$ and $g : V \to U$ are polynomial maps then $gf : W \to U$ is also a polynomial map.
+\end{lem}
+\begin{proof}
+ The first statement is clear. To show the second let $v_1, \ldots, v_r$ be a basis of $V$, $w_1, \ldots, w_s$ be a basis of $W$ and $u_1, \ldots, u_t$ be a basis of $U$. Because $f$ is a polynomial map we can find polynomials $P_1, \ldots, P_s \in k[X_1, \ldots, X_r]$ such that
+ \[
+  f\left(\sum_{i=1}^r \lambda_i v_i\right) = \sum_{j=1}^s F_j(\lambda_1, \ldots, \lambda_r) w_j
+ \]
+ and because $g$ is a polynomial map we can find polynomials $Q_1, \ldots, Q_t \in k[X_1, \ldots, X_s]$ such that
+ \[
+  g\left(\sum_{j=1}^s \mu_j w_j\right) = \sum_{k=1}^t G_k(\mu_1, \ldots, \mu_s) u_k.
+ \]
+ Combining this we find that
+ \begin{align*}
+  gf\left(\sum_{i=1}^r \lambda_i v_i\right)
+  &= g\left(\sum_{j=1}^s F_j(\lambda_1, \ldots, \lambda_r) w_j\right) \\
+  &= \sum_{k=1}^t Q_k(F_1(\lambda_1, \ldots, \lambda_r), \ldots, F_s(\lambda_1, \ldots, \lambda_r)) w_k \\
+  &= \sum_{k=1}^t R_k(\lambda_1, \ldots, \lambda_r) w_k
+ \end{align*}
+ for the polynomials
+ \[
+  R_k := Q_k(F_1(X_1, \ldots, X_r), \ldots, F_s(X_1, \ldots, X_r)) \in k[X_1, \ldots X_r].
+ \]
+\end{proof}
+
+
+
 
 
 
