@@ -1543,6 +1543,159 @@ It is easy to see that the class of finite-dimensional $k$-vector spaces togethe
 \end{proof}
 
 
+\begin{lem}
+ Let $W$ and $V$ be finite-dimensional $k$-vector spaces and $f : W \to V$ be a polynomial map. Then
+ \[
+  f^* : \mc{P}(V) \to \mc{P}(W), h \mapsto h \circ f
+ \]
+ is an algebra homomorphism.
+\end{lem}
+\begin{proof}
+ We already know that $f^*$ is well defined, i.e. that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1, \ldots, v_n$ of $V$.
+ 
+ Let $h_1, h_2\in \mc{P}(V)$, i.e. we have polynomials $p_1, p_2\in k[X_1, \ldots, X_n]$ with
+ \[
+  h_j\left(\sum_{i=1}^n \lambda_i v_i\right) = p_j(\lambda_1, \ldots, \lambda_n) \text{ for } j=1,2.
+ \]
+ For all $w \in W$ we have
+ \begin{align*}
+  f^*(h_1+h_2)(w)
+  &= ((h_1 + h_2) \circ f)(w)
+  = (h_1 + h_2)(f(w)) \\
+  &= h_1(f(w)) + h_2(f(w))
+  = (h_1 \circ f)(w) + (h_2 \circ f)(w) \\
+  &= f^*(h_1)(w) + f^*(h_2)(w)
+  = (f^*(h_1)+f^*(h_2))(w)
+ \end{align*}
+ and therefore
+ \[
+  f^*(h_1+h_2) = f^*(h_1) + f^*(h_2).
+ \]
+ For all $\lambda \in k$ and $w \in W$ we have
+ \begin{align*}
+  f^*(\lambda h_1)(w)
+  &= ((\lambda h_1) \circ f)(w)
+  = (\lambda h_1)(f(w)) \\
+  &= \lambda h_1(f(w))
+  = \lambda (h_1 \circ f)(w) \\
+  &= \lambda f^*(h_1)(w)
+  = (\lambda f^*(h_1))(w)
+ \end{align*}
+ and therefore
+ \[
+  f^*(\lambda h_1) = \lambda f^*(h_1).
+ \]
+ This shows that $f^*$ is $k$-linear. That it is also a ring homomorphism follows from the fact that for all $w \in W$
+ \begin{align*}
+  f^*(h_1 h_2)(w)
+  &= ((h_1 h_2) \circ f)(w)
+  = (h_1 h_2)(f(w)) \\
+  &= h_1(f(w)) h_2(f(w))
+  = (h_1 \circ f)(w) (h_2 \circ f)(w) \\
+  &= f^*(h_1)(w) f^*(h_2)(w)
+  = (f^*(h_1) f^*(h_2))(w)
+ \end{align*}
+ and therefore
+ \[
+  f^*(h_1 h_2) = f^*(h_1) f^*(h_2).
+ \]
+\end{proof}
+
+
+\begin{defi}
+ Given finite-dimensional $k$-vector spaces $W$ and $V$ and a polynomial map $f : W \to V$ the algebra homomorphism $f^* : \mc{P}(V) \to \mc{P}(W)$ is the comorphism associated with $f$.
+\end{defi}
+
+
+We have now associated finite-dimensional $k$-vector spaces with $k$-algebras and the polynomial maps between these vector spaces with algebra homomorphisms between the corresponding algebras. This gives rise to a contravariant functor from $\cpol_k$ to $\cAlg_k$, as the next lemma shows.
+
+
+\begin{prop}
+ Let $U$, $V$ and $W$ be finite-dimensional $k$-vector spaces. We have $\id_V^* = \id_{\mc{P}(V)}$ and for polynomial maps $f : W \to V$ and $g : V \to U$ we have
+ \[
+  (g \circ f)^* = f^* \circ g^*.
+ \]
+\end{prop}
+\begin{proof}
+ The first statement is clear. The second holds because for all $h \in \mc{P}(U)$
+ \begin{align*}
+  (g \circ f)^*(h)
+  &= h \circ (g \circ f) = (h \circ g) \circ f \\
+  &= f^* (h \circ g) = f^*(g^*(h)) = (f^* \circ g^*)(h).
+ \end{align*}
+\end{proof}
+
+
+It is interesting to notice that this functor is fully faithful.
+
+
+\begin{prop}
+ Let $W$ and $V$ be finite-dimensional $k$-vector spaces. Then the map
+ \[
+  \Omega : \Hom_{\cpol_k}(W,V) \to \Hom_{\cAlg_k}(\mc{P}(V), \mc{P}(W)), f \mapsto f^*.
+ \]
+ is a bijection.
+\end{prop}
+\begin{proof}
+ Fix a basis $v_1, \ldots, v_n$ of $V$. Remember that $\mc{P}(V) = k[\varphi_1, \ldots, \varphi_n]$ where $\varphi_j \in \mc{P}(V)$ is the $j$-th coordinate function, which is defined as
+ \[
+  \varphi_j\left(\sum_{i=1}^n \lambda_i v_i\right) = \lambda_j,
+\]
+ and $\varphi_1, \ldots, \varphi_n$ are algebraically independent. In particular the map
+ \[
+  \Psi : \mc{P}(W)^n \to \Hom_{\cAlg_k}(\mc{P}(V),\mc{P}(W)), (f_1, \ldots, f_n) \mapsto (\varphi_j \mapsto f_j)
+ \]
+ is bijective (this is basically the universal property of the polynomial ring).
+ 
+ Because $v_1, \ldots, v_n$ is a basis of $V$ we also find that the map
+ \[
+  \Phi : \mc{P}(W)^n \to \Hom_{\cpol_k}(W,V), (f_1, \ldots, f_n) \mapsto \left(w \mapsto \sum_{i=1}^n f_i(w)v_i\right)
+ \]
+ is bijective.
+ 
+ We notice that for a polynomial map $f : W \to V$ and $f_1, \ldots, f_n \in \mc{P}(W)$ with
+ \[
+  f(w) = \sum_{i=1}^n f_i(w) v_i \text{ for all } w \in W
+ \]
+ we have for all $1 \leq j \leq n, w \in W$
+ \[
+  f^*(\varphi_j)(w)
+  = (\varphi_j \circ f)(w)
+  = \varphi_j\left(\sum_{i=1}^n f_i(w) v_i\right)
+  = f_j(w)
+ \]
+ and therefore for all $1 \leq j \leq n$
+ \[
+  f^*(\varphi_j) = f_j.
+ \]
+ Therefore we have
+ \[
+  \Omega(\Phi(f_1, \ldots, f_n)) = \Omega(f) = f^* = \Psi(f_1, \ldots, f_n).
+ \]
+ 
+ We have shown that $\Omega \Phi = \Psi$ (see figure \ref{fig: bijections}). Because $\Phi$ and $\Psi$ are bijections it follows that $\Omega = \Psi \Phi^{-1}$ is a bijection.
+ 
+ \begin{figure}\centering
+  \begin{tikzpicture}[node distance = 6em, auto]
+   \node (PWn) {$\mc{P}(W)^n$};
+   \node (pol) [below left= 2em and 2em of PWn] {$\Hom_{\cpol_k}(W,V)$};
+   \node (alg) [below right= 2em and 2em of PWn] {$\Hom_{\cAlg_k}(\mc{P}(V),\mc{P}(W))$};
+   \draw[->] (PWn) to node[swap] {$\Phi$} (pol);
+   \draw[->] (PWn) to node {$\Psi$} (alg);
+   \draw[->] (pol) to node {$\Omega$} (alg);
+  \end{tikzpicture}
+  \caption{Bijections.}
+  \label{fig: bijections}
+ \end{figure}
+\end{proof}
+
+
+
+
+
+
+
+
 
 
 
