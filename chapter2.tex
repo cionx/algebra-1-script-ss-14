@@ -1458,6 +1458,62 @@ form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these poly
 % TODO: Basis aus Schurpolynomen hinzufügen.
 
 
+\section{Polynomial maps.}
+
+
+From here on let $k$ be an infinite field.
+
+
+\begin{defi}
+ Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map $f : W \to V$ is called a polynomial map if, given a basis $(v_1, \ldots, v_n)$ of $V$, the coordinate functions of $f$ are polynomial, i.e. there exist $f_1, \ldots, f_n \in \mc{P}(W)$ with
+ \[
+  f(w) = \sum_{i=1}^n f_i(w) v_i
+ \]
+ for all $w \in W$.
+\end{defi}
+
+
+\begin{rem}
+ One can show (as for $\mc{P}(W)$) that the definition doesn’t depend on the chosen basis of $V$.
+\end{rem}
+
+
+\begin{rem}
+ If $V = k$ then $f : W \to k$ is a polynomial map if and only if $f \in \mc{P}(W)$.
+\end{rem}
+
+
+\begin{expl}
+ Let $W$ be a finite dimensional $k$-vector space. Then
+ \[
+  f : W \to W^{\otimes r}, w \mapsto w \otimes \ldots \otimes w.
+ \]
+ is a polynomial map. To see this choose a basis $w_1, \ldots, w_n$ of $W$. Then the elements
+ \[
+  w_{\underline{i}} = w_{i_1} \otimes \ldots \otimes w_{i_r} \text{ with } \underline{i} = (i_1, \ldots, i_r) \in \{1, \ldots, n\}^r
+ \]
+ form a basis of $W^{\otimes r}$. For $w \in W$ with $w = \sum_{i=1}^r \lambda_i w_i$ we have
+ \[
+  f(w)
+  = w \otimes \ldots \otimes w
+  = \left( \sum_{i=1}^r \lambda_i w_i \right) \otimes \ldots \otimes \left( \sum_{i=1}^r \lambda_i w_i \right)
+  = \sum_{\underline{i}} \lambda_{i_1} \cdots \lambda_{i_r} w_{\underline{i}}.
+ \]
+ For the polynomials
+ \[
+  p_{\underline{i}} = X_{i_1} \cdots X_{i_r}
+ \]
+ and polynomial maps $f_{\underline{i}} : W \to k$ with
+ \[
+  f_{\underline{i}}\left(\sum_{i=1}^r \lambda_i w_i\right) = p_{\underline{i}}(\lambda_1, \ldots, \lambda_r)
+ \]
+ we thus have
+ \[
+  f(w) = \sum_{\underline{i}} f_{\underline{i}}(w) w_{\underline{i}}.
+ \]
+\end{expl}
+
+
 
 
 
