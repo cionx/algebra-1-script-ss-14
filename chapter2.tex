@@ -1690,6 +1690,23 @@ It is interesting to notice that this functor is fully faithful.
 \end{proof}
 
 
+\section{Covariants}
+
+
+\begin{defi}
+ Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$. A map $f : W \to V$ is called covariant if $f$ is a polyonmial map and $G$-equivariant. We denote the space of covariant functions from $W$ to $V$ by
+ \[
+  \Cov(W,V) :=  \Hom_{\cpol_k}(W,V)^G.
+ \]
+\end{defi}
+
+Notice that since we have $\Hom_{\cvect_k}(W,V) \subseteq \Hom_{\cpol_k}(W,V)$ we also have
+\[
+ \Hom(W,V) = \Hom_{\cvect_k}(W,V)^G \subseteq \Hom_{\cpol_k}(W,V)^G = \Cov(W,V).
+\]
+Therefore every morphism of representations is covariant.
+
+
 
 
 
