@@ -1514,7 +1514,7 @@ From here on let $k$ be an infinite field.
 \end{expl}
 
 
-It is easy to see that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category. We will denote this category by $\cpol_k$  Also notice that every linear map between finite-dimensional $k$-vector spaces is a polynomial map. Therefore $\cvect_k$ is a subcategory of $\cpol_k$.
+It is easy to see that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category. We will denote this category by $\cpol{k}$  Also notice that every linear map between finite-dimensional $k$-vector spaces is a polynomial map. Therefore $\cvect{k}$ is a subcategory of $\cpol{k}$.
 
 
 \begin{lem}
@@ -1607,7 +1607,7 @@ It is easy to see that the class of finite-dimensional $k$-vector spaces togethe
 \end{defi}
 
 
-We have now associated finite-dimensional $k$-vector spaces with $k$-algebras and the polynomial maps between these vector spaces with algebra homomorphisms between the corresponding algebras. This gives rise to a contravariant functor from $\cpol_k$ to $\cAlg_k$, as the next lemma shows.
+We have now associated finite-dimensional $k$-vector spaces with $k$-algebras and the polynomial maps between these vector spaces with algebra homomorphisms between the corresponding algebras. This gives rise to a contravariant functor from $\cpol{k}$ to $\cAlg{k}$, as the next lemma shows.
 
 
 \begin{prop}
@@ -1632,7 +1632,7 @@ It is interesting to notice that this functor is fully faithful.
 \begin{prop}
  Let $W$ and $V$ be finite-dimensional $k$-vector spaces. Then the map
  \[
-  \Omega : \Hom_{\cpol_k}(W,V) \to \Hom_{\cAlg_k}(\mc{P}(V), \mc{P}(W)), f \mapsto f^*.
+  \Omega : \Hom_{\cpol{k}}(W,V) \to \Hom_{\cAlg{k}}(\mc{P}(V), \mc{P}(W)), f \mapsto f^*.
  \]
  is a bijection.
 \end{prop}
@@ -1643,13 +1643,13 @@ It is interesting to notice that this functor is fully faithful.
 \]
  and $\varphi_1, \ldots, \varphi_n$ are algebraically independent. In particular the map
  \[
-  \Psi : \mc{P}(W)^n \to \Hom_{\cAlg_k}(\mc{P}(V),\mc{P}(W)), (f_1, \ldots, f_n) \mapsto (\varphi_j \mapsto f_j)
+  \Psi : \mc{P}(W)^n \to \Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W)), (f_1, \ldots, f_n) \mapsto (\varphi_j \mapsto f_j)
  \]
  is bijective (this is basically the universal property of the polynomial ring).
  
  Because $v_1, \ldots, v_n$ is a basis of $V$ we also find that the map
  \[
-  \Phi : \mc{P}(W)^n \to \Hom_{\cpol_k}(W,V), (f_1, \ldots, f_n) \mapsto \left(w \mapsto \sum_{i=1}^n f_i(w)v_i\right)
+  \Phi : \mc{P}(W)^n \to \Hom_{\cpol{k}}(W,V), (f_1, \ldots, f_n) \mapsto \left(w \mapsto \sum_{i=1}^n f_i(w)v_i\right)
  \]
  is bijective.
  
@@ -1678,8 +1678,8 @@ It is interesting to notice that this functor is fully faithful.
  \begin{figure}\centering
   \begin{tikzpicture}[node distance = 6em, auto]
    \node (PWn) {$\mc{P}(W)^n$};
-   \node (pol) [below left= 2em and 2em of PWn] {$\Hom_{\cpol_k}(W,V)$};
-   \node (alg) [below right= 2em and 2em of PWn] {$\Hom_{\cAlg_k}(\mc{P}(V),\mc{P}(W))$};
+   \node (pol) [below left= 2em and 2em of PWn] {$\Hom_{\cpol{k}}(W,V)$};
+   \node (alg) [below right= 2em and 2em of PWn] {$\Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W))$};
    \draw[->] (PWn) to node[swap] {$\Phi$} (pol);
    \draw[->] (PWn) to node {$\Psi$} (alg);
    \draw[->] (pol) to node {$\Omega$} (alg);
@@ -1696,13 +1696,13 @@ It is interesting to notice that this functor is fully faithful.
 \begin{defi}
  Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$. A map $f : W \to V$ is called covariant if $f$ is a polyonmial map and $G$-equivariant. We denote the space of covariant functions from $W$ to $V$ by
  \[
-  \Cov(W,V) :=  \Hom_{\cpol_k}(W,V)^G.
+  \Cov(W,V) :=  \Hom_{\cpol{k}}(W,V)^G.
  \]
 \end{defi}
 
-Notice that since we have $\Hom_{\cvect_k}(W,V) \subseteq \Hom_{\cpol_k}(W,V)$ we also have
+Notice that since we have $\Hom_{\cvect{k}}(W,V) \subseteq \Hom_{\cpol{k}}(W,V)$ we also have
 \[
- \Hom(W,V) = \Hom_{\cvect_k}(W,V)^G \subseteq \Hom_{\cpol_k}(W,V)^G = \Cov(W,V).
+ \Hom(W,V) = \Hom_{\cvect{k}}(W,V)^G \subseteq \Hom_{\cpol{k}}(W,V)^G = \Cov(W,V).
 \]
 Therefore every morphism of representations is covariant.
 
