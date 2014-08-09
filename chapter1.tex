@@ -191,6 +191,32 @@ for any two $G$-sets $X$ and $Y$.
 
 
 \begin{lem}
+ Let $X$ and $Y$ be $G$-sets and $f : X \to Y$ be $G$-equivariant. Then
+ \[
+  f(X^G) \subseteq Y^G.
+ \]
+\end{lem}
+\begin{proof}
+ For all $x \in X^G$ we have for all $g \in G$
+ \[
+  g.f(x) = f(g.x) = f(x).
+ \]
+ Thus $f(x) \subseteq Y^G$ for all $x \in X^G$.
+\end{proof}
+
+
+This lemma shows that a $G$-equivariant map $f : X \to Y$ between $G$-sets $X$ and $Y$ induces a map $f^G : X^G \to Y^G$ by restriction. It is clear that
+\[
+ \id_X^G = \id_{X^G}
+\]
+and that for any $G$-sets $X,Y,Z$ and $G$-equivariant maps $f : X \to Y$ and $g : Y \to Z$
+\[
+ (f \circ g)^G =  f^G \circ g^G.
+\]
+So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set $X$ to the corresponding trivial $G$-set $X^G$ and every $G$-equivariant map $f : X \to Y$ between $G$-sets $X$ and $Y$ to the $G$-equivariant $f^G : X^G \to Y^G$. (It is clear that $f^G$ is $G$-equivariant since both $X^G$ and $Y^G$ are trivial $G$-sets.)
+
+
+\begin{lem}
  Let $X, Y$ be $G$-sets. Then $\Hom_G(X,Y) = \Maps(X,Y)^G$.
 \end{lem}
 \begin{proof}
