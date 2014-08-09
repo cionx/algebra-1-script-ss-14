@@ -372,6 +372,14 @@ Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f : V
 The previous lemma shows that for any group $G$ and field $k$ the class of representations of $G$ over $k$ together with morphisms of representations between them form a category, which we will denote by $\cRep{k}{G}$.
 
 
+We also find that for any group $G$ and representation $V$ of $G$ the subset $V^G$ is a subrepresentation of $G$: Since $G$ acts trivially on $V^G$ we only need to check that that $V^G$ is a vector subspace of $V$. This holds becaues $\pi_g : V \to V, v \mapsto g.v$ is linear for every $g \in G$ and
+\[
+ V^G = \bigcap_{g \in G} \ker(\pi_g - \id_V).
+\]
+
+Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ to $V^G$ and every morphism of representations $f : V \to W$ to the restriction $f^G : V^G \to W^G$.
+
+
 \begin{lem}\label{lem: ker and im subrepresentations}
  Let $V,W$ be representations of a group $G$, $f \in \Hom_G(V,W)$. Then $\ker f$ is a subrepresentation of $V$ and $\im f$ is a subrepresentation of $W$.
 \end{lem}
