@@ -602,6 +602,12 @@ For a $k$-vector space $V$ we set
    \]
    for all $y \in X$.
   \item
+   Let $V$ and $W$ be $G$-spaces over the same field. Then the $G$-action on $\Maps(V,W)$ induces a linear action of $G$ on $\Hom(V,W)$. Since $G$ acts linearly on $V$ and $W$ we know that for every $g \in G$ the maps $\pi_g : V \to V, v \mapsto g.v$ and $\tau_g : W \to W, w \mapsto g.w$ are linearly. With this we find that for every $g \in G$ and $f \in \Hom(V,W)$ we have
+   \[
+    g.f = \tau_g \circ f \circ \pi_{g^{-1}} \in \Hom(V,W).
+   \]
+   Therefore $\Hom(V,W)$ is closed under the action of $G$ on $\Maps(V,W)$. Since the composition above is $k$-linear in $f$ it also follows that the action is linear on $\Hom(V,W)$.
+  \item
    Let $V$ and $W$ be $G$-spaces over the same field. Then $V \oplus W$ and $V \otimes W$ are $G$-spaces via
    \begin{align*}
     g.(v,w) &= (g.v,g.w) \text{ and }  \tag{1} \\
