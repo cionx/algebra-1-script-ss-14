@@ -1788,6 +1788,26 @@ We also know that $\Pol_k(W,V)$ is a $k$-vector space via pointwise addition and
 \end{proof}
 
 
+\begin{prop}
+ Let $V$ and $W$ be finite-dimensional representations of a group $G$ over a field $k$. Then the $\mc{P}(W)$-module structure of $\Pol_k(W,V)$ induces a $\mc{P}(W)^G$-module structure on $\Cov(W,V)$ by restriction.
+\end{prop}
+\begin{proof}
+ Since $\mc{P}(W)^G$ as a $k$-subalgebra of $\mc{P}(W)$ we have a $\mc{P}(W)^G$-module structure on $\Pol_k(W,V)$ by restriction. The proposition claims that $\Cov(W,V)$ is a $\mc{P}(W)^G$-submodule of $\Pol_k(W,V)$.
+ 
+ We already know that $\Cov(W,V)$ is a $k$-vector subspace of $\Pol_k(W,V)$. For $f \in \mc{P}(W)^G$ and $\beta \in \Cov(W,V)$ we have for all $g \in G, w \in W$
+ \begin{align*}
+  (g.(f \cdot \beta))(w)
+  &= g.(f \cdot \beta)\left(g^{-1}.w\right)
+  = g.\left(f\left(g^{-1}.w\right) \cdot \beta\left(g^{-1}.w\right) \right) \\
+  &= f\left(g^{-1}.w\right) \cdot g.\beta\left(g^{-1}.w\right)
+  = (g.f)(w) \cdot (g.\beta)(w) \\
+  &= f(w) \cdot \beta(w)
+  = (f \cdot \beta)(w).
+ \end{align*}
+ This shows that $\Cov(W,V)$ is also closed under multiplication by $\mc{P}(W)^G$.
+\end{proof}
+
+
 
 
 
