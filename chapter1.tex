@@ -781,5 +781,288 @@ So we can think of the multiplication in $kG$ as the $k$-bilinear extension of t
 \end{proof}
 
 
+\section{Morphism of representations}
 
+
+\begin{defi}
+Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f : V \to W$ is called a morphism of $G$-spaces or morphism  of representations of $G$ if $f$ is $k$-linear and $G$-equivariant. An isomorphism of representations is an morphism of representations which is also invertible as a $k$-linear map. We call $V$ and $W$ isomorphic (as representations of $G$), denoted by $V \cong W$, if there exists an isomorphism of representations between $V$ and $W$. We denote
+\[
+ \Hom_G(V,W) = \{f : V \to W \mid f \text{ is a morphism of representations}\}.
+\]
+\end{defi}
+
+
+\begin{rem}
+ If $f : V \to W$ is an isomorphism of representations, then its linear inverse $f^{-1}$ is again a morphism of representations, because $f^{-1}$ is linear by definition and it is $G$-equivariant, because for all $g \in G, v \in V$
+ \[
+  f\left(f^{-1}(g.v)\right) = g.v = g.f\left(f^{-1}(v)\right) = f\left(g.f^{-1}(v)\right)
+ \]
+ and $f$ is bijective (and therefore injective).
+\end{rem}
+
+
+\begin{rem}
+ If $V$ and $W$ are representations of $G$ then $\Hom_G(V,W)$ is a $k$-vector space via pointwise addition und scalar multiplication. (This will be on one of the exercise sheets.)
+\end{rem}
+
+
+\begin{lem}\label{lem: composition of morphisms of representations}
+ Let $G$ be a group.
+ \begin{enumerate}[a)]
+  \item
+  $\id_V : V \to V$ is a morphism of representations for any representation $V$ of $G$.
+  \item
+  If $f : V \to W$  and $g : W \to Z$ are morphism of representations of $G$, then $g \circ f : V \to Z$ is a morphism of representations.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ Part a) is trivial. It is also clear that $g \circ f$ is $k$-linear and $G$-equivariant (see the proof in chapter I for $G$-sets).
+\end{proof}
+
+
+The previous lemma shows that for any group $G$ and field $k$ the class of representations of $G$ over $k$ together with morphisms of representations between them form a category, which we will denote by $\cRep{k}{G}$.
+
+
+We also find that for any group $G$ and representation $V$ of $G$ the subset $V^G$ is a subrepresentation of $G$: Since $G$ acts trivially on $V^G$ we only need to check that that $V^G$ is a vector subspace of $V$. This holds becaues $\pi_g : V \to V, v \mapsto g.v$ is linear for every $g \in G$ and
+\[
+ V^G = \bigcap_{g \in G} \ker(\pi_g - \id_V).
+\]
+
+Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ to $V^G$ and every morphism of representations $f : V \to W$ to the restriction $f^G : V^G \to W^G$.
+
+
+\begin{lem}\label{lem: ker and im subrepresentations}
+ Let $V,W$ be representations of a group $G$, $f \in \Hom_G(V,W)$. Then $\ker f$ is a subrepresentation of $V$ and $\im f$ is a subrepresentation of $W$.
+\end{lem}
+\begin{proof}
+ Since $f$ is linear, $\ker f$ is a vector subspace of $V$ and $\im f$ is a vector subspace of $W$.
+ 
+ Let $x \in \ker f$. Then $f(g.x) = g.f(x) = g.0 = 0$ for all $g \in G$, because $G$ acts linear. So $g.x \in \ker f$ for all $g \in G, x \in \ker f$.
+ 
+ Let $y = f(x) \in \im f$. Then $g.y = g.f(x) = f(g.x) \in \im f$ for all $g \in G$.
+\end{proof}
+
+
+\begin{lem}[Schur’s Lemma]
+ Let $k$ be a field, $G$ a group, $V$ and $W$ irreducible representations of $G$.
+ \begin{enumerate}[a)]
+  \item
+  We have $\Hom_G(V,W) = 0$ if $V \not\cong W$ and $\Hom_G(V,W) \not\cong 0$ if $V \cong W$, and every non zero morphism is an isomorphism.
+  \item
+  $\Hom_G(V,V)$ is a divison ring / skew field (i.e. we have $1 \neq 0$ and every non zero endomorphism is invertible).
+  \item
+  In the special case that $k$ is algebraically closed (e.g. $k = \C$) and $V$ and $W$ are both finite dimensional we have that
+  \[
+   \Hom_G(V,W) \cong
+   \begin{cases}
+    k & \text{if } V \cong W, \\
+    0 & \text{if } V \not\cong W,
+   \end{cases}
+  \]
+  as vector spaces.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}[a)]
+  \item 
+  Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp. $W$. Since $V$ and $W$ are irreducible we have that
+  \[
+   \ker f = 0 \text{ or } \ker f = V \quad \text{and} \quad \im f = 0 \text{ or } \im f = W.
+  \]
+  Since $f \neq 0$ we have $\ker f \neq V$ and $\im f \neq 0$. So $\ker f = 0$ and $\im f = W$.
+  \item
+  It is clear that $V \cong V$, so it follows from a).
+  \item
+  Assume $\alpha, \beta \in \Hom_G(V,W)$ where $V \cong W$ and $\alpha \neq 0$. It is enough to show that there exists some $\lambda \in k$ such that $\beta = \lambda \alpha$. Consider the morphism $\alpha^{-1} \beta \in \Hom_G(V,W)$ (this is well defined since we know from a) that $\alpha$ is invertible and $\alpha^{-1}$ is again a morphism of representations by the previous Remark, hence $\alpha^{-1} \beta \in \Hom_G(V,W)$ by lemma \ref{lem: composition of morphisms of representations}).
+  
+  Because $k$ is algebraically closed $\alpha^{-1} \beta$ has some eigenvalue $\lambda \in k$. By \mbox{lemma \ref{lem: ker and im subrepresentations}}
+  \[
+   K := \ker(\alpha^{-1} \beta - \lambda \id_V)
+  \]
+  is a subrepresentation of $V$. Since $V$ is irreducible and $K \neq 0$ (because $\lambda$ is an eigenvalue of $\alpha^{-1} \beta$) we have $K = V$. So $\alpha^{-1} \beta = \lambda \id_V$ and therefore $\beta = \lambda \alpha$. \qedhere
+ \end{enumerate}
+\end{proof}
+
+
+\begin{rem}
+ Assume $k$ is an algebraically closed field and $V$ a finite dimensional irreducible representation of some group $G$. Then
+ \[
+  \End_G(V \oplus \ldots \oplus V)
+  := \Hom_G(V \oplus \ldots \oplus V, V \oplus \ldots \oplus V)
+  \cong \Mat(n \times n, k)
+ \]
+ is an isomorphism of rings by Schur’s lemma part c).
+ 
+ More general: Let $V_1, \ldots, V_r$ be pairwise non-isomorphic irreducible finite dimensioal representations of some group $G$ and $W_i := V_i^{n_i}$. Then
+ \begin{align*}
+  \End_G(W_1 \oplus \ldots \oplus W_r)
+  &= \End(V_1^{n_1} \oplus \ldots \oplus V_n^{n_r}) \\
+  &\cong \End(V_1^{n_1}) \oplus \ldots \oplus \End(V_r^{n_r}) \\
+  &\cong \Mat(n_1 \times n_1, k) \oplus \ldots \oplus \Mat(n_r \times n_r, k)
+ \end{align*}
+ as rings.
+\end{rem}
+
+
+\begin{defi}
+ Let $G$ be a group. A representation $V$ of $G$ (over a field $k$) is completely reducible if
+ \[
+  V \cong V_1 \oplus \ldots \oplus V_r
+ \]
+ for some irreducible representations $V_1, \ldots, V_r$.
+\end{defi}
+
+
+\begin{rem}
+ Not every representation is completely reducible, even if $k$ is algebraically closed. Consider, for example,
+ \[
+  G := \left\{\vect{a & b \\ 0 & c} \,\middle|\, a,b,c \in \C \text{ and } a,c \neq 0\right\}
+  \subseteq \GL_2(\C)
+ \]
+ and the natural representation of $G$ on $\C^2$. We saw earlier that $U := \vspan(e_1)$ gives a subrepresentation and it’s the only $1$-dimensional subrepresentation. So the representation is not irreducible, but at the same time not isomorphic to a direct sum of irreducible representations.
+\end{rem}
+
+
+\begin{thrm}[Maschke’s theorem]
+ Let $G$ be a finite group and $k$ a field such that $\kchar k \nmid |G|$ (in particular $\kchar k = 0$ is allowed). Then any finite dimensional representation of $G$ over $k$ is completely reducible.
+\end{thrm}
+\begin{proof}
+ It is enough to show that every subrepresentation $U$ of $V$ has a complement $W$ which is again a subrepresentation, i.e. $V = U \oplus W$ as representations.
+ 
+ Given our subrepresentation $U$ choose a complement $W$ as a vector space. Then $V = U \oplus W$ as vector spaces. Let $p : V \to U$ be the orthogonal projection onto $U$. ($p$ is not necessarily $G$-equivariant but only a linear map.) We know that $\im p = U$. We define $\hat{p} : V \to U$ as
+ \[
+  \hat{p}(v) := \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v).
+ \]
+
+This is well defined since $|G| < \infty$ and $1/|G|$ is defined, because $\kchar k \nmid |G|$. Note that $\im \hat{p} \subseteq U$, since $p(g.v) \in U$ and $U$ is a subrepresentation, hence $g^{-1}.p(g.v) \in U$ for all $g \in G, v \in V$.
+
+It is clear that $\hat{p}(u) = u$ for all $u \in U$ because
+\[
+ \hat{p}(u)
+ = \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.u)
+ = \frac{1}{|G|} \sum_{g \in G} g^{-1}.g.u
+ = \frac{1}{|G|} \sum_{g \in G} u
+ = u.
+\]
+$\hat{p}$ is $G$-equivariant because for all $h \in G$ and $v \in V$
+\begin{align*}
+ \hat{p}(h.v)
+ &= \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(gh.v)
+ = \frac{1}{|G|} \sum_{g \in G} h.h^{-1}.g^{-1}.p(g.h.v) \\
+ &= \frac{1}{|G|} \sum_{\bar{g} \in G} h.\bar{g}^{-1}.p(\bar{g}.v)
+ = h.\hat{p}(v).
+\end{align*}
+Altogether we have
+\begin{center}
+ \begin{tikzpicture}[node distance = 6em, auto]
+  \node (U) {$U$};
+  \node (V) [right of = U] {$V$};
+  \draw[->] (U.20) to node {$\iota$}(V.160);
+  \draw[->] (V.200) to node {$\hat{p}$} (U.340);
+ \end{tikzpicture}
+\end{center}
+where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projection $\hat{p}$ splits and we obtain $V \cong U \oplus \ker \hat{p}$. Because $\hat{p}$ is $G$-equivariant $\ker \hat{p}$ is a subrepresentation of $V$. So $U$ has a complement which is again a representation.
+\end{proof}
+
+\begin{warn}
+ The theorem is wrong in general if $\kchar k \mid |G|$. (An example will be on the exercise sheet.)
+\end{warn}
+
+\begin{expl}
+ In general it is hard to compute a decomposition using Maschke’s theorem in practice!
+ 
+ Let $G = S_3$. Let $V = kG$ be viewed as a representation of $G$ via the left multiplication, i.e.
+ \[
+  h.\left(\sum_{g \in G} a_g g\right) = \sum_{g \in G} a_g hg.
+ \]
+ Let $k = \C$, hence Maschke’s theorem holds. We want to find a decomposition of $kG$. Recall that $S_3 = \gen{s,t}$ where $s = (1 \; 2)$ and $t = (2 \; 3)$. We claim that
+ \[
+  kG = V_{\text{triv}} \oplus V_{\text{sgn}} \oplus V_1 \oplus V_2
+ \]
+ where
+ \begin{align*}
+  V_{\text{triv}} &:= \vspan\left(\sum_{g \in G} g \right) = \vspan(e+s+t+st+ts+sts), \\
+  V_{\text{sgn}} &:= \vspan\left(e-s-t+st+ts-sts\right), \\
+  V_1 &:= \vspan\left(e+s-ts, t+ts-st-sts\right) \text{ and} \\
+  V_2 &:= \vspan\left(s+st-sts,e+t-s-st\right).
+ \end{align*}
+ Note that $G$ acts trivially on $V_{\text{triv}}$ and by multiplication with $-1$ on $V_{\text{sgn}}$ , hence $V_{\text{triv}}$ and $V_{\text{sgn}}$ are subrepresentations. One can also check that $V_1$ and $V_2$ are irreducible subrepresentations which are isomorphic.
+\end{expl}
+
+
+\begin{expl}
+ Let $n \geq 2$ and $G = S_n$. Let $k$ be any field and let $S_n$ act on $k^n$ by setting
+ \[
+  g.e_i = e_{g(i)}
+ \]
+ where $e_1, \ldots, e_n$ denotes the standard basis of $k^n$. Extending this linearly we get a representation of $G$ on $k^n$, i.e.
+ \[
+  g.(a_1, \ldots, a_n) = \left(a_{g^{-1}(1)}, \ldots, a_{g^{-1}(n)}\right).
+ \]
+ We can then set $V = k^n$ and extend the $G$-action on $V$ to be a $G$-action on $\mc{P}(V)$ by setting $(g.f)(v) = f(g^{-1}.v)$ for all $f \in \mc{P}(V), v \in V$. We can then ask ourselves how to describe $\mc{P}(V)$.
+\end{expl}
+
+
+\begin{defi}
+ Let $k$ be a group and $W$ any $k$-vector space. Then $g.w = w$ for all $g \in G, w \in W$ defines a representation $W$ of $G$. This is called the trivial representation. For each fixed dimension there is (up to isomorphism) one trivial representation. Therefore we usually say \emph{the} trivial representation of $G$ (of dimension $\dim W$).
+\end{defi}
+
+
+\begin{lem}
+ Let $\{e_1, \ldots, e_n\}$ denote the standard basis von $k^n$. $G = S_n$ acts linearly on $k^n$ as in the previous example.
+ \begin{enumerate}[a)]
+  \item
+  The vector subspaces
+  \begin{gather*}
+   U_1 := \vspan\left( \sum_{i=1}^n e_i\right)
+  \shortintertext{and}
+   U_2 := \left\{ (\lambda_1, \ldots, \lambda_n) \in k^n \,\middle|\, \sum_{i=1}^n \lambda_i = 0 \right\}
+  \end{gather*}
+  are subrepresentations.
+  \item
+  $U_1$ is the trivial $1$-dimensional subrepresentation and
+  \[
+   \begin{cases}
+    U_1 = U_2 & \text{if } n = 2, \kchar k = 2,\\
+    U_1 \ncong U_2 & \text{otherwise}.
+   \end{cases}
+  \]
+  \item
+  If $n = 2$ then $V$ is completely reducible if and only if $\kchar k \neq 2$.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}
+  \item
+  It is clear that $U_1$ and $U_2$ are vector subspaces. Since
+  \[
+   g.\left(\sum_{i=1}^n e_i\right)
+   = \sum_{i=1}^n e_{g(i)}
+   = \sum_{i=1}^n e_i
+   \tag{$\ast$}
+  \]
+  we have $g.u \in U_1$ for all $g \in G, u \in U_1$, thus $U_1$ is a subrepresentation. Since
+  \[
+   g.(\lambda_1, \ldots, \lambda_n) = \left( \lambda_{g^{-1}(1)}, \ldots, \lambda_{g^{-1}(n)} \right)
+  \]
+  we have $g.u \in U_2$ for all $g \in G, u \in U_2$, thus $U_2$ is a subrepresentation.
+  \item
+  We have that $g.u = u$ for all $u \in U$ by ($\ast$).  If $n > 2$ then
+  \[
+   \dim U_1 = 1 \neq \dim U_2
+  \]
+  and thus $U_1 \ncong U_2$.
+  
+  If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$. So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.  If $\kchar k = 2$ then $U_1$ and $U_2$ are both spanned by $(1,1)$ and thus $U_1 = U_2$.
+  \item
+  If $\kchar k \neq 2$ then $V$ is completely reducible by Maschke’s Theorem. If $\kchar k = 2$ then $U_1 = U_2$. This is the only one-dimensonal subrepresentation of $V$: If $U \subseteq V$ is a subrepresentation such that there exists $(\lambda, \mu) \in U$ with $\lambda \neq \mu$, then $(\mu, \lambda) \in U$ and thus $U = V$. Thus $V$ is indecomposible but reducible.
+  \qedhere
+ \end{enumerate}
+\end{proof}
+
+
+\begin{rem}
+ In the case of $n = 2$ the representation $U_2$ is called the sign representation.
+ %TODO: Sign-Darstellung besser erklären.
+\end{rem}
 
