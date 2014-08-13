@@ -1732,6 +1732,33 @@ That $g.f$ is polynomial follows from the fact that $\tau_{g^{-1}} : W \to W$ an
 We also know that $\Hom_{\cpol{k}}(W,V)$ is a $k$-vector space via pointwise addition and multiplication. Since the composition above is clearly $k$-linear in $f$ we find that $\Hom_{\cpol{k}}(W,V)$ is a representation of $G$. As we have already seen before this implies that $\Cov(W,V) = \Hom_{\cpol{k}}(W,V)^G$ is also a $k$-vector space.
 
 
+\begin{prop}
+ Let $G$ be a group, $W$ and $V$ finite-dimensional representations of $G$ over $k$ and $\beta : W \to V$ covariant. Then
+ \[
+  \beta^*\left(\mc{P}(V)^G\right) \subseteq \mc{P}(W)^G.
+ \]
+ Therefore $\beta^*$ induces an algebra-homomorphism from $\mc{P}(V)^G$ to $\mc{P}(W)^G$ by restriction.
+\end{prop}
+\begin{proof}
+ For all $f \in \mc{P}(V)^G$ we have for all $g \in G, w \in W$
+ \begin{align*}
+  (g.\beta^*(f))(w)
+  &= \beta^*(f)\left(g^{-1}.w\right)
+  = (f \circ \beta)\left(g^{-1}.w\right) \\
+  &= f\left(\beta\left(g^{-1}.w\right)\right)
+  = f\left(g^{-1}.\beta(w)\right)
+  = (g.f)(\beta(w)) \\
+  &= f(\beta(w))
+  = (f \circ \beta)(w)
+  = \beta^*(f)(w).
+ \end{align*}
+ Therefore
+ \[
+  g.\beta^*(f) = \beta^*(f) \text{ for all } g \in G.
+ \]
+\end{proof}
+
+
 
 
 
