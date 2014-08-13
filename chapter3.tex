@@ -1,1 +1,99 @@
 \chapter{Invariants for matrix actions and Zariski dense sets}
+
+
+
+
+
+\section{Invariants for matrix actions}
+For this section we fix an infinte field $k$.
+
+
+\begin{thrm}
+ Let $\SL_n(k)$ act on $\Mat_n(k)$ by left multiplication. Then
+ \[
+  \det : \Mat_n(k) \to k
+ \]
+ generates $\mc{P}(M_n(k))^{\SL_n(k)}$ as a $k$-algebra and is algebraically independent, i.e.
+ \[
+  \mc{P}(M_n(k))^{\SL_n(k)} \cong k[X] \text{ via } \det \mapsfrom X.
+ \]
+\end{thrm}
+\begin{proof}
+ We choose the basis $E_{ij}, 1 \leq i,j \leq n$ of $M_n(k)$ where the $E_{ij}$ is the matrix with $1$ as the entry in the $i$-th row and $j$-th colomn and $0$ otherwise. (So $E_{ij} e_k = \delta_{jk}e_i$ where $e_1, \ldots, e_n$ is the standard basis of $k^n$.)  For a matrix $A = (a_{ij})_{1 \leq i,j \leq n}$ we then have
+ \[
+  \det A
+  = \det\left( a_{ij} E_{ij}\right)
+  = \sum_{\sigma \in S_n} \sgn(\sigma) a_{1 \sigma(1)} \cdots a_{n \sigma(n)}.
+ \]
+ So $\det \in \mc{P}(\Mat_n(k))$. Since for every $S \in \SL_n(k)$ and $A \in \Mat_n(k)$
+ \[
+  (S.\det)(A) = \det\left(S^{-1}.A\right) = \det\left(S^{-1}\right) \det(A) = \det(A)
+ \]
+ we also find that $\det$ is $\SL_n(k)$-invariant. So $\det \in \mc{P}(\Mat_n(k))^{\SL_n(k)}$.
+ 
+ Next we show that $\det$ is algebraically independent. Let $P \in k[X]$ with $P(\det) = 0$. Then we have
+ \[
+  P(\det(A)) = P(\det)(A) = 0
+ \]
+ for all $A \in \Mat_n(k)$. Since $\det$ is surjective this means that $P(\lambda) = 0$ for all $\lambda \in k$. Because $k$ is infinite this means that $P$ has infinitely many zeroes. Therefore $P = 0$.
+ 
+ All that’s left to show is that $\det$ generates $\mc{P}(\Mat_n(k))^{\SL_n(k)}$ as a $k$-algebra. For this fix $f \in \mc{P}(\Mat_n(k))^{\SL_n(k)}$. Since $f$ is a polynomial map there exists $p \in k[X_{11}, \ldots, X_{nn}]$ such that
+ \[
+  f(A) = p(a_{11}, \ldots, a_{nn})
+ \]
+ for all $A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k)$. We define $\bar{p} \in k[t]$ as $\varphi(p)$, where
+ \[
+  \varphi : k[X_{11}, \ldots, X_{nn}] \to k[t]
+ \] 
+ is the algebra homomorphism defined by 
+ \[
+  \varphi(X_{ij}) =
+  \begin{cases}
+   0 & \text{ if } i \neq j, \\
+   1 & \text{ if } i = j \neq 1, \\
+   t & \text{ if } i = j = 1.
+  \end{cases}
+ \]
+ It is clear that
+ \[
+  \bar{p}(\lambda) :=
+  f\left(
+   \begin{pmatrix}
+    \lambda &   &        &   \\
+            & 1 &        &   \\
+            &   & \ddots &   \\
+            &   &        & 1 \\
+   \end{pmatrix}
+  \right)
+ \]
+ for all $\lambda \in k$.
+ 
+ Now let $A \in \GL_n(k)$. Since $\det A \neq 0$ we have
+ \[
+  B :=
+  \begin{pmatrix}
+   \det A &   &        &   \\
+          & 1 &        &   \\
+          &   & \ddots &   \\
+          &   &        & 1 \\
+  \end{pmatrix}
+  \in \GL_n(k).
+ \]
+ Since $\det A = \det B$ we also have $S := AB^{-1} \in \SL_n(k)$. Combining this we find that
+ \[
+  f(A) = f(SB) = \left(S^{-1}.f\right)(B) = f(B) = \bar{p}(\det A) = \bar{p}(\det)(A).
+ \]
+ Therefore we have $f - \bar{p}(\det) = 0$ when restricted to $\GL_n(k)$, where it is clear that $\bar{p}(\det) \in \mc{P}(\Mat_n(k))^{\SL_n}$.
+ 
+ \begin{claim}[Zariski density property 1]
+  Let $h \in \mc{P}(\Mat_n(k))$ such that $h_{|\GL_n(k)} = 0$. Then $h = 0$.
+ \end{claim}
+ 
+ From this claim and the previous observations it follows that $f - \bar{p}(\det) = 0$ and thus $f = \bar{p}(\det) \in k[\det]$. This shows that $\det$ generates $\mc{P}(\Mat_n(k))^{\SL_n(k)}$ as a $k$-algebra. (We will prove the claim later and end this proof here.)
+\end{proof}
+
+
+
+
+
+
