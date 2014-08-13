@@ -1553,7 +1553,33 @@ From here on let $k$ be an infinite field.
 
 It is now easy to see that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category. We will denote this category by $\cpol{k}$  Also notice that every linear map between finite-dimensional $k$-vector spaces is a polynomial map. Therefore $\cvect{k}$ is a subcategory of $\cpol{k}$.
 
-From the definition of a polynomial map it also directly follows that for any finite-dimensional $k$-vector spaces $W$ and $V$ the set $\Hom_{\cpol{k}}(W,V)$ forms a $k$-vector space via pointwise addition and scalar multiplication. 
+From the definition of a polynomial map it also directly follows that for any finite-dimensional $k$-vector spaces $W$ and $V$ the set $\Hom_{\cpol{k}}(W,V)$ forms a $k$-vector space via pointwise addition and scalar multiplication. This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
+
+\begin{prop}
+ Let $W$ and $V$ be finite-dimensional $k$-vector spaces. The $k$-vector space $\Hom_{\cpol{k}}(W,V)$ is a $\mc{P}(W)$-module via
+ \[
+  (g \cdot f)(w) = g(w) f(w)
+ \]
+ for all $g \in \Hom_{\cpol{k}}(W,V), f \in \mc{P}(W), w \in W$.
+\end{prop}
+\begin{proof}
+ It is clear that $\Maps(W,V)$ becomes a $\Maps(W,k)$-module by defining the multiplication as above. Since $\mc{P}(W)$ is a $k$-subalgebra of $\Maps(W,k)$ we find that $\Maps(W,V)$ is a $\mc{P}(W)$-module. The proposition claims that $\Hom_{\cpol{k}}(W,V)$ is a $\mc{P}(W)$-submodule of $\Maps(W,V)$. So we only need to check that $\Hom_{\cpol{k}}(W,V)$ is closed under the multiplication from $\mc{P}(W)$.
+ 
+ Let $v_1, \ldots, v_n$ be a $k$-basis of $V$. For $f \in \Hom_{\cpol{k}}(W,V)$ there exists $f_1, \ldots, f_n \in \mc{P}(W)$ such that
+ \[
+  f(w) = \sum_{i=1}^n f_i(w) v_i \text{ for all } w \in W.
+ \]
+ Since for all $g \in \mc{P}(W)$
+ \begin{align*}
+  (g \cdot f)(w)
+  &= g(w) \cdot f(w)
+  = g(w) \cdot \sum_{i=1}^n f_i(w) v_i \\
+  &= \sum_{i=1}^n g(w) f_i(w) v_i
+  = \sum_{i=1}^n (g \cdot f_i)(w) v_i
+ \end{align*}
+ we find that $g \cdot f \in \Hom_{\cpol{k}}(W,V)$ for all $g \in \mc{P}(W)$.
+\end{proof}
+
 
 
 \begin{lem}
