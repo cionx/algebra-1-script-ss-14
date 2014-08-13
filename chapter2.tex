@@ -1467,6 +1467,32 @@ It is interesting to notice that this functor is fully faithful.
 \end{defi}
 
 
+\begin{expls}
+ \begin{enumerate}\leavevmode
+  \item
+  Let $W$ be a finite-dimensional $k$-vector space, $d \in \N, d > 0$. Then the map
+  \[
+   \beta : W \to W^{\otimes d}, w \mapsto w \otimes \ldots \otimes w
+  \]
+  is a polynomial map. It is also $G$-equivariant since
+  \[
+   \beta(g.w) = (g.w) \otimes \ldots \otimes (g.w) = g.(w \otimes \ldots \otimes w) = g.\beta(w)
+  \]
+  for all $g \in G, w \in W$.
+  \item
+  Fix a field $k$. Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.
+  \[
+   g.A = gAg^{-1}
+  \]
+  for all $g \in \GL_n(k), A \in \Mat_n(k)$. Then the map
+  \[
+   \beta_i : \Mat_n(k) \to \Mat_n(k), A \mapsto A^i
+  \]
+  is covariant for all $i \geq 1$. 
+ \end{enumerate}
+\end{expls}
+
+
 Notice that since we have $\Hom_k(W,V) \subseteq \Pol_k(W,V)$ we also have
 \[
  \Hom_G(W,V) = \Hom_k(W,V)^G \subseteq \Pol_k(W,V)^G = \Cov(W,V).
@@ -1530,6 +1556,9 @@ We also know that $\Pol_k(W,V)$ is a $k$-vector space via pointwise addition and
  \end{align*}
  This shows that $\Cov(W,V)$ is also closed under multiplication by $\mc{P}(W)^G$.
 \end{proof}
+
+
+
 
 
 
