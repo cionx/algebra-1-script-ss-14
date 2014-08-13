@@ -177,169 +177,6 @@
 
 
 
-\section{Polynomial functions}
-
-
-In this chapter $k$ is an infinite field. We also fix a finite-dimensional $k$-vector space $V$ with basis $(v_1, \ldots, v_n)$.
-
-
-\begin{defi}
- By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e. $f \in \mc{P}(V)$ if and only if $f : V \to k$ and there is some $p \in k[X_1, \ldots, X_n]$ such that
- \[
-  f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \ldots, \lambda_n)
- \]
- for all $\lambda_1, \ldots, \lambda_n \in k$.
-\end{defi}
-
-
-This definition does not depend on the chosen basis. If $(w_1, \ldots, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for $i=1,\ldots,n$ then
-\begin{align*}
- f\left( \sum_{i=1}^n \lambda_i w_i \right)
- &= f\left( \sum_{i,j=1}^n \lambda_i a_{ij} v_j \right)
- = p\left( \sum_{i=1}^n \lambda_i a_{i1}, \ldots, \sum_{i=1}^n \lambda_{i} a_{in} \right)\\
- &= p'(\lambda_1, \ldots, \lambda_n)
-\end{align*}
-for some $p' \in k[X_1, \ldots, X_n]$. So if $f : V \to k$ is a polynomial in $(v_1, \ldots, v_n)$ then also in $(w_1, \ldots, w_n)$.
-
-
-\begin{rem}
- If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
-\end{rem}
-
-
-\begin{lem}
- There is an isomorphism of rings, even $k$-algebras
- \[
-  \mc{P} \xlongrightarrow{\sim} k[X_1, \ldots, X_n]
- \]
- where $n = \dim V$.
-\end{lem}
-\begin{proof}
- For $1 \leq j \leq n$ define the $j$-th coordinate function (with respect to the chosen basis) as
- \[
-  \varphi_j : V \to k, \sum_{i=1}^n \lambda_i v_i \mapsto \lambda_j.
- \]
- By the universal property of the polynomial ring the assignment $X_j \to \varphi_j$ extends to a ring homomorphism
- \[
-  \Phi: k[X_1, \ldots, X_n] \to \mc{P}(V), p \mapsto \Phi(p)
- \]
- where
- \[
-  \Phi(p)\left(\sum_{i=1}^n \lambda_i v_i\right) = p(\lambda_1, \ldots, \lambda_n).
- \]
- Is it clear that $\Phi$ is surjective. It is left as an exercise to the reader to check that $\Phi$ is injective.
-\end{proof}
-
-
-\begin{lem}\leavevmode
- \begin{enumerate}[a)]
-  \item
-   Assume $p \in k[X_1, \ldots, X_n]$ with $p(\lambda_1, \ldots, \lambda_n) = 0$ for all $(\lambda_1,\ldots,\lambda_n) \in k^n$. Then $p = 0$.
-  \item
-   The polynomial functions $\varphi_1, \ldots, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e. if $f(\varphi_1, \ldots, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
- \end{enumerate}
-\end{lem}
-\begin{proof}\leavevmode
- \begin{enumerate}[a)]
-  \item
-   We show this by induction over $n$.
-   
-   ($n = 1$) Let $p \in k[X_1]$ with $p(\lambda_1) = 0$ for all $\lambda_1 \in k$. Since $k$ is infinite $p$ has infinitely many zeroes. Therefore $p = 0$.
-   
-   ($n \geq 2$) Assume the claim holds for $n-1$ and $1$. Consider $p \in k[X_1, \ldots, X_n]$ with $p(\lambda_1, \ldots, \lambda_n) = 0$ for all $(\lambda_1, \ldots, \lambda_n) \in k^n$. We write $p$ as
-   \[
-    p = \sum_{i \in \N} f_i(X_1, \ldots, X_{n-1}) X_n^i
-   \]
-   with $f_i \in k[X_1, \ldots, X_{n-1}]$ for all $i \in \N$ and $f_i = 0$ for all but finitely many $i \in \N$. Let $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary. For all $\lambda_n \in k$ we have
-   \[
-    0 = p(\lambda_1, \ldots, \lambda_n) = \sum_{i \in \N} f_i(\lambda_1, \ldots, \lambda_{n-1}) \lambda_n^i
-   \]
-   By induction hypothesis we find that $f_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$. Because $(\lambda_1, \ldots, \lambda_{n-1})$ is fixed but arbitrary we can use the induction hypothesis to get that $f_i = 0$ for all $i \in \N$. So $p = 0$.
-  \item
-   Assume $f(\varphi_1, \ldots, \varphi_n) = 0$. Then
-   \[
-    0 = f(\varphi_1, \ldots, \varphi_n)\left(\sum_{i=1}^n \lambda_i v_i\right) = f(\lambda_1, \ldots, \lambda_n)
-   \]
-   for all $(\lambda_1, \ldots, \lambda_n) \in k^n$. Therefore $f = 0$ by part a). \qedhere
- \end{enumerate}
-\end{proof}
-
-\begin{warn}
- The assumption that $k$ is infinite is necessary. If, for example, $p = X^2+X \in \F_2[X]$, then $p(0) = p(1) = 0$, so $p(\lambda)=0$ for all $\lambda \in k$, but $p \neq 0$.
-\end{warn}
-
-
-\begin{cor}
- The map $\Phi : k[X_1, \ldots, X_n] \to \mc{P}(V), X_j \mapsto \varphi_j$ is injective.
-\end{cor}
-
-
-Together with the exercise sheet we find that
-\[
- \Phi : k[X_1, \ldots, X_n] \to \mc{P}(V), X_j \to \varphi_j
-\]
-is an isomorphism of $k$-algebras.
-
-
-\begin{defi}
- $f \in \mc{P}(V)$ is homogeneous of degree $d \in \Z$ if $f(\lambda y) = \lambda^d f(y)$ for all $\lambda \in k, y \in V$. By definition the zero polynomial $f=0$ is homogeneous of degree $d$ for any $d \in \Z$. For $d \in \Z$ we set
- \[
-  \mc{P}(V)_d := \{f \in \mc{P}(V) : f \text{ is homogeneous of degree } d\}.
- \]
-\end{defi}
-
-
-\begin{lem}\leavevmode
- \begin{enumerate}[a)]
-  \item
-   $\mc{P}(V)_d$ is a $k$-vector space for all $d \in \Z$ (via pointwise addition and scalar multiplication).
-  \item
-   If $f \in \mc{P}(V)_i$ and $g \in \mc{P}(V)_j$  then $fg \in \mc{P}(V)_{i+j}$, where the multiplication is given by pointwise multiplication.
- \end{enumerate}
-\end{lem}
-\begin{proof}\leavevmode
- \begin{enumerate}[a)]
-  \item For $f_1, f_2 \in \mc{P}(V)_d$ we have
-  \begin{align*}
-   (f_1+f_2)(\lambda v)
-   &= f_1(\lambda v) + f_2(\lambda v)
-   = \lambda^d f_1(v) + \lambda^d f_2(v) \\
-   &= \lambda^d (f_1(v) + f_2(v))
-   = \lambda^d (f_1 + f_2)(v)
-  \end{align*}
-  for all $\lambda \in k, v \in V$, so $f_1 + f_2 \in \mc{P}(V)_d$. If $f \in \mc{P}(V)$ and $\mu \in k$ then
-  \[
-   (\mu f)(\lambda v) = \mu f(\lambda v) = \lambda^d \mu f(v) = \lambda^d (\mu f)(v),
-  \]
-  so $\mu f \in \mc{P}(V)_d$.
-  \item
-  For all $\lambda \in k$ we have for all $v \in V$
-  \[
-   fg(\lambda v)
-   = f(\lambda v) g(\lambda v)
-   = \left(\lambda^i f(v)\right)\left(\lambda^j g(v)\right)
-   = \lambda^{i+j} f(v) g(v)
-   = \lambda^{i+j} (fg)(v),
-  \]
-  and therefore $fg \in \mc{P}(V)_{i+j}$. \qedhere
- \end{enumerate}
-\end{proof}
-
-This shows that $\mc{P}(V)$ is a graded algebra via
-\[
-  \mc{P}(V) = \bigoplus_{d \in \Z} \mc{P}(V)_d.
-\]
-This grading can be seen as inherted from $k[X_1, \ldots, X_n]$ via the isomorphism $\Phi$. Since
-\[
- (\lambda X_1)^{\alpha_1} \cdots (\lambda X_n)^{\alpha_n}
- = \lambda^{\sum_{i=1}^n \alpha_i} X_1^{\alpha_1} \cdots X_n^{\alpha_n}
-\]
-we obtain that a monomial of degree $d$ corresponds to a polynomial function $\Phi(p) \in \mc{P}(V)$ which is homogeneous of degree $d$.
-  
-
-
-
-
 \section{Symmetric Polynomials}
 
 
@@ -350,27 +187,6 @@ we obtain that a monomial of degree $d$ corresponds to a polynomial function $\P
  \]
  linearly. A polynomial $f \in k[X_1, \ldots, X_n]^{S_n}$ is called a symmetric polynomial (in $n$ variables).
 \end{defi}
-
-
-\begin{rem}
- For $k$ infinite we have an isomorphism of representations
- \[
-  \Phi : k[X_1, \ldots, X_n] \to \mc{P}(k^n), X_i \mapsto \varphi_i,
- \]
- where $S_n$ acts on $\mc{P}(k^n)$ via
- \[
-  (\sigma.f)(v) = f\left( \sigma^{-1}.v \right) \text{ for all } \sigma \in S_n, f \in \mc{P}(V), v \in k^n.
- \]
- We know that $\Phi$ is an isomorphism of $k$-vector spaces. It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \cdots X_n^{\alpha_n} \in k[X_1, \ldots, X_n]$ and $v = (\lambda_1, \ldots, \lambda_n) \in k^n$
- \begin{align*}
-  \Phi(g.p)(v)
-  &= \Phi\left( X_{g(1)}^{\alpha_1} \cdots X_{g(n)}^{\alpha_n} \right)(v)
-  = \lambda_{g(1)}^{\alpha_1} \cdots \lambda_{g(n)}^{\alpha_n} \\
-  &= \Phi(p)( \lambda_{g(1)}, \ldots, \lambda_{g(n)} )
-  = \Phi(p)\left( g^{-1}.(\lambda_1, \ldots, \lambda_n) \right) \\
-  &= (g.\Phi(p))(\lambda_1, \ldots, \lambda_n).
- \end{align*}
-\end{rem}
 
 
 \begin{expl}
@@ -1191,6 +1007,190 @@ form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these poly
 
 
 % TODO: Basis aus Schurpolynomen hinzufügen.
+
+
+
+
+
+\section{Polynomial functions}
+
+
+In this chapter $k$ is an infinite field. We also fix a finite-dimensional $k$-vector space $V$ with basis $(v_1, \ldots, v_n)$.
+
+
+\begin{defi}
+ By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e. $f \in \mc{P}(V)$ if and only if $f : V \to k$ and there is some $p \in k[X_1, \ldots, X_n]$ such that
+ \[
+  f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \ldots, \lambda_n)
+ \]
+ for all $\lambda_1, \ldots, \lambda_n \in k$.
+\end{defi}
+
+
+This definition does not depend on the chosen basis. If $(w_1, \ldots, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for $i=1,\ldots,n$ then
+\begin{align*}
+ f\left( \sum_{i=1}^n \lambda_i w_i \right)
+ &= f\left( \sum_{i,j=1}^n \lambda_i a_{ij} v_j \right)
+ = p\left( \sum_{i=1}^n \lambda_i a_{i1}, \ldots, \sum_{i=1}^n \lambda_{i} a_{in} \right)\\
+ &= p'(\lambda_1, \ldots, \lambda_n)
+\end{align*}
+for some $p' \in k[X_1, \ldots, X_n]$. So if $f : V \to k$ is a polynomial in $(v_1, \ldots, v_n)$ then also in $(w_1, \ldots, w_n)$.
+
+
+\begin{rem}
+ If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
+\end{rem}
+
+
+\begin{lem}
+ There is an isomorphism of rings, even $k$-algebras
+ \[
+  \mc{P} \xlongrightarrow{\sim} k[X_1, \ldots, X_n]
+ \]
+ where $n = \dim V$.
+\end{lem}
+\begin{proof}
+ For $1 \leq j \leq n$ define the $j$-th coordinate function (with respect to the chosen basis) as
+ \[
+  \varphi_j : V \to k, \sum_{i=1}^n \lambda_i v_i \mapsto \lambda_j.
+ \]
+ By the universal property of the polynomial ring the assignment $X_j \to \varphi_j$ extends to a ring homomorphism
+ \[
+  \Phi: k[X_1, \ldots, X_n] \to \mc{P}(V), p \mapsto \Phi(p)
+ \]
+ where
+ \[
+  \Phi(p)\left(\sum_{i=1}^n \lambda_i v_i\right) = p(\lambda_1, \ldots, \lambda_n).
+ \]
+ Is it clear that $\Phi$ is surjective. It is left as an exercise to the reader to check that $\Phi$ is injective.
+\end{proof}
+
+
+\begin{lem}\leavevmode
+ \begin{enumerate}[a)]
+  \item
+   Assume $p \in k[X_1, \ldots, X_n]$ with $p(\lambda_1, \ldots, \lambda_n) = 0$ for all $(\lambda_1,\ldots,\lambda_n) \in k^n$. Then $p = 0$.
+  \item
+   The polynomial functions $\varphi_1, \ldots, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e. if $f(\varphi_1, \ldots, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
+ \end{enumerate}
+\end{lem}
+\begin{proof}\leavevmode
+ \begin{enumerate}[a)]
+  \item
+   We show this by induction over $n$.
+   
+   ($n = 1$) Let $p \in k[X_1]$ with $p(\lambda_1) = 0$ for all $\lambda_1 \in k$. Since $k$ is infinite $p$ has infinitely many zeroes. Therefore $p = 0$.
+   
+   ($n \geq 2$) Assume the claim holds for $n-1$ and $1$. Consider $p \in k[X_1, \ldots, X_n]$ with $p(\lambda_1, \ldots, \lambda_n) = 0$ for all $(\lambda_1, \ldots, \lambda_n) \in k^n$. We write $p$ as
+   \[
+    p = \sum_{i \in \N} f_i(X_1, \ldots, X_{n-1}) X_n^i
+   \]
+   with $f_i \in k[X_1, \ldots, X_{n-1}]$ for all $i \in \N$ and $f_i = 0$ for all but finitely many $i \in \N$. Let $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary. For all $\lambda_n \in k$ we have
+   \[
+    0 = p(\lambda_1, \ldots, \lambda_n) = \sum_{i \in \N} f_i(\lambda_1, \ldots, \lambda_{n-1}) \lambda_n^i
+   \]
+   By induction hypothesis we find that $f_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$. Because $(\lambda_1, \ldots, \lambda_{n-1})$ is fixed but arbitrary we can use the induction hypothesis to get that $f_i = 0$ for all $i \in \N$. So $p = 0$.
+  \item
+   Assume $f(\varphi_1, \ldots, \varphi_n) = 0$. Then
+   \[
+    0 = f(\varphi_1, \ldots, \varphi_n)\left(\sum_{i=1}^n \lambda_i v_i\right) = f(\lambda_1, \ldots, \lambda_n)
+   \]
+   for all $(\lambda_1, \ldots, \lambda_n) \in k^n$. Therefore $f = 0$ by part a). \qedhere
+ \end{enumerate}
+\end{proof}
+
+\begin{warn}
+ The assumption that $k$ is infinite is necessary. If, for example, $p = X^2+X \in \F_2[X]$, then $p(0) = p(1) = 0$, so $p(\lambda)=0$ for all $\lambda \in k$, but $p \neq 0$.
+\end{warn}
+
+
+\begin{cor}
+ The map $\Phi : k[X_1, \ldots, X_n] \to \mc{P}(V), X_j \mapsto \varphi_j$ is injective.
+\end{cor}
+
+
+Together with the exercise sheet we find that
+\[
+ \Phi : k[X_1, \ldots, X_n] \to \mc{P}(V), X_j \to \varphi_j
+\]
+is an isomorphism of $k$-algebras.
+
+
+\begin{rem}
+ For $k$ infinite we have an isomorphism of representations
+ \[
+  \Phi : k[X_1, \ldots, X_n] \to \mc{P}(k^n), X_i \mapsto \varphi_i,
+ \]
+ where $S_n$ acts on $k[X_1, \ldots, X_n]$ as usual by permuting the $X_i$ and on $\mc{P}(k^n)$ via
+ \[
+  (\sigma.f)(v) = f\left( \sigma^{-1}.v \right) \text{ for all } \sigma \in S_n, f \in \mc{P}(V), v \in k^n.
+ \]
+ We know that $\Phi$ is an isomorphism of $k$-vector spaces. It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \cdots X_n^{\alpha_n} \in k[X_1, \ldots, X_n]$ and $v = (\lambda_1, \ldots, \lambda_n) \in k^n$
+ \begin{align*}
+  \Phi(g.p)(v)
+  &= \Phi\left( X_{g(1)}^{\alpha_1} \cdots X_{g(n)}^{\alpha_n} \right)(v)
+  = \lambda_{g(1)}^{\alpha_1} \cdots \lambda_{g(n)}^{\alpha_n} \\
+  &= \Phi(p)( \lambda_{g(1)}, \ldots, \lambda_{g(n)} )
+  = \Phi(p)\left( g^{-1}.(\lambda_1, \ldots, \lambda_n) \right) \\
+  &= (g.\Phi(p))(\lambda_1, \ldots, \lambda_n).
+ \end{align*}
+\end{rem}
+
+
+\begin{defi}
+ $f \in \mc{P}(V)$ is homogeneous of degree $d \in \Z$ if $f(\lambda y) = \lambda^d f(y)$ for all $\lambda \in k, y \in V$. By definition the zero polynomial $f=0$ is homogeneous of degree $d$ for any $d \in \Z$. For $d \in \Z$ we set
+ \[
+  \mc{P}(V)_d := \{f \in \mc{P}(V) : f \text{ is homogeneous of degree } d\}.
+ \]
+\end{defi}
+
+
+\begin{lem}\leavevmode
+ \begin{enumerate}[a)]
+  \item
+   $\mc{P}(V)_d$ is a $k$-vector space for all $d \in \Z$ (via pointwise addition and scalar multiplication).
+  \item
+   If $f \in \mc{P}(V)_i$ and $g \in \mc{P}(V)_j$  then $fg \in \mc{P}(V)_{i+j}$, where the multiplication is given by pointwise multiplication.
+ \end{enumerate}
+\end{lem}
+\begin{proof}\leavevmode
+ \begin{enumerate}[a)]
+  \item For $f_1, f_2 \in \mc{P}(V)_d$ we have
+  \begin{align*}
+   (f_1+f_2)(\lambda v)
+   &= f_1(\lambda v) + f_2(\lambda v)
+   = \lambda^d f_1(v) + \lambda^d f_2(v) \\
+   &= \lambda^d (f_1(v) + f_2(v))
+   = \lambda^d (f_1 + f_2)(v)
+  \end{align*}
+  for all $\lambda \in k, v \in V$, so $f_1 + f_2 \in \mc{P}(V)_d$. If $f \in \mc{P}(V)$ and $\mu \in k$ then
+  \[
+   (\mu f)(\lambda v) = \mu f(\lambda v) = \lambda^d \mu f(v) = \lambda^d (\mu f)(v),
+  \]
+  so $\mu f \in \mc{P}(V)_d$.
+  \item
+  For all $\lambda \in k$ we have for all $v \in V$
+  \[
+   fg(\lambda v)
+   = f(\lambda v) g(\lambda v)
+   = \left(\lambda^i f(v)\right)\left(\lambda^j g(v)\right)
+   = \lambda^{i+j} f(v) g(v)
+   = \lambda^{i+j} (fg)(v),
+  \]
+  and therefore $fg \in \mc{P}(V)_{i+j}$. \qedhere
+ \end{enumerate}
+\end{proof}
+
+This shows that $\mc{P}(V)$ is a graded algebra via
+\[
+  \mc{P}(V) = \bigoplus_{d \in \Z} \mc{P}(V)_d.
+\]
+This grading can be seen as inherted from $k[X_1, \ldots, X_n]$ via the isomorphism $\Phi$. Since
+\[
+ (\lambda X_1)^{\alpha_1} \cdots (\lambda X_n)^{\alpha_n}
+ = \lambda^{\sum_{i=1}^n \alpha_i} X_1^{\alpha_1} \cdots X_n^{\alpha_n}
+\]
+we obtain that a monomial of degree $d$ corresponds to a polynomial function $\Phi(p) \in \mc{P}(V)$ which is homogeneous of degree $d$.
 
 
 
