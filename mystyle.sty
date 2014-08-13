@@ -29,7 +29,7 @@
 % das Aussehen der Seitenheader und Seitenzahlanzeige
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{%
- \markboth{\Roman{chapter}. \MakeUppercase{#1}}{}%
+ \markboth{\arabic{chapter}. \MakeUppercase{#1}}{}%
 }
 \fancyhead{}
 \fancyhead[LO]{\slshape \leftmark}
@@ -57,7 +57,6 @@
 \newtheorem*{warn}{Warning}
 
 % Kapitelzahl in römischen Ziffern
-\renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand{\thedefi}{\arabic{chapter}.\arabic{defi}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
