@@ -116,6 +116,110 @@ Therefore
 for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
 
 
+\begin{thrm}
+ Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation, i.e.
+ \[
+  S.A = SAS^{-1}
+ \]
+ for all $A \in \Mat_n(k)$ and $S \in \GL_n(k)$. Then $s_1, \ldots, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent. Therefore
+ \[
+  \mc{P}(\Mat_n(k))^{\GL_n(k)} \cong k[X_1, \ldots, X_n] \text{ via } s_i \mapsfrom X_i.
+ \]
+\end{thrm}
+\begin{proof}
+ We already know that $s_1, \ldots, s_n \in \mc{P}(\Mat_n(k))$. That $s_1, \ldots, s_n$ are $\GL_n(k)$-invariant directly follows from the fact that the characteristic polynomial of a matrix is invariant under conjugation.
+ 
+ Next we show that $s_1, \ldots, s_n$ are algebraically independent. For this let $p \in k[X_1, \ldots, X_n]$ with $p(s_1, \ldots, s_n) = 0$. This means that
+ \[
+  p(s_1, \ldots, s_n)(A) = 0 \text{ for all } A \in \Mat_n(k).
+ \]
+ For
+ \[
+  D := \{\diag(d_1, \ldots, d_n) \mid d_1, \ldots, d_n \in k\}
+ \]
+ we therefore have
+ \[
+  p(s_1, \ldots, s_n)(A) = 0 \text{ for all } A \in D.
+ \]
+ By the observations above this means that 
+ \[
+  p(e_1, \ldots, e_n)(d_1, \ldots, d_n) = 0 \text{ for all } d_1, \ldots, d_n \in k.
+ \]
+ Because $k$ is infinite this mean that $p(e_1, \ldots, e_n) = 0$. Since $e_1, \ldots, e_n$ are algebraically independent we find that $p =0$.
+ 
+ All that’s left to show is that $s_1, \ldots, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra. For this let $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$. Because $f$ is a polynomial map there exists $p \in k[X_{11}, \ldots, X_{nn}]$ such that
+ \[
+  f(A) = p(a_{11}, \ldots, a_{nn}) \text{ for all } A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k).
+ \]
+ We define $\bar{p} \in k[t_1, \ldots, t_n]$ as $\bar{p} := \varphi(p)$ where
+ \[
+  \varphi : k[X_{11}, \ldots, X_{nn}] \to k[t_1, \ldots, t_n]
+ \]
+ is the algebra homomorphism defined by
+ \[
+  \varphi(X_{ij}) =
+  \begin{cases}
+   t_i & \text{if } i = j, \\
+     0 & \text{otherwise}.
+  \end{cases}
+ \]
+ By definition of $\bar{p}$ we have
+ \[
+  f(\diag(d_1, \ldots, d_n)) = \bar{p}(d_1, \ldots, d_n) \text{ for all } d_1, \ldots, d_n \in k.
+ \]
+ 
+ We claim that $\bar{p}$ is symmetric, i.e. $\bar{p} \in k[t_1, \ldots, t_n]^{S_n}$. Since $k$ is infinite we have the usual $S_n$-equivariant algebra isomorphism
+ \[
+ \Phi: k[t_1, \ldots, t_n] \to \mc{P}(k^n).
+ \]
+ Thus it is enough to show that the corresponding polynomial function $\Phi(\bar{p})$ is $S_n$-invariant. This follows from the fact that $f$ is $\GL_n(k)$-invariant: For all $\pi \in S_n$ we define the corresponding permutation matrix $A_\pi \in \GL_n(k)$ via
+ \[
+  A_\pi e_i = e_{\pi(i)}.
+ \]
+ For all $\pi \in S_n$ and $d_1, \ldots, d_n \in k$ we then have
+ \[
+  A_\pi \diag(d_1, \ldots, d_n) A_\pi^{-1}
+  = \diag\left(d_{\pi^{-1}(1)}, \ldots, d_{\pi^{-1}(n)}\right).
+ \]
+ Therefore we have for all $\pi \in S_n$ and $(d_1, \ldots, d_n) \in k^n$
+ \begin{align*}
+  &\,(\pi.\Phi(\bar{p}))((d_1, \ldots, d_n)) \\
+  =&\, \Phi(\bar{p})\left(\pi^{-1}.(d_1, \ldots, d_n)\right)
+  = \Phi(\bar{p})\left(\left(d_{\pi(1)}, \ldots, d_{\pi(n)}\right)\right) \\
+  =&\, \bar{p}\left(d_{\pi(1)}, \ldots, d_{\pi(n)}\right)
+  = f\left(\diag\left(d_{\pi(1)}, \ldots, d_{\pi(n)}\right)\right) \\
+  =&\, f\left(A_{\pi^{-1}} \diag(d_1, \ldots, d_n) A_\pi\right)
+  = f\left(A_\pi^{-1} \diag(d_1, \ldots, d_n) A_\pi\right) \\
+  =&\, f\left(A_\pi^{-1}.\diag(d_1, \ldots, d_n)\right)
+  = (A_\pi.f)(\diag(d_1, \ldots, d_n)) \\
+  =&\, f(\diag(d_1, \ldots, d_n))
+  = \bar{p}(d_1, \ldots, d_n) \\
+  =&\, \Phi(\bar{p})((d_1, \ldots, d_n)).
+ \end{align*}
+ This shows that $\Phi(\bar{p})$ is $S_n$-equivariant. So $\bar{p}$ is symmetric.
+ 
+ Since $e_1, \ldots, e_n$ generate $k[t_1, \ldots, t_n]^{S_n}$ there exists $q \in k[X_1, \ldots, X_n]$ such that
+ \[
+  \bar{p} = q(e_1, \ldots, e_n),
+ \]
+ therefore
+ \begin{align*}
+  f(\diag(d_1, \ldots, d_n))
+  &= q(e_1, \ldots, e_n)(d_1, \ldots, d_n) \\
+  &= q(s_1, \ldots, s_n)(\diag(d_1, \ldots, d_n))
+ \end{align*}
+ for all $d_1, \ldots, d_n \in k$. This show that $f-q(s_1, \ldots, s_n) = 0$ when restricted to $D$.
+ 
+ \begin{claim}[Zariski density property 2]
+  If $h \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ (where $\GL_n(k)$ acts on $\Mat_n(k)$ by conjugation) and $h_{|D} = 0$ then $h = 0$.
+ \end{claim}
+
+ From this claim and the results so far we find that $f - q(s_1, \ldots, s_n) = 0$ and thus $f = q(s_1, \ldots, s_n)$. (As before we will leave the proof of the claim for later and end this proof here.)
+\end{proof}
+
+
+
+
 
 
 
