@@ -278,7 +278,6 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \end{expl}
 
 
-
 \begin{lem}
  Let $k$ be a infinite field and $L/k$ a field extension. Then the subset $k^n \subseteq L^n$ is Zariski dense in the $L$-vector space $L^n$ for all $n \geq 1$.
 \end{lem}
@@ -297,6 +296,25 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  \]
  Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes). Because $L$ is infinite this means that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$. Since $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $\lambda_1, \ldots, \lambda_{n-1} \in k$ for every $i \in \N$. By using the induction hypothesis we find that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \ldots, \lambda_{n-1} \in L$. Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$. Therefore $p = 0$ and $f = 0$.
 \end{proof}
+
+
+\begin{lem}
+ Let $W$ be a finite-dimensional $k$-vector space for an infinite field $k$. Let $h \in \mc{P}(W)$ with $h \neq 0$ and
+ \[
+  W_h := \{w \in W \mid h(w) \neq 0\}.
+ \]
+ Then $W_h$ is Zariski dense (in $W$).
+\end{lem}
+\begin{proof}
+ Let $f \in \mc{P}(W)$ with $f_{|W_h} = 0$. Then
+ \[
+  (fh)(w) = f(w)h(w) = 0
+ \]
+ for all $w \in W$, so $fh = 0$. Since $\mc{P}(W) \cong k[X_1, \ldots, X_{\dim W}]$ we know that $\mc{P}(W)$ is an integral domain. Since $h \neq 0$ and $fh = 0$ it follows that $f = 0$.
+\end{proof}
+
+
+
 
 
 
