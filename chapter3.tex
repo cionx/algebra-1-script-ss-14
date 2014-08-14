@@ -234,6 +234,38 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \end{align*}
 
 
+\begin{thrm}
+ Let $n \geq 1$ and let $k$ be an infinite field with either $\kchar k = 0$ or $\kchar k > n$. Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation. Then $\tr_1, \ldots, \tr_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent, i.e.
+ \[
+  \mc{P}(\Mat_n(k))^{\GL_n(k)} \cong k[X_1, \ldots, X_n] \text{ via } \tr_i \mapsfrom X_i.
+ \]
+\end{thrm}
+\begin{proof}
+ As before let 
+ \[
+  D := \{\diag(d_1, \ldots, d_n) \mid d_1, \ldots, d_n \in k\}.
+ \]
+ For every diagonal matrix $\diag(d_1, \ldots, d_n) \in D$ we have
+ \[
+  \tr_m(\diag(d_1, \ldots, d_n)) = d_1^m + \ldots + d_n^m = p^{(n)}_m(d_1, \ldots, d_n)
+ \]
+ for all $m \geq 0$. Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that $p^{(n)}_1, \ldots, p^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
+ 
+ Using these observations we can now prove the theorem by simpley copying the proof of the previous theorem and replacing $s_i$ with $\tr_i$ and $e_i$ with $p_i$.
+ \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
