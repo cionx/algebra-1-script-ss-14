@@ -218,6 +218,24 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
 \end{proof}
 
 
+Another ``famous'' family of polynomial functions in $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ (where $\GL_n(k)$ acts on $\Mat_n(k)$ by conjugation) are the so called power traces. The $m$-th power trace is defined as
+\[
+ \tr_m : \Mat_n(k) \to k, A \mapsto \tr A^m.
+\]
+for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and that $\tr_m$ is $\GL_n(k)$-invariant follows from the fact that for all $S \in \GL_n(k)$ and $A \in \Mat_n(k)$
+\begin{align*}
+ \left(S.\tr_m\right)(A)
+ &= \tr_m\left(S^{-1}.A\right)
+ = \tr_m\left(S^{-1} A S\right) \\
+ &= \tr \left(S^{-1} A S\right)^m
+ = \tr \left(S^{-1} A^m S\right) \\
+ &= \tr A^m
+ = \tr_m(A).
+\end{align*}
+
+
+
+
 
 
 
