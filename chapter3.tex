@@ -252,9 +252,45 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  for all $m \geq 0$. Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that $p^{(n)}_1, \ldots, p^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
  
  Using these observations we can now prove the theorem by simpley copying the proof of the previous theorem and replacing $s_i$ with $\tr_i$ and $e_i$ with $p_i$.
- \end{proof}
+\end{proof}
 
 
+
+
+
+\section{Zariski dense subsets}
+
+
+\begin{defi}
+ Let $W$ be a finite-dimensional $k$-vector space. A subset $X \subseteq W$ is called Zariski dense if for any $f \in \mc{P}(W)$ we have
+ \[
+  f_{|X} = 0 \Rightarrow f = 0.
+ \]
+ If $X \subseteq Y \subseteq W$ then $X$ is Zariski dense in $Y$ if for all $f \in \mc{P}(W)$
+ \[
+  f_{|X} = 0 \Rightarrow f_{|Y} = 0.
+ \]
+\end{defi}
+
+
+\begin{lem}
+ Let $k$ be a infinite field and $L/k$ a field extension. Then the subset $k^n \subseteq L^n$ is Zariski dense in the $L$-vector space $L^n$ for all $n \geq 1$.
+\end{lem}
+\begin{proof}
+ We show the statement by induction over $n$.
+ 
+ ($n = 1$) For $f \in \mc{P}(L)$ with $f_{|k} = 0$ the corresponding polynomial $p \in L[X]$ (i.e. $f(\lambda) = p(\lambda)$ for all $\lambda \in L$) has infintely many zeroes. So $p = 0$ and therefore $f = 0$.
+ 
+ ($n \geq 2$) Suppose the statement holds for $n-1$. Let $f \in \mc{P}\left(L^n\right)$ with $f_{|k^n} = 0$. Because $f$ is a polynomial function there exists $p \in L[X_1, \ldots, X_n]$ with $f((\lambda_1, \ldots, \lambda_n)) = p(\lambda_1, \ldots, \lambda_n)$ for all $(\lambda_1, \ldots, \lambda_n) \in L^n$. We can write $p$ as
+ \[
+  p(X_1, \ldots, X_n) = \sum_{i \in \N} p_i(X_1, \ldots, X_{n-1}) X_n^i
+ \]
+ with $p_i \in L[X_1, \ldots, X_{n-1}]$ for all $i \in \N$ and $p_i \neq 0$ for only finitely many $i \in \N$. Let $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary and $\bar{p} \in L[X_n]$ be defined as
+ \[
+  \bar{p}(X_n) := p(\lambda_1, \ldots, \lambda_{n-1}, X_n) = \sum_{i \in \N} p_i(\lambda_1, \ldots, \lambda_{n-1}) X_n^i.
+ \]
+ Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes). Because $L$ is infinite this means that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$. Since $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $\lambda_1, \ldots, \lambda_{n-1} \in k$ for every $i \in \N$. By using the induction hypothesis we find that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \ldots, \lambda_{n-1} \in L$. Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$. Therefore $p = 0$ and $f = 0$.
+\end{proof}
 
 
 
