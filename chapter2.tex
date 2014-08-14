@@ -1036,6 +1036,27 @@ This definition does not depend on the chosen basis. If $(w_1, \ldots, w_n)$ is 
 \end{align*}
 for some $p' \in k[X_1, \ldots, X_n]$. So if $f : V \to k$ is a polynomial in $(v_1, \ldots, v_n)$ then also in $(w_1, \ldots, w_n)$.
 
+This has the effect that the restriction of a polynomial function to a vector subspace is again a polynomial function.
+
+\begin{lem}
+ Let $V$ be a finite-dimensional $k$-vector space and $U \subseteq V$ a vector subspace. Then for every polynomial function $f \in \mc{P}(V)$ we have $f_{|U} \in \mc{P}(U)$.
+\end{lem}
+\begin{proof}
+ Let $v_1, \ldots, v_n, v_{n+1}, \ldots, v_m$ be a $k$-basis of $V$ such that $v_1, \ldots, v_n$ is a $k$-basis of $U$. Because $f \in \mc{P}(V)$ there exist some $p \in k[X_1, \ldots X_m]$ with
+ \[
+  f\left( \sum_{i=1}^m \lambda_i v_i \right) = p(\lambda_1, \ldots, \lambda_m)
+ \]
+ for all $\lambda_1, \ldots, \lambda_m \in k$. For
+ \[
+  \bar{p} := p(X_1, \ldots, X_n, 0, \ldots, 0) \in k[X_1, \ldots, X_n]
+ \]
+ we thus have
+ \[
+  f\left( \sum_{i=1}^n \lambda_i v_i \right) = \bar{p}(\lambda_1, \ldots, \lambda_n)
+ \]
+ for all $\lambda_1, \ldots, \lambda_n \in k$. Since $v_1, \ldots, v_n$ is a $k$-basis of $U$ this is equivalent to $f_{|U} \in \mc{P}(U)$.
+\end{proof}
+
 
 \begin{rem}
  If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
