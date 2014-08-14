@@ -5,7 +5,7 @@
 
 
 \section{Invariants for matrix actions}
-For this section we fix an infinte field $k$.
+For this section we require all fields to be infinite.
 
 
 \begin{thrm}
@@ -95,13 +95,13 @@ For this section we fix an infinte field $k$.
 
 Recall from linear algebra that the characteristic polynomial of a matrix $A \in \Mat_n(k)$ is defined as
 \[
- \chi_A(t) = \det(t E_n - a)
+ \chi_A(t) = \det(t E_n - A)
 \]
 where $E_n \in \Mat_n(k)$ is the identity matrix, and that this results in
 \[
- \chi_A(t) = t^n - s_{n-1}(A) t^{n-1} + s_{n-2}(A) t^{n-2} + \ldots + (-1)^n s_0
+ \chi_A(t) = t^n - s_1(A) t^{n-1} + s_2(A) t^{n-2} + \ldots + (-1)^n s_n(A)
 \]
-where $s_0, \ldots, s_{n-1} \in \mc{P}(\Mat_n(k))$. In particular $s_0 = \det$ and $s_{n-1} = \tr$.
+where $s_1, \ldots, s_n \in \mc{P}(\Mat_n(k))$. In particular $s_1 = \tr$ and $s_n = \det$.
 
 In the case that $A$ is a diagonal matrix $A = \diag(d_1, \ldots, d_n)$ we have
 \[
@@ -111,9 +111,9 @@ In the case that $A$ is a diagonal matrix $A = \diag(d_1, \ldots, d_n)$ we have
 \]
 Therefore
 \[
- s_i(\diag(d_1, \ldots, d_n)) = e_{n-i}(\diag(d_1, \ldots, d_n))
+ s_i(\diag(d_1, \ldots, d_n)) = e_i(\diag(d_1, \ldots, d_n))
 \]
-for all $0 \leq i \leq n-1$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
+for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
 
 
 
