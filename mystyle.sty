@@ -5,11 +5,11 @@
 \usepackage{mathtools}
 \usepackage{stmaryrd} %für \mapsfrom
 \usepackage{extarrows} %für \xlongequal
-\usepackage[centertableaux,boxsize=1.2em]{ytableau}
-\usepackage{color}
+\usepackage[centertableaux,boxsize=1.2em]{ytableau} % für Young-Diagramme
+\usepackage{color} % für Farben
 \usepackage{tikz} %für Diagrame
 \usetikzlibrary{positioning}
-\usetikzlibrary{external}
+\usetikzlibrary{external} %lagert TikZ-Bilder aus um die Kompilierzeit zu verringern
 \tikzexternalize[prefix=tikz/]
 \tikzset{external/system call={%
   xelatex \tikzexternalcheckshellescape
@@ -56,11 +56,12 @@
 \newtheorem*{note}{Note}
 \newtheorem*{warn}{Warning}
 
-% Kapitelzahl in römischen Ziffern
+% Ausgabe für diverse Counter
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand{\thedefi}{\arabic{chapter}.\arabic{defi}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 
+% Kategoriennamen
 \newcommand{\catname}[1]{\mathbf{#1}}
 \newcommand{\cGsets}[1]{\ensuremath{#1\text{-}\catname{Sets}}}
 \newcommand{\cRep}[2]{\ensuremath{\catname{Rep}^#1_#2}} %first argument is the field k, the second the group G
@@ -68,6 +69,7 @@
 \newcommand{\cAlg}[1]{\ensuremath{#1\text{-}\catname{Alg}}}
 \newcommand{\cpol}[1]{\ensuremath{#1\text{-}\catname{pol}}}
 
+% typische Zahlenbereiche
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -75,8 +77,10 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 
+% Abkürzungen für häufig benutzte Befehle
 \newcommand{\mc}{\mathcal}
 
+% Makros für bestimmte Räume
 \DeclareMathOperator{\Maps}{Maps}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Pol}{Pol}
@@ -88,20 +92,23 @@
 \DeclareMathOperator{\Par}{Par}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\vspan}{span}
 \DeclareMathOperator{\gr}{gr}
 
+% Makros für bestimmte Funktionen
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\can}{can}
 \DeclareMathOperator{\init}{init}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\kchar}{char}
 \DeclareMathOperator{\diag}{diag}
 
+% Makros für Operatoren
 \newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
-\DeclareMathOperator{\vspan}{span}
-\DeclareMathOperator{\kchar}{char}
 
+% Zeugs das Argumente übernimmt
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
