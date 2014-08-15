@@ -1,0 +1,1 @@
+\begingroup \toks 0={macro:->[node distance = 6em, auto] \node (V) {$V$}; \node (V_L) [below left of = V] {$V_L$}; \node (V') [below right of = V] {$V'$}; \draw [->] (V) to node[swap] {$\can _V$} (V_L); \draw [->] (V) to node {$\iota $} (V'); \draw [->] (V_L) to node {$\phi $} (V'); }\xdef \tikzexternallastkey {\the \toks 0 }\endgroup %
