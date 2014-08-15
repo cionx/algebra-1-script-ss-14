@@ -150,21 +150,21 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
  
  First we notice that
  \[
-  \Hom_L(V_L, V_L) \cong \Hom_k(V, V_L), f \mapsto f \circ \can.
+  \Hom_L(V_L, V_L) \cong \Hom_k(V, V_L), f \mapsto f \circ \can_V.
  \]
- Therefore there exists exactly one $f \in \Hom_L(V_L, V_L)$ with $f \circ \can = \can$. It is clear that $f = \id_{V_L}$. In the same way we find that $g \in \Hom_L(V', V')$ with $g \circ \iota = \iota$ if and only if $g = \id_{V'}$.
+ Therefore there exists exactly one $f \in \Hom_L(V_L, V_L)$ with $f \circ \can_V = \can_V$. It is clear that $f = \id_{V_L}$. In the same way we find that $g \in \Hom_L(V', V')$ with $g \circ \iota = \iota$ if and only if $g = \id_{V'}$.
  
  Next we notice that
  \[
-  \Hom_L(V_L, V') \cong \Hom_k(V, V'), f \mapsto f \circ \can.
+  \Hom_L(V_L, V') \cong \Hom_k(V, V'), f \mapsto f \circ \can_V.
  \]
- Therefore there exists a unique $L$-linear map $\phi \in \Hom_L(V_L, V')$ such that \mbox{$\iota = \phi \circ \can$}. All that’s left to check is that $\phi$ is an isomorphism. For this we find in same way that there exists a unique $L$-linear map $\psi \in \Hom_L(V', V_L)$ with $\can = \psi \circ \iota$. Since
+ Therefore there exists a unique $L$-linear map $\phi \in \Hom_L(V_L, V')$ such that \mbox{$\iota = \phi \circ \can_V$}. All that’s left to check is that $\phi$ is an isomorphism. For this we find in same way that there exists a unique $L$-linear map $\psi \in \Hom_L(V', V_L)$ with $\can_V = \psi \circ \iota$. Since
  \[
-  \phi \psi \circ \iota = \phi \circ \can = \iota
+  \phi \psi \circ \iota = \phi \circ \can_V = \iota
  \]
  as well as
  \[
-  \psi \phi \circ \can = \psi \circ \iota = \can
+  \psi \phi \circ \can_V= \psi \circ \iota = \can_V
  \]
  we find by the previous observations that $\phi \psi = \id_{V'}$ and $\psi \phi = \id_{V_L}$.
 \end{proof}
