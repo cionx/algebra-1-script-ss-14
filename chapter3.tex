@@ -376,6 +376,43 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \end{proof}
 
 
+\begin{prop}
+ Let $k$ be an algebraically closed field and
+ \[
+  \Diag_n(k) := \{A \in \Mat_n(k) \mid \text{$A$ is diagonalizable}\}.
+ \]
+ Then $\Diag_n(k)$ is Zariski-dense in $\Mat_n(k)$.
+\end{prop}
+\begin{proof}
+ Let $f \in \mc{P}(\Mat_n(k))$ with $f_{|\Diag_n(k)} = 0$ and $A \in \Mat_n(k)$. Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1, \ldots, b_n$ (not necessarily pairwise distinct).
+ 
+ Let $a_1, \ldots, a_n \in k^\times$ be pairwise different (this is possible since $k$ is infinite). We define
+ \[
+  D : k \to \Mat_n(k), z \mapsto
+  \begin{pmatrix}
+   a_1 z &       &        &       \\
+         & a_2 z &        &       \\
+         &       & \ddots &       \\
+         &       &        & a_n z
+  \end{pmatrix}.
+ \]
+ We also set
+ \[
+  M : k \to \Mat_n(k), z \mapsto SAS^{-1} + D(z)
+ \]
+ and
+ \[
+  \varphi : k \to \Mat_n(k), z \mapsto S^{-1} M(z) S = S^{-1}(SAS^{-1}+D(z))S.
+ \]
+ Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z, \ldots, b_n + a_n z$ for all $z \in \C$. It is easy to see that these eigenvalues are distinct for all but finitely many $z \in \C$ (since for all $1 \leq i < j \leq n$ there exists exactly one $z_{ij} \in \C$ with $b_i + a_i z_{ij} = b_j + a_j z_{ij}$). Therefore $\varphi(z)$ is diagonalizable for all but finitely many $z \in \C$.
+ 
+ Since $f_{|\Diag_n(k)} = 0$ it follows that $(f \circ \varphi)(z) = 0$ for all but finitely many $z \in \C$. Therefore $f \circ \varphi = 0$. In particular
+ \[
+  f(A) = f(\varphi(0)) = (f \circ \varphi)(0) = 0.
+ \]
+\end{proof}
+
+
 
 
 
