@@ -48,7 +48,7 @@ For any $k$-vector space $V$ we have a $k$-linear inclusion
  \]
  This property defines $V_L$ uniquely up to unique isomorphsm: If $V'$ is an $L$-vector space and $\iota : V \to V'$ a $k$-linear map such that
  \[
-  \iota_W : \Hom_L(V', W) \to \Hom_k(V,W), f \mapsto f \circ \iota
+  \alpha_W : \Hom_L(V', W) \to \Hom_k(V,W), f \mapsto f \circ \iota
  \]
  is an isomorphism of $k$-vector spaces for every $L$-vector space $W$ then there exists a unique isomorphism of $L$-vector spaces
  \[
@@ -84,6 +84,90 @@ as well as $F_2(W) := \Hom_k(V,W)$ for every $L$-vector space $W$ and for every 
 The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$, i.e. they form a natural transformation from $F_1$ to $F_2$ and $\beta_W$ is an isomorphism for every $L$-vector space $W$.
 
 
+\begin{proof}
+ We will start by proving that $\beta_W$ is an isomorphism of $k$-vector spaces for every $L$-vector space $W$. For this we fix an $L$-vector space $W$. It is clear that $\Phi := \beta_W$ is well-defined and $k$-linear. To show that $\Phi$ is an isomorphism we will construct an inverse as
+ \[
+  \Psi : \Hom_k(V,W) \to \Hom_L(V_L, W), g \mapsto \left( (\lambda \otimes v) \mapsto \lambda g(v) \right).
+ \]
+ That $\Psi(g)$ is well-defined and $k$-linear for every $g \in \Hom_k(V,W)$ follows from the fact that the map
+ \[
+  L \times V \to W, (\lambda, v) \mapsto \lambda g(v)
+ \]
+ is well-defined and $k$-bilinear. That $\Psi(g)$ is also $L$-linear is clear. That $\Psi$ itself is also $k$-linear is also clear.
+ 
+ Since for all $f \in \Hom_L(V_L,W), \lambda \in L, v \in V$
+ \begin{align*}
+   &\,(\Psi \Phi)(f)(\lambda \otimes v) \\
+  =&\,\Psi(\Phi(f))(\lambda \otimes v)
+  =   \Psi(f \circ \can_V)(\lambda \otimes v) \\
+  =&\,\lambda (f \circ \can_V)(v)
+  =   \lambda f(\can_V(v)) \\
+  =&\,\lambda f(1 \otimes v)
+  =   f (\lambda \otimes v)
+ \end{align*}
+ we have $\Psi \Phi = \id_{\Hom_L(V_L, W)}$ and since for all $g \in \Hom_k(V,W), v \in V$
+ \begin{align*}
+  (\Phi \Psi)(g)(v)
+  &= \Phi(\Psi(g))(v)
+  = (\Psi(g) \circ \can_V)(v) \\
+  &= \Psi(g)(\can_V(v))
+  = \Psi(g)(1 \otimes v) \\
+  &= g(v)
+ \end{align*}
+ we have $\Phi \Psi = \id_{\Hom_k(V,W)}$.
+ 
+ Next we will show that the $\beta_W$ are natural isomorphisms. For this we need to check that for all $L$-vector spaces $W$ and $W'$ and every $L$-linear map \mbox{$f : W \to W'$} the diagram
+ \begin{center}
+  \tikzsetnextfilename{naturalisomorphism}
+  \begin{tikzpicture}[node distance = 6em, auto]
+   \node (HomLW) {$\Hom_L(V_L, W)$};
+   \node (HomLW') [right = 6em of HomLW] {$\Hom_L(V_L, W')$};
+   \node (HomkW) [below of = HomLW] {$\Hom_k(V,W)$};
+   \node (HomkW') [below of = HomLW'] {$\Hom_k(V,W')$};
+   \draw[->] (HomLW) to node {$F_1(f)$} (HomLW');
+   \draw[->] (HomkW) to node[swap] {$F_2(f)$} (HomkW');
+   \draw[->] (HomLW) to node[swap] {$\beta_W$} (HomkW);
+   \draw[->] (HomLW') to node {$\beta_{W'}$} (HomkW');
+  \end{tikzpicture}
+ \end{center}
+ commutes, where $F_1$ and $F_2$ are defined as in the previous explanation. This is clear, since $F_1(f)$ and $F_2(f)$ are precomposing with $f$ and $\beta_W$ and $\beta_{W'}$ are composing with $\can_V$, and therefore for all $h \in \Hom_L(V_L, W)$
+ \begin{align*}
+   &\, (F_2(f) \circ \beta_W)(h)
+  =    F_2(f)(\beta_W(h)) \\
+  =&\, F_2(f)(h \circ \can_V)
+  =    f \circ (h \circ \can_V) \\
+  =&\, (f \circ h) \circ \can_V
+  =    \beta_{W'}(f \circ h) \\
+  =&\, \beta_{W'}(F_1(f)(h))
+  =    (\beta_{W'} \circ F_1(f))(h).
+ \end{align*}
+ 
+ All that’s left to show is that property defines $V_L$ uniquely up to unique isomorphism. To prove this let $V'$ be an $L$-vector space together with a $k$-linear map $\iota : V \to V'$ such that for every $L$-vector space $W$ the map
+ \[
+  \alpha_W : \Hom_L(V', W) \to \Hom_k(V, W), f \mapsto f \circ \iota
+ \]
+ is an isomorphism of $k$-vector spaces.
+ 
+ First we notice that
+ \[
+  \Hom_L(V_L, V_L) \cong \Hom_k(V, V_L), f \mapsto f \circ \can.
+ \]
+ Therefore there exists exactly one $f \in \Hom_L(V_L, V_L)$ with $f \circ \can = \can$. It is clear that $f = \id_{V_L}$. In the same way we find that $g \in \Hom_L(V', V')$ with $g \circ \iota = \iota$ if and only if $g = \id_{V'}$.
+ 
+ Next we notice that
+ \[
+  \Hom_L(V_L, V') \cong \Hom_k(V, V'), f \mapsto f \circ \can.
+ \]
+ Therefore there exists a unique $L$-linear map $\phi \in \Hom_L(V_L, V')$ such that \mbox{$\iota = \phi \circ \can$}. All that’s left to check is that $\phi$ is an isomorphism. For this we find in same way that there exists a unique $L$-linear map $\psi \in \Hom_L(V', V_L)$ with $\can = \psi \circ \iota$. Since
+ \[
+  \phi \psi \circ \iota = \phi \circ \can = \iota
+ \]
+ as well as
+ \[
+  \psi \phi \circ \can = \psi \circ \iota = \can
+ \]
+ we find by the previous observations that $\phi \psi = \id_{V'}$ and $\psi \phi = \id_{V_L}$.
+\end{proof}
 
 
 
