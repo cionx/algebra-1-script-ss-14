@@ -337,6 +337,35 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \end{proof}
 
 
+\begin{lem}
+ Let $W$ be a finite-dimensional representation of a group $G$ and $f \in \mc{P}(W)^G$.
+ \begin{enumerate}[a)]
+  \item
+  Let $X \subseteq W$ such that $f_{|X} = 0$ and
+  \[
+   G.X = \{g.x \mid g \in G, x \in X\}
+  \]
+  is Zariski-dense in $W$. Then $f = 0$.
+  \item
+  If there is a Zariski dense $G$-orbit then $f$ is constant.
+ \end{enumerate}
+\end{lem}
+\begin{proof}\leavevmode
+ \begin{enumerate}[a)]
+  \item
+  Since $f$ is $G$-equivariant it follows that $f_{|G.X} = 0$, since for all $g \in G$ and $x \in X$
+  \[
+   f(g.x) = \left(g^{-1}.f\right)(x) = f(x) = 0.
+  \]
+  Because $G.X$ is Zariski dense in $W$ it further follows that $f = 0$.
+  \item
+  Let $x \in X$ such that $G.x$ is Zariski dense in $W$. Since $f$ is $G$-equivariant it is constant on $G$-orbits. Therefore $f-f(x)$ vanishes on the Zariski dense $G$-orbit $G.x$. Therefore $f-f(x) = 0$ and $f = f(x)$.
+ \end{enumerate}
+\end{proof}
+
+
+
+
 
 
 
