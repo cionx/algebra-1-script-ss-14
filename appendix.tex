@@ -170,6 +170,39 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
 \end{proof}
 
 
+Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-basis of $V_L$. In particular $\dim_k V = \dim_L V_L$.
+
+
+\begin{lem}
+ Let $V$ be a $k$-vector space and $(v_i)_{i \in I}$ a $k$-basis of $V$. Then $(1 \otimes v_i)_{i \in I}$ is an $L$-basis of $V_L$.
+\end{lem}
+\begin{proof}
+ First we show that $(1 \otimes v_i)_{i \in I}$ is linearly independent. For this let $F$ be the free vector space of $I$ over $L$ and $e_i \in F$ the element corresponding to $i \in I$. Because $(v_i)_{i \in I}$ is a $k$-basis of $V$ there exists an unique $k$-linear map $f : V \to F$ with $f(v_i) = e_i$ for all $i \in I$. By the universal property of extension of scalars there exists a unique $L$-linear map $g : V_L \to F$ with $g \circ \can_V = f$ and therefore
+ \[
+  g(1 \otimes v_i) = (g \circ \can_V)(v_i) = f(v_i) = e_i
+ \]
+ for all $i \in I$. Since $(e_i)_{i \in I}$ is linearly independent it follows that $(1 \otimes v_i)_{i \in I}$ is linearly independent.
+ 
+ To show that $\{1 \otimes v_i\}_{i \in I}$ generates $V_L$ we notice that
+ \[
+  \vspan_k \{1 \otimes v_i\}_{i \in I}
+  = \im \can_V
+  = \{1 \otimes v \mid v \in V\}.
+ \]
+ Since the simple tensors (i.e. the tensors $\lambda \otimes v$ with $\lambda \in L$ and $v \in V$) generate $V_L$ and $\lambda \otimes v = \lambda(1 \otimes v)$ for all $\lambda \in L, v \in V$ we find that
+ \begin{align*}
+  V_L
+  &= \vspan_L \{\lambda \otimes v \mid \lambda \in L, v \in V\}
+  = \vspan_L \{1 \otimes v \mid v \in V\} \\
+  &= \vspan_L \vspan_k \{1 \otimes v_i \mid i \in I\}
+  = \vspan_L \{1 \otimes v_i \mid i \in I\}.
+ \end{align*}
+ Therefore $\{1 \otimes v_i\}_{i \in I}$ generate $V_L$.
+\end{proof}
+
+
+
+
 
 
 
