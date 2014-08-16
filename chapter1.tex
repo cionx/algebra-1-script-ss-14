@@ -249,6 +249,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 \begin{lem}
  Let $X$ be a $G$-set, $k$ a field or a ring. Then $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if the following diagram commutes.
+ \tikzsetnextfilename{invariant_functions_factor_through_orbits}
  \begin{center}
  \begin{tikzpicture}[node distance = 2cm, auto]
   \node (A) {$A$};
@@ -623,6 +624,7 @@ For a $k$-vector space $V$ we set
  \end{enumerate}
  
  Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$: If $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$ then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$. The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$. So $\tau'$ it is the unique action making the diagram in figure \ref{fig: action on product and tensor} commute for all $g \in G$.
+ \tikzsetnextfilename{tensor_product_of_representations}
  \begin{figure}\label{fig: action on product and tensor}\centering
   \begin{tikzpicture}[node distance = 3.5cm, auto]
    % the nodes
@@ -965,6 +967,7 @@ $\hat{p}$ is $G$-equivariant because for all $h \in G$ and $v \in V$
  = h.\hat{p}(v).
 \end{align*}
 Altogether we have
+\tikzsetnextfilename{proof_of_Maschke}
 \begin{center}
  \begin{tikzpicture}[node distance = 6em, auto]
   \node (U) {$U$};
