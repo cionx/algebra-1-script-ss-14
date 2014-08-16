@@ -11,7 +11,7 @@ For this section we require all fields to be infinite.
 \begin{thrm}
  Let $\SL_n(k)$ act on $\Mat_n(k)$ by left multiplication. Then
  \[
-  \det : \Mat_n(k) \to k
+  \det \colon \Mat_n(k) \to k
  \]
  generates $\mc{P}(M_n(k))^{\SL_n(k)}$ as a $k$-algebra and is algebraically independent, i.e.
  \[
@@ -43,7 +43,7 @@ For this section we require all fields to be infinite.
  \]
  for all $A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k)$. We define $\bar{p} \in k[t]$ as $\varphi(p)$, where
  \[
-  \varphi : k[X_{11}, \ldots, X_{nn}] \to k[t]
+  \varphi \colon k[X_{11}, \ldots, X_{nn}] \to k[t]
  \] 
  is the algebra homomorphism defined by 
  \[
@@ -153,7 +153,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
  \]
  We define $\bar{p} \in k[t_1, \ldots, t_n]$ as $\bar{p} := \varphi(p)$ where
  \[
-  \varphi : k[X_{11}, \ldots, X_{nn}] \to k[t_1, \ldots, t_n]
+  \varphi \colon k[X_{11}, \ldots, X_{nn}] \to k[t_1, \ldots, t_n]
  \]
  is the algebra homomorphism defined by
  \[
@@ -170,7 +170,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
  
  We claim that $\bar{p}$ is symmetric, i.e. $\bar{p} \in k[t_1, \ldots, t_n]^{S_n}$. Since $k$ is infinite we have the usual $S_n$-equivariant algebra isomorphism
  \[
- \Phi: k[t_1, \ldots, t_n] \to \mc{P}(k^n).
+ \Phi \colon k[t_1, \ldots, t_n] \to \mc{P}(k^n).
  \]
  Thus it is enough to show that the corresponding polynomial function $\Phi(\bar{p})$ is $S_n$-invariant. This follows from the fact that $f$ is $\GL_n(k)$-invariant: For all $\pi \in S_n$ we define the corresponding permutation matrix $A_\pi \in \GL_n(k)$ via
  \[
@@ -220,7 +220,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
 
 Another ``famous'' family of polynomial functions in $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ (where $\GL_n(k)$ acts on $\Mat_n(k)$ by conjugation) are the so called power traces. The $m$-th power trace is defined as
 \[
- \tr_m : \Mat_n(k) \to k, A \mapsto \tr A^m.
+ \tr_m \colon \Mat_n(k) \to k, A \mapsto \tr A^m.
 \]
 for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and that $\tr_m$ is $\GL_n(k)$-invariant follows from the fact that for all $S \in \GL_n(k)$ and $A \in \Mat_n(k)$
 \begin{align*}
@@ -388,7 +388,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  
  Let $a_1, \ldots, a_n \in k^\times$ be pairwise different (this is possible since $k$ is infinite). We define
  \[
-  D : k \to \Mat_n(k), z \mapsto
+  D \colon k \to \Mat_n(k), z \mapsto
   \begin{pmatrix}
    a_1 z &       &        &       \\
          & a_2 z &        &       \\
@@ -398,11 +398,11 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  \]
  We also set
  \[
-  M : k \to \Mat_n(k), z \mapsto SAS^{-1} + D(z)
+  M \colon k \to \Mat_n(k), z \mapsto SAS^{-1} + D(z)
  \]
  and
  \[
-  \varphi : k \to \Mat_n(k), z \mapsto S^{-1} M(z) S = S^{-1}(SAS^{-1}+D(z))S.
+  \varphi \colon k \to \Mat_n(k), z \mapsto S^{-1} M(z) S = S^{-1}(SAS^{-1}+D(z))S.
  \]
  Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z, \ldots, b_n + a_n z$ for all $z \in \C$. It is easy to see that these eigenvalues are distinct for all but finitely many $z \in \C$ (since for all $1 \leq i < j \leq n$ there exists exactly one $z_{ij} \in \C$ with $b_i + a_i z_{ij} = b_j + a_j z_{ij}$). Therefore $\varphi(z)$ is diagonalizable for all but finitely many $z \in \C$.
  

@@ -25,13 +25,13 @@ Then $V_L$ is a $L$-vector space via
 \]
 for all $\lambda \in L$. To see that this multiplication is well-defined notice that for every $\lambda \in L$ the multiplication with $\lambda$ in $L$, namely
 \[
- \pi_\lambda : L \to L, l \mapsto \lambda l,
+ \pi_\lambda \colon L \to L, l \mapsto \lambda l,
 \]
 is $L$-linear and thus $k$-linear. The multiplication with $\lambda \in L$ as defined above is simply given by $\pi_\lambda \otimes \id_V$.
 
 For any $k$-vector space $V$ we have a $k$-linear inclusion
 \[
- \can_V : V \hookrightarrow V_L, v \mapsto 1 \otimes v.
+ \can_V \colon V \hookrightarrow V_L, v \mapsto 1 \otimes v.
 \]
 The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an universal property.
 
@@ -39,15 +39,15 @@ The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an uni
 \begin{thrm}[Universal property of the extension of scalars]
  Let $V$ be a $k$-vector space. Then for every $L$-vector space $W$ we have a natural isomorphism of $k$-vector spaces
  \[
-  \beta_W: \Hom_L(V_L, W) \to \Hom_k(V,W), f \mapsto f \circ \can_V.
+  \beta_W \colon \Hom_L(V_L, W) \to \Hom_k(V,W), f \mapsto f \circ \can_V.
  \]
- This property defines $V_L$ uniquely up to unique isomorphsm: If $V'$ is an $L$-vector space and $\iota : V \to V'$ a $k$-linear map such that
+ This property defines $V_L$ uniquely up to unique isomorphsm: If $V'$ is an $L$-vector space and $\iota \colon V \to V'$ a $k$-linear map such that
  \[
-  \alpha_W : \Hom_L(V', W) \to \Hom_k(V,W), f \mapsto f \circ \iota
+  \alpha_W \colon \Hom_L(V', W) \to \Hom_k(V,W), f \mapsto f \circ \iota
  \]
  is an isomorphism of $k$-vector spaces for every $L$-vector space $W$ then there exists a unique isomorphism of $L$-vector spaces
  \[
-  \phi : V_L \to V'
+  \phi \colon V_L \to V'
  \]
  such that the diagram
  \begin{center}
@@ -66,15 +66,15 @@ The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an uni
 
 That the $\beta_W$ are ``natural'' isomorphisms means the following: Fixing a $k$-vector space $V$ we have two functors
 \[
- F_1, F_2 : \cVect{L} \to \cVect{k}
+ F_1, F_2 \colon \cVect{L} \to \cVect{k}
 \]
-where $F_1(W) := \Hom_L(V_L,W)$ for every $L$-vector space $W$ and for every $L$-linear map $f : W \to W'$
+where $F_1(W) := \Hom_L(V_L,W)$ for every $L$-vector space $W$ and for every $L$-linear map $f \colon W \to W'$
 \[
- F_1(f) : \Hom_L(V_L, W) \to \Hom_L(V_L, W'), h \mapsto f \circ h,
+ F_1(f) \colon \Hom_L(V_L, W) \to \Hom_L(V_L, W'), h \mapsto f \circ h,
 \]
-as well as $F_2(W) := \Hom_k(V,W)$ for every $L$-vector space $W$ and for every $L$-linear map $f : W \to W'$
+as well as $F_2(W) := \Hom_k(V,W)$ for every $L$-vector space $W$ and for every $L$-linear map $f \colon W \to W'$
 \[
- F_2(f) : \Hom_k(V,W) \to \Hom_k(V,W'), h \mapsto f \circ h.
+ F_2(f) \colon \Hom_k(V,W) \to \Hom_k(V,W'), h \mapsto f \circ h.
 \]
 The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$, i.e. they form a natural transformation from $F_1$ to $F_2$ and $\beta_W$ is an isomorphism for every $L$-vector space $W$.
 
@@ -82,7 +82,7 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
 \begin{proof}
  We will start by proving that $\beta_W$ is an isomorphism of $k$-vector spaces for every $L$-vector space $W$. For this we fix an $L$-vector space $W$. It is clear that $\Phi := \beta_W$ is well-defined and $k$-linear. To show that $\Phi$ is an isomorphism we will construct an inverse as
  \[
-  \Psi : \Hom_k(V,W) \to \Hom_L(V_L, W), g \mapsto \left( (\lambda \otimes v) \mapsto \lambda g(v) \right).
+  \Psi \colon \Hom_k(V,W) \to \Hom_L(V_L, W), g \mapsto \left( (\lambda \otimes v) \mapsto \lambda g(v) \right).
  \]
  That $\Psi(g)$ is well-defined and $k$-linear for every $g \in \Hom_k(V,W)$ follows from the fact that the map
  \[
@@ -111,7 +111,7 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
  \end{align*}
  we have $\Phi \Psi = \id_{\Hom_k(V,W)}$.
  
- Next we will show that the $\beta_W$ are natural isomorphisms. For this we need to check that for all $L$-vector spaces $W$ and $W'$ and every $L$-linear map \mbox{$f : W \to W'$} the diagram
+ Next we will show that the $\beta_W$ are natural isomorphisms. For this we need to check that for all $L$-vector spaces $W$ and $W'$ and every $L$-linear map \mbox{$f \colon W \to W'$} the diagram
  \begin{center}
   \tikzsetnextfilename{naturalisomorphism}
   \begin{tikzpicture}[node distance = 6em, auto]
@@ -137,9 +137,9 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
   =    (\beta_{W'} \circ F_1(f))(h).
  \end{align*}
  
- All that’s left to show is that property defines $V_L$ uniquely up to unique isomorphism. To prove this let $V'$ be an $L$-vector space together with a $k$-linear map $\iota : V \to V'$ such that for every $L$-vector space $W$ the map
+ All that’s left to show is that property defines $V_L$ uniquely up to unique isomorphism. To prove this let $V'$ be an $L$-vector space together with a $k$-linear map $\iota \colon V \to V'$ such that for every $L$-vector space $W$ the map
  \[
-  \alpha_W : \Hom_L(V', W) \to \Hom_k(V, W), f \mapsto f \circ \iota
+  \alpha_W \colon \Hom_L(V', W) \to \Hom_k(V, W), f \mapsto f \circ \iota
  \]
  is an isomorphism of $k$-vector spaces.
  
@@ -172,7 +172,7 @@ Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-
  Let $V$ be a $k$-vector space and $(v_i)_{i \in I}$ a $k$-basis of $V$. Then $(1 \otimes v_i)_{i \in I}$ is an $L$-basis of $V_L$.
 \end{lem}
 \begin{proof}
- First we show that $(1 \otimes v_i)_{i \in I}$ is linearly independent. For this let $F$ be the free vector space of $I$ over $L$ and $e_i \in F$ the element corresponding to $i \in I$. Because $(v_i)_{i \in I}$ is a $k$-basis of $V$ there exists an unique $k$-linear map $f : V \to F$ with $f(v_i) = e_i$ for all $i \in I$. By the universal property of extension of scalars there exists a unique $L$-linear map $g : V_L \to F$ with $g \circ \can_V = f$ and therefore
+ First we show that $(1 \otimes v_i)_{i \in I}$ is linearly independent. For this let $F$ be the free vector space of $I$ over $L$ and $e_i \in F$ the element corresponding to $i \in I$. Because $(v_i)_{i \in I}$ is a $k$-basis of $V$ there exists an unique $k$-linear map $f \colon V \to F$ with $f(v_i) = e_i$ for all $i \in I$. By the universal property of extension of scalars there exists a unique $L$-linear map $g \colon V_L \to F$ with $g \circ \can_V = f$ and therefore
  \[
   g(1 \otimes v_i) = (g \circ \can_V)(v_i) = f(v_i) = e_i
  \]
@@ -202,17 +202,17 @@ Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-
 \section{Properties as a functor}
 
 
-Given $k$-vector spaces $V$ and $W$ and a $k$-linear map $f : V \to W$ we get a $k$-linear map
+Given $k$-vector spaces $V$ and $W$ and a $k$-linear map $f \colon V \to W$ we get a $k$-linear map
 \[
- f_L := \id_L \otimes f : V_L \to W_L.
+ f_L := \id_L \otimes f \colon V_L \to W_L.
 \]
 It is easy to check that $f_L$ is also $L$-linear. Therefore we can understand the extension of scalars as a functor
 \[
- E : \cVect{k} \to \cVect{L}
+ E \colon \cVect{k} \to \cVect{L}
 \]
 with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-linear map $f$.
 
-It is important to notice that for all $k$-vector spaces $V$ and $V'$ and every $k$-linear map $f : V \to V'$ the diagram
+It is important to notice that for all $k$-vector spaces $V$ and $V'$ and every $k$-linear map $f \colon V \to V'$ the diagram
 \tikzsetnextfilename{can_and_fL_commute}
 \begin{center}
  \begin{tikzpicture}[node distance = 6em, auto]
@@ -242,13 +242,13 @@ commutes. This can easily be checked by calculation, since for all $v \in V$
 
 We also have the restriction of scalars as a functor
 \[
- R : \cVect{L} \to \cVect{k}
+ R \colon \cVect{L} \to \cVect{k}
 \]
 which sends every $L$-vector space to its underlying $k$-vector space and every $L$-linear map to the corresponding $k$-linear map.
  
 From the universal property of the extension of scalars we know that for every $k$-vector space $V$ and $L$-vector space $W$ we have an isomorphism
 \[
- \Phi_{V,W} : \Hom_L(E(V),W) \cong \Hom_k(V,R(W))
+ \Phi_{V,W} \colon \Hom_L(E(V),W) \cong \Hom_k(V,R(W))
 \]
 of $k$-vector spaces. This observation results in the following proposition:
  
@@ -257,7 +257,7 @@ of $k$-vector spaces. This observation results in the following proposition:
  $E$ is left adjoint to $R$ via the bijections $\Phi_{V,W}$.
 \end{prop}
 \begin{proof}
- We need to check that for all $k$-vector spaces $V$ and $V'$, all $L$-vector spaces $W$ and $W'$, every $k$-linear map $f : V' \to V$ (notice that $f$ goes from $V'$ to $V$) and every $L$-linear map $g : W \to W'$ the diagram
+ We need to check that for all $k$-vector spaces $V$ and $V'$, all $L$-vector spaces $W$ and $W'$, every $k$-linear map $f \colon V' \to V$ (notice that $f$ goes from $V'$ to $V$) and every $L$-linear map $g \colon W \to W'$ the diagram
  \tikzsetnextfilename{scalar_extension_and_restriction_adjoint}
  \begin{center}
   \begin{tikzpicture}[node distance = 6em, auto]
@@ -296,7 +296,7 @@ for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \ldots, X_n]$. It 
 \begin{prop}
  We have an isomorphism of $L$-algebras
  \[
-  \Phi: L \otimes_k k[X_1, \ldots, X_n] \to L[X_1, \ldots, X_n], \lambda \otimes f \mapsto \lambda f.
+  \Phi \colon L \otimes_k k[X_1, \ldots, X_n] \to L[X_1, \ldots, X_n], \lambda \otimes f \mapsto \lambda f.
  \]
 \end{prop}
 \begin{proof}
