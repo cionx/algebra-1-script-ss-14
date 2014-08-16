@@ -200,15 +200,79 @@ Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-
 
 
 \section{Properties as a functor}
- Given $k$-vector spaces $V$ and $W$ and a $k$-linear map $f : V \to W$ we get a $k$-linear map
- \[
-  f_L := \id_L \otimes f : V_L \to W_L.
- \]
- It is easy to check that $f_L$ is also $L$-linear. Therefore we can understand the extension of scalars as a functor
- \[
-  E : \cVect{k} \to \cVect{L}
- \]
- with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-linear map $f$.
+
+
+Given $k$-vector spaces $V$ and $W$ and a $k$-linear map $f : V \to W$ we get a $k$-linear map
+\[
+ f_L := \id_L \otimes f : V_L \to W_L.
+\]
+It is easy to check that $f_L$ is also $L$-linear. Therefore we can understand the extension of scalars as a functor
+\[
+ E : \cVect{k} \to \cVect{L}
+\]
+with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-linear map $f$.
+
+It is important to notice that for all $k$-vector spaces $V$ and $V'$ and every $k$-linear map $f : V \to V'$ the diagram
+\tikzsetnextfilename{can_and_fL_commute}
+\begin{center}
+ \begin{tikzpicture}[node distance = 6em, auto]
+  \node (V) {$V$};
+  \node (V') [right of = V] {$V'$};
+  \node (VL) [below of = V] {$V_L$};
+  \node (V'L) [below of = V'] {$V'_L$};
+  \draw[->] (V) to node {$f$} (V');
+  \draw[->] (VL) to node {$f_L$} (V'L);
+  \draw[->] (V) to node[swap] {$\can_V$} (VL);
+  \draw[->] (V') to node {$\can_{V'}$} (V'L);
+ \end{tikzpicture}
+\end{center}
+commutes. This can easily be checked by calculation, since for all $v \in V$
+\begin{align*}
+ (f_L \circ \can_V)(v)
+ &= f_L(\can_V(v))
+ = f_L(1 \otimes v) \\
+ &= 1 \otimes f(v)
+ = \can_{V'}(f(v))
+ = (\can_{V'} \circ f)(v).
+\end{align*}
+
+
+
+
+
+We also have the restriction of scalars as a functor
+\[
+ R : \cVect{L} \to \cVect{k}
+\]
+which sends every $L$-vector space to its underlying $k$-vector space and every $L$-linear map to the corresponding $k$-linear map.
+ 
+From the universal property of the extension of scalars we know that for every $k$-vector space $V$ and $L$-vector space $W$ we have an isomorphism
+\[
+ \Phi_{V,W} : \Hom_L(E(V),W) \cong \Hom_k(V,R(W))
+\]
+of $k$-vector spaces. This observation results in the following proposition:
+ 
+ 
+\begin{prop}
+ $E$ is left adjoint to $R$ via the bijections $\Phi_{V,W}$.
+\end{prop}
+\begin{proof}
+ We need to check that for all $k$-vector spaces $V$ and $V'$, all $L$-vector spaces $W$ and $W'$, every $k$-linear map $f : V' \to V$ (notice that $f$ goes from $V'$ to $V$) and every $L$-linear map $g : W \to W'$ the diagram
+ \tikzsetnextfilename{scalar_extension_and_restriction_adjoint}
+ \begin{center}
+  \begin{tikzpicture}[node distance = 6em, auto]
+   \node (L) {$\Hom_L(V_L, W)$};
+   \node (L') [right = 6em of L] {$\Hom_L(V'_L, W')$};
+   \node (k) [below of = L] {$\Hom_k(V,W)$};
+   \node (k') [below of = L'] {$\Hom_k(V', W')$};
+   \draw[->] (L) to node {$g \circ - \circ f_L$} (L');
+   \draw[->] (k) to node[swap] {$g \circ - \circ f$} (k');
+   \draw[->] (L) to node[swap] {$\Phi_{V,W}$} (k);
+   \draw[->] (L') to node {$\Phi_{V',W'}$} (k');
+  \end{tikzpicture}
+ \end{center}
+ commutes. Since $\Phi_{V,W} = - \circ \can_V$ and $\Phi_{V,W'} = - \circ \can_{V'}$ this follows from $\can_{V'} \circ f_L = f \circ \can_V$.
+\end{proof}
 
 
 
