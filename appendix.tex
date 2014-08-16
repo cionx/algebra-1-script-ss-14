@@ -29,16 +29,11 @@ for all $\lambda \in L$. To see that this multiplication is well-defined notice 
 \]
 is $L$-linear and thus $k$-linear. The multiplication with $\lambda \in L$ as defined above is simply given by $\pi_\lambda \otimes \id_V$.
 
-Given $k$-vector spaces $V$ and $W$ and a $k$-linear map $f : V \to W$. We get a $k$-linear map
-\[
- f_L := \id_L \otimes f : V_L \to W_L.
-\]
-It is easy to check that $f_L$ is also $L$-linear. Therefore we can understand the extension of scalars as a functor from $\cVect{k}$ to $\cVect{L}$ which associates any $k$-vector space $V$ with $V_L$ and any $k$-linear map $f : V \to W$ with $f_L : V_L \to W_L$.
-
 For any $k$-vector space $V$ we have a $k$-linear inclusion
 \[
  \can_V : V \hookrightarrow V_L, v \mapsto 1 \otimes v.
 \]
+The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an universal property.
 
 
 \begin{thrm}[Universal property of the extension of scalars]
@@ -204,6 +199,21 @@ Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-
 
 
 
+\section{Properties as a functor}
+ Given $k$-vector spaces $V$ and $W$ and a $k$-linear map $f : V \to W$ we get a $k$-linear map
+ \[
+  f_L := \id_L \otimes f : V_L \to W_L.
+ \]
+ It is easy to check that $f_L$ is also $L$-linear. Therefore we can understand the extension of scalars as a functor
+ \[
+  E : \cVect{k} \to \cVect{L}
+ \]
+ with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-linear map $f$.
+
+
+
+
+
 \section{Polynomial rings and matrix rings}
 Given a polynomial ring $k[X_1, \ldots, X_n]$ we now that
 \[
@@ -217,7 +227,6 @@ for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \ldots, X_n]$. It 
 \[
  k[X_1, \ldots, X_n]_L \cong L[X_1, \ldots, X_n].
 \]
-
 
 
 \begin{prop}
@@ -257,6 +266,8 @@ for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \ldots, X_n]$. It 
  \end{align*}
  it is multiplicative on the simple tensors. Since these generate $k[X_1, \ldots, X_n]_L$ it follows that $\Phi$ is multiplicative.
 \end{proof}
+
+
 
 
 
