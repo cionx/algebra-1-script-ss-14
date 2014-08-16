@@ -371,7 +371,7 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
   e^{(n)}_n &= X_1 \dotsm X_{n-1} X_n = X_n e^{(n-1)}_{n-1}.
  \end{align*}
  \begin{claim}
-  A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if $f$ can be written as a polyonmial in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e. we have
+  A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if $f$ can be written as a polyonmial in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e.\ we have
   \[
    k\left[e^{(n)}_1, \dotsc, e^{(n)}_n\right] = k[X_1, \dotsc, X_n]^{S_n}.
   \]
@@ -670,7 +670,7 @@ Since $e^{(n)}_1, \dotsc, e^{(n)}_n$ and $h^{(n)}_1, \dotsc, h^{(n)}_n$ are each
  \[
   \left(p^{(n)}\right)^\alpha = \left(p^{(n)}_1\right)^{\alpha_1} \dotsm \left(p^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
  \]
- are linearly independent. For this is sufficies to show that the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$ form a $k$-basis of the symmetric polynomials of degree $\leq N$. We denote the number of (pairwise different) monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ by $P_N$ and this subspace by $V_N$. Because $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra we already know that $V_N$ is generated as a vector subspace by the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$. Thus $\dim V_N \leq P_N$. Because $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we also know that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$ form a $k$-basis of $V_N$. We denote the number of these monomials by $E_N$ and have $\dim V_N = E_N$. Since $P_N \leq E_N$ we also have $P_N \leq \dim V_N$. (That $P_N \leq E_N$ follows from the fact that for each monomial in $p^{(n)}_1, \dotsc, p^{(n)}_n$ we have a corresponding monomial in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of the same degree, i.e. we have a surjective map
+ are linearly independent. For this is sufficies to show that the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$ form a $k$-basis of the symmetric polynomials of degree $\leq N$. We denote the number of (pairwise different) monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ by $P_N$ and this subspace by $V_N$. Because $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra we already know that $V_N$ is generated as a vector subspace by the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$. Thus $\dim V_N \leq P_N$. Because $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we also know that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$ form a $k$-basis of $V_N$. We denote the number of these monomials by $E_N$ and have $\dim V_N = E_N$. Since $P_N \leq E_N$ we also have $P_N \leq \dim V_N$. (That $P_N \leq E_N$ follows from the fact that for each monomial in $p^{(n)}_1, \dotsc, p^{(n)}_n$ we have a corresponding monomial in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of the same degree, i.e.\ we have a surjective map
 \begin{align*}
     &\, \{\text{monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$}\} \\
     &\, \to \{\text{monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$}\}, \\
@@ -1019,7 +1019,7 @@ In this section $k$ is an infinite field. Until further notice we also fix a fin
 
 
 \begin{defi}
- By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e. $f \in \mc{P}(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
+ By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e.\ $f \in \mc{P}(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
  \[
   f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \dotsc, \lambda_n)
  \]
@@ -1092,7 +1092,7 @@ This has the effect that the restriction of a polynomial function to a vector su
   \item
    Assume $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1,\dotsc,\lambda_n) \in k^n$. Then $p = 0$.
   \item
-   The polynomial functions $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e. if $f(\varphi_1, \dotsc, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
+   The polynomial functions $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e.\ if $f(\varphi_1, \dotsc, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
  \end{enumerate}
 \end{lem}
 \begin{proof}\leavevmode
@@ -1218,7 +1218,7 @@ We will know generalize the definition of polynomial functions on maps between a
 
 
 \begin{defi}
- Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map $f \colon W \to V$ is called a polynomial map if, given a basis $v_1, \dotsc, v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e. there exist $f_1, \dotsc, f_n \in \mc{P}(W)$ with
+ Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map $f \colon W \to V$ is called a polynomial map if, given a basis $v_1, \dotsc, v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e.\ there exist $f_1, \dotsc, f_n \in \mc{P}(W)$ with
  \[
   f(w) = \sum_{i=1}^n f_i(w) v_i
  \]
@@ -1335,9 +1335,9 @@ From the definition of a polynomial map it also directly follows that for any fi
  is an algebra homomorphism.
 \end{lem}
 \begin{proof}
- We already know that $f^*$ is well defined, i.e. that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1, \dotsc, v_n$ of $V$.
+ We already know that $f^*$ is well defined, i.e.\ that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1, \dotsc, v_n$ of $V$.
  
- Let $h_1, h_2\in \mc{P}(V)$, i.e. we have polynomials $p_1, p_2\in k[X_1, \dotsc, X_n]$ with
+ Let $h_1, h_2\in \mc{P}(V)$, i.e.\ we have polynomials $p_1, p_2\in k[X_1, \dotsc, X_n]$ with
  \[
   h_j\left(\sum_{i=1}^n \lambda_i v_i\right) = p_j(\lambda_1, \dotsc, \lambda_n) \text{ for } j=1,2.
  \]

@@ -248,7 +248,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 
 \begin{lem}
- Let $X$ be a $G$-set, $k$ a field or a ring. Then $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e. if the following diagram commutes.
+ Let $X$ be a $G$-set, $k$ a field or a ring. Then $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if the following diagram commutes.
  \begin{center}
  \begin{tikzpicture}[node distance = 2cm, auto]
   \node (A) {$A$};
@@ -263,7 +263,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 \begin{proof}
  If $f$ is invariant then $f(x) = f(g^{-1}.x)$ for all $g \in G, x \in X$. Therefore $f$ is constant on orbits. Now define $\bar{f}(\mc{O}) = f(x)$ where $\mc{O}$ is an orbit and $x \in \mc{O}$.
  
- To show the other direction assume $f$ factors through $\can$. Then $f$ is constant on orbits, i.e. $f(x) = f(g.x)$ for all $g \in G, x \in X$, i.e. $f(x) = f(g^{-1}.x)$ for all $g \in G, x \in X$. Therefore $f$ is invariant.
+ To show the other direction assume $f$ factors through $\can$. Then $f$ is constant on orbits, i.e.\ $f(x) = f(g.x)$ for all $g \in G, x \in X$, i.e.\ $f(x) = f(g^{-1}.x)$ for all $g \in G, x \in X$. Therefore $f$ is invariant.
 \end{proof}
 
 
@@ -334,7 +334,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
    \[
     \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}(y) = f(x_j)
    \]
-   for $j$ chosen such that $y \in \mc{O}_j$, i.e. $y = g^{-1}.x_j$ for some $g \in G$. We then have $f(y) = f(g^{-1}.x_j) = f(x_j)$. This shows that the $\chi_{\mc{O}_i}$’s generate $\Maps(X,k)^G$. The linear independence is clear (same argumentation as above).
+   for $j$ chosen such that $y \in \mc{O}_j$, i.e.\ $y = g^{-1}.x_j$ for some $g \in G$. We then have $f(y) = f(g^{-1}.x_j) = f(x_j)$. This shows that the $\chi_{\mc{O}_i}$’s generate $\Maps(X,k)^G$. The linear independence is clear (same argumentation as above).
  \end{enumerate}
 \end{proof}
 
@@ -361,7 +361,7 @@ and
 \]
 Therefore $kX$ with pointwise addition and scalar multiplication is again a $k$-vector space (resp. $k$-module).
 
-Note that $\chi_x \in kX$ for all $x \in X$, since $\supp(\chi_x) = \{x\}$ is finite. Using the same argumentation as above we can show that $kX$ has a $k$-Basis $\{\chi_x \mid x \in X\}$, i.e. for alle $f \in kX$ we have $f = \sum_{x \in X} f(x) \chi_x$ (this sum is well-defined since only finitely many $f(x)$ are nonzero) and the $\chi_x$’s are linear independent.
+Note that $\chi_x \in kX$ for all $x \in X$, since $\supp(\chi_x) = \{x\}$ is finite. Using the same argumentation as above we can show that $kX$ has a $k$-Basis $\{\chi_x \mid x \in X\}$, i.e.\ for alle $f \in kX$ we have $f = \sum_{x \in X} f(x) \chi_x$ (this sum is well-defined since only finitely many $f(x)$ are nonzero) and the $\chi_x$’s are linear independent.
 
 Completely analogous to c) we have that
 \begin{align*}
@@ -451,7 +451,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 
 \begin{lem}\label{lem: group action by ring automorphisms}
- Assume $G$ acts on $R$ where $R$ is a set but also a ring. Assume $G$ acts by ring automorphisms (i.e. if $\pi \colon G \times R \to R$ is the action then $\pi_g \colon r \mapsto g.r$ is an ring automorphism of $R$ for all $g \in G$). Then $R^G = \{\text{$G$-invarints of $R$}\}$ forms again a ring, namely a subring of $R$.
+ Assume $G$ acts on $R$ where $R$ is a set but also a ring. Assume $G$ acts by ring automorphisms (i.e.\ if $\pi \colon G \times R \to R$ is the action then $\pi_g \colon r \mapsto g.r$ is an ring automorphism of $R$ for all $g \in G$). Then $R^G = \{\text{$G$-invarints of $R$}\}$ forms again a ring, namely a subring of $R$.
 \end{lem}
 \begin{proof}
  We need to show that for all $r_1, r_2 \in R^G$ we have $r_1 + r_2 \in R^G$ and $r_1 r_2 \in R^G$. This is true because
@@ -477,7 +477,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
   \item
    $\Maps(X,k)$ forms a ring via pointwise addition and multiplication.
   \item
-   The usual $G$-action on $\Maps(X,k)$ (i.e. $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G, x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
+   The usual $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G, x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
  \end{enumerate}
  \begin{proof}
   \begin{enumerate}[a)]
@@ -506,7 +506,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 
 \begin{defi}
- Let $G$ and $H$ be groups, $X$ a set such that $\pi \colon G \times X \to X$ and $\pi' \colon H \times X \to X$ are group actions (i.e. $X$ is a $G$-set and $H$-set). Then the actions commute if
+ Let $G$ and $H$ be groups, $X$ a set such that $\pi \colon G \times X \to X$ and $\pi' \colon H \times X \to X$ are group actions (i.e.\ $X$ is a $G$-set and $H$-set). Then the actions commute if
  \[
   h.(g.x) = g.(h.x)
  \]
@@ -717,7 +717,7 @@ It is clear that every irreducible representation is also indecomposable. The co
  \[
   kG := \{f \colon G \to k \mid f(g) \neq 0 \text{ for only finitely many } g \in G\}
  \]
- with (1) pointwise addition and scalar multiplication and (2) multiplication given by convolution, i.e.
+ with (1) pointwise addition and scalar multiplication and (2) multiplication given by convolution, i.e.\
  \[
   (f_1 \cdot f_2)(x) = \sum_{y \in G} f_1(y) f_2\left(y^{-1}x\right)
  \]
@@ -861,7 +861,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
   \item
   We have $\Hom_G(V,W) = 0$ if $V \not\cong W$ and $\Hom_G(V,W) \not\cong 0$ if $V \cong W$, and every non zero morphism is an isomorphism.
   \item
-  $\Hom_G(V,V)$ is a divison ring / skew field (i.e. we have $1 \neq 0$ and every non zero endomorphism is invertible).
+  $\Hom_G(V,V)$ is a divison ring / skew field (i.e.\ we have $1 \neq 0$ and every non zero endomorphism is invertible).
   \item
   In the special case that $k$ is algebraically closed (e.g. $k = \C$) and $V$ and $W$ are both finite dimensional we have that
   \[
@@ -939,7 +939,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
  Let $G$ be a finite group and $k$ a field such that $\kchar k \nmid |G|$ (in particular $\kchar k = 0$ is allowed). Then any finite dimensional representation of $G$ over $k$ is completely reducible.
 \end{thrm}
 \begin{proof}
- It is enough to show that every subrepresentation $U$ of $V$ has a complement $W$ which is again a subrepresentation, i.e. $V = U \oplus W$ as representations.
+ It is enough to show that every subrepresentation $U$ of $V$ has a complement $W$ which is again a subrepresentation, i.e.\ $V = U \oplus W$ as representations.
  
  Given our subrepresentation $U$ choose a complement $W$ as a vector space. Then $V = U \oplus W$ as vector spaces. Let $p \colon V \to U$ be the orthogonal projection onto $U$. ($p$ is not necessarily $G$-equivariant but only a linear map.) We know that $\im p = U$. We define $\hat{p} \colon V \to U$ as
  \[
