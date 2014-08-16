@@ -19,11 +19,11 @@ For this section we require all fields to be infinite.
  \]
 \end{thrm}
 \begin{proof}
- We choose the basis $E_{ij}, 1 \leq i,j \leq n$ of $M_n(k)$ where the $E_{ij}$ is the matrix with $1$ as the entry in the $i$-th row and $j$-th colomn and $0$ otherwise. (So $E_{ij} e_k = \delta_{jk}e_i$ where $e_1, \ldots, e_n$ is the standard basis of $k^n$.)  For a matrix $A = (a_{ij})_{1 \leq i,j \leq n}$ we then have
+ We choose the basis $E_{ij}, 1 \leq i,j \leq n$ of $M_n(k)$ where the $E_{ij}$ is the matrix with $1$ as the entry in the $i$-th row and $j$-th colomn and $0$ otherwise. (So $E_{ij} e_k = \delta_{jk}e_i$ where $e_1, \dotsc, e_n$ is the standard basis of $k^n$.)  For a matrix $A = (a_{ij})_{1 \leq i,j \leq n}$ we then have
  \[
   \det A
   = \det\left( a_{ij} E_{ij}\right)
-  = \sum_{\sigma \in S_n} \sgn(\sigma) a_{1 \sigma(1)} \cdots a_{n \sigma(n)}.
+  = \sum_{\sigma \in S_n} \sgn(\sigma) a_{1 \sigma(1)} \dotsm a_{n \sigma(n)}.
  \]
  So $\det \in \mc{P}(\Mat_n(k))$. Since for every $S \in \SL_n(k)$ and $A \in \Mat_n(k)$
  \[
@@ -37,13 +37,13 @@ For this section we require all fields to be infinite.
  \]
  for all $A \in \Mat_n(k)$. Since $\det$ is surjective this means that $P(\lambda) = 0$ for all $\lambda \in k$. Because $k$ is infinite this means that $P$ has infinitely many zeroes. Therefore $P = 0$.
  
- All that’s left to show is that $\det$ generates $\mc{P}(\Mat_n(k))^{\SL_n(k)}$ as a $k$-algebra. For this fix $f \in \mc{P}(\Mat_n(k))^{\SL_n(k)}$. Since $f$ is a polynomial map there exists $p \in k[X_{11}, \ldots, X_{nn}]$ such that
+ All that’s left to show is that $\det$ generates $\mc{P}(\Mat_n(k))^{\SL_n(k)}$ as a $k$-algebra. For this fix $f \in \mc{P}(\Mat_n(k))^{\SL_n(k)}$. Since $f$ is a polynomial map there exists $p \in k[X_{11}, \dotsc, X_{nn}]$ such that
  \[
-  f(A) = p(a_{11}, \ldots, a_{nn})
+  f(A) = p(a_{11}, \dotsc, a_{nn})
  \]
  for all $A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k)$. We define $\bar{p} \in k[t]$ as $\varphi(p)$, where
  \[
-  \varphi \colon k[X_{11}, \ldots, X_{nn}] \to k[t]
+  \varphi \colon k[X_{11}, \dotsc, X_{nn}] \to k[t]
  \] 
  is the algebra homomorphism defined by 
  \[
@@ -99,21 +99,21 @@ Recall from linear algebra that the characteristic polynomial of a matrix $A \in
 \]
 where $E_n \in \Mat_n(k)$ is the identity matrix, and that this results in
 \[
- \chi_A(t) = t^n - s_1(A) t^{n-1} + s_2(A) t^{n-2} + \ldots + (-1)^n s_n(A)
+ \chi_A(t) = t^n - s_1(A) t^{n-1} + s_2(A) t^{n-2} + \dotsb + (-1)^n s_n(A)
 \]
-where $s_1, \ldots, s_n \in \mc{P}(\Mat_n(k))$. In particular $s_1 = \tr$ and $s_n = \det$.
+where $s_1, \dotsc, s_n \in \mc{P}(\Mat_n(k))$. In particular $s_1 = \tr$ and $s_n = \det$.
 
-In the case that $A$ is a diagonal matrix $A = \diag(d_1, \ldots, d_n)$ we have
+In the case that $A$ is a diagonal matrix $A = \diag(d_1, \dotsc, d_n)$ we have
 \[
  \chi_A(t)
  = \prod_{i=1}^n (t-d_i)
- = t^n - e_1(d_1, \ldots, d_n) t^{n-1} + \ldots + (-1)^n e_n(d_1, \ldots, d_n).
+ = t^n - e_1(d_1, \dotsc, d_n) t^{n-1} + \dotsb + (-1)^n e_n(d_1, \dotsc, d_n).
 \]
 Therefore
 \[
- s_i(\diag(d_1, \ldots, d_n)) = e_i(\diag(d_1, \ldots, d_n))
+ s_i(\diag(d_1, \dotsc, d_n)) = e_i(\diag(d_1, \dotsc, d_n))
 \]
-for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
+for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
 
 
 \begin{thrm}
@@ -121,39 +121,39 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
  \[
   S.A = SAS^{-1}
  \]
- for all $A \in \Mat_n(k)$ and $S \in \GL_n(k)$. Then $s_1, \ldots, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent. Therefore
+ for all $A \in \Mat_n(k)$ and $S \in \GL_n(k)$. Then $s_1, \dotsc, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent. Therefore
  \[
-  \mc{P}(\Mat_n(k))^{\GL_n(k)} \cong k[X_1, \ldots, X_n] \text{ via } s_i \mapsfrom X_i.
+  \mc{P}(\Mat_n(k))^{\GL_n(k)} \cong k[X_1, \dotsc, X_n] \text{ via } s_i \mapsfrom X_i.
  \]
 \end{thrm}
 \begin{proof}
- We already know that $s_1, \ldots, s_n \in \mc{P}(\Mat_n(k))$. That $s_1, \ldots, s_n$ are $\GL_n(k)$-invariant directly follows from the fact that the characteristic polynomial of a matrix is invariant under conjugation.
+ We already know that $s_1, \dotsc, s_n \in \mc{P}(\Mat_n(k))$. That $s_1, \dotsc, s_n$ are $\GL_n(k)$-invariant directly follows from the fact that the characteristic polynomial of a matrix is invariant under conjugation.
  
- Next we show that $s_1, \ldots, s_n$ are algebraically independent. For this let $p \in k[X_1, \ldots, X_n]$ with $p(s_1, \ldots, s_n) = 0$. This means that
+ Next we show that $s_1, \dotsc, s_n$ are algebraically independent. For this let $p \in k[X_1, \dotsc, X_n]$ with $p(s_1, \dotsc, s_n) = 0$. This means that
  \[
-  p(s_1, \ldots, s_n)(A) = 0 \text{ for all } A \in \Mat_n(k).
+  p(s_1, \dotsc, s_n)(A) = 0 \text{ for all } A \in \Mat_n(k).
  \]
  For
  \[
-  D := \{\diag(d_1, \ldots, d_n) \mid d_1, \ldots, d_n \in k\}
+  D := \{\diag(d_1, \dotsc, d_n) \mid d_1, \dotsc, d_n \in k\}
  \]
  we therefore have
  \[
-  p(s_1, \ldots, s_n)(A) = 0 \text{ for all } A \in D.
+  p(s_1, \dotsc, s_n)(A) = 0 \text{ for all } A \in D.
  \]
  By the observations above this means that 
  \[
-  p(e_1, \ldots, e_n)(d_1, \ldots, d_n) = 0 \text{ for all } d_1, \ldots, d_n \in k.
+  p(e_1, \dotsc, e_n)(d_1, \dotsc, d_n) = 0 \text{ for all } d_1, \dotsc, d_n \in k.
  \]
- Because $k$ is infinite this mean that $p(e_1, \ldots, e_n) = 0$. Since $e_1, \ldots, e_n$ are algebraically independent we find that $p =0$.
+ Because $k$ is infinite this mean that $p(e_1, \dotsc, e_n) = 0$. Since $e_1, \dotsc, e_n$ are algebraically independent we find that $p =0$.
  
- All that’s left to show is that $s_1, \ldots, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra. For this let $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$. Because $f$ is a polynomial map there exists $p \in k[X_{11}, \ldots, X_{nn}]$ such that
+ All that’s left to show is that $s_1, \dotsc, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra. For this let $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$. Because $f$ is a polynomial map there exists $p \in k[X_{11}, \dotsc, X_{nn}]$ such that
  \[
-  f(A) = p(a_{11}, \ldots, a_{nn}) \text{ for all } A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k).
+  f(A) = p(a_{11}, \dotsc, a_{nn}) \text{ for all } A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k).
  \]
- We define $\bar{p} \in k[t_1, \ldots, t_n]$ as $\bar{p} := \varphi(p)$ where
+ We define $\bar{p} \in k[t_1, \dotsc, t_n]$ as $\bar{p} := \varphi(p)$ where
  \[
-  \varphi \colon k[X_{11}, \ldots, X_{nn}] \to k[t_1, \ldots, t_n]
+  \varphi \colon k[X_{11}, \dotsc, X_{nn}] \to k[t_1, \dotsc, t_n]
  \]
  is the algebra homomorphism defined by
  \[
@@ -165,56 +165,56 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \ldots, d_n)$.
  \]
  By definition of $\bar{p}$ we have
  \[
-  f(\diag(d_1, \ldots, d_n)) = \bar{p}(d_1, \ldots, d_n) \text{ for all } d_1, \ldots, d_n \in k.
+  f(\diag(d_1, \dotsc, d_n)) = \bar{p}(d_1, \dotsc, d_n) \text{ for all } d_1, \dotsc, d_n \in k.
  \]
  
- We claim that $\bar{p}$ is symmetric, i.e. $\bar{p} \in k[t_1, \ldots, t_n]^{S_n}$. Since $k$ is infinite we have the usual $S_n$-equivariant algebra isomorphism
+ We claim that $\bar{p}$ is symmetric, i.e. $\bar{p} \in k[t_1, \dotsc, t_n]^{S_n}$. Since $k$ is infinite we have the usual $S_n$-equivariant algebra isomorphism
  \[
- \Phi \colon k[t_1, \ldots, t_n] \to \mc{P}(k^n).
+ \Phi \colon k[t_1, \dotsc, t_n] \to \mc{P}(k^n).
  \]
  Thus it is enough to show that the corresponding polynomial function $\Phi(\bar{p})$ is $S_n$-invariant. This follows from the fact that $f$ is $\GL_n(k)$-invariant: For all $\pi \in S_n$ we define the corresponding permutation matrix $A_\pi \in \GL_n(k)$ via
  \[
   A_\pi e_i = e_{\pi(i)}.
  \]
- For all $\pi \in S_n$ and $d_1, \ldots, d_n \in k$ we then have
+ For all $\pi \in S_n$ and $d_1, \dotsc, d_n \in k$ we then have
  \[
-  A_\pi \diag(d_1, \ldots, d_n) A_\pi^{-1}
-  = \diag\left(d_{\pi^{-1}(1)}, \ldots, d_{\pi^{-1}(n)}\right).
+  A_\pi \diag(d_1, \dotsc, d_n) A_\pi^{-1}
+  = \diag\left(d_{\pi^{-1}(1)}, \dotsc, d_{\pi^{-1}(n)}\right).
  \]
- Therefore we have for all $\pi \in S_n$ and $(d_1, \ldots, d_n) \in k^n$
+ Therefore we have for all $\pi \in S_n$ and $(d_1, \dotsc, d_n) \in k^n$
  \begin{align*}
-  &\,(\pi.\Phi(\bar{p}))((d_1, \ldots, d_n)) \\
-  =&\, \Phi(\bar{p})\left(\pi^{-1}.(d_1, \ldots, d_n)\right)
-  = \Phi(\bar{p})\left(\left(d_{\pi(1)}, \ldots, d_{\pi(n)}\right)\right) \\
-  =&\, \bar{p}\left(d_{\pi(1)}, \ldots, d_{\pi(n)}\right)
-  = f\left(\diag\left(d_{\pi(1)}, \ldots, d_{\pi(n)}\right)\right) \\
-  =&\, f\left(A_{\pi^{-1}} \diag(d_1, \ldots, d_n) A_\pi\right)
-  = f\left(A_\pi^{-1} \diag(d_1, \ldots, d_n) A_\pi\right) \\
-  =&\, f\left(A_\pi^{-1}.\diag(d_1, \ldots, d_n)\right)
-  = (A_\pi.f)(\diag(d_1, \ldots, d_n)) \\
-  =&\, f(\diag(d_1, \ldots, d_n))
-  = \bar{p}(d_1, \ldots, d_n) \\
-  =&\, \Phi(\bar{p})((d_1, \ldots, d_n)).
+  &\,(\pi.\Phi(\bar{p}))((d_1, \dotsc, d_n)) \\
+  =&\, \Phi(\bar{p})\left(\pi^{-1}.(d_1, \dotsc, d_n)\right)
+  = \Phi(\bar{p})\left(\left(d_{\pi(1)}, \dotsc, d_{\pi(n)}\right)\right) \\
+  =&\, \bar{p}\left(d_{\pi(1)}, \dotsc, d_{\pi(n)}\right)
+  = f\left(\diag\left(d_{\pi(1)}, \dotsc, d_{\pi(n)}\right)\right) \\
+  =&\, f\left(A_{\pi^{-1}} \diag(d_1, \dotsc, d_n) A_\pi\right)
+  = f\left(A_\pi^{-1} \diag(d_1, \dotsc, d_n) A_\pi\right) \\
+  =&\, f\left(A_\pi^{-1}.\diag(d_1, \dotsc, d_n)\right)
+  = (A_\pi.f)(\diag(d_1, \dotsc, d_n)) \\
+  =&\, f(\diag(d_1, \dotsc, d_n))
+  = \bar{p}(d_1, \dotsc, d_n) \\
+  =&\, \Phi(\bar{p})((d_1, \dotsc, d_n)).
  \end{align*}
  This shows that $\Phi(\bar{p})$ is $S_n$-equivariant. So $\bar{p}$ is symmetric.
  
- Since $e_1, \ldots, e_n$ generate $k[t_1, \ldots, t_n]^{S_n}$ there exists $q \in k[X_1, \ldots, X_n]$ such that
+ Since $e_1, \dotsc, e_n$ generate $k[t_1, \dotsc, t_n]^{S_n}$ there exists $q \in k[X_1, \dotsc, X_n]$ such that
  \[
-  \bar{p} = q(e_1, \ldots, e_n),
+  \bar{p} = q(e_1, \dotsc, e_n),
  \]
  therefore
  \begin{align*}
-  f(\diag(d_1, \ldots, d_n))
-  &= q(e_1, \ldots, e_n)(d_1, \ldots, d_n) \\
-  &= q(s_1, \ldots, s_n)(\diag(d_1, \ldots, d_n))
+  f(\diag(d_1, \dotsc, d_n))
+  &= q(e_1, \dotsc, e_n)(d_1, \dotsc, d_n) \\
+  &= q(s_1, \dotsc, s_n)(\diag(d_1, \dotsc, d_n))
  \end{align*}
- for all $d_1, \ldots, d_n \in k$. This show that $f-q(s_1, \ldots, s_n) = 0$ when restricted to $D$.
+ for all $d_1, \dotsc, d_n \in k$. This show that $f-q(s_1, \dotsc, s_n) = 0$ when restricted to $D$.
  
  \begin{claim}[Zariski density property 2]
   If $h \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ (where $\GL_n(k)$ acts on $\Mat_n(k)$ by conjugation) and $h_{|D} = 0$ then $h = 0$.
  \end{claim}
 
- From this claim and the results so far we find that $f - q(s_1, \ldots, s_n) = 0$ and thus $f = q(s_1, \ldots, s_n)$. (As before we will leave the proof of the claim for later and end this proof here.)
+ From this claim and the results so far we find that $f - q(s_1, \dotsc, s_n) = 0$ and thus $f = q(s_1, \dotsc, s_n)$. (As before we will leave the proof of the claim for later and end this proof here.)
 \end{proof}
 
 
@@ -235,21 +235,21 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 
 
 \begin{thrm}
- Let $n \geq 1$ and let $k$ be an infinite field with either $\kchar k = 0$ or $\kchar k > n$. Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation. Then $\tr_1, \ldots, \tr_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent, i.e.
+ Let $n \geq 1$ and let $k$ be an infinite field with either $\kchar k = 0$ or $\kchar k > n$. Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation. Then $\tr_1, \dotsc, \tr_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent, i.e.
  \[
-  \mc{P}(\Mat_n(k))^{\GL_n(k)} \cong k[X_1, \ldots, X_n] \text{ via } \tr_i \mapsfrom X_i.
+  \mc{P}(\Mat_n(k))^{\GL_n(k)} \cong k[X_1, \dotsc, X_n] \text{ via } \tr_i \mapsfrom X_i.
  \]
 \end{thrm}
 \begin{proof}
  As before let 
  \[
-  D := \{\diag(d_1, \ldots, d_n) \mid d_1, \ldots, d_n \in k\}.
+  D := \{\diag(d_1, \dotsc, d_n) \mid d_1, \dotsc, d_n \in k\}.
  \]
- For every diagonal matrix $\diag(d_1, \ldots, d_n) \in D$ we have
+ For every diagonal matrix $\diag(d_1, \dotsc, d_n) \in D$ we have
  \[
-  \tr_m(\diag(d_1, \ldots, d_n)) = d_1^m + \ldots + d_n^m = p^{(n)}_m(d_1, \ldots, d_n)
+  \tr_m(\diag(d_1, \dotsc, d_n)) = d_1^m + \dotsb + d_n^m = p^{(n)}_m(d_1, \dotsc, d_n)
  \]
- for all $m \geq 0$. Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that $p^{(n)}_1, \ldots, p^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
+ for all $m \geq 0$. Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
  
  Using these observations we can now prove the theorem by simpley copying the proof of the previous theorem and replacing $s_i$ with $\tr_i$ and $e_i$ with $p_i$.
 \end{proof}
@@ -278,7 +278,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
   \item 
   Let $k$ be a field and $X \subseteq k$ an infinite subset. Then $X$ is Zariski dense: Let $f \in \mc{P}(k)$ with $f_{|X} = 0$. Since $f$ is a polynomial function there exists $p \in k[X]$ with $f(\lambda) = p(\lambda)$ for all $\lambda \in k$. Since $f_{|X} = 0$ and $X$ is infinite the polynomial $p$ has infinitely many zeroes. Therefore $p = 0$ and $f = 0$.
   \item
-  Let $W$ be a finite $k$-vector space and $U \subsetneq W$ a vector subspace. Then $U$ is not Zariski dense in $W$. To see this let $w_1, \ldots, w_n, w_{n+1}, \ldots, w_m$ be a basis of $W$ such that $w_1, \ldots, w_n$ is a basis of $U$. Since $U \neq W$ we have $n < m$. We define $\pi \in \mc{P}(W)$ as the projection
+  Let $W$ be a finite $k$-vector space and $U \subsetneq W$ a vector subspace. Then $U$ is not Zariski dense in $W$. To see this let $w_1, \dotsc, w_n, w_{n+1}, \dotsc, w_m$ be a basis of $W$ such that $w_1, \dotsc, w_n$ is a basis of $U$. Since $U \neq W$ we have $n < m$. We define $\pi \in \mc{P}(W)$ as the projection
   \[
    \pi\left(\sum_{i=1}^m \lambda_i w_i\right) = \lambda_m.
   \]
@@ -301,15 +301,15 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  
  ($n = 1$) For $f \in \mc{P}(L)$ with $f_{|k} = 0$ the corresponding polynomial $p \in L[X]$ (i.e. $f(\lambda) = p(\lambda)$ for all $\lambda \in L$) has infintely many zeroes. So $p = 0$ and therefore $f = 0$.
  
- ($n \geq 2$) Suppose the statement holds for $n-1$. Let $f \in \mc{P}\left(L^n\right)$ with $f_{|k^n} = 0$. Because $f$ is a polynomial function there exists $p \in L[X_1, \ldots, X_n]$ with $f((\lambda_1, \ldots, \lambda_n)) = p(\lambda_1, \ldots, \lambda_n)$ for all $(\lambda_1, \ldots, \lambda_n) \in L^n$. We can write $p$ as
+ ($n \geq 2$) Suppose the statement holds for $n-1$. Let $f \in \mc{P}\left(L^n\right)$ with $f_{|k^n} = 0$. Because $f$ is a polynomial function there exists $p \in L[X_1, \dotsc, X_n]$ with $f((\lambda_1, \dotsc, \lambda_n)) = p(\lambda_1, \dotsc, \lambda_n)$ for all $(\lambda_1, \dotsc, \lambda_n) \in L^n$. We can write $p$ as
  \[
-  p(X_1, \ldots, X_n) = \sum_{i \in \N} p_i(X_1, \ldots, X_{n-1}) X_n^i
+  p(X_1, \dotsc, X_n) = \sum_{i \in \N} p_i(X_1, \dotsc, X_{n-1}) X_n^i
  \]
- with $p_i \in L[X_1, \ldots, X_{n-1}]$ for all $i \in \N$ and $p_i \neq 0$ for only finitely many $i \in \N$. Let $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary and $\bar{p} \in L[X_n]$ be defined as
+ with $p_i \in L[X_1, \dotsc, X_{n-1}]$ for all $i \in \N$ and $p_i \neq 0$ for only finitely many $i \in \N$. Let $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary and $\bar{p} \in L[X_n]$ be defined as
  \[
-  \bar{p}(X_n) := p(\lambda_1, \ldots, \lambda_{n-1}, X_n) = \sum_{i \in \N} p_i(\lambda_1, \ldots, \lambda_{n-1}) X_n^i.
+  \bar{p}(X_n) := p(\lambda_1, \dotsc, \lambda_{n-1}, X_n) = \sum_{i \in \N} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i.
  \]
- Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes). Because $L$ is infinite this means that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$. Since $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $\lambda_1, \ldots, \lambda_{n-1} \in k$ for every $i \in \N$. By using the induction hypothesis we find that $p_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \ldots, \lambda_{n-1} \in L$. Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$. Therefore $p = 0$ and $f = 0$.
+ Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes). Because $L$ is infinite this means that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$. Since $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $\lambda_1, \dotsc, \lambda_{n-1} \in k$ for every $i \in \N$. By using the induction hypothesis we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \dotsc, \lambda_{n-1} \in L$. Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$. Therefore $p = 0$ and $f = 0$.
 \end{proof}
 
 
@@ -325,7 +325,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  \[
   (fh)(w) = f(w)h(w) = 0
  \]
- for all $w \in W$, so $fh = 0$. Since $\mc{P}(W) \cong k[X_1, \ldots, X_{\dim W}]$ we know that $\mc{P}(W)$ is an integral domain. Since $h \neq 0$ and $fh = 0$ it follows that $f = 0$.
+ for all $w \in W$, so $fh = 0$. Since $\mc{P}(W) \cong k[X_1, \dotsc, X_{\dim W}]$ we know that $\mc{P}(W)$ is an integral domain. Since $h \neq 0$ and $fh = 0$ it follows that $f = 0$.
 \end{proof}
 
 
@@ -384,9 +384,9 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  Then $\Diag_n(k)$ is Zariski-dense in $\Mat_n(k)$.
 \end{prop}
 \begin{proof}
- Let $f \in \mc{P}(\Mat_n(k))$ with $f_{|\Diag_n(k)} = 0$ and $A \in \Mat_n(k)$. Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1, \ldots, b_n$ (not necessarily pairwise distinct).
+ Let $f \in \mc{P}(\Mat_n(k))$ with $f_{|\Diag_n(k)} = 0$ and $A \in \Mat_n(k)$. Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1, \dotsc, b_n$ (not necessarily pairwise distinct).
  
- Let $a_1, \ldots, a_n \in k^\times$ be pairwise different (this is possible since $k$ is infinite). We define
+ Let $a_1, \dotsc, a_n \in k^\times$ be pairwise different (this is possible since $k$ is infinite). We define
  \[
   D \colon k \to \Mat_n(k), z \mapsto
   \begin{pmatrix}
@@ -404,7 +404,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  \[
   \varphi \colon k \to \Mat_n(k), z \mapsto S^{-1} M(z) S = S^{-1}(SAS^{-1}+D(z))S.
  \]
- Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z, \ldots, b_n + a_n z$ for all $z \in \C$. It is easy to see that these eigenvalues are distinct for all but finitely many $z \in \C$ (since for all $1 \leq i < j \leq n$ there exists exactly one $z_{ij} \in \C$ with $b_i + a_i z_{ij} = b_j + a_j z_{ij}$). Therefore $\varphi(z)$ is diagonalizable for all but finitely many $z \in \C$.
+ Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z, \dotsc, b_n + a_n z$ for all $z \in \C$. It is easy to see that these eigenvalues are distinct for all but finitely many $z \in \C$ (since for all $1 \leq i < j \leq n$ there exists exactly one $z_{ij} \in \C$ with $b_i + a_i z_{ij} = b_j + a_j z_{ij}$). Therefore $\varphi(z)$ is diagonalizable for all but finitely many $z \in \C$.
  
  Since $f_{|\Diag_n(k)} = 0$ it follows that $(f \circ \varphi)(z) = 0$ for all but finitely many $z \in \C$. Therefore $f \circ \varphi = 0$. In particular
  \[

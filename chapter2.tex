@@ -41,18 +41,18 @@
   Let $A$ be a $K$-algebra. Then $A$ is a graded $k$-Algebra via $A_0 = A$ and $A_d = 0$ für $d \neq 0$.
   
   \item
-  Let $k$ be a field (or a ring). $k[X_1, \ldots, X_n]$ is a graded $k$-algebra (or a graded ring) by setting
+  Let $k$ be a field (or a ring). $k[X_1, \dotsc, X_n]$ is a graded $k$-algebra (or a graded ring) by setting
   \[
    A_d :=
    \begin{cases}
-    \vspan_k(\{X_1^{\alpha_1} \cdots X_n^{\alpha_n} \mid \sum_{i=1}^n a_i = d\}) & \text{if } d \geq 0, \\
+    \vspan_k(\{X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \mid \sum_{i=1}^n a_i = d\}) & \text{if } d \geq 0, \\
     0                                                                            & \text{otherwise}.
    \end{cases}
   \]
-  By definition $A_d$ is a $k$-vector space (or $\Z$-module). Since the monomials form a $k$-Basis of $k[X_1, \ldots, X_n]$ we have $A = \bigoplus_{d \geq 0} A_d = \bigoplus_{d \in \Z} A_d$. Since
+  By definition $A_d$ is a $k$-vector space (or $\Z$-module). Since the monomials form a $k$-Basis of $k[X_1, \dotsc, X_n]$ we have $A = \bigoplus_{d \geq 0} A_d = \bigoplus_{d \in \Z} A_d$. Since
   \[
-   \left( X^{\alpha_1} \cdots X^{\alpha_n} \right) \left( X^{\beta_1} \cdots X^{\beta_n} \right)
-   = X_1^{\alpha_1+\beta_1} \cdots X_n^{\alpha_n+\beta_n}
+   \left( X^{\alpha_1} \dotsm X^{\alpha_n} \right) \left( X^{\beta_1} \dotsm X^{\beta_n} \right)
+   = X_1^{\alpha_1+\beta_1} \dotsm X_n^{\alpha_n+\beta_n}
   \]
   we find that for monomials $f \in A_i$ and $g \in A_j$ $fg \in A_{i+j}$. By extending this linearly we get that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
   
@@ -60,10 +60,10 @@
   \item
   $T(V) := k \oplus \bigoplus_{d \geq 1} V^{\otimes d}$ is an algebra by extending
   \[
-   (v_{i_1} \otimes \ldots \otimes v_{i_k}) \cdot (v_{j_1} \otimes \ldots \otimes v_{j_n})
-   = v_{i_1} \otimes \ldots \otimes v_{i_k} \otimes v_{j_1} \otimes \ldots \otimes v_{j_n}
+   (v_{i_1} \otimes \dotsb \otimes v_{i_k}) \cdot (v_{j_1} \otimes \dotsb \otimes v_{j_n})
+   = v_{i_1} \otimes \dotsb \otimes v_{i_k} \otimes v_{j_1} \otimes \dotsb \otimes v_{j_n}
   \]
-  with $v_{i_1}, \ldots, v_{i_k}, v_{j_1}, \ldots, v_{j_n} \in V$ linearly. (We leave it as an exercise to check that this is indeed a $k$-algebra.) $T(V)$ is a graded algebra via
+  with $v_{i_1}, \dotsc, v_{i_k}, v_{j_1}, \dotsc, v_{j_n} \in V$ linearly. (We leave it as an exercise to check that this is indeed a $k$-algebra.) $T(V)$ is a graded algebra via
   \[
    T(V) = \bigoplus_{d \in \Z} T(V)_d,
   \]
@@ -83,7 +83,7 @@
 \begin{defi}
  A $k$-algebra $A$ is filtered if there exists a (potentially infinite) sequence
  \[
-  0 = F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq F_2(A) \subseteq \ldots \subseteq A
+  0 = F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq F_2(A) \subseteq \dotsc \subseteq A
  \]
  of $k$-vector subspaces $F_i(A)$ such that
  \begin{enumerate}[1)]
@@ -97,7 +97,7 @@
 \begin{defi}
  If $A$ is a filtered algebra and
  \[
-  0 = F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq F_2(A) \subseteq \ldots \subseteq A
+  0 = F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq F_2(A) \subseteq \dotsb \subseteq A
  \]
  a filtration of $A$, then define for all $i \geq 0$
  \[
@@ -181,11 +181,11 @@
 
 
 \begin{defi}
- Let $k$ be a field. $G := S_n$ acts linearly on $k[X_1, \ldots, X_n]$ by extending
+ Let $k$ be a field. $G := S_n$ acts linearly on $k[X_1, \dotsc, X_n]$ by extending
  \[
-  g.X^{\alpha_1} \cdots X_n^{\alpha_n} = X_{g(1)}^{\alpha_1} \cdots X_{g(n)}^{\alpha_n} \text{ for all } g \in G
+  g.X^{\alpha_1} \dotsm X_n^{\alpha_n} = X_{g(1)}^{\alpha_1} \dotsm X_{g(n)}^{\alpha_n} \text{ for all } g \in G
  \]
- linearly. A polynomial $f \in k[X_1, \ldots, X_n]^{S_n}$ is called a symmetric polynomial (in $n$ variables).
+ linearly. A polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ is called a symmetric polynomial (in $n$ variables).
 \end{defi}
 
 
@@ -197,37 +197,37 @@
   e_2 &:= X_1 X_2 + X_1 X_3 + X_2 X_3 \text{ and} \\
   m_{(4,4,2)} &:= X_1^4 X_2^2 X_3^2 + X_1^2 X_2^4 X_3^2 + X_1^2 X_2^2 X_3^4.
  \end{align*}
- More generally in $k[X_1, \ldots, X_n]$ we have the following symmmetric polynomials:
+ More generally in $k[X_1, \dotsc, X_n]$ we have the following symmmetric polynomials:
 \end{expl}
 
 
 \begin{defi}
  Fix $n \in \N$. The $r$-th power symmetric polynomial, also called the $r$-th power sum, is defined as
  \[
-  p_r^{(n)} := X_1^r + \ldots + X_n^r,
+  p_r^{(n)} := X_1^r + \dotsb + X_n^r,
  \]
  the $r$-th completely symmetric polynomial as
  \[
-  h_r^{(n)} := \sum_{|\alpha|=r} X_1^{\alpha_1} \cdots X_n^{\alpha_n}.
+  h_r^{(n)} := \sum_{|\alpha|=r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n}.
  \]
  and the $r$-th elementary symmetric polynomial as
  \[
-  e_r^{(n)} := \sum_{1 \leq i_1 < \ldots < i_r \leq n} X_{i_1} \cdots X_{i_r}.
+  e_r^{(n)} := \sum_{1 \leq i_1 < \dotsb < i_r \leq n} X_{i_1} \dotsm X_{i_r}.
  \]
  We also set $e_0^{(n)} := 1$ and $e_r^{(n)} = 0$ for $r > n$. If the number of variables in clear we also write $p_r$, $h_r$ and $e_r$.
 \end{defi}
 
 Another possible way of writing $e^{(n)}_r$ is
 \[
- e^{(n)}_r = \sum_{\substack{I \subseteq \{1, \ldots, n\} \\ |I| = r}} \prod_{i \in I} X_i.
+ e^{(n)}_r = \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i.
 \]
-From this we get that $e^{(n)}_0 = 1$ because the only subset of $\{1, \ldots, n\}$ which contains $0$ elements is the empty set and thus the sum consists only of the empty product. We also get that $e^{(n)}_r = 0$ for $r > n$ since $\{1, \ldots, n\}$ has no subsets which contain more than $n$ elements.
+From this we get that $e^{(n)}_0 = 1$ because the only subset of $\{1, \dotsc, n\}$ which contains $0$ elements is the empty set and thus the sum consists only of the empty product. We also get that $e^{(n)}_r = 0$ for $r > n$ since $\{1, \dotsc, n\}$ has no subsets which contain more than $n$ elements.
 
-The elementary symmetric polynomials appear in very natural ways. If, for example, we have elements $a_1, \ldots, a_n \in k$ then we have
+The elementary symmetric polynomials appear in very natural ways. If, for example, we have elements $a_1, \dotsc, a_n \in k$ then we have
 \begin{align*}
-  &\, (t-a_1) \cdots (t-a_n) \\
- =&\, t^n - (a_1 + \ldots + a_n) t^{n-1} + \sum_{1 \leq i_1 < i_2 \leq n} a_{i_1} a_{i_2} t^{n-2} + \ldots + (-1)^n a_1 \cdots a_n \\ 
- =&\, t^n - e^{(n)}_1(a_1, \ldots, a_n) t^{n-1} + e^{(n)}_2(a_1, \ldots, a_n) t^{n-2} + \ldots + (-1)^n e^{(n)}_n(a_1, \ldots, a_n)
+  &\, (t-a_1) \dotsm (t-a_n) \\
+ =&\, t^n - (a_1 + \dotsb + a_n) t^{n-1} + \sum_{1 \leq i_1 < i_2 \leq n} a_{i_1} a_{i_2} t^{n-2} + \dotsb + (-1)^n a_1 \dotsm a_n \\ 
+ =&\, t^n - e^{(n)}_1(a_1, \dotsc, a_n) t^{n-1} + e^{(n)}_2(a_1, \dotsc, a_n) t^{n-2} + \dotsb + (-1)^n e^{(n)}_n(a_1, \dotsc, a_n)
 \end{align*}
 in $k[t]$. We will formalize this observation in the following lemma.
 
@@ -235,14 +235,14 @@ in $k[t]$. We will formalize this observation in the following lemma.
 \begin{lem}
  For all $n \in \N$ we have
  \[
-  \prod_{i=1}^n (t-X_i) = t^n - e^{(n)}_1 t^{n-1} + e^{(n)}_2 t^{n-2} + \ldots + (-1)^n e^{(n)}_n
+  \prod_{i=1}^n (t-X_i) = t^n - e^{(n)}_1 t^{n-1} + e^{(n)}_2 t^{n-2} + \dotsb + (-1)^n e^{(n)}_n
  \]
- in $k[X_1, \ldots, X_n][t]$.
+ in $k[X_1, \dotsc, X_n][t]$.
 \end{lem}
 \begin{proof}
  For $n = 0$ the statement is clear. For $n \geq 1$ the coefficient of the left-hand side of $t^{n-r}$ is $e^{(n)}_0 = 1$ for $r = 0$ and
  \[
-  \sum_{1 \leq i_1 < \ldots < i_r \leq n} (-X_{i_1}) \cdots (-X_{i_r}) = (-1)^r e^{(n)}_r.
+  \sum_{1 \leq i_1 < \dotsb < i_r \leq n} (-X_{i_1}) \dotsm (-X_{i_r}) = (-1)^r e^{(n)}_r.
  \]
  for $0 < r \leq n$.
 \end{proof}
@@ -251,21 +251,21 @@ in $k[t]$. We will formalize this observation in the following lemma.
 \begin{cor}
  For all $n \in \N$ we have
  \[
-  p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \ldots + (-1)^n n e^{(n)}_n = 0.
+  p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \dotsb + (-1)^n n e^{(n)}_n = 0.
  \]
 \end{cor}
 \begin{proof}
  For $n = 0$ the statement is clear. For $n > 0$ we have
  \[
-  \prod_{i=1}^n (t-X_i) = t^n - e^{(n)}_1 t^{n-1} + e^{(n)}_2 t^{n-2} + \ldots + (-1)^n e^{(n)}_n
+  \prod_{i=1}^n (t-X_i) = t^n - e^{(n)}_1 t^{n-1} + e^{(n)}_2 t^{n-2} + \dotsb + (-1)^n e^{(n)}_n
  \]
  and evaluating at $t = X_j$ gives
  \[
-  X_j^n - e^{(n)}_1 X_j^{n-1} + e^{(n)}_2 X_j^{n-2} + \ldots + (-1)^n e^{(n)}_n = 0.
+  X_j^n - e^{(n)}_1 X_j^{n-1} + e^{(n)}_2 X_j^{n-2} + \dotsb + (-1)^n e^{(n)}_n = 0.
  \]
  By summing over all $1 \leq j \leq n$ we get
  \[
-  p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \ldots + (-1)^n n e^{(n)}_n = 0.
+  p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \dotsb + (-1)^n n e^{(n)}_n = 0.
  \]
 \end{proof}
 
@@ -273,7 +273,7 @@ in $k[t]$. We will formalize this observation in the following lemma.
 \begin{rem}[Newton’s identities]
  One can show that more generally
  \[
-  p^{(n)}_m - e^{(n)}_1 p^{(n)}_{m-1} + \ldots + (-1)^{m-1} e^{(n)}_{m-1} p^{(n)}_1 + (-1)^m+ m e^{(n)}_m = 0.
+  p^{(n)}_m - e^{(n)}_1 p^{(n)}_{m-1} + \dotsb + (-1)^{m-1} e^{(n)}_{m-1} p^{(n)}_1 + (-1)^m+ m e^{(n)}_m = 0.
  \]
  for all $m \geq 0$. For $m = n$ this gives us the previous corollary.
 \end{rem}
@@ -283,24 +283,24 @@ in $k[t]$. We will formalize this observation in the following lemma.
 
 
 \begin{thrm}[Fundamental Theorem of symmetric functions]
- The symmetric polynomials $e^{(n)}_1, \ldots, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \ldots, X_n]^{S_n}$. Moreover they are algebraically independent. In other words
+ The symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \dotsc, X_n]^{S_n}$. Moreover they are algebraically independent. In other words
  \[
-  k[X_1, \ldots, X_n]^{S_n} \cong k[X_1, \ldots, X_n] \text{ via } e^{(n)}_k \mapsto X_k.
+  k[X_1, \dotsc, X_n]^{S_n} \cong k[X_1, \dotsc, X_n] \text{ via } e^{(n)}_k \mapsto X_k.
  \]
 \end{thrm}
 
 
 \begin{lem}
- A polynomial $f \in k[X_1, \ldots, X_n]$ is symmetric if and only if its homogeneous parts are symmetric.
+ A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if its homogeneous parts are symmetric.
 \end{lem}
 \begin{proof}
- We have $k[X_1, \ldots, X_n] = \bigoplus_{d \geq 0} k[X_1, \ldots, X_n]_d$ as a graded $k$-algebra. We write $f = \sum_{d \geq 0} f_d$ where $f_d$ is the homogenous part of $f$ of degree $d$ and only finitely many $f_d$ are non-zero. We need to show that $f$ is symmetric if and only if $f_d$ is symmetric for all $d \geq 0$.
+ We have $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ as a graded $k$-algebra. We write $f = \sum_{d \geq 0} f_d$ where $f_d$ is the homogenous part of $f$ of degree $d$ and only finitely many $f_d$ are non-zero. We need to show that $f$ is symmetric if and only if $f_d$ is symmetric for all $d \geq 0$.
  
- Is is clear that $f$ is symmetric if all $f_d$ are symmetric. On the other hand we notice that the decomposition $k[X_1, \ldots, X_n] = \bigoplus_{d \geq 0} k[X_1, \ldots, X_n]$ into vector subspaces is also a decomposition into subrepresentations of $S_n$. If $f$ is symmetric we therefore have for all $\sigma \in S_n$
+ Is is clear that $f$ is symmetric if all $f_d$ are symmetric. On the other hand we notice that the decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]$ into vector subspaces is also a decomposition into subrepresentations of $S_n$. If $f$ is symmetric we therefore have for all $\sigma \in S_n$
  \[
   f = \sum_{d \geq 0} f_d = \sigma.\left( \sum_{d \geq 0} f_d \right) = \sum_{d \geq 0} \sigma.f_d.
  \]
- Because the sum is direct and $\sigma.f_d \in k[X_1, \ldots, X_n]_d$ for all $d \geq 0$ we have $\sigma.f_d = f_d$ for all $d \geq 0$.
+ Because the sum is direct and $\sigma.f_d \in k[X_1, \dotsc, X_n]_d$ for all $d \geq 0$ we have $\sigma.f_d = f_d$ for all $d \geq 0$.
 \end{proof}
 
 
@@ -308,53 +308,53 @@ Using this Lemma we can now easily prove the Fundamental Theorem. We will give t
 
 
 \begin{proof}[Proof of the Fundamental Theorem]
-To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \ldots, X_n]$: We first order the monomials by their power of $X_1$ from lowest to highest. The monomials with the same power of $X_1$ are then ordered in the same way by their power of $X_2$, then those with the same power of $X_2$ by their power of $X_3$, and so on. In a more formal way: For monomials $X^\alpha = X_1^{\alpha_1} \cdots X_n^{\alpha_n}$ and $X^\beta = X_1^{\beta_1} \cdots X_n^{\beta_n}$ we have $X^\alpha > X^\beta$ if and only if there exists $1 \leq i \leq n$ such that $\alpha_1 = \beta_1, \alpha_2 = \beta_2, \ldots, \alpha_{i-1} = \beta_{i-1}$ and $\alpha_i > \beta_i$. This gives us a total order on the monomials in $k[X_1, \ldots, X_n]$.
+To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \dotsc, X_n]$: We first order the monomials by their power of $X_1$ from lowest to highest. The monomials with the same power of $X_1$ are then ordered in the same way by their power of $X_2$, then those with the same power of $X_2$ by their power of $X_3$, and so on. In a more formal way: For monomials $X^\alpha = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ and $X^\beta = X_1^{\beta_1} \dotsm X_n^{\beta_n}$ we have $X^\alpha > X^\beta$ if and only if there exists $1 \leq i \leq n$ such that $\alpha_1 = \beta_1, \alpha_2 = \beta_2, \dotsc, \alpha_{i-1} = \beta_{i-1}$ and $\alpha_i > \beta_i$. This gives us a total order on the monomials in $k[X_1, \dotsc, X_n]$.
  
- For a polynomial $p \in k[X_1, \ldots X_n]$ with $p \neq 0$ we define $\init p$ to be the highest monomial occuring in $p$, including its coefficient. One can easily check the following properties:
+ For a polynomial $p \in k[X_1, \dotsc X_n]$ with $p \neq 0$ we define $\init p$ to be the highest monomial occuring in $p$, including its coefficient. One can easily check the following properties:
  \begin{enumerate}
   \item
-   If $p$ is symmetrical and $\init p = c X_1^{\alpha_1} \cdots X_n^{\alpha_n}$ we have $\alpha_1 \geq \alpha_2 \geq \ldots \geq \alpha_n$.
+   If $p$ is symmetrical and $\init p = c X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ we have $\alpha_1 \geq \alpha_2 \geq \dotsb \geq \alpha_n$.
   \item
-   For $q \in k[X_1, \ldots, X_n], q \neq 0$ we have $\init (p \cdot q) = \init p \cdot \init q$.
+   For $q \in k[X_1, \dotsc, X_n], q \neq 0$ we have $\init (p \cdot q) = \init p \cdot \init q$.
   \item
-   $\init e^{(n)}_k = X_1 \cdots X_k$ for all $1 \leq k \leq n$.
+   $\init e^{(n)}_k = X_1 \dotsm X_k$ for all $1 \leq k \leq n$.
  \end{enumerate}
  We are now well-equipped to prove the Theorem. 
  
- We first show that $e^{(n)}_1, \ldots, e^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra. For this let $f \in k[X_1, \ldots, X_n]^{S_n}$ with $f \neq 0$. By the previous Lemma we may assume that $f$ is homogeneous of degree $d \geq 0$. For
+ We first show that $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra. For this let $f \in k[X_1, \dotsc, X_n]^{S_n}$ with $f \neq 0$. By the previous Lemma we may assume that $f$ is homogeneous of degree $d \geq 0$. For
  \[
-  \init f = c X_1^{\alpha_1} \cdots X_n^{\alpha_n}
+  \init f = c X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
  \]
  we define
  \[
-  p = c \left(e^{(n)}_1\right)^{\alpha_1 - \alpha_2} \cdots \left(e^{(n)}_{n-1}\right)^{\alpha_{n-1} - \alpha_n} \left(e^{(n)}_n\right)^{\alpha_n}.
+  p = c \left(e^{(n)}_1\right)^{\alpha_1 - \alpha_2} \dotsm \left(e^{(n)}_{n-1}\right)^{\alpha_{n-1} - \alpha_n} \left(e^{(n)}_n\right)^{\alpha_n}.
  \]
  From the properties listed above it directly follows that that $p$ is well defined with $\init p = \init f$. Because $e^{(n)}_k$ is homogenous of degree $k$ it follows that $p$ is homogeneous of degree
  \begin{align*}
-   &\,(\alpha_1-\alpha_2) + 2(\alpha_2-\alpha_3) + \ldots + (n-1)(\alpha_{n-1}-\alpha_n)+n\alpha_n \\
-  =&\, \alpha_1 + \ldots + \alpha_n
+   &\,(\alpha_1-\alpha_2) + 2(\alpha_2-\alpha_3) + \dotsb + (n-1)(\alpha_{n-1}-\alpha_n)+n\alpha_n \\
+  =&\, \alpha_1 + \dotsb + \alpha_n
   = d.
  \end{align*}
- (Because $f$ is homogenous we have $d = \deg f = \deg \init f = \alpha_1 + \ldots + \alpha_n$.) Combining these observations we find that $f-p$ is a homogeneous symmetric polynomial of degree $d$ with either $f-p = 0$ or at least $\init (f-p) < \init f$. Because there are only finitely many monomials of degree $d$ repeating this procedure must lead us to the zero polynomial in finitely many steps.
+ (Because $f$ is homogenous we have $d = \deg f = \deg \init f = \alpha_1 + \dotsb + \alpha_n$.) Combining these observations we find that $f-p$ is a homogeneous symmetric polynomial of degree $d$ with either $f-p = 0$ or at least $\init (f-p) < \init f$. Because there are only finitely many monomials of degree $d$ repeating this procedure must lead us to the zero polynomial in finitely many steps.
  
- To show that $e^{(n)}_1, \ldots, e^{(n)}_n$ are algebraically independent we need to show that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e.
+ To show that $e^{(n)}_1, \dotsc, e^{(n)}_n$ are algebraically independent we need to show that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e.
  \[
-  \left(e^{(n)}\right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \ldots, \alpha_n)
+  \left(e^{(n)}\right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \dotsm \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
  \]
- are linearly independent. For this we notice that for $(\alpha_1, \ldots, \alpha_n) \neq (\beta_1, \ldots, \beta_n)$ we have
+ are linearly independent. For this we notice that for $(\alpha_1, \dotsc, \alpha_n) \neq (\beta_1, \dotsc, \beta_n)$ we have
  \begin{align*}
-      &\, \init \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \\
-     =&\, X_1^{\alpha_1 + \ldots + \alpha_n} X_2^{\alpha_1 + \ldots + \alpha_{n-1}} \cdots X_n^{\alpha_n} \\
-  \neq&\, X_1^{\beta_1 + \ldots + \beta_n} X_2^{\beta_1 + \ldots + \beta_{n-1}} \cdots X_n^{\beta_n} \\
-     =&\, \init \left(e^{(n)}_1\right)^{\beta_1} \cdots \left(e^{(n)}_n\right)^{\beta_n}.
+      &\, \init \left(e^{(n)}_1\right)^{\alpha_1} \dotsm \left(e^{(n)}_n\right)^{\alpha_n} \\
+     =&\, X_1^{\alpha_1 + \dotsb + \alpha_n} X_2^{\alpha_1 + \dotsb + \alpha_{n-1}} \dotsm X_n^{\alpha_n} \\
+  \neq&\, X_1^{\beta_1 + \dotsb + \beta_n} X_2^{\beta_1 + \dotsb + \beta_{n-1}} \dotsm X_n^{\beta_n} \\
+     =&\, \init \left(e^{(n)}_1\right)^{\beta_1} \dotsm \left(e^{(n)}_n\right)^{\beta_n}.
  \end{align*}
  Now suppose that
  \[
-  0 = \lambda_1 \left(e^{(n)}\right)^{\alpha_1} + \ldots + \lambda_s \left(e^{(n)}\right)^{\alpha_s}
+  0 = \lambda_1 \left(e^{(n)}\right)^{\alpha_1} + \dotsb + \lambda_s \left(e^{(n)}\right)^{\alpha_s}
  \]
  with $s \geq 1$, $\alpha_i \neq \alpha_j$ for $i \neq j$ and $\lambda_i \neq 0$ for all $1 \leq i \leq s$. We can assume w.l.o.g. that 
  \[
-  \init \left(e^{(n)}\right)^{\alpha_1} > \init \left(e^{(n)}\right)^{\alpha_2} > \ldots > \init \left(e^{(n)}\right)^{\alpha_s}.
+  \init \left(e^{(n)}\right)^{\alpha_1} > \init \left(e^{(n)}\right)^{\alpha_2} > \dotsb > \init \left(e^{(n)}\right)^{\alpha_s}.
  \]
  With this we directly find that the $\init \left(e^{(n)}\right)^{\alpha_1}$ only occures in $\left(e^{(n)}\right)^{\alpha_1}$ and thus $\lambda_1 = 0$, in contradiction to $\lambda_1 \neq 0$.
 \end{proof}
@@ -363,95 +363,95 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
 \begin{proof}[Proof of the Fundamental Theorem (lecture)]
  Note that
  \begin{align*}
-  e^{(n)}_1 &= X_1 + \ldots + X_n = e_1^{(n-1)} + X_n, \\
+  e^{(n)}_1 &= X_1 + \dotsb + X_n = e_1^{(n-1)} + X_n, \\
   e^{(n)}_2 &= \sum_{1 \leq i_1 < i_2 \leq n} X_{i_1} X_{i_2} = e_2^{(n-1)} + X_n e_1^{(n-1)}, \\
             &\vdots \tag{$\ast$}\\ 
   e^{(n)}_r &= e^{(n-1)}_r + X_n e^{(n-1)}_{r-1} \text{ for } 1 \leq r \leq n-1, \\
             &\vdots \\
-  e^{(n)}_n &= X_1 \cdots X_{n-1} X_n = X_n e^{(n-1)}_{n-1}.
+  e^{(n)}_n &= X_1 \dotsm X_{n-1} X_n = X_n e^{(n-1)}_{n-1}.
  \end{align*}
  \begin{claim}
-  A polynomial $f \in k[X_1, \ldots, X_n]$ is symmetric if and only if $f$ can be written as a polyonmial in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e. we have
+  A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if $f$ can be written as a polyonmial in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e. we have
   \[
-   k\left[e^{(n)}_1, \ldots, e^{(n)}_n\right] = k[X_1, \ldots, X_n]^{S_n}.
+   k\left[e^{(n)}_1, \dotsc, e^{(n)}_n\right] = k[X_1, \dotsc, X_n]^{S_n}.
   \]
  \end{claim}
  \begin{proof}[Proof of claim]
-  It is clear that $k\left[e^{(n)}_1, \ldots, e^{(n)}_n\right] \subseteq k[X_1, \ldots, X_n]$. We show the other inclusion by induction over $n$.
+  It is clear that $k\left[e^{(n)}_1, \dotsc, e^{(n)}_n\right] \subseteq k[X_1, \dotsc, X_n]$. We show the other inclusion by induction over $n$.
   
-  For $n = 1$ the claim is clear. Let $n \geq 2$ and suppose that the claim holds for $n-1$. We show the claim for $n$ by induction over $\deg f$. For $\deg f = 0$ the claim is clear. Let $d \geq 1$ and suppose the claim holds for $0, \ldots, d-1$. By the previous Lemma we may assume that $f$ is homogenous of degree $d$. (The homogenous parts of lower degree are by induction hypothesis expressable as polynomials in $e^{(n)}_1, \ldots, e^{(n)}_n$.) Let
+  For $n = 1$ the claim is clear. Let $n \geq 2$ and suppose that the claim holds for $n-1$. We show the claim for $n$ by induction over $\deg f$. For $\deg f = 0$ the claim is clear. Let $d \geq 1$ and suppose the claim holds for $0, \dotsc, d-1$. By the previous Lemma we may assume that $f$ is homogenous of degree $d$. (The homogenous parts of lower degree are by induction hypothesis expressable as polynomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$.) Let
   \[
-   q \colon k[X_1, \ldots, X_n] \to k[X_1, \ldots, X_n]/(X_n) \cong k[X_1, \ldots, X_{n-1}]
+   q \colon k[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]/(X_n) \cong k[X_1, \dotsc, X_{n-1}]
   \]
   be the evaluation at $X_n = 0$. By $(\ast)$ we have
   \begin{align*}
    q\left( e^{(n)}_r \right) &= e^{(n-1)}_r \text{ for all } 1 \leq r < n \text{ and}\\
    q\left( e^{(n)}_n \right) &= 0.
   \end{align*}
-  We notice that $q(f) \in k[X_1, \ldots, X_{n-1}]$ is symmetric: Because $f$ is symmetric we have
+  We notice that $q(f) \in k[X_1, \dotsc, X_{n-1}]$ is symmetric: Because $f$ is symmetric we have
   \[
-   f = f(X_1, \ldots, X_n) = f(X_{\sigma(1)}, \ldots, X_{\sigma(n)})
+   f = f(X_1, \dotsc, X_n) = f(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
   \]
   for every $\sigma \in S_n$. Thus we have
   \[
-   f(X_1, \ldots, X_{n-1}, 0) = f(X_{\tau(1)}, \ldots, X_{\tau(n-1)}, 0).
+   f(X_1, \dotsc, X_{n-1}, 0) = f(X_{\tau(1)}, \dotsc, X_{\tau(n-1)}, 0).
   \]
-  for every $\tau \in S_{n-1}$. Because $q(f) \in k[X_1, \ldots, X_{n-1}]$ is symmetric we can use the induction hypothesis (from the induction on $n$) to write
+  for every $\tau \in S_{n-1}$. Because $q(f) \in k[X_1, \dotsc, X_{n-1}]$ is symmetric we can use the induction hypothesis (from the induction on $n$) to write
   \[
-   q(f) = P\left(e^{(n-1)}_1, \ldots, e^{(n-1)}_{n-1}\right)
+   q(f) = P\left(e^{(n-1)}_1, \dotsc, e^{(n-1)}_{n-1}\right)
   \]
-  for some polynomial $P \in k[X_1, \ldots, X_{n-1}]$. Consider the symmetric polynomial
+  for some polynomial $P \in k[X_1, \dotsc, X_{n-1}]$. Consider the symmetric polynomial
   \[
-   g := P\left(e^{(n)}_1, \ldots, e^{(n)}_{n-1}\right) \in k[X_1, \ldots, X_n].
+   g := P\left(e^{(n)}_1, \dotsc, e^{(n)}_{n-1}\right) \in k[X_1, \dotsc, X_n].
   \]
   Because $q$ is a $k$-algebra homomorphism we have
   \begin{align*}
    q(g)
-   &= q\left( P\left(e^{(n)}_1, \ldots, e^{(n)}_{n-1}\right) \right) \\
-   &= P\left( q\left(e^{(n)}_1\right), \ldots, q\left(e^{(n)}_{n-1}\right) \right) \\
-   &= P\left( e^{(n-1)}_1, \ldots, e^{(n-1)}_{n-1} \right) \\
+   &= q\left( P\left(e^{(n)}_1, \dotsc, e^{(n)}_{n-1}\right) \right) \\
+   &= P\left( q\left(e^{(n)}_1\right), \dotsc, q\left(e^{(n)}_{n-1}\right) \right) \\
+   &= P\left( e^{(n-1)}_1, \dotsc, e^{(n-1)}_{n-1} \right) \\
    &= q(f)
   \end{align*}
   and therefore
   \[
    q(f-g) = 0.
   \]
-  Because $\ker q = (X_n)$ this means that $X_n \mid (f-g)$. Because $f-g$ is symmetric (because $f$ and $g$ are symmetric) it follows that $X_i \mid (f-g)$ for all $1 \leq i \leq n$. Therefore $X_1 \cdots X_n \mid (f-g)$ and we can set
+  Because $\ker q = (X_n)$ this means that $X_n \mid (f-g)$. Because $f-g$ is symmetric (because $f$ and $g$ are symmetric) it follows that $X_i \mid (f-g)$ for all $1 \leq i \leq n$. Therefore $X_1 \dotsm X_n \mid (f-g)$ and we can set
   \[
-   h := \frac{f-g}{X_1 \cdots X_n} = \frac{f-g}{e^{(n)}_n}.
+   h := \frac{f-g}{X_1 \dotsm X_n} = \frac{f-g}{e^{(n)}_n}.
   \]
-  (Here we use that $k[X_1, \ldots, X_n]$ is an unique factorization domain.) We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$. [I have no idea why $\deg g \leq \deg f$.] By induction hypothesis (of the induction on $d$) we can write $h$ as a polynomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ and therefore also $f-g = h e^{(n)}_n$. Since $g$ is a Polynomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ so is $f$.
+  (Here we use that $k[X_1, \dotsc, X_n]$ is an unique factorization domain.) We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$. [I have no idea why $\deg g \leq \deg f$.] By induction hypothesis (of the induction on $d$) we can write $h$ as a polynomial in $e^{(n)}_1, \dotsc, e^{(n)}_n$ and therefore also $f-g = h e^{(n)}_n$. Since $g$ is a Polynomial in $e^{(n)}_1, \dotsc, e^{(n)}_n$ so is $f$.
   % TODO: Warum ist deg(g) <= deg(f)? Wofür die Homogenität von f? %
  \end{proof}
-  All that is left to show is that $e^{(n)}_1, \ldots, e^{(n)}_n$ are algebraically independent. We prove this by induction over $n$.
+  All that is left to show is that $e^{(n)}_1, \dotsc, e^{(n)}_n$ are algebraically independent. We prove this by induction over $n$.
   
-  For $n = 1$ this is clear, since $e^{(1)}_1 = X_1$. Now suppose $n \geq 2$ and that the elements $e^{(n-1)}_1, \ldots, e^{(n-1)}_{n-1}$ are algebraically independent. Suppose that
+  For $n = 1$ this is clear, since $e^{(1)}_1 = X_1$. Now suppose $n \geq 2$ and that the elements $e^{(n-1)}_1, \dotsc, e^{(n-1)}_{n-1}$ are algebraically independent. Suppose that
   \[
-   F\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) = 0
+   F\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) = 0
   \]
-  for some polynomial $F \in k[X_1, \ldots, X_n]$ with $F \neq 0$ of minimal possible degree. Then
+  for some polynomial $F \in k[X_1, \dotsc, X_n]$ with $F \neq 0$ of minimal possible degree. Then
   \begin{align*}
    0
-   &= q\left(F\left(e^{(n)}_1, \ldots, e^{(n)}_{n-1} ,e^{(n)}_n\right)\right) \\
-   &= F\left( q\left(e^{(n)}_1\right), \ldots, q\left(e^{(n)}_{n-1}\right), q\left(e^{(n)}_n\right) \right) \\
-   &= F\left( e^{n-1}_1, \ldots e^{(n-1)}_{n-1}, 0 \right).
+   &= q\left(F\left(e^{(n)}_1, \dotsc, e^{(n)}_{n-1} ,e^{(n)}_n\right)\right) \\
+   &= F\left( q\left(e^{(n)}_1\right), \dotsc, q\left(e^{(n)}_{n-1}\right), q\left(e^{(n)}_n\right) \right) \\
+   &= F\left( e^{n-1}_1, \dotsc, e^{(n-1)}_{n-1}, 0 \right).
   \end{align*}
-  Using the induction hypothesis we find that $F(X_1, \ldots, X_{n-1}, 0) = 0$. Therefore $X_n \mid F$. This means that there exists some $\hat{F} \in k[X_1, \ldots, X_n]$ with $F = X_n \hat{F}$. In particular $\hat{F} \neq 0$. We have
+  Using the induction hypothesis we find that $F(X_1, \dotsc, X_{n-1}, 0) = 0$. Therefore $X_n \mid F$. This means that there exists some $\hat{F} \in k[X_1, \dotsc, X_n]$ with $F = X_n \hat{F}$. In particular $\hat{F} \neq 0$. We have
   \[
    0
-   = F\left(e^{(n)}_1, \ldots, e^{(n)}_n\right)
-   = e^{(n)}_n \hat{F}\left(e^{(n)}_1, \ldots, e^{(n)}_n\right).
+   = F\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right)
+   = e^{(n)}_n \hat{F}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right).
   \]
-  Because $k[X_1, \ldots, X_n]$ is an integral domain and $e^{(n)}_n \neq 0$ it follows that
+  Because $k[X_1, \dotsc, X_n]$ is an integral domain and $e^{(n)}_n \neq 0$ it follows that
   \[
-   \hat{F}\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) = 0.
+   \hat{F}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) = 0.
   \]
   Because $\hat{F} \neq 0$ and $\deg \hat{F} < \deg F$ this contradicts the assumption that $F$ is of lowest possible degree.
 \end{proof}
 
 
 \begin{rem}
- Each of the proofs gives us an algorithm how to express a symmetric polynomial in terms of $e^{(n)}_1, \ldots, e^{(n)}_n$.
+ Each of the proofs gives us an algorithm how to express a symmetric polynomial in terms of $e^{(n)}_1, \dotsc, e^{(n)}_n$.
 \end{rem}
 
 
@@ -460,7 +460,7 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
 \end{rem}
 
 
-To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \ldots, X_n]\dblbrack{t}$, i.e.
+To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \dotsc, X_n]\dblbrack{t}$, i.e.
 \begin{align*}
  E(t) &:= \sum_{k \geq 0} e^{(n)}_k t^k, \\
  H(t) &:= \sum_{k \geq 0} h^{(n)}_k t^k \text{ and} \\
@@ -485,25 +485,25 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
   \item
    The coefficient of $t^r$ on the right hand side of the equation is
    \[
-    \sum_{\substack{I \subseteq \{1, \ldots, n\} \\ |I| = r}} \prod_{i \in I} X_i,
+    \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i,
    \]
    which is precisely $e^{(n)}_r$.
   \item
-   It is clear that $1-X_i t$ is invertible in $k[X_1, \ldots, X_n]\dblbrack{t}$. (For a commutative ring $R$ a power series $\sum_{i \in \N} a_i t^i \in R\dblbrack{t}$ is invertible if and only if $a_0 \in R^\times$.) For $1 \leq i \leq n$ let
+   It is clear that $1-X_i t$ is invertible in $k[X_1, \dotsc, X_n]\dblbrack{t}$. (For a commutative ring $R$ a power series $\sum_{i \in \N} a_i t^i \in R\dblbrack{t}$ is invertible if and only if $a_0 \in R^\times$.) For $1 \leq i \leq n$ let
    \[
-    Q_i := \frac{1}{1-X_i t} \in k[X_1, \ldots, X_n] \dblbrack{t}.
+    Q_i := \frac{1}{1-X_i t} \in k[X_1, \dotsc, X_n] \dblbrack{t}.
    \]
    We then have
    \[
-    \prod_{i=1}^n \frac{1}{1-X_i t} = Q_1 \cdots Q_n.
+    \prod_{i=1}^n \frac{1}{1-X_i t} = Q_1 \dotsm Q_n.
    \]
    By using the geometric series it is now easy to see that
    \[
-    Q_i = 1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \ldots.
+    Q_i = 1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb.
    \]
-   With this we find that the coefficient of $t^r$ in $Q_1 \cdots Q_n$ is
+   With this we find that the coefficient of $t^r$ in $Q_1 \dotsm Q_n$ is
    \[
-    \sum_{|\alpha| = r} X_1^{\alpha_1} \cdots X_n^{\alpha_n},
+    \sum_{|\alpha| = r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n},
    \]
    which is precisely $h^{(n)}_r$.
   \item
@@ -511,8 +511,8 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
    \begin{align*}
      &\, \sum_{i=1}^n \frac{X_i^l}{1-X_i t}
     =    \sum_{i=1}^n X_i^l Q_i \\
-    =&\, \sum_{i=1}^n (X_i^l + X_i^{l+1} t + X_i^{l+2} t^2 + X_i^{l+3} t^3 + \ldots) \\
-    =&\, p^{(n)}_l + p^{(n)}_{l+1} t + p^{(n)}_{l+2} t^2 + p^{(n)}_{l+3} t^3 + \ldots
+    =&\, \sum_{i=1}^n (X_i^l + X_i^{l+1} t + X_i^{l+2} t^2 + X_i^{l+3} t^3 + \dotsb) \\
+    =&\, p^{(n)}_l + p^{(n)}_{l+1} t + p^{(n)}_{l+2} t^2 + p^{(n)}_{l+3} t^3 + \dotsb
    \end{align*}\qedhere
  \end{enumerate}
 \end{proof}
@@ -524,11 +524,11 @@ From this equalities we can now easily derive more equalities.
 \begin{cor}
  For all $s \geq 1$ we have
  \[
-  h^{(n)}_s - e^{(n)}_1 h^{(n)}_{s-1} + e^{(n)}_2 h^{(n)}_{s-2} + \ldots + (-1)^{s-1} e^{(n)}_{s-1} h^{(n)}_1 + (-1)^s e^{(n)}_s = 0
+  h^{(n)}_s - e^{(n)}_1 h^{(n)}_{s-1} + e^{(n)}_2 h^{(n)}_{s-2} + \dotsb + (-1)^{s-1} e^{(n)}_{s-1} h^{(n)}_1 + (-1)^s e^{(n)}_s = 0
  \]
  as well as
  \[
-  e^{(n)}_s - h^{(n)}_1 e^{(n)}_{s-1} + h^{(n)}_2 e^{(n)}_{s-2} + \ldots + (-1)^{s-1} h^{(n)}_{s-1} e^{(n)}_1 + (-1)^s h^{(n)}_s = 0.
+  e^{(n)}_s - h^{(n)}_1 e^{(n)}_{s-1} + h^{(n)}_2 e^{(n)}_{s-2} + \dotsb + (-1)^{s-1} h^{(n)}_{s-1} e^{(n)}_1 + (-1)^s h^{(n)}_s = 0.
  \]
 \end{cor}
 \begin{proof}
@@ -543,7 +543,7 @@ From this equalities we can now easily derive more equalities.
 \begin{cor}
  For all $r \geq 1$ we have
  \[
-  r h^{(n)}_r = p^{(n)}_1 h^{(n)}_{r-1} + p^{(n)}_2 h^{(n)}_{r-2} + \ldots + p^{(n)}_{n-1} h^{(n)}_1 + p^{(n)}_n.
+  r h^{(n)}_r = p^{(n)}_1 h^{(n)}_{r-1} + p^{(n)}_2 h^{(n)}_{r-2} + \dotsb + p^{(n)}_{n-1} h^{(n)}_1 + p^{(n)}_n.
  \]
 \end{cor}
 \begin{proof}
@@ -590,39 +590,39 @@ In the same way we can derive Newton’s identities as another corollary.
  \begin{align*}
   0
   &= \sum_{i=0}^r (-1)^{i+1} p^{(n)}_i e^{(n)}_{r-i} \\
-  &= (-1)^{r+1} p^{(n)}_r + (-1)^r p^{(n)}_{r-1} e^{(n)}_1 + \ldots + p^{(n)}_1 e^{(n)}_{r-1} - r e^{(n)}_r.
+  &= (-1)^{r+1} p^{(n)}_r + (-1)^r p^{(n)}_{r-1} e^{(n)}_1 + \dotsb + p^{(n)}_1 e^{(n)}_{r-1} - r e^{(n)}_r.
  \end{align*}
  Multplying by $(-1)^{r+1}$ results in Newton’s identities as they were given before.
 \end{proof}
 
 
 
-Using the first corallary we can not only give recursive formals for expressing $h^{(n)}_1, \ldots, h^{(n)}_n$ as polynomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ (which we knew was possible from the Fundamental theorem) but also formulas for expressing $e^{(n)}_1, \ldots, e^{(n)}_n$ in polynomials of $h^{(n)}_1, \ldots, h^{(n)}_n$. Thus we find that $k[X_1, \ldots, X_n]^{S_n}$ is also generated by $h^{(n)}_1, \ldots, h^{(n)}_n$. One natural question which comes with this observation is whether $h^{(n)}_1, \ldots, h^{(n)}_n$ are also algebraically independent, which the symmetry of the two equations in the first corollary seem to hint at. Using this symmetrie we get the following Lemma.
+Using the first corallary we can not only give recursive formals for expressing $h^{(n)}_1, \dotsc, h^{(n)}_n$ as polynomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ (which we knew was possible from the Fundamental theorem) but also formulas for expressing $e^{(n)}_1, \dotsc, e^{(n)}_n$ in polynomials of $h^{(n)}_1, \dotsc, h^{(n)}_n$. Thus we find that $k[X_1, \dotsc, X_n]^{S_n}$ is also generated by $h^{(n)}_1, \dotsc, h^{(n)}_n$. One natural question which comes with this observation is whether $h^{(n)}_1, \dotsc, h^{(n)}_n$ are also algebraically independent, which the symmetry of the two equations in the first corollary seem to hint at. Using this symmetrie we get the following Lemma.
 
 
 \begin{lem}
- There exists polynomials $F_1, \ldots, F_n \in k[X_1, \ldots, X_n]$ such that
+ There exists polynomials $F_1, \dotsc, F_n \in k[X_1, \dotsc, X_n]$ such that
  \[
-  h^{(n)}_i = F_i\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) \text{ and }
-  e^{(n)}_i = F_i\left(h^{(n)}_1, \ldots, h^{(n)}_n\right)
+  h^{(n)}_i = F_i\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) \text{ and }
+  e^{(n)}_i = F_i\left(h^{(n)}_1, \dotsc, h^{(n)}_n\right)
  \]
  for all $1 \leq i \leq n$.
 \end{lem}
 \begin{proof}
- We construct $F_1, \ldots, F_n$ recursively. Since $e^{(n)}_1 = h^{(n)}_1$ we start with $F_1 = X_1$. If $F_1, \ldots, F_{k-1}$ are already constructed for $k \leq n$ we set
+ We construct $F_1, \dotsc, F_n$ recursively. Since $e^{(n)}_1 = h^{(n)}_1$ we start with $F_1 = X_1$. If $F_1, \dotsc, F_{k-1}$ are already constructed for $k \leq n$ we set
  \[
-  F_k := X_1 F_{k-1} - X_2 F_{k-2} + \ldots + (-1)^k X_{k-1} F_1 + (-1)^{k+1} X_k.
+  F_k := X_1 F_{k-1} - X_2 F_{k-2} + \dotsb + (-1)^k X_{k-1} F_1 + (-1)^{k+1} X_k.
  \]
  From the first of the previous corollaries and the induction hypothesis it follows that
  \begin{align*}
-   &\, F_k\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) \\
-  =&\, e^{(n)}_1 F_{k-1}\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) - e^{(n)}_2 F_{k-2}\left(e^{(n)}_1, \ldots, e^{(n)}_n\right) + \ldots + (-1)^{k+1} e^{(n)}_k \\
-  =&\, e^{(n)}_1 h^{(n)}_{k-1} - e^{(n)}_2 h^{(n)}_{k-2} + \ldots + (-1)^k e^{(n)}_{k-1} h^{(n)}_1 + (-1)^{k+1} e^{(n)}_k \\
+   &\, F_k\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) \\
+  =&\, e^{(n)}_1 F_{k-1}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) - e^{(n)}_2 F_{k-2}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) + \dotsb + (-1)^{k+1} e^{(n)}_k \\
+  =&\, e^{(n)}_1 h^{(n)}_{k-1} - e^{(n)}_2 h^{(n)}_{k-2} + \dotsb + (-1)^k e^{(n)}_{k-1} h^{(n)}_1 + (-1)^{k+1} e^{(n)}_k \\
   =&\, h^{(n)}_k,
  \end{align*}
  and by switching $e^{(n)}_i$ and $h^{(n)}_i$ we also find that
  \[
-  F_k\left(h^{(n)}_1, \ldots, h^{(n)}_n\right) = e^{(n)}_k.
+  F_k\left(h^{(n)}_1, \dotsc, h^{(n)}_n\right) = e^{(n)}_k.
  \]
 \end{proof}
 
@@ -633,51 +633,51 @@ With the help of this Lemma we can now easily prove the following Theorem, which
 \begin{thrm}
 There exists an unique homomorphism
 \[
- \phi \colon k[X_1, \ldots, X_n]^{S_n} \to k[X_1, \ldots, X_n]^{S_n}
+ \phi \colon k[X_1, \dotsc, X_n]^{S_n} \to k[X_1, \dotsc, X_n]^{S_n}
 \]
 of $k$-algebras with $\phi\left(e^{(n)}_i\right) = h^{(n)}_i$ for all $1 \leq i \leq n$. $\phi$ in an automorphism and involutive
 \end{thrm}
 \begin{proof}
- The existence and uniqueness of $\phi$ follow directly from the fact that $e^{(n)}_1, \ldots, e^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent. (This is basically the universal property of the polynomial ring.) Using the previous Lemma we find that for all $1 \leq i \leq n$
+ The existence and uniqueness of $\phi$ follow directly from the fact that $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent. (This is basically the universal property of the polynomial ring.) Using the previous Lemma we find that for all $1 \leq i \leq n$
  \begin{align*}
   \phi\left(h^{(n)}_i\right)
-  &= \phi\left(F_i\left(e^{(n)}_1, \ldots, e^{(n)}_n\right)\right) \\
-  &= F_i\left(\phi\left(e^{(n)}_1\right), \ldots, \phi\left(e^{(n)}_n\right)\right) \\
-  &= F_i\left(h^{(n)}_1, \ldots, h^{(n)}_n\right)
+  &= \phi\left(F_i\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right)\right) \\
+  &= F_i\left(\phi\left(e^{(n)}_1\right), \dotsc, \phi\left(e^{(n)}_n\right)\right) \\
+  &= F_i\left(h^{(n)}_1, \dotsc, h^{(n)}_n\right)
   = e^{(n)}_i
  \end{align*}
  and thus
  \[
   \phi^2\left(e^{(n)}_i\right) = \phi\left(h^{(n)}_i\right) = e^{(n)}_i.
  \]
- Since $\phi^2\left(e^{(n)}_i\right) = e^{(n)}_i$ for all $1 \leq i \leq n$ we find that $\phi^2 = \id_{k[X_1, \ldots, X_n]^{S_n}}$ by using the universal property of the polynomial ring once more.
+ Since $\phi^2\left(e^{(n)}_i\right) = e^{(n)}_i$ for all $1 \leq i \leq n$ we find that $\phi^2 = \id_{k[X_1, \dotsc, X_n]^{S_n}}$ by using the universal property of the polynomial ring once more.
 \end{proof}
 
 
-This Theorem shows that $h^{(n)}_1, \ldots, h^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent. As for the Fundamental Theorem this result also holds for $k = \Z$.
+This Theorem shows that $h^{(n)}_1, \dotsc, h^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent. As for the Fundamental Theorem this result also holds for $k = \Z$.
 
 
-Since $e^{(n)}_1, \ldots, e^{(n)}_n$ and $h^{(n)}_1, \ldots, h^{(n)}_n$ are each algebraically independent and generate $k[X_1, \ldots, X_n]^{S_n}$ for arbitrary fields and also $k = \Z$, it seems natural to ask if this is also true for $p^{(n)}_1, \ldots, p^{(n)}_n$. The next theorem shows that this is true under additional assumptions.
+Since $e^{(n)}_1, \dotsc, e^{(n)}_n$ and $h^{(n)}_1, \dotsc, h^{(n)}_n$ are each algebraically independent and generate $k[X_1, \dotsc, X_n]^{S_n}$ for arbitrary fields and also $k = \Z$, it seems natural to ask if this is also true for $p^{(n)}_1, \dotsc, p^{(n)}_n$. The next theorem shows that this is true under additional assumptions.
 
 
 \begin{thrm}
- Let $k$ be a field with either $\kchar k = 0$ or $\kchar k > n$. Then $p^{(n)}_1, \ldots, p^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ and are algebraically independent.
+ Let $k$ be a field with either $\kchar k = 0$ or $\kchar k > n$. Then $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
 \end{thrm}
 \begin{proof}
- We first show that $p^{(n)}_1, \ldots, p^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra. For this it is enough to show that $e^{(n)}_1, \ldots, e^{(n)}_n$ can be expressed as polynomials in $p^{(n)}_1, \ldots, p^{(n)}_n$. That this is possible follows directly from Newton’s identities. (Here we need that $2, \ldots, n$ are invertible in $k$.)
+ We first show that $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra. For this it is enough to show that $e^{(n)}_1, \dotsc, e^{(n)}_n$ can be expressed as polynomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$. That this is possible follows directly from Newton’s identities. (Here we need that $2, \dotsc, n$ are invertible in $k$.)
  
- To show that $p^{(n)}_1, \ldots, p^{(n)}_n$ are algebraically independent we need to show that the monomials in $p^{(n)}_1, \ldots, p^{(n)}_n$, i.e.
+ To show that $p^{(n)}_1, \dotsc, p^{(n)}_n$ are algebraically independent we need to show that the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$, i.e.
  \[
-  \left(p^{(n)}\right)^\alpha = \left(p^{(n)}_1\right)^{\alpha_1} \cdots \left(p^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \ldots, \alpha_n)
+  \left(p^{(n)}\right)^\alpha = \left(p^{(n)}_1\right)^{\alpha_1} \dotsm \left(p^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
  \]
- are linearly independent. For this is sufficies to show that the monomials in $p^{(n)}_1, \ldots, p^{(n)}_n$ of degree $\leq N$ form a $k$-basis of the symmetric polynomials of degree $\leq N$. We denote the number of (pairwise different) monomials in $p^{(n)}_1, \ldots, p^{(n)}_n$ by $P_N$ and this subspace by $V_N$. Because $p^{(n)}_1, \ldots, p^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra we already know that $V_N$ is generated as a vector subspace by the monomials in $p^{(n)}_1, \ldots, p^{(n)}_n$ of degree $\leq N$. Thus $\dim V_N \leq P_N$. Because $e^{(n)}_1, \ldots, e^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we also know that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ of degree $\leq N$ form a $k$-basis of $V_N$. We denote the number of these monomials by $E_N$ and have $\dim V_N = E_N$. Since $P_N \leq E_N$ we also have $P_N \leq \dim V_N$. (That $P_N \leq E_N$ follows from the fact that for each monomial in $p^{(n)}_1, \ldots, p^{(n)}_n$ we have a corresponding monomial in $e^{(n)}_1, \ldots, e^{(n)}_n$ of the same degree, i.e. we have a surjective map
+ are linearly independent. For this is sufficies to show that the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$ form a $k$-basis of the symmetric polynomials of degree $\leq N$. We denote the number of (pairwise different) monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ by $P_N$ and this subspace by $V_N$. Because $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra we already know that $V_N$ is generated as a vector subspace by the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$. Thus $\dim V_N \leq P_N$. Because $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we also know that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$ form a $k$-basis of $V_N$. We denote the number of these monomials by $E_N$ and have $\dim V_N = E_N$. Since $P_N \leq E_N$ we also have $P_N \leq \dim V_N$. (That $P_N \leq E_N$ follows from the fact that for each monomial in $p^{(n)}_1, \dotsc, p^{(n)}_n$ we have a corresponding monomial in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of the same degree, i.e. we have a surjective map
 \begin{align*}
-    &\, \{\text{monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ of degree $\leq N$}\} \\
-    &\, \to \{\text{monomials in $p^{(n)}_1, \ldots, p^{(n)}_n$ of degree $\leq N$}\}, \\
+    &\, \{\text{monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$}\} \\
+    &\, \to \{\text{monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$}\}, \\
     &\, \left(e^{(n)}\right)^\alpha \mapsto \left(p^{(n)}\right)^\alpha,
 \end{align*}
-where we use that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ are pairwise different.)
-Therefore we have $P_N = \dim V_N$, so the monomials in $p^{(n)}_1, \ldots, p^{(n)}_n$ of degree $\leq N$ are a $k$-basis of $V_N$.
+where we use that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ are pairwise different.)
+Therefore we have $P_N = \dim V_N$, so the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$ are a $k$-basis of $V_N$.
 \end{proof}
 
 
@@ -688,9 +688,9 @@ It is important to notice that the theorem does not hold for $k = \Z$! This is e
 If $\Z[X_1, X_2]^{S_2}$ was generated by $p^{(n)}_1, p^{(n)}_2$ a polynomial $F \in \Z[X_1, X_2]$ with $e^{(2)}_2 = F\left(e^{(2)}_1, e^{(2)}_2\right)$ would exist. But this would contradict the algebraically independency of $p^{(2)}_1, p^{(2)}_2$ in $\Q[X_1, X_2]^{S_2}$ as $F(X_1, X_2) \neq \frac{1}{2} X_1^2 - \frac{1}{2} X_2$.
 
 
-Using the same argumentation we find that for a symmetric polynomial $f \in \Q[X_1, \ldots, X_n]^{S_n}$ with integer coefficients and $F,G \in \Q[X_1, \ldots, X_n]^{S_n}$ with
+Using the same argumentation we find that for a symmetric polynomial $f \in \Q[X_1, \dotsc, X_n]^{S_n}$ with integer coefficients and $F,G \in \Q[X_1, \dotsc, X_n]^{S_n}$ with
 \[
- f = F\left( e^{(n)}_1, \ldots, e^{(n)}_n \right) = G\left( h^{(n)}_1, \ldots, h^{(n)}_n\right)
+ f = F\left( e^{(n)}_1, \dotsc, e^{(n)}_n \right) = G\left( h^{(n)}_1, \dotsc, h^{(n)}_n\right)
 \]
 both $F$ and $G$ must have integer coefficients.
 
@@ -723,13 +723,13 @@ both $F$ and $G$ must have integer coefficients.
 
 
 \begin{defi}
- $\lambda = (\lambda_1, \ldots, \lambda_s) \in \N^s$ is a partition of $|\lambda| := \sum_{i=1}^s \lambda_i$ if
+ $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \N^s$ is a partition of $|\lambda| := \sum_{i=1}^s \lambda_i$ if
  \[
-  \lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_s \geq 0.
+  \lambda_1 \geq \lambda_2 \geq \dotsb \geq \lambda_s \geq 0.
  \]
  The $\lambda_i$ are the parts of $\lambda$ and $l(\lambda) := s$ is the length of  $\lambda$.
  
- An infinite partition is a sequence $\lambda_1, \lambda_2, \ldots \in \N$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \ldots, \lambda_s)$ is a partition. For a partition $(\lambda_1, \ldots, \lambda_s) \in \N^s$ the infinite partition associated to $\lambda$ is defined as
+ An infinite partition is a sequence $\lambda_1, \lambda_2, \dotsc \in \N$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \dotsc, \lambda_s)$ is a partition. For a partition $(\lambda_1, \dotsc, \lambda_s) \in \N^s$ the infinite partition associated to $\lambda$ is defined as
  \[
   \hat{\lambda}_i :=
   \begin{cases}
@@ -816,48 +816,48 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
 
 
 \begin{defi}
- Let $\lambda = (\lambda_1, \ldots, \lambda_r)$ be a partition. We define the elementary symmetric polynomial
+ Let $\lambda = (\lambda_1, \dotsc, \lambda_r)$ be a partition. We define the elementary symmetric polynomial
  \[
-  e^{(n)}_\lambda := e^{(n)}_{\lambda_1} \cdots e^{(n)}_{\lambda_r},
+  e^{(n)}_\lambda := e^{(n)}_{\lambda_1} \dotsm e^{(n)}_{\lambda_r},
  \]
  the complete symmetric polynomial
  \[
-  h^{(n)}_\lambda := h^{(n)}_{\lambda_1} \cdots h^{(n)}_{\lambda_r},
+  h^{(n)}_\lambda := h^{(n)}_{\lambda_1} \dotsm h^{(n)}_{\lambda_r},
  \]
  the power symmetric polynomial
  \[
-  p^{(n)}_\lambda := p^{(n)}_{\lambda_1} \cdots p^{(n)}_{\lambda_r}
+  p^{(n)}_\lambda := p^{(n)}_{\lambda_1} \dotsm p^{(n)}_{\lambda_r}
  \]
  and the monomial symmetric polynomials
  \[
-  m_\lambda := X_1^{\lambda_1} \cdots X_r^{\lambda_r} + \text{ all distinct permutations of this monomial}.
+  m_\lambda := X_1^{\lambda_1} \dotsm X_r^{\lambda_r} + \text{ all distinct permutations of this monomial}.
  \]
 \end{defi}
 
 
-One can also define $m_\lambda$ in a formal way: Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \cdots X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials. To formalize this we let $S_r$ act on $\N^r$ by permuting the entries, i.e.
+One can also define $m_\lambda$ in a formal way: Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \dotsm X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials. To formalize this we let $S_r$ act on $\N^r$ by permuting the entries, i.e.
 \[
- \pi.(a_1, \ldots, a_r) = \left( a_{\pi^{-1}(1)}, \ldots, a_{\pi^{-1}(r)} \right)
+ \pi.(a_1, \dotsc, a_r) = \left( a_{\pi^{-1}(1)}, \dotsc, a_{\pi^{-1}(r)} \right)
 \]
-for all $\pi \in S_r$ and $(a_1, \ldots, a_r) \in \N^r$. The set of all distinct permutations of $\lambda$ is precisely the orbit of $\lambda$ under this action. As we know from basic group theory we have an isomorphism of $G$-sets
+for all $\pi \in S_r$ and $(a_1, \dotsc, a_r) \in \N^r$. The set of all distinct permutations of $\lambda$ is precisely the orbit of $\lambda$ under this action. As we know from basic group theory we have an isomorphism of $G$-sets
 \[
  S_r / U \to S_r \lambda, [\pi] \mapsto \pi.\lambda
 \]
 where $U$ is the stabilizer group of $\lambda$ and $S_r \lambda$ is the orbit of $\lambda$. (Note that $U$ is not necessarily a normal subgroup in $S_r$ and $S_r/U$ is only the set of left cosets.) Thus we can write
 \[
  m_\lambda
- = \sum_{[\pi] \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \cdots X_r^{\lambda_{\pi^{-1}(r)}}
- = \sum_{[\pi] \in S_r/U} X_{\pi(1)}^{\lambda_1} \cdots X_{\pi(r)}^{\lambda_r}.
+ = \sum_{[\pi] \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \dotsm X_r^{\lambda_{\pi^{-1}(r)}}
+ = \sum_{[\pi] \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r}.
 \]
 Also notice that
 \[
- U \cong S_{\nu_0} \times \cdots \times S_{\nu_m}
+ U \cong S_{\nu_0} \times \dotsb \times S_{\nu_m}
 \]
 where
 \[
  \nu_n := \left|\left\{ 1 \leq i \leq r \mid \lambda_i = n \right\}\right|
 \]
-and $m := \max_{i=1,\ldots,r} \lambda_i$.
+and $m := \max_{i=1,\dotsc,r} \lambda_i$.
 
 
 \begin{expl}[]
@@ -871,22 +871,22 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
  \[
   \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n\}
  \]
- forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$ (as a $k$-vector space). More precisely
+ forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$ (as a $k$-vector space). More precisely
  \[
   \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d \}
  \]
- forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}_d$.
+ forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}_d$.
 \end{lem}
 \begin{proof}
  Is is clear that
  \[
-  \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d \} \subseteq k[X_1, \ldots, X_n]^{S_n}_d.
+  \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d \} \subseteq k[X_1, \dotsc, X_n]^{S_n}_d.
  \]
- On the other side let $f \in k[X_1, \ldots, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
+ On the other side let $f \in k[X_1, \dotsc, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
  \[
   f \in \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d\}.
  \]
- For $f = 0$ this is clear. Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \ldots, X_n]^{S_n}_d$ which consists of fewer monomials than $f$. Because $\{X^\alpha \mid \alpha \in \N^n, |\alpha|=d \}$ is a $k$-basis of $k[X_1, \ldots, X_n]_d$ we can write
+ For $f = 0$ this is clear. Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \dotsc, X_n]^{S_n}_d$ which consists of fewer monomials than $f$. Because $\{X^\alpha \mid \alpha \in \N^n, |\alpha|=d \}$ is a $k$-basis of $k[X_1, \dotsc, X_n]_d$ we can write
  \[
   f = \sum_{\substack{\alpha \in \N^n \\ |\alpha|=d}} c_\alpha X^\alpha.
  \]
@@ -894,7 +894,7 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
  \[
   c_\alpha = c_{\pi.\alpha} \text{ for all } \alpha \in \N^n, \pi \in S_n
  \]
- (where the action of $S_n$ on $\N^n$ is defined as above). Let $X^\beta$ be a monomial of $f$. Because $f \in k[X_1, \ldots, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \ldots, X_n]_d$ and thus $c_\beta m_\beta \in k[X_1, \ldots, X_n]^{S_n}_d$. Because $c_\beta \neq 0$ and $c_\beta = c_{\pi.\beta}$ for every $\pi \in S_n$ we find that $f-c_{\beta}m_\beta$ consists of fewer monomials than $f$. Because $f-c_{\beta}m_\beta$ is symmetric we find by induction hypothesis that
+ (where the action of $S_n$ on $\N^n$ is defined as above). Let $X^\beta$ be a monomial of $f$. Because $f \in k[X_1, \dotsc, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \dotsc, X_n]_d$ and thus $c_\beta m_\beta \in k[X_1, \dotsc, X_n]^{S_n}_d$. Because $c_\beta \neq 0$ and $c_\beta = c_{\pi.\beta}$ for every $\pi \in S_n$ we find that $f-c_{\beta}m_\beta$ consists of fewer monomials than $f$. Because $f-c_{\beta}m_\beta$ is symmetric we find by induction hypothesis that
  \[
   f - c_{\beta}m_\beta \in \vspan_k \{m_\lambda \mid \lambda \in \Par, l(\lambda) = n, |\lambda|=d\}.
  \]
@@ -958,31 +958,31 @@ and $m := \max_{i=1,\ldots,r} \lambda_i$.
 \end{proof}
 
 
-We know from the Fundamental Theorem that $e^{(n)}_1, \ldots, e^{(n)}_n$ generate the $k$-algebra of symmetric polynomials $k[X_1, \ldots, X_n]^{S_n}$ and are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$, i.e.
+We know from the Fundamental Theorem that $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate the $k$-algebra of symmetric polynomials $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e.
 \[
- \left( e^{(n)} \right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \cdots \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \ldots, \alpha_n)
+ \left( e^{(n)} \right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \dotsm \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
 \]
-form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these polynomials in term of partitions.
+form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$. We can also describe these polynomials in term of partitions.
 
 
 \begin{prop}
- The monomials in $e^{(n)}_1, \ldots, e^{(n)}_n$ are precisely the polynomials $e^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
+ The monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ are precisely the polynomials $e^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
 \end{prop}
 \begin{proof}
- On the one side the monomial $e_1^{\alpha_1} \cdots e_n^{\alpha_n}$ is the same as $e_\lambda$ for the partition
+ On the one side the monomial $e_1^{\alpha_1} \dotsm e_n^{\alpha_n}$ is the same as $e_\lambda$ for the partition
  \[
-  \lambda = (\underbrace{n, \ldots, n}_{\alpha_n}, \underbrace{n-1, \ldots, n-1}_{\alpha_{n-1}}, \ldots, \underbrace{1, \ldots, 1}_{\alpha_1}).
+  \lambda = (\underbrace{n, \dotsc, n}_{\alpha_n}, \underbrace{n-1, \dotsc, n-1}_{\alpha_{n-1}}, \dotsc, \underbrace{1, \dotsc, 1}_{\alpha_1}).
  \]
- On the other side the polynomial $e_\lambda$ equals the monomial $e_1^{\nu_1(\lambda)} \cdots e_n^{\nu_n(\lambda)}$ for the exponents
+ On the other side the polynomial $e_\lambda$ equals the monomial $e_1^{\nu_1(\lambda)} \dotsm e_n^{\nu_n(\lambda)}$ for the exponents
  \[
   \nu_j(\lambda) = |\{1 \leq i \leq l(\lambda) \mid \lambda_i = j\}|.
  \]
  
  Notice that for $\lambda \neq \mu$ there exists some $1 \leq j \leq n$ with $\nu_j(\lambda) \neq \nu_j(\mu)$ (here we use that $1 \leq \lambda_i \leq n$ for all $1 \leq i \leq l(\lambda)$ and the same for $\mu$) and therefore
  \[
-  e_1^{\nu_1(\lambda)} \cdots e_n^{\nu_n(\lambda)} \neq e_1^{\nu_1(\mu)} \cdots e_n^{\nu_n(\mu)}
+  e_1^{\nu_1(\lambda)} \dotsm e_n^{\nu_n(\lambda)} \neq e_1^{\nu_1(\mu)} \dotsm e_n^{\nu_n(\mu)}
  \]
- because the monomials in $e_1, \ldots, e_n$ are linearly independent.
+ because the monomials in $e_1, \dotsc, e_n$ are linearly independent.
 \end{proof}
 
 
@@ -991,16 +991,16 @@ form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these poly
  \[
   B := \left\{ e^{(n)}_\lambda \,\middle|\, \lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0 \right\}
  \]
- forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$ and the $e^{(n)}_\lambda$ are pairwise different. More precisely
+ forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$ and the $e^{(n)}_\lambda$ are pairwise different. More precisely
  \[
   B_d := \left\{ e^{(n)}_\lambda \,\middle|\, \lambda \in \Par, \lambda_1 \leq n, \lambda_{l(\lambda)} \neq 0, |\lambda| = d \right\}
  \]
- forms a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}_d$ for all $d \geq 0$.
+ forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}_d$ for all $d \geq 0$.
 \end{cor}
 
 
 \begin{rem}
- Since $h^{(n)}_1, \ldots, h^{(n)}_n$ generate $k[X_1, \ldots, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we can show the same statements for the polynomials $h^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
+ Since $h^{(n)}_1, \dotsc, h^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we can show the same statements for the polynomials $h^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
  
  In the case that $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we can show the same for the polynomials $p^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
 \end{rem}
@@ -1015,26 +1015,26 @@ form a $k$-basis of $k[X_1, \ldots, X_n]^{S_n}$. We can also describe these poly
 \section{Polynomial maps}
 
 
-In this section $k$ is an infinite field. Until further notice we also fix a finite-dimensional $k$-vector space $V$ with $k$-basis $v_1, \ldots, v_n$.
+In this section $k$ is an infinite field. Until further notice we also fix a finite-dimensional $k$-vector space $V$ with $k$-basis $v_1, \dotsc, v_n$.
 
 
 \begin{defi}
- By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e. $f \in \mc{P}(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \ldots, X_n]$ such that
+ By $\mc{P}(V)$ we denote set of polynomial functions $V \to k$, i.e. $f \in \mc{P}(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
  \[
-  f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \ldots, \lambda_n)
+  f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \dotsc, \lambda_n)
  \]
- for all $\lambda_1, \ldots, \lambda_n \in k$.
+ for all $\lambda_1, \dotsc, \lambda_n \in k$.
 \end{defi}
 
 
-This definition does not depend on the chosen basis. If $(w_1, \ldots, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for $i=1,\ldots,n$ then
+This definition does not depend on the chosen basis. If $(w_1, \dotsc, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for $i=1,\dotsc,n$ then
 \begin{align*}
  f\left( \sum_{i=1}^n \lambda_i w_i \right)
  &= f\left( \sum_{i,j=1}^n \lambda_i a_{ij} v_j \right)
- = p\left( \sum_{i=1}^n \lambda_i a_{i1}, \ldots, \sum_{i=1}^n \lambda_{i} a_{in} \right)\\
- &= p'(\lambda_1, \ldots, \lambda_n)
+ = p\left( \sum_{i=1}^n \lambda_i a_{i1}, \dotsc, \sum_{i=1}^n \lambda_{i} a_{in} \right)\\
+ &= p'(\lambda_1, \dotsc, \lambda_n)
 \end{align*}
-for some $p' \in k[X_1, \ldots, X_n]$. So if $f \colon V \to k$ is a polynomial in $(v_1, \ldots, v_n)$ then also in $(w_1, \ldots, w_n)$.
+for some $p' \in k[X_1, \dotsc, X_n]$. So if $f \colon V \to k$ is a polynomial in $(v_1, \dotsc, v_n)$ then also in $(w_1, \dotsc, w_n)$.
 
 This has the effect that the restriction of a polynomial function to a vector subspace is again a polynomial function.
 
@@ -1042,19 +1042,19 @@ This has the effect that the restriction of a polynomial function to a vector su
  Let $V$ be a finite-dimensional $k$-vector space and $U \subseteq V$ a vector subspace. Then for every polynomial function $f \in \mc{P}(V)$ we have $f_{|U} \in \mc{P}(U)$.
 \end{lem}
 \begin{proof}
- Let $v_1, \ldots, v_n, v_{n+1}, \ldots, v_m$ be a $k$-basis of $V$ such that $v_1, \ldots, v_n$ is a $k$-basis of $U$. Because $f \in \mc{P}(V)$ there exist some $p \in k[X_1, \ldots X_m]$ with
+ Let $v_1, \dotsc, v_n, v_{n+1}, \dotsc, v_m$ be a $k$-basis of $V$ such that $v_1, \dotsc, v_n$ is a $k$-basis of $U$. Because $f \in \mc{P}(V)$ there exist some $p \in k[X_1, \dotsc, X_m]$ with
  \[
-  f\left( \sum_{i=1}^m \lambda_i v_i \right) = p(\lambda_1, \ldots, \lambda_m)
+  f\left( \sum_{i=1}^m \lambda_i v_i \right) = p(\lambda_1, \dotsc, \lambda_m)
  \]
- for all $\lambda_1, \ldots, \lambda_m \in k$. For
+ for all $\lambda_1, \dotsc, \lambda_m \in k$. For
  \[
-  \bar{p} := p(X_1, \ldots, X_n, 0, \ldots, 0) \in k[X_1, \ldots, X_n]
+  \bar{p} := p(X_1, \dotsc, X_n, 0, \dotsc, 0) \in k[X_1, \dotsc, X_n]
  \]
  we thus have
  \[
-  f\left( \sum_{i=1}^n \lambda_i v_i \right) = \bar{p}(\lambda_1, \ldots, \lambda_n)
+  f\left( \sum_{i=1}^n \lambda_i v_i \right) = \bar{p}(\lambda_1, \dotsc, \lambda_n)
  \]
- for all $\lambda_1, \ldots, \lambda_n \in k$. Since $v_1, \ldots, v_n$ is a $k$-basis of $U$ this is equivalent to $f_{|U} \in \mc{P}(U)$.
+ for all $\lambda_1, \dotsc, \lambda_n \in k$. Since $v_1, \dotsc, v_n$ is a $k$-basis of $U$ this is equivalent to $f_{|U} \in \mc{P}(U)$.
 \end{proof}
 
 
@@ -1066,7 +1066,7 @@ This has the effect that the restriction of a polynomial function to a vector su
 \begin{lem}
  There is an isomorphism of rings, even $k$-algebras
  \[
-  \mc{P}(V) \xlongrightarrow{\sim} k[X_1, \ldots, X_n]
+  \mc{P}(V) \xlongrightarrow{\sim} k[X_1, \dotsc, X_n]
  \]
  where $n = \dim V$.
 \end{lem}
@@ -1077,11 +1077,11 @@ This has the effect that the restriction of a polynomial function to a vector su
  \]
  By the universal property of the polynomial ring the assignment $X_j \to \varphi_j$ extends to a ring homomorphism
  \[
-  \Phi \colon k[X_1, \ldots, X_n] \to \mc{P}(V), p \mapsto \Phi(p)
+  \Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V), p \mapsto \Phi(p)
  \]
  where
  \[
-  \Phi(p)\left(\sum_{i=1}^n \lambda_i v_i\right) = p(\lambda_1, \ldots, \lambda_n).
+  \Phi(p)\left(\sum_{i=1}^n \lambda_i v_i\right) = p(\lambda_1, \dotsc, \lambda_n).
  \]
  Is it clear that $\Phi$ is surjective. It is left as an exercise to the reader to check that $\Phi$ is injective.
 \end{proof}
@@ -1090,9 +1090,9 @@ This has the effect that the restriction of a polynomial function to a vector su
 \begin{lem}\leavevmode
  \begin{enumerate}[a)]
   \item
-   Assume $p \in k[X_1, \ldots, X_n]$ with $p(\lambda_1, \ldots, \lambda_n) = 0$ for all $(\lambda_1,\ldots,\lambda_n) \in k^n$. Then $p = 0$.
+   Assume $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1,\dotsc,\lambda_n) \in k^n$. Then $p = 0$.
   \item
-   The polynomial functions $\varphi_1, \ldots, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e. if $f(\varphi_1, \ldots, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
+   The polynomial functions $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e. if $f(\varphi_1, \dotsc, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
  \end{enumerate}
 \end{lem}
 \begin{proof}\leavevmode
@@ -1102,21 +1102,21 @@ This has the effect that the restriction of a polynomial function to a vector su
    
    ($n = 1$) Let $p \in k[X_1]$ with $p(\lambda_1) = 0$ for all $\lambda_1 \in k$. Since $k$ is infinite $p$ has infinitely many zeroes. Therefore $p = 0$.
    
-   ($n \geq 2$) Assume the claim holds for $n-1$ and $1$. Consider $p \in k[X_1, \ldots, X_n]$ with $p(\lambda_1, \ldots, \lambda_n) = 0$ for all $(\lambda_1, \ldots, \lambda_n) \in k^n$. We write $p$ as
+   ($n \geq 2$) Assume the claim holds for $n-1$ and $1$. Consider $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1, \dotsc, \lambda_n) \in k^n$. We write $p$ as
    \[
-    p = \sum_{i \in \N} f_i(X_1, \ldots, X_{n-1}) X_n^i
+    p = \sum_{i \in \N} f_i(X_1, \dotsc, X_{n-1}) X_n^i
    \]
-   with $f_i \in k[X_1, \ldots, X_{n-1}]$ for all $i \in \N$ and $f_i = 0$ for all but finitely many $i \in \N$. Let $(\lambda_1, \ldots, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary. For all $\lambda_n \in k$ we have
+   with $f_i \in k[X_1, \dotsc, X_{n-1}]$ for all $i \in \N$ and $f_i = 0$ for all but finitely many $i \in \N$. Let $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary. For all $\lambda_n \in k$ we have
    \[
-    0 = p(\lambda_1, \ldots, \lambda_n) = \sum_{i \in \N} f_i(\lambda_1, \ldots, \lambda_{n-1}) \lambda_n^i
+    0 = p(\lambda_1, \dotsc, \lambda_n) = \sum_{i \in \N} f_i(\lambda_1, \dotsc, \lambda_{n-1}) \lambda_n^i
    \]
-   By induction hypothesis we find that $f_i(\lambda_1, \ldots, \lambda_{n-1}) = 0$ for all $i \in \N$. Because $(\lambda_1, \ldots, \lambda_{n-1})$ is fixed but arbitrary we can use the induction hypothesis to get that $f_i = 0$ for all $i \in \N$. So $p = 0$.
+   By induction hypothesis we find that $f_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$. Because $(\lambda_1, \dotsc, \lambda_{n-1})$ is fixed but arbitrary we can use the induction hypothesis to get that $f_i = 0$ for all $i \in \N$. So $p = 0$.
   \item
-   Assume $f(\varphi_1, \ldots, \varphi_n) = 0$. Then
+   Assume $f(\varphi_1, \dotsc, \varphi_n) = 0$. Then
    \[
-    0 = f(\varphi_1, \ldots, \varphi_n)\left(\sum_{i=1}^n \lambda_i v_i\right) = f(\lambda_1, \ldots, \lambda_n)
+    0 = f(\varphi_1, \dotsc, \varphi_n)\left(\sum_{i=1}^n \lambda_i v_i\right) = f(\lambda_1, \dotsc, \lambda_n)
    \]
-   for all $(\lambda_1, \ldots, \lambda_n) \in k^n$. Therefore $f = 0$ by part a). \qedhere
+   for all $(\lambda_1, \dotsc, \lambda_n) \in k^n$. Therefore $f = 0$ by part a). \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -1126,13 +1126,13 @@ This has the effect that the restriction of a polynomial function to a vector su
 
 
 \begin{cor}
- The map $\Phi \colon k[X_1, \ldots, X_n] \to \mc{P}(V), X_j \mapsto \varphi_j$ is injective.
+ The map $\Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V), X_j \mapsto \varphi_j$ is injective.
 \end{cor}
 
 
 Together with the exercise sheet we find that
 \[
- \Phi \colon k[X_1, \ldots, X_n] \to \mc{P}(V), X_j \to \varphi_j
+ \Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V), X_j \to \varphi_j
 \]
 is an isomorphism of $k$-algebras.
 
@@ -1140,20 +1140,20 @@ is an isomorphism of $k$-algebras.
 \begin{rem}
  For $k$ infinite we have an isomorphism of representations
  \[
-  \Phi \colon k[X_1, \ldots, X_n] \to \mc{P}(k^n), X_i \mapsto \varphi_i,
+  \Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(k^n), X_i \mapsto \varphi_i,
  \]
- where $S_n$ acts on $k[X_1, \ldots, X_n]$ as usual by permuting the $X_i$ and on $\mc{P}(k^n)$ via
+ where $S_n$ acts on $k[X_1, \dotsc, X_n]$ as usual by permuting the $X_i$ and on $\mc{P}(k^n)$ via
  \[
   (\sigma.f)(v) = f\left( \sigma^{-1}.v \right) \text{ for all } \sigma \in S_n, f \in \mc{P}(V), v \in k^n.
  \]
- We know that $\Phi$ is an isomorphism of $k$-vector spaces. It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \cdots X_n^{\alpha_n} \in k[X_1, \ldots, X_n]$ and $v = (\lambda_1, \ldots, \lambda_n) \in k^n$
+ We know that $\Phi$ is an isomorphism of $k$-vector spaces. It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in k[X_1, \dotsc, X_n]$ and $v = (\lambda_1, \dotsc, \lambda_n) \in k^n$
  \begin{align*}
   \Phi(g.p)(v)
-  &= \Phi\left( X_{g(1)}^{\alpha_1} \cdots X_{g(n)}^{\alpha_n} \right)(v)
-  = \lambda_{g(1)}^{\alpha_1} \cdots \lambda_{g(n)}^{\alpha_n} \\
-  &= \Phi(p)( \lambda_{g(1)}, \ldots, \lambda_{g(n)} )
-  = \Phi(p)\left( g^{-1}.(\lambda_1, \ldots, \lambda_n) \right) \\
-  &= (g.\Phi(p))(\lambda_1, \ldots, \lambda_n).
+  &= \Phi\left( X_{g(1)}^{\alpha_1} \dotsm X_{g(n)}^{\alpha_n} \right)(v)
+  = \lambda_{g(1)}^{\alpha_1} \dotsm \lambda_{g(n)}^{\alpha_n} \\
+  &= \Phi(p)( \lambda_{g(1)}, \dotsc, \lambda_{g(n)} )
+  = \Phi(p)\left( g^{-1}.(\lambda_1, \dotsc, \lambda_n) \right) \\
+  &= (g.\Phi(p))(\lambda_1, \dotsc, \lambda_n).
  \end{align*}
 \end{rem}
 
@@ -1206,10 +1206,10 @@ This shows that $\mc{P}(V)$ is a graded algebra via
 \[
   \mc{P}(V) = \bigoplus_{d \in \Z} \mc{P}(V)_d.
 \]
-This grading can be seen as inherted from $k[X_1, \ldots, X_n]$ via the isomorphism $\Phi$. Since
+This grading can be seen as inherted from $k[X_1, \dotsc, X_n]$ via the isomorphism $\Phi$. Since
 \[
- (\lambda X_1)^{\alpha_1} \cdots (\lambda X_n)^{\alpha_n}
- = \lambda^{\sum_{i=1}^n \alpha_i} X_1^{\alpha_1} \cdots X_n^{\alpha_n}
+ (\lambda X_1)^{\alpha_1} \dotsm (\lambda X_n)^{\alpha_n}
+ = \lambda^{\sum_{i=1}^n \alpha_i} X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
 \]
 we obtain that a monomial of degree $d$ corresponds to a polynomial function $\Phi(p) \in \mc{P}(V)$ which is homogeneous of degree $d$.
 
@@ -1218,7 +1218,7 @@ We will know generalize the definition of polynomial functions on maps between a
 
 
 \begin{defi}
- Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map $f \colon W \to V$ is called a polynomial map if, given a basis $v_1, \ldots, v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e. there exist $f_1, \ldots, f_n \in \mc{P}(W)$ with
+ Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map $f \colon W \to V$ is called a polynomial map if, given a basis $v_1, \dotsc, v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e. there exist $f_1, \dotsc, f_n \in \mc{P}(W)$ with
  \[
   f(w) = \sum_{i=1}^n f_i(w) v_i
  \]
@@ -1242,26 +1242,26 @@ We will know generalize the definition of polynomial functions on maps between a
 \begin{expl}
  Let $W$ be a finite dimensional $k$-vector space. Then
  \[
-  f \colon W \to W^{\otimes r}, w \mapsto w \otimes \ldots \otimes w.
+  f \colon W \to W^{\otimes r}, w \mapsto w \otimes \dotsb \otimes w.
  \]
- is a polynomial map. To see this choose a basis $w_1, \ldots, w_n$ of $W$. Then the elements
+ is a polynomial map. To see this choose a basis $w_1, \dotsc, w_n$ of $W$. Then the elements
  \[
-  w_{\underline{i}} = w_{i_1} \otimes \ldots \otimes w_{i_r} \text{ with } \underline{i} = (i_1, \ldots, i_r) \in \{1, \ldots, n\}^r
+  w_{\underline{i}} = w_{i_1} \otimes \dotsb \otimes w_{i_r} \text{ with } \underline{i} = (i_1, \dotsc, i_r) \in \{1, \dotsc, n\}^r
  \]
  form a basis of $W^{\otimes r}$. For $w \in W$ with $w = \sum_{i=1}^r \lambda_i w_i$ we have
  \[
   f(w)
-  = w \otimes \ldots \otimes w
-  = \left( \sum_{i=1}^r \lambda_i w_i \right) \otimes \ldots \otimes \left( \sum_{i=1}^r \lambda_i w_i \right)
-  = \sum_{\underline{i}} \lambda_{i_1} \cdots \lambda_{i_r} w_{\underline{i}}.
+  = w \otimes \dotsb \otimes w
+  = \left( \sum_{i=1}^r \lambda_i w_i \right) \otimes \dotsb \otimes \left( \sum_{i=1}^r \lambda_i w_i \right)
+  = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} w_{\underline{i}}.
  \]
  For the polynomials
  \[
-  p_{\underline{i}} = X_{i_1} \cdots X_{i_r}
+  p_{\underline{i}} = X_{i_1} \dotsm X_{i_r}
  \]
  and polynomial maps $f_{\underline{i}} \colon W \to k$ with
  \[
-  f_{\underline{i}}\left(\sum_{i=1}^r \lambda_i w_i\right) = p_{\underline{i}}(\lambda_1, \ldots, \lambda_r)
+  f_{\underline{i}}\left(\sum_{i=1}^r \lambda_i w_i\right) = p_{\underline{i}}(\lambda_1, \dotsc, \lambda_r)
  \]
  we thus have
  \[
@@ -1274,24 +1274,24 @@ We will know generalize the definition of polynomial functions on maps between a
  For a finite-dimensional $k$-vector space $V$ the map $\id_V \colon V \to V$ is a polynomial map. If $U$ and $W$ are finite-dimensonial vector spaces and $f \colon W \to V$ and $g \colon V \to U$ are polynomial maps then $gf \colon W \to U$ is also a polynomial map.
 \end{lem}
 \begin{proof}
- The first statement is clear. To show the second let $v_1, \ldots, v_r$ be a basis of $V$, $w_1, \ldots, w_s$ be a basis of $W$ and $u_1, \ldots, u_t$ be a basis of $U$. Because $f$ is a polynomial map we can find polynomials $P_1, \ldots, P_s \in k[X_1, \ldots, X_r]$ such that
+ The first statement is clear. To show the second let $v_1, \dotsc, v_r$ be a basis of $V$, $w_1, \dotsc, w_s$ be a basis of $W$ and $u_1, \dotsc, u_t$ be a basis of $U$. Because $f$ is a polynomial map we can find polynomials $P_1, \dotsc, P_s \in k[X_1, \dotsc, X_r]$ such that
  \[
-  f\left(\sum_{i=1}^r \lambda_i v_i\right) = \sum_{j=1}^s F_j(\lambda_1, \ldots, \lambda_r) w_j
+  f\left(\sum_{i=1}^r \lambda_i v_i\right) = \sum_{j=1}^s F_j(\lambda_1, \dotsc, \lambda_r) w_j
  \]
- and because $g$ is a polynomial map we can find polynomials $Q_1, \ldots, Q_t \in k[X_1, \ldots, X_s]$ such that
+ and because $g$ is a polynomial map we can find polynomials $Q_1, \dotsc, Q_t \in k[X_1, \dotsc, X_s]$ such that
  \[
-  g\left(\sum_{j=1}^s \mu_j w_j\right) = \sum_{k=1}^t G_k(\mu_1, \ldots, \mu_s) u_k.
+  g\left(\sum_{j=1}^s \mu_j w_j\right) = \sum_{k=1}^t G_k(\mu_1, \dotsc, \mu_s) u_k.
  \]
  Combining this we find that
  \begin{align*}
   gf\left(\sum_{i=1}^r \lambda_i v_i\right)
-  &= g\left(\sum_{j=1}^s F_j(\lambda_1, \ldots, \lambda_r) w_j\right) \\
-  &= \sum_{k=1}^t Q_k(F_1(\lambda_1, \ldots, \lambda_r), \ldots, F_s(\lambda_1, \ldots, \lambda_r)) w_k \\
-  &= \sum_{k=1}^t R_k(\lambda_1, \ldots, \lambda_r) w_k
+  &= g\left(\sum_{j=1}^s F_j(\lambda_1, \dotsc, \lambda_r) w_j\right) \\
+  &= \sum_{k=1}^t Q_k(F_1(\lambda_1, \dotsc, \lambda_r), \dotsc, F_s(\lambda_1, \dotsc, \lambda_r)) w_k \\
+  &= \sum_{k=1}^t R_k(\lambda_1, \dotsc, \lambda_r) w_k
  \end{align*}
  for the polynomials
  \[
-  R_k := Q_k(F_1(X_1, \ldots, X_r), \ldots, F_s(X_1, \ldots, X_r)) \in k[X_1, \ldots X_r].
+  R_k := Q_k(F_1(X_1, \dotsc, X_r), \dotsc, F_s(X_1, \dotsc, X_r)) \in k[X_1, \dotsc, X_r].
  \]
 \end{proof}
 
@@ -1310,7 +1310,7 @@ From the definition of a polynomial map it also directly follows that for any fi
 \begin{proof}
  It is clear that $\Maps(W,V)$ becomes a $\Maps(W,k)$-module by defining the multiplication as above. Since $\mc{P}(W)$ is a $k$-subalgebra of $\Maps(W,k)$ we find that $\Maps(W,V)$ is a $\mc{P}(W)$-module. The proposition claims that $\Pol_k(W,V)$ is a $\mc{P}(W)$-submodule of $\Maps(W,V)$. So we only need to check that $\Pol_k(W,V)$ is closed under the multiplication from $\mc{P}(W)$.
  
- Let $v_1, \ldots, v_n$ be a $k$-basis of $V$. For $f \in \Pol_k(W,V)$ there exists $f_1, \ldots, f_n \in \mc{P}(W)$ such that
+ Let $v_1, \dotsc, v_n$ be a $k$-basis of $V$. For $f \in \Pol_k(W,V)$ there exists $f_1, \dotsc, f_n \in \mc{P}(W)$ such that
  \[
   f(w) = \sum_{i=1}^n f_i(w) v_i \text{ for all } w \in W.
  \]
@@ -1335,11 +1335,11 @@ From the definition of a polynomial map it also directly follows that for any fi
  is an algebra homomorphism.
 \end{lem}
 \begin{proof}
- We already know that $f^*$ is well defined, i.e. that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1, \ldots, v_n$ of $V$.
+ We already know that $f^*$ is well defined, i.e. that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1, \dotsc, v_n$ of $V$.
  
- Let $h_1, h_2\in \mc{P}(V)$, i.e. we have polynomials $p_1, p_2\in k[X_1, \ldots, X_n]$ with
+ Let $h_1, h_2\in \mc{P}(V)$, i.e. we have polynomials $p_1, p_2\in k[X_1, \dotsc, X_n]$ with
  \[
-  h_j\left(\sum_{i=1}^n \lambda_i v_i\right) = p_j(\lambda_1, \ldots, \lambda_n) \text{ for } j=1,2.
+  h_j\left(\sum_{i=1}^n \lambda_i v_i\right) = p_j(\lambda_1, \dotsc, \lambda_n) \text{ for } j=1,2.
  \]
  For all $w \in W$ we have
  \begin{align*}
@@ -1421,23 +1421,23 @@ It is interesting to notice that this functor is fully faithful.
  is a bijection.
 \end{prop}
 \begin{proof}
- Fix a basis $v_1, \ldots, v_n$ of $V$. Remember that $\mc{P}(V) = k[\varphi_1, \ldots, \varphi_n]$ where $\varphi_j \in \mc{P}(V)$ is the $j$-th coordinate function, which is defined as
+ Fix a basis $v_1, \dotsc, v_n$ of $V$. Remember that $\mc{P}(V) = k[\varphi_1, \dotsc, \varphi_n]$ where $\varphi_j \in \mc{P}(V)$ is the $j$-th coordinate function, which is defined as
  \[
   \varphi_j\left(\sum_{i=1}^n \lambda_i v_i\right) = \lambda_j,
 \]
- and $\varphi_1, \ldots, \varphi_n$ are algebraically independent. In particular the map
+ and $\varphi_1, \dotsc, \varphi_n$ are algebraically independent. In particular the map
  \[
-  \Psi \colon \mc{P}(W)^n \to \Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W)), (f_1, \ldots, f_n) \mapsto (\varphi_j \mapsto f_j)
+  \Psi \colon \mc{P}(W)^n \to \Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W)), (f_1, \dotsc, f_n) \mapsto (\varphi_j \mapsto f_j)
  \]
  is bijective (this is basically the universal property of the polynomial ring).
  
- Because $v_1, \ldots, v_n$ is a basis of $V$ we also find that the map
+ Because $v_1, \dotsc, v_n$ is a basis of $V$ we also find that the map
  \[
-  \Phi \colon \mc{P}(W)^n \to \Pol_k(W,V), (f_1, \ldots, f_n) \mapsto \left(w \mapsto \sum_{i=1}^n f_i(w)v_i\right)
+  \Phi \colon \mc{P}(W)^n \to \Pol_k(W,V), (f_1, \dotsc, f_n) \mapsto \left(w \mapsto \sum_{i=1}^n f_i(w)v_i\right)
  \]
  is bijective.
  
- We notice that for a polynomial map $f \colon W \to V$ and $f_1, \ldots, f_n \in \mc{P}(W)$ with
+ We notice that for a polynomial map $f \colon W \to V$ and $f_1, \dotsc, f_n \in \mc{P}(W)$ with
  \[
   f(w) = \sum_{i=1}^n f_i(w) v_i \text{ for all } w \in W
  \]
@@ -1454,7 +1454,7 @@ It is interesting to notice that this functor is fully faithful.
  \]
  Therefore we have
  \[
-  \Omega(\Phi(f_1, \ldots, f_n)) = \Omega(f) = f^* = \Psi(f_1, \ldots, f_n).
+  \Omega(\Phi(f_1, \dotsc, f_n)) = \Omega(f) = f^* = \Psi(f_1, \dotsc, f_n).
  \]
  
  We have shown that $\Omega \Phi = \Psi$ (see figure \ref{fig: bijections}). Because $\Phi$ and $\Psi$ are bijections it follows that $\Omega = \Psi \Phi^{-1}$ is a bijection.
@@ -1493,11 +1493,11 @@ It is interesting to notice that this functor is fully faithful.
   \item
   Let $W$ be a finite-dimensional $k$-vector space, $d \in \N, d > 0$. Then the map
   \[
-   \beta \colon W \to W^{\otimes d}, w \mapsto w \otimes \ldots \otimes w
+   \beta \colon W \to W^{\otimes d}, w \mapsto w \otimes \dotsb \otimes w
   \]
   is a polynomial map. It is also $G$-equivariant since
   \[
-   \beta(g.w) = (g.w) \otimes \ldots \otimes (g.w) = g.(w \otimes \ldots \otimes w) = g.\beta(w)
+   \beta(g.w) = (g.w) \otimes \dotsb \otimes (g.w) = g.(w \otimes \dotsb \otimes w) = g.\beta(w)
   \]
   for all $g \in G, w \in W$.
   \item
