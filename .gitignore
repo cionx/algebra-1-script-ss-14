@@ -8,3 +8,4 @@
 *.directory
 *.auxlock
 *.synctex.gz
+*.dpth
