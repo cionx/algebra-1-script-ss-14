@@ -204,6 +204,68 @@ Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-
 
 
 
+\section{Polynomial rings and matrix rings}
+Given a polynomial ring $k[X_1, \ldots, X_n]$ we now that
+\[
+ k[X_1, \ldots, X_n]_L = L \otimes_k k[X_1, \ldots, X_n]
+\]
+is an $L$-vector space. As $L$ and $k[X_1, \ldots, X_n]$ are $k$-algebras we also know that $k[X_1, \ldots, X_n]_L$ is also a $k$-algebra by setting
+\[
+ (\lambda_1 \otimes f_1) \cdot (\lambda_2 \otimes f_2) = (\lambda_1 \lambda_2) \otimes (f_1 f_2)
+\]
+for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \ldots, X_n]$. It is now easy to see that $k[X_1, \ldots, X_n]_L$ is in fact an $L$-algebra with
+\[
+ k[X_1, \ldots, X_n]_L \cong L[X_1, \ldots, X_n].
+\]
+
+
+
+\begin{prop}
+ We have an isomorphism of $L$-algebras
+ \[
+  \Phi: L \otimes_k k[X_1, \ldots, X_n] \to L[X_1, \ldots, X_n], \lambda \otimes f \mapsto \lambda f.
+ \]
+\end{prop}
+\begin{proof}
+ First we notice that $\Phi$ is well-defined and $k$-linear, since the map
+ \[
+  L \times k[X_1, \ldots, X_n] \to L[X_1, \ldots, X_n], (\lambda,f) \mapsto \lambda f
+ \]
+ is well-defined and $k$-bilinear. That $\Phi$ is also $L$-linear is clear. It is also interesting to notice that $\Phi$ is the unique $L$-linear map corresponding to the $k$-linear inclusion $k[X_1, \ldots, X_n] \hookrightarrow L[X_1, \ldots, X_n]$ under the natural isomorphism
+ \begin{align*}
+       &\, \Hom_k(k[X_1, \ldots, X_n], L[X_1, \ldots, X_n]) \\
+  \cong&\, \Hom_L(k[X_1, \ldots, X_n]_L, L[X_1, \ldots, X_n]).
+ \end{align*}
+ 
+ To show that $\Phi$ is an isomorphism of $L$-vector spaces let $(\lambda_i)_{i \in I}$ be a $k$-basis of $L$. Then
+ \[
+  \lambda_i \otimes X^j \text{ with } i \in I, j \in \N
+ \]
+ is a $k$-basis of $k[X_1, \ldots, X_n]_L$ and
+ \[
+  \lambda_i X^j \text{ with } i \in I, j \in \N
+ \]
+ is a $k$-basis of $L[X_1, \ldots, X_n]$. Clearly $\Phi$ restricts to a bijection between this bases and since it is $k$-linear it follows that $\Phi$ is an isomorphism of $k$-vector spaces. Since it is also $L$-linear it is an isomorphism of $L$-vector spaces.
+ 
+ All that’s left to check is that $\Phi$ is multiplicative. Since for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \ldots, X_n]$
+ \begin{align*}
+  \Phi((\lambda_1 \otimes f_1) \cdot (\lambda_2 \otimes f_2))
+  &= \Phi((\lambda_1 \lambda_2) \otimes (f_1 f_2))
+   = \lambda_1 \lambda_2 f_1 f_2 \\
+  &= \lambda_1 f_1 \cdot \lambda_2 f_2
+   = \Phi(\lambda_1 \otimes f_1) \cdot \Phi(\lambda_2 \otimes f_2)
+ \end{align*}
+ it is multiplicative on the simple tensors. Since these generate $k[X_1, \ldots, X_n]_L$ it follows that $\Phi$ is multiplicative.
+\end{proof}
+
+
+
+
+
+
+
+
+
 
 
 
