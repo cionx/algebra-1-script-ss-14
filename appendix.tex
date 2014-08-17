@@ -280,24 +280,23 @@ of $k$-vector spaces. This observation results in the following proposition:
 
 
 \section{Polynomial rings and matrix rings}
-Given a polynomial ring $k[X_1, \dotsc, X_n]$ we now that
+Given $k$-algebras $A_1$ and $A_2$ we know that $A_1 \otimes_k A_2$ is an $k$-algebra via the multiplication
 \[
- k[X_1, \dotsc, X_n]_L = L \otimes_k k[X_1, \dotsc, X_n]
+ (a_1 \otimes a_2) \cdot (a_1' \otimes a_2') = (a_1 a_1') \otimes (a_2 a_2').
 \]
-is an $L$-vector space. As $L$ and $k[X_1, \dotsc, X_n]$ are $k$-algebras we also know that $k[X_1, \dotsc, X_n]_L$ is also a $k$-algebra by setting
+Given a $k$-algebra $A$ we get that $L \otimes_k A$ is an $L$-vector space and a $k$-algebra. It is easy to see that that these structures are compatible and give $L \otimes_k A$ the structure of an $L$-algebra.
+
+In the case of the $k$-algebra $k[X_1, \dotsc, X_n]$ we get the $L$-algebra
 \[
- (\lambda_1 \otimes f_1) \cdot (\lambda_2 \otimes f_2) = (\lambda_1 \lambda_2) \otimes (f_1 f_2)
+ k[X_1, \dotsc, X_n]_L = L \otimes_k k[X_1, \dotsc, X_n].
 \]
-for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \dotsc, X_n]$. It is now easy to see that $k[X_1, \dotsc, X_n]_L$ is in fact an $L$-algebra with
-\[
- k[X_1, \dotsc, X_n]_L \cong L[X_1, \dotsc, X_n].
-\]
+The interesting thing about this $L$-algebra is that is it actually $L[X_1, \ldots, X_n]$.
 
 
 \begin{prop}
  We have an isomorphism of $L$-algebras
  \[
-  \Phi \colon L \otimes_k k[X_1, \dotsc, X_n] \to L[X_1, \dotsc, X_n], \lambda \otimes f \mapsto \lambda f.
+  \Phi \colon k[X_1, \dotsc, X_n]_L \to L[X_1, \dotsc, X_n], \lambda \otimes f \mapsto \lambda f.
  \]
 \end{prop}
 \begin{proof}
@@ -305,31 +304,44 @@ for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \dotsc, X_n]$. It 
  \[
   L \times k[X_1, \dotsc, X_n] \to L[X_1, \dotsc, X_n], (\lambda,f) \mapsto \lambda f
  \]
- is well-defined and $k$-bilinear. That $\Phi$ is also $L$-linear is clear. It is also interesting to notice that $\Phi$ is the unique $L$-linear map corresponding to the $k$-linear inclusion $k[X_1, \dotsc, X_n] \hookrightarrow L[X_1, \dotsc, X_n]$ under the natural isomorphism
- \begin{align*}
-       &\, \Hom_k(k[X_1, \dotsc, X_n], L[X_1, \dotsc, X_n]) \\
-  \cong&\, \Hom_L(k[X_1, \dotsc, X_n]_L, L[X_1, \dotsc, X_n]).
- \end{align*}
- 
- To show that $\Phi$ is an isomorphism of $L$-vector spaces let $(\lambda_i)_{i \in I}$ be a $k$-basis of $L$. Then
+ is well-defined and $k$-bilinear. Using the universal property of the polynomial ring we find that there exists an unique homomorphism of $L$-algebras
  \[
-  \lambda_i \otimes X^j \text{ with } i \in I, j \in \N
+  \Psi \colon L[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]_L, X_i \mapsto 1 \otimes X_i.
  \]
- is a $k$-basis of $k[X_1, \dotsc, X_n]_L$ and
+ Notice that for all $\alpha \in \N^n$ we have
  \[
-  \lambda_i X^j \text{ with } i \in I, j \in \N
+    \Psi\left( X^\alpha \right)
+  = \Psi\left( X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \right)
+  = (1 \otimes X_1)^{\alpha_1} \dotsm (1 \otimes X_n)^{\alpha_n}
+  = 1 \otimes X^\alpha
  \]
- is a $k$-basis of $L[X_1, \dotsc, X_n]$. Clearly $\Phi$ restricts to a bijection between this bases and since it is $k$-linear it follows that $\Phi$ is an isomorphism of $k$-vector spaces. Since it is also $L$-linear it is an isomorphism of $L$-vector spaces.
- 
- All that’s left to check is that $\Phi$ is multiplicative. Since for all $\lambda_1, \lambda_2 \in L$ and $f_1, f_2 \in k[X_1, \dotsc, X_n]$
+ and thus for all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \ldots, X_n]$
  \begin{align*}
-  \Phi((\lambda_1 \otimes f_1) \cdot (\lambda_2 \otimes f_2))
-  &= \Phi((\lambda_1 \lambda_2) \otimes (f_1 f_2))
-   = \lambda_1 \lambda_2 f_1 f_2 \\
-  &= \lambda_1 f_1 \cdot \lambda_2 f_2
-   = \Phi(\lambda_1 \otimes f_1) \cdot \Phi(\lambda_2 \otimes f_2)
+     \Psi(f)
+  &= \Psi\left( \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \right)
+   = \sum_{\alpha \in \N^n} \lambda_\alpha \Psi\left( X^\alpha \right) \\
+  &= \sum_{\alpha \in \N^n} \lambda_\alpha \left( 1 \otimes X^\alpha \right)
+   = \sum_{\alpha \in \N^n} \lambda_\alpha \otimes X^\alpha.
  \end{align*}
- it is multiplicative on the simple tensors. Since these generate $k[X_1, \dotsc, X_n]_L$ it follows that $\Phi$ is multiplicative.
+
+ For all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \ldots, X_n]$ we therefore have
+ \begin{align*}
+     (\Phi\Psi)(f)
+  &= \Phi\left(\Psi\left( \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \right)\right)
+  = \Phi\left( \sum_{\alpha \in \N^n} \lambda_\alpha \otimes X^\alpha \right) \\
+  &= \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha
+  = f,
+ \end{align*}
+ so $\Phi \Psi = \id_{L[X_1, \dotsc, X_n]}$. We also find that for all $\lambda \in L$, $f \in k[X_1, \dotsc, X_n]$
+ \begin{align*}
+    (\Psi\Phi)(\lambda \otimes f)
+  &= \Psi(\Phi(\lambda \otimes f))
+  = \Psi(\lambda f) \\
+  &= \lambda \Psi(f)
+  = \lambda(1 \otimes f)
+  = \lambda \otimes f,
+ \end{align*}
+ and since the simple tensors $\lambda \otimes f$ generate $k[X_1, \dotsc, X_n]_L$ as a $k$-vector space we get $\Phi \Psi = \id_{k[X_1, \dotsc, X_n]_L}$. This shows that $\Phi$ and $\Psi$ are isomorphisms of $k$-vector spaces with $\Phi^{-1} = \Psi$. Since $\Psi$ is an homomorphism of $L$-algebras we get that $\Phi$ and $\Psi$ are isomorphisms of $L$-algebras with $\Phi^{-1} = \Psi$. (Since $\Psi$ is an isomorphism of $k$-vector spaces it is bijective and therefore an isomorphism of $L$-algebras. Since $\Phi$ is the inverse of $\Psi$ as $k$-linear maps it is also the inverse of $\Psi$ as an $L$-algebra isomorphisms.)
 \end{proof}
 
 
