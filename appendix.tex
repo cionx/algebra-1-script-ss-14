@@ -166,34 +166,49 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
 \end{proof}
 
 
-Another important observation is that $\can_V$ maps a $k$-basis of $V$ to a $L$-basis of $V_L$. In particular $\dim_k V = \dim_L V_L$.
+Recall the following from linear algebra:
+
+
+\begin{rec}
+ Let $k$ be a field and $V$ a $k$-vector space. Then $B \subseteq V$ is a $k$-basis of $V$ if and only if for every $k$-vector space $W$ the restriction
+ \[
+  \Hom_k(V,W) \to \Maps(B,W)
+ \]
+ is a bijection.
+\end{rec}
 
 
 \begin{lem}
- Let $V$ be a $k$-vector space and $(v_i)_{i \in I}$ a $k$-basis of $V$. Then $(1 \otimes v_i)_{i \in I}$ is an $L$-basis of $V_L$.
+ Let $V$ be a $k$-vector space. Then $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ if and only if $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$.
 \end{lem}
 \begin{proof}
- First we show that $(1 \otimes v_i)_{i \in I}$ is linearly independent. For this let $F$ be the free vector space of $I$ over $L$ and $e_i \in F$ the element corresponding to $i \in I$. Because $(v_i)_{i \in I}$ is a $k$-basis of $V$ there exists an unique $k$-linear map $f \colon V \to F$ with $f(v_i) = e_i$ for all $i \in I$. By the universal property of extension of scalars there exists a unique $L$-linear map $g \colon V_L \to F$ with $g \circ \can_V = f$ and therefore
+ Since $\can_V \colon V \to V_L$ is injective it induces a bijection
  \[
-  g(1 \otimes v_i) = (g \circ \can_V)(v_i) = f(v_i) = e_i
+  \phi \colon \{v_i\}_{i \in I} \to \{1 \otimes v_i\}_{i \in I}, v_i \mapsto 1 \otimes v_i = \can_V(v_i)
  \]
- for all $i \in I$. Since $(e_i)_{i \in I}$ is linearly independent it follows that $(1 \otimes v_i)_{i \in I}$ is linearly independent.
- 
- To show that $\{1 \otimes v_i\}_{i \in I}$ generates $V_L$ we notice that
+ For every $L$-vector space $W$ we therefore get a commutative diagram
+ \begin{center}
+  \tikzsetnextfilename{scalar_extension_and_bases}
+  \begin{tikzpicture}[node distance = 6em, auto]
+   \node (HomL) {$\Hom_L(V_L, W)$};
+   \node (Homk) [right = 6em of HomL] {$\Hom_k(V,W)$};
+   \node (MapsL) [below of = HomL] {$\Maps\left( \{1 \otimes v_i\}_{i \in I}, W\right )$};
+   \node (Mapsk) [below of = Homk] {$\Maps\left( \{v_i\}_{i \in I} ,W\right )$};
+   \draw[double equal sign distance] (HomL) to node {$\sim$} (Homk);
+   \draw[double equal sign distance] (MapsL) to node {$\sim$} (Mapsk);
+   \draw[->] (HomL) to node[swap] {restriction} (MapsL);
+   \draw[->] (Homk) to node {restriction} (Mapsk);
+  \end{tikzpicture}
+ \end{center}
+ where we have an isomorphism of $k$-vector spaces
  \[
-  \vspan_k \{1 \otimes v_i\}_{i \in I}
-  = \im \can_V
-  = \{1 \otimes v \mid v \in V\}.
+  \Hom_L(V_L, W) \cong \Hom_k(V, W), h \mapsto h \circ \can_V,
  \]
- Since the simple tensors (i.e.\ the tensors $\lambda \otimes v$ with $\lambda \in L$ and $v \in V$) generate $V_L$ and $\lambda \otimes v = \lambda(1 \otimes v)$ for all $\lambda \in L, v \in V$ we find that
- \begin{align*}
-  V_L
-  &= \vspan_L \{\lambda \otimes v \mid \lambda \in L, v \in V\}
-  = \vspan_L \{1 \otimes v \mid v \in V\} \\
-  &= \vspan_L \vspan_k \{1 \otimes v_i \mid i \in I\}
-  = \vspan_L \{1 \otimes v_i \mid i \in I\}.
- \end{align*}
- Therefore $\{1 \otimes v_i\}_{i \in I}$ generates $V_L$.
+ and the bijection
+ \[
+  \Maps\left( \{1 \otimes v_i\}_{i \in I}, W\right ) \cong \Maps\left( \{v_i\}_{i \in I} ,W\right ), h \mapsto h \circ \phi.
+ \]
+ That $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ is equivalent to saying that the restriction on the right side is a bijection and that $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$ is equivalent to saying that the restriction on the left side is a bijection. Since the diagram commutes these two are equivalent.
 \end{proof}
 
 
