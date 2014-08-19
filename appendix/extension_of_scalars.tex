@@ -359,14 +359,29 @@ The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, 
  \]
 \end{prop}
 \begin{proof}
- First we notice that $\Phi$ is well-defined and $k$-linear, since the map
+ Too see that $\Phi$ is well-defined and $L$-linear notice that it is the $L$-linear map which corresponds to the $k$-linear inclusion
  \[
-  L \times k[X_1, \dotsc, X_n] \to L[X_1, \dotsc, X_n], (\lambda,f) \mapsto \lambda f
+  k[X_1, \dotsc, X_n] \hookrightarrow L[X_1, \dotsc, X_n],
  \]
- is well-defined and $k$-bilinear. Using the universal property of the polynomial ring we find that there exists an unique homomorphism of $L$-algebras
+ i.e.\ it is the unique $L$-linear map making the diagram
+ \begin{center}
+  \tikzsetnextfilename{inclusion_isomorphism_polynomial_rings}
+  \begin{tikzpicture}[node distance = 6em, auto]
+   \node (kX) {$k[X_1, \dotsc, X_n]$};
+   \node (LX) [right = 6em of kX] {$L[X_1, \dotsc, X_n]$};
+   \node (kXL) [below of = kX] {$k[X_1, \dotsc, X_n]_L$};
+   \draw[right hook ->] (kX) to (LX);
+   \draw[right hook ->] (kX) to (kXL);
+   \draw[->] (kXL) to node[below] {$\Phi$} (LX);
+  \end{tikzpicture}
+ \end{center}
+ commute.
+
+ Using the universal property of the polynomial ring we find that there exists an unique homomorphism of $L$-algebras
  \[
-  \Psi \colon L[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]_L, X_i \mapsto 1 \otimes X_i.
+  \Psi \colon L[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]_L, X_i \mapsto 1 \otimes X_i,
  \]
+
  Notice that for all $\alpha \in \N^n$ we have
  \[
     \Psi\left( X^\alpha \right)
