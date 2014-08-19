@@ -7,19 +7,24 @@ For this chapter we fix a field extension $L/k$.
 \section{Definition and universal property}
 
 
-For a $k$-vector space $V$ we define
-\[
- V_L := L \otimes_k V.
-\]
-Then $V_L$ is a $L$-vector space via
-\[
- \lambda \cdot (l \otimes v) = (\lambda l) \otimes v
-\]
-for all $\lambda \in L$. To see that this multiplication is well-defined notice that for every $\lambda \in L$ the multiplication with $\lambda$ in $L$, namely
+\begin{defi}
+ For a $k$-vector space $V$ we define the $L$-vector spaces $V_L$ as
+ \[
+  V_L := L \otimes_k V
+ \]
+ where the multiplication is defined as
+ \[
+  \lambda \cdot (l \otimes v) = (\lambda l) \otimes v
+ \]
+ for all $\lambda \in L$ and simple tensors $l \otimes v \in V_L$.
+\end{defi}
+
+To see that this multiplication is well-defined notice that for every $\lambda \in L$ the multiplication with $\lambda$ in $L$, namely
 \[
  \pi_\lambda \colon L \to L, l \mapsto \lambda l,
 \]
-is $L$-linear and thus $k$-linear. The multiplication with $\lambda \in L$ as defined above is simply given by $\pi_\lambda \otimes \id_V$.
+is $L$-linear and thus $k$-linear. The multiplication with $\lambda \in L$ as defined above is simply $\pi_\lambda \otimes \id_V$.
+
 
 For any $k$-vector space $V$ we have a $k$-linear inclusion
 \[
@@ -329,38 +334,47 @@ Given a $k$-algebra $A$ we get that $A_L$ is an $L$-vector space and a $k$-algeb
 \end{align*}
 is also $L$-bilinear.
 
-Given $k$-algebras $A_1$ and $A_2$ and a homomorphism of $k$-algebras
-\[
- f \colon A_1 \to A_2
-\]
-the corresponding $L$-linear map
-\[
- f_L := 1 \otimes f \colon L \otimes_k A_1 \to L \otimes_k A_2
-\]
-is a homomorphism of $L$-algebras. It is multiplicative on the simple tensors since for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in L \otimes_k A_1$
-\begin{align*}
-  &\, f_L((\lambda_1 \otimes a_1)(\lambda_2 \otimes a_2)) \\
- =&\, f_L((\lambda_1 \lambda_2) \otimes (a_1 a_2))
- =    (\lambda_1 \lambda_2) \otimes f(a_1 a_2) \\
- =&\, (\lambda_1 \lambda_2) \otimes (f(a_1)f(a_2))
- =    (\lambda_1 \otimes f(a_1)) (\lambda_2 \otimes f(a_2)) \\
- =&\, f_L(\lambda_1 \otimes f(a_1)) f_L(\lambda_2 \otimes f(a_2)).
-\end{align*}
-Since these simple tensors generate $L \otimes_k A_1$ it follows that $f_L$ is multiplicative.
-
+\begin{lem}
+ For $k$-algebras $A_1$ and $A_2$ and a homomorphism of $k$-algebras
+ \[
+  f \colon A_1 \to A_2
+ \]
+ the corresponding $L$-linear map
+ \[
+  f_L \colon L \otimes_k A_1 \to L \otimes_k A_2
+ \]
+ is a homomorphism of $L$-algebras.
+\end{lem}
+\begin{proof}
+ $f_L$ is multiplicative on the simple tensors since for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in L \otimes_k A_1$
+ \begin{align*}
+   &\, f_L((\lambda_1 \otimes a_1)(\lambda_2 \otimes a_2)) \\
+  =&\, f_L((\lambda_1 \lambda_2) \otimes (a_1 a_2))
+  =    (\lambda_1 \lambda_2) \otimes f(a_1 a_2) \\
+  =&\, (\lambda_1 \lambda_2) \otimes (f(a_1)f(a_2))
+  =    (\lambda_1 \otimes f(a_1)) (\lambda_2 \otimes f(a_2)) \\
+  =&\, f_L(\lambda_1 \otimes a_1) f_L(\lambda_2 \otimes a_2).
+ \end{align*}
+ Since these simple tensors generate $L \otimes_k A_1$ it follows that $f_L$ is multiplicative.
+\end{proof}
+ 
 This shows that we can understand the extension of scalars for $k$-algebras als a functor from $\cAlg{k}$ to $\cAlg{L}$.
 
-
-Given a $k$-algebra $A$, an $L$-algebra $B$ and a homomorphism of $k$-algebras $f \colon A \to B$ the corresponding $L$-linear map $\hat{f} \colon A_L \to B$ is a homomorphism of $L$-algebras: Notice that for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in A_L$ we have
-\begin{align*}
- \hat{f}((\lambda_1 \otimes a_1)(\lambda_2 \otimes a_2))
- &= \hat{f}((\lambda_1 \lambda_2) \otimes (a_1 a_2))
- = \lambda_1 \lambda_2 f(a_1 a_2) \\
- &= \lambda_1 \lambda_2 f(a_1) f(a_2)
- = \lambda_1 f(a_1) \lambda_2 f(a_2) \\
- &= \hat{f}(\lambda_1 \otimes a_1) \hat{f}(\lambda_2 \otimes a_2).
-\end{align*}
-Since the simple tensors generate $A_L$ it follows that $\hat{f}$ is multiplicative.
+\begin{lem}
+ Let $A$ be a $k$-algebra, $B$ an $L$-algebra and $f \colon A \to B$ a homomorphism of $k$-algebras. Then the corresponding $L$-linear map $\hat{f} \colon A_L \to B$ is a homomorphism of $L$-algebras.
+ \begin{proof}
+ Notice that for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in A_L$ we have
+  \begin{align*}
+   \hat{f}((\lambda_1 \otimes a_1)(\lambda_2 \otimes a_2))
+   &= \hat{f}((\lambda_1 \lambda_2) \otimes (a_1 a_2))
+   = \lambda_1 \lambda_2 f(a_1 a_2) \\
+   &= \lambda_1 \lambda_2 f(a_1) f(a_2)
+   = \lambda_1 f(a_1) \lambda_2 f(a_2) \\
+   &= \hat{f}(\lambda_1 \otimes a_1) \hat{f}(\lambda_2 \otimes a_2).
+  \end{align*}
+  Since the simple tensors generate $A_L$ it follows that $\hat{f}$ is multiplicative.
+ \end{proof}
+\end{lem}
 
 
 \begin{cor}\label{cor: inclusion to bijection algebras}
