@@ -284,13 +284,40 @@ of $k$-vector spaces. This observation results in the following proposition:
 \section{Polynomial rings and matrix rings}
 
 
-Given $k$-algebras $A_1$ and $A_2$ we know that $A_1 \otimes_k A_2$ is a $k$-algebra via the multiplication
+Given $k$-algebras $A_1$ and $A_2$ then $A_1 \otimes_k A_2$ is a $k$-algebra via the multiplication
 \[
- (a_1 \otimes a_2) \cdot (b_1 \otimes b_2) = (a_1 b_1) \otimes (a_2 b_2).
+ (a_1 \otimes b_1) \cdot (a_2 \otimes b_2) = (a_1 a_2) \otimes (b_1 b_2).
 \]
-Given a $k$-algebra $A$ we get that $L \otimes_k A$ is an $L$-vector space and a $k$-algebra. It is easy to see that that these structures are compatible and give $L \otimes_k A$ the structure of an $L$-algebra.
+To see that this multiplication is well-defined notice that the map
+\begin{align*}
+ A_1 \times A_2 \times A_1 \times A_2 &\to A_1 \otimes_k A_2, \\
+ (a_1, b_1, a_2, b_2) &\mapsto (a_1 a_2) \otimes (b_1 b_2)
+\end{align*}
+is well-defined and $k$-multilinear, so we get a $k$-linear map
+\begin{align*}
+ A_1 \otimes_k A_2 \otimes_k A_1 \otimes_k A_2 &\to A_1 \otimes_k A_2, \\
+ a_1 \otimes b_1 \otimes a_2 \otimes b_2 &\mapsto (a_1 a_2) \otimes (b_1 b_2),
+\end{align*}
+which under the isomorphism of $k$-vector spaces
+\[
+ A_1 \otimes_k A_2 \otimes_k A_1 \otimes_k A_2 \cong (A_1 \otimes_k A_2) \otimes_k (A_1 \otimes_k A_2)
+\]
+corresponds to a $k$-bilinear map
+\begin{align*}
+ (A_1 \otimes_k A_2) \times (A_1 \otimes_k A_2) &\to A_1 \otimes_k A_2, \\
+ (a_1 \otimes b_1, a_2 \otimes b_2) &\mapsto (a_1 a_2) \otimes (b_1 b_2).
+\end{align*}
 
-For the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
+
+Given a $k$-algebra $A$ we get that $L \otimes_k A$ is an $L$-vector space and a $k$-algebra. It is easy to see that that these structures are compatible and give $L \otimes_k A$ the structure of an $L$-algebra. To see this compatibility simply notice that the $k$-bilinear map
+\begin{align*}
+ (A_1 \otimes_k A_2) \times (A_1 \otimes_k A_2) &\to A_1 \otimes_k A_2, \\
+ (a_1 \otimes b_1, a_2 \otimes b_2) &\mapsto (a_1 a_2) \otimes (b_1 b_2).
+\end{align*}
+is also $L$-bilinear.
+
+
+In the spcial case of the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
 \[
  k[X_1, \dotsc, X_n]_L = L \otimes_k k[X_1, \dotsc, X_n].
 \]
