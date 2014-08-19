@@ -382,7 +382,7 @@ Since the simple tensors generate $A_L$ it follows that $\hat{f}$ is multiplicat
 \section{Polynomial rings and matrix rings}
 
 
-In the special case of the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
+For the polynomial ring $k[X_1, \dotsc, X_n]$ we have an $L$-algebra
 \[
  k[X_1, \dotsc, X_n]_L = L \otimes_k k[X_1, \dotsc, X_n].
 \]
@@ -396,44 +396,7 @@ The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, 
  \]
 \end{prop}
 \begin{proof}
- Too see that $\Phi$ is well-defined and $L$-linear notice that it is the $L$-linear map which corresponds to the $k$-linear inclusion
- \[
-  k[X_1, \dotsc, X_n] \hookrightarrow L[X_1, \dotsc, X_n],
- \]
- i.e.\ it is the unique $L$-linear map making the diagram
- \begin{center}
-  \tikzsetnextfilename{inclusion_isomorphism_polynomial_rings}
-  \begin{tikzpicture}[node distance = 6em, auto]
-   \node (kX) {$k[X_1, \dotsc, X_n]$};
-   \node (LX) [right = 6em of kX] {$L[X_1, \dotsc, X_n]$};
-   \node (kXL) [below of = kX] {$k[X_1, \dotsc, X_n]_L$};
-   \draw[right hook ->] (kX) to (LX);
-   \draw[right hook ->] (kX) to (kXL);
-   \draw[->] (kXL) to node[below] {$\Phi$} (LX);
-  \end{tikzpicture}
- \end{center}
- commute. Since the inclusion $k[X_1, \dotsc, X_n] \hookrightarrow L[X_1, \dotsc, X_n]$ is a homomorphism of $k$-algebras $\Phi$ is an homomorphism of $L$-algebras.
-
- Using the universal property of the polynomial ring we find that there exists an unique homomorphism of $L$-algebras
- \[
-  \Psi \colon L[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]_L, X_i \mapsto 1 \otimes X_i,
- \]
- 
- Notice that for all $1 \leq i \leq n$ we have
- \[
-  (\Phi\Psi)(X_i)
-  = \Phi(1 \otimes X_i)
-  = X_i,
- \]
- so $\Phi \Psi = \id_{L[X_1, \dotsc, X_n]}$ by the universal property of the polynomial ring. We also find that for all $\lambda \in L$ and $f \in k[X_1, \dotsc, X_n]$
- \begin{align*}
-    (\Psi\Phi)(\lambda \otimes f)
-  &= \Psi(\lambda f)
-  = \lambda \Psi(f) \\
-  &= \lambda(1 \otimes f)
-  = \lambda \otimes f,
- \end{align*}
- and since the simple tensors $\lambda \otimes f$ generate $k[X_1, \dotsc, X_n]_L$ as a $k$-vector space we get $\Phi \Psi = \id_{k[X_1, \dotsc, X_n]_L}$. This shows that $\Phi$ and $\Psi$ are isomorphisms of $k$-algebras with $\Phi^{-1} = \Psi$.
+ The monomial $X^\alpha$ with $\alpha \in \N^n$ are a $k$-basis of $k[X_1, \dotsc, X_n]$ and an $L$-basis of $L[X_1, \dotsc, X_n]$ so it follows from corollary \ref{cor: inclusion to bijection algebras}.
 \end{proof}
 
 
@@ -447,7 +410,7 @@ Another interesting example of the extension of scalars is $L \otimes_k \Mat_n(k
  \]
 \end{prop}
 \begin{proof}
- Similar to the previous proof we we notice that the canonical inclusion $\Mat_n(k) \hookrightarrow \Mat_n(L)$ induces $\Phi$ as an homomorphism of $L$-algebras. Since this inclusion restricts to a bijection between the $k$-basis $(E_{ij})_{1 \leq i,j \leq n}$ of $\Mat_n(k)$ and the $L$-basis $(E_{ij})_{1 \leq i,j \leq n}$ of $\Mat_n(L)$ we find that $\Phi$ restricts to a bijection between the $L$-basis $(1 \otimes E_{ij})_{1 \leq i,j \leq n}$ of $L \otimes_k \Mat_n(k)$ and the $L$-basis $(E_{ij})_{1 \leq i,j \leq n}$ of $\Mat_n(L)$. This shows $\Phi$ is an isomorphim of $L$-vector spaces and therefore one of $L$-algebras.
+ The matrices $(E_{ij})_{1 \leq i,j \leq n}$ are a $k$-basis of $k[X_1, \dotsc, X_n]$ and an $L$-basis of $L[X_1, \dotsc, X_n]$ so it follows from corollary \ref{cor: inclusion to bijection algebras}.
 \end{proof}
 
 
