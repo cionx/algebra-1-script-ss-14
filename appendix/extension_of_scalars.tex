@@ -237,31 +237,37 @@ It is easy to check that $f_L$ is also $L$-linear. Therefore we can understand t
 \[
  E \colon \cVect{k} \to \cVect{L}
 \]
-with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-linear map $f$.
+with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-linear map $f$. 
 
-It is important to notice that for all $k$-vector spaces $V$ and $V'$ and every $k$-linear map $f \colon V \to V'$ the diagram
-\tikzsetnextfilename{can_and_fL_commute}
-\begin{center}
- \begin{tikzpicture}[node distance = 6em, auto]
-  \node (V) {$V$};
-  \node (V') [right of = V] {$V'$};
-  \node (VL) [below of = V] {$V_L$};
-  \node (V'L) [below of = V'] {$V'_L$};
-  \draw[->] (V) to node {$f$} (V');
-  \draw[->] (VL) to node {$f_L$} (V'L);
-  \draw[->] (V) to node[swap] {$\can_V$} (VL);
-  \draw[->] (V') to node {$\can_{V'}$} (V'L);
- \end{tikzpicture}
-\end{center}
-commutes. This can easily be checked by calculation, since for all $v \in V$
-\begin{align*}
- (f_L \circ \can_V)(v)
- &= f_L(\can_V(v))
- = f_L(1 \otimes v) \\
- &= 1 \otimes f(v)
- = \can_{V'}(f(v))
- = (\can_{V'} \circ f)(v).
-\end{align*}
+\begin{lem}
+ Let $V$ and $V'$ be $k$-vector spaces. For every $k$-linear map $f : V \to V'$
+ \tikzsetnextfilename{can_and_fL_commute}
+ \begin{center}
+  \begin{tikzpicture}[node distance = 6em, auto]
+   \node (V) {$V$};
+   \node (V') [right of = V] {$V'$};
+   \node (VL) [below of = V] {$V_L$};
+   \node (V'L) [below of = V'] {$V'_L$};
+   \draw[->] (V) to node {$f$} (V');
+   \draw[->] (VL) to node {$f_L$} (V'L);
+   \draw[->] (V) to node[swap] {$\can_V$} (VL);
+   \draw[->] (V') to node {$\can_{V'}$} (V'L);
+  \end{tikzpicture}
+ \end{center}
+ commutes.
+\end{lem}
+\begin{proof}
+ This can easily be checked by calculation, since for all $v \in V$
+ \begin{align*}
+  (f_L \circ \can_V)(v)
+  &= f_L(\can_V(v))
+  = f_L(1 \otimes v) \\
+  &= 1 \otimes f(v)
+  = \can_{V'}(f(v))
+  = (\can_{V'} \circ f)(v).
+ \end{align*}
+\end{proof}
+
 
 We also have the restriction of scalars as a functor
 \[
