@@ -244,10 +244,6 @@ commutes. This can easily be checked by calculation, since for all $v \in V$
  = (\can_{V'} \circ f)(v).
 \end{align*}
 
-
-
-
-
 We also have the restriction of scalars as a functor
 \[
  R \colon \cVect{L} \to \cVect{k}
@@ -259,7 +255,6 @@ From the universal property of the extension of scalars we know that for every $
  \Phi_{V,W} \colon \Hom_L(E(V),W) \cong \Hom_k(V,R(W))
 \]
 of $k$-vector spaces. This observation results in the following proposition:
- 
  
 \begin{prop}
  $E$ is left adjoint to $R$ via the bijections $\Phi_{V,W}$.
@@ -287,17 +282,19 @@ of $k$-vector spaces. This observation results in the following proposition:
 
 
 \section{Polynomial rings and matrix rings}
-Given $k$-algebras $A_1$ and $A_2$ we know that $A_1 \otimes_k A_2$ is an $k$-algebra via the multiplication
+
+
+Given $k$-algebras $A_1$ and $A_2$ we know that $A_1 \otimes_k A_2$ is a $k$-algebra via the multiplication
 \[
- (a_1 \otimes a_2) \cdot (a_1' \otimes a_2') = (a_1 a_1') \otimes (a_2 a_2').
+ (a_1 \otimes a_2) \cdot (b_1 \otimes b_2) = (a_1 b_1) \otimes (a_2 b_2).
 \]
 Given a $k$-algebra $A$ we get that $L \otimes_k A$ is an $L$-vector space and a $k$-algebra. It is easy to see that that these structures are compatible and give $L \otimes_k A$ the structure of an $L$-algebra.
 
-In the case of the $k$-algebra $k[X_1, \dotsc, X_n]$ we get the $L$-algebra
+For the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
 \[
  k[X_1, \dotsc, X_n]_L = L \otimes_k k[X_1, \dotsc, X_n].
 \]
-The interesting thing about this $L$-algebra is that is it actually $L[X_1, \ldots, X_n]$.
+The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, X_n]$.
 
 
 \begin{prop}
@@ -322,7 +319,7 @@ The interesting thing about this $L$-algebra is that is it actually $L[X_1, \ldo
   = (1 \otimes X_1)^{\alpha_1} \dotsm (1 \otimes X_n)^{\alpha_n}
   = 1 \otimes X^\alpha
  \]
- and thus for all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \ldots, X_n]$
+ and thus for all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \dotsc, X_n]$
  \begin{align*}
      \Psi(f)
   &= \Psi\left( \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \right)
@@ -331,7 +328,7 @@ The interesting thing about this $L$-algebra is that is it actually $L[X_1, \ldo
    = \sum_{\alpha \in \N^n} \lambda_\alpha \otimes X^\alpha.
  \end{align*}
 
- For all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \ldots, X_n]$ we therefore have
+ For all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \dotsc, X_n]$ we therefore have
  \begin{align*}
      (\Phi\Psi)(f)
   &= \Phi\left(\Psi\left( \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \right)\right)
@@ -350,23 +347,6 @@ The interesting thing about this $L$-algebra is that is it actually $L[X_1, \ldo
  \end{align*}
  and since the simple tensors $\lambda \otimes f$ generate $k[X_1, \dotsc, X_n]_L$ as a $k$-vector space we get $\Phi \Psi = \id_{k[X_1, \dotsc, X_n]_L}$. This shows that $\Phi$ and $\Psi$ are isomorphisms of $k$-vector spaces with $\Phi^{-1} = \Psi$. Since $\Psi$ is an homomorphism of $L$-algebras we get that $\Phi$ and $\Psi$ are isomorphisms of $L$-algebras with $\Phi^{-1} = \Psi$. (Since $\Psi$ is an isomorphism of $k$-vector spaces it is bijective and therefore an isomorphism of $L$-algebras. Since $\Phi$ is the inverse of $\Psi$ as $k$-linear maps it is also the inverse of $\Psi$ as an $L$-algebra isomorphisms.)
 \end{proof}
-
-
-In the case that $k$ is infinite we know that for an $n$-dimensional $k$-vector space $W$ we have $\mc{P}(W) \cong k[X_1, \dotsc, X_n]$ and thus
-\[
- \mc{P}(W)_L \cong k[X_1, \dotsc, X_n]_L \cong L[X_1, \dotsc, X_n]
-\]
-It is easy to check that this isomorphism of $L$-vector spaces is really an isomorphism of $L$-algebras. Since $\dim_L W_L = \dim_k W = n$ we also have an isomorphism of $L$-algebras $\mc{P}(W_L) \cong L[X_1, \dotsc, X_n]$. Thus we have an isomorphism $\mc{P}(W)_L \cong \mc{P}(W_L)$ of $L$-algebras.
-
-Since the isomorphism
-\[
- \mc{P}(W) \cong k[X_1, \dotsc X_n]
-\]
-depends on choosing a $k$-basis of $W$ and the isomorphism
-\[
- \mc{P}(W_L) \cong L[X_1, \dotsc, X_n]
-\]
-depends on choosing an $L$-basis of $W_L$ we can not expect the isomorphism $\mc{P}(W)_L \cong \mc{P}(W_L)$ to be independent of such choice.
 
 
 
