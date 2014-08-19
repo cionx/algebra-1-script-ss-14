@@ -1,5 +1,5 @@
 \chapter{Extension of scalars}
-
+For this chapter we fix a field extension $L/k$.
 
 
 
@@ -7,7 +7,7 @@
 \section{Definition and universal property}
 
 
-Let $L/k$ be a field extension. For a $k$-vector space $V$ we define
+For a $k$-vector space $V$ we define
 \[
  V_L := L \otimes_k V.
 \]
@@ -281,10 +281,10 @@ of $k$-vector spaces. This observation results in the following proposition:
 
 
 
-\section{Polynomial rings and matrix rings}
+\section{Extension of scalars for algebras}
 
 
-Given $k$-algebras $A_1$ and $A_2$ then $A_1 \otimes_k A_2$ is a $k$-algebra via the multiplication
+Given $k$-algebras $A_1$ and $A_2$ their tensor product $A_1 \otimes_k A_2$ is a $k$-algebra via the multiplication
 \[
  (a_1 \otimes b_1) \cdot (a_2 \otimes b_2) = (a_1 a_2) \otimes (b_1 b_2).
 \]
@@ -307,8 +307,6 @@ corresponds to a $k$-bilinear map
  (A_1 \otimes_k A_2) \times (A_1 \otimes_k A_2) &\to A_1 \otimes_k A_2, \\
  (a_1 \otimes b_1, a_2 \otimes b_2) &\mapsto (a_1 a_2) \otimes (b_1 b_2).
 \end{align*}
-
-
 
 Given a $k$-algebra $A$ we get that $A_L$ is an $L$-vector space and a $k$-algebra. It is easy to see that that these structures are compatible and give $A_L$ the structure of an $L$-algebra. To see this compatibility simply notice that the $k$-bilinear map
 \begin{align*}
@@ -334,9 +332,15 @@ is an homomorphism of $L$-algebras. It is multiplicative on the simple tensors s
  =    (\lambda_1 \otimes f(a_1)) (\lambda_2 \otimes f(a_2)) \\
  =&\, f_L(\lambda_1 \otimes f(a_1)) f_L(\lambda_2 \otimes f(a_2)).
 \end{align*}
-Since these simple tensors generate $L \otimes_k A$ it follows that $f_L$ is multiplicative.
+Since these simple tensors generate $L \otimes_k A_1$ it follows that $f_L$ is multiplicative.
 
 This shows that we can understand the extension of scalars for $k$-algebras als a functor from $\cAlg{k}$ to $\cAlg{L}$.
+
+
+
+
+
+\section{Polynomial rings and matrix rings}
 
 
 In the spcial case of the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
