@@ -317,7 +317,7 @@ Given a $k$-algebra $A$ we get that $A_L$ is an $L$-vector space and a $k$-algeb
 \end{align*}
 is also $L$-bilinear.
 
-Given $k$-algebras $A_1$ and $A_2$ and an homomorphism of $k$-algebras
+Given $k$-algebras $A_1$ and $A_2$ and a homomorphism of $k$-algebras
 \[
  f \colon A_1 \to A_2
 \]
@@ -325,7 +325,7 @@ the corresponding $L$-linear map
 \[
  f_L := 1 \otimes f \colon L \otimes_k A_1 \to L \otimes_k A_2
 \]
-is an homomorphism of $L$-algebras. It is multiplicative on the simple tensors since for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in L \otimes_k A_1$
+is a homomorphism of $L$-algebras. It is multiplicative on the simple tensors since for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in L \otimes_k A_1$
 \begin{align*}
   &\, f_L((\lambda_1 \otimes a_1)(\lambda_2 \otimes a_2)) \\
  =&\, f_L((\lambda_1 \lambda_2) \otimes (a_1 a_2))
@@ -339,13 +339,25 @@ Since these simple tensors generate $L \otimes_k A_1$ it follows that $f_L$ is m
 This shows that we can understand the extension of scalars for $k$-algebras als a functor from $\cAlg{k}$ to $\cAlg{L}$.
 
 
+Given a $k$-algebra $A$, an $L$-algebra $B$ and a homomorphism of $k$-algebras $f \colon A \to B$ the corresponding $L$-linear map $\hat{f} \colon A_L \to B$ is a homomorphism of $L$-algebras: Notice that for all simple tensors $\lambda_1 \otimes a_1, \lambda_2 \otimes a_2 \in A_L$ we have
+\begin{align*}
+ \hat{f}((\lambda_1 \otimes a_1)(\lambda_2 \otimes a_2))
+ &= \hat{f}((\lambda_1 \lambda_2) \otimes (a_1 a_2))
+ = \lambda_1 \lambda_2 f(a_1 a_2) \\
+ &= \lambda_1 \lambda_2 f(a_1) f(a_2)
+ = \lambda_1 f(a_1) \lambda_2 f(a_2) \\
+ &= \hat{f}(\lambda_1 \otimes a_1) \hat{f}(\lambda_2 \otimes a_2).
+\end{align*}
+Since the simple tensors generate $A_L$ it follows that $\hat{f}$ is multiplicative.
+
+
 
 
 
 \section{Polynomial rings and matrix rings}
 
 
-In the spcial case of the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
+In the special case of the $k$-algebra $k[X_1, \dotsc, X_n]$ this gives us an $L$-algebra
 \[
  k[X_1, \dotsc, X_n]_L = L \otimes_k k[X_1, \dotsc, X_n].
 \]
@@ -375,47 +387,28 @@ The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, 
    \draw[->] (kXL) to node[below] {$\Phi$} (LX);
   \end{tikzpicture}
  \end{center}
- commute.
+ commute. Since the inclusion $k[X_1, \dotsc, X_n] \hookrightarrow L[X_1, \dotsc, X_n]$ is a homomorphism of $k$-algebras $\Phi$ is an homomorphism of $L$-algebras.
 
  Using the universal property of the polynomial ring we find that there exists an unique homomorphism of $L$-algebras
  \[
   \Psi \colon L[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]_L, X_i \mapsto 1 \otimes X_i,
  \]
-
- Notice that for all $\alpha \in \N^n$ we have
+ 
+ Notice that for all $1 \leq i \leq n$ we have
  \[
-    \Psi\left( X^\alpha \right)
-  = \Psi\left( X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \right)
-  = (1 \otimes X_1)^{\alpha_1} \dotsm (1 \otimes X_n)^{\alpha_n}
-  = 1 \otimes X^\alpha
+  (\Phi\Psi)(X_i)
+  = \Phi(1 \otimes X_i)
+  = X_i,
  \]
- and thus for all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \dotsc, X_n]$
- \begin{align*}
-     \Psi(f)
-  &= \Psi\left( \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \right)
-   = \sum_{\alpha \in \N^n} \lambda_\alpha \Psi\left( X^\alpha \right) \\
-  &= \sum_{\alpha \in \N^n} \lambda_\alpha \left( 1 \otimes X^\alpha \right)
-   = \sum_{\alpha \in \N^n} \lambda_\alpha \otimes X^\alpha.
- \end{align*}
-
- For all $f = \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \in L[X_1, \dotsc, X_n]$ we therefore have
- \begin{align*}
-     (\Phi\Psi)(f)
-  &= \Phi\left(\Psi\left( \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha \right)\right)
-  = \Phi\left( \sum_{\alpha \in \N^n} \lambda_\alpha \otimes X^\alpha \right) \\
-  &= \sum_{\alpha \in \N^n} \lambda_\alpha X^\alpha
-  = f,
- \end{align*}
- so $\Phi \Psi = \id_{L[X_1, \dotsc, X_n]}$. We also find that for all $\lambda \in L$, $f \in k[X_1, \dotsc, X_n]$
+ so $\Phi \Psi = \id_{L[X_1, \dotsc, X_n]}$ by the universal property of the polynomial ring. We also find that for all $\lambda \in L$ and $f \in k[X_1, \dotsc, X_n]$
  \begin{align*}
     (\Psi\Phi)(\lambda \otimes f)
-  &= \Psi(\Phi(\lambda \otimes f))
-  = \Psi(\lambda f) \\
-  &= \lambda \Psi(f)
-  = \lambda(1 \otimes f)
+  &= \Psi(\lambda f)
+  = \lambda \Psi(f) \\
+  &= \lambda(1 \otimes f)
   = \lambda \otimes f,
  \end{align*}
- and since the simple tensors $\lambda \otimes f$ generate $k[X_1, \dotsc, X_n]_L$ as a $k$-vector space we get $\Phi \Psi = \id_{k[X_1, \dotsc, X_n]_L}$. This shows that $\Phi$ and $\Psi$ are isomorphisms of $k$-vector spaces with $\Phi^{-1} = \Psi$. Since $\Psi$ is an homomorphism of $L$-algebras we get that $\Phi$ and $\Psi$ are isomorphisms of $L$-algebras with $\Phi^{-1} = \Psi$. (Since $\Psi$ is an isomorphism of $k$-vector spaces it is bijective and therefore an isomorphism of $L$-algebras. Since $\Phi$ is the inverse of $\Psi$ as $k$-linear maps it is also the inverse of $\Psi$ as an $L$-algebra isomorphisms.)
+ and since the simple tensors $\lambda \otimes f$ generate $k[X_1, \dotsc, X_n]_L$ as a $k$-vector space we get $\Phi \Psi = \id_{k[X_1, \dotsc, X_n]_L}$. This shows that $\Phi$ and $\Psi$ are isomorphisms of $k$-algebras with $\Phi^{-1} = \Psi$.
 \end{proof}
 
 
