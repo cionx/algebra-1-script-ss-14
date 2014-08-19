@@ -42,12 +42,12 @@
 \definecolor{light-gray}{gray}{0.9}
 
 % die Umgebungen mit kursiver Schrift
-\newtheorem{defi}{Definition}[chapter]
+\newtheorem*{defi}{Definition}
 \newcounter{saetze}[chapter]
 \newtheorem{prop}[saetze]{Proposition}
 \newtheorem{lem}[saetze]{Lemma}
 \newtheorem{thrm}[saetze]{Theorem}
-\newtheorem*{cor}{Corollary}
+\newtheorem{cor}[saetze]{Corollary}
 \newtheorem*{claim}{Claim}
 
 % die Umgebungen mit normaler Schrift
@@ -60,7 +60,6 @@
 \newtheorem*{warn}{Warning}
 
 % Ausgabe für diverse Counter
-\renewcommand{\thedefi}{\arabic{chapter}.\arabic{defi}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 
 % Kategoriennamen
