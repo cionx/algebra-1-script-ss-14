@@ -206,6 +206,18 @@ Recall the following from linear algebra:
 \end{proof}
 
 
+\begin{cor}\label{cor: inclusion to bijection vector spaces}
+ Let $V$ be an $L$-vector space, $U \subseteq V$ a $k$-vector subspace and $B \subseteq U$, such that $B$ is a $k$-basis of $U$ and an $L$-basis of $V$. Then
+ \[
+  \phi \colon U_L \colon V, \lambda \otimes u \mapsto \lambda u
+ \]
+ is an isomorphism of $L$-vector spaces.
+\end{cor}
+\begin{proof}
+ $\phi$ is the $L$-linear map that corresponds to the $k$-linear inclusion $U \hookrightarrow V$. Therefore it maps the $L$-basis $\{1 \otimes b\}_{b \in B}$ of $U_L$ bijectively to the $L$-basis $B$ of $V$.
+\end{proof}
+
+
 
 
 
@@ -351,6 +363,19 @@ Given a $k$-algebra $A$, an $L$-algebra $B$ and a homomorphism of $k$-algebras $
 Since the simple tensors generate $A_L$ it follows that $\hat{f}$ is multiplicative.
 
 
+\begin{cor}\label{cor: inclusion to bijection algebras}
+ Let $B$ be an $L$-algebra, $A \subseteq B$ a $k$-subalgebra and $X \subseteq A$, such that $X$ is a $k$-basis of $A$ and an $L$-basis of $B$. Then
+ \[
+  \phi \colon A_L \to B, \lambda \otimes a \mapsto \lambda a
+ \]
+ is an isomorphism of $L$-algebras.
+\end{cor}
+\begin{proof}
+ We know that $\phi$ is a homomorphism of $L$-algebras and we have already seen that $\phi$ is an isomorphism of $L$-vector spaces.
+\end{proof}
+
+
+
 
 
 
@@ -410,6 +435,21 @@ The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, 
  \end{align*}
  and since the simple tensors $\lambda \otimes f$ generate $k[X_1, \dotsc, X_n]_L$ as a $k$-vector space we get $\Phi \Psi = \id_{k[X_1, \dotsc, X_n]_L}$. This shows that $\Phi$ and $\Psi$ are isomorphisms of $k$-algebras with $\Phi^{-1} = \Psi$.
 \end{proof}
+
+
+Another interesting example of the extension of scalars is $L \otimes_k \Mat_n(k)$.
+
+
+\begin{prop}
+ We have an isomorphism of $L$-algebras
+ \[
+  \Phi \colon L \otimes_k \Mat_n(k) \to \Mat_n(L).
+ \]
+\end{prop}
+\begin{proof}
+ Similar to the previous proof we we notice that the canonical inclusion $\Mat_n(k) \hookrightarrow \Mat_n(L)$ induces $\Phi$ as an homomorphism of $L$-algebras. Since this inclusion restricts to a bijection between the $k$-basis $(E_{ij})_{1 \leq i,j \leq n}$ of $\Mat_n(k)$ and the $L$-basis $(E_{ij})_{1 \leq i,j \leq n}$ of $\Mat_n(L)$ we find that $\Phi$ restricts to a bijection between the $L$-basis $(1 \otimes E_{ij})_{1 \leq i,j \leq n}$ of $L \otimes_k \Mat_n(k)$ and the $L$-basis $(E_{ij})_{1 \leq i,j \leq n}$ of $\Mat_n(L)$. This shows $\Phi$ is an isomorphim of $L$-vector spaces and therefore one of $L$-algebras.
+\end{proof}
+
 
 
 
