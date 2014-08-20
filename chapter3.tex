@@ -259,14 +259,15 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 
 
 \section{Zariski dense subsets}
+In this section let $k$ be an infinite field.
 
 
 \begin{defi}
- Let $W$ be a finite-dimensional $k$-vector space. A subset $X \subseteq W$ is called Zariski dense if for any $f \in \mc{P}(W)$ we have
+ Let $W$ be a finite-dimensional $k$-vector space. A subset $X \subseteq W$ is called Zariski dense (over $k$) if for any $f \in \mc{P}_k(W)$ we have
  \[
   f_{|X} = 0 \Rightarrow f = 0.
  \]
- If $X \subseteq Y \subseteq W$ then $X$ is Zariski dense in $Y$ if for all $f \in \mc{P}(W)$
+ If $X \subseteq Y \subseteq W$ then $X$ is Zariski dense in $Y$ (over $k$) if for all $f \in \mc{P}_k(W)$
  \[
   f_{|X} = 0 \Rightarrow f_{|Y} = 0.
  \]
@@ -276,25 +277,25 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \begin{expls}\leavevmode
  \begin{enumerate}[a)]
   \item 
-  Let $k$ be a field and $X \subseteq k$ an infinite subset. Then $X$ is Zariski dense: Let $f \in \mc{P}(k)$ with $f_{|X} = 0$. Since $f$ is a polynomial function there exists $p \in k[X]$ with $f(\lambda) = p(\lambda)$ for all $\lambda \in k$. Since $f_{|X} = 0$ and $X$ is infinite the polynomial $p$ has infinitely many zeroes. Therefore $p = 0$ and $f = 0$.
+  Let $X \subseteq k$ an infinite subset. Then $X$ is Zariski dense: Let $f \in \mc{P}(k)$ with $f_{|X} = 0$. Since $f$ is a polynomial function there exists $p \in k[X]$ with $f(\lambda) = p(\lambda)$ for all $\lambda \in k$. Since $f_{|X} = 0$ and $X$ is infinite the polynomial $p$ has infinitely many zeroes. Therefore $p = 0$ and $f = 0$.
   \item
-  Let $W$ be a finite $k$-vector space and $U \subsetneq W$ a vector subspace. Then $U$ is not Zariski dense in $W$. To see this let $w_1$, \dots, $w_n$, $w_{n+1}$, \dots, $w_m$ be a basis of $W$ such that $w_1$, \dots, $w_n$ is a basis of $U$. Since $U \neq W$ we have $n < m$. We define $\pi \in \mc{P}(W)$ as the projection
+  Let $W$ be a finite-dimensional $k$-vector space and $U \subsetneq W$ a vector subspace. Then $U$ is not Zariski dense in $W$ over $k$: To see this let $w_1$, \dots, $w_n$, $w_{n+1}$, \dots, $w_m$ be a $k$-basis of $W$ such that $w_1$, \dots, $w_n$ is a $k$-basis of $U$. Since $U \neq W$ we have $n < m$. We define $\pi \in \mc{P}_k(W)$ as the projection
   \[
    \pi\left(\sum_{i=1}^m \lambda_i w_i\right) = \lambda_m.
   \]
-  We have $\pi_{|U} = 0$ but $\pi \neq 0$, so $U$ is not Zariski dense in $W$.
+  We have $\pi_{|U} = 0$ but $\pi \neq 0$, so $U$ is not Zariski dense in $W$ over $k$.
  \end{enumerate}
 \end{expls}
 
 
 \begin{warn}
- The notion of Zariski density depends on the underlying field. Take for example the inclusion $\R \subseteq \C$. If we choose $\R$ as the underlying field then $\R$ is not Zariski dense in the $\R$-vector space $\C$. (Since it is a proper vector subspace.) If we choose $\C$ as the underlying field than the subset $\R$ is Zariski-dense in $\C$ since $\R$ is infinite.
+ The notion of Zariski density depends on the underlying field. From the previous examples it follows that $\R \subseteq \C$ is Zariski dense over $\C$, but not over $\R$.
 \end{warn}
 
 
 
 \begin{lem}
- Let $k$ be a infinite field and $L/k$ a field extension. Then the subset $k^n \subseteq L^n$ is Zariski dense in the $L$-vector space $L^n$ for all $n \geq 1$.
+ Let $k$ be a infinite field and $L/k$ a field extension. Then $k^n \subseteq L^n$ is Zariski dense over $L$.
 \end{lem}
 \begin{proof}
  We show the statement by induction over $n$.
@@ -314,11 +315,11 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 
 
 \begin{lem}
- Let $W$ be a finite-dimensional $k$-vector space for an infinite field $k$. Let $h \in \mc{P}(W)$ with $h \neq 0$ and
+ Let $W$ be a finite-dimensional $k$-vector space. Let $h \in \mc{P}(W)$ with $h \neq 0$ and
  \[
   W_h := \{w \in W \mid h(w) \neq 0\}.
  \]
- Then $W_h$ is Zariski dense (in $W$).
+ Then $W_h$ is Zariski dense.
 \end{lem}
 \begin{proof}
  Let $f \in \mc{P}(W)$ with $f_{|W_h} = 0$. Then
@@ -342,10 +343,10 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 
 
 \begin{prop}
- Let $W$ be a finite-dimensional $k$-vector space and $X \subseteq Y \subseteq W$ such that $X$ is Zariski-dense in $Y$ and $Y$ is Zariski-dense in $W$. Then $X$ is Zariski-dense in $W$.
+ Let $W$ be a finite-dimensional $k$-vector space and $X \subseteq Y \subseteq Z \subseteq W$ such that $X$ is Zariski-dense in $Y$ and $Y$ is Zariski-dense in $Z$. Then $X$ is Zariski-dense in $Z$.
 \end{prop}
 \begin{proof}
- Let $f \in \mc{P}(W)$ with $f_{|X} = 0$. Because $X$ is Zariski dense in $Y$ it follows that $f_{|Y} = 0$. Because $Y$ is Zariski dense in $W$ it follows that $f = 0$.
+ Let $f \in \mc{P}(W)$ with $f_{|X} = 0$. Because $X$ is Zariski dense in $Y$ it follows that $f_{|Y} = 0$. Because $Y$ is Zariski dense in $Z$ it follows that $f_{|Z} = 0$.
 \end{proof}
 
 
@@ -422,11 +423,12 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 
 
 \begin{defi}
- Let $k$ be an infinite field and $W$ a finite-dimensional $k$-vector space. For a subset $X \subseteq W$ we define
+ Let $W$ be a finite-dimensional $k$-vector space. For a subset $X \subseteq W$ we define
  \[
-  \mc{I}(X) := \{ f \in \mc{P}(W) \mid f(x) = 0 \text{ for all } x \in X \}.
+  \mc{I}_k(X) := \{ f \in \mc{P}_k(W) \mid f(x) = 0 \text{ for all } x \in X \}.
  \]
- $\mc{I}(X)$ is called the vanishing ideal of $X$. For every point $a \in W$ we set
+ $\mc{I}_k(X)$ is called the vanishing ideal of $X$. We also write $\mc{I}(X)$ instead of $\mc{I}_k(X)$ if it is clear over which field we work.
+ For every point $a \in W$ we set
  \[
   \mf{M}_a := \mc{I}(\{a\}) = \{f \in \mc{P}(W) \mid f(a) = 0\}.
  \]
@@ -454,7 +456,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 
 
 \begin{lem}
- Let $k$ be an infinite field and $a = (a_1, \dotsc, a_n) \in k^n$. Then the ideal
+ For $a = (a_1, \dotsc, a_n) \in k^n$ the ideal
  \[
   (X_1 - a_1, \dotsc, X_n - a_n) \in k[X_1, \dotsc, X_n]
  \]
