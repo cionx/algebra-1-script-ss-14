@@ -349,7 +349,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \end{proof}
 
 
-\begin{lem}
+\begin{lem}\label{lem: zariski density orbits}
  Let $W$ be a finite-dimensional representation of a group $G$ and $f \in \mc{P}(W)^G$.
  \begin{enumerate}[a)]
   \item
@@ -417,8 +417,74 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
  Let $k$ be an algebraically closed field and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation. For $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ with $f_{|D} = 0$ we then have $f = 0$. (As usual $D$ denotes the set of diagonal matrices in $\Mat_n(k)$.)
 \end{cor}
 \begin{proof}
- Since $\GL_n(k).D = \Diag_n(k)$ is Zariski dense in $\Mat_n(k)$ this directly follows from one of the previous lemmata.
+ Since $\GL_n(k).D = \Diag_n(k)$ is Zariski dense in $\Mat_n(k)$ this directly follows from lemma \ref{lem: zariski density orbits}.
 \end{proof}
+
+
+\begin{defi}
+ Let $k$ be an infinite field and $W$ a finite-dimensional $k$-vector space. For a subset $X \subseteq W$ we define
+ \[
+  \mc{I}(X) := \{ f \in \mc{P}(W) \mid f(x) = 0 \text{ for all } x \in X \}.
+ \]
+ $\mc{I}(X)$ is called the vanishing ideal of $X$.
+\end{defi}
+
+
+\begin{rem}
+ As the name suggests the vanishing ideal $\mc{I}(X)$ of a subset $X \subseteq W$ is a two-sided ideal in $\mc{P}(W)$.
+\end{rem}
+
+
+\begin{defi}
+ For every point $a \in W$ we set
+ \[
+  \mf{M}_a := \mc{I}(\{a\}) = \{f \in \mc{P}(W) \mid f(a) = 0\}.
+ \]
+\end{defi}
+
+
+\begin{lem}
+ Let $k$ be an infinite field and $a = (a_1, \dotsc, a_n) \in k^n$. Then the ideal
+ \[
+  (X_1 - a_1, \dotsc, X_n - a_n) \in k[X_1, \dotsc, X_n]
+ \]
+ is maximal and
+ \[
+  \mf{M}_a = (X_1 - a_1, \dotsc, X_n - a_n).
+ \]
+ (We identify $k[X_1, \dotsc, X_n]$ with $\mc{P}(k^n)$ under the isomorphism which identifies $X_i$ with the $i$-th coordinate function $\varphi_i$.)
+\end{lem}
+\begin{proof}
+ We write $\mf{M} := (X_1 - a_1, \dotsc, X_n - a_n)$. We define the evaluation map
+ \[
+  \varepsilon_a \colon k[X_1, \dotsc, X_n] \to k, f \mapsto f(a).
+ \]
+ $\varepsilon_a$ is an surjective ringhomomorphism, and thus induces an isomorphism of rings
+ \[
+  k[X_1, \dotsc, X_n]/\ker \varepsilon_a \to k.
+ \]
+ Since $k$ is a field we find that $\ker \varepsilon_a$ is a maximal ideal. We also have
+ \[
+  \ker \varepsilon_a = \mf{M}_a.
+ \]
+ 
+ It is clear that $\mf{M} \subseteq \ker \varepsilon_a$. Therefore we get a surjective ring homomorphism
+ \[
+  \varepsilon_\mf{M} \colon k[X_1, \dotsc, X_n]/\mf{M} \to k.
+ \]
+ $\varepsilon_\mf{M}$ is injective, since for the ring homomorphism
+ \[
+  \psi \colon k \to k[X_1, \dotsc, X_n]/\mf{M}, \lambda \to \lambda + \mf{M}
+ \]
+ we have $\varepsilon_\mf{M} \circ \psi = \id_k$. Since $\varepsilon_\mf{M}$ is injective we have
+ \[
+  0 = \ker \varepsilon_\mf{M} \cong \ker \varepsilon_a / \mf{M}.
+ \]
+ So $\mf{M} = \ker \varepsilon = \mf{M}_a$.
+\end{proof}
+
+
+
 
 
 
