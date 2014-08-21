@@ -295,7 +295,7 @@ In this section let $k$ be an infinite field.
 
 
 \begin{lem}
- Let $k$ be a infinite field and $L/k$ a field extension. Then $k^n \subseteq L^n$ is Zariski dense over $L$.
+ $k^n \subseteq L^n$ is Zariski dense over $L$.
 \end{lem}
 \begin{proof}
  We show the statement by induction over $n$.
@@ -311,6 +311,41 @@ In this section let $k$ be an infinite field.
   \bar{p}(X_n) := p(\lambda_1, \dotsc, \lambda_{n-1}, X_n) = \sum_{i \in \N} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i.
  \]
  Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes). Because $L$ is infinite this means that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$. Since $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $\lambda_1, \dotsc, \lambda_{n-1} \in k$ for every $i \in \N$. By using the induction hypothesis we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \dotsc, \lambda_{n-1} \in L$. Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$. Therefore $p = 0$ and $f = 0$.
+\end{proof}
+
+
+We can generalize this obeservation in the language of extension of scalars:
+\begin{lem}
+ Let $W$ be a finite-dimensional $k$-vector space. Then $W$ is Zariski dense in $W_L$ over $L$.
+\end{lem}
+\begin{proof}
+ Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$. Then $1 \otimes w_1$, \dots, $1 \otimes w_n$ is an $L$-basis of $W_L$. Using this bases we have an isomorphism of $k$-vector spaces
+ \[
+  \phi \colon k^n \to W, e_i \mapsto w_i
+ \]
+ and an isomorphism of $L$-vector spaces
+ \[
+  \psi \colon L^n \to W_L, e_i \mapsto 1 \otimes w_i
+ \]
+ and the following commutative diagram.
+ \begin{center}
+  \tikzsetnextfilename{W_Zariski_dense_in_WL}
+  \begin{tikzpicture}[node distance = 6em]
+   \node (W) {$W$};
+   \node (WL) [below of = W] {$W_L$};
+   \node (kn) [right of = W] {$k^n$};
+   \node (Ln) [below of = kn] {$L^n$};
+   \draw[double equal sign distance] (W) to node[above] {$\sim$} (kn);
+   \draw[double equal sign distance] (WL) to node[above] {$\sim$} (Ln);
+   \draw[right hook ->] (W) to (WL);
+   \draw[right hook ->] (kn) to (Ln);
+  \end{tikzpicture}
+ \end{center}
+ The isomorphism $\psi$ of $L$-vector spaces induces the isomorphism
+ \[
+  \psi^* \colon \mc{P}_L(W_L) \to \mc{P}_L(L^n), h \mapsto h \circ \psi
+ \]
+ of $L$-algebras. For $f \in \mc{P}_L(W_L)$ with $f_{|W} = 0$ we have $g := \psi^*(f) \in \mc{P}_L(L^n)$ with $g_{|k^n} = 0$. Since $k^n$ is Zariski dense in $L^n$ over $L$ we find that $g = 0$. Since $\psi^*$ is an isomorphism of $L$-algebras it follows that $f = 0$.
 \end{proof}
 
 
@@ -494,8 +529,6 @@ In this section let $k$ be an infinite field.
  \]
  So $\mf{M} = \ker \varepsilon = \mf{M}_a$.
 \end{proof}
-
-
 
 
 
