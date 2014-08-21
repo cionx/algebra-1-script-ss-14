@@ -699,7 +699,6 @@ By putting all of this together we get the following nice commutative diagram:
   \[
    \mc{I}\left( \bigcup_{i \in I} X_i \right) = \bigcap_{i \in I} \mc{I}(X_i).
   \]
-
  \end{enumerate}
 \end{rem}
 
@@ -743,6 +742,42 @@ By putting all of this together we get the following nice commutative diagram:
  \]
  So $\mf{M} = \ker \varepsilon = \mf{M}_a$.
 \end{proof}
+
+More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $w_n$ a $k$-basis of $W$ and $\varphi_1$, \dots, $\varphi_n$ the corresponding coordinate functions then for every $w = \sum_{i=1}^n \lambda_i w_i \in W$
+\[
+ \mc{I}_k(\{w\}) = (\varphi_1 - w_1, \dotsc, \varphi_n - w_n)_{\mc{P}_k(W)}.
+\]
+
+
+\begin{lem}
+ Let $L/k$ be a field extension and $W$ a finite-dimensional $k$-vector space. For a subset $X \subseteq W \subseteq W_L$ we have
+ \[
+  \mc{I}_k(X)_L = \mc{I}_L(X).
+ \]
+ (We identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$ via the isomorphism $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$.)
+\end{lem}
+\begin{proof}
+ Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$. For every point $w = \sum_{i=1}^n \lambda_i w_i$ we have
+ \begin{align*}
+  \mc{I}_L(\{w\})
+  &= (\varphi_1 - w_1, \dotsc, \varphi_n - w_n)_{\mc{P}_L(\{w\})} \\
+  &= L \otimes_k (\varphi_1 - w_1, \dotsc, \varphi_n - w_n)_{\mc{P}_k(\{w\})} \\
+  &= L \otimes_k \mc{I}_k(\{w\})
+  = \mc{I}_k(\{w\})_L.
+ \end{align*}
+ For every subset $X \subseteq W$ we therefore have
+ \begin{align*}
+  \mc{I}_k(X)_L
+  &= L \otimes_k \mc{I}_k(X)
+  = L \otimes_k \mc{I}_k\left(\bigcup_{x \in X} \{x\}\right) \\
+  &= L \otimes_k \bigcap_{x \in X} \mc{I}_k(\{x\})
+  = \bigcap_{x \in X} L \otimes_k \mc{I}_k(\{x\}) \\
+  &= \bigcap_{x \in X} \mc{I}_k(\{x\})_L
+  = \bigcap_{x \in X} \mc{I}_L(\{x\})
+  = \mc{I}_L(X).
+ \end{align*}
+\end{proof}
+
 
 
 
