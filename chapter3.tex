@@ -462,6 +462,105 @@ Using this inclusion we now get an isomorphism of $L$-algebras $\mc{P}_k(W)_L \c
 \end{proof}
 
 
+We can also combine all these commuting diagrams into a big one: Given a $k$-vector space $W$ and a $k$-basis $w_1$, \dots, $w_n$ of $W$ we have an isomorphism
+\[
+ k[X_1, \dotsc, X_n] \cong \mc{P}_k(W)
+\]
+of $k$-vector spaces, and corresponding with the $L$-basis $1 \otimes w_1$, \dots, $1 \otimes w_n$ of $W_L$ we have an isomorphism of $L$-algebras
+\[
+ L[X_1, \dotsc, X_n] \cong \mc{P}_L(W_L).
+\]
+This gives us the following commutative diagram.
+\begin{center}
+ \tikzsetnextfilename{commuting_prism_backside}
+ \begin{tikzpicture}[node distance = 6em]
+  \node (Pk) {$\mc{P}_k(W)$};
+  \node (PL) [right = 6em of Pk] {$\mc{P}_L(W_L)$};
+  \node (kX) [below of = Pk] {$k[X_1, \dotsc, X_n]$};
+  \node (LX) [below of = PL] {$L[X_1, \dotsc, X_n]$};
+  \draw[right hook ->] (Pk) to node[above] {$\iota$} (PL);
+  \draw[right hook ->] (kX) to (LX);
+  \draw[double equal sign distance] (kX) to node[right] {$\wr$} (Pk);
+  \draw[double equal sign distance] (LX) to node[right] {$\wr$} (PL);
+ \end{tikzpicture}
+\end{center}
+Given the inclusion $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ and the corresponding isomorphism of $L$-algebras $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ we also have the following commutative diagram.
+\begin{center}
+ \tikzsetnextfilename{commuting_prism_top}
+ \begin{tikzpicture}[node distance = 6em]
+  \node (Pk) {$\mc{P}_k(W)$};
+  \node (PL) [right = 6em of Pk] {$\mc{P}_L(W_L)$};
+  \node (PkL) [below of = Pk] {$\mc{P}_k(W)_L$};
+  \draw[right hook ->] (Pk) to node[left] {$\iota$} (PkL);
+  \draw[right hook ->] (Pk) to (PL);
+  \draw[double equal sign distance] (PkL) to node[above,rotate=30] {$\sim$} (PL);
+ \end{tikzpicture}
+\end{center}
+We get a similar diagram for polynomial rings. (See the appendix about extension of scalars for more details.)
+\begin{center}
+ \tikzsetnextfilename{commuting_prism_bottom}
+ \begin{tikzpicture}[node distance = 6em]
+  \node (kX) {$k[X_1, \dotsc, X_n]$};
+  \node (LX) [right = 6em of kX] {$L[X_1, \dotsc, X_n]$};
+  \node (kXL) [below of = kX] {$k[X_1, \dotsc, X_n]_L$};
+  \draw[right hook ->] (kX) to (LX);
+  \draw[right hook ->] (kX) to (kXL);
+  \draw[double equal sign distance] (kXL) to node[above,rotate=30] {$\sim$} (LX);
+ \end{tikzpicture}
+\end{center}
+The isomorphis $\mc{P}_k(W) \cong k[X_1, \dotsc, X_n]$ of $k$-algebras also induces an isomorphism $\mc{P}_k(W)_L \cong k[X_1, \dotsc, X_n]_L$ of $L$-algebras which results in the following commutative diagram.
+\begin{center}
+ \tikzsetnextfilename{commuting_prism_left_side}
+ \begin{tikzpicture}[node distance = 6em]
+  \node (Pk) {$\mc{P}_k(W)$};
+  \node (PkL) [left = 6em of Pk] {$\mc{P}_k(W)_L$};
+  \node (kX) [below of = Pk]{$k[X_1, \dotsc, X_n]$};
+  \node (kXL) [below of = PkL] {$k[X_1, \dotsc, X_n]_L$};
+  \draw[left hook ->] (Pk) to (PkL);
+  \draw[left hook ->] (kX) to (kXL);
+  \draw[double equal sign distance] (Pk) to node[right] {$\wr$} (kX);
+  \draw[double equal sign distance] (PkL) to node[right] {$\wr$} (kXL);
+ \end{tikzpicture}
+\end{center}
+We also have the following commutative diagram of $L$-algebras and isomorphisms of such.
+\begin{center}
+ \tikzsetnextfilename{commuting_prism_front_side}
+ \begin{tikzpicture}[node distance = 6em]
+  \node (PkL) {$\mc{P}_k(W)_L$};
+  \node [right = 6em of PkL] (PL) {$\mc{P}_L(W_L)$};
+  \node [below of = PkL] (kXL) {$k[X_1, \dotsc, X_n]_L$};
+  \node [below of = PL] (LX) {$L[X_1, \dotsc, X_n]$};
+  \draw[double equal sign distance] (PkL) to node[above] {$\sim$} (PL);
+  \draw[double equal sign distance] (kXL) to node[above] {$\sim$} (LX);
+  \draw[double equal sign distance] (PkL) to node[right] {$\wr$} (kXL);
+  \draw[double equal sign distance] (PL) to node[right] {$\wr$} (LX);
+ \end{tikzpicture}
+\end{center}
+By putting all of this together we get the following nice commutative diagram:
+\begin{center}
+ \tikzsetnextfilename{commuting_prism}
+ \begin{tikzpicture}[node distance = 10em]
+  \node (Pk) {$\mc{P}_k(W)$};
+  \node (PL) [right = 7em of Pk] {$\mc{P}_L(W_L)$};
+  \node (PkL) [below left = 3em and 3em of Pk] {$\mc{P}_k(W)_L$};
+  \node (kX) [below of = Pk] {$k[X_1, \dotsc, X_n]$};
+  \node (LX) [below of = PL] {$L[X_1, \dotsc, X_n]$};
+  \node (kXL) [below of = PkL] {$k[X_1, \dotsc, X_n]_L$};
+  \draw[right hook ->] (Pk) to (PL);
+  \draw[right hook ->] (kX) to (LX);
+  \draw[double equal sign distance] (Pk) to node[right] {$\wr$} (kX);
+  \draw[double equal sign distance] (PL) to node[right] {$\wr$} (LX);
+  \draw[left hook ->] (Pk) to (PkL);
+  \draw[left hook ->] (kX) to (kXL);
+  \draw[double equal sign distance] (PkL) to node[right] {$\wr$} (kXL);
+  \draw[double equal sign distance, line width = 2.5pt, white] (PkL) to node[above,rotate=15] {$\sim$} (PL);
+  \draw[double equal sign distance] (PkL) to node[above,rotate=15] {$\sim$} (PL);
+  \draw[double equal sign distance] (kXL) to node[above,rotate=15] {$\sim$} (LX);
+ \end{tikzpicture}
+\end{center}
+
+
+
 
 
 \begin{lem}
