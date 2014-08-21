@@ -56,7 +56,7 @@ For this section we require all fields to be infinite.
  \]
  It is clear that
  \[
-  \bar{p}(\lambda) :=
+  \bar{p}(\lambda) \coloneqq
   f\left(
    \begin{pmatrix}
     \lambda &   &        &   \\
@@ -70,7 +70,7 @@ For this section we require all fields to be infinite.
  
  Now let $A \in \GL_n(k)$. Since $\det A \neq 0$ we have
  \[
-  B :=
+  B \coloneqq
   \begin{pmatrix}
    \det A &   &        &   \\
           & 1 &        &   \\
@@ -79,7 +79,7 @@ For this section we require all fields to be infinite.
   \end{pmatrix}
   \in \GL_n(k).
  \]
- Since $\det A = \det B$ we also have $S := AB^{-1} \in \SL_n(k)$. Combining this we find that
+ Since $\det A = \det B$ we also have $S \coloneqq AB^{-1} \in \SL_n(k)$. Combining this we find that
  \[
   f(A) = f(SB) = \left(S^{-1}.f\right)(B) = f(B) = \bar{p}(\det A) = \bar{p}(\det)(A).
  \]
@@ -135,7 +135,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
  \]
  For
  \[
-  D := \{\diag(d_1, \dotsc, d_n) \mid d_1, \dotsc, d_n \in k\}
+  D \coloneqq \{\diag(d_1, \dotsc, d_n) \mid d_1, \dotsc, d_n \in k\}
  \]
  we therefore have
  \[
@@ -151,7 +151,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
  \[
   f(A) = p(a_{11}, \dotsc, a_{nn}) \text{ for all } A = (a_{ij})_{1 \leq i,j \leq n} \in \Mat_n(k).
  \]
- We define $\bar{p} \in k[t_1, \dotsc, t_n]$ as $\bar{p} := \varphi(p)$ where
+ We define $\bar{p} \in k[t_1, \dotsc, t_n]$ as $\bar{p} \coloneqq \varphi(p)$ where
  \[
   \varphi \colon k[X_{11}, \dotsc, X_{nn}] \to k[t_1, \dotsc, t_n]
  \]
@@ -243,7 +243,7 @@ for all $m \geq 0$. It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ fo
 \begin{proof}
  As before let 
  \[
-  D := \{\diag(d_1, \dotsc, d_n) \mid d_1, \dotsc, d_n \in k\}.
+  D \coloneqq \{\diag(d_1, \dotsc, d_n) \mid d_1, \dotsc, d_n \in k\}.
  \]
  For every diagonal matrix $\diag(d_1, \dotsc, d_n) \in D$ we have
  \[
@@ -308,7 +308,7 @@ In this section let $k$ be an infinite field.
  \]
  with $p_i \in L[X_1, \dotsc, X_{n-1}]$ for all $i \in \N$ and $p_i \neq 0$ for only finitely many $i \in \N$. Let $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary and $\bar{p} \in L[X_n]$ be defined as
  \[
-  \bar{p}(X_n) := p(\lambda_1, \dotsc, \lambda_{n-1}, X_n) = \sum_{i \in \N} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i.
+  \bar{p}(X_n) \coloneqq p(\lambda_1, \dotsc, \lambda_{n-1}, X_n) = \sum_{i \in \N} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i.
  \]
  Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes). Because $L$ is infinite this means that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$. Since $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $\lambda_1, \dotsc, \lambda_{n-1} \in k$ for every $i \in \N$. By using the induction hypothesis we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \dotsc, \lambda_{n-1} \in L$. Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$. Therefore $p = 0$ and $f = 0$.
 \end{proof}
@@ -345,7 +345,7 @@ We can generalize this obeservation in the language of extension of scalars:
  \[
   \psi^* \colon \mc{P}_L(W_L) \to \mc{P}_L(L^n), h \mapsto h \circ \psi
  \]
- of $L$-algebras. For $f \in \mc{P}_L(W_L)$ with $f_{|W} = 0$ we have $g := \psi^*(f) \in \mc{P}_L(L^n)$ with $g_{|k^n} = 0$. Since $k^n$ is Zariski dense in $L^n$ over $L$ we find that $g = 0$. Since $\psi^*$ is an isomorphism of $L$-algebras it follows that $f = 0$.
+ of $L$-algebras. For $f \in \mc{P}_L(W_L)$ with $f_{|W} = 0$ we have $g \coloneqq \psi^*(f) \in \mc{P}_L(L^n)$ with $g_{|k^n} = 0$. Since $k^n$ is Zariski dense in $L^n$ over $L$ we find that $g = 0$. Since $\psi^*$ is an isomorphism of $L$-algebras it follows that $f = 0$.
 \end{proof}
 
 
@@ -390,7 +390,7 @@ As we have seen in the last chapter we have $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ 
  \]
  we set
  \[
-  \iota := \Psi \circ j \circ \Phi^{-1},
+  \iota \coloneqq \Psi \circ j \circ \Phi^{-1},
  \]
  i.e.\ we make the diagram
  \begin{center}
@@ -566,7 +566,7 @@ By putting all of this together we get the following nice commutative diagram:
 \begin{lem}
  Let $W$ be a finite-dimensional $k$-vector space. Let $h \in \mc{P}(W)$ with $h \neq 0$ and
  \[
-  W_h := \{w \in W \mid h(w) \neq 0\}.
+  W_h \coloneqq \{w \in W \mid h(w) \neq 0\}.
  \]
  Then $W_h$ is Zariski dense.
 \end{lem}
@@ -629,7 +629,7 @@ By putting all of this together we get the following nice commutative diagram:
 \begin{prop}
  Let $k$ be an algebraically closed field and
  \[
-  \Diag_n(k) := \{A \in \Mat_n(k) \mid \text{$A$ is diagonalizable}\}.
+  \Diag_n(k) \coloneqq \{A \in \Mat_n(k) \mid \text{$A$ is diagonalizable}\}.
  \]
  Then $\Diag_n(k)$ is Zariski-dense in $\Mat_n(k)$.
 \end{prop}
@@ -674,12 +674,12 @@ By putting all of this together we get the following nice commutative diagram:
 \begin{defi}
  Let $W$ be a finite-dimensional $k$-vector space. For a subset $X \subseteq W$ we define
  \[
-  \mc{I}_k(X) := \{ f \in \mc{P}_k(W) \mid f(x) = 0 \text{ for all } x \in X \}.
+  \mc{I}_k(X) \coloneqq \{ f \in \mc{P}_k(W) \mid f(x) = 0 \text{ for all } x \in X \}.
  \]
  $\mc{I}_k(X)$ is called the vanishing ideal of $X$. We also write $\mc{I}(X)$ instead of $\mc{I}_k(X)$ if it is clear over which field we work.
  For every point $a \in W$ we set
  \[
-  \mf{M}_a := \mc{I}(\{a\}) = \{f \in \mc{P}(W) \mid f(a) = 0\}.
+  \mf{M}_a \coloneqq \mc{I}(\{a\}) = \{f \in \mc{P}(W) \mid f(a) = 0\}.
  \]
 \end{defi}
 
@@ -716,7 +716,7 @@ By putting all of this together we get the following nice commutative diagram:
  (We identify $k[X_1, \dotsc, X_n]$ with $\mc{P}(k^n)$ under the isomorphism which identifies $X_i$ with the $i$-th coordinate function $\varphi_i$.)
 \end{lem}
 \begin{proof}
- We write $\mf{M} := (X_1 - a_1, \dotsc, X_n - a_n)$. We define the evaluation map
+ We write $\mf{M} \coloneqq (X_1 - a_1, \dotsc, X_n - a_n)$. We define the evaluation map
  \[
   \varepsilon_a \colon k[X_1, \dotsc, X_n] \to k, f \mapsto f(a).
  \]

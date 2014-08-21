@@ -27,9 +27,9 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
 \begin{defi}
  Given a set $X$ let
  \[
-  S(X) := \{f \colon X \to X \mid f \text{ is bijective}\}.
+  S(X) \coloneqq \{f \colon X \to X \mid f \text{ is bijective}\}.
  \]
- $S(X)$ is then a group with $fg := f \circ g$ (composition of maps) for all $f,g \in S(X)$ and $e = \id_X$.
+ $S(X)$ is then a group with $fg \coloneqq f \circ g$ (composition of maps) for all $f,g \in S(X)$ and $e = \id_X$.
 \end{defi}
 
 
@@ -139,7 +139,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
     \[
      f(g.x) = f(gx) = (gx)a = g(xa) = g.f(x)
     \]
-    for all $g, x \in G$. To show the other direction set $a := f(e)$. Because $f$ is $G$-equivariant we then have
+    for all $g, x \in G$. To show the other direction set $a \coloneqq f(e)$. Because $f$ is $G$-equivariant we then have
     \[
      f(g) = f(ge) = f(g.e) = g.f(e) = g.a = ga
     \]
@@ -166,7 +166,7 @@ for any two $G$-sets $X$ and $Y$.
 \begin{defi}
  Let $X$ be a $G$-set. We write
  \[
-  X/G := \{\text{orbits of $G$ in $X$}\}.
+  X/G \coloneqq \{\text{orbits of $G$ in $X$}\}.
  \]
 \end{defi}
 
@@ -187,7 +187,7 @@ for any two $G$-sets $X$ and $Y$.
 \begin{defi}
  Let $X$ be a $G$-set. Then
  \[
-  X^G := \{\text{$G$-invariants of $X$}\} = \{x \in X \mid g.x = x \text{ for all } g \in G\}.
+  X^G \coloneqq \{\text{$G$-invariants of $X$}\} = \{x \in X \mid g.x = x \text{ for all } g \in G\}.
  \]
  The elements in $X^G$ are called $G$-invariants or $G$ fix points.
 \end{defi}
@@ -342,7 +342,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 If $X$ is an infinite $G$-set then we could replace $\Maps(X,k)$ by
 \[
- kX := \{f \in \Maps(X,k) \mid \supp(f) \text{ is finite}\}
+ kX \coloneqq \{f \in \Maps(X,k) \mid \supp(f) \text{ is finite}\}
 \]
 where
 \[
@@ -350,7 +350,7 @@ where
 \]
 is the support of $f$, i.e
 \[
- kX := \{f \colon X \to k \mid f(x) \neq 0 \text{ for only finitely many } x \in X\}.
+ kX \coloneqq \{f \colon X \to k \mid f(x) \neq 0 \text{ for only finitely many } x \in X\}.
 \]
 Notice that for $f_1, f_2, f \in \Maps(X,k)$ we have
 \[
@@ -396,7 +396,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 \begin{proof}
  \begin{enumerate}[a)]
   \item
-   By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B := \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$. Similarly $\Maps(X_i, k)$ has a basis $B_i := \{\chi_x \mid x \in X_i\}$ for $i=1,2$. Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
+   By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$. Similarly $\Maps(X_i, k)$ has a basis $B_i \coloneqq \{\chi_x \mid x \in X_i\}$ for $i=1,2$. Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
    \[
     \chi_x \mapsto
     \begin{cases}
@@ -437,7 +437,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
  \end{proof}
  Now consider $\Maps(X,k)$. By Lemma \ref{lem: basis of Maps and Hom} it has $\{\chi_e,\chi_s\}$ as a basis. Define
  \[
-  b_1 := \frac{\chi_e + \chi_s}{2} \text{ and } b_2 := \frac{\chi_e - \chi_s}{2}.
+  b_1 \coloneqq \frac{\chi_e + \chi_s}{2} \text{ and } b_2 \coloneqq \frac{\chi_e - \chi_s}{2}.
  \]
  This is a basis of $\Maps(X,k)$. Since $s.\chi_e = \chi_s$ and $s.\chi_s = \chi_e$ we have
  \[
@@ -543,7 +543,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
   \item
    Let $G = \GL(2,\R)$. $G$ acts on $\R^2$ in the natural way. Consider
    \[
-    H := \left\{ \vect{\lambda&0\\0&\lambda} \,\middle|\, \lambda \in \R, \lambda \neq 0 \right\} \subseteq \GL(2,\R).
+    H \coloneqq \left\{ \vect{\lambda&0\\0&\lambda} \,\middle|\, \lambda \in \R, \lambda \neq 0 \right\} \subseteq \GL(2,\R).
    \]
    Then $H$ acts on $\R^2$ by restriction of the $G$-action. The two actions commute since $gh = hg$ for all $g \in G, h \in H$. (Notice that $H$ is the center of $G$.)
  \end{enumerate}
@@ -568,7 +568,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 For a $k$-vector space $V$ we set
 \[
- \GL(V) := \{f \colon V \to V \mid f \text{ is $k$-linear and invertible}\}.
+ \GL(V) \coloneqq \{f \colon V \to V \mid f \text{ is $k$-linear and invertible}\}.
 \]
 
 
@@ -674,9 +674,9 @@ It is clear that every irreducible representation is also indecomposable. The co
 \begin{expl}
  Let
  \[
-  G := \left\{ \vect{a&b\\0&c} \,\middle|\, a,b,c \in \C \text{ and } a, c \neq 0 \right\}.
+  G \coloneqq \left\{ \vect{a&b\\0&c} \,\middle|\, a,b,c \in \C \text{ and } a, c \neq 0 \right\}.
  \]
- $G$ acts on $V := \C^2$ in the natural way. Notice that $V$ is not irreducible because $U := \vspan(e_1)$ is a subrepresentation since
+ $G$ acts on $V \coloneqq \C^2$ in the natural way. Notice that $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation since
  \[
   \vect{a&b\\0&c} \vect{\alpha\\0} = \vect{\alpha a\\0} \in U
  \]
@@ -717,7 +717,7 @@ It is clear that every irreducible representation is also indecomposable. The co
 \begin{defi}
  Let $k$ be a field (or a ring) and $G$ a group. Then the group algebra of $G$ over $k$ is the $k$-algebra with $1$ given by the $k$-vector space
  \[
-  kG := \{f \colon G \to k \mid f(g) \neq 0 \text{ for only finitely many } g \in G\}
+  kG \coloneqq \{f \colon G \to k \mid f(g) \neq 0 \text{ for only finitely many } g \in G\}
  \]
  with (1) pointwise addition and scalar multiplication and (2) multiplication given by convolution, i.e.\
  \[
@@ -891,7 +891,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
   
   Because $k$ is algebraically closed $\alpha^{-1} \beta$ has some eigenvalue $\lambda \in k$. By \mbox{lemma \ref{lem: ker and im subrepresentations}}
   \[
-   K := \ker(\alpha^{-1} \beta - \lambda \id_V)
+   K \coloneqq \ker(\alpha^{-1} \beta - \lambda \id_V)
   \]
   is a subrepresentation of $V$. Since $V$ is irreducible and $K \neq 0$ (because $\lambda$ is an eigenvalue of $\alpha^{-1} \beta$) we have $K = V$. So $\alpha^{-1} \beta = \lambda \id_V$ and therefore $\beta = \lambda \alpha$. \qedhere
  \end{enumerate}
@@ -902,12 +902,12 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
  Assume $k$ is an algebraically closed field and $V$ a finite dimensional irreducible representation of some group $G$. Then
  \[
   \End_G(V \oplus \dotsb \oplus V)
-  := \Hom_G(V \oplus \dotsb \oplus V, V \oplus \dotsb \oplus V)
+  \coloneqq \Hom_G(V \oplus \dotsb \oplus V, V \oplus \dotsb \oplus V)
   \cong \Mat(n \times n, k)
  \]
  is an isomorphism of rings by Schur’s lemma part c).
  
- More general: Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic irreducible finite dimensioal representations of some group $G$ and $W_i := V_i^{n_i}$. Then
+ More general: Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic irreducible finite dimensioal representations of some group $G$ and $W_i \coloneqq V_i^{n_i}$. Then
  \begin{align*}
   \End_G(W_1 \oplus \dotsb \oplus W_r)
   &= \End(V_1^{n_1} \oplus \dotsb \oplus V_n^{n_r}) \\
@@ -930,10 +930,10 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
 \begin{rem}
  Not every representation is completely reducible, even if $k$ is algebraically closed. Consider, for example,
  \[
-  G := \left\{\vect{a & b \\ 0 & c} \,\middle|\, a,b,c \in \C \text{ and } a,c \neq 0\right\}
+  G \coloneqq \left\{\vect{a & b \\ 0 & c} \,\middle|\, a,b,c \in \C \text{ and } a,c \neq 0\right\}
   \subseteq \GL_2(\C)
  \]
- and the natural representation of $G$ on $\C^2$. We saw earlier that $U := \vspan(e_1)$ gives a subrepresentation and it’s the only $1$-dimensional subrepresentation. So the representation is not irreducible, but at the same time not isomorphic to a direct sum of irreducible representations.
+ and the natural representation of $G$ on $\C^2$. We saw earlier that $U \coloneqq \vspan(e_1)$ gives a subrepresentation and it’s the only $1$-dimensional subrepresentation. So the representation is not irreducible, but at the same time not isomorphic to a direct sum of irreducible representations.
 \end{rem}
 
 
@@ -945,7 +945,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
  
  Given our subrepresentation $U$ choose a complement $W$ as a vector space. Then $V = U \oplus W$ as vector spaces. Let $p \colon V \to U$ be the orthogonal projection onto $U$. ($p$ is not necessarily $G$-equivariant but only a linear map.) We know that $\im p = U$. We define $\hat{p} \colon V \to U$ as
  \[
-  \hat{p}(v) := \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v).
+  \hat{p}(v) \coloneqq \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v).
  \]
 
 This is well defined since $|G| < \infty$ and $1/|G|$ is defined, because $\kchar k \nmid |G|$. Note that $\im \hat{p} \subseteq U$, since $p(g.v) \in U$ and $U$ is a subrepresentation, hence $g^{-1}.p(g.v) \in U$ for all $g \in G, v \in V$.
@@ -996,10 +996,10 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
  \]
  where
  \begin{align*}
-  V_{\text{triv}} &:= \vspan\left(\sum_{g \in G} g \right) = \vspan(e+s+t+st+ts+sts), \\
-  V_{\text{sgn}} &:= \vspan\left(e-s-t+st+ts-sts\right), \\
-  V_1 &:= \vspan\left(e+s-ts, t+ts-st-sts\right) \text{ and} \\
-  V_2 &:= \vspan\left(s+st-sts,e+t-s-st\right).
+  V_{\text{triv}} &\coloneqq \vspan\left(\sum_{g \in G} g \right) = \vspan(e+s+t+st+ts+sts), \\
+  V_{\text{sgn}} &\coloneqq \vspan\left(e-s-t+st+ts-sts\right), \\
+  V_1 &\coloneqq \vspan\left(e+s-ts, t+ts-st-sts\right) \text{ and} \\
+  V_2 &\coloneqq \vspan\left(s+st-sts,e+t-s-st\right).
  \end{align*}
  Note that $G$ acts trivially on $V_{\text{triv}}$ and by multiplication with $-1$ on $V_{\text{sgn}}$ , hence $V_{\text{triv}}$ and $V_{\text{sgn}}$ are subrepresentations. One can also check that $V_1$ and $V_2$ are irreducible subrepresentations which are isomorphic.
 \end{expl}
@@ -1029,9 +1029,9 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   \item
   The vector subspaces
   \begin{gather*}
-   U_1 := \vspan\left( \sum_{i=1}^n e_i\right)
+   U_1 \coloneqq \vspan\left( \sum_{i=1}^n e_i\right)
   \shortintertext{and}
-   U_2 := \left\{ (\lambda_1, \dotsc, \lambda_n) \in k^n \,\middle|\, \sum_{i=1}^n \lambda_i = 0 \right\}
+   U_2 \coloneqq \left\{ (\lambda_1, \dotsc, \lambda_n) \in k^n \,\middle|\, \sum_{i=1}^n \lambda_i = 0 \right\}
   \end{gather*}
   are subrepresentations.
   \item
