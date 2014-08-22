@@ -439,7 +439,7 @@ for free.
  is an isomorphism of $L$-algebras, where $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ is the inclusion as before.
 \end{prop}
 \begin{proof}
- Let $v_1$, \dots, $v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions. Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \N^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$). Therefore the statement follows from Corollary \ref{cor: inclusion to bijection algebras} in the appendix about extension of scalars.
+ Let $v_1$, \dots, $v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions. Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \N^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$). Therefore the statement follows from corollary \ref{cor: inclusion to bijection algebras}.
 \end{proof}
 
 
@@ -480,7 +480,7 @@ Given the inclusion $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ and the corresp
   \draw[double equal sign distance] (PkL) to node[above,rotate=30] {$\sim$} (PL);
  \end{tikzpicture}
 \end{center}
-We get a similar diagram for polynomial rings. (See the appendix about extension of scalars for more details.)
+We get a similar diagram for polynomial rings. (See the appendix \ref{app: extension of scalars} for more details.)
 \begin{center}
  \tikzsetnextfilename{commuting_prism_bottom}
  \begin{tikzpicture}[node distance = 6em]
@@ -647,7 +647,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 
-\begin{cor}
+\begin{cor}\label{cor: diagonal matrices dense alg closed}
  Let $k$ be an algebraically closed field and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation. For $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ with $f_{|D} = 0$ we then have $f = 0$. (As usual $D$ denotes the set of diagonal matrices in $\Mat_n(k)$.)
 \end{cor}
 \begin{proof}
@@ -804,6 +804,60 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
   The proof given in the lecture is wrong. A right one will be added later.
   \qedhere
  \end{enumerate}
+\end{proof}
+
+
+\begin{prop}
+ Let $k$ be an infinite field (not necessarily alg. closed) and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation. If $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ with $f_{|\D_n(k)} = 0$ then $f = 0$, where $\D_n(k) \subseteq \Mat_n(k)$ denotes the subset of diagonal matrices.
+\end{prop}
+\begin{proof}
+ Let $L \coloneqq \bar{k}$ be an algebraic closure of $k$. Then $\GL_n(L)$ acts on $\Mat_n(L)$ by conjugation.
+ 
+ \begin{claim}
+  If $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ then $f \in \mc{P}_L(\Mat_n(L))^{\GL_n(L)}$.
+ \end{claim}
+ 
+ The proposition follows from this claim: Let $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ with $f_{|\D_n(k)} = 0$. Then $f \in \mc{P}_L(\Mat_n(L))^{\GL_n(L)}$ with $f_{|\D_n(k)} = 0$. Since $\D_n(k)$ is Zariski-dense in $\D_n(L) \cong \D_n(k)_L$ over $L$ we have $f_{|\D_n(L)} = 0$. By corollary \ref{cor: diagonal matrices dense alg closed} we find that $f = 0$.
+ 
+ \begin{proof}[Proof of the claim]
+  We define
+  \[
+   \Phi \colon \Mat_n(L) \times \Mat_n(L) \to L, (A,B) \mapsto f(AB)-f(BA).
+  \]
+  For every $S \in \GL_n(k)$ and $A \in \Mat_n(k)$ we have
+  \[
+   f\left( SAS^{-1} \right) = f(A)
+  \]
+  because $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$, and therefore
+  \[
+   f(SA) = f\left(SASS^{-1}\right) = f(AS).
+  \]
+  Thus we have
+  \[
+   \Phi(S,A) = 0 \text{ for every } S \in \GL_n(k)\text{, }A \in \Mat_n(k)
+  \]
+  
+  Fix $S \in \GL_n(k)$. Then the map $\Phi(S, -) \colon \Mat_n(L) \to L$ is polynomial over $L$ with $\Phi(S,-)_{|\Mat_n(k)} = 0$. Since $\Mat_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$ it follows that $\Phi(S,-)_{|\Mat_n(L)} = 0$. Therefore
+  \[
+   \Phi(S,A) = 0 \text{ for all } S \in \GL_n(k)\text{, }A \in \Mat_n(L).
+  \]
+  
+  Fix $A \in \Mat_n(L)$. Then the map $\Phi(-,A) \colon \Mat_n(L) \to L$ is polynomial over $L$ with $\Phi(-,A)_{|\GL_n(k)} = 0$. Since $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ over $L$ it follows that $\Phi(-,A)_{|\GL_n(L)} = 0$. Therefore
+  \[
+   \Phi(S,A) = 0 \text{ for all } S \in \GL_n(L)\text{, }A \in \Mat_n(L).
+  \]
+  
+  With this we get that for every $S \in \GL_n(L)$, $A \in \Mat_n(L)$
+  \[
+   f\left(SAS^{-1}\right)
+   = f\left(S\left(AS^{-1}\right)\right)
+   = f\left(\left(AS^{-1}\right)S\right)
+   = f\left(AS^{-1}S\right)
+   = f(A).
+  \]
+ \end{proof}
+ 
+ This concludes the proof.
 \end{proof}
 
 
