@@ -315,7 +315,9 @@ In this section let $k$ be an infinite field.
 
 
 We can generalize this obeservation in the language of extension of scalars:
-\begin{lem}
+
+
+\begin{lem}\label{lem: W Zariski dense in W_L}
  Let $W$ be a finite-dimensional $k$-vector space. Then $W$ is Zariski dense in $W_L$ over $L$.
 \end{lem}
 \begin{proof}
@@ -779,7 +781,7 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
 \end{proof}
 
 
-\begin{cor}
+\begin{cor}\label{cor: Zariski dense scalar extension}
  Let $W$ be a finite-dimensional $k$-vector space and
  \[
   X \subseteq Y \subseteq W \subseteq W_L.
@@ -796,6 +798,30 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
   \mc{I}_L(X) = \mc{I}_k(X)_L = \mc{I}_k(Y)_L = \mc{I}_L(Y),
  \]
  so $X$ is Zariski dense in $Y$ over $L$.
+\end{proof}
+
+
+\begin{prop}
+ Let $L/k$ be a field extension.
+ \begin{enumerate}[a)]
+  \item
+  $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+  \item
+  $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
+  \item
+  $\SL_n(k)$ is Zariski dense in $\SL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
+ \end{enumerate}
+\end{prop}
+\begin{proof}\leavevmode
+ \begin{enumerate}[a)]
+  \item
+  $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$. By corollary \ref{cor: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$. By \mbox{lemma \ref{lem: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$. By the transitivity of Zariski density we find that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+  \item
+  This follows directly from a).
+  \item
+  The proof given in the lecture is wrong. A right one will be added later.
+  \qedhere
+ \end{enumerate}
 \end{proof}
 
 
