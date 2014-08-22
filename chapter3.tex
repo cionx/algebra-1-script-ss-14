@@ -373,55 +373,30 @@ As we have seen in the last chapter we have $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ 
    \draw[->] (WL) to node[right] {$\iota(f)$} (L);
   \end{tikzpicture}
  \end{center}
- commutes and this map is a monomorphism of $k$-algebras.
+ commutes. $\iota$ is a monomorphism of $k$-algebras.
 \end{lem}
 \begin{proof}
- Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$. Using this basis we get an isomorphism of $k$-algebras
- \begin{align*}
-  \Phi \colon k[X_1, \dotsc, X_n] &\to \mc{P}_k(W), \\
-  f &\mapsto \left( \sum_{i=1}^n \mu_i w_i \mapsto f(\mu_1, \dotsc, \mu_n) \right).
- \end{align*}
- Using the corresponding $L$-basis $1 \otimes w_1$, \dots, $1 \otimes w_n$ of $W$ we also have an isomorphism of $L$-algebras
- \begin{align*}
-  \Psi \colon L[X_1, \dotsc, X_n] &\to \mc{P}_L(W_L), \\
-  f &\mapsto \left( \sum_{i=1}^n \lambda_i (1 \otimes w_i) \mapsto f(\lambda_1, \dotsc, \lambda_n) \right).
- \end{align*}
- Together with the canonical inclusion
+ Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$ and
  \[
-  j \colon k[X_1, \dotsc, X_n] \hookrightarrow L[X_1, \dotsc, X_n]
+  \varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)
  \]
- we set
+ the corresponding coordinate functions. Also let
  \[
-  \iota \coloneqq \Psi \circ j \circ \Phi^{-1},
+  \psi_1, \dotsc, \psi_n \in \mc{P}_L(W_L)
  \]
- i.e.\ we make the diagram
- \begin{center}
-  \tikzsetnextfilename{inclusion_of_algebras_of_polynomial_functions_2}
-  \begin{tikzpicture}[node distance = 6em]
-   \node (Pk) {$\mc{P}_k(W)$};
-   \node (PL) [right = 6em of Pk] {$\mc{P}_L(W_L)$};
-   \node (kX) [below of = Pk] {$k[X_1, \dotsc, X_n]$};
-   \node (LX) [below of = PL] {$L[X_1, \dotsc, X_n]$};
-   \draw[right hook ->] (Pk) to node[above] {$\iota$} (PL);
-   \draw[right hook ->] (kX) to (LX);
-   \draw[double equal sign distance] (kX) to node[right] {$\wr$} (Pk);
-   \draw[double equal sign distance] (LX) to node[right] {$\wr$} (PL);
-  \end{tikzpicture}
- \end{center}
- commute. To show that $\iota$ has the described property we notice that
+ be the coordinate functions of the $L$-basis $1 \otimes w_1$, \dots, $1 \otimes w_n$ of $W_L$. Then we define $\iota$ to be the unique homomorphism of $k$-algebras with
  \[
-  \iota \colon
-  \left( \sum_{i=1}^n \mu_i w_i \mapsto f(\mu_1, \dotsc, \mu_n) \right)
-  \mapsto
-  \left( \sum_{i=1}^n \lambda_i (1 \otimes w_i) \mapsto f(\lambda_1, \dotsc, \lambda_n) \right)
+  \iota(\varphi_i) = \psi_i \text{ for all } 1 \leq i \leq n.
  \]
- and therefore for every $f \in \mc{P}_k(W)$ for all $v = \sum_{i=1}^n \mu_i w_i \in W$
+ Since $\psi_1$, \dots, $\psi_n$ are algebraically independent over $L$ we know that $\iota$ is injective. We have for every $f \in k[X_1, \dotsc, X_n]$ and $w = \sum_{i=1}^n \mu_i w_i \in W$
  \begin{align*}
-  \left( \iota(f) \circ \can_V \right)(v)
-  &= \iota(f)\left( \can_V\left( \sum_{i=1}^n \mu_i w_i \right) \right) \\
-  &= \iota(f)\left( \sum_{i=1}^n \mu_i (1 \otimes w_i) \right)
-  = f(\mu_1, \dotsc, \mu_n).
+   &\, \iota(f(\varphi_1, \dotsc, \varphi_n))(\can_W(w)) \\
+  =&\, f(\psi_1, \dotsc, \psi_n)\left(\sum_{i=1}^n \mu_i (1 \otimes w_i)\right) \\
+  =&\, f(\mu_1, \dotsc, \mu_n)
+  = f(\varphi_1, \dotsc, \varphi_n)\left(\sum_{i=1}^n \mu_i w_i\right) \\
+  =&\, f(\varphi_1, \dotsc, \varphi_n)(w).
  \end{align*}
+ Since $\varphi_1$, \dots, $\varphi_n$ generate $\mc{P}_k(W)$ as a $k$-algebra it follows that the diagram does commute.
  
  All that’s left to show is the uniqueness of $\iota$. For this we will use our newly acquired wisdom about Zariski density. Suppose we have a map
  \[
@@ -429,7 +404,7 @@ As we have seen in the last chapter we have $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ 
  \]
  such that the diagram
   \begin{center}
-  \tikzsetnextfilename{inclusion_of_algebras_of_polynomial_functions_3}
+  \tikzsetnextfilename{inclusion_of_algebras_of_polynomial_functions_2}
   \begin{tikzpicture}[node distance = 6em]
    \node (W) {$W$};
    \node (WL) [right of = W] {$W_L$};
@@ -449,7 +424,11 @@ As we have seen in the last chapter we have $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ 
 \end{proof}
 
 
-Using this inclusion we now get an isomorphism of $L$-algebras $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ for free.
+This inclusion gives us the desired isomorphism of $L$-algebras
+\[
+\mc{P}_k(W)_L \cong \mc{P}_L(W_L)
+\]
+for free.
 
 
 \begin{prop}
@@ -462,6 +441,9 @@ Using this inclusion we now get an isomorphism of $L$-algebras $\mc{P}_k(W)_L \c
 \begin{proof}
  Let $v_1$, \dots, $v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions. Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \N^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$). Therefore the statement follows from Corollary \ref{cor: inclusion to bijection algebras} in the appendix about extension of scalars.
 \end{proof}
+
+
+Using this isomorphism we will identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$. We also identify $\mc{P}_k(W)$ with its image under $\iota$.
 
 
 We can also combine all these commuting diagrams into a big one: Given a $k$-vector space $W$ and a $k$-basis $w_1$, \dots, $w_n$ of $W$ we have an isomorphism
