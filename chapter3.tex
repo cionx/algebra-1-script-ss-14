@@ -865,11 +865,11 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
 
 
 \section{Zero Sets and Hilbert’s Nullstellensatz}
-In this section we require all fields to be infinite.
+In this section we require all fields to be infinite. Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 
 
 \begin{defi}
- Let $W$ be a finite-dimensional $k$-vector space and \mbox{$S \subseteq \mc{P}(W)$}. Then
+ Let $S \subseteq \mc{P}(W)$. Then
  \[
   \mc{V}(S) \coloneqq \{x \in W \mid f(x) = 0 \text{ for all } f \in S\}.
  \]
@@ -890,7 +890,7 @@ In this section we require all fields to be infinite.
 
 
 \begin{lem}
- Let $W$ be a finite dimensional $k$-vector space and $S \subseteq \mc{P}(W)$. For $I \coloneqq (S)_{\mc{P}(W)}$ we have
+ Let $S \subseteq \mc{P}(W)$ and $I \coloneqq (S)_{\mc{P}(W)}$. Then
  \[
   \mc{V}(S) = \mc{V}(I).
  \]
@@ -898,7 +898,6 @@ In this section we require all fields to be infinite.
 \begin{proof}
  Since $S \subseteq I$ we have $\mc{V}(I) \subseteq  \mc{V}(S)$. To show that $\mc{V}(S) \subseteq \mc{V}(I)$ we look at $\mc{I} := \mc{I}(\mc{V}(S))$. Since $\mc{I}$ is an ideal with $S \subseteq \mc{I}$ we have $I \subseteq \mc{I}$. Therefore we have $f_{|\mc{V}(S)} = 0$ for every $f \in I$. Therefore $\mc{V}(S) \subseteq \mc{V}(I)$.
 \end{proof}
-
 
 
 
