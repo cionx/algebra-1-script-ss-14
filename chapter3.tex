@@ -991,29 +991,42 @@ In this section we require all fields to be infinite. Until further notice we al
 \begin{defi}
  Let $R$ be a commutative ring and $I \subseteq R$ an ideal. Then
  \[
-  \rad_R(I) \coloneqq \{r \in R \mid \text{there exists } n \in \N \text{ with } r^n \in I\}
+  \rad_R I \coloneqq \{r \in R \mid \text{there exists } n \in \N \text{ with } r^n \in I\}
  \]
- is the radical of $I$.
+ is the radical of $I$. If it is clear over what ring we work we also simply write $\rad$ instead of $\rad_R$.
 \end{defi}
 
 
 \begin{lem}
- Let $R$ be a commutative ring and $I \subseteq R$ an ideal. Then $\rad_R(I) \subseteq R$ is an ideal.
+ \begin{enumerate}[a)]
+  Let $R$ be a commutative ring and $I \subseteq R$ an ideal. 
+  \item
+  $\rad I  \subseteq R$ is an ideal with $I \subseteq \rad I$.
+  \item
+  We have $\rad(\rad I) = \rad I$.
+ \end{enumerate}
 \end{lem}
 \begin{proof}
- For $f,g \in \rad_R(I)$ there exist $n,m \in \N$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$. Therefore
- \[
-  (f-g)^{n+m} = \sum_{i=0}^{n+m} (-1)^{n+m-k} \binom{n+m}{k} f^k g^{n+m-k} \in I
- \]
- and thus $f-g \in \rad_R(I)$. It is also clear that $0 \in \rad_R(I)$.
- 
- For $f \in \rad_R(I)$ there exists $n \in \N$ such that $f^n \in I$. For every $r \in R$ we therefore have
- \[
-  (rf)^n = r^n f^n \in I.
- \]
+ \begin{enumerate}[a)]
+  \item
+  It is clear that $I \subseteq \rad I$.
+  
+  For $f,g \in \rad I$ there exist $n,m \in \N$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$. Therefore
+  \[
+   (f-g)^{n+m} = \sum_{i=0}^{n+m} (-1)^{n+m-k} \binom{n+m}{k} f^k g^{n+m-k} \in I
+  \]
+  and thus $f-g \in \rad I$. It is also clear that $0 \in \rad I$.
+  
+  For $f \in \rad I$ there exists $n \in \N$ such that $f^n \in I$. For every $r \in R$ we therefore have
+  \[
+   (rf)^n = r^n f^n \in I
+  \]
+  and thus $rf \in \rad I$.
+  
+  \item
+  Let $r \in \rad(\rad I)$. Then there exists $m \in \N$ with $r^m \in \rad I$. Thus there exists $n \in \N$ with $r^{mn} = (r^m)^n \in I$. This shows that $\rad \rad I \subseteq \rad I$. The other inclusion is clear.
+ \end{enumerate}
 \end{proof}
-
-
 
 
 
