@@ -941,6 +941,54 @@ In this section we require all fields to be infinite. Until further notice we al
 \end{proof}
 
 
+\begin{prop}
+ \begin{enumerate}[a)]
+  \item
+  Let $(I_j)_{j \in J}$ be a family of ideals $I_j \subseteq \mc{P}(W)$. Then
+  \[
+   \bigcap_{j \in J} \mc{V}(I_j) = \mc{V}\left( \sum_{j \in J} I_j \right).
+  \]
+  \item
+  For all ideals $I_1, I_2 \subseteq \mc{P}(W)$ we have
+  \[
+   \mc{V}(I_1) \cup \mc{V}(I_2) = \mc{V}(I_1 \cap I_2).
+  \]
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ \begin{enumerate}
+  \item
+  Since $I_i \subseteq \sum_{j \in J} I_j$ for all $i \in J$ we have
+  \[
+   \mc{V}\left( \sum_{j \in J} I_j \right) \subseteq \mc{V}(I_i)
+  \]
+  for all $i \in J$ and thus
+  \[
+   \mc{V}\left( \sum_{j \in J} I_j \right) \subseteq \bigcap_{j \in J} \mc{V}(I_j).
+  \]
+  On the other hand we have for every $x \in \bigcap_{j \in J} \mc{V}(I_j)$ that $f(x) = 0$ for every $j \in J$ for all $f \in I_j$ and therefore
+  \[
+   x
+   \in \mc{V}\left( \bigcup_{j \in J} I_j \right)
+   = \mc{V}\left( \left( \bigcup_{j \in J} I_j \right)_{\mc{P}(W)} \right)
+   = \mc{V}\left( \sum_{j \in J} I_j \right).
+  \]
+  \item
+  We have $I_1 \cap I_2 \subseteq I_j$ for $j \in \{1,2\}$, so $\mc{V}(I_j) \subseteq \mc{V}(I_1 \cap I_2)$ for $j \in \{1,2\}$ and therefore
+  \[
+   \mc{V}(I_1) \cup \mc{V}(I_2) \subseteq \mc{V}(I_1 \cap I_2).
+  \]
+  For every $x \not\in \mc{V}(I_1 \cap I_2)$ there exists $f \in I_1$ with $f(x) \neq 0$ and $g \in I_2$ with $g(x) \neq 0$. Since $fg \in I_1 \cap I_2$ with $(fg)(x) \neq 0$ we have $x \not\in \mc{V}(I_1 \cap I_2)$.
+ \end{enumerate}
+\end{proof}
+
+
+\begin{rem}
+ Since $\emptyset$ and $W$ are zero sets this shows that the zero sets define a topology on $W$ in which they are precisely the closed sets.
+\end{rem}
+
+
+
 
 
 
