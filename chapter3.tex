@@ -883,8 +883,22 @@ In this section we require all fields to be infinite.
   We have $\mc{V}(\emptyset) = \mc{V}(\{0\}) = W$ and $\mc{V}(\mc{P}(W)) = \mc{V}(\{1\}) = \emptyset$.
   \item
   For $S_1 \subseteq S_2 \subseteq \mc{P}(W)$ we have $\mc{V}(S_2) \subseteq \mc{V}(S_1)$.
+  \item
+  For every $S \subseteq \mc{P}(W)$ we have $S \subseteq \mc{I}(\mc{V}(S))$ and for every $X \subseteq W$ we have $X \subseteq \mc{V}(\mc{I}(X))$.
  \end{enumerate}
 \end{expls}
+
+
+\begin{lem}
+ Let $W$ be a finite dimensional $k$-vector space and $S \subseteq \mc{P}(W)$. For $I \coloneqq (S)_{\mc{P}(W)}$ we have
+ \[
+  \mc{V}(S) = \mc{V}(I).
+ \]
+\end{lem}
+\begin{proof}
+ Since $S \subseteq I$ we have $\mc{V}(I) \subseteq  \mc{V}(S)$. To show that $\mc{V}(S) \subseteq \mc{V}(I)$ we look at $\mc{I} := \mc{I}(\mc{V}(S))$. Since $\mc{I}$ is an ideal with $S \subseteq \mc{I}$ we have $I \subseteq \mc{I}$. Therefore we have $f_{|\mc{V}(S)} = 0$ for every $f \in I$. Therefore $\mc{V}(S) \subseteq \mc{V}(I)$.
+\end{proof}
+
 
 
 
