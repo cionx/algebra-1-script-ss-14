@@ -890,17 +890,6 @@ In this section we require all fields to be infinite. Until further notice we al
 
 
 \begin{lem}
- Let $S \subseteq \mc{P}(W)$ and $I \coloneqq (S)_{\mc{P}(W)}$. Then
- \[
-  \mc{V}(S) = \mc{V}(I).
- \]
-\end{lem}
-\begin{proof}
- Since $S \subseteq I$ we have $\mc{V}(I) \subseteq  \mc{V}(S)$. To show that $\mc{V}(S) \subseteq \mc{V}(I)$ we look at $\mc{I} := \mc{I}(\mc{V}(S))$. Since $\mc{I}$ is an ideal with $S \subseteq \mc{I}$ we have $I \subseteq \mc{I}$. Therefore we have $f_{|\mc{V}(S)} = 0$ for every $f \in I$. Therefore $\mc{V}(S) \subseteq \mc{V}(I)$.
-\end{proof}
-
-
-\begin{lem}
  Let $X \subseteq W$ be an affine algebraic variety. Then
  \[
   \mc{V}(\mc{I}(X)) = X.
@@ -908,6 +897,24 @@ In this section we require all fields to be infinite. Until further notice we al
 \end{lem}
 \begin{proof}
  It is clear that $X \subseteq \mc{V}(\mc{I}(X))$. To show the other inclusion let $S \subseteq \mc{P}(W)$ such that $X = \mc{V}(S)$. We have $S \subseteq \mc{I}(X)$ and thus $\mc{V}(\mc{I}(X)) \subseteq \mc{V}(S) = X$.
+\end{proof}
+
+
+\begin{cor}
+ Let $S \subseteq \mc{P}(W)$ and $I \coloneqq (S)_{\mc{P}(W)}$. Then
+ \[
+  \mc{V}(S) = \mc{V}(I).
+ \]
+\end{cor}
+\begin{proof}
+ Because $\mc{I}(\mc{V}(S))$ is an ideal which contains $S$ we have
+ \[
+  S \subseteq I \subseteq \mc{I}(\mc{V}(S))
+ \]
+ and therefore
+ \[
+  \mc{V}(S) = \mc{V}(\mc{I}(\mc{V}(S))) \subseteq \mc{V}(I) \subseteq \mc{V}(S).
+ \]
 \end{proof}
 
 
