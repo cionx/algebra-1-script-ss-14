@@ -1183,6 +1183,15 @@ We are now prepared to prove the weak Nullstellensatz.
 \end{proof}
 
 
+\begin{thrm}(Hilbert)
+ Let $G$ be a group and $W$ a finite-dimensional representation of $G$ over $k$. Then $\mc{P}(W)$ is a representation of $G$ in the usual way (i.e.\ $(g.f)(w) = f\left(g^{-1}.w\right)$ for all $g \in G$, $f \in \mc{P}(W)$ and $w \in W$). Suppose that
+ \[
+  \mc{P}(W) = \bigoplus_{i \in I} L_i
+ \]
+ where $L_i \subseteq \mc{P}(W)$ is an irreducible representation of $G$ for all $i \in I$. Then $\mc{P}(W)^G$ is finitely generated.
+\end{thrm}
+
+
 \begin{lem}
  Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra which is commutative. Assume that the ideal $A^+ = \bigoplus_{d > 0} A_d$ is finitely generated over $A$. Then $A$ is finitely generated as an $A_0$-algebra by homogeneous elements. (By this we mean that there are finitely many homogeneous elements $a_1, \dotsc, a_n \in A^+$ such that $A = A_0[a_1, \dotsc, a_n]$.)
 \end{lem}
@@ -1216,6 +1225,11 @@ We are now prepared to prove the weak Nullstellensatz.
 \begin{proof}
  The proof is an exercise on the $7$-th exercise sheet.
 \end{proof}
+
+
+\begin{thrm}
+ Let $G$ be a group, $W$ a representation of $G$ over $k$ such that $W = \bigoplus_{i \in I} L_i$ where $L_i \subseteq W$ is an irreducible representation for all $i \in I$. Then $\mc{P}(W)^G$ is finitely generated as a $k$-algebra.
+\end{thrm}
 
 
 
