@@ -1,1 +1,75 @@
 \chapter{Stuff about Modules}
+
+
+\begin{prop}
+ Let $R$ be a ring and $M$ a $R$-module. Then the following are equivalent:
+ \begin{enumerate}[i)]
+  \item
+  $M$ is the sum ob simple submodules. \label{enum: sum of simple}
+  \item
+  $M$ is the direct sum of simple submodules. \label{enum: direct sum of simple}
+  \item
+  Every submodule of $M$ has a direct complement. \label{enum: direct complements}
+ \end{enumerate}
+\end{prop}
+
+
+\begin{defi}
+ Let $R$ be a ring and $M$ a $R$-module. $M$ is called semisimple (over $R$) if it satisfies one (and thus all) of the above conditions.
+\end{defi}
+
+
+\begin{proof}
+ $\ref{enum: sum of simple}) \implies \ref{enum: direct complements})$:
+ Suppose that $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$ and let $U \subseteq M$ be a submodule. For all $J \subseteq I$ let
+ \[
+  M_J \coloneqq \sum_{j \in J} L_j.
+ \]
+ Using Zorn’s Lemma let $J_0 \subseteq I$ be maximal with \mbox{$U \cap M_{J_0} = 0$}. We claim that $M = U \oplus M_{J_0}$.
+ 
+ Suppose this is not the case. Then there exists some $i_0 \in I$ such that
+ \[
+  L_{i_0} \nsubseteq U \oplus M_{J_0}
+ \]
+ In particular $i_0 \notin J_0$. Since $L_{i_0}$ is simple we find that
+ \[
+  L_{i_0} \cap (U \oplus M_{J_0}) = 0.
+ \]
+ Therefore the sum
+ \[
+  L_{i_0} + (U \oplus M_{J_0})
+ \]
+ is direct. Since
+ \[
+  L_{i_0} \oplus (U \oplus M_{J_0}) = U \oplus (L_{i_0} \oplus M_{J_0})
+ \]
+ we find for $J_1 \coloneqq J_0 \cup \{i_0\} \supsetneq J_0$
+ \[
+  U \cap M_{J_1} = 0.
+ \]
+ This contradicts the maximality of $J_0$.
+ 
+ $\ref{enum: direct complements}) \implies \ref{enum: direct sum of simple})$:
+ We first notice the following:
+ 
+ \begin{claim}
+  If $U \subseteq N \subseteq M$ are submodules then $U$ has a direct complement in $N$.
+ \end{claim}
+ \begin{proof}
+  Let $V \subseteq M$ be a direct complement of $U$ in $M$, i.e.\ $M = U \oplus V$. Then
+  \[
+   N = U \oplus (V \cap N).
+  \]
+  To see this fix $n \in N$. Let $u \in U$ and $v \in V$ with $n = u + v$. Then $v = n - u \in N$ since $u \in U \subseteq N$. Therefore $v \in V \cap N$ and thus $n = u + v \in U \oplus (V \cap N)$.
+ \end{proof}
+ 
+ Using Zorn’s Lemma let $(L_i)_{i \in I}$ be a maximal family of simple submodules of $M$ such that the sum $\sum_{i \in I} L_i$ is direct. Let $D \subseteq M$ be a direct complement of
+ \[
+  S \coloneqq \bigoplus_{i \in I} L_i,
+ \]
+ i.e.\ $M = S \oplus D$. By construction $D$ contains no simple submodules. Let $d \in D$ with $d \neq 0$. Then $0 \subsetneq Rd \subseteq D$. By Zorn’s Lemma let $K \subseteq Rd$ be a maximal submodule. (Too see that this is possible notice that $Rd \cong R/\ker \phi$ for
+ \[
+  \phi \colon R \to Rd, r \mapsto rd.
+ \]
+ So the existence of a maximal submodule of $Rd$ is equivalent to the existance of a maximal ideal $I \subseteq R$ with $\ker \phi \subseteq I$.) By the claim there exists a direct complement $F$ of $K$ in $Rd$, i.e.\ $Rd = K \oplus F$. Because $K \subset Rd$ is maximal we find that $F \subseteq Rd$ is simple. Therefore $D$ contains a simple submodule.
+\end{proof}
