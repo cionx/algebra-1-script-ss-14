@@ -1,7 +1,7 @@
 \chapter{Stuff about Modules}
 
 
-\begin{prop}
+\begin{prop}\label{prop: characterisation semisimple modules}
  Let $R$ be a ring and $M$ a $R$-module. Then the following are equivalent:
  \begin{enumerate}[i)]
   \item
@@ -95,3 +95,40 @@
   so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both $(1,0)$ and $(0,1)$ and therefore $M = k^2$.
  \end{enumerate}
 \end{expls}
+
+
+\begin{lem}
+ Let $R$ be a ring.
+ \begin{enumerate}[a)]
+  \item
+  If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
+  \item
+  If $M$ is a semisimple $R$-module and $N \subseteq M$ a submodule then both $N$ and $M/N$ are also semisimple.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}[a)]
+  \item
+  We can write each $M_i$ as $M_i = \bigoplus_{j \in J_i} L^j_i$ where $L^j_i \subseteq M_i$ is a simple submodule for all $j \in J_i$. Then
+  \[
+   \bigoplus_{i \in I} M_i = \bigoplus_{i \in I} \bigoplus_{j \in J_i} L^j_i
+  \]
+  is the direct sum of submodules and therefore semisimple.
+  \item
+  That $M/N$ is semisimple have we already shown in the claim of the proof of Proposition \ref{prop: characterisation semisimple modules}.
+  
+  Since $M$ is semisimple we can write $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$. Given the canonical projection
+  \[
+   \pi \colon M \to M/N
+  \]
+  we have that $\pi(L_i) \cong L_i$ or $\pi(L_i) = 0$ for all $i \in I$. For
+  \[
+   J \coloneqq \{i \in I \mid \pi(L_i) \neq 0\}
+  \]
+  we therefore have
+  \[
+   M/N = \pi(M) = \pi\left( \sum_{i \in I} L_i \right) = \sum_{j \in J} \pi(L_j) \cong \sum_{j \in J} L_j.
+  \]
+ \end{enumerate}
+\end{proof}
+
