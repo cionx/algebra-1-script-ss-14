@@ -142,6 +142,57 @@
 \end{defi}
 
 
+The isotypical components of a semisimple module can also be described by using a decomposition into simple modules.
+
+
+\begin{lem}\label{lem: isotypical component as direct sum}
+ Let $R$ be a ring and $M$ and $R$-module with $M = \bigoplus_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$. For every simple $R$-module $E$ we have
+ \[
+  M_E = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i.
+ \]
+\end{lem}
+\begin{proof}
+ Let $E$ be a simple $R$-module and
+ \[
+  J \coloneqq \{i \in I \mid L_i \cong E\}.
+ \]
+ It is clear that $\bigoplus_{j \in J} L_j \subseteq M_E$. To show the other inclusion it suffices to show that $F \subseteq \bigoplus_{j \in J} L_j$ for every simple submodule $F \subseteq M$ with $F \cong E$. Let $F$ be such a submodule. For over $i \in I$ we have the projection
+ \[
+  f_i \colon F \hookrightarrow M \twoheadrightarrow L_i
+ \]
+ with $x = \sum_{i \in I} f_i(x)$ for all $x \in F$ (where $f_i(x) = 0$ for all but finitely many $i \in I$). Since $f_i$ is always a homomorphism between simple modules it is either zero or an isomorphism. In particular we find that $f_i = 0$ for all $i \in I$ with $i \neq J$. Therefore $x = \sum_{j \in J} f_j(x) \subseteq \bigoplus_{j \in J} L_j$ for all $x \in F$.
+\end{proof}
+
+
+\begin{cor}
+ Let $R$ be a ring and $M$ a semisimple $R$-module. Given a decomposition $M = \bigoplus_{i \in I} L_i$ into simple submodules and a simple submodule $E \subseteq M$ there exists $i \in I$ with $L_i \cong E$.
+\end{cor}
+
+
+\begin{defi}
+ Let $R$ be a ring. Then
+ \[
+  \Irr(R) \coloneqq \{\text{isomorphism classes of simple $R$-modules}\}.
+ \]
+\end{defi}
+
+
+Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$
+\[
+ E \cong R/I
+\]
+for some maximal ideal $I \subseteq R$.
+
+
+\begin{cor}
+ Let $R$ be a ring and $M$ be a semisimple $R$-module. Then we have a canonical decomposition
+ \[
+  M = \bigoplus_{[E] \in \Irr(R)} M_E.
+ \]
+\end{cor}
+
+
+
 
 
 
