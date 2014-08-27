@@ -192,6 +192,69 @@ for some maximal ideal $I \subseteq R$.
 \end{cor}
 
 
+\begin{rem}
+  Let $R$ be a ring, $M$ an $R$-module and $E$ a simple $R$-module.
+ \begin{enumerate}[a)]
+  \item
+  $M_E$ does only depend on the isomorphism class of $E$.
+  \item
+  $M_E$ is a semisimple $R$-module (because it is the sum of simple modules).
+  \item
+  If $F \subseteq M_E$ is a simple $R$-module then $F \cong E$. To see this let $M_E = \sum_{i \in I} L_i$ where $L_i \subseteq M_E$ is a simple submodule with $L_i \cong E$ for all $i \in I$. Because $M_E$ is semisimple $F$ has a direct complement $C$ in $M_E$, so for every $i \in I$ we have a module homomorphism
+  \[
+   f_i \colon L_i \hookrightarrow \sum_{i \in I} L_i = M_E = F \oplus C \twoheadrightarrow F.
+  \]
+  Since the projection $F \oplus C \twoheadrightarrow F$ is non-zero we have $f_j \neq 0$ for some $j \in I$. Since $L_j$ and $F$ are simple the homomorphism $f_j \colon L_j \to F$ is an isomorphism. Therefore $F \cong L_j \cong E$.
+  \item
+  Let $F$ be a simple $R$-module. Then
+  \[
+   (M_E)_F =
+   \begin{cases}
+    M_E & \text{if } E \cong F, \\
+      0 & \text{otherwise}.
+   \end{cases}
+  \]
+  \item
+  An $R$-modulhomomorphism $\varphi \colon M \to N$ induces an $R$-modulhomomorphism
+  \[
+   \varphi_E \colon M_E \to N_E
+  \]
+  by restriction. Too see this simply notice that for every simple submodule $L \subseteq M$ the restriction
+  \[
+   \varphi_{|L} \colon L \to \varphi(L)
+  \]
+  is either zero (if $L \cap \ker \varphi \neq 0$ and consequently $L \subseteq \ker \varphi$) or an isomorphism (if $L \cap \ker \varphi = 0)$.
+  \item
+  If $U \subseteq M$ is a submodule then
+  \[
+   U_E = M_E \cap U.
+  \]
+  To see this let $C$ be a complement of $U$ in $M$, i.e.\ $M = U \oplus C$. Since both $U$ and $C$ are semisimple (by Lemma \ref{lem: inherit semisimple}) we have
+  \[
+   U = \bigoplus_{i \in I} L_i
+  \]
+  where $L_i \subseteq U$ is a simple submodule for all $i \in I$ and
+  \[
+   C = \bigoplus_{j \in J} L'_j
+  \]
+  where $L'_j \subseteq C$ is a simple submodule for all $j \in J$. We have
+  \[
+   M = \bigoplus_{i \in I} L_i \oplus \bigoplus_{j \in J} L'_j
+  \]
+  and therefore by Lemma \ref{lem: isotypical component as direct sum}
+  \[
+   M_E
+   = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \oplus \bigoplus_{\substack{j \in J \\ L'_j \cong E}} L'_j
+   = U_E \oplus C_E.
+  \]
+  Since $M = U \oplus C$ we get that
+  \[
+   M_E \cap U = (U_E \oplus C_E) \cap U = U_E.
+  \]
+ \end{enumerate}
+\end{rem}
+
+
 
 
 
