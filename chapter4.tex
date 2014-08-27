@@ -184,7 +184,7 @@ Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$
 for some maximal ideal $I \subseteq R$.
 
 
-\begin{cor}
+\begin{cor}\label{cor: canonical decomposition semisimple module}
  Let $R$ be a ring and $M$ be a semisimple $R$-module. Then we have a canonical decomposition
  \[
   M = \bigoplus_{[E] \in \Irr(R)} M_E.
@@ -253,6 +253,18 @@ for some maximal ideal $I \subseteq R$.
   \]
  \end{enumerate}
 \end{rem}
+
+
+\begin{defi}
+ A ring $R$ is called semisimple if it is semisimple as a (left) $R$-module, i.e.\ if $\prescript{}{R}{R}$ is semisimple.
+\end{defi}
+
+
+If $R$ is a semisimple ring then we have
+\[
+ R = \bigoplus_{[E] \in \Irr(R)} R_E
+\]
+as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple module}.
 
 
 
