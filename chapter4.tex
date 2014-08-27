@@ -410,6 +410,38 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{defi}
 
 
+\begin{lem}
+ Let $R$ be a ring and $S \subseteq \End_\Z(M)$ subsets. Then we have the following:
+ \begin{enumerate}[a)]
+  \item\label{enum: commutator change relationship}
+  For $T \subseteq \End_\Z(M)$ with $S \subseteq T$ we have $T' \subseteq S'$.
+  \item
+  $S' \subseteq \End_\Z(M)$ is an $\Z$-subalgebra.
+  \item
+  We have $S \subseteq S''$. \label{enum: S in S''}
+  \item
+  We have $S' = S'''$ where $S''' \coloneqq (S'')' = (S')''$ is the tripple commutant of $S$.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}[a)]
+  \item
+  This is clear.
+  \item
+  This is also clear.
+  \item
+  For every $\varphi \in S'$ we have $\varphi s = s \varphi$ for every $s \in S$. This the same as saying that for every $s \in S$ we have $s \varphi = \varphi s$ for every $\varphi \in S'$, which means that $s \in (S')'$.
+  \item
+  Since $S \subseteq S''$ we have $S''' = (S'')' \subseteq S'$ by \ref{enum: commutator change relationship}) and by \ref{enum: S in S''}) we also have $S' \subseteq (S')'' = S'''$.
+  \qedhere
+ \end{enumerate}
+\end{proof}
+
+
+\begin{rem}
+ Similar statements can be made for the commutant in $\End_R(M)$.
+\end{rem}
+
 
 
 
