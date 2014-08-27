@@ -2,7 +2,7 @@
 
 
 \begin{prop}\label{prop: characterisation semisimple modules}
- Let $R$ be a ring and $M$ a $R$-module. Then the following are equivalent:
+ Let $R$ be a ring and $M$ an $R$-module. Then the following are equivalent:
  \begin{enumerate}[i)]
   \item
   $M$ is the sum ob simple submodules. \label{enum: sum of simple}
@@ -15,7 +15,7 @@
 
 
 \begin{defi}
- Let $R$ be a ring and $M$ a $R$-module. $M$ is called semisimple (over $R$) if it satisfies one (and thus all) of the above conditions.
+ Let $R$ be a ring and $M$ an $R$-module. $M$ is called semisimple (over $R$) if it satisfies one (and thus all) of the above conditions.
 \end{defi}
 
 
@@ -84,7 +84,7 @@
   \[
    R = \left\{ \vect{a & b \\ 0 & c} \,\middle|\, a, b, c \in k \right\} \subseteq \Mat_2(k).
   \]
-  Then $k^2$ is not semisimple as a $R$-module since the only submodule of $k^2$ is
+  Then $k^2$ is not semisimple as an $R$-module since the only submodule of $k^2$ is
   \[
    \{ (x,0) \mid x \in k \}.
   \]
@@ -97,7 +97,7 @@
 \end{expls}
 
 
-\begin{lem}
+\begin{lem}\label{lem: inherit semisimple}
  Let $R$ be a ring.
  \begin{enumerate}[a)]
   \item
@@ -131,4 +131,35 @@
   \]
  \end{enumerate}
 \end{proof}
+
+
+\begin{defi}
+ Let $R$ be a ring and $M$ an $R$-module. For a simple $R$-module $E$ the submodule
+ \[
+  M_E \coloneqq \sum_{\substack{L \subseteq M \\ L \cong E}} L
+ \]
+ is the $E$-isotypical compotent of $M$.
+\end{defi}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
