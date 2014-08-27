@@ -1,4 +1,9 @@
 \chapter{Stuff about Modules}
+In this chapter we will require all modules over unitary rings to be unitary, i.e.\ if $R$ is a ring with $1$ and $M$ an $R$-module then
+\[
+ 1 \cdot m = m \text{ for all } m \in M.
+\]
+
 
 
 \begin{prop}\label{prop: characterisation semisimple modules}
@@ -295,6 +300,86 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   as left $\Mat_n(k)$-modules for all $1 \leq i \leq n$. Since $k^n$ is simple as an left \mbox{$\Mat_n(k)$-module} the statement follows.
  \end{enumerate}
 \end{expls}
+
+
+\begin{prop}
+ Let $R$ be a semisimple ring (with 1) and $M$ an $R$-module. Then $M$ is semisimple.
+\end{prop}
+\begin{proof}
+ Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lem: inherit semisimple} that $M$ is semisimple.
+\end{proof}
+
+
+\begin{thrm}[Jacobsen density theorem 1]
+ Let $R$ be a ring (with $1$) and $M$ a semisimple $R$-module. Then $M$ is an $\End_R(M)$-module in the usual way, i.e.\
+ \[
+  f \cdot m = f(m) \text{ for all } f \in \End_R(M), m \in M.
+ \]
+ We then have a map
+ \[
+  \Phi \colon R \to \End_{\End_R(M)}(M), r \mapsto (m \mapsto rm)
+ \]
+ and $\im \Phi$ is `dense' in $\End_{\End_R(M)}(M)$ in the following sense: Given
+ \[
+  f \in \End_{\End_R(M)}(M)
+ \]
+ and $m_1, \dotsc, m_s \in M$ there exists $x \in R$ such that
+ \[
+  x m_i = f(m_i) \text{ for all } 1 \leq i \leq s.
+ \]
+\end{thrm}
+\begin{proof}
+ It is clear that $\Phi$ is well defined.
+ 
+ We first show that $\im \Phi$ is `dense' in $\End_{\End_R(M)}(M)$ in the case that $s = 1$. For this let $m \in M$. Because $M$ is semisimple as an $R$-module we have
+ \[
+  M = Rm \oplus C
+ \]
+ as $R$-modules for some $R$-submodule $C \subseteq M$. Consider the projection (along this decomposition)
+ \[
+  \pi \colon M \twoheadrightarrow Rm \hookrightarrow M.
+ \]
+ It is clear that $\pi \in \End_R(M)$. So given $f \in \End_{\End_R(M)}(M)$ we have
+ \[
+  f \circ \pi = \pi \circ f.
+ \]
+ Because of this we have
+ \[
+  f(m) = f(\pi(m)) = \pi(f(m)) \in Rm.
+ \]
+ Therefore there exists $x \in R$ such that $f(m) = xm$.
+
+ Now let $s \geq 2$. Let $f \in \End_{\End_R(M)}(M)$ and $m_1, \dotsc, m_s \in M$. We define
+ \[
+  \hat{f} \colon M^s \to M^s, (n_1, \dotsc, n_s) \to (f(n_1), \dotsc, f(n_s)).
+ \]
+ It is easy to see that $\hat{f} \in \End_{\End_R(M^s)}(M^s)$: Let $g \in \End_R(M^s)$. Using the usual isomorphism $\End_R(M^s) \cong \Mat_s(\End_R(M))$ we have $g_{ij} \in \End_R(M)$ for $1 \leq i,j \leq s$ such that
+ \[
+  g(n_1, \dotsc, n_s) = (g_{11}(n_1) + \dotsb + g_{1s}(n_s), \dotsc, g_{s1}(n_1) + \dotsb + g_{ss}(n_s))
+ \]
+ for every $(n_1, \dotsc, n_s) \in M^s$. Because of this we have for every $(n_1, \dotsc, n_s) \in M^s$
+ \begin{align*}
+   &\, \hat{f}(g(n_1, \dotsc, n_s)) \\
+  =&\, \hat{f}(g_{11}(n_1) + \dotsb + g_{1s}(n_s), \dotsc, g_{s1}(n_1) + \dotsb + g_{ss}(n_s)) \\
+  =&\, (f(g_{11}(n_1) + \dotsb + g_{1s}(n_s)), \dotsc, f(g_{s1}(n_1) + \dotsb + g_{ss}(n_s))) \\
+  =&\, (f(g_{11}(n_1)) + \dotsb + f(g_{1s}(n_s)), \dotsc, f(g_{s1}(n_1)) + \dotsb + f(g_{ss}(n_s))) \\
+  =&\, (g_{11}(f(n_1)) + \dotsb + g_{1s}(f(n_s)), \dotsc, g_{s1}(f(n_1)) + \dotsb + g_{ss}(f(n_s))) \\
+  =&\, g(f(n_1), \dotsc, f(n_s))
+  =    g(\hat{f}(n_1, \dotsc, n_s)).
+ \end{align*}
+ Since $f \in \End_{\End_R(M^s)}(M^s)$ we can use the previous case to find that there exists some $x \in R$ such that
+ \[
+  (f(m_1), \dotsc, f(m_s))
+  = \hat{f}(m_1, \dotsc, m_s)
+  = x (m_1, \dotsc, m_s)
+  = (x m_1, \dotsc, x m_s).
+ \]
+ Therefore $x m_i = f(m_i)$ for all $1 \leq i \leq s$.
+\end{proof}
+
+
+
+
 
 
 
