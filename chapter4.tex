@@ -484,6 +484,28 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{rem}
 
 
+\begin{lem}
+ Let $G$ be a finite group over an algebraically closed field $k$. Then for every irreducible representation $V$ of $G$ we have
+ \[
+  \left( \dim_k V \right)^2 \leq |G|.
+ \]
+\end{lem}
+\begin{proof}
+ We view $V$ as an $A$-module where $A \coloneqq kG$ is the group algebra of $G$ over $k$. We then have a homomorphism of $k$-algebras
+ \[
+  \Phi \colon A \to \End_k(V), a \mapsto (v \mapsto av).
+ \]
+ Since $V$ is irreducible as a representation it is simple as an $A$-module. By Burnside’s theorem on matrix algebras we have $\im \Phi = \End_k(V)$. Therefore
+ \[
+  (\dim_k V)^2 = \dim_k \End_k(V) = \dim_k \im \Phi \leq \dim_k kG = |G|.
+ \]
+\end{proof}
+
+
+
+
+
+
 
 
 
