@@ -429,7 +429,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{cor}
 
 
-\begin{lem}
+\begin{lem}\label{lem: equivalence to irreducible}
  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
  \begin{enumerate}[i)]
   \item\label{enum: V irreducible}
@@ -508,6 +508,61 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \Psi \colon \irr_k(G) \times \irr_k(H) \to \irr_k(G \times H), ([V],[W]) \mapsto [V \boxtimes_k W].
  \]
 \end{thrm}
+\begin{proof}
+ We start by showing that $\Psi$ is well-defined. We first show that $\Psi$ is independent of the choice of representatives: Let $V$ and $V'$ be irreducible finite-dimensional representations of $G$ with $\phi_V \colon V \cong V'$ (as representations) and $W$ and $W'$ irreducible finite-dimenisonal representations of $H$ with $\phi_W \colon W \cong W'$. Then
+ \[
+  \phi_V \otimes \phi_W \colon V \otimes_k W \cong V' \otimes_k W'
+ \]
+ as $k$-vector spaces. That $\phi_V \otimes \phi_W$ is also $(G \times H)$-equivariant can be seen by calculation since for all $(g,h) \in G \times H$ and simple tensors $v \otimes w \in V \otimes_k W$
+ \begin{align*}
+   &\, (\phi_V \otimes \phi_W)((g,h).(v \otimes w))
+  =    (\phi_V \otimes \phi_W)((g.v) \otimes (h.w)) \\
+  =&\, (\phi_V(g.v)) \otimes (\phi_W(h.w))
+  =    (g.\phi_V(v)) \otimes (h.\phi_W(w)) \\
+  =&\, (g,h).(\phi_V(v) \otimes \phi_W(w))
+  =    (g,h).((\phi_V \otimes \phi_W)(v \otimes w)).
+ \end{align*}
+ Since these simple tensors generate $V \otimes_k W$ as a $k$-vector space it follows that $\phi_V \otimes \phi_W$ is $(G \times H)$-equivariant.
+ 
+ To show that $\Psi$ is well-defined we still need to show that $V \boxtimes_k W$ is irreducible and finite-dimensional for all $V \in \irr_k(G)$ and $W \in \irr_k(H)$. That $V \boxtimes_k W$ is finite-dimensional is clear, since
+ \[
+  \dim_k V \otimes_k W = \dim_k V \cdot \dim_k W < \infty.
+ \]
+ To show that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$ for every irreducible representation $V$ of 
+ $G$ and every irreducible representation $W$ of $H$ let
+ \[
+  \psi \colon k(G \times H) \to \End_k(V \otimes_k W)
+ \]
+ be the corresponding homomorphism of $k$-algebras. We also have the homomorphisms of $k$-algebras
+ \begin{gather*}
+  \phi_1 \colon kG \to \End_k(V), a \mapsto (v \mapsto av)
+ \shortintertext{and}
+  \phi_2 \colon kH \to \End_k(W), b \mapsto (w \mapsto bw).
+ \end{gather*}
+ By Lemma \ref{lem: equivalence to irreducible} these homomorphisms are surjective. Together with the isomorphisms of $k$-algebras
+ \[
+  kG \otimes_k kH \cong k(G \times H), g \otimes h \mapsto (g,h)
+ \]
+ and
+ \[
+  \End_k(V) \otimes_k \End_k(W) \cong \End(V \otimes_k W), f \otimes g \mapsto f \otimes g
+ \]
+ we get the following commutative diagram.
+ \begin{center}
+  \tikzsetnextfilename{tensor_product_irreducible_representations}
+  \begin{tikzpicture}[node distance = 6em]
+   \node (kG x kH) {$kG \otimes_k kH$};
+   \node (End V x End W) [right = 6em of kG x kH] {$\End_k(V) \otimes_k \End_k(W)$};
+   \node (kGH) [below = of kG x kH] {$k(G \times H)$};
+   \node (End V x W) [below = of End V x End W] {$\End_k (V \otimes_k W)$};
+   \draw[->] (kG x kH) to node[above] {$\phi_1 \otimes \phi_2$} (End V x End W);
+   \draw[->] (kGH) to node[above] {$\psi$} (End V x W);
+   \draw[double equal sign distance] (kG x kH) to node[left] {$\wr$} (kGH);
+   \draw[double equal sign distance] (End V x End W) to node[left] {$\wr$} (End V x W);
+  \end{tikzpicture}
+ \end{center}
+ Since both $\phi_1$ and $\phi_2$ are surjective $\phi_1 \otimes \phi_2$ is also surjective. Therefore $\psi$ is surjective. Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lem: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.
+\end{proof}
 
 
 \begin{defi}
