@@ -475,6 +475,23 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{defi}
+ For a field $k$ and a group $G$ we set
+ \[
+  \Irr_k(G) \coloneqq \{\text{isomorphism classes of representations of $G$}\}
+ \]
+ and
+ \begin{align*}
+  \irr_k(G)
+  &\coloneqq \{\text{isomorphism classes of finite-dimensional representations of $G$}\} \\
+  &= \{[V] \in \Irr_k(G) \mid \dim_k V < \infty\}.
+ \end{align*}
+\end{defi}
+
+
+Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$ are the same as simple $kG$-modules and thus $\Irr_k(G) = \Irr(kG)$ for the group algebra $kG$ of $G$ over $k$.
+
+
+\begin{defi}
  Let $M$ be an $R$-module and $S \subseteq \End_\Z(M)$ a subset. Then
  \[
   S' \coloneqq \{\varphi \in \End_\Z(M) \mid \varphi s = s \varphi \text{ for all } s \in S\}
