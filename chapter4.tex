@@ -492,6 +492,17 @@ Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$
 
 
 \begin{defi}
+ Let $k$ be a field, $V$ a representation of a group $G$ and $W$ a representation of a group $H$. Then we define the representations $V \boxtimes_k W$ of $G \times H$ as the $k$-vector space $V \otimes_k W$ together with the (linear) group action
+ \[
+  (g,h).(v \otimes w) = (g.v) \otimes (h.w).
+ \]
+\end{defi}
+
+
+To see that $V \boxtimes_k W$ is well-defined notice that the multiplication with $(g,h) \in G \times H$ is given by $\pi_g \otimes \tau_h$ where $\pi_g \colon V \to V, v \mapsto g.v$ is the multiplication with $g$ and $\tau_h \colon W \to W, w \mapsto h.w$ is the multiplication with $h$.
+
+
+\begin{defi}
  Let $M$ be an $R$-module and $S \subseteq \End_\Z(M)$ a subset. Then
  \[
   S' \coloneqq \{\varphi \in \End_\Z(M) \mid \varphi s = s \varphi \text{ for all } s \in S\}
