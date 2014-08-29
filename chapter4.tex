@@ -430,7 +430,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{lem}
- Let $G$ be a group and non-zero $V$ finite-dimensional representation of $G$ over a field $k$. Then the following are equivalent:
+ Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
  \begin{enumerate}[i)]
   \item\label{enum: V irreducible}
    $V$ is irreducible.
@@ -456,18 +456,18 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{lem}
- Let $G$ be a finite group over an algebraically closed field $k$. Then for every irreducible representation $V$ of $G$ we have
+\begin{cor}
+ Let $G$ be a finite group and $V$ a finite-dimensional irreducible representation of $G$ over an algebraically closed field $k$. Then
  \[
   \left( \dim_k V \right)^2 \leq |G|.
  \]
-\end{lem}
+\end{cor}
 \begin{proof}
- We view $V$ as an $A$-module where $A \coloneqq kG$ is the group algebra of $G$ over $k$. We then have a homomorphism of $k$-algebras
+ Since $V$ is irreducible the algebra homomorphism
  \[
-  \Phi \colon A \to \End_k(V), a \mapsto (v \mapsto av).
+  \Phi \colon kG \to \End_k(V), a \mapsto (v \mapsto av).
  \]
- Since $V$ is irreducible as a representation it is simple as an $A$-module. By Burnside’s Theorem on matrix algebras we have $\im \Phi = \End_k(V)$. Therefore
+ is surjective. Therefore
  \[
   (\dim_k V)^2 = \dim_k \End_k(V) = \dim_k \im \Phi \leq \dim_k kG = |G|.
  \]
