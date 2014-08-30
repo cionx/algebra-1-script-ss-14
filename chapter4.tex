@@ -183,7 +183,6 @@ The isotypical components of a semisimple module can also be described by using 
 \end{proof}
 
 
-
 \begin{defi}
  Let $R$ be a ring. Then
  \[
@@ -192,7 +191,7 @@ The isotypical components of a semisimple module can also be described by using 
 \end{defi}
 
 
-Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$
+Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$ we have
 \[
  E \cong R/I
 \]
@@ -318,6 +317,25 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \begin{proof}
  Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lem: inherit semisimple} that $M$ is semisimple.
 \end{proof}
+
+
+\begin{lem}
+ Let $R$ be a semisimple ring and $E$ a simple $R$-module. Then $F \cong E$ for some simple submodule $F \subseteq R$. More precisely: If $R = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules then $E \cong L_i$ for some $i \in I$.
+\end{lem}
+\begin{proof}
+ Because $E$ is cyclic there exists a surjective module homomorphism
+ \[
+  \psi \colon R \twoheadrightarrow E
+ \]
+ For every $i \in I$ we have the module homomorphism
+ \[
+  \phi_i \colon L_i \hookrightarrow \bigoplus_{i \in I} L_i = R \twoheadrightarrow E.
+ \]
+ with $\psi = \bigoplus_{i \in I} \phi_i$. Since $\psi \neq 0$ we have $\phi_j \neq 0$ for some $j \in I$. Since $L_j$ and $E$ are both simple $\phi_j$ is already an isomorphism.
+\end{proof}
+
+
+
 
 
 \begin{thrm}[Jacobson density theorem 1]
