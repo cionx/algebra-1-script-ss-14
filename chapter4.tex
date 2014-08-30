@@ -562,8 +562,45 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \end{tikzpicture}
  \end{center}
  Since both $\phi_1$ and $\phi_2$ are surjective $\phi_1 \otimes \phi_2$ is also surjective. Therefore $\psi$ is surjective. Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lem: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.
+ 
+ Next we show that $\Psi$ is surjective. For this let $[Z] \in \irr_k(G \times H)$. By identifying $G$ with the subgroup $G \times 1 \subseteq G \times H$ we can view $Z$ as a representation of $G$. Since $Z$ is finite-dimensional and $Z \neq 0$ it contains some irreducible subrepresentation $V$ of $G$. We can turn $\Hom_G(V, Z)$ into a representation of $H$ via
+ \[
+  (h.f)(v) = h.f(v) \text{ for all } h \in H\text{, }f \in \Hom_G(V, Z)\text{, }v \in V,
+ \]
+ where we see $Z$ a representation of $H$ via the identification $H \cong 1 \times H \subseteq G \times H$. To see that $h.f$ is $G$-equivariant for all $h \in H$ and $f \in \Hom_G(V,W)$ notice that the actions of $G$ and $H$ on $Z$ commute, since for all $g \in G$, $h \in H$, $z \in Z$
+ \[
+  g.(h.z) = (g,1).((1,h).z) = (g,h).z = (1,h).((g,1).z) = h.(g.z),
+ \]
+ and thus
+ \[
+  (h.f)(g.v) = h.(f(g.v)) = h.(g.f(v)) = g.(h.f(v)) = g.((h.f)(v)).
+ \]
+ Since $\Hom_G(V, Z)$ is finite-dimensional and $\Hom_G(V, Z) \neq 0$ (since the inclusion $\iota \colon V \hookrightarrow Z$ is $G$-equivariant and nonzero) it contains some irreducible subrepresentation $W$ of $H$.
+ 
+ We want to show that $V \boxtimes_k W \cong Z$ as representations of $G \times H$. For this let
+ \[
+  \beta \colon V \boxtimes_k \Hom_G(V,Z) \to Z, (v, f) \mapsto f(v).
+ \]
+ It is clear that $\beta$ is well-defined and $k$-linear. It is also $(G \times H)$-equivariant, since for or every $v \otimes f \in V \boxtimes_k \Hom_G(V,Z)$ and $(g,h) \in G \times H$ we have
+ \begin{align*}
+  \beta((g.h)(v \otimes f))
+  &= \beta((g.v) \otimes (h.f))
+  = (h.f)(g.v)
+  = h.f(g.v)) \\
+  &= h.g.f(v)
+  = (h,g).f(v)
+  = (h,g).\beta(v \otimes f)
+ \end{align*}
+ and these simple tensors $v \otimes f$ generate $V \boxtimes_k \Hom_G(V,Z)$ as a $k$-vector space. By restriction to $V \boxtimes_k W \subseteq V \boxtimes_k \Hom_G(V,Z)$ we get an homomorphism of representations of $(G \times H)$
+ \[
+  \gamma \colon V \boxtimes_k W \to Z, v \otimes f \mapsto f(v).
+ \]
+ We claim that $\gamma$ is an isomorphism. Since $V \boxtimes_k W$ and $Z$ are both irreducible as representations of $G \times H$ and $k$ is algebraically closed it is enough to show $\gamma \neq 0$ by Schur’s Lemma. Since $W \neq 0$ there exists some $f \in W$ with $f \neq 0$. Since $f \neq 0$ there exists some $v \in V$ with $f(v) \neq 0$. Therefore we have $v \otimes f \in V \boxtimes_k W$ with
+ \[
+  \gamma(v \otimes f) = f(v) \neq 0,
+ \]
+ so $\gamma \neq 0$.
 \end{proof}
-
 
 \begin{defi}
  Let $M$ be an $R$-module and $S \subseteq \End_\Z(M)$ a subset. Then
