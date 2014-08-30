@@ -898,6 +898,22 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
 \end{proof}
 
 
+\begin{cor}
+ Let $k$ be an algebraically closed field, $G$ an abelian group and $V$ a finite-dimensional irreducible representation of $G$ over $k$. Then $\dim_k V = 1$.
+\end{cor}
+\begin{proof}
+ For every $g \in G$ the map
+ \[
+  \pi_g \colon V \to V, v \mapsto g.v
+ \]
+ is $G$-equivariant, since for all $h \in G$
+ \[
+  \pi_g \circ \pi_h = \pi_{gh} = \pi_{hg} = \pi_h \circ \pi_g.
+ \]
+ So $\pi_g \in \End_G(V)$ for all $g \in G$. By Schur’s Lemma we find that $\End_G(V) \cong k$, and so every $g \in G$ acts by multiplication with some scalar $\lambda \in k$. So every one-dimensional vector subspace of $V$ is an irreducible subrepresentation of $V$. Since $V$ is already irreducible itself we find that $V$ is one-dimensional.
+\end{proof}
+
+
 \begin{rem}
  Assume $k$ is an algebraically closed field and $V$ a finite dimensional irreducible representation of some group $G$. Then
  \[
