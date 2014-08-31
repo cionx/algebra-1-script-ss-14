@@ -474,6 +474,47 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{cor}
 
 
+\begin{cor}\label{cor: simple algebra module surjective algebra homo}
+ Let $k$ be an algebraically closed field and $A$ an unital $k$-algebra. For a finite-dimensional $A$-module $M$ the following are equivalent:
+ \begin{enumerate}[i)]
+  \item
+   $M$ is a simple $A$-module.
+  \item
+   The corresponding algebra homomorphism $\Phi \colon A \to \End_k(M)$ is surjective.
+ \end{enumerate}
+\end{cor}
+\begin{proof}
+ If $M$ is simple as an $A$-module it is simple as a module over $\im \Phi$. By Burnside’s Theorem on matrix algebras we find that $\im \Phi = \End_k(V)$. So $\Phi$ is surjective.
+ 
+ Suppose $\Phi$ is surjective. Let $m \in M$ with $m \neq 0$. For every $m' \in M$ there exists $\varphi \in \End_k(M)$ with $\varphi(m) = m'$. Since $\Phi$ is surjective there exists $a \in A$ with $\Phi(a) = \varphi$ and thus
+ \[
+  am = \Phi(a)(m) = \varphi(m) = m.
+ \]
+ Therefore $Am = M$.
+\end{proof}
+
+
+\begin{cor}\label{cor: dimension simple algebra modules}
+ Let $k$ be an algebraically closed field, $A$ a $k$-algebra and $M$ a finite-dimensional simple $A$-module. Then
+ \[
+  (\dim_k M)^2 \leq \dim_k A.
+ \]
+\end{cor}
+\begin{proof}
+ By Corollary \ref{cor: simple algebra module surjective algebra homo} the corresponding algebra homomorphism
+ \[
+  \Phi \colon A \to \End_k(M)
+ \]
+ is surjective. Therefore
+ \[
+  (\dim_k M)^2 = \dim_k \End_k(M) = \dim_k \im \Phi \leq \dim_k A.
+ \]
+\end{proof}
+
+
+Applying these results to groups algebra gives us similar statements about (finite-dimensional) irreducible representations of groups.
+
+
 \begin{lem}\label{lem: equivalence to irreducible}
  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
  \begin{enumerate}[i)]
@@ -490,14 +531,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
  \end{enumerate}
 \end{lem}
 \begin{proof}
- $\ref{enum: V irreducible}) \iff \ref{enum: V simple kG-module})$:
- This is clear.
- 
- $\ref{enum: V simple kG-module}) \implies \ref{enum: surjective algebra homo})$:
- Since $V$ is simple as a $kG$-module it is simple as an module over $\im \Phi$. By Burnside’s Theorem on matrix algebras we find that $\im \Phi = \End_k(V)$. So $\Phi$ is surjective.
- 
- $\ref{enum: surjective algebra homo}) \implies \ref{enum: V simple kG-module})$:
- Let $v \in V$ with $v \neq 0$. For every $w \in V$ there exists $\varphi \in \End_k(V)$ with $\varphi(v) = w$. Since $\Phi$ is surjective there exists $a \in kG$ with $\Phi(a) = \varphi$ and thus $av = \Phi(a)(v) = \varphi(v) = w$. Therefore $kGv = V$.
+ The equivalence of $\ref{enum: V irreducible})$ and $\ref{enum: V simple kG-module})$ is clear. The equivalence of $\ref{enum: V simple kG-module})$ and $\ref{enum: surjective algebra homo})$ follows directly from Corollary \ref{cor: simple algebra module surjective algebra homo}.
 \end{proof}
 
 
@@ -508,13 +542,9 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
  \]
 \end{cor}
 \begin{proof}
- Since $V$ is irreducible the algebra homomorphism
+ $V$ is a simple $kG$-module, so by Corollary \ref{cor: dimension simple algebra modules}
  \[
-  \Phi \colon kG \to \End_k(V), a \mapsto (v \mapsto av).
- \]
- is surjective. Therefore
- \[
-  (\dim_k V)^2 = \dim_k \End_k(V) = \dim_k \im \Phi \leq \dim_k kG = |G|.
+  (\dim_k V)^2 \leq \dim_k kG = |G|.
  \]
 \end{proof}
 
@@ -744,7 +774,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    {[}This part still needs to be typed.]
  \end{enumerate}
 \end{proof}
-
+% TODO: Beweis fertig tippen.
 
 
 
