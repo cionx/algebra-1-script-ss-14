@@ -279,7 +279,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 \begin{lem}\label{lem: basis of Maps and Hom}
  Let $X$ be a finite $G$-set. Let $k$ be a field (or a ring).
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    $\Maps(X,k)$ forms a $k$-vector space (resp. $k$-module) via pointwise addition and scalar multiplication.
   \item
@@ -293,7 +293,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
    \]
    for all $y \in X$.
   \item
-   $\Maps(X,k)^G = \Hom_G(X,k)$ forms a $k$-vector subspace (resp. $k$-submodule) of $\Maps(X,k)$.
+   $\Maps(X,k)^G = \Hom_G(X,k)$ is a $k$-vector subspace (resp. $k$-submodule) of $\Maps(X,k)$.
   \item
    A $k$-Basis of $\Maps(X,k)^G$ is given by $\{\chi_\mc{O} \mid \mc{O} \in X/G\}$ with
    \[
@@ -307,7 +307,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    This is left as an easy exercise for the reader.
   \item
@@ -386,15 +386,15 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
   g.x_1 \in X_1 \text{ and } g.x_2 \in X_2 \text{ for all } x_1 \in X_1, x_2 \in X_2, g \in G.
  \end{equation}
  Then
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2, k)$ as $k$-vector spaces (resp. $k$-modules).
   \item
-   $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp. $k$-modules) where we have an induced action on $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism from a).
+   $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp. $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism from a).
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$. Similarly $\Maps(X_i, k)$ has a basis $B_i \coloneqq \{\chi_x \mid x \in X_i\}$ for $i=1,2$. Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
    \[
@@ -474,14 +474,14 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 \begin{expl}
  Let $X$ be a $G$-set and $k$ a field (or a ring). Then:
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    $\Maps(X,k)$ forms a ring via pointwise addition and multiplication.
   \item
    The usual $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G, x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
  \end{enumerate}
  \begin{proof}
-  \begin{enumerate}[a)]
+  \begin{enumerate}[label=\emph{\alph*})]
    \item
     We leave this as an exercise to the reader.
    \item
@@ -525,7 +525,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 
 \begin{expls}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    Let $G$ be a group. Then the left regular action and the right regular action of $G$ on $G$ commute.
   \item
@@ -591,7 +591,7 @@ For a $k$-vector space $V$ we set
 
 
 \begin{expls}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    Let $V$ be a $k$-vector space. Then $\GL(V)$ acts linearly on $V$ in a natural way. (The action corresponds to the group homomorphism $\id_{\GL(V)} \colon \GL(V) \to \GL(V)$.)
   \item
@@ -822,7 +822,7 @@ Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f \co
 
 \begin{lem}\label{lem: composition of morphisms of representations}
  Let $G$ be a group.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   $\id_V \colon V \to V$ is a morphism of representations for any representation $V$ of $G$.
   \item
@@ -859,7 +859,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
 
 \begin{lem}[Schur’s Lemma]
  Let $k$ be a field, $G$ a group, $V$ and $W$ irreducible representations of $G$.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   We have $\Hom_G(V,W) = 0$ if $V \not\cong W$ and $\Hom_G(V,W) \not\cong 0$ if $V \cong W$, and every non zero morphism is an isomorphism.
   \item
@@ -877,7 +877,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item 
   Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp. $W$. Since $V$ and $W$ are irreducible we have that
   \[
@@ -1041,7 +1041,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 
 \begin{lem}
  Let $e_1$, \dots, $e_n$ denote the standard basis von $k^n$. $G = S_n$ acts linearly on $k^n$ as in the previous example.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   The vector subspaces
   \begin{gather*}

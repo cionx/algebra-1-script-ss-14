@@ -8,7 +8,7 @@ In this chapter we will require all modules over unitary rings to be unitary, i.
 
 \begin{prop}\label{prop: characterisation semisimple modules}
  Let $R$ be a ring and $M$ an $R$-module. Then the following are equivalent:
- \begin{enumerate}[i)]
+ \begin{enumerate}[label=\emph{\roman*})]
   \item
   $M$ is the sum ob simple submodules. \label{enum: sum of simple}
   \item
@@ -81,7 +81,7 @@ In this chapter we will require all modules over unitary rings to be unitary, i.
 
 
 \begin{expls}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   Let $k$ be a field. Since simple $k$-modules are the same as $1$-dimensional vector spaces every $k$-module is semisimple (this is equivalent to saying that every $k$-vector space has a basis).
   \item
@@ -104,7 +104,7 @@ In this chapter we will require all modules over unitary rings to be unitary, i.
 
 \begin{lem}\label{lem: inherit semisimple}
  Let $R$ be a ring.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
   \item
@@ -112,7 +112,7 @@ In this chapter we will require all modules over unitary rings to be unitary, i.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   We can write each $M_i$ as $M_i = \bigoplus_{j \in J_i} L^j_i$ where $L^j_i \subseteq M_i$ is a simple submodule for all $j \in J_i$. Then
   \[
@@ -208,7 +208,7 @@ for some maximal ideal $I \subseteq R$.
 
 \begin{rem}
   Let $R$ be a ring, $M$ an $R$-module and $E$ a simple $R$-module.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   $M_E$ does only depend on the isomorphism class of $E$.
   \item
@@ -229,7 +229,7 @@ for some maximal ideal $I \subseteq R$.
    \end{cases}
   \]
   \item
-  An $R$-modulhomomorphism $\varphi \colon M \to N$ induces an $R$-modulhomomorphism
+  Every homomorphism of $R$-modules $\varphi \colon M \to N$ induces a homomorphism
   \[
    \varphi_E \colon M_E \to N_E
   \]
@@ -287,7 +287,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{expls}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   Fields are simple.
   \item
@@ -461,7 +461,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 \begin{lem}[Schur’s Lemma for algebras]
  Let $k$ be a field, $A$ an unital $k$-algebra and $M$ a simple $A$-module.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    If $N$ is another simple $A$-module then every homomorphism of $A$-modules $f \colon M \to N$ is either zero or an isomorphism.
   \item
@@ -499,7 +499,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 \begin{cor}\label{cor: simple algebra module surjective algebra homo}
  Let $k$ be an algebraically closed field and $A$ an unital $k$-algebra. For a finite-dimensional $A$-module $M$ the following are equivalent:
- \begin{enumerate}[i)]
+ \begin{enumerate}[label=\emph{\roman*})]
   \item
    $M$ is a simple $A$-module.
   \item
@@ -606,7 +606,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 
 \begin{lem}\label{lem: equivalence to irreducible}
  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
- \begin{enumerate}[i)]
+ \begin{enumerate}[label=\emph{\roman*})]
   \item\label{enum: V irreducible}
    $V$ is irreducible.
   \item\label{enum: V simple kG-module}
@@ -804,7 +804,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 \begin{lem}
  Let $R$ be a ring and $S \subseteq \End_\Z(M)$ subsets. Then we have the following:
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item\label{enum: commutator change relationship}
   For $T \subseteq \End_\Z(M)$ with $S \subseteq T$ we have $T' \subseteq S'$.
   \item
@@ -816,7 +816,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
   This is clear.
   \item
@@ -837,7 +837,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 \begin{prop}
  Let $k$ be a field and $A$ an unital finite-dimensional $k$-algebra.
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    Every simple $A$-module is finite-dimensional. More precisely
    \[
@@ -852,7 +852,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \end{enumerate}
 \end{prop}
 \begin{proof}
- \begin{enumerate}[a)]
+ \begin{enumerate}[label=\emph{\alph*})]
   \item
    Since $V$ is simple it is cyclic, so we have a surjective homomorphism of $A$-modules
    \[
@@ -882,6 +882,10 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \chi_V \colon A \to k, a \mapsto \tr \rho(a).
  \]
 \end{defi}
+
+
+
+
 
 
 
