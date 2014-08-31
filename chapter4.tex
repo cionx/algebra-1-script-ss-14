@@ -538,7 +538,70 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 If $k$ is algebraically closed and $A$ an unital $k$-algebra we know that for every simple $A$-module $M$ the corresponding algebra homomorphism $A \to \End_k(M)$ is surjective. We can strengthen this result.
 
 
-Applying these results to groups algebra gives us similar statements about (finite-dimensional) irreducible representations of groups.
+\begin{lem}
+ Let $k$ be an algebraically closed field, $A$ an unital $k$-algebra and $M_1$, \dots, $M_s$ finite-dimensional simple $A$-modules which are pairwise non-isomorphic. For every $1 \leq i \leq s$ we have a surjective algebra homomorphism
+ \[
+  \phi_i \colon A \to \End_k(M_i).
+ \]
+ The map
+ \[
+  \Phi \coloneqq \bigoplus_{i=1}^r \phi_i \colon A \to \bigoplus_{i=1}^r \End_k(M_i)
+ \]
+ is also surjective.
+\end{lem}
+\begin{proof}
+ We set
+ \[
+  M \coloneqq \bigoplus_{i=1}^r M_i.
+ \]
+ Because the $M_i$ are simple and pairwise non-isomorphic we know from Schur’s Lemma that
+ \begin{align*}
+  \End_A(M) &\cong \bigoplus_{i=1}^r \End_A(M_i), \\
+  \varphi_1 \oplus \dotsb \oplus \varphi_r &\mapsfrom (\varphi_1, \dotsc, \varphi_r)
+ \end{align*}
+ Because $k$ is algebraically closed and the $M_i$ are finite-dimensional and simple Schur’s Lemma also tells us that
+ \[
+  \End_A(M_i) \cong k, \lambda \id_{M_i} \mapsfrom \lambda \text{ for all } 1 \leq i \leq r.
+ \]
+ Combining these isomorphisms we find that
+ \begin{align*}
+  \End_A(M) &\cong k^r \\
+  ((m_1, \dotsc, m_r) \mapsto (a_1 m_1, \dotsc, a_r m_r)) & \mapsfrom (a_1, \dotsc, a_r).
+ \end{align*}
+ We therefore have
+ \[
+  \End_{\End_A(M)}(M) = \End_{k^r}(M)
+ \]
+ where $(a_1, \dotsc, a_r) \in k^r$ acts on $(m_1, \dotsc, m_r) \in M$ as
+ \[
+  (a_1, \dotsc, a_n)(m_1, \dotsc, m_r) = (a_1 m_1, \dotsc, a_r m_r).
+ \]
+ It is clear that
+ \begin{align*}
+  \End_{k^r}(M) &\cong \bigoplus_{i=1}^r \End_k(M_i), \\
+  \varphi_1 \oplus \dotsb \oplus \varphi_r &\mapsfrom (\varphi_1, \dotsc, \varphi_r).
+ \end{align*}
+ By the Density Theorem we find that the map
+ \[
+  A \to \End_{k^r}(M), a \mapsto (m \mapsto am)
+ \]
+ is surjective. Since the diagram
+ \begin{center}
+  \tikzsetnextfilename{density_theorem_endomorphism_spaces}
+  \begin{tikzpicture}
+   \node (A) {$A$};
+   \node (End kr) [below left = 4em and 2em of A] {$\End_{k^r}(M)$};
+   \node (plus End k) [below right = 4em and 2em of A] {$\bigoplus_{i=1}^r \End_k(M_i)$};
+   \draw[->>] (A) to (End kr);
+   \draw[->] (A) to node[above right] {$\Phi$} (plus End k);
+   \draw[double equal sign distance] (End kr) to node[above] {$\sim$} (plus End k);
+  \end{tikzpicture}
+ \end{center}
+ commutes, we find that $\Phi$ is surjective.
+\end{proof}
+
+
+Applying our results about finite-dimensional simple modules over algebras to group algebras gives us corresponding statements about representations of groups.
 
 
 \begin{lem}\label{lem: equivalence to irreducible}
