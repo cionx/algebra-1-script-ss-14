@@ -884,7 +884,120 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{defi}
 
 
-
+\begin{prop}
+ Let $A$ be an unital $k$-algebra. Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
+ \begin{enumerate}[label=\emph{\alph*})]
+  \item
+   If $V \cong W$ (as $A$-modules) then $\chi_V = \chi_W$.
+  \item
+   We have $\chi_{V \oplus W} = \chi_V + \chi_W$.
+  \item
+   We have $\chi_V = \chi_U + \chi_{V/U}$.
+  \item
+   We have $\chi_{V \otimes W} = \chi_V \cdot \chi_W$.
+ \end{enumerate}
+ Suppose that $A = kG$ for some group $G$ and let $g,h \in G$.
+ \begin{enumerate}[label=\emph{\alph*}),resume]
+  \item
+   We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
+  \item
+   We have $\chi_V(hgh^{-1}) = \chi_V(g)$.
+  \item
+   When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ Let $v_1$, \dots, $v_r$ be a $k$-basis of $U$, $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ a $k$-basis of $V$ and $w_1$, \dots, $w_t$ a $k$-basis of $W$. For every occuring module $X$ of $A$ let
+ \[
+  \rho_X \colon A \to \End_k(X), a \mapsto (x \mapsto ax).
+ \]
+ \begin{enumerate}[label=\emph{\alph*})]
+  \item
+   Let $\varphi \colon V \to W$ be an isomorphism of $A$-modules. Since $A$ is unary $\varphi$ is $k$-linear. Therefore $\varphi(v_1)$, \dots, $\varphi(v_s)$ is a $k$-basis of $W$. Let $a \in A$. If $M \in \Mat_r(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ it is also the representing matrix of $\rho_W(a)$ with respect to the basis $\varphi(v_1)$, \dots, $\varphi(v_s)$. Therefore
+   \[
+    \chi_V(a) = \tr \rho_V(a) = \tr M = \tr \rho_W(a) = \chi_W(a).
+   \]
+  \item
+   Let $a \in A$. If $M_1 \in \Mat_s(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $M_2 \in \Mat_t(k)$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$, then
+   \[
+    M \coloneqq \vect{M_1 & 0  \\ 0 & M_2}
+   \]
+   is the representing matrix of $\rho_{V \oplus W}(a)$ with respect to the basis $v_1$, \dots, $v_s$, $w_1$, \dots, $w_t$. Therefore
+   \begin{align*}
+    \chi_{V \oplus W}(a)
+    &= \tr \rho_{V \oplus W}(a)
+    = \tr M
+    = \tr M_1 + \tr M_2 \\
+    &= \tr \rho_V(a) + \tr \rho_W(a)
+    = \chi_V(a) + \chi_W(a).
+   \end{align*}
+  \item
+   Let $a \in A$. Let $M_1 \in \Mat_r(k)$ be the representing basis of $\rho_U(a)$ with respect to $v_1$, \dots, $v_r$ and $M_2 \in \Mat_{s-r}$ be the representing matrix of $\rho_{V/U}(a)$ with respect to the basis $v_{r+1} + U$, \dots, $v_s + U$. Then
+   \[
+    M \coloneqq \vect{M_1 & 0 \\ 0 & M_2}
+   \]
+   is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ of $V$. Therefore
+   \begin{align*}
+    \chi_V(a)
+    &= \tr \rho_V(a)
+    = \tr M
+    = \tr M_1 + \tr M_2 \\
+    &= \tr \rho_U(a) + \tr \rho_{V/U}(a)
+    = \chi_U(a) + \chi_{V/U}(a).
+   \end{align*}
+  \item
+   Let $a \in A$. Let $M \in \Mat_s(k) = (m_{ij})_{1 \leq i,j \leq s}$ be the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $N$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$. Since
+   \[
+    \rho_{V \otimes W}(a) = \rho_V(a) \otimes \rho_W(a)
+   \]
+   the representing matrix of $\rho_{V \otimes W}(a)$ with respect to the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_r \otimes w_t$ is
+   \[
+    M \otimes N =
+    \begin{pmatrix}
+     m_{11} N & m_{12} N & \cdots & m_{1s} N \\
+     m_{21} N & m_{22} N & \cdots & m_{2s} N \\
+     \vdots   & \vdots   & \ddots & \vdots   \\
+     m_{s1} N & m_{s2} N & \cdots & m_{ss} N
+    \end{pmatrix}.
+   \]
+   Therefore
+   \begin{align*}
+    \chi_{V \otimes W}(a)
+    &= \tr \rho_{V \otimes W}(a)
+    = \tr M \otimes N
+    = \tr M \cdot \tr N \\
+    &= \tr \rho_V(a) \cdot \tr \rho_W(a)
+    = \chi_V(a) \cdot \chi_W(a).
+   \end{align*}
+  \item
+   The representing matrix of $\rho_V(e)$ (with respect to any $k$-basis of $V$) is the identity matrix $I_s \in \Mat_s(k)$. Therefore
+   \[
+    \chi_V(e) = \tr \rho_V(e) = \tr I_s = s \bmod \kchar k = \dim_k V \bmod \kchar k
+   \]
+  \item
+   Let $M$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1$, \dots, $v_s$ and $N$ be the representing matrix of $\rho_V(h)$ with respect to the basis $v_1$, \dots, $v_s$. Then $N^{-1}$ is the representing matrix of $\rho_V(h^{-1}) = \rho_V(h)^{-1}$ with respect to the basis $v_1$, \dots, $v_s$. Therefore
+   \begin{align*}
+    \chi_V\left( hgh^{-1} \right)
+    &= \tr \rho_V\left( hgh^{-1} \right)
+    = \tr\left( \rho_V(h) \rho_V(g) \rho_V\left( h^{-1} \right) \right) \\
+    &= \tr\left( NMN^{-1} \right)
+    = \tr M
+    = \tr \rho_V(g)
+    = \chi_V(g).
+   \end{align*}
+  \item
+   Let $M \in \Mat_s(k)$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1$, \dots, $v_s$ and $A^* \in \Mat_s(k)$ be the representing matrix of $\rho_{V^*}(g)$ with respect to the basis $v_1^*$, \dots, $v_s^*$. Then $A^{-1}$ is the representing matrix of $\rho_V(g^{-1}) = \rho_V(g)^{-1}$ with respect to the basis $v_1$, \dots, $v_s$. We also know from the tutorial problems that $A^* = \left(A^{-1}\right)^T$. Daher ist
+   \begin{align*}
+    \chi_{V^*}(g)
+    &= \tr \rho_{V^*}(g)
+    = \tr A^*
+    = \tr \left(A^{-1}\right)^T \\
+    &= \tr A^{-1}
+    = \tr \rho_V\left( g^{-1} \right)
+    = \chi_V\left( g^{-1} \right).
+   \end{align*}
+ \end{enumerate}
+\end{proof}
 
 
 
