@@ -1028,6 +1028,54 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the character $\chi_V$ factors through $A/[A,A]$ a $k$-linear map. Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
 
 
+\begin{thrm}
+ Let $k$ be an algebraically closed field and $A$ an unital $k$-algebra.
+ \begin{enumerate}[label=\emph{\alph*})]
+  \item
+   Let $V_i$, $i \in I$ be pairwise non-isomorphic simple $A$-modules. Then $\chi_i$, $i \in I$ are linearly independent (over $k$).
+  \item
+   Let $k$ be algebraically closed. If $A$ is finite-dimensional and semisimple, then the characters $\chi_{V_i}$, $[V_i] \in \Irr(A)$ form a $k$-basis of $(A/[A,A])^*$.
+ \end{enumerate}
+\end{thrm}
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*})]
+  \item
+   Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic simple $A$-modules and $\lambda_1, \dotsc, \lambda_r \in k$ with
+   \[
+    \sum_{i=1}^r \lambda_i \chi_{V_i} = 0.
+   \]
+   For all $1 \leq i \leq r$ let
+   \[
+    \rho_i \colon A \to \End_k(V_i), a \mapsto (v \mapsto av).
+   \]
+   For every $a \in A$ we have
+   \[
+    0
+    = \left( \sum_{i=1}^r \lambda_i \chi_{V_i} \right)(a)
+    = \sum_{i=1}^r \lambda_i \chi_{V_i}(a)
+    = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(a).
+   \]
+   Fix $1 \leq j \leq r$. For every $1 \leq i \leq r$ there exists $\varphi_i \in \End_k(V_i)$ with $\tr \varphi_i = \delta_{ij}$. By the Lemma \ref{lem: map into sum endomorphisms surjective} the map
+   \[
+    \bigoplus_{i=1}^r \rho_{V_i} \colon A \to \bigoplus_{i=1}^r \End_k(V_i)
+   \]
+   is surjective. Therefore there exists $b \in A$ such that $\rho_{V_i}(b) = \varphi_i$ for all $1 \leq i \leq r$. Thus we have
+   \[
+    0
+    = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(b)
+    = \sum_{i=1}^r \lambda_i \tr \varphi_i
+    = \sum_{i=1}^r \lambda_i \delta_{ij}
+    = \lambda_j.
+   \]
+   Because $j$ is arbitrary we find that $\lambda_j = 0$ for all $1 \leq j \leq r$.
+  \item
+   {[}This part still needs to be typed.]
+ \end{enumerate}
+\end{proof}
+
+
+
+
 
 
 
