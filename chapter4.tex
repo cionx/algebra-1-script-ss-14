@@ -413,6 +413,30 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{rem}
 
 
+\begin{cor}[Density Theorem]
+ Let $A$ be an unital $k$-algebra and $M$ a finite-dimensional semisimple $A$-module. Then the map
+ \[
+  \Phi \colon A \to \End_{\End_A(M)}(M)
+ \]
+ is surjective.
+\end{cor}
+\begin{proof}
+ Because we have $k \subseteq \End_A(M)$ we also have
+ \[
+  \End_{\End_A(M)}(M) \subseteq \End_k(M).
+ \]
+ Let $m_1$, \dots, $m_s$ be a $k$-basis of $M$. For $\varphi \in \End_{\End_A(M)}(M)$ we have $a \in A$ with
+ \[
+  \varphi(m_i) = a m_i \text{ for all } 1 \leq i \leq s
+ \]
+ by the 1. Jacobson density theorem. Let
+ \[
+  \psi \colon M \to M, m \mapsto am.
+ \]
+ Because $m_1$, \dots, $m_s$ generates $M$ as a $k$-vector space and $\varphi$ and $\psi$ are $k$-linear it follows that $\varphi = \psi$.
+\end{proof}
+
+
 \begin{thrm}[Jacobson density theorem 2]
  Let $R$ be a ring (with $1$) and $N$ a simple $R$-module. Let $u_1, \dotsc, u_s \in N$ be linearly independent over $\End_R(N)$ and $v_1, \dotsc, v_n \in N$ arbitrary. Then there exists $r \in R$ with
  \[
@@ -453,7 +477,6 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
  \]
  and therefore $an \in N$. So $N$ is a submodule of $M$. Since $M$ is simple we have $M = N$. So $f = \lambda \id_M$.
 \end{proof}
-
 
 
 \begin{rem}
@@ -510,6 +533,9 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   (\dim_k M)^2 = \dim_k \End_k(M) = \dim_k \im \Phi \leq \dim_k A.
  \]
 \end{proof}
+
+
+If $k$ is algebraically closed and $A$ an unital $k$-algebra we know that for every simple $A$-module $M$ the corresponding algebra homomorphism $A \to \End_k(M)$ is surjective. We can strengthen this result.
 
 
 Applying these results to groups algebra gives us similar statements about (finite-dimensional) irreducible representations of groups.
