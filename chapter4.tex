@@ -538,7 +538,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 If $k$ is algebraically closed and $A$ an unital $k$-algebra we know that for every simple $A$-module $M$ the corresponding algebra homomorphism $A \to \End_k(M)$ is surjective. We can strengthen this result.
 
 
-\begin{lem}
+\begin{lem}\label{lem: map into sum endomorphisms surjective}
  Let $k$ be an algebraically closed field, $A$ an unital $k$-algebra and $M_1$, \dots, $M_s$ finite-dimensional simple $A$-modules which are pairwise non-isomorphic. For every $1 \leq i \leq s$ we have a surjective algebra homomorphism
  \[
   \phi_i \colon A \to \End_k(M_i).
@@ -860,10 +860,16 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    \]
    Since $A$ is unital $\varphi$ is $k$-linear. Therefore $\dim_k V \leq \dim_k A$.
   \item
-   {[}This part still needs to be typed.]
+   Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic simple $A$-modules. By Lemma \ref{lem: map into sum endomorphisms surjective} we find that the map
+   \[
+    A \to \bigoplus_{i=1}^r \End_k(V_i)
+   \]
+   is surjective. Therefore
+   \[
+    r \leq \sum_{i=1}^r \dim_k \End_k(V_i) \leq \dim_k A.
+   \]
  \end{enumerate}
 \end{proof}
-% TODO: Beweis fertig tippen.
 
 
 
