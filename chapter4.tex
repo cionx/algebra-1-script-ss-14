@@ -3,7 +3,7 @@ In this chapter we will require all modules over unitary rings to be unitary, i.
 \[
  1 \cdot m = m \text{ for all } m \in M.
 \]
-
+We also require all $k$-algebras to be unitary. In particular modules over $k$-algebras are always $k$-vector spaces and module-homomorphisms are always $k$-linear.
 
 
 
@@ -425,7 +425,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{cor}[Density Theorem]
- Let $A$ be an unital $k$-algebra and $M$ a finite-dimensional semisimple $A$-module. Then the map
+ Let $A$ be a $k$-algebra and $M$ a finite-dimensional semisimple $A$-module. Then the map
  \[
   \Phi \colon A \to \End_{\End_A(M)}(M)
  \]
@@ -488,7 +488,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{lem}[Schur’s Lemma for algebras]
- Let $k$ be a field, $A$ an unital $k$-algebra and $M$ a simple $A$-module.
+ Let $k$ be a field, $A$ a $k$-algebra and $M$ a simple $A$-module.
  \begin{enumerate}[label=\emph{\alph*})]
   \item
    If $N$ is another simple $A$-module then every homomorphism of $A$-modules $f \colon M \to N$ is either zero or an isomorphism.
@@ -509,7 +509,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{cor}[Burnside’s Theorem on matrix algebras (coordinate version)]
- Let $k$ be an algebraically closed field and $A \subseteq \Mat_n(k)$ an unital subalgebra, such that $k^n$ is a simple $A$-module. Then $A = \Mat_n(k)$.
+ Let $k$ be an algebraically closed field and $A \subseteq \Mat_n(k)$ a subalgebra, such that $k^n$ is a simple $A$-module. Then $A = \Mat_n(k)$.
 \end{cor}
 \begin{proof}
  From Schur’s Lemma we find that $\End_A(k^n) = k$. Therefore the standard basis $e_1$, \dots, $e_n$ of $k^n$ is linearly independent over $\End_A(k^n)$. Let $M \in \Mat_n(k)$ and $m_i \in k^n$ the $i$-th column vector of $M$ for all $1 \leq i \leq n$. By the 2. Jacobson density theorem there exists $M' \in A$ with $M' e_i = m_i$ for all $1 \leq i \leq n$. Since $M' e_i$ is the $i$-th column vector of $M'$ we have $M = M' \in A$.
@@ -517,12 +517,12 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{cor}[Burnside’s Theorem on matrix algebras (coordinate free version)]
- Let $k$ be an algebraically closed field and $V$ a finite-dimensional $k$-vector space, $A \subseteq \End(V)$ an unital subalgebra such that $V$ is a simple $A$-module. Then $A = \End(V)$.
+ Let $k$ be an algebraically closed field and $V$ a finite-dimensional $k$-vector space, $A \subseteq \End(V)$ a subalgebra such that $V$ is a simple $A$-module. Then $A = \End(V)$.
 \end{cor}
 
 
 \begin{cor}\label{cor: simple algebra module surjective algebra homo}
- Let $k$ be an algebraically closed field and $A$ an unital $k$-algebra. For a finite-dimensional $A$-module $M$ the following are equivalent:
+ Let $k$ be an algebraically closed field and $A$ a  $k$-algebra. For a finite-dimensional $A$-module $M$ the following are equivalent:
  \begin{enumerate}[label=\emph{\roman*})]
   \item
    $M$ is a simple $A$-module.
@@ -559,11 +559,11 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-If $k$ is algebraically closed and $A$ an unital $k$-algebra we know that for every simple $A$-module $M$ the corresponding algebra homomorphism $A \to \End_k(M)$ is surjective. We can strengthen this result.
+If $k$ is algebraically closed and $A$ a  $k$-algebra we know that for every simple $A$-module $M$ the corresponding algebra homomorphism $A \to \End_k(M)$ is surjective. We can strengthen this result.
 
 
 \begin{lem}\label{lem: map into sum endomorphisms surjective}
- Let $k$ be an algebraically closed field, $A$ an unital $k$-algebra and $M_1$, \dots, $M_s$ finite-dimensional simple $A$-modules which are pairwise non-isomorphic. For every $1 \leq i \leq s$ we have a surjective algebra homomorphism
+ Let $k$ be an algebraically closed field, $A$ a $k$-algebra and $M_1$, \dots, $M_s$ finite-dimensional simple $A$-modules which are pairwise non-isomorphic. For every $1 \leq i \leq s$ we have a surjective algebra homomorphism
  \[
   \phi_i \colon A \to \End_k(M_i).
  \]
@@ -861,7 +861,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 
 \begin{lem}
- Let $A_i$, $1 \leq i \leq r$ be an unital $k$-algebras. Then $A = \bigoplus_{i=1}^r A_i$ is a $k$-algebra in the usual way. For $1 \leq i \leq r$ let
+ Let $A_i$, $1 \leq i \leq r$ be a $k$-algebras. Then $A = \bigoplus_{i=1}^r A_i$ is a $k$-algebra in the usual way. For $1 \leq i \leq r$ let
  \[
   1_i = (\delta_{ij})_{1 \leq j \leq r} \in A
  \]
@@ -875,7 +875,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \]
  \begin{enumerate}[label=\emph{\alph*}),leftmargin=*]
   \item
-   $A$ is unital with $1 = \sum_{i=1}^r 1_i$ and for all $1 \leq i,j \leq r$ we have $1_i 1_j = \delta_{ij}$.
+   $A$ is unitary with $1 = \sum_{i=1}^r 1_i$ and for all $1 \leq i,j \leq r$ we have $1_i 1_j = \delta_{ij}$.
   \item
    If $V$ is an $A$-module then $V_i \coloneqq 1_i V$ is an $A_i$-module by restriction and for every $1 \leq i \leq j$ with $i \neq j$ we have $A_j V_i = 0$.
   \item
@@ -965,9 +965,8 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{proof}
 
 
-
 \begin{prop}
- Let $k$ be a field and $A$ an unital finite-dimensional $k$-algebra.
+ Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
  \begin{enumerate}[label=\emph{\alph*})]
   \item
    Every simple $A$-module is finite-dimensional. More precisely
@@ -989,7 +988,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    \[
     \varphi \colon A \twoheadrightarrow V.
    \]
-   Since $A$ is unital $\varphi$ is $k$-linear. Therefore $\dim_k V \leq \dim_k A$.
+   Because $\varphi$ is $k$-linear we find that $\dim_k V \leq \dim_k A$.
   \item
    Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic simple $A$-modules. By Lemma \ref{lem: map into sum endomorphisms surjective} we find that the map
    \[
@@ -1016,7 +1015,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 
 \begin{prop}
- Let $A$ be an unital $k$-algebra. Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
+ Let $A$ be a $k$-algebra. Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
  \begin{enumerate}[label=\emph{\alph*})]
   \item
    If $V \cong W$ (as $A$-modules) then $\chi_V = \chi_W$.
@@ -1190,7 +1189,7 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 
 \begin{thrm}
- Let $k$ be an algebraically closed field and $A$ an unital $k$-algebra.
+ Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
  \begin{enumerate}[label=\emph{\alph*})]
   \item
    Let $V_i$, $i \in I$ be pairwise non-isomorphic simple $A$-modules. Then $\chi_i$, $i \in I$ are linearly independent (over $k$).
