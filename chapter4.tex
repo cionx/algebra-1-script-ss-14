@@ -1203,6 +1203,45 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{expl}
 
 
+\begin{lem}
+ Let $A$ and $B$ be $k$-algebras. Then
+ \[
+  [A \oplus B, A \oplus B] = [A,A] \oplus [B,B].
+ \]
+ as $k$-vector subspaces of $A \oplus B$.
+\end{lem}
+\begin{proof}
+ For all $a, a' \in A$ and $b, b' \in B$ we have
+ \begin{align*}
+  [(a,b),(a',b')]
+  &= (a,b)(a',b') - (a',b')(a,b)
+  = (aa',bb') - (a'a, b'b) \\
+  &= (aa'-a'a, bb' - b'b)
+  = ([a,a'], [b,b']).
+ \end{align*}
+ Therefore
+ \begin{align*}
+  [A \oplus B, A \oplus B]
+  &= \vspan_k \{ [(a,b), (a',b')] \mid (a,b), (a',b') \in A \oplus B \} \\
+  &= \vspan_k \{ ([a,a'], [b,b']) \mid a, a' \in A \text{ and } b, b' \in B \} \\
+  &= \left( \vspan_k \{[a,a'] \mid a,a' \in A\} \right) \oplus \left( \vspan_k \{[b,b'] \mid b,b' \in B\} \right) \\
+  &= [A,A] \oplus [B,B].
+ \end{align*}
+\end{proof}
+
+
+\begin{cor}
+ Let $r \geq 1$ and $n_1, \dots, n_r \geq 1$. For
+ \[
+  A \coloneqq \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
+ \]
+ we then have
+ \[
+  [A,A]
+  = \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k).
+ \]
+\end{cor}
+
 
 \begin{lem}
  Let $A$ be a $k$-algebra and $V$ an $A$-module. Then $\chi_V(a) = 0$ for every $a \in [A,A]$.
