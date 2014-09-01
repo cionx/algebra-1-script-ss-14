@@ -986,7 +986,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{proof}
 
 
-\begin{cor}
+\begin{cor}\label{cor: simple modules over product of matrix algebras}
  Let $A$ be a $k$-algebra with
  \[
   A \cong \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
@@ -1230,7 +1230,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{proof}
 
 
-\begin{cor}
+\begin{cor}\label{cor: commutator product of matrix algebras}
  Let $r \geq 1$ and $n_1, \dots, n_r \geq 1$. For
  \[
   A \coloneqq \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
@@ -1304,7 +1304,22 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
    \]
    Because $j$ is arbitrary we find that $\lambda_j = 0$ for all $1 \leq j \leq r$.
   \item
-   {[}This part still needs to be typed.]
+   $A$ is of the form 
+   \[
+    A \cong \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
+   \]
+   for $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$. (This is a corollary from the Theorem of Artin--Wedderburn, both of which we will prove in the near future.) Therefore
+   \[
+    [A,A] \cong \Sl_{n-1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k)
+   \]
+   by Corollary \ref{cor: commutator product of matrix algebras}. Since $\dim_k \Sl_m(k) = m^2 - 1$ for every $m \geq 1$ we find that
+   \begin{align*}
+     &\, \dim_k (A/[A,A])^*
+    =    \dim_k A/[A,A] \\
+    =&\, \dim_k\left( \Mat_{n_1}(k)/\Sl_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)/\Sl_{n_r}(k) \right) \\
+    =&\, r.
+   \end{align*}
+   From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules. Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$. \qedhere
  \end{enumerate}
 \end{proof}
 
