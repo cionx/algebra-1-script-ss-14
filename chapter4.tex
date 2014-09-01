@@ -340,7 +340,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{cor}
+\begin{cor}\label{cor: k^n only simple M_n(k)-module}
  Up to isomorphism $k^n$ is the only simple $\Mat_n(k)$-module.
 \end{cor}
 \begin{proof}
@@ -870,7 +870,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{rem}
 
 
-\begin{lem}
+\begin{lem}\label{lem: modules over direct sum of algebras}
  Let $A_i$, $1 \leq i \leq r$ be a $k$-algebras. Then $A = \bigoplus_{i=1}^r A_i$ is a $k$-algebra in the usual way. For $1 \leq i \leq r$ let
  \[
   1_i = (\delta_{ij})_{1 \leq j \leq r} \in A
@@ -972,6 +972,21 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    \]
    So we have $|S_i| = 2$ for exactly one $1 \leq i \leq r$ and $|S_j| = 1$ for $i \neq j$. So $S_i$ is a simple $A_i$-module and $S_j = 0$ for $j \neq i$.
  \end{enumerate}
+\end{proof}
+
+
+\begin{cor}
+ Let $A$ be a $k$-algebra with
+ \[
+  A \cong \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
+ \]
+ for some $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$. Then there are up to isomorphism exactly $r$ simple $A$-modules, namely $k^{n_1}$, \dots, $k^{n_r}$, where $(B_1, \dotsc, B_r) \in A$ acts on $x \in k^{n_i}$ by
+ \[
+  (B_1, \dotsc, B_r) x =  B_i x.
+ \]
+\end{cor}
+\begin{proof}
+ This follows immediately from Corollary \ref{cor: k^n only simple M_n(k)-module} and Lemma \ref{lem: modules over direct sum of algebras}.
 \end{proof}
 
 
