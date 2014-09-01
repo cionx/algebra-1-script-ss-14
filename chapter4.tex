@@ -459,7 +459,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{lem}
+\begin{lem}\label{lem: k alg. closed and D/k f.d. division algebra then D=k}
  Let $k$ be an algebraically closed field and $D$ a finite-dimensional division algebra over $k$. Then $D = k$.
 \end{lem}
 \begin{proof}
@@ -484,15 +484,11 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   \item
    $\End_A(M)$ is a skew field.
   \item
-   If $k$ is algebraically closed and $\dim_k M < \infty$ then $\End_A(M) \cong k$.
+   If $k$ is algebraically closed and $\dim_k M < \infty$ then $\End_A(M) = k$.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- The first two statements are clear. Suppose that $k$ is algebraically closed and let $f \in \End_A(M)$. We need to show that $f$ acts by multiplication with some scalar $\lambda \in k$. Since $k \subseteq A$ (because $A$ is unital) we have $\End_A(M) \subseteq \End_k(M)$, so $f$ is $k$-linear. Because $k$ is algebraically closed and $\dim_k M < \infty$ we find that $f$ has some eigenvalue $\lambda$. Let $N \subseteq M$ be the corresponding eigenspace of $f$. For all $n \in N$ and $a \in A$ we have
- \[
-  f(an) = a(f(n)) = a(\lambda n) = \lambda(an)
- \]
- and therefore $an \in N$. So $N$ is a submodule of $M$. Since $M$ is simple we have $M = N$. So $f = \lambda \id_M$.
+ The first two statements are clear, the third follows directly from Lemma \ref{lem: k alg. closed and D/k f.d. division algebra then D=k}.
 \end{proof}
 
 
