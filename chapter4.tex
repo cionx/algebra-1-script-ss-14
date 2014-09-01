@@ -459,6 +459,23 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
+\begin{lem}
+ Let $k$ be an algebraically closed field and $D$ a finite-dimensional division algebra over $k$. Then $D = k$.
+\end{lem}
+\begin{proof}
+ Let $a \in D$ with $a \neq 0$. Because $\dim_k D < \infty$ we know that the elements $1$, $a$, $a^2$, $a^3$, \dots\ are linearly dependent. So there exists $p \in k[X]$ with $p(a) = 0$. Since $k$ is algebraically closed we have $p = \prod_{i=1}^n (X-a_i)$ for some $n \in \N$ and $a_1, \dotsc, a_n \in k$. Since
+ \[
+  0 = p(a) = \prod_{i=1}^n (a-a_i)
+ \]
+ we find that $a = a_i$ for some $1 \leq i \leq n$ and thus $a \in k$.
+\end{proof}
+
+
+\begin{rem}
+ That $k$ is algebraically closed is not only sufficient but also necessary. To see this let $k$ be a field which is not algebraically closed and $f \in k[X]$ such that $f$ has no zeroes (in $k$). For $L \coloneqq k[X]/(f)$ we then have a finite field extension $L/k$ with $L \supsetneq k$.
+\end{rem}
+
+
 \begin{lem}[Schur’s Lemma for algebras]
  Let $k$ be a field, $A$ an unital $k$-algebra and $M$ a simple $A$-module.
  \begin{enumerate}[label=\emph{\alph*})]
