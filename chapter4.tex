@@ -144,6 +144,7 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
   we therefore have
   \[
    M/N = \pi(M) = \pi\left( \sum_{i \in I} L_i \right) = \sum_{j \in J} \pi(L_j) \cong \sum_{j \in J} L_j.
+   \qedhere
   \]
  \end{enumerate}
 \end{proof}
@@ -576,6 +577,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
  is surjective. Therefore
  \[
   (\dim_k M)^2 = \dim_k \End_k(M) = \dim_k \im \Phi \leq \dim_k A.
+  \qedhere
  \]
 \end{proof}
 
@@ -679,6 +681,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
  $V$ is a simple $kG$-module, so by Corollary \ref{cor: dimension simple algebra modules}
  \[
   (\dim_k V)^2 \leq \dim_k kG = |G|.
+  \qedhere
  \]
 \end{proof}
 
@@ -864,13 +867,13 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \begin{proof}
  \begin{enumerate}[label=\emph{\alph*})]
   \item
-  This is clear.
+   This is clear.
   \item
-  This is also clear.
+   This is also clear.
   \item
-  For every $\varphi \in S'$ we have $\varphi s = s \varphi$ for every $s \in S$. This the same as saying that for every $s \in S$ we have $s \varphi = \varphi s$ for every $\varphi \in S'$, which means that $s \in (S')'$.
+   For every $\varphi \in S'$ we have $\varphi s = s \varphi$ for every $s \in S$. This the same as saying that for every $s \in S$ we have $s \varphi = \varphi s$ for every $\varphi \in S'$, which means that $s \in (S')'$.
   \item
-  Since $S \subseteq S''$ we have $S''' = (S'')' \subseteq S'$ by \ref{enum: commutator change relationship}) and by \ref{enum: S in S''}) we also have $S' \subseteq (S')'' = S'''$.
+   Since $S \subseteq S''$ we have $S''' = (S'')' \subseteq S'$ by \ref{enum: commutator change relationship}) and by \ref{enum: S in S''}) we also have $S' \subseteq (S')'' = S'''$.
   \qedhere
  \end{enumerate}
 \end{proof}
@@ -982,6 +985,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     2 = |S| = |S_1 \times \dotsb \times S_r| = |S_1| \dotsm |S_r|.
    \]
    So we have $|S_i| = 2$ for exactly one $1 \leq i \leq r$ and $|S_j| = 1$ for $i \neq j$. So $S_i$ is a simple $A_i$-module and $S_j = 0$ for $j \neq i$.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -1033,6 +1037,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    is surjective. Therefore
    \[
     r \leq \sum_{i=1}^r \dim_k \End_k(V_i) \leq \dim_k A.
+    \qedhere
    \]
  \end{enumerate}
 \end{proof}
@@ -1161,6 +1166,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     &= \tr M^{-1}
     = \tr \rho_V\left( g^{-1} \right)
     = \chi_V\left( g^{-1} \right).
+    \qedhere
    \end{align*}
  \end{enumerate}
 \end{proof}
@@ -1226,6 +1232,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   &= \vspan_k \{ ([a,a'], [b,b']) \mid a, a' \in A \text{ and } b, b' \in B \} \\
   &= \left( \vspan_k \{[a,a'] \mid a,a' \in A\} \right) \oplus \left( \vspan_k \{[b,b'] \mid b,b' \in B\} \right) \\
   &= [A,A] \oplus [B,B].
+  \qedhere
  \end{align*}
 \end{proof}
 
@@ -1319,7 +1326,8 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
     =&\, \dim_k\left( \Mat_{n_1}(k)/\Sl_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)/\Sl_{n_r}(k) \right) \\
     =&\, r.
    \end{align*}
-   From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules. Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$. \qedhere
+   From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules. Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$.
+  \qedhere
  \end{enumerate}
 \end{proof}
 

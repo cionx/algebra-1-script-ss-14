@@ -599,13 +599,14 @@ By putting all of this together we get the following nice commutative diagram:
 \begin{proof}\leavevmode
  \begin{enumerate}[label=\emph{\alph*})]
   \item
-  Since $f$ is $G$-equivariant it follows that $f_{|G.X} = 0$, since for all $g \in G$ and $x \in X$
-  \[
-   f(g.x) = \left(g^{-1}.f\right)(x) = f(x) = 0.
-  \]
-  Because $G.X$ is Zariski dense in $W$ it further follows that $f = 0$.
+   Since $f$ is $G$-equivariant it follows that $f_{|G.X} = 0$, since for all $g \in G$ and $x \in X$
+   \[
+    f(g.x) = \left(g^{-1}.f\right)(x) = f(x) = 0.
+   \]
+   Because $G.X$ is Zariski dense in $W$ it further follows that $f = 0$.
   \item
-  Let $x \in X$ such that $G.x$ is Zariski dense in $W$. Since $f$ is $G$-equivariant it is constant on $G$-orbits. Therefore $f-f(x)$ vanishes on the Zariski dense $G$-orbit $G.x$. Therefore $f-f(x) = 0$ and $f = f(x)$.
+   Let $x \in X$ such that $G.x$ is Zariski dense in $W$. Since $f$ is $G$-equivariant it is constant on $G$-orbits. Therefore $f-f(x)$ vanishes on the Zariski dense $G$-orbit $G.x$. Therefore $f-f(x) = 0$ and $f = f(x)$.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -643,6 +644,7 @@ By putting all of this together we get the following nice commutative diagram:
  Since $f_{|\Diag_n(k)} = 0$ it follows that $(f \circ \varphi)(z) = 0$ for all but finitely many $z \in \C$. Therefore $f \circ \varphi = 0$. In particular
  \[
   f(A) = f(\varphi(0)) = (f \circ \varphi)(0) = 0.
+  \qedhere
  \]
 \end{proof}
 
@@ -759,6 +761,7 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
   &= \bigcap_{x \in X} \mc{I}_k(\{x\})_L
   = \bigcap_{x \in X} \mc{I}_L(\{x\})
   = \mc{I}_L(X).
+  \qedhere
  \end{align*}
 \end{proof}
 
@@ -797,11 +800,11 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
 \begin{proof}\leavevmode
  \begin{enumerate}[label=\emph{\alph*})]
   \item
-  $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$. By corollary \ref{cor: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$. By \mbox{lemma \ref{lem: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$. By the transitivity of Zariski density we find that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+   $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$. By corollary \ref{cor: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$. By \mbox{lemma \ref{lem: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$. By the transitivity of Zariski density we find that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
   \item
-  This follows directly from a).
+   This follows directly from a).
   \item
-  The proof given in the lecture is wrong. A right one will be added later.
+   The proof given in the lecture is wrong. A right one will be added later.
   \qedhere
  \end{enumerate}
 \end{proof}
@@ -854,6 +857,7 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
    = f\left(\left(AS^{-1}\right)S\right)
    = f\left(AS^{-1}S\right)
    = f(A).
+   \qedhere
   \]
  \end{proof}
  
@@ -920,6 +924,7 @@ In this section we require all fields to be infinite. Until further notice we al
  and therefore
  \[
   \mc{V}(S) = \mc{V}(\mc{I}(\mc{V}(S))) \subseteq \mc{V}(I) \subseteq \mc{V}(S).
+  \qedhere
  \]
 \end{proof}
 
@@ -937,6 +942,7 @@ In this section we require all fields to be infinite. Until further notice we al
   = \mc{V}(\mc{I}(X))
   = \mc{V}\left(\left(f_1, \dotsc, f_n\right)_{\mc{P}(W)}\right)
   = \mc{V}(\{f_1, \dotsc, f_n\}).
+  \qedhere
  \]
 \end{proof}
 
@@ -958,27 +964,28 @@ In this section we require all fields to be infinite. Until further notice we al
 \begin{proof}
  \begin{enumerate}
   \item
-  Since $I_i \subseteq \sum_{j \in J} I_j$ for all $i \in J$ we have
-  \[
-   \mc{V}\left( \sum_{j \in J} I_j \right) \subseteq \mc{V}(I_i)
-  \]
-  for all $i \in J$ and thus
-  \[
-   \mc{V}\left( \sum_{j \in J} I_j \right) \subseteq \bigcap_{j \in J} \mc{V}(I_j).
-  \]
-  On the other hand we have for every $x \in \bigcap_{j \in J} \mc{V}(I_j)$ that $f(x) = 0$ for every $j \in J$ for all $f \in I_j$ and therefore
-  \[
-   x
-   \in \mc{V}\left( \bigcup_{j \in J} I_j \right)
-   = \mc{V}\left( \left( \bigcup_{j \in J} I_j \right)_{\mc{P}(W)} \right)
-   = \mc{V}\left( \sum_{j \in J} I_j \right).
-  \]
+   Since $I_i \subseteq \sum_{j \in J} I_j$ for all $i \in J$ we have
+   \[
+    \mc{V}\left( \sum_{j \in J} I_j \right) \subseteq \mc{V}(I_i)
+   \]
+   for all $i \in J$ and thus
+   \[
+    \mc{V}\left( \sum_{j \in J} I_j \right) \subseteq \bigcap_{j \in J} \mc{V}(I_j).
+   \]
+   On the other hand we have for every $x \in \bigcap_{j \in J} \mc{V}(I_j)$ that $f(x) = 0$ for every $j \in J$ for all $f \in I_j$ and therefore
+   \[
+    x
+    \in \mc{V}\left( \bigcup_{j \in J} I_j \right)
+    = \mc{V}\left( \left( \bigcup_{j \in J} I_j \right)_{\mc{P}(W)} \right)
+    = \mc{V}\left( \sum_{j \in J} I_j \right).
+   \]
   \item
-  We have $I_1 \cap I_2 \subseteq I_j$ for $j \in \{1,2\}$, so $\mc{V}(I_j) \subseteq \mc{V}(I_1 \cap I_2)$ for $j \in \{1,2\}$ and therefore
-  \[
-   \mc{V}(I_1) \cup \mc{V}(I_2) \subseteq \mc{V}(I_1 \cap I_2).
-  \]
-  For every $x \not\in \mc{V}(I_1 \cap I_2)$ there exists $f \in I_1$ with $f(x) \neq 0$ and $g \in I_2$ with $g(x) \neq 0$. Since $fg \in I_1 \cap I_2$ with $(fg)(x) \neq 0$ we have $x \not\in \mc{V}(I_1 \cap I_2)$.
+   We have $I_1 \cap I_2 \subseteq I_j$ for $j \in \{1,2\}$, so $\mc{V}(I_j) \subseteq \mc{V}(I_1 \cap I_2)$ for $j \in \{1,2\}$ and therefore
+   \[
+    \mc{V}(I_1) \cup \mc{V}(I_2) \subseteq \mc{V}(I_1 \cap I_2).
+   \]
+   For every $x \not\in \mc{V}(I_1 \cap I_2)$ there exists $f \in I_1$ with $f(x) \neq 0$ and $g \in I_2$ with $g(x) \neq 0$. Since $fg \in I_1 \cap I_2$ with $(fg)(x) \neq 0$ we have $x \not\in \mc{V}(I_1 \cap I_2)$.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -1009,22 +1016,22 @@ In this section we require all fields to be infinite. Until further notice we al
 \begin{proof}
  \begin{enumerate}[label=\emph{\alph*})]
   \item
-  It is clear that $I \subseteq \rad I$.
-  
-  For $f,g \in \rad I$ there exist $n,m \in \N$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$. Therefore
-  \[
-   (f-g)^{n+m} = \sum_{i=0}^{n+m} (-1)^{n+m-k} \binom{n+m}{k} f^k g^{n+m-k} \in I
-  \]
-  and thus $f-g \in \rad I$. It is also clear that $0 \in \rad I$.
-  
-  For $f \in \rad I$ there exists $n \in \N$ such that $f^n \in I$. For every $r \in R$ we therefore have
-  \[
-   (rf)^n = r^n f^n \in I
-  \]
-  and thus $rf \in \rad I$.
-  
+   It is clear that $I \subseteq \rad I$.
+   
+   For $f,g \in \rad I$ there exist $n,m \in \N$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$. Therefore
+   \[
+    (f-g)^{n+m} = \sum_{i=0}^{n+m} (-1)^{n+m-k} \binom{n+m}{k} f^k g^{n+m-k} \in I
+   \]
+   and thus $f-g \in \rad I$. It is also clear that $0 \in \rad I$.
+   
+   For $f \in \rad I$ there exists $n \in \N$ such that $f^n \in I$. For every $r \in R$ we therefore have
+   \[
+    (rf)^n = r^n f^n \in I
+   \]
+   and thus $rf \in \rad I$.
   \item
-  Let $r \in \rad(\rad I)$. Then there exists $m \in \N$ with $r^m \in \rad I$. Thus there exists $n \in \N$ with $r^{mn} = (r^m)^n \in I$. This shows that $\rad \rad I \subseteq \rad I$. The other inclusion is clear.
+   Let $r \in \rad(\rad I)$. Then there exists $m \in \N$ with $r^m \in \rad I$. Thus there exists $n \in \N$ with $r^{mn} = (r^m)^n \in I$. This shows that $\rad \rad I \subseteq \rad I$. The other inclusion is clear.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -1057,12 +1064,13 @@ In this section we require all fields to be infinite. Until further notice we al
 \begin{proof}
  \begin{enumerate}
   \item
-  We will prove this later.
+   We will prove this later.
   \item
-  We already know that for an affine algebraic variety $X \subseteq W$ we have $\mc{V}(\mc{I}(X)) = X$. For every radical ideal $I \subseteq \mc{P}(W)$ we have $\rad I = I$ and therefore by 1)
-  \[
-   \mc{I}(\mc{V}(I)) = \rad I = I.
-  \]
+   We already know that for an affine algebraic variety $X \subseteq W$ we have $\mc{V}(\mc{I}(X)) = X$. For every radical ideal $I \subseteq \mc{P}(W)$ we have $\rad I = I$ and therefore by 1)
+   \[
+    \mc{I}(\mc{V}(I)) = \rad I = I.
+   \]
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -1157,6 +1165,7 @@ To prove the first part of the previous lemma we need some preparation.
    but $a$ is a pole of $1/(X-a)$. Therefore
   \[
    \frac{1}{X-a} \not\in k[f_1, \dotsc, f_s].
+   \qedhere
   \]
  \end{proof}
 \end{rem}

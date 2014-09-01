@@ -230,6 +230,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
   &\Leftrightarrow \forall g \in G, x \in X : g.f(g^{-1}.x) = f(x) \\
   &\Leftrightarrow \forall g \in G : g.f = f \\
   &\Leftrightarrow f \in \Maps(X,Y)^G.
+  \qedhere
  \end{align*}
 \end{proof}
 
@@ -336,6 +337,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
     \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}(y) = f(x_j)
    \]
    for $j$ chosen such that $y \in \mc{O}_j$, i.e.\ $y = g^{-1}.x_j$ for some $g \in G$. We then have $f(y) = f(g^{-1}.x_j) = f(x_j)$. This shows that the $\chi_{\mc{O}_i}$’s generate $\Maps(X,k)^G$. The linear independence is clear (same argumentation as above).
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -410,6 +412,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
     \Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)
    \]
    is $G$-equivariant. Thus we get the desired isomorphism by taking invariants on both sides.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
@@ -496,6 +499,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
      &= (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x),
     \end{align*}
     so $G$ acts by ring homomorphisms. Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms. The rest is a consequence of Lemma \ref{lem: group action by ring automorphisms}.
+   \qedhere
   \end{enumerate}
  \end{proof}
 \end{expl}
@@ -879,21 +883,22 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
 \begin{proof}
  \begin{enumerate}[label=\emph{\alph*})]
   \item 
-  Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp. $W$. Since $V$ and $W$ are irreducible we have that
-  \[
-   \ker f = 0 \text{ or } \ker f = V \quad \text{and} \quad \im f = 0 \text{ or } \im f = W.
-  \]
-  Since $f \neq 0$ we have $\ker f \neq V$ and $\im f \neq 0$. So $\ker f = 0$ and $\im f = W$.
+   Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp. $W$. Since $V$ and $W$ are irreducible we have that
+   \[
+    \ker f = 0 \text{ or } \ker f = V \quad \text{and} \quad \im f = 0 \text{ or } \im f = W.
+   \]
+   Since $f \neq 0$ we have $\ker f \neq V$ and $\im f \neq 0$. So $\ker f = 0$ and $\im f = W$.
   \item
-  It is clear that $V \cong V$, so it follows from a).
+   It is clear that $V \cong V$, so it follows from a).
   \item
-  Assume $\alpha, \beta \in \Hom_G(V,W)$ where $V \cong W$ and $\alpha \neq 0$. It is enough to show that there exists some $\lambda \in k$ such that $\beta = \lambda \alpha$. Consider the morphism $\alpha^{-1} \beta \in \Hom_G(V,W)$ (this is well defined since we know from a) that $\alpha$ is invertible and $\alpha^{-1}$ is again a morphism of representations by the previous Remark, hence $\alpha^{-1} \beta \in \Hom_G(V,W)$ by lemma \ref{lem: composition of morphisms of representations}).
-  
-  Because $k$ is algebraically closed $\alpha^{-1} \beta$ has some eigenvalue $\lambda \in k$. By \mbox{lemma \ref{lem: ker and im subrepresentations}}
-  \[
-   K \coloneqq \ker(\alpha^{-1} \beta - \lambda \id_V)
-  \]
-  is a subrepresentation of $V$. Since $V$ is irreducible and $K \neq 0$ (because $\lambda$ is an eigenvalue of $\alpha^{-1} \beta$) we have $K = V$. So $\alpha^{-1} \beta = \lambda \id_V$ and therefore $\beta = \lambda \alpha$. \qedhere
+   Assume $\alpha, \beta \in \Hom_G(V,W)$ where $V \cong W$ and $\alpha \neq 0$. It is enough to show that there exists some $\lambda \in k$ such that $\beta = \lambda \alpha$. Consider the morphism $\alpha^{-1} \beta \in \Hom_G(V,W)$ (this is well defined since we know from a) that $\alpha$ is invertible and $\alpha^{-1}$ is again a morphism of representations by the previous Remark, hence $\alpha^{-1} \beta \in \Hom_G(V,W)$ by lemma \ref{lem: composition of morphisms of representations}).
+   
+   Because $k$ is algebraically closed $\alpha^{-1} \beta$ has some eigenvalue $\lambda \in k$. By \mbox{lemma \ref{lem: ker and im subrepresentations}}
+   \[
+    K \coloneqq \ker(\alpha^{-1} \beta - \lambda \id_V)
+   \]
+   is a subrepresentation of $V$. Since $V$ is irreducible and $K \neq 0$ (because $\lambda$ is an eigenvalue of $\alpha^{-1} \beta$) we have $K = V$. So $\alpha^{-1} \beta = \lambda \id_V$ and therefore $\beta = \lambda \alpha$.
+  \qedhere
  \end{enumerate}
 \end{proof}
 
