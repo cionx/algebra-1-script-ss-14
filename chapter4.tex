@@ -92,9 +92,9 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
   \item
   For a field $k$ let
   \[
-   R = \left\{ \vect{a & b \\ 0 & c} \,\middle|\, a, b, c \in k \right\} \subseteq \Mat_2(k).
+   R \coloneqq \left\{ \vect{a & b \\ 0 & c} \,\middle|\, a, b, c \in k \right\} \subseteq \Mat_2(k).
   \]
-  Then $k^2$ is not semisimple as an $R$-module since the only submodule of $k^2$ is
+  Then $k^2$ is not semisimple as an $R$-module since the only non-trivial submodule of $k^2$ is
   \[
    \{ (x,0) \mid x \in k \}.
   \]
@@ -102,7 +102,13 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
   \[
    \vect{a & b \\ 0 & c} \vect{x \\ y} = \vect{ax + by \\ cy},
   \]
-  so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both $(1,0)$ and $(0,1)$ and therefore $M = k^2$.
+  so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both
+  \begin{align*}
+   \vect{0 & y^{-1} \\ 0 & 0} \vect{x \\ y} &= \vect{1 \\ 0}
+  \shortintertext{and}
+   \vect{0 & 0 \\ 0 & y^{-1}} \vect{x \\ y} &= \vect{0 \\ 1}
+  \end{align*}
+  and therefore $M = k^2$.
  \end{enumerate}
 \end{expls}
 
@@ -1164,7 +1170,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 
 \begin{expl}
- For a field $k$ and $n \geq 1$ we set
+ For every field $k$ and $n \geq 1$ we set
  \[
   \Sl_n(k) \coloneqq [\Mat_n(k), \Mat_n(k)]
  \]
