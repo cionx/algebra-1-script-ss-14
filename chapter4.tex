@@ -1021,6 +1021,36 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{defi}
 
 
+\begin{expl}
+ For a field $k$ and $n \geq 1$ we set
+ \[
+  \Sl_n(k) \coloneqq [\Mat_n(k), \Mat_n(k)]
+ \]
+ We then have
+ \[
+  \Sl_n(k) = \ker \tr = \{M \in \Mat_n(k) \mid \tr M = 0\}.
+ \]
+ \begin{proof}
+  For all $A, B \in \Mat_n(k)$ we have
+  \[
+   \tr(AB-BA) = \tr(AB)-\tr(BA) = \tr(AB)-\tr(AB) = 0.
+  \]
+  Since these elements generate $\Sl_n(k)$ as a $k$-vector space and $\tr$ is $k$-linear we find that $\Sl_n(k) \subseteq \ker \tr$.
+  
+  To show the other inclusion let $(E_{ij})_{1 \leq i,j \leq n}$ be the usual $k$-basis of $\Mat_n(k)$ (where $E_{ij}$ maps $e_j$ to $e_i$ for all $1 \leq i,j \leq n)$. It is clear that the matrices $E_{ij}$ for $i \neq j$ together with the matrices $E_{ii}-E_{i+1,i+1}$ for $1 \leq i \leq n-1$ form a $k$-basis of $\ker \tr$. For all $1 \leq i,j \leq n$ with $i \neq j$ we have
+  \[
+   E_{ij} = E_{ii} E_{ij} - \underbrace{E_{ij} E_{ii}}_{=0} = [E_{ii}, E_{ij}] \in \Sl_n(k)
+  \]
+  and for all $1 \leq i \leq n-1$ we have
+  \[
+   E_{ii} - E_{i+1,i+1} = E_{i,i+1} E_{i+1,i} - E_{i+1,i} E_{i,i+1} = [E_{i,i+1}, E_{i+1,i}] \in \Sl_n(k),
+  \]
+  so $\ker \tr \subseteq \Sl_n(k)$.
+ \end{proof}
+\end{expl}
+
+
+
 \begin{lem}
  Let $A$ be a $k$-algebra and $V$ an $A$-module. Then $\chi_V(a) = 0$ for every $a \in [A,A]$.
 \end{lem}
