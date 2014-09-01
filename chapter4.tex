@@ -324,7 +324,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{lem}
+\begin{lem}\label{lem: simple module of semisimple ring is direct summand}
  Let $R$ be a semisimple ring and $E$ a simple $R$-module. Then $F \cong E$ for some simple submodule $F \subseteq R$. More precisely: If $R = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules then $E \cong L_i$ for some $i \in I$.
 \end{lem}
 \begin{proof}
@@ -338,6 +338,16 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
  \]
  with $\psi = \bigoplus_{i \in I} \phi_i$. Since $\psi \neq 0$ we have $\phi_j \neq 0$ for some $j \in I$. Since $L_j$ and $E$ are both simple $\phi_j$ is already an isomorphism.
 \end{proof}
+
+
+\begin{cor}
+ Up to isomorphism $k^n$ is the only simple $\Mat_n(k)$-module.
+\end{cor}
+\begin{proof}
+ We know that $\Mat_n(k) = \bigoplus_{i=1}^n C_i$ as $\Mat_n(k)$-modules where $C_i \cong k^n$ for every $1 \leq r \leq n$. Since every simple $\Mat_n(k)$-module is isomorphic to $C_i$ for some $1 \leq i \leq r$ the statement follows from Lemma \ref{lem: simple module of semisimple ring is direct summand}.
+\end{proof}
+
+
 
 
 
