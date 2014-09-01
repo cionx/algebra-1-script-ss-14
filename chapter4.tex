@@ -860,6 +860,112 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{rem}
 
 
+\begin{lem}
+ Let $A_i$, $1 \leq i \leq r$ be an unital $k$-algebras. Then $A = \bigoplus_{i=1}^r A_i$ is a $k$-algebra in the usual way. For $1 \leq i \leq r$ let
+ \[
+  1_i = (\delta_{ij})_{1 \leq j \leq r} \in A
+ \]
+ be the unit of $A_i \subseteq A$, i.e.
+ \[
+  (1_i)_j =
+  \begin{cases}
+   1 & \text{if } j = i, \\
+   0 & \text{otherwise}.
+  \end{cases}
+ \]
+ \begin{enumerate}[label=\emph{\alph*}),leftmargin=*]
+  \item
+   $A$ is unital with $1 = \sum_{i=1}^r 1_i$ and for all $1 \leq i,j \leq r$ we have $1_i 1_j = \delta_{ij}$.
+  \item
+   If $V$ is an $A$-module then $V_i \coloneqq 1_i V$ is an $A_i$-module by restriction and for every $1 \leq i \leq j$ with $i \neq j$ we have $A_j V_i = 0$.
+  \item
+   If $V_i$ is an $A_i$-module for every $1 \leq i \leq r$ then $V \coloneqq V_1 \oplus \dotsb \oplus V_r$ is an $A$-module via
+   \[
+    (a_1, \dotsc, a_r) (v_1, \dotsc, v_r) = (a_1 v_1, \dotsc, a_r v_r).
+   \]
+  \item
+   Let $V$ be an $A$-module and $V_i \coloneqq 1_i V$ for every $1 \leq i \leq r$. Then the $k$-vector subspace \mbox{$\sum_{i=1}^r V_i \subseteq V$} is an $A$-submodule. We have $\sum_{i=1}^r V_i = V$ and the sum is direct, so
+   \[
+    V = V_1 \oplus \dotsb \oplus V_r
+   \]
+   as $A$-modules.
+  \item
+   An $A$-module $V \neq 0$ is simple if and only if there exists an unique $1 \leq i \leq r$ such that for every $1 \leq j \leq r$
+   \[
+    1_j V =
+    \begin{cases}
+     \text{a simple $A_j$-module} & \text{if } i = j, \\
+                                0 & \text{otherwise}.
+    \end{cases}
+   \]
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*}),leftmargin=*]
+  \item
+   This is clear.
+  \item
+   $1_i V$ is a $k$-vector subspace since
+   \[
+    k 1_i V = 1_i k V = 1_i V.
+   \]
+   We have
+   \[
+    A_i 1_i = 1_i A_i = 1_i A
+   \]
+   and therefore
+   \[
+    A_i 1_i V = 1_i A_i V \subseteq 1_i A V \subseteq 1_i V,
+   \]
+   and for every $v \in V$ we have
+   \[
+    1_i (1_i v) = 1_i v.
+   \]
+   For $i \neq j$ we have
+   \[
+    A_i V_j = (A 1_i) (1_j V) = A_i \underbrace{1_i 1_j}_{=0} V = 0.
+   \]
+  \item
+   This is clear.
+  \item
+   We set
+   \[
+    V' \coloneqq \sum_{i=1}^r V_i.
+   \]
+   $V'$ is an $A$-submodule since
+   \[
+    A V'
+    = A \sum_{i=1}^r V_i
+    = \sum_{i=1}^r A V_i
+    = \sum_{i=1}^r A 1_i V_i
+    = \sum_{i=1}^r A_i V_i
+    = \sum_{i=1}^r V_i
+    = V'.
+   \]
+   To see that $V = V'$ notice that
+   \[
+    V = 1 V = \left( \sum_{i=1}^r 1_i \right) V = \sum_{i=1}^r (1_i V) = \sum_{i=1}^r V_i = V'.
+   \]
+   To see that this sum is direct let $v = \sum_{i=1}^r v_i = \sum_{i=1}^r v'_i \in V$ with $v_i, v'_i \in V_i$ for every $1 \leq i \leq r$. Then we have for every $1 \leq i \leq r$
+   \[
+    1_i v = 1_i \sum_{j=1}^r v_j = \sum_{i=1}^r 1_i v_j = v_i
+   \]
+   and in the same way $1_i v = v'_i$, so $v_i = v'_i$ for every $1 \leq i \leq r$.
+  \item
+   We can write $V$ as $V = V_1 \oplus \dotsb \oplus V_r$ where $V_i \coloneqq 1_i V$ is an $A_i$-module for every $1 \leq i \leq r$. From the previous observations we find that we have a bijection
+   \[
+    S_1 \times \dotsb \times S_r \to S, (U_1, \dotsb, U_r) \mapsto U_1 \oplus \dotsb \oplus U_r,
+   \]
+   where $S_i$ is the set of $A_i$-submodules of $V_i$ for every $1 \leq i \leq r$ and $S$ is the set of $A$-submodules of $V$. Since $V$ is simple we have $|S| = 2$, so
+   \[
+    2 = |S| = |S_1 \times \dotsb \times S_r| = |S_1| \dotsm |S_r|.
+   \]
+   So we have $|S_i| = 2$ for exactly one $1 \leq i \leq r$ and $|S_j| = 1$ for $i \neq j$. So $S_i$ is a simple $A_i$-module and $S_j = 0$ for $j \neq i$.
+ \end{enumerate}
+\end{proof}
+
+
+
 \begin{prop}
  Let $k$ be a field and $A$ an unital finite-dimensional $k$-algebra.
  \begin{enumerate}[label=\emph{\alph*})]
