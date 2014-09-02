@@ -368,6 +368,42 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
+\begin{lem}\label{lem: ring with 1 finite sum of submodules}
+ Let $R$ be a semisimple ring (with $1$) and $R = \sum_{i \in I} M_i$ where $M_i \subseteq R$ is an $R$-submodule for every $i \in I$. Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
+\end{lem}
+\begin{proof}
+ We can write
+ \[
+  1 = \sum_{i \in I} e_i
+ \]
+ with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$. Let
+ \[
+  J \coloneqq \{i \in I \mid e_i \neq 0\}.
+ \]
+ Then
+ \[
+  \mc{I} \coloneqq \sum_{j \in J} M_i
+ \]
+ is an $R$-submodule of $R$, i.e.\ an left-ideal of $R$, with $1 \in \mc{I}$. Therefore $\mc{I} = R$.
+\end{proof}
+
+
+\begin{cor}\label{lem: semisimple ring with 1 only finitely many summands}
+ Let $R$ be a semisimple ring (with $1$). Then $R$ is the direct sum of finitely many simple submodules.
+\end{cor}
+\begin{proof}
+ Because $R$ is semisimple we have $R = \bigoplus_{i \in I} L_i$ where $L_i \subseteq R$ is a simple $R$-submodule for every $i \in I$. By Lemma \ref{lem: ring with 1 finite sum of submodules} there exists a finite subset $J \subseteq I$ with
+ \[
+  R = \sum_{j \in J} L_j = \bigoplus_{j \in J} L_j.
+  \qedhere
+ \]
+\end{proof}
+
+
+
+
+
+
 
 
 
