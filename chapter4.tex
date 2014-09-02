@@ -1548,9 +1548,27 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 \begin{defi}
  Let $R$ be a ring. Then the ring $R^\op$ is defined by taking the underlying additive group of $R$ and reversing the multiplication order, i.e.\ if for the multiplication $\cdot$ in $R$ and the multiplication $*$ in $R^\op$ we have
  \[
-  a * b = b \cdot a \text{ for every } a,b \in R^\op
+  a * b = b \cdot a \text{ for every } a,b \in R^\op.
  \]
 \end{defi}
+
+
+\begin{rem}
+ A ring $R$ is commutative if and only if $R = R^\op$.
+\end{rem}
+
+
+\begin{expl}
+ Let $D$ be a skew field and $n \geq 1$. Then we have an isomorphism of rings
+ \[
+  \Mat_n(D) \cong \Mat_n\left( D^\op \right)^\op, A \mapsto A^T.
+ \]
+ For a field $k$ this gives us an isomorphism
+ \[
+  \Mat_n(k) \cong \Mat_n(k)^\op, A \mapsto A^T.
+ \]
+\end{expl}
+
 
 
 
