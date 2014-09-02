@@ -1553,6 +1553,8 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
   \item
    A ring $R$ is unitary if and only if $R^\op$ is unitary.
   \item
+   If $D$ is a skew field then $D^\op$ is also a skew field.
+  \item
    For a collectios of rings $R_i$, $i \in I$ we have
    \[
     \left( \prod_{i \in I} R_i \right)^\op = \prod_{i \in I} R_i^\op
@@ -1647,6 +1649,26 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
  \]
  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$. Moreover $r$ is unique, $(n_1,D_1)$, \dots, $(n_r,D_r)$ are unique up to permutation and isomorphism of the $D_i$.
 \end{thrm}
+
+
+\begin{cor}
+ Let $R$ be a semisimple ring (with $1$). Then $R^\op$ is also semisimple.
+\end{cor}
+\begin{proof}
+ By Artin--Wedderburn we have
+ \[
+  R \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+ \]
+ for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$. Therefore
+ \begin{align*}
+  R^\op
+  &\cong \left( \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \right)^\op \\
+  &= \Mat_{n_1}(D_1)^\op \times \dotsm \times \Mat_{n_r}(D_r)^\op \\
+  &= \Mat_{n_1}\left(D_1^\op\right) \times \dotsm \times \Mat_{n_r}\left(D_r^\op\right).
+ \end{align*}
+ Since $D_1^\op$, \dots, $D_r^\op$ are skew fields we find that $R^\op$ is semisimple by Artin--Wederburn.
+\end{proof}
+
 
 
 
