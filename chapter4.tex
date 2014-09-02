@@ -1348,7 +1348,48 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 \end{proof}
 
 
+\begin{prop}
+ Let $A$ be a finite-dimensional $k$-algebra. Then the following are equivalent:
+ \begin{enumerate}[label=\emph{\roman*)}]
+  \item\label{enum: nondegenerate symmetric associative bilinear form}
+   There exists a nondegenerate symmetric bilinear form $(-,-) \colon A \times A \to k$ which is associative (i.e. $(ab,c) = (a,bc)$ for all $a,b,c \in A$.)
+  \item\label{enum: nondegenerato linear map}
+   There exists a $k$-linear map $\varepsilon \colon A \to k$ satisfying the following properties:
+   \begin{enumerate}[label=\emph{(\roman*)}]
+    \item
+     $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$.
+    \item
+     For any $a \in A$ with $a \neq 0$ there exists $b \in B$ such that $\varepsilon(ba) \neq 0$.
+   \end{enumerate}
+  \item\label{enum: no nonzero ideals in kernel of linear map}
+   There exists a $k$-linear map $\lambda \colon A \to k$ satisfying the following properties:
+   \begin{enumerate}[label=\emph{(\roman*)}]
+    \item
+     $\lambda(ab) = \lambda(ba)$ for all $a,b \in A$.
+    \item
+     $\ker \lambda$ does not contain any nonzero left-ideals of $A$.
+   \end{enumerate}
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ We first show the equivalence of \ref{enum: nondegenerato linear map} and \ref{enum: no nonzero ideals in kernel of linear map}. For this let $\varepsilon \colon A \to k$ be a $k$-linear map such that $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$. That $\ker \varepsilon$ contains no nonzero left-ideals of $A$ is equivalent to saying that it does not contain any non-zero principal left-ideals of $A$. This is equivalent to saying that for every $a \in A$ with $a \neq 0$ we have $Aa \subsetneq \ker \varepsilon$, which is the same as saying that for every $a \in A$ with $a \neq 0$ there exists $b \in A$ with $\varepsilon(ba) \neq 0$.
+ 
+ Next we show the equivalence of \ref{enum: nondegenerate symmetric associative bilinear form} and \ref{enum: nondegenerato linear map}. If \ref{enum: nondegenerate symmetric associative bilinear form} holds then \ref{enum: nondegenerato linear map} follows by setting $\varepsilon = (1,-)$. If \ref{enum: nondegenerato linear map} holds then \ref{enum: nondegenerate symmetric associative bilinear form} follows by defining
+ \[
+  (a,b) \coloneqq \varepsilon(ab) \text{ for all } a,b \in A.
+  \qedhere
+ \]
+\end{proof}
 
+
+\begin{rem}
+ Since the bilinear form in \ref{enum: nondegenerate symmetric associative bilinear form} is symmetric one can also show \ref{enum: nondegenerato linear map} with $\varepsilon(ab) \neq 0$ instead of $\varepsilon(ba) \neq 0$ as well as \ref{enum: no nonzero ideals in kernel of linear map} for right-ideals instead of left-ideals.
+\end{rem}
+
+
+\begin{defi}
+ A finite-dimensional $k$-Algebra satisfying one (and thus all) of the above conditions is called a (symmetric) Frobenius algebra. A Frobenius form of $A$ refers either to a $k$-bilinear map $A \times A \to k$ satisfying \ref{enum: nondegenerate symmetric associative bilinear form} or a $k$-linear map $A \to k$ satisfying \ref{enum: nondegenerato linear map} (and thus also \ref{enum: no nonzero ideals in kernel of linear map}), depending on the situation.
+\end{defi}
 
 
 
