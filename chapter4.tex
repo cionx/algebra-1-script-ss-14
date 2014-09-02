@@ -1005,7 +1005,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{proof}
 
 
-\begin{prop}
+\begin{prop}\label{prop: simple modules over finite-dimensional algebras}
  Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
  \begin{enumerate}[label=\emph{\alph*})]
   \item
@@ -1330,6 +1330,24 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
   \qedhere
  \end{enumerate}
 \end{proof}
+
+
+\begin{cor}"
+ Let $k$ be an algebraically closed field and $G$ a finite, abelian group with $\kchar k \nmid |G|$. Then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
+\end{cor}
+\begin{proof}
+ The group algebra $kG$ is finite-dimensional and by Maschke’s Theorem also semisimple. Therefore
+ \[
+  |\Irr_k(G)| = |\Irr(kG)| = \dim_k (kG/[kG, kG])^* = \dim_k kG/[kG, kG].
+ \]
+ Since $G$ is abelian the group algebra $kG$ is commutative, so $[kG,kG] = 0$ and
+ \[
+  \dim_k kG/[kG, kG] = \dim_k kG = |G|.
+  \qedhere
+ \]
+\end{proof}
+
+
 
 
 
