@@ -1409,6 +1409,38 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 \end{defi}
 
 
+\begin{prop}
+ Let $A$ be a Frobenius algebra and $(-,-) \colon A \times A \to k$ a Frobenius form of $A$. Then
+ \[
+  \psi \colon Z(A) \to (A/[A,A])^*, a \mapsto (a,-)
+ \]
+ is an isomorphism of $k$-vector spaces, where
+\end{prop}
+\begin{proof}
+ It is clear that the map
+ \[
+  \varphi \colon A \to A^*, a \mapsto (a, -)
+ \]
+ is well-defined and $k$-linear. Because $(-,-)$ is nondegenerate $\varphi$ is injective. Since $A$ is finite-dimensional we find that $\varphi$ is an isomorphism of $k$-vector spaces. To prove the proposition we show that $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
+ 
+ For all $z, a, b \in A$ we have
+ \[
+  (z,ba) = (1,zba) = (zba,1) = (zb,a) = (a,zb) = (az,b)
+ \]
+ and therefore
+ \begin{align*}
+  \varphi(z)(ab-ba)
+  &= (z,ab-ba)
+  = (z,ab) - (z,ba) \\
+  &= (za,b) - (az,b)
+  = (za-az,b)
+  = ([z,a],b)
+ \end{align*}
+ Fix $z \in A$. That $\varphi(z)_{|[A,A]} = 0$ is equivalent to $\varphi(z)(ab-ba) = 0$ for all $a,b \in A$. By the observation above this is equivalent to $([z,a],b) = 0$ for every $a,b \in A$. Because $(-,-)$ is nondegenerate this is equivalent to saying that $[z,a] = 0$ for every $a \in A$. So $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
+\end{proof}
+
+
+
 
 
 
