@@ -1554,7 +1554,7 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 
 \begin{rem}
- A ring $R$ is commutative if and only if $R = R^\op$.
+ A ring $R$ is commutative if and only if $R = R^\op$ and for every ring $R$ we have $\left( R^\op \right)^\op = R$.
 \end{rem}
 
 
@@ -1568,6 +1568,68 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
   \Mat_n(k) \cong \Mat_n(k)^\op, A \mapsto A^T.
  \]
 \end{expl}
+
+
+For a ring $R$ there is a strong connection between left $R$-modules and right $R^\op$-modules.
+
+
+\begin{prop}\label{prop: opposite modules}
+ Let $R$ be a ring. We have a 1:1-correspondence between the left $R$-modules and $R^\op$-modules, where for a left $R$-module $M$ the corresponding right $R^\op$-module $M^\op$ is defined as
+ \[
+  m \bullet r \coloneqq r \cdot m \text{ for every } m \in M^\op, r \in R^\op,
+ \]
+ where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
+\end{prop}
+\begin{proof}
+ <Insert obvious calculations here>.
+\end{proof}
+
+
+\begin{lem}
+ Let $R$ be a ring (with $1$). Let $\cdot$ denote the multiplication in $R$ and $*$ the multiplication in $R^\op$. Then we have an isomorphism of rings
+ \[
+  \End_R(R) \cong R^\op,
+  (s \mapsto s \cdot r) \mapsfrom r.
+ \]
+\end{lem}
+
+The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatible with the left multiplication are given by right multiplication.
+
+\begin{proof}
+ Let
+ \[
+  \varphi \colon R^\op \to \End_R(R), r \mapsto (s \mapsto s \cdot r).
+ \]
+ We first show that $\varphi$ is well-defined: Notice that $(s \mapsto s \cdot r)$ is $\Z$-linear for every $r \in \R^\op$ by the distributivity of $\cdot$ and $R$-linear by the associativity of $\cdot$.
+ 
+ To see that $\varphi$ is a ring-homomorphism notice that $\varphi(1) = \id_R$ and for all $r,r' \in R^\op$ and $s \in R$
+ \begin{align*}
+  \varphi(r+r')(s)
+  &= s \cdot (r + r')
+  = s \cdot r + s \cdot r' \\
+  &= \varphi(r)(s) + \varphi(r')(s)
+  = (\varphi(r)+\varphi(r'))(s)
+ \end{align*}
+ and
+ \begin{align*}
+  \varphi(r * r')(s)
+  &= s \cdot (r * r')
+  = s \cdot (r' \cdot r) \\
+  &= (s \cdot r') \cdot r
+  = \left(\varphi(r) \circ \varphi(r')\right)(s).
+ \end{align*}
+ 
+ That $\varphi$ is injective is clear, since for every $r \in \ker \varphi$
+ \[
+  0 = \varphi(r)(1) = 1 \cdot r = r.
+ \]
+ To see that it is surjective let $f \in \End_R(R)$ and set $r \coloneqq f(1)$. For every $s \in R$ we then have
+ \[
+  f(s) = f(s \cdot 1) = s \cdot f(1) = s \cdot r = \varphi(r)(s),
+ \]
+ and thus $f = \varphi(r)$.
+\end{proof}
+
 
 
 
