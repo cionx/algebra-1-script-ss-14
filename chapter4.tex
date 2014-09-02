@@ -891,11 +891,11 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 
 \begin{lem}\label{lem: modules over direct sum of algebras}
- Let $A_i$, $1 \leq i \leq r$ be a $k$-algebras. Then $A = \bigoplus_{i=1}^r A_i$ is a $k$-algebra in the usual way. For $1 \leq i \leq r$ let
+ Let $R_i$, $1 \leq i \leq n$ be rings (with $1$) and $R \coloneqq \prod_{i=1}^n R_i$. For $1 \leq i \leq n$ let
  \[
-  1_i = (\delta_{ij})_{1 \leq j \leq r} \in A
+  1_i = (\delta_{ij})_{1 \leq j \leq r} \in R
  \]
- be the unit of $A_i \subseteq A$, i.e.
+ be the unit of $R_i \subseteq R$, i.e.
  \[
   (1_i)_j =
   \begin{cases}
@@ -905,26 +905,25 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \]
  \begin{enumerate}[label=\emph{\alph*}),leftmargin=*]
   \item
-   $A$ is unitary with $1 = \sum_{i=1}^r 1_i$ and for all $1 \leq i,j \leq r$ we have $1_i 1_j = \delta_{ij}$.
+   $R$ is unitary with $1 = \sum_{i=1}^n 1_i$ and for all $1 \leq i,j \leq n$ we have $1_i 1_j = \delta_{ij}$.
   \item
-   If $V$ is an $A$-module then $V_i \coloneqq 1_i V$ is an $A_i$-module by restriction and for every $1 \leq i \leq j$ with $i \neq j$ we have $A_j V_i = 0$.
+   If $M$ is an $R$-module then $M_i \coloneqq 1_i M$ is an $M_i$-module by restriction and for every $1 \leq j \leq n$ with $i \neq j$ we have $R_j M_i = 0$.
   \item
-   If $V_i$ is an $A_i$-module for every $1 \leq i \leq r$ then $V \coloneqq V_1 \oplus \dotsb \oplus V_r$ is an $A$-module via
+   If $M_i$ is an $R_i$-module for every $1 \leq i \leq n$ then $M \coloneqq M_1 \oplus \dotsb \oplus M_n$ is an $R$-module via
    \[
-    (a_1, \dotsc, a_r) (v_1, \dotsc, v_r) = (a_1 v_1, \dotsc, a_r v_r).
+    (r_1, \dotsc, r_n) (m_1, \dotsc, m_n) = (r_1 m_1, \dotsc, r_n m_n).
    \]
   \item
-   Let $V$ be an $A$-module and $V_i \coloneqq 1_i V$ for every $1 \leq i \leq r$. Then the $k$-vector subspace \mbox{$\sum_{i=1}^r V_i \subseteq V$} is an $A$-submodule. We have $\sum_{i=1}^r V_i = V$ and the sum is direct, so
+   Let $M$ be an $R$-module and $M_i \coloneqq 1_i M$ for every $1 \leq i \leq n$. Then the abelian subgroup \mbox{$\sum_{i=1}^n M_i \subseteq M$} is an $R$-submodule. We have $\sum_{i=1}^n M_i = M$ and the sum is direct, so
    \[
-    V = V_1 \oplus \dotsb \oplus V_r
+    M = M_1 \oplus \dotsb \oplus M_r.
    \]
-   as $A$-modules.
   \item
-   An $A$-module $V \neq 0$ is simple if and only if there exists an unique $1 \leq i \leq r$ such that for every $1 \leq j \leq r$
+   An $R$-module $M \neq 0$ is simple if and only if there exists an (unique) \mbox{$1 \leq i \leq n$} such that for every $1 \leq j \leq n$
    \[
-    1_j V =
+    1_j M =
     \begin{cases}
-     \text{a simple $A_j$-module} & \text{if } i = j, \\
+     \text{a simple $R_j$-module} & \text{if } i = j, \\
                                 0 & \text{otherwise}.
     \end{cases}
    \]
@@ -935,73 +934,77 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \item
    This is clear.
   \item
-   $1_i V$ is a $k$-vector subspace since
+   It is clear that $1_i M \subseteq M$ is an abelian subgroup. We have
    \[
-    k 1_i V = 1_i k V = 1_i V.
-   \]
-   We have
-   \[
-    A_i 1_i = 1_i A_i = 1_i A
+    R_i 1_i = 1_i R_i = 1_i R
    \]
    and therefore
    \[
-    A_i 1_i V = 1_i A_i V \subseteq 1_i A V \subseteq 1_i V,
+    R_i 1_i M = 1_i R_i M = 1_i R M \subseteq 1_i M,
    \]
-   and for every $v \in V$ we have
+   and for every $m \in M$ we have
    \[
-    1_i (1_i v) = 1_i v.
+    1_i (1_i m) = (1_i 1_i) m = 1_i m.
    \]
-   For $i \neq j$ we have
+   For every $1 \leq j \leq n$ with $j \neq i$ we have
    \[
-    A_i V_j = (A 1_i) (1_j V) = A_i \underbrace{1_i 1_j}_{=0} V = 0.
+    R_j M_i = (R 1_j) (1_i M) = R \underbrace{1_j 1_i}_{=0} M = 0.
    \]
   \item
    This is clear.
   \item
    We set
    \[
-    V' \coloneqq \sum_{i=1}^r V_i.
+    M' \coloneqq \sum_{i=1}^n M_i.
    \]
-   $V'$ is an $A$-submodule since
+   $M'$ is an $R$-submodule since
    \[
-    A V'
-    = A \sum_{i=1}^r V_i
-    = \sum_{i=1}^r A V_i
-    = \sum_{i=1}^r A 1_i V_i
-    = \sum_{i=1}^r A_i V_i
-    = \sum_{i=1}^r V_i
-    = V'.
+    R M'
+    = R \sum_{i=1}^n M_i
+    = \sum_{i=1}^n R M_i
+    = \sum_{i=1}^n R 1_i M_i
+    = \sum_{i=1}^n R_i M_i
+    = \sum_{i=1}^n M_i
+    = M'.
    \]
-   To see that $V = V'$ notice that
+   To see that $M = M'$ notice that
    \[
-    V = 1 V = \left( \sum_{i=1}^r 1_i \right) V = \sum_{i=1}^r (1_i V) = \sum_{i=1}^r V_i = V'.
+    M
+    = 1 M
+    = \left( \sum_{i=1}^n 1_i \right) M
+    = \sum_{i=1}^n (1_i M)
+    = \sum_{i=1}^n M_i
+    = M'.
    \]
-   To see that this sum is direct let $v = \sum_{i=1}^r v_i = \sum_{i=1}^r v'_i \in V$ with $v_i, v'_i \in V_i$ for every $1 \leq i \leq r$. Then we have for every $1 \leq i \leq r$
+   To see that this sum is direct let $m = \sum_{i=1}^n m_i = \sum_{i=1}^n m'_i \in M$ with $m_i, m'_i \in M_i$ for every $1 \leq i \leq n$. Then we have for every $1 \leq i \leq n$
    \[
-    1_i v = 1_i \sum_{j=1}^r v_j = \sum_{i=1}^r 1_i v_j = v_i
+    1_i m
+    = 1_i \sum_{j=1}^n m_j
+    = \sum_{j=1}^n 1_i m_j
+    = m_i
    \]
-   and in the same way $1_i v = v'_i$, so $v_i = v'_i$ for every $1 \leq i \leq r$.
+   and in the same way $1_i m = m'_i$, so $m_i = m'_i$ for every $1 \leq i \leq n$.
   \item
-   We can write $V$ as $V = V_1 \oplus \dotsb \oplus V_r$ where $V_i \coloneqq 1_i V$ is an $A_i$-module for every $1 \leq i \leq r$. From the previous observations we find that we have a bijection
+   We can write $M$ as $M = M_1 \oplus \dotsb \oplus M_n$ where $M_i \coloneqq 1_i M$ is an $R_i$-module for every $1 \leq i \leq n$. From the previous observations we find that we have a bijection
    \[
-    S_1 \times \dotsb \times S_r \to S, (U_1, \dotsb, U_r) \mapsto U_1 \oplus \dotsb \oplus U_r,
+    S_1 \times \dotsb \times S_n \to S, (N_1, \dotsb, N_n) \mapsto N_1 \oplus \dotsb \oplus N_n,
    \]
-   where $S_i$ is the set of $A_i$-submodules of $V_i$ for every $1 \leq i \leq r$ and $S$ is the set of $A$-submodules of $V$. Since $V$ is simple we have $|S| = 2$, so
+   where $S_i$ is the set of $R_i$-submodules of $M_i$ for every $1 \leq i \leq n$ and $S$ is the set of $R$-submodules of $M$. Since $M$ is simple we have $|S| = 2$, so
    \[
-    2 = |S| = |S_1 \times \dotsb \times S_r| = |S_1| \dotsm |S_r|.
+    2 = |S| = |S_1 \times \dotsb \times S_n| = |S_1| \dotsm |S_n|.
    \]
-   So we have $|S_i| = 2$ for exactly one $1 \leq i \leq r$ and $|S_j| = 1$ for $i \neq j$. So $S_i$ is a simple $A_i$-module and $S_j = 0$ for $j \neq i$.
+   So we have $|S_i| = 2$ for exactly one $1 \leq i \leq n$ and $|S_j| = 1$ for $j \neq i$. So $M_i$ is a simple $R_i$-module and $M_j = 0$ for $j \neq i$.
   \qedhere
  \end{enumerate}
 \end{proof}
 
 
 \begin{cor}\label{cor: simple modules over product of matrix algebras}
- Let $A$ be a $k$-algebra with
+ Let $R$ be a ring
  \[
-  A \cong \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
+  A \cong \Mat_{n_1}(D) \times \dotsb \times \Mat_{n_r}(D)
  \]
- for some $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$. Then there are up to isomorphism exactly $r$ simple $A$-modules, namely $k^{n_1}$, \dots, $k^{n_r}$, where $(B_1, \dotsc, B_r) \in A$ acts on $x \in k^{n_i}$ by
+ for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$.. Then there are up to isomorphism exactly $r$ simple $R$-modules, namely $D_1^{n_1}$, \dots, $D_r^{n_r}$, where $(B_1, \dotsc, B_r) \in R$ acts on $x \in D_i^{n_i}$ by
  \[
   (B_1, \dotsc, B_r) x =  B_i x.
  \]
