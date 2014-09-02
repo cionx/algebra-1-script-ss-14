@@ -1409,19 +1409,68 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 \end{defi}
 
 
+\begin{rem}
+ For a Frobenius algebra $A$ with a Frobenius form $(-,-) \colon A \times A \to k$. Because $(-,-)$ is nondegenerate the $k$-linear map
+ \[
+  \phi \colon A \to A^*, a \mapsto (a,-)
+ \]
+ is injective. Because $A$ is finite-dimensional $\phi$ is an isomorphism of $k$-vector spaces.
+\end{rem}
+
+
+\begin{expls}
+ \begin{enumerate}[label=\emph{\alph*)}]
+  \item
+   Let $G$ be a finite-group and $k$ a field. Then $kG$ is a Frobenius algebra. To see this let the $k$-linear map $\varepsilon \colon kG \to k$ be defined as
+   \[
+    \varepsilon(g) =
+    \begin{cases}
+     1 & \text{if } g = e, \\
+     0 & \text{otherwise}
+    \end{cases}
+   \]
+   for every $g \in G$, i.e.\ $\varepsilon = e^*$ with respect to the basis $G$. For all $a,b \in kG$ with $a = \sum_{g \in G} \lambda_g g$ and $b = \sum_{g \in G} \mu_g g$ we have
+   \[
+    \varepsilon(ab)
+    = \sum_{g \in G} \lambda_g \mu_{g^{-1}}
+    = \sum_{h \in G} \mu_h \lambda_{h^{-1}}
+    =  \varepsilon(ba).
+   \]
+   For a left-ideal $I \subseteq \ker \varepsilon$ and $a \in I $ with $a \neq 0$ we have $a = \sum_{g \in G} \lambda_g g$ with $\lambda_h \neq 0$ for some $h \in G$ and thus
+   \[
+    \lambda_h = \varepsilon\left( h^{-1} a \right)
+   \]
+   for $h^{-1} a \in I$, so $I = 0$. So $\varepsilon$ is a Frobenius form.
+   
+   That the corresponding bilinear form $(-,-) \colon kG \times kG \to k$, i.e.\
+   \[
+    (a,b) = \varepsilon(ab) \text{ for all } a,b \in A,
+   \]
+   is nondegenerate can also be seen by noticing that $(g^{-1},-) = g^*$ with respect to the basis $G$ for every $g \in G$. Therefore the $k$-linear map $kG \to kG^*, a \mapsto (a,-)$ is an isomorphism and in particular injective.
+  \item
+   Let $k$ be a field and $n \geq 1$. Then $\Mat_n(k)$ is the Frobenius algebra. To see this notice that $\tr \colon \Mat_n(k) \to k$ is a Frobenius form: It it clear that the corresponding bilinear form $(-,-) \colon \Mat_n(k) \times \Mat_n(k) \to k$, i .e.\
+   \[
+    (A,B) = \tr(AB) \text{ for all } A,B \in \Mat_n(k),
+   \]
+   is symmetric and associative. To see that it is nondegenerate notice that $(E_{ij}, -) = E_{ji}^*$ with respect to the basis $(E_{ij})_{1 \leq i,j \leq n}$ for every $1 \leq i,j \leq n$. Thus the map $\Mat_n(k) \to \Mat_n(k)^*, A \mapsto (A,-)$ is an isomorphism and in particular injective.
+ \end{enumerate}
+\end{expls}
+
+
+
 \begin{prop}
  Let $A$ be a Frobenius algebra and $(-,-) \colon A \times A \to k$ a Frobenius form of $A$. Then
  \[
   \psi \colon Z(A) \to (A/[A,A])^*, a \mapsto (a,-)
  \]
- is an isomorphism of $k$-vector spaces, where
+ is an isomorphism of $k$-vector spaces.
 \end{prop}
 \begin{proof}
- It is clear that the map
+ The map
  \[
   \varphi \colon A \to A^*, a \mapsto (a, -)
  \]
- is well-defined and $k$-linear. Because $(-,-)$ is nondegenerate $\varphi$ is injective. Since $A$ is finite-dimensional we find that $\varphi$ is an isomorphism of $k$-vector spaces. To prove the proposition we show that $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
+ is an isomorphism of $k$-vector spaces. To prove the proposition we show that $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
  
  For all $z, a, b \in A$ we have
  \[
