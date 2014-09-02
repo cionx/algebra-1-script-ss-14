@@ -1536,15 +1536,6 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 \section{Theorem of Artin--Wedderburn}
 
 
-\begin{thrm}
- Let $R$ be a semisimple ring (with $1$). Then
- \[
-  R \cong M_{n_1}(D_1) \times \dotsm \times M_{n_r}(D_r)
- \]
- for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$. Moreover $r$ is unique, $(n_1,D_1)$, \dots, $(n_r,D_r)$ are unique up to permutation and isomorphism of the $D_i$.
-\end{thrm}
-
-
 \begin{defi}
  Let $R$ be a ring. Then the ring $R^\op$ is defined by taking the underlying additive group of $R$ and reversing the multiplication order, i.e.\ if for the multiplication $\cdot$ in $R$ and the multiplication $*$ in $R^\op$ we have
  \[
@@ -1554,7 +1545,23 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 
 \begin{rem}
- A ring $R$ is commutative if and only if $R = R^\op$ and for every ring $R$ we have $\left( R^\op \right)^\op = R$.
+ \begin{enumerate}[label=\emph{\alph*)}]
+  \item
+   For every ring $R$ we have $\left( R^\op \right)^\op = R$.
+  \item
+   A ring $R$ is commutative if and only if $R = R^\op$.
+  \item
+   A ring $R$ is unitary if and only if $R^\op$ is unitary.
+  \item
+   For a collectios of rings $R_i$, $i \in I$ we have
+   \[
+    \left( \prod_{i \in I} R_i \right)^\op = \prod_{i \in I} R_i^\op
+   \]
+   and
+   \[
+    \left( \bigoplus_{i \in I} R_i \right)^\op = \bigoplus_{i \in I} R_i^\op.
+   \]
+ \end{enumerate}
 \end{rem}
 
 
@@ -1593,14 +1600,16 @@ For a ring $R$ there is a strong connection between left $R$-modules and right $
  \]
 \end{lem}
 
+
 The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatible with the left multiplication are given by right multiplication.
+
 
 \begin{proof}
  Let
  \[
   \varphi \colon R^\op \to \End_R(R), r \mapsto (s \mapsto s \cdot r).
  \]
- We first show that $\varphi$ is well-defined: Notice that $(s \mapsto s \cdot r)$ is $\Z$-linear for every $r \in \R^\op$ by the distributivity of $\cdot$ and $R$-linear by the associativity of $\cdot$.
+ We first show that $\varphi$ is well-defined: Notice that $(s \mapsto s \cdot r)$ is $\Z$-linear for every $r \in R^\op$ by the distributivity of $\cdot$ and $R$-linear by the associativity of $\cdot$.
  
  To see that $\varphi$ is a ring-homomorphism notice that $\varphi(1) = \id_R$ and for all $r,r' \in R^\op$ and $s \in R$
  \begin{align*}
@@ -1629,6 +1638,20 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
  \]
  and thus $f = \varphi(r)$.
 \end{proof}
+
+
+\begin{thrm}[Artin--Wedderburn]
+ Let $R$ be a semisimple ring (with $1$). Then
+ \[
+  R \cong M_{n_1}(D_1) \times \dotsm \times M_{n_r}(D_r)
+ \]
+ for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$. Moreover $r$ is unique, $(n_1,D_1)$, \dots, $(n_r,D_r)$ are unique up to permutation and isomorphism of the $D_i$.
+\end{thrm}
+
+
+
+
+
 
 
 
