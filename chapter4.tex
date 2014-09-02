@@ -310,20 +310,20 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   \item
   For every finite group $G$ the group algebra $\C G$ is semisimple by Maschke’s Theorem.
   \item
-  For a field $k$ the matrix ring $\Mat_n(k)$ is simple for all $n > 0$. To see this let
+  For a skew field $D$ the matrix ring $\Mat_n(D)$ is simple for all $n > 0$. To see this let
   \[
    C_i
-   \coloneqq \{ A \in \Mat_n(k) \mid \text{ all except the $i$-th column are zero} \}.
+   \coloneqq \{ A \in \Mat_n(D) \mid \text{ all except the $i$-th column are zero} \}.
   \]
   Then
   \[
-   \Mat_n(k) = \bigoplus_{i=1}^n C_i
+   \Mat_n(k) = \bigoplus_{i=1}^n D_i
   \]
-  as a left $\Mat_n(k)$-module with
+  as a left $\Mat_n(D)$-modules with
   \[
-   C_i \cong k^n
+   C_i \cong D^n
   \]
-  as left $\Mat_n(k)$-modules for all $1 \leq i \leq n$. Since $k^n$ is simple as an left \mbox{$\Mat_n(k)$-module} the statement follows.
+  as left $\Mat_n(D)$-modules for all $1 \leq i \leq n$. Since $D^n$ is simple as an left $\Mat_n(D)$-module the statement follows.
  \end{enumerate}
 \end{expls}
 
@@ -352,14 +352,20 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{cor}\label{cor: k^n only simple M_n(k)-module}
- Up to isomorphism $k^n$ is the only simple $\Mat_n(k)$-module.
+\begin{cor}\label{cor: simple rings one simple module}
+ Let $R$ be a simple ring. Then there is exactly one simple $R$-module up to isomorphism.
 \end{cor}
 \begin{proof}
- We know that $\Mat_n(k) = \bigoplus_{i=1}^n C_i$ as $\Mat_n(k)$-modules where $C_i \cong k^n$ for every $1 \leq r \leq n$. Since every simple $\Mat_n(k)$-module is isomorphic to $C_i$ for some $1 \leq i \leq r$ the statement follows from Lemma \ref{lem: simple module of semisimple ring is direct summand}.
+ Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$. For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$. Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
 \end{proof}
 
 
+\begin{cor}\label{cor: D^n only simple M_n(D)-module}
+ Let $D$ be a skew field. Then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
+\end{cor}
+\begin{proof}
+ We know that $\Mat_n(D)$ is simple and $D^n$ a simple $\Mat_n(D)$-module. So the statement follows from Corollary \ref{cor: simple rings one simple module}. (Notice that we have already seen that $\Mat_n(D) \cong \bigoplus_{i=1}^n C_i$ with $C_i \cong D^n$ for every $1 \leq i \leq n$ as $\Mat_n(D)$-modules.)
+\end{proof}
 
 
 
@@ -1001,7 +1007,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \]
 \end{cor}
 \begin{proof}
- This follows immediately from Corollary \ref{cor: k^n only simple M_n(k)-module} and Lemma \ref{lem: modules over direct sum of algebras}.
+ This follows immediately from Corollary \ref{cor: D^n only simple M_n(D)-module} and Lemma \ref{lem: modules over direct sum of algebras}.
 \end{proof}
 
 
