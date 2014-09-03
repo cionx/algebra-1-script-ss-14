@@ -1034,9 +1034,9 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \begin{cor}\label{cor: simple modules over product of matrix algebras}
  Let $R$ be a ring
  \[
-  A \cong \Mat_{n_1}(D) \times \dotsb \times \Mat_{n_r}(D)
+  A \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
  \]
- for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$.. Then there are up to isomorphism exactly $r$ simple $R$-modules, namely $D_1^{n_1}$, \dots, $D_r^{n_r}$, where $(B_1, \dotsc, B_r) \in R$ acts on $x \in D_i^{n_i}$ by
+ for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$. Then there are up to isomorphism exactly $r$ simple $R$-modules, namely $D_1^{n_1}$, \dots, $D_r^{n_r}$, where $(B_1, \dotsc, B_r) \in R$ acts on $x \in D_i^{n_i}$ by
  \[
   (B_1, \dotsc, B_r) x =  B_i x.
  \]
@@ -1656,6 +1656,9 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
 \end{thrm}
 
 
+Notice that by Corollary \ref{cor: simple modules over product of matrix algebras} it follows that a ring of the above form has exactly $r$ simple modules up to isomorphism, namely $D_1^{n_1}$, \dots, $D_r^{n_r}$.
+
+
 \begin{cor}
  Let $R$ be a semisimple ring (with $1$). Then $R^\op$ is also semisimple.
 \end{cor}
@@ -1740,7 +1743,21 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
   &\cong \Mat_{n_1}\left( D_1^\op \right) \oplus \dotsb \oplus \Mat_{n_r}\left( D_r^\op \right)
  \end{align*}
  as rings where $D_i^\op$ is a skew field for every $1 \leq i \leq r$.
-\end{proof}
+ 
+ To see the uniquness let
+ \begin{align}
+  R &\cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r),
+  \label{eqn: artin wedderburn isomorphisms 1}
+ \shortintertext{and}
+  R &\cong \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_s}(D'_s)
+  \label{eqn: artin wedderburn isomorphisms 2} 
+ \end{align}
+ for $r, s \geq 1$, $n_1, \dotsc, n_r, n'_1, \dotsc, n'_s \geq 1$ and skew fields $D_1$, \dots, $D_r$, $D'_1$, \dots, $D'_s$. We start by noticing that
+ \[
+  r = |\Irr(R)| = s,
+ \]
+ so $r$ is unique.
+ \end{proof}
 
 
 
