@@ -553,7 +553,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   \item
    If $N$ is another simple $A$-module then every homomorphism of $A$-modules $f \colon M \to N$ is either zero or an isomorphism.
   \item
-   $\End_A(M)$ is a skew field.
+   $\End_A(M)$ is a skew field over $k$.
   \item
    If $k$ is algebraically closed and $\dim_k M < \infty$ then $\End_A(M) = k$.
  \end{enumerate}
@@ -1645,9 +1645,14 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
 \begin{thrm}[Artin--Wedderburn]
  Let $R$ be a semisimple ring (with $1$). Then
  \[
-  R \cong M_{n_1}(D_1) \times \dotsm \times M_{n_r}(D_r)
+  R \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
  \]
  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$. Moreover $r$ is unique, $(n_1,D_1)$, \dots, $(n_r,D_r)$ are unique up to permutation and isomorphism of the $D_i$.
+ 
+ More precisely: If $R = n_1 V_1 \oplus \dotsb \oplus n_r V_r$ as $R$-modules for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple submodules $V_1, \dotsc, V_r \subseteq R$ then
+ \[
+  R \cong \Mat_{n_1}(\End_R(V_1)) \times \Mat_{n_r}(\End_R(V_r)).
+ \]
 \end{thrm}
 
 
@@ -1666,7 +1671,7 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
   &= \Mat_{n_1}(D_1)^\op \times \dotsm \times \Mat_{n_r}(D_r)^\op \\
   &= \Mat_{n_1}\left(D_1^\op\right) \times \dotsm \times \Mat_{n_r}\left(D_r^\op\right).
  \end{align*}
- Since $D_1^\op$, \dots, $D_r^\op$ are skew fields we find that $R^\op$ is semisimple by Artin--Wederburn.
+ Since $D_1^\op$, \dots, $D_r^\op$ are skew fields we find that $R^\op$ is semisimple by Artin--Wedderburn.
 \end{proof}
 
 
