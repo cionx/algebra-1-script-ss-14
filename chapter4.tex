@@ -1687,6 +1687,24 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
 \end{proof}
 
 
+\begin{cor}
+ Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra. Then
+ \[
+  A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
+ \]
+ as $k$-algebras for some $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$.
+\end{cor}
+\begin{proof}
+ Using Artin--Wedderburn we find that we have an isomorphism of rings
+ \[
+  A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+ \]
+ for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$ where
+ \[
+  D_i = \End_A(S_i)
+ \]
+ for a simple $A$-module $S_i$ for every $1 \leq i \leq r$. By Proposition \ref{prop: simple modules over finite-dimensional algebras} $\dim_k S_i < \infty$ and thus by Schur’s Lemma $D_i = k$ for every $1 \leq i \leq r$.
+\end{proof}
 
 
 
