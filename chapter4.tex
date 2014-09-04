@@ -1922,6 +1922,50 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 \end{warn}
 
 
+We can also ask ourselves under what conditions a simple ring $R$ is semisimple (and thus semisimple as an $R$-module). The following theorem by Wedderburn answers that question:
+
+
+\begin{thrm}[Wedderburn]
+ Let $R$ be a simple ring (with $1$). Then the following are equivalent:
+ \begin{enumerate}[label=\emph{\roman*)}]
+  \item\label{enum: semisimple}
+   $R$ is semisimple.
+  \item\label{enum: left artian}
+   $R$ is (left) artian.
+  \item\label{enum: minimal left ideal}
+   $R$ has a minimal left ideal $I \neq 0$.
+  \item\label{enum: matrix ring over skew field}
+   $R \cong \Mat_n(D)$ for some $n \in \N$ and skew field $D$.
+ \end{enumerate}
+\end{thrm}
+\begin{proof}
+ The equivalence of \ref{enum: semisimple} and \ref{enum: matrix ring over skew field} follows directly from Artin--Wedderburn.
+ 
+ To show that \ref{enum: semisimple} implies \ref{enum: left artian} suppose that \ref{enum: semisimple} holds. Then $R = \bigoplus_{i=1}^s V_i$ where $V_i \subseteq R$ is a simple $R$-module for every $1 \leq i \leq s$. Then
+ \[
+  0 \subseteq V_1 \subseteq V_1 \oplus V_2 \subseteq \dotsb \subseteq V_1 \oplus \dotsb \oplus V_s = R
+ \]
+ is a composition series of $R$, so by the Jordan-Hölder theorem (which we will not prove in this lecture) every strictly decreasing chain of left ideals in $R$ stabilizes (after at most $s$ ideal).
+ 
+ To see that \ref{enum: left artian} implies \ref{enum: minimal left ideal} notice that if \ref{enum: minimal left ideal} does not hold we have an infinite chain
+ \[
+  A \supsetneq I_1 \supsetneq I_2 \supsetneq I_3 \supsetneq \dotso
+ \]
+ of strictly decreasing nonzero left ideals, which contradicts \ref{enum: left artian}.
+ 
+ Last we show that \ref{enum: minimal left ideal} implies \ref{enum: semisimple}. Suppose that $I \neq 0$ is a minimal left ideal. Then for every $r \in R$ the left ideal $Ir$ is either zero or minimal (i.e.\ simple as an $R$-submodule), since the map
+ \[
+  \varphi \colon I \to Ir, x \mapsto xr
+ \]
+ is an epimorphism of $R$-modules and thus either zero or an isomorphism (since $I$ is a simple $R$ module). Now
+ \[
+  J \coloneqq \sum_{r \in R} Ir = IR
+ \]
+ is a two-sided ideal in $R$ which is nonzero (because $0 \subsetneq I = I1 \subseteq J$), so $J = R$. This show that $R$ is the sum of simple submodules.
+\end{proof}
+
+
+
 
 
 
