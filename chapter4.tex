@@ -1715,7 +1715,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
  \[
   R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r
  \]
- for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1$, \dots, $V_r$.
+ for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1$, \dots, $V_r$. Since it is enough to prove the theorem for $n_1 V_1 \oplus \dotsb \oplus n_r V_r$ we will assume that $R = n_1 V_1 \oplus \dotsb \oplus n_r V_r$.
  
  By Schur’s Lemma we find for every $1 \leq i \leq r$
  \[
@@ -1731,16 +1731,16 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
   R^\op
   &\cong \End_R(R) \\
   &\cong \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r) \\
-  &\cong \End_R(n_1 V_1) \oplus \dotsb \oplus \End_R(n_r V_r) \\
-  &\cong \Mat_{n_1}(D_1) \oplus \dotsb \oplus \Mat_{n_r}(D_r)
+  &\cong \End_R(n_1 V_1) \times \dotsb \times \End_R(n_r V_r) \\
+  &\cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
  \end{align*}
  as rings for the skew field $D_i \coloneqq \End_R(V_i)$. Therefore
  \begin{align*}
   R
   &\cong \left( R^\op \right)^\op \\
-  &\cong \left( \Mat_{n_1}(D_1) \oplus \dotsb \oplus \Mat_{n_r}(D_r) \right)^\op \\
-  &= \Mat_{n_1}(D_1)^\op \oplus \dotsb \oplus \Mat_{n_r}(D_r)^\op \\
-  &\cong \Mat_{n_1}\left( D_1^\op \right) \oplus \dotsb \oplus \Mat_{n_r}\left( D_r^\op \right)
+  &\cong \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
+  &= \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op \\
+  &\cong \Mat_{n_1}\left( D_1^\op \right) \times \dotsb \times \Mat_{n_r}\left( D_r^\op \right)
  \end{align*}
  as rings where $D_i^\op$ is a skew field for every $1 \leq i \leq r$.
  
