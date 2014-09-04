@@ -1922,6 +1922,22 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 \end{warn}
 
 
+\begin{lem}
+ Let $R$ be a ring (with $1$). If $R$ is simple according to definition 1 it is also simple.
+\end{lem}
+\begin{proof}
+ Since $R$ is semisimple we have
+ \[
+  R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+ \]
+ for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1$, \dots, $D_r$ by Artin--Wedderburn. Since $r = |\Irr(R)| = 1$ we have
+ \[
+  R \cong \Mat_n(D)
+ \]
+ for $n \geq 1$ and a skew field $D$.
+\end{proof}
+
+
 We can also ask ourselves under what conditions a simple ring $R$ is semisimple (and thus semisimple as an $R$-module). The following theorem by Wedderburn answers that question:
 
 
@@ -1971,6 +1987,9 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \begin{proof}
  Because $A$ is finite-dimenisonal it contains a minimal ideal $I \neq 0$. The rest follows from Wedderburn’s theorem.
 \end{proof}
+
+
+
 
 
 
