@@ -317,7 +317,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   \]
   Then
   \[
-   \Mat_n(k) = \bigoplus_{i=1}^n D_i
+   \Mat_n(d) = \bigoplus_{i=1}^n D_i
   \]
   as a left $\Mat_n(D)$-modules with
   \[
@@ -1891,8 +1891,34 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 
 
 \begin{warn}
- This definition of a simple ring is no equivalent to the last one: Earlier we defined a ring $R$ to be simple if it is semisimple and has precisely one simple module up to isomorphism. We will refer to these rings as \emph{simple according to Definition 1}. Rings which are simple according to the new definition above will be referred to as just \emph{simple}.
+ This definition of a simple ring is no equivalent to the last one: Earlier we defined a ring $R$ to be simple if it is semisimple and has precisely one simple module up to isomorphism. We will refer to these rings as \emph{simple according to definition 1}. Rings which are simple according to the new definition above will be referred to as just \emph{simple}.
 \end{warn}
+
+
+\begin{expls}
+ \begin{enumerate}[label=\emph{\alph*)}]
+  \item
+   Let $D$ be a division ring and $n \geq 1$. We have already seen that $\Mat_n(D)$ is a simple according to definition 1. It is also simple: Let $I \subseteq \Mat_n(D)$ be a two-sided ideal with $I \neq 0$. Let $A = (a_{ij})_{1 \leq i,j \leq n} \in I$ with $A \neq 0$. Then $a_{ij} \neq 0$ for some $1 \leq i,j \leq n$. Therefore
+   \[
+    \diag\left( a_{ij}^{-1}, \dotsc, a_{ij}^{-1} \right) E_{ii} A E_{jj} = E_{ij} \in I
+   \]
+   and thus for every $1 \leq k,l \leq n$
+   \[
+    E_{kl} = E_{ki} E_{ij} E_{jl} \in I.
+   \]
+   Since $I$ is a $D$-submodule of $\Mat_n(D)$ we find that $I = \Mat_n(D)$.
+  \item
+   The Weyl-algebra
+   \[
+    \mc{A}_2 = k \gen{X,\partial}/(X \partial - \partial X - 1)
+   \]
+   is simple, but not simple according to definition 1.
+ \end{enumerate}
+\end{expls}
+
+
+
+
 
 
 
