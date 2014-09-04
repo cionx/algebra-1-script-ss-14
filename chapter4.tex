@@ -1731,10 +1731,6 @@ These observations lead to the following Lemma:
 \end{proof}
 
 
-
-
-
-
 \begin{thrm}[Artin--Wedderburn]
  Let $R$ be a semisimple ring (with $1$). Then
  \[
@@ -1849,8 +1845,38 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
  \[
   r = |\Irr(R)| = s,
  \]
- so $r$ is unique.
- \end{proof}
+ so $r$ is unique. Using the isomorphisms \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} of rings we can make $\Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)$ and $\Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)$ into $R$-modules, such that \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} are also isomorphisms of $R$-modules. By decomposing $\Mat_{n_i}(D_i)$ into simple $R$-submodules (which are the same as simple $\Mat_{n_i}(D_i)$ submodules) $\Mat_{n_i}(D_i) = C^i_1 \oplus \dotsb \oplus C^i_{n_i}$ in the usual way (so $C^i_j$ are the matrices in $\Mat_{n_i}(D_i)$ for which all but the $j$-the column are zero and $C^i_j \cong D_i^{n_i}$) we get a decomposition
+ \[
+  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n_i} C^i_j
+ \]
+ into simple $R$-submodules. In the same way we get a decomposition
+ \[
+  \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r) = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n'_i} C'^i_j
+ \]
+ into simple $R$-submodules. We know that $C^{i_1}_{j_1} \cong C^{i_2}_{j_2}$ as $R$-modules if and only if $i_1 = i_2$, the same goes for the $C'^i_j$. In particular both $C^1_1$, \dots, $C^r_1$ and $C'^1_1$, \dots, $C'^r_1$ are a complete collection of representatives of $\Irr(R)$. Since the $R$-endomorphism rings of the $C^i_j$ and $C'^i_j$ are skew fields by Schur’s Lemma we find by the theorem of Krull-Remak-Schmidt (which we will not prove in this lecture) that there exists a bijection
+ \[
+  \pi
+  \colon \left\{ C^i_j \,\middle|\, 1 \leq i \leq r, 1 \leq j \leq n_i \right\}
+  \to \left\{ C'^i_j \,\middle|\, 1 \leq i \leq r, 1 \leq j \leq n'_i \right\}
+ \]
+ such that $\pi(C^i_j) \cong C^i_j$ for every $C^i_j$. Since $\pi$ restricts to bijections between the isomorphism classes of the $C^i_j$ and $C'^i_j$ we find a bijection
+ \[
+  \tau \colon \{1, \dotsc, r\} \to \{1, \dotsc, r\}
+ \]
+ such that $\pi$ restricts to a bijection
+ \[
+  \pi_i \colon \{C^i_1, \dotsc, C^i_{n_i}\} \to \{C^{\tau(i)}_1, \dotsc, C^{\tau(i)}_{n'_i}\}
+ \]
+ for every $1 \leq i \leq r$. Thus we find that $n_i = n'_i$. Because we have $C^i_1 \cong C^{\tau(i)}_1$ for every $1 \leq i \leq r$ and
+ \[
+  \End_R(C^i_1) \cong \End_{\Mat_{n_i}(D_i)}(C^i_1) \cong \End_{\Mat_{n_i}(D_i)}(D^n) \cong D_i^\op
+ \]
+ as well as $\End_R(C^{\tau(i)}_1) \cong D_{\tau(i)}'^\op$ we also find that
+ \[
+  D_i^\op \cong D_{\tau(i)}'^\op
+ \]
+ and thus $D_i \cong D'_{\tau(i)}$.
+\end{proof}
 
 
 
