@@ -1642,6 +1642,99 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
 \end{proof}
 
 
+Let $D$ be a skew field. Becaus $D^n$ is a simple $\Mat_n(D)$-module we know from Schur’s Lemma that $\End_{\Mat_n(D)}(D^n)$ is a skew field. We would like to know how $D$ and $\End_{\Mat_n(D)}(D^n)$ are related. We know from linear algebra that for every field $k$ we have
+\[
+ \End_{\Mat_n(k)}(k^n) \cong k.
+\]
+From Lemma \ref{lem: End_R(R) = Rop} we also know that in the case $n = 1$. 
+\[
+ \End_D(D) \cong D^\op
+\]
+These observations lead to the following Lemma:
+
+
+\begin{lem}
+ Let $D$ be a skew field and $n \geq 1$. Then
+ \[
+  \End_{\Mat_n(D)}\left(D^n\right) \cong D^\op,
+  \left( \vect{x_1 \\ \vdots \\ x_n} \mapsto \vect{x_1 d \\ \vdots \\ x_n d} \right) \mapsfrom d
+ \]
+ as rings.
+\end{lem}
+\begin{proof}
+ By $\cdot$ we denote the multiplication in $D$ and by $*$ the multiplication in $D^\op$. For all $d \in D$, $d' \in D^\op$ and $x = (x_1, \dotsc, x_n) \in D^n$ we write
+ \[
+  d x \coloneqq (d x_1, \dotsc, d x_n)
+  \qquad \text{ and } \qquad
+  x d' \coloneqq (x_1 d', \dotsc, x_n d'). 
+ \]
+ We also define
+ \[
+  \pi_i \colon D^n \to D
+ \]
+ as the canonical projection for every $1 \leq i \leq n$. It is clear that $\pi_i$ is $D$-linear for every $1 \leq i \leq n$ where we see $D^n$ and $D$ as left $D$-modules in the usual way. By $e_1$, \dots, $e_n$ we denote the standard basis of $D^n$ (as a left $D$-module).
+ 
+ We define
+ \[
+  \varphi \colon D^\op \to \End_{\Mat_n(D)}\left( D^n \right), d \mapsto (x \mapsto x d).
+ \]
+ It is clear that $\varphi$ is well-defined. It is clear that $\varphi$ is additive. That it is also multiplicative (and thus a ring homomorphism) follow from simple calculation: For all $d,d' \in D^\op$ and $x \in D^n$ we have
+ \[
+  \varphi(d * d')(x)
+  = x (d * d')
+  = x (d' \cdot d)
+  = (x d') d
+  = \left( \varphi(d) \circ \varphi(d') \right)(x).
+ \]
+ 
+ It is also easy to see that $\varphi$ is injective: For $d, d' \in D^\op$ with $\varphi(d) = \varphi(d')$ we have
+ \[
+  d = \pi_1(e_1 d) = \pi_1(\varphi(d)(e_1)) = \pi_1(\varphi(d')(e_1)) = \pi_1(e_1 d') = d'.
+ \]
+ 
+ All that’s left to show is that $\varphi$ is surjective. For this let $f \in \End_{\Mat_n(D)}(D^n)$. $f$ is $D$-linear, because for all $d \in D$ and $x = (x_1, \dotsc, x_n) \in D^n$
+ \[
+  f(dx)
+  = f( \diag(d, \dotsc, d) x)
+  = \diag(d, \dotsc, d) f(x)
+  = d f(x).
+ \]
+ For every $1 \leq i \leq n$ we set $d_i \coloneqq \pi_i(f(e_i))$. We then have for every $1 \leq i \leq n$
+ \[
+  f(e_i)
+  = f(E_{ii} e_i)
+  = E_{ii} f(e_i)
+  = (0, \dotsc, d_i, \dotsc, 0)
+  = e_i d_i 
+ \]
+ and therefore for every $x = (x_1, \dotsc, x_n) \in D^n$
+ \begin{align*}
+  f(x)
+  &= f(x_1 e_1 + \dotsb + x_n e_n) \\
+  &= f(x_1 e_1) + \dotsb + f(x_n e_n) \\
+  &= x_1 f(e_1) + \dotsb + x_n f(e_n) \\
+  &= x_1 e_1 d_1 + \dotsb + x_n e_n d_n \\
+  &= (x_1 d_1, \dotsc, x_n d_n)
+ \end{align*}
+ For every $1 \leq i,j \leq n$ we have
+ \begin{align*}
+  d_i
+  &= \pi_i(e_i d_i)
+  = \pi_i(f(e_i))
+  = \pi_i(f(E_{ij} e_j)) \\
+  &= \pi_i(E_{ij} f(e_j))
+  = \pi_i(E_{ij} e_j d_j)
+  = \pi_i(e_i d_j)
+  = d_j.
+ \end{align*}   
+ This shows that $f = \varphi(d)$ for $d \coloneqq d_1 = \dotsc = d_n$.
+\end{proof}
+
+
+
+
+
+
 \begin{thrm}[Artin--Wedderburn]
  Let $R$ be a semisimple ring (with $1$). Then
  \[
