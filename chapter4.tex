@@ -1989,6 +1989,43 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \end{proof}
 
 
+\begin{lem}
+ Let $D$ be a skew field and $n \geq 1$. Then $Z(D)$ is a field and
+ \[
+  Z(\Mat_n(D)) \cong Z(D)
+ \]
+ as rings.
+\end{lem}
+\begin{proof}
+ We start by showing that $Z(D)$ is a field. We know that $Z(D) \subseteq D$ is a commutative subring (with $1$). Since $0 \neq 1$ in $D$ we also have $0 \neq 1$ in $Z(D)$. $Z(D)$ is also an integral domain, since $D$ is. All that we need to show is that for every $x \in Z(D)$ we also have $x^{-1} \in Z(D)$. This is clear, because for every $y \in D$
+ \[
+  x^{-1} y
+  = x^{-1} y x x^{-1}
+  = x^{-1} x y x^{-1}
+  =  y x^{-1}.
+ \]
+ 
+ Next we show that $Z(\Mat_n(D)) \cong Z(D)$. For this let $A \in Z(\Mat_n(D))$. We first show that $A$ is a diagonal matrix. To see this let $\pi_{ij} \colon \Mat_n(D) \to D$ be the canonical projection of the $(i,j)$-th coordinate for all $1 \leq i,j \leq n$. For all $1 \leq i,j \leq n$ we have
+ \[
+  a_{ij} = \pi_{ij}(E_{ii} A_{ij} E_{jj}) = \pi_{ij}(E_{ii} E_{jj} A) = \delta_{ij} a_{ij},
+ \]
+ so $a_{ij} = 0$ for $i \neq j$. Let $d_1, \dotsc, d_n \in D$ with $A = \diag(d_1, \dotsc, d_n)$. For every $1 \leq i,j \leq n$ we have
+ \begin{align*}
+  d_i
+  &= \pi_{ii}(A E_{ii})
+  = \pi_{ii}(A E_{ij} E_{jj} E_{ji})
+  = \pi_{ii}(E_{ij} A E_{jj} E_{ji}) \\
+  &= \pi_{ii}(E_{ij} d_j E_{jj} E_{ji})
+  = \pi_{ii}(d_j E_{ij} E_{jj} E_{ji})
+  = \pi_{ii}(d_j E_{ii})
+  = d_j,
+ \end{align*}
+so $A = \diag(d, \dotsc, d)$ for $d \coloneqq d_1 = \dotsb = d_n$. Since $A$ commutes with all diagonal matrices we have $d \in Z(D)$.
+\end{proof}
+
+
+
+
 
 
 
