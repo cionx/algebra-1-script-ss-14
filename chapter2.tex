@@ -35,47 +35,44 @@
 \end{proof}
 
 
-\begin{expls}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{expls}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Let $A$ be a $K$-algebra. Then $A$ is a graded $k$-Algebra via $A_0 = A$ and $A_d = 0$ für $d \neq 0$.
-  
+   Let $A$ be a $K$-algebra. Then $A$ is a graded $k$-Algebra via $A_0 = A$ and $A_d = 0$ für $d \neq 0$.
   \item
-  Let $k$ be a field (or a ring). $k[X_1, \dotsc, X_n]$ is a graded $k$-algebra (or a graded ring) by setting
-  \[
-   A_d \coloneqq
-   \begin{cases}
-    \vspan_k(\{X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \mid \sum_{i=1}^n a_i = d\}) & \text{if } d \geq 0, \\
-    0                                                                            & \text{otherwise}.
-   \end{cases}
-  \]
-  By definition $A_d$ is a $k$-vector space (or $\Z$-module). Since the monomials form a $k$-Basis of $k[X_1, \dotsc, X_n]$ we have $A = \bigoplus_{d \geq 0} A_d = \bigoplus_{d \in \Z} A_d$. Since
-  \[
-   \left( X^{\alpha_1} \dotsm X^{\alpha_n} \right) \left( X^{\beta_1} \dotsm X^{\beta_n} \right)
-   = X_1^{\alpha_1+\beta_1} \dotsm X_n^{\alpha_n+\beta_n}
-  \]
-  we find that for monomials $f \in A_i$ and $g \in A_j$ $fg \in A_{i+j}$. By extending this linearly we get that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
-  
-  
+   Let $k$ be a field (or a ring). $k[X_1, \dotsc, X_n]$ is a graded $k$-algebra (or a graded ring) by setting
+   \[
+    A_d \coloneqq
+    \begin{cases}
+     \vspan_k(\{X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \mid \sum_{i=1}^n a_i = d\}) & \text{if } d \geq 0, \\
+     0                                                                            & \text{otherwise}.
+    \end{cases}
+   \]
+   By definition $A_d$ is a $k$-vector space (or $\Z$-module). Since the monomials form a $k$-Basis of $k[X_1, \dotsc, X_n]$ we have $A = \bigoplus_{d \geq 0} A_d = \bigoplus_{d \in \Z} A_d$. Since
+   \[
+    \left( X^{\alpha_1} \dotsm X^{\alpha_n} \right) \left( X^{\beta_1} \dotsm X^{\beta_n} \right)
+    = X_1^{\alpha_1+\beta_1} \dotsm X_n^{\alpha_n+\beta_n}
+   \]
+   we find that for monomials $f \in A_i$ and $g \in A_j$ $fg \in A_{i+j}$. By extending this linearly we get that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
   \item
-  $T(V) \coloneqq k \oplus \bigoplus_{d \geq 1} V^{\otimes d}$ is an algebra by extending
-  \[
-   (v_{i_1} \otimes \dotsb \otimes v_{i_k}) \cdot (v_{j_1} \otimes \dotsb \otimes v_{j_n})
-   = v_{i_1} \otimes \dotsb \otimes v_{i_k} \otimes v_{j_1} \otimes \dotsb \otimes v_{j_n}
-  \]
-  with $v_{i_1}, \dotsc, v_{i_k}, v_{j_1}, \dotsc, v_{j_n} \in V$ linearly. (We leave it as an exercise to check that this is indeed a $k$-algebra.) $T(V)$ is a graded algebra via
-  \[
-   T(V) = \bigoplus_{d \in \Z} T(V)_d,
-  \]
-  where
-  \[
-   T(V)_d =
-   \begin{cases}
-    V^{\otimes d} & \text{if } d > 0, \\
-    k             & \text{if } d = 0, \\
-    0             & \text{if } d < 0.
-   \end{cases}
-  \]
+   $T(V) \coloneqq k \oplus \bigoplus_{d \geq 1} V^{\otimes d}$ is an algebra by extending
+   \[
+    (v_{i_1} \otimes \dotsb \otimes v_{i_k}) \cdot (v_{j_1} \otimes \dotsb \otimes v_{j_n})
+    = v_{i_1} \otimes \dotsb \otimes v_{i_k} \otimes v_{j_1} \otimes \dotsb \otimes v_{j_n}
+   \]
+   with $v_{i_1}, \dotsc, v_{i_k}, v_{j_1}, \dotsc, v_{j_n} \in V$ linearly. (We leave it as an exercise to check that this is indeed a $k$-algebra.) $T(V)$ is a graded algebra via
+   \[
+    T(V) = \bigoplus_{d \in \Z} T(V)_d,
+   \]
+   where
+   \[
+    T(V)_d =
+    \begin{cases}
+     V^{\otimes d} & \text{if } d > 0, \\
+     k             & \text{if } d = 0, \\
+     0             & \text{if } d < 0.
+    \end{cases}
+   \]
  \end{enumerate}
 \end{expls}
 
@@ -86,10 +83,11 @@
   0 = F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq F_2(A) \subseteq \dotsb \subseteq A
  \]
  of $k$-vector subspaces $F_i(A)$ such that
- \begin{enumerate}[label=\emph{\arabic*})]
-  \item $\bigcup_i F_i(A) = A$ and
-  \item $F_i(A) F_j(A) \subseteq F_{i+j}(A)$ for all $i,j$.
- \end{enumerate}
+ \begin{gather*}
+  \bigcup_{i \geq -1} F_i(A) = A
+ \shortintertext{and}
+  F_i(A) F_j(A) \subseteq F_{i+j}(A) \text{ for all } i,j \geq -1.
+ \end{gather*}
  This sequence is called a filtration of $A$.
 \end{defi}
 
@@ -313,7 +311,7 @@ Using this Lemma we can now easily prove the Fundamental Theorem. We will give t
 To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \dotsc, X_n]$: We first order the monomials by their power of $X_1$ from lowest to highest. The monomials with the same power of $X_1$ are then ordered in the same way by their power of $X_2$, then those with the same power of $X_2$ by their power of $X_3$, and so on. In a more formal way: For monomials $X^\alpha = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ and $X^\beta = X_1^{\beta_1} \dotsm X_n^{\beta_n}$ we have $X^\alpha > X^\beta$ if and only if there exists $1 \leq i \leq n$ such that $\alpha_1 = \beta_1$, $\alpha_2 = \beta_2$, \dots, $\alpha_{i-1} = \beta_{i-1}$ and $\alpha_i > \beta_i$. This gives us a total order on the monomials in $k[X_1, \dotsc, X_n]$.
  
  For a polynomial $p \in k[X_1, \dotsc X_n]$ with $p \neq 0$ we define $\init p$ to be the highest monomial occuring in $p$, including its coefficient. One can easily check the following properties:
- \begin{enumerate}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    If $p$ is symmetrical and $\init p = c X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ we have $\alpha_1 \geq \alpha_2 \geq \dotsb \geq \alpha_n$.
   \item
@@ -473,7 +471,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
 
 \begin{prop}
  We have the following equalities of power series:
- \begin{enumerate}[label=\emph{\arabic*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $E(t) = \prod_{i=1}^n (1 + X_i t)$.
   \item
@@ -483,7 +481,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
  \end{enumerate}
 \end{prop}
 \begin{proof}
- \begin{enumerate}[label=\emph{\arabic*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    The coefficient of $t^r$ on the right hand side of the equation is
    \[
@@ -1092,16 +1090,16 @@ This has the effect that the restriction of a polynomial function to a vector su
 \end{proof}
 
 
-\begin{lem}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{lem}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Assume $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1,\dotsc,\lambda_n) \in k^n$. Then $p = 0$.
   \item
    The polynomial functions $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e.\ if $f(\varphi_1, \dotsc, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
  \end{enumerate}
 \end{lem}
-\begin{proof}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    We show this by induction over $n$.
    
@@ -1172,16 +1170,16 @@ is an isomorphism of $k$-algebras.
 \end{defi}
 
 
-\begin{lem}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{lem}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $\mc{P}(V)_d$ is a $k$-vector space for all $d \in \Z$ (via pointwise addition and scalar multiplication).
   \item
    If $f \in \mc{P}(V)_i$ and $g \in \mc{P}(V)_j$  then $fg \in \mc{P}(V)_{i+j}$, where the multiplication is given by pointwise multiplication.
  \end{enumerate}
 \end{lem}
-\begin{proof}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item For $f_1, f_2 \in \mc{P}(V)_d$ we have
    \begin{align*}
     (f_1+f_2)(\lambda v)
@@ -1528,27 +1526,27 @@ It is interesting to notice that this functor is fully faithful.
 
 
 \begin{expls}
- \begin{enumerate}\leavevmode
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Let $W$ be a finite-dimensional $k$-vector space, $d \in \N, d > 0$. Then the map
-  \[
-   \beta \colon W \to W^{\otimes d}, w \mapsto w \otimes \dotsb \otimes w
-  \]
-  is a polynomial map. It is also $G$-equivariant since
-  \[
-   \beta(g.w) = (g.w) \otimes \dotsb \otimes (g.w) = g.(w \otimes \dotsb \otimes w) = g.\beta(w)
-  \]
-  for all $g \in G, w \in W$.
+   Let $W$ be a finite-dimensional $k$-vector space, $d \in \N, d > 0$. Then the map
+   \[
+    \beta \colon W \to W^{\otimes d}, w \mapsto w \otimes \dotsb \otimes w
+   \]
+   is a polynomial map. It is also $G$-equivariant since
+   \[
+    \beta(g.w) = (g.w) \otimes \dotsb \otimes (g.w) = g.(w \otimes \dotsb \otimes w) = g.\beta(w)
+   \]
+   for all $g \in G, w \in W$.
   \item
-  Fix a field $k$. Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.
-  \[
-   g.A = gAg^{-1}
-  \]
-  for all $g \in \GL_n(k), A \in \Mat_n(k)$. Then the map
-  \[
-   \beta_i \colon \Mat_n(k) \to \Mat_n(k), A \mapsto A^i
-  \]
-  is covariant for all $i \geq 1$. 
+   Fix a field $k$. Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.
+   \[
+    g.A = gAg^{-1}
+   \]
+   for all $g \in \GL_n(k), A \in \Mat_n(k)$. Then the map
+   \[
+    \beta_i \colon \Mat_n(k) \to \Mat_n(k), A \mapsto A^i
+   \]
+   is covariant for all $i \geq 1$. 
  \end{enumerate}
 \end{expls}
 
