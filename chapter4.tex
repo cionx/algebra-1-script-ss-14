@@ -13,13 +13,13 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
 
 \begin{prop}\label{prop: characterisation semisimple modules}
  Let $R$ be a ring and $M$ an $R$-module. Then the following are equivalent:
- \begin{enumerate}[label=\emph{\roman*})]
-  \item
-  $M$ is the sum ob simple submodules. \label{enum: sum of simple}
-  \item
-  $M$ is the direct sum of simple submodules. \label{enum: direct sum of simple}
-  \item
-  Every submodule of $M$ has a direct complement. \label{enum: direct complements}
+ \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+  \item \label{enum: sum of simple}
+   $M$ is the sum ob simple submodules.
+  \item \label{enum: direct sum of simple}
+   $M$ is the direct sum of simple submodules. 
+  \item \label{enum: direct complements}
+   Every submodule of $M$ has a direct complement.
  \end{enumerate}
 \end{prop}
 
@@ -30,7 +30,7 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
 
 
 \begin{proof}
- $\ref{enum: sum of simple}) \implies \ref{enum: direct complements})$:
+ \ref{enum: sum of simple} $\implies$ \ref{enum: direct complements}:
  Suppose that $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$ and let $U \subseteq M$ be a submodule. For all $J \subseteq I$ let
  \[
   M_J \coloneqq \sum_{j \in J} L_j.
@@ -59,7 +59,7 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
  \]
  This contradicts the maximality of $J_0$.
  
- $\ref{enum: direct complements}) \implies \ref{enum: direct sum of simple})$:
+ \ref{enum: direct complements} $\implies$ \ref{enum: direct sum of simple}:
  We first notice the following:
  
  \begin{claim}
@@ -82,70 +82,73 @@ We also require all $k$-algebras to be unitary. In particular modules over $k$-a
   \phi \colon R \to Rd, r \mapsto rd.
  \]
  So the existence of a maximal submodule of $Rd$ is equivalent to the existance of a maximal ideal $I \subseteq R$ with $\ker \phi \subseteq I$.) By the claim there exists a direct complement $F$ of $K$ in $Rd$, i.e.\ $Rd = K \oplus F$. Because $K \subset Rd$ is maximal we find that $F \subseteq Rd$ is simple. Therefore $D$ contains a simple submodule.
+ 
+ \ref{enum: direct sum of simple} $\implies$ \ref{enum: sum of simple}:
+ This is clear.
 \end{proof}
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Let $k$ be a field. Since simple $k$-modules are the same as $1$-dimensional vector spaces every $k$-module is semisimple (this is equivalent to saying that every $k$-vector space has a basis).
+   Let $k$ be a field. Since simple $k$-modules are the same as $1$-dimensional vector spaces every $k$-module is semisimple (this is equivalent to saying that every $k$-vector space has a basis).
   \item
-  For a field $k$ let
-  \[
-   R \coloneqq \left\{ \vect{a & b \\ 0 & c} \,\middle|\, a, b, c \in k \right\} \subseteq \Mat_2(k).
-  \]
-  Then $k^2$ is not semisimple as an $R$-module since the only non-trivial submodule of $k^2$ is
-  \[
-   \{ (x,0) \mid x \in k \}.
-  \]
-  To see this notice that
-  \[
-   \vect{a & b \\ 0 & c} \vect{x \\ y} = \vect{ax + by \\ cy},
-  \]
-  so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both
-  \begin{align*}
-   \vect{0 & y^{-1} \\ 0 & 0} \vect{x \\ y} &= \vect{1 \\ 0}
-  \shortintertext{and}
-   \vect{0 & 0 \\ 0 & y^{-1}} \vect{x \\ y} &= \vect{0 \\ 1}
-  \end{align*}
-  and therefore $M = k^2$.
+   For a field $k$ let
+   \[
+    R \coloneqq \left\{ \vect{a & b \\ 0 & c} \,\middle|\, a, b, c \in k \right\} \subseteq \Mat_2(k).
+   \]
+   Then $k^2$ is not semisimple as an $R$-module since the only non-trivial submodule of $k^2$ is
+   \[
+    \{ (x,0) \mid x \in k \}.
+   \]
+   To see this notice that
+   \[
+    \vect{a & b \\ 0 & c} \vect{x \\ y} = \vect{ax + by \\ cy},
+   \]
+   so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both
+   \begin{align*}
+    \vect{0 & y^{-1} \\ 0 & 0} \vect{x \\ y} &= \vect{1 \\ 0}
+   \shortintertext{and}
+    \vect{0 & 0 \\ 0 & y^{-1}} \vect{x \\ y} &= \vect{0 \\ 1}
+   \end{align*}
+   and therefore $M = k^2$.
  \end{enumerate}
 \end{expls}
 
 
 \begin{lem}\label{lem: inherit semisimple}
  Let $R$ be a ring.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
+   If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
   \item
-  If $M$ is a semisimple $R$-module and $N \subseteq M$ a submodule then both $N$ and $M/N$ are also semisimple.
+   If $M$ is a semisimple $R$-module and $N \subseteq M$ a submodule then both $N$ and $M/N$ are also semisimple.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  We can write each $M_i$ as $M_i = \bigoplus_{j \in J_i} L^j_i$ where $L^j_i \subseteq M_i$ is a simple submodule for all $j \in J_i$. Then
-  \[
-   \bigoplus_{i \in I} M_i = \bigoplus_{i \in I} \bigoplus_{j \in J_i} L^j_i
-  \]
-  is the direct sum of submodules and therefore semisimple.
+   We can write each $M_i$ as $M_i = \bigoplus_{j \in J_i} L^j_i$ where $L^j_i \subseteq M_i$ is a simple submodule for all $j \in J_i$. Then
+   \[
+    \bigoplus_{i \in I} M_i = \bigoplus_{i \in I} \bigoplus_{j \in J_i} L^j_i
+   \]
+   is the direct sum of submodules and therefore semisimple.
   \item
-  That $M/N$ is semisimple have we already shown in the claim of the proof of Proposition \ref{prop: characterisation semisimple modules}.
-  
-  Since $M$ is semisimple we can write $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$. Given the canonical projection
-  \[
-   \pi \colon M \to M/N
-  \]
-  we have that $\pi(L_i) \cong L_i$ or $\pi(L_i) = 0$ for all $i \in I$. For
-  \[
-   J \coloneqq \{i \in I \mid \pi(L_i) \neq 0\}
-  \]
-  we therefore have
-  \[
-   M/N = \pi(M) = \pi\left( \sum_{i \in I} L_i \right) = \sum_{j \in J} \pi(L_j) \cong \sum_{j \in J} L_j.
-   \qedhere
-  \]
+   That $M/N$ is semisimple have we already shown in the claim of the proof of Proposition \ref{prop: characterisation semisimple modules}.
+   
+   Since $M$ is semisimple we can write $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$. Given the canonical projection
+   \[
+    \pi \colon M \to M/N
+   \]
+   we have that $\pi(L_i) \cong L_i$ or $\pi(L_i) = 0$ for all $i \in I$. For
+   \[
+    J \coloneqq \{i \in I \mid \pi(L_i) \neq 0\}
+   \]
+   we therefore have
+   \[
+    M/N = \pi(M) = \pi\left( \sum_{i \in I} L_i \right) = \sum_{j \in J} \pi(L_j) \cong \sum_{j \in J} L_j.
+    \qedhere
+   \]
  \end{enumerate}
 \end{proof}
 
@@ -220,63 +223,63 @@ for some maximal ideal $I \subseteq R$.
 
 \begin{rem}
   Let $R$ be a ring, $M$ an $R$-module and $E$ a simple $R$-module.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  $M_E$ does only depend on the isomorphism class of $E$.
+   $M_E$ does only depend on the isomorphism class of $E$.
   \item
-  $M_E$ is a semisimple $R$-module (because it is the sum of simple modules).
+   $M_E$ is a semisimple $R$-module (because it is the sum of simple modules).
   \item
-  If $F \subseteq M_E$ is a simple $R$-module then $F \cong E$. To see this let $M_E = \sum_{i \in I} L_i$ where $L_i \subseteq M_E$ is a simple submodule with $L_i \cong E$ for all $i \in I$. Because $M_E$ is semisimple $F$ has a direct complement $C$ in $M_E$, so for every $i \in I$ we have a module homomorphism
-  \[
-   f_i \colon L_i \hookrightarrow \sum_{i \in I} L_i = M_E = F \oplus C \twoheadrightarrow F.
-  \]
-  Since the projection $F \oplus C \twoheadrightarrow F$ is non-zero we have $f_j \neq 0$ for some $j \in I$. Since $L_j$ and $F$ are simple the homomorphism $f_j \colon L_j \to F$ is an isomorphism. Therefore $F \cong L_j \cong E$.
+   If $F \subseteq M_E$ is a simple $R$-module then $F \cong E$. To see this let $M_E = \sum_{i \in I} L_i$ where $L_i \subseteq M_E$ is a simple submodule with $L_i \cong E$ for all $i \in I$. Because $M_E$ is semisimple $F$ has a direct complement $C$ in $M_E$, so for every $i \in I$ we have a module homomorphism
+   \[
+    f_i \colon L_i \hookrightarrow \sum_{i \in I} L_i = M_E = F \oplus C \twoheadrightarrow F.
+   \]
+   Since the projection $F \oplus C \twoheadrightarrow F$ is non-zero we have $f_j \neq 0$ for some $j \in I$. Since $L_j$ and $F$ are simple the homomorphism $f_j \colon L_j \to F$ is an isomorphism. Therefore $F \cong L_j \cong E$.
   \item
-  Let $F$ be a simple $R$-module. Then
-  \[
-   (M_E)_F =
-   \begin{cases}
-    M_E & \text{if } E \cong F, \\
-      0 & \text{otherwise}.
-   \end{cases}
-  \]
+   Let $F$ be a simple $R$-module. Then
+   \[
+    (M_E)_F =
+    \begin{cases}
+     M_E & \text{if } E \cong F, \\
+       0 & \text{otherwise}.
+    \end{cases}
+   \]
   \item
-  Every homomorphism of $R$-modules $\varphi \colon M \to N$ induces a homomorphism
-  \[
-   \varphi_E \colon M_E \to N_E
-  \]
-  by restriction. Too see this simply notice that for every simple submodule $L \subseteq M$ the restriction
-  \[
-   \varphi_{|L} \colon L \to \varphi(L)
-  \]
-  is either zero (if $L \cap \ker \varphi \neq 0$ and consequently $L \subseteq \ker \varphi$) or an isomorphism (if $L \cap \ker \varphi = 0)$.
+   Every homomorphism of $R$-modules $\varphi \colon M \to N$ induces a homomorphism
+   \[
+    \varphi_E \colon M_E \to N_E
+   \]
+   by restriction. Too see this simply notice that for every simple submodule $L \subseteq M$ the restriction
+   \[
+    \varphi_{|L} \colon L \to \varphi(L)
+   \]
+   is either zero (if $L \cap \ker \varphi \neq 0$ and consequently $L \subseteq \ker \varphi$) or an isomorphism (if $L \cap \ker \varphi = 0)$.
   \item
-  If $U \subseteq M$ is a submodule then
-  \[
-   U_E = M_E \cap U.
-  \]
-  To see this let $C$ be a complement of $U$ in $M$, i.e.\ $M = U \oplus C$. Since both $U$ and $C$ are semisimple (by Lemma \ref{lem: inherit semisimple}) we have
-  \[
-   U = \bigoplus_{i \in I} L_i
-  \]
-  where $L_i \subseteq U$ is a simple submodule for all $i \in I$ and
-  \[
-   C = \bigoplus_{j \in J} L'_j
-  \]
-  where $L'_j \subseteq C$ is a simple submodule for all $j \in J$. We have
-  \[
-   M = \bigoplus_{i \in I} L_i \oplus \bigoplus_{j \in J} L'_j
-  \]
-  and therefore by Lemma \ref{lem: isotypical component as direct sum}
-  \[
-   M_E
-   = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \oplus \bigoplus_{\substack{j \in J \\ L'_j \cong E}} L'_j
-   = U_E \oplus C_E.
-  \]
-  Since $M = U \oplus C$ we get that
-  \[
-   M_E \cap U = (U_E \oplus C_E) \cap U = U_E.
-  \]
+   If $U \subseteq M$ is a submodule then
+   \[
+    U_E = M_E \cap U.
+   \]
+   To see this let $C$ be a complement of $U$ in $M$, i.e.\ $M = U \oplus C$. Since both $U$ and $C$ are semisimple (by Lemma \ref{lem: inherit semisimple}) we have
+   \[
+    U = \bigoplus_{i \in I} L_i
+   \]
+   where $L_i \subseteq U$ is a simple submodule for all $i \in I$ and
+   \[
+    C = \bigoplus_{j \in J} L'_j
+   \]
+   where $L'_j \subseteq C$ is a simple submodule for all $j \in J$. We have
+   \[
+    M = \bigoplus_{i \in I} L_i \oplus \bigoplus_{j \in J} L'_j
+   \]
+   and therefore by Lemma \ref{lem: isotypical component as direct sum}
+   \[
+    M_E
+    = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \oplus \bigoplus_{\substack{j \in J \\ L'_j \cong E}} L'_j
+    = U_E \oplus C_E.
+   \]
+   Since $M = U \oplus C$ we get that
+   \[
+    M_E \cap U = (U_E \oplus C_E) \cap U = U_E.
+   \]
  \end{enumerate}
 \end{rem}
 
@@ -304,26 +307,26 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Fields are simple.
+   Fields are simple.
   \item
-  For every finite group $G$ the group algebra $\C G$ is semisimple by Maschke’s Theorem.
+   For every finite group $G$ the group algebra $\C G$ is semisimple by Maschke’s Theorem.
   \item
-  For a skew field $D$ the matrix ring $\Mat_n(D)$ is simple for all $n > 0$. To see this let
-  \[
-   C_i
-   \coloneqq \{ A \in \Mat_n(D) \mid \text{ all except the $i$-th column are zero} \}.
-  \]
-  Then
-  \[
-   \Mat_n(d) = \bigoplus_{i=1}^n D_i
-  \]
-  as a left $\Mat_n(D)$-modules with
-  \[
-   C_i \cong D^n
-  \]
-  as left $\Mat_n(D)$-modules for all $1 \leq i \leq n$. Since $D^n$ is simple as an left $\Mat_n(D)$-module the statement follows.
+   For a skew field $D$ the matrix ring $\Mat_n(D)$ is simple for all $n > 0$. To see this let
+   \[
+    C_i
+    \coloneqq \{ A \in \Mat_n(D) \mid \text{ all except the $i$-th column are zero} \}.
+   \]
+   Then
+   \[
+    \Mat_n(d) = \bigoplus_{i=1}^n D_i
+   \]
+   as a left $\Mat_n(D)$-modules with
+   \[
+    C_i \cong D^n
+   \]
+   as left $\Mat_n(D)$-modules for all $1 \leq i \leq n$. Since $D^n$ is simple as an left $\Mat_n(D)$-module the statement follows.
  \end{enumerate}
 \end{expls}
 
@@ -549,7 +552,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 \begin{lem}[Schur’s Lemma for algebras]
  Let $k$ be a field, $A$ a $k$-algebra and $M$ a simple $A$-module.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    If $N$ is another simple $A$-module then every homomorphism of $A$-modules $f \colon M \to N$ is either zero or an isomorphism.
   \item
@@ -583,7 +586,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 
 \begin{cor}\label{cor: simple algebra module surjective algebra homo}
  Let $k$ be an algebraically closed field and $A$ a  $k$-algebra. For a finite-dimensional $A$-module $M$ the following are equivalent:
- \begin{enumerate}[label=\emph{\roman*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $M$ is a simple $A$-module.
   \item
@@ -691,12 +694,12 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 
 \begin{lem}\label{lem: equivalence to irreducible}
  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
- \begin{enumerate}[label=\emph{\roman*})]
-  \item\label{enum: V irreducible}
+ \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+  \item \label{enum: V irreducible}
    $V$ is irreducible.
-  \item\label{enum: V simple kG-module}
+  \item \label{enum: V simple kG-module}
    $V$ is simple as a $kG$-module.
-  \item\label{enum: surjective algebra homo}
+  \item \label{enum: surjective algebra homo}
    The algebra homomorphism
    \[
     \Phi \colon kG \to \End_k(V), a \mapsto (v \mapsto av)
@@ -705,7 +708,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
  \end{enumerate}
 \end{lem}
 \begin{proof}
- The equivalence of $\ref{enum: V irreducible})$ and $\ref{enum: V simple kG-module})$ is clear. The equivalence of $\ref{enum: V simple kG-module})$ and $\ref{enum: surjective algebra homo})$ follows directly from Corollary \ref{cor: simple algebra module surjective algebra homo}.
+ The equivalence of \ref{enum: V irreducible} and \ref{enum: V simple kG-module} is clear. The equivalence of \ref{enum: V simple kG-module} and \ref{enum: surjective algebra homo} follows directly from Corollary \ref{cor: simple algebra module surjective algebra homo}.
 \end{proof}
 
 
@@ -891,19 +894,19 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 \begin{lem}
  Let $R$ be a ring and $S \subseteq \End_\Z(M)$ subsets. Then we have the following:
- \begin{enumerate}[label=\emph{\alph*})]
-  \item\label{enum: commutator change relationship}
-  For $T \subseteq \End_\Z(M)$ with $S \subseteq T$ we have $T' \subseteq S'$.
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item \label{enum: commutator change relationship}
+   For $T \subseteq \End_\Z(M)$ with $S \subseteq T$ we have $T' \subseteq S'$.
   \item
-  $S' \subseteq \End_\Z(M)$ is an $\Z$-subalgebra.
+   $S' \subseteq \End_\Z(M)$ is an $\Z$-subalgebra.
+  \item \label{enum: S in S''}
+   We have $S \subseteq S''$. 
   \item
-  We have $S \subseteq S''$. \label{enum: S in S''}
-  \item
-  We have $S' = S'''$ where $S''' \coloneqq (S'')' = (S')''$ is the tripple commutant of $S$.
+   We have $S' = S'''$ where $S''' \coloneqq (S'')' = (S')''$ is the tripple commutant of $S$.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    This is clear.
   \item
@@ -935,7 +938,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    0 & \text{otherwise}.
   \end{cases}
  \]
- \begin{enumerate}[label=\emph{\alph*}),leftmargin=*]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $R$ is unitary with $1 = \sum_{i=1}^n 1_i$ and for all $1 \leq i,j \leq n$ we have $1_i 1_j = \delta_{ij}$.
   \item
@@ -962,7 +965,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*}),leftmargin=*]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    This is clear.
   \item
@@ -1048,7 +1051,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 \begin{prop}\label{prop: simple modules over finite-dimensional algebras}
  Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Every simple $A$-module is finite-dimensional. More precisely
    \[
@@ -1063,7 +1066,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \end{enumerate}
 \end{prop}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Since $V$ is simple it is cyclic, so we have a surjective homomorphism of $A$-modules
    \[
@@ -1098,7 +1101,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 
 \begin{prop}
  Let $A$ be a $k$-algebra. Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    If $V \cong W$ (as $A$-modules) then $\chi_V = \chi_W$.
   \item
@@ -1109,7 +1112,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
    We have $\chi_{V \otimes W} = \chi_V \cdot \chi_W$.
  \end{enumerate}
  Suppose that $A = kG$ for some group $G$ and let $g,h \in G$.
- \begin{enumerate}[label=\emph{\alph*}),resume]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*,resume]
   \item
    We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
   \item
@@ -1123,7 +1126,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
  \[
   \rho_X \colon A \to \End_k(X), a \mapsto (x \mapsto ax).
  \]
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $\varphi \colon V \to W$ be an isomorphism of $A$-modules. Since $A$ is unary $\varphi$ is $k$-linear. Therefore $\varphi(v_1)$, \dots, $\varphi(v_s)$ is a $k$-basis of $W$. Let $a \in A$. If $M \in \Mat_r(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ it is also the representing matrix of $\rho_W(a)$ with respect to the basis $\varphi(v_1)$, \dots, $\varphi(v_s)$. Therefore
    \[
@@ -1376,7 +1379,7 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 \begin{thrm}
  Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $V_i$, $i \in I$ be pairwise non-isomorphic simple $A$-modules. Then $\chi_i$, $i \in I$ are linearly independent (over $k$).
   \item
@@ -1384,7 +1387,7 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
  \end{enumerate}
 \end{thrm}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic simple $A$-modules and $\lambda_1, \dotsc, \lambda_r \in k$ with
    \[
@@ -1454,20 +1457,20 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 \begin{prop}
  Let $A$ be a finite-dimensional $k$-algebra. Then the following are equivalent:
- \begin{enumerate}[label=\emph{\roman*)}]
-  \item\label{enum: nondegenerate symmetric associative bilinear form}
+ \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+  \item \label{enum: nondegenerate symmetric associative bilinear form}
    There exists a nondegenerate symmetric bilinear form $(-,-) \colon A \times A \to k$ which is associative (i.e. $(ab,c) = (a,bc)$ for all $a,b,c \in A$.)
-  \item\label{enum: nondegenerato linear map}
+  \item \label{enum: nondegenerato linear map}
    There exists a $k$-linear map $\varepsilon \colon A \to k$ satisfying the following properties:
-   \begin{enumerate}[label=\emph{(\roman*)}]
+   \begin{enumerate}[label=\emph{(\roman*)},leftmargin=*]
     \item
      $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$.
     \item
      For any $a \in A$ with $a \neq 0$ there exists $b \in B$ such that $\varepsilon(ba) \neq 0$.
    \end{enumerate}
-  \item\label{enum: no nonzero ideals in kernel of linear map}
+  \item \label{enum: no nonzero ideals in kernel of linear map}
    There exists a $k$-linear map $\lambda \colon A \to k$ satisfying the following properties:
-   \begin{enumerate}[label=\emph{(\roman*)}]
+   \begin{enumerate}[label=\emph{(\roman*)},leftmargin=*]
     \item
      $\lambda(ab) = \lambda(ba)$ for all $a,b \in A$.
     \item
@@ -1506,7 +1509,7 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*)}]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $G$ be a finite-group and $k$ a field. Then $kG$ is a Frobenius algebra. To see this let the $k$-linear map $\varepsilon \colon kG \to k$ be defined as
    \[
@@ -1591,7 +1594,7 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 
 
 \begin{rem}
- \begin{enumerate}[label=\emph{\alph*)}]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    For every ring $R$ we have $\left( R^\op \right)^\op = R$.
   \item
@@ -1942,7 +1945,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*)}]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $D$ be a division ring and $n \geq 1$. We have already seen that $\Mat_n(D)$ is a simple according to definition 1. It is also simple: Let $I \subseteq \Mat_n(D)$ be a two-sided ideal with $I \neq 0$. Let $A = (a_{ij})_{1 \leq i,j \leq n} \in I$ with $A \neq 0$. Then $a_{ij} \neq 0$ for some $1 \leq i,j \leq n$. Therefore
    \[
@@ -1989,14 +1992,14 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 
 \begin{thrm}[Wedderburn]
  Let $R$ be a simple ring (with $1$). Then the following are equivalent:
- \begin{enumerate}[label=\emph{\roman*)}]
-  \item\label{enum: semisimple}
+ \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+  \item \label{enum: semisimple}
    $R$ is semisimple.
-  \item\label{enum: left artian}
+  \item \label{enum: left artian}
    $R$ is (left) artian.
-  \item\label{enum: minimal left ideal}
+  \item \label{enum: minimal left ideal}
    $R$ has a minimal left ideal $I \neq 0$.
-  \item\label{enum: matrix ring over skew field}
+  \item \label{enum: matrix ring over skew field}
    $R \cong \Mat_n(D)$ for some $n \in \N$ and skew field $D$.
  \end{enumerate}
 \end{thrm}
