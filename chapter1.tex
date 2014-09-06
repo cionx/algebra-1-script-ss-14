@@ -67,7 +67,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
 
 \begin{expls}
  Let $G$ be a group.
- \begin{enumerate}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $G$ acts on itself by left multiplication, i.e.
    \[
@@ -123,15 +123,17 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
 
 \begin{lem}
  Let $G$ be a group.
- \begin{enumerate}
-  \item If $X$ is a $G$-set, then $\id_X \in \Hom_G(X,X)$.
-  \item If $X, Y, Z$ are $G$-sets with $f_1 \in \Hom_G(X,Y)$ and $f_2 \in \Hom_G(Y,Z)$ then $f_2 \circ f_1 \in \Hom_G(X,Z)$.
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   If $X$ is a $G$-set, then $\id_X \in \Hom_G(X,X)$.
+  \item
+   If $X, Y, Z$ are $G$-sets with $f_1 \in \Hom_G(X,Y)$ and $f_2 \in \Hom_G(Y,Z)$ then $f_2 \circ f_1 \in \Hom_G(X,Z)$.
  \end{enumerate}
 \end{lem}
 
 
 \begin{expls}
- \begin{enumerate}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $G$ be a group and look at $G$ as a regular $G$-set. Then $f \colon G \to G$ is $G$-equivariant if and only if $f$ is given by right multiplication with some element $a \in G$ (i.e $f(g) = ga$ for all $g \in G$).
    \begin{proof}
@@ -280,7 +282,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 \begin{lem}\label{lem: basis of Maps and Hom}
  Let $X$ be a finite $G$-set. Let $k$ be a field (or a ring).
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $\Maps(X,k)$ forms a $k$-vector space (resp. $k$-module) via pointwise addition and scalar multiplication.
   \item
@@ -308,7 +310,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    This is left as an easy exercise for the reader.
   \item
@@ -388,7 +390,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
   g.x_1 \in X_1 \text{ and } g.x_2 \in X_2 \text{ for all } x_1 \in X_1, x_2 \in X_2, g \in G.
  \end{equation}
  Then
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2, k)$ as $k$-vector spaces (resp. $k$-modules).
   \item
@@ -396,7 +398,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$. Similarly $\Maps(X_i, k)$ has a basis $B_i \coloneqq \{\chi_x \mid x \in X_i\}$ for $i=1,2$. Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
    \[
@@ -477,14 +479,14 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 \begin{expl}
  Let $X$ be a $G$-set and $k$ a field (or a ring). Then:
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $\Maps(X,k)$ forms a ring via pointwise addition and multiplication.
   \item
    The usual $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G, x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
  \end{enumerate}
  \begin{proof}
-  \begin{enumerate}[label=\emph{\alph*})]
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
    \item
     We leave this as an exercise to the reader.
    \item
@@ -529,7 +531,7 @@ To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ 
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $G$ be a group. Then the left regular action and the right regular action of $G$ on $G$ commute.
   \item
@@ -595,7 +597,7 @@ For a $k$-vector space $V$ we set
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Let $V$ be a $k$-vector space. Then $\GL(V)$ acts linearly on $V$ in a natural way. (The action corresponds to the group homomorphism $\id_{\GL(V)} \colon \GL(V) \to \GL(V)$.)
   \item
@@ -658,8 +660,8 @@ For a $k$-vector space $V$ we set
     \vdots  &  \vdots  & \ddots &  \vdots  \\
    a_{n1} B & a_{n2} B & \cdots & a_{nm} B
   \end{pmatrix}
-\]
-with respect to the basis $v_1$, \dots, $v_n$, $w_1$, \dots, $w_m$ of $V \oplus W$ and the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_n \otimes w_m$ of $V \otimes W$.
+ \]
+ with respect to the basis $v_1$, \dots, $v_n$, $w_1$, \dots, $w_m$ of $V \oplus W$ and the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_n \otimes w_m$ of $V \otimes W$.
 \end{expls}
 
 
@@ -826,11 +828,11 @@ Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f \co
 
 \begin{lem}\label{lem: composition of morphisms of representations}
  Let $G$ be a group.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  $\id_V \colon V \to V$ is a morphism of representations for any representation $V$ of $G$.
+   $\id_V \colon V \to V$ is a morphism of representations for any representation $V$ of $G$.
   \item
-  If $f \colon V \to W$  and $g \colon W \to Z$ are morphism of representations of $G$, then $g \circ f \colon V \to Z$ is a morphism of representations.
+   If $f \colon V \to W$  and $g \colon W \to Z$ are morphism of representations of $G$, then $g \circ f \colon V \to Z$ is a morphism of representations.
  \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -863,25 +865,25 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
 
 \begin{lem}[Schur’s Lemma]
  Let $k$ be a field, $G$ a group, $V$ and $W$ irreducible representations of $G$.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  We have $\Hom_G(V,W) = 0$ if $V \not\cong W$ and $\Hom_G(V,W) \not\cong 0$ if $V \cong W$, and every non zero morphism is an isomorphism.
+   We have $\Hom_G(V,W) = 0$ if $V \not\cong W$ and $\Hom_G(V,W) \not\cong 0$ if $V \cong W$, and every non zero morphism is an isomorphism.
   \item
-  $\Hom_G(V,V)$ is a divison ring / skew field (i.e.\ we have $1 \neq 0$ and every non zero endomorphism is invertible).
+   $\Hom_G(V,V)$ is a divison ring / skew field (i.e.\ we have $1 \neq 0$ and every non zero endomorphism is invertible).
   \item
-  In the special case that $k$ is algebraically closed (e.g. $k = \C$) and $V$ and $W$ are both finite dimensional we have that
-  \[
-   \Hom_G(V,W) \cong
-   \begin{cases}
-    k & \text{if } V \cong W, \\
-    0 & \text{if } V \not\cong W,
-   \end{cases}
-  \]
-  as vector spaces.
+   In the special case that $k$ is algebraically closed (e.g. $k = \C$) and $V$ and $W$ are both finite dimensional we have that
+   \[
+    \Hom_G(V,W) \cong
+    \begin{cases}
+     k & \text{if } V \cong W, \\
+     0 & \text{if } V \not\cong W,
+    \end{cases}
+   \]
+   as vector spaces.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item 
    Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp. $W$. Since $V$ and $W$ are irreducible we have that
    \[
@@ -1046,52 +1048,52 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 
 \begin{lem}
  Let $e_1$, \dots, $e_n$ denote the standard basis von $k^n$. $G = S_n$ acts linearly on $k^n$ as in the previous example.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  The vector subspaces
-  \begin{gather*}
-   U_1 \coloneqq \vspan\left( \sum_{i=1}^n e_i\right)
-  \shortintertext{and}
-   U_2 \coloneqq \left\{ (\lambda_1, \dotsc, \lambda_n) \in k^n \,\middle|\, \sum_{i=1}^n \lambda_i = 0 \right\}
-  \end{gather*}
-  are subrepresentations.
+   The vector subspaces
+   \begin{gather*}
+    U_1 \coloneqq \vspan\left( \sum_{i=1}^n e_i\right)
+   \shortintertext{and}
+    U_2 \coloneqq \left\{ (\lambda_1, \dotsc, \lambda_n) \in k^n \,\middle|\, \sum_{i=1}^n \lambda_i = 0 \right\}
+   \end{gather*}
+   are subrepresentations.
   \item
-  $U_1$ is the trivial $1$-dimensional subrepresentation and
-  \[
-   \begin{cases}
-    U_1 = U_2 & \text{if } n = 2, \kchar k = 2,\\
-    U_1 \ncong U_2 & \text{otherwise}.
-   \end{cases}
-  \]
+   $U_1$ is the trivial $1$-dimensional subrepresentation and
+   \[
+    \begin{cases}
+     U_1 = U_2 & \text{if } n = 2, \kchar k = 2,\\
+     U_1 \ncong U_2 & \text{otherwise}.
+    \end{cases}
+   \]
   \item
   If $n = 2$ then $V$ is completely reducible if and only if $\kchar k \neq 2$.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  It is clear that $U_1$ and $U_2$ are vector subspaces. Since
-  \[
-   g.\left(\sum_{i=1}^n e_i\right)
-   = \sum_{i=1}^n e_{g(i)}
-   = \sum_{i=1}^n e_i
-   \tag{$\ast$}
-  \]
-  we have $g.u \in U_1$ for all $g \in G, u \in U_1$, thus $U_1$ is a subrepresentation. Since
-  \[
-   g.(\lambda_1, \dotsc, \lambda_n) = \left( \lambda_{g^{-1}(1)}, \dotsc, \lambda_{g^{-1}(n)} \right)
-  \]
-  we have $g.u \in U_2$ for all $g \in G, u \in U_2$, thus $U_2$ is a subrepresentation.
+   It is clear that $U_1$ and $U_2$ are vector subspaces. Since
+   \[
+    g.\left(\sum_{i=1}^n e_i\right)
+    = \sum_{i=1}^n e_{g(i)}
+    = \sum_{i=1}^n e_i
+    \tag{$\ast$}
+   \]
+   we have $g.u \in U_1$ for all $g \in G, u \in U_1$, thus $U_1$ is a subrepresentation. Since
+   \[
+    g.(\lambda_1, \dotsc, \lambda_n) = \left( \lambda_{g^{-1}(1)}, \dotsc, \lambda_{g^{-1}(n)} \right)
+   \]
+   we have $g.u \in U_2$ for all $g \in G, u \in U_2$, thus $U_2$ is a subrepresentation.
   \item
-  We have that $g.u = u$ for all $u \in U$ by ($\ast$).  If $n > 2$ then
-  \[
-   \dim U_1 = 1 \neq \dim U_2
-  \]
-  and thus $U_1 \ncong U_2$.
-  
-  If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$. So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.  If $\kchar k = 2$ then $U_1$ and $U_2$ are both spanned by $(1,1)$ and thus $U_1 = U_2$.
+   We have that $g.u = u$ for all $u \in U$ by ($\ast$).  If $n > 2$ then
+   \[
+    \dim U_1 = 1 \neq \dim U_2
+   \]
+   and thus $U_1 \ncong U_2$.
+   
+   If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$. So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.  If $\kchar k = 2$ then $U_1$ and $U_2$ are both spanned by $(1,1)$ and thus $U_1 = U_2$.
   \item
-  If $\kchar k \neq 2$ then $V$ is completely reducible by Maschke’s Theorem. If $\kchar k = 2$ then $U_1 = U_2$. This is the only one-dimensonal subrepresentation of $V$: If $U \subseteq V$ is a subrepresentation such that there exists $(\lambda, \mu) \in U$ with $\lambda \neq \mu$, then $(\mu, \lambda) \in U$ and thus $U = V$. Thus $V$ is indecomposible but reducible.
+   If $\kchar k \neq 2$ then $V$ is completely reducible by Maschke’s Theorem. If $\kchar k = 2$ then $U_1 = U_2$. This is the only one-dimensonal subrepresentation of $V$: If $U \subseteq V$ is a subrepresentation such that there exists $(\lambda, \mu) \in U$ with $\lambda \neq \mu$, then $(\mu, \lambda) \in U$ and thus $U = V$. Thus $V$ is indecomposible but reducible.
   \qedhere
  \end{enumerate}
 \end{proof}
