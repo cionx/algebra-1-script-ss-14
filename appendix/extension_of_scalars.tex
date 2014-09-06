@@ -345,6 +345,7 @@ corresponds to a $k$-bilinear map
  (a_1 \otimes b_1, a_2 \otimes b_2) &\mapsto (a_1 a_2) \otimes (b_1 b_2).
 \end{align*}
 
+
 Given a $k$-algebra $A$ we get that $A_L$ is an $L$-vector space and a $k$-algebra. It is easy to see that that these structures are compatible and give $A_L$ the structure of an $L$-algebra. To see this compatibility simply notice that the $k$-bilinear map
 \begin{align*}
  (A_1 \otimes_k A_2) \times (A_1 \otimes_k A_2) &\to A_1 \otimes_k A_2, \\
@@ -353,15 +354,16 @@ Given a $k$-algebra $A$ we get that $A_L$ is an $L$-vector space and a $k$-algeb
 is also $L$-bilinear.
 
 
-\begin{lem}
+\begin{rem}
  Let $A$ be a $k$-algebra.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
   If $A$ is unital then so is $A_L$.
   \item
   The canonical inclusion $\can_A \colon A \to A_L$ is a homomorphism of $k$-algebras.
  \end{enumerate}
-\end{lem}
+\end{rem}
+
 
 \begin{lem}
  For $k$-algebras $A_1$ and $A_2$ and a homomorphism of $k$-algebras
@@ -387,7 +389,9 @@ is also $L$-bilinear.
  Since these simple tensors generate $L \otimes_k A_1$ it follows that $f_L$ is multiplicative.
 \end{proof}
  
+ 
 This shows that we can understand the extension of scalars for $k$-algebras als a functor from $\cAlg{k}$ to $\cAlg{L}$.
+
 
 \begin{lem}
  Let $A$ be a $k$-algebra, $B$ an $L$-algebra and $f \colon A \to B$ a homomorphism of $k$-algebras. Then the corresponding $L$-linear map $\hat{f} \colon A_L \to B$ is a homomorphism of $L$-algebras.
