@@ -274,16 +274,16 @@ In this section let $k$ be an infinite field.
 \end{defi}
 
 
-\begin{expls}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{expls}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item 
-  Let $X \subseteq k$ an infinite subset. Then $X$ is Zariski dense: Let $f \in \mc{P}(k)$ with $f_{|X} = 0$. Since $f$ is a polynomial function there exists $p \in k[X]$ with $f(\lambda) = p(\lambda)$ for all $\lambda \in k$. Since $f_{|X} = 0$ and $X$ is infinite the polynomial $p$ has infinitely many zeroes. Therefore $p = 0$ and $f = 0$.
+   Let $X \subseteq k$ an infinite subset. Then $X$ is Zariski dense: Let $f \in \mc{P}(k)$ with $f_{|X} = 0$. Since $f$ is a polynomial function there exists $p \in k[X]$ with $f(\lambda) = p(\lambda)$ for all $\lambda \in k$. Since $f_{|X} = 0$ and $X$ is infinite the polynomial $p$ has infinitely many zeroes. Therefore $p = 0$ and $f = 0$.
   \item
-  Let $W$ be a finite-dimensional $k$-vector space and $U \subsetneq W$ a vector subspace. Then $U$ is not Zariski dense in $W$ over $k$: To see this let $w_1$, \dots, $w_n$, $w_{n+1}$, \dots, $w_m$ be a $k$-basis of $W$ such that $w_1$, \dots, $w_n$ is a $k$-basis of $U$. Since $U \neq W$ we have $n < m$. We define $\pi \in \mc{P}_k(W)$ as the projection
-  \[
-   \pi\left(\sum_{i=1}^m \lambda_i w_i\right) = \lambda_m.
-  \]
-  We have $\pi_{|U} = 0$ but $\pi \neq 0$, so $U$ is not Zariski dense in $W$ over $k$.
+   Let $W$ be a finite-dimensional $k$-vector space and $U \subsetneq W$ a vector subspace. Then $U$ is not Zariski dense in $W$ over $k$: To see this let $w_1$, \dots, $w_n$, $w_{n+1}$, \dots, $w_m$ be a $k$-basis of $W$ such that $w_1$, \dots, $w_n$ is a $k$-basis of $U$. Since $U \neq W$ we have $n < m$. We define $\pi \in \mc{P}_k(W)$ as the projection
+   \[
+    \pi\left(\sum_{i=1}^m \lambda_i w_i\right) = \lambda_m.
+   \]
+   We have $\pi_{|U} = 0$ but $\pi \neq 0$, so $U$ is not Zariski dense in $W$ over $k$.
  \end{enumerate}
 \end{expls}
 
@@ -585,19 +585,19 @@ By putting all of this together we get the following nice commutative diagram:
 
 \begin{lem}\label{lem: zariski density orbits}
  Let $W$ be a finite-dimensional representation of a group $G$ and $f \in \mc{P}(W)^G$.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Let $X \subseteq W$ such that $f_{|X} = 0$ and
-  \[
-   G.X = \{g.x \mid g \in G, x \in X\}
-  \]
-  is Zariski-dense in $W$. Then $f = 0$.
+   Let $X \subseteq W$ such that $f_{|X} = 0$ and
+   \[
+    G.X = \{g.x \mid g \in G, x \in X\}
+   \]
+   is Zariski-dense in $W$. Then $f = 0$.
   \item
-  If there is a Zariski dense $G$-orbit then $f$ is constant.
+   If there is a Zariski dense $G$-orbit then $f$ is constant.
  \end{enumerate}
 \end{lem}
-\begin{proof}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Since $f$ is $G$-equivariant it follows that $f_{|G.X} = 0$, since for all $g \in G$ and $x \in X$
    \[
@@ -677,14 +677,14 @@ By putting all of this together we get the following nice commutative diagram:
 
 \begin{rem}
  Let $W$ be a finite-dimensional $k$-vector space.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  For $X \subseteq Y \subseteq W$ we have $\mc{I}(Y) \subseteq \mc{I}(X)$. Furthermore $X$ is Zariski-dense in $Y$ if and only if $\mc{I}(X) = \mc{I}(Y)$.
+   For $X \subseteq Y \subseteq W$ we have $\mc{I}(Y) \subseteq \mc{I}(X)$. Furthermore $X$ is Zariski-dense in $Y$ if and only if $\mc{I}(X) = \mc{I}(Y)$.
   \item
-  Let $\{X_i\}_{i \in I}$ be a collection of subsets $X_i \subseteq W$. Then
-  \[
-   \mc{I}\left( \bigcup_{i \in I} X_i \right) = \bigcap_{i \in I} \mc{I}(X_i).
-  \]
+   Let $\{X_i\}_{i \in I}$ be a collection of subsets $X_i \subseteq W$. Then
+   \[
+    \mc{I}\left( \bigcup_{i \in I} X_i \right) = \bigcap_{i \in I} \mc{I}(X_i).
+   \]
  \end{enumerate}
 \end{rem}
 
@@ -788,23 +788,23 @@ More generally: If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $
 
 \begin{prop}
  Let $L/k$ be a field extension.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+   $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
   \item
-  $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
+   $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
   \item
-  $\SL_n(k)$ is Zariski dense in $\SL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
+   $\SL_n(k)$ is Zariski dense in $\SL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
  \end{enumerate}
 \end{prop}
-\begin{proof}\leavevmode
- \begin{enumerate}[label=\emph{\alph*})]
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$. By corollary \ref{cor: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$. By \mbox{lemma \ref{lem: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$. By the transitivity of Zariski density we find that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
   \item
    This follows directly from a).
   \item
-   The proof given in the lecture is wrong. A right one will be added later.
+   The proof given in the lecture is wrong. A right one will be added later. (Maybe.)
   \qedhere
  \end{enumerate}
 \end{proof}
@@ -882,13 +882,13 @@ In this section we require all fields to be infinite. Until further notice we al
 
 
 \begin{expls}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  We have $\mc{V}(\emptyset) = \mc{V}(\{0\}) = W$ and $\mc{V}(\mc{P}(W)) = \mc{V}(\{1\}) = \emptyset$.
+   We have $\mc{V}(\emptyset) = \mc{V}(\{0\}) = W$ and $\mc{V}(\mc{P}(W)) = \mc{V}(\{1\}) = \emptyset$.
   \item
-  For $S_1 \subseteq S_2 \subseteq \mc{P}(W)$ we have $\mc{V}(S_2) \subseteq \mc{V}(S_1)$.
+   For $S_1 \subseteq S_2 \subseteq \mc{P}(W)$ we have $\mc{V}(S_2) \subseteq \mc{V}(S_1)$.
   \item
-  For every $S \subseteq \mc{P}(W)$ we have $S \subseteq \mc{I}(\mc{V}(S))$ and for every $X \subseteq W$ we have $X \subseteq \mc{V}(\mc{I}(X))$.
+   For every $S \subseteq \mc{P}(W)$ we have $S \subseteq \mc{I}(\mc{V}(S))$ and for every $X \subseteq W$ we have $X \subseteq \mc{V}(\mc{I}(X))$.
  \end{enumerate}
 \end{expls}
 
@@ -948,21 +948,21 @@ In this section we require all fields to be infinite. Until further notice we al
 
 
 \begin{prop}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Let $(I_j)_{j \in J}$ be a family of ideals $I_j \subseteq \mc{P}(W)$. Then
-  \[
-   \bigcap_{j \in J} \mc{V}(I_j) = \mc{V}\left( \sum_{j \in J} I_j \right).
-  \]
+   Let $(I_j)_{j \in J}$ be a family of ideals $I_j \subseteq \mc{P}(W)$. Then
+   \[
+    \bigcap_{j \in J} \mc{V}(I_j) = \mc{V}\left( \sum_{j \in J} I_j \right).
+   \]
   \item
-  For all ideals $I_1, I_2 \subseteq \mc{P}(W)$ we have
-  \[
-   \mc{V}(I_1) \cup \mc{V}(I_2) = \mc{V}(I_1 \cap I_2).
-  \]
+   For all ideals $I_1, I_2 \subseteq \mc{P}(W)$ we have
+   \[
+    \mc{V}(I_1) \cup \mc{V}(I_2) = \mc{V}(I_1 \cap I_2).
+   \]
  \end{enumerate}
 \end{prop}
 \begin{proof}
- \begin{enumerate}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    Since $I_i \subseteq \sum_{j \in J} I_j$ for all $i \in J$ we have
    \[
@@ -1005,16 +1005,16 @@ In this section we require all fields to be infinite. Until further notice we al
 
 
 \begin{lem}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   Let $R$ be a commutative ring and $I \subseteq R$ an ideal. 
   \item
-  $\rad I  \subseteq R$ is an ideal with $I \subseteq \rad I$.
+   $\rad I  \subseteq R$ is an ideal with $I \subseteq \rad I$.
   \item
-  We have $\rad(\rad I) = \rad I$.
+   We have $\rad(\rad I) = \rad I$.
  \end{enumerate}
 \end{lem}
 \begin{proof}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    It is clear that $I \subseteq \rad I$.
    
@@ -1049,20 +1049,20 @@ In this section we require all fields to be infinite. Until further notice we al
 
 \begin{prop}
  Let $k$ be algebraically closed.
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  For every ideal $J \subseteq \mc{P}(W)$ we have $\mc{I}(\mc{V}(J)) = \rad J$.
+   For every ideal $J \subseteq \mc{P}(W)$ we have $\mc{I}(\mc{V}(J)) = \rad J$.
   \item
-  In particular we have a bijection
-  \begin{align*}
-   \{\text{affine algebraic varieties $X \subseteq W$}\} &\leftrightarrow \{\text{radial ideals $I \subseteq \mc{P}(W)$}\} \\
-           X &\mapsto \mc{I}(X) \\
-   \mc{V}(I) &\mapsfrom I.
+   In particular we have a bijection
+   \begin{align*}
+    \{\text{affine algebraic varieties $X \subseteq W$}\} &\leftrightarrow \{\text{radial ideals $I \subseteq \mc{P}(W)$}\} \\
+            X &\mapsto \mc{I}(X) \\
+    \mc{V}(I) &\mapsfrom I.
   \end{align*}
  \end{enumerate}
 \end{prop}
 \begin{proof}
- \begin{enumerate}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    We will prove this later.
   \item
@@ -1088,17 +1088,17 @@ To prove the first part of the previous lemma we need some preparation.
 
 
 \begin{rem}
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  Note that $\mf{m}_{a} \cong \mc{I}(a)$ under $\mc{P}(k^n) \cong k[X_1, \dotsc, X_n]$.
+   Note that $\mf{m}_{a} \cong \mc{I}(a)$ under $\mc{P}(k^n) \cong k[X_1, \dotsc, X_n]$.
   \item
-  The theorem gives us a bijection
-  \begin{align*}
-   \{\text{maximal ideals in $k[X_1, \dotsc, X_n]$}\} &\leftrightarrow \{\text{points in $k^n$}\} \\
-   \mf{m}_a &\mapsto a.
-  \end{align*}
+   The theorem gives us a bijection
+   \begin{align*}
+    \{\text{maximal ideals in $k[X_1, \dotsc, X_n]$}\} &\leftrightarrow \{\text{points in $k^n$}\} \\
+    \mf{m}_a &\mapsto a.
+   \end{align*}
   \item
-  The theorem does not hold for arbitrary fields: Let \mbox{$\mf{m} = (X^2 + 1) \subseteq \R[X]$}. Then $\R[X]/\mf{m} \cong \C$ is a field, so $\mf{m}$ is a maximal ideal. But since $\mc{V}(\mf{m}) = 0$ the theorem does not hold.
+   The theorem does not hold for arbitrary fields: Let \mbox{$\mf{m} = (X^2 + 1) \subseteq \R[X]$}. Then $\R[X]/\mf{m} \cong \C$ is a field, so $\mf{m}$ is a maximal ideal. But since $\mc{V}(\mf{m}) = 0$ the theorem does not hold.
  \end{enumerate}
 \end{rem}
 
@@ -1217,21 +1217,21 @@ To prove this theorem we will use the following lemmata.
  \[
   J \coloneqq \{i \in I \mid L_i \cong k \text{ as representations of $G$}\}.
  \]
- \begin{enumerate}[label=\emph{\alph*})]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-  We have
-  \[
-   A^G = \bigoplus_{j \in J} L_j.
-  \]
+   We have
+   \[
+    A^G = \bigoplus_{j \in J} L_j.
+   \]
   \item
-  We have $A = A^G \oplus N$ where $N = \bigoplus_{i \in I \setminus J} L_i$. For the projection
-  \[
-   \pi \colon A \to A^G
-  \]
-  along this decomposition we have
-  \[
-   \pi(hf) = h\pi(f) \text{ for all } h \in A^G, f \in A.
-  \]
+   We have $A = A^G \oplus N$ where $N = \bigoplus_{i \in I \setminus J} L_i$. For the projection
+   \[
+    \pi \colon A \to A^G
+   \]
+   along this decomposition we have
+   \[
+    \pi(hf) = h\pi(f) \text{ for all } h \in A^G, f \in A.
+   \]
  \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -1288,54 +1288,6 @@ To prove this theorem we will use the following lemmata.
  \end{align*}
  Since $\mf{m}_0$ is finitely generated as an $A$-module we find by by Lemma \ref{lem: technical lemma about generating} that $A$ is finitely generated as a $A_0^G$-algebra, where $A_0^G = A_0 = k$.
 \end{proof}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
