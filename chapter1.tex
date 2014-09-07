@@ -714,6 +714,43 @@ It is clear that every irreducible representation is also indecomposable. The co
 \end{warn}
 
 
+\begin{lem}\label{lem: direct sum and invariants commute}
+ Let $G$ be a group.
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   Given a representation $V$ of $G$ the subset $V^G \subseteq V$ is a (trivial) subrepresentation of $V$.
+  \item
+   Given a collection $V_i$, $i \in I$ of representations of $G$ we have
+   \[
+    \left( \bigoplus_{i \in I} V_i \right)^G = \bigoplus_{i \in I} V_i^G.
+   \]
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   Since $G$ acts trivially on $V^G$ we only need to check that that $V^G$ is a vector subspace of $V$. This holds becaues $\pi_g \colon V \to V, v \mapsto g.v$ is linear for every $g \in G$ and
+   \[
+    V^G = \bigcap_{g \in G} \ker(\pi_g - \id_V).
+   \]
+  \item
+   Let $v \in \left( \bigoplus_{i \in I} V_i \right)^G$ with $v = \sum_{i \in I} v_i$ where $v_i \in V_i$ for every $i \in I$ and $v_i = 0$ for all but finitely many $i \in I$. Because $V_i$ is a subrepresentation of $\bigoplus_{i \in I} V_i$ for every $i \in I$ and $G$ acts linearly on $\bigoplus_{i \in I} V_i$ we find that for every $g \in G$
+   \[
+    \sum_{i \in I} v_i
+    = v
+    = g.v
+    = g.\left( \sum_{i \in I} v_i \right)
+    = \sum_{i \in I} g.v_i.
+   \]
+   Because the sum $\bigoplus_{i \in I} V_i$ is direct we find that $g.v_i = v_i$ for every $g \in G$, $i \in I$. So $v_i \in V_i^G$ for every $i \in I$. Thus $v \in \bigoplus_{i \in I} V_i^G$ and therefore
+   \[
+    \left( \bigoplus_{i \in I} V_i \right)^G \subseteq \bigoplus_{i \in I} V_i^G.
+   \]
+   The other inclusion is obvious.
+ \end{enumerate}
+\end{proof}
+
+
 
 
 
@@ -843,10 +880,8 @@ Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f \co
 The previous lemma shows that for any group $G$ and field $k$ the class of representations of $G$ over $k$ together with morphisms of representations between them form a category, which we will denote by $\cRep{k}{G}$.
 
 
-We also find that for any group $G$ and representation $V$ of $G$ the subset $V^G$ is a subrepresentation of $G$: Since $G$ acts trivially on $V^G$ we only need to check that that $V^G$ is a vector subspace of $V$. This holds becaues $\pi_g \colon V \to V, v \mapsto g.v$ is linear for every $g \in G$ and
-\[
- V^G = \bigcap_{g \in G} \ker(\pi_g - \id_V).
-\]
+%TODO: HERPDERP
+
 
 Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ to $V^G$ and every morphism of representations $f \colon V \to W$ to the restriction $f^G \colon V^G \to W^G$.
 
