@@ -294,17 +294,11 @@ in $k[t]$. We will formalize this observation in the following lemma.
  A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if its homogeneous parts are symmetric.
 \end{lem}
 \begin{proof}
- We have $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ as a graded $k$-algebra. We write $f = \sum_{d \geq 0} f_d$ where $f_d$ is the homogenous part of $f$ of degree $d$ and only finitely many $f_d$ are non-zero. We need to show that $f$ is symmetric if and only if $f_d$ is symmetric for all $d \geq 0$.
- 
- Is is clear that $f$ is symmetric if all $f_d$ are symmetric. On the other hand we notice that the decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]$ into vector subspaces is also a decomposition into subrepresentations of $S_n$. If $f$ is symmetric we therefore have for all $\sigma \in S_n$
- \[
-  f = \sum_{d \geq 0} f_d = \sigma.\left( \sum_{d \geq 0} f_d \right) = \sum_{d \geq 0} \sigma.f_d.
- \]
- Because the sum is direct and $\sigma.f_d \in k[X_1, \dotsc, X_n]_d$ for all $d \geq 0$ we have $\sigma.f_d = f_d$ for all $d \geq 0$.
+ We have $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ as a graded $k$-algebra. This decomposition is also a decomposition into subrepresentations of $S_n$. So the statement follows from Lemma \ref{lem: direct sum and invariants commute}.
 \end{proof}
 
 
-Using this Lemma we can now easily prove the Fundamental Theorem. We will give two possible proofs. The first one is shorter and more intuitive while the second one was given in the lecture.
+Using this Lemma we can now easily prove the Fundamental Theorem. We will give two possible proofs, where the second one is the one given in the lecture.
 
 
 \begin{proof}[Proof of the Fundamental Theorem]
