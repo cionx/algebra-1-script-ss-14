@@ -626,42 +626,42 @@ For a $k$-vector space $V$ we set
     g.(v,w) &= (g.v,g.w) \text{ and }  \tag{1} \\
     g.(v \otimes w) &= (g.v) \otimes (g.w) \tag{2}
    \end{align*}
-   for all $v \in V, w \in W, g \in G$.
+   for all $v \in V, w \in W, g \in G$. 
+   Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$: If $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$ then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$. The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$. So $\tau'$ it is the unique action making the diagram in figure \ref{fig: action on product and tensor} commute for all $g \in G$.
+   \tikzsetnextfilename{tensor_product_of_representations}
+   \begin{figure}\label{fig: action on product and tensor}\centering
+    \begin{tikzpicture}[node distance = 3.5cm, auto]
+     % the nodes
+     \node (V times W) {$V \times W$};
+     \node (V times W 2) [right of = V times W] {$V \times W$};
+     \node (V tensor W) [below of = V times W, node distance = 1.5cm] {$V \otimes W$};
+     \node (V tensor W 2) [right of = V tensor W] {$V \otimes W$};
+     % the arrows
+     \draw[->] (V times W) to node {$\pi_g \times \pi'_g$} (V times W 2);
+     \draw[->] (V times W) to (V tensor W);
+     \draw[->] (V times W 2) to (V tensor W 2);
+     \draw[->] (V tensor W) to node [swap] {$\pi_g \otimes \pi'_g$} (V tensor W 2);
+    \end{tikzpicture}
+    \caption{The action of $g \in G$ on $V \times W$ and $V \otimes W$.}
+   \end{figure}
+   If $v_1$, \dots, $v_n$ is a basis of $V$ and $w_1$, \dots, $w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp. $W$, as a matrix $A$, resp. $B$. The actions $(1)$ and $(2)$ are then given by matrices
+   \[
+    \begin{pmatrix}
+     A & 0 \\
+     0 & B
+    \end{pmatrix}
+    \text{ and }
+    \begin{pmatrix}
+     a_{11} B & a_{12} B & \cdots & a_{1m} B \\
+     a_{21} B & a_{22} B & \cdots & a_{2m} B \\
+      \vdots  &  \vdots  & \ddots &  \vdots  \\
+     a_{n1} B & a_{n2} B & \cdots & a_{nm} B
+    \end{pmatrix}
+   \]
+   with respect to the basis $v_1$, \dots, $v_n$, $w_1$, \dots, $w_m$ of $V \oplus W$ and the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_n \otimes w_m$ of $V \otimes W$.
+  \item
+   Let $V$ and $W$ be $G$-spaces over the same field. Then $V \vee W$ and $V \wedge W$ can also be given the structure of a $G$-space in the same way as $V \otimes W$.
  \end{enumerate}
- 
- Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$: If $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$ then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$. The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$. So $\tau'$ it is the unique action making the diagram in figure \ref{fig: action on product and tensor} commute for all $g \in G$.
- \tikzsetnextfilename{tensor_product_of_representations}
- \begin{figure}\label{fig: action on product and tensor}\centering
-  \begin{tikzpicture}[node distance = 3.5cm, auto]
-   % the nodes
-   \node (V times W) {$V \times W$};
-   \node (V times W 2) [right of = V times W] {$V \times W$};
-   \node (V tensor W) [below of = V times W, node distance = 1.5cm] {$V \otimes W$};
-   \node (V tensor W 2) [right of = V tensor W] {$V \otimes W$};
-   % the arrows
-   \draw[->] (V times W) to node {$\pi_g \times \pi'_g$} (V times W 2);
-   \draw[->] (V times W) to (V tensor W);
-   \draw[->] (V times W 2) to (V tensor W 2);
-   \draw[->] (V tensor W) to node [swap] {$\pi_g \otimes \pi'_g$} (V tensor W 2);
-  \end{tikzpicture}
-  \caption{The action of $g \in G$ on $V \times W$ and $V \otimes W$.}
- \end{figure}
- 
- If $v_1$, \dots, $v_n$ is a basis of $V$ and $w_1$, \dots, $w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp. $W$, as a matrix $A$, resp. $B$. The actions $(1)$ and $(2)$ are then given by matrices
- \[
-  \begin{pmatrix}
-   A & 0 \\
-   0 & B
-  \end{pmatrix}
-  \text{ and }
-  \begin{pmatrix}
-   a_{11} B & a_{12} B & \cdots & a_{1m} B \\
-   a_{21} B & a_{22} B & \cdots & a_{2m} B \\
-    \vdots  &  \vdots  & \ddots &  \vdots  \\
-   a_{n1} B & a_{n2} B & \cdots & a_{nm} B
-  \end{pmatrix}
- \]
- with respect to the basis $v_1$, \dots, $v_n$, $w_1$, \dots, $w_m$ of $V \oplus W$ and the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_n \otimes w_m$ of $V \otimes W$.
 \end{expls}
 
 
