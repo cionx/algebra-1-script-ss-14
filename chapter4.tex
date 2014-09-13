@@ -2222,6 +2222,73 @@ Let $e_1$, $e_2$ be the standard basis of $\C^2$. The usual action of $\GL_2(\C)
 \end{rem}
 
 
+\begin{rem}
+ Let $k$ be a field and $V$ a $k$-vector space. Suppose that we have $k$-algebras $A$ and $B$ such that $V$ is both an $A$-module and a $B$-module and that both multiplications commute. Then $V$ is also an $A \otimes_k B$ module where
+ \[
+  (a \otimes b) \cdot v \coloneqq a \cdot (b \cdot v) = b \cdot (a \cdot v).
+ \]
+ for all $v \in V$ and simple tensors $a \otimes b \in A \otimes_k B$.
+ 
+ So see that this multiplication is well-define let
+ \begin{gather*}
+  \Phi_A \colon A \to \End_k(V), a \mapsto (v \mapsto av)
+ \shortintertext{and}
+  \Phi_B \colon B \to \End_k(V), b \mapsto (v \mapsto bv)
+ \end{gather*}
+ be the corresponding algebra homomorphisms. This $k$-linear maps result in a $k$-bilinear map
+ \[
+  A \times B \to \End_k(V), (a,b) \mapsto \Phi_A(a) \circ \Phi_B(b)
+ \]
+ and thus in a $k$-linear map
+ \[
+  \Psi \colon A \otimes_k B \to \End_k(V), a \otimes b \mapsto \Phi_A(a) \circ \Phi_B(b).
+ \]
+ For all simple tensors $a \otimes b, a' \otimes b' \in A \otimes_k B$ we have
+ \begin{align*}
+  \Psi((a \otimes b) (a' \otimes b'))
+  &= \Psi((aa') \otimes (bb'))
+  = \Phi_A(aa') \circ \Phi_B(bb') \\
+  &= \Phi_A(a) \circ \Phi_A(a') \circ \Phi_B(b) \circ \Phi_B(b') \\
+  &= \Phi_A(a) \circ \Phi_B(b) \circ \Phi_A(a') \circ \Phi_B(b') \\
+  &= \Psi(a \otimes b) \circ \Psi(a' \otimes b'),
+ \end{align*}
+ so $\Psi$ is multiplicative and therefore an algebra homomorphism.
+\end{rem}
+
+
+
+\begin{thrm}[Double centralizer theorem]
+ Let $k$ be a field (not necessarily algebraically closed) and $W$ a finite-dimensional $k$-vector space. Let $A \subseteq \End_k(W)$ be a semisimple subalgebra. Let $A'$ be the commutant of $A$ in $\End_k(W)$, i.e.\
+ \[
+  A' = \{b \in \End_k(W) \mid ab = ba \text{ for every } a \in A\}.
+ \]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   $A'$ is a semisimple subalgebra.
+  \item
+   We have $A'' = A$.
+  \item
+   As an $(A \otimes_k A')$-module (see the previous remark) we have a decomposition
+   \[
+    V = W_1 \oplus \dotsb \oplus W_r
+   \]
+   into simple $(A \otimes_k A')$-modules.
+  \item
+   The above decomposition is also a decomposition into isotypical components of $A$ and of $A'$.
+  \item
+   Each simple $(A \otimes_k A')$-module $W_i$ in the previous decomposition is of the form
+   \[
+    W_i = V_i \otimes_{D_i} V'_i
+   \]
+   where $V_i$ is a simple $A_i$-module, $V'_i$ is a simple $A'_i$-module and $D_i$ is a skew field, namely
+   \[
+    D_i \coloneqq \End_A(V_i) \cong \End_{A'}(V'_i).
+   \]
+ \end{enumerate}
+\end{thrm}
+
+
+
 
 
 
