@@ -11,7 +11,7 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
 
 
 \begin{defi}
- Given a group $G$ and a set $X$ then an action of $G$ on $X$ is a map
+ Given a group $G$ and a set $X$ then an \emph{action of $G$ on $X$} is a map
  \[
   \pi \colon G \times X \to X, (g,x) \to g.x,
  \]
@@ -20,7 +20,7 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
   e.x = x \text{ and }
   (gh).x = g.(h.x)
  \end{gather*}
- for all $x \in X, g,h \in G$. We say then that $X$ is a $G$-set.
+ for all $x \in X, g,h \in G$. We say then that \emph{$X$ is a $G$-set}.
 \end{defi}
 
 
@@ -29,7 +29,7 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
  \[
   S(X) \coloneqq \{f \colon X \to X \mid f \text{ is bijective}\}.
  \]
- $S(X)$ is then a group with $fg \coloneqq f \circ g$ (composition of maps) for all $f,g \in S(X)$ and $e = \id_X$.
+ $S(X)$ is then a group with $fg \coloneqq f \circ g$ (composition of maps) for all $f,g \in S(X)$ and $e = \id_X$. $S(X)$ is called the \emph{symmetry group of $X$}.
 \end{defi}
 
 
@@ -110,7 +110,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
 
 
 \begin{defi}
- Let $G$ be a group and $X, Y$ $G$-sets. Then $f \colon X \to Y$ is called $G$-equivariant if
+ Let $G$ be a group and $X, Y$ $G$-sets. Then $f \colon X \to Y$ is called \emph{$G$-equivariant} if
  \[
   f(g.x) = g.f(x)
  \]
@@ -191,7 +191,7 @@ for any two $G$-sets $X$ and $Y$.
  \[
   X^G \coloneqq \{\text{$G$-invariants of $X$}\} = \{x \in X \mid g.x = x \text{ for all } g \in G\}.
  \]
- The elements in $X^G$ are called $G$-invariants or $G$ fix points.
+ The elements in $X^G$ are called \emph{$G$-invariants} or \emph{$G$ fix points}.
 \end{defi}
 
 
@@ -238,7 +238,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 
 \begin{defi}
- Let $X$ be a $G$-set, $k$ a field or a ring. $f \colon X \to k$ is called invariant (or better $G$-invariant) if
+ Let $X$ be a $G$-set, $k$ a field or a ring. A map $f \colon X \to k$ is called \emph{invariant} (or better \emph{$G$-invariant}) if
  \[
   f(x) = f(g^{-1}.x) \text{ for all } g \in G, x \in X.
  \]
@@ -352,7 +352,7 @@ where
 \[
  \supp(f) = \{x \in X \mid f(x) \neq 0\},
 \]
-is the support of $f$, i.e
+is the \emph{support of $f$}, i.e
 \[
  kX \coloneqq \{f \colon X \to k \mid f(x) \neq 0 \text{ for only finitely many } x \in X\}.
 \]
@@ -668,11 +668,11 @@ For a $k$-vector space $V$ we set
 \begin{defi}
   Let $V$ ba a $G$-space or equivalently a representation of $G$.
 
-  A subrepresentation of $V$ is a vector subspace $U$ of $V$ such that $g.u \in U$ for all $u \in U, g \in G$. A subrepresentation $U$ of $V$ is proper if $U \neq V$.
+  A \emph{subrepresentation} of $V$ is a vector subspace $U$ of $V$ such that $g.u \in U$ for all $u \in U, g \in G$. A subrepresentation $U$ of $V$ is \emph{proper} if $U \neq V$.
   
-  $V$ is indecomposable if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
+  $V$ is \emph{indecomposable} if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
   
-  $V$ is irreducible if it has no nontrivial proper subrepresentation.
+  $V$ is \emph{irreducible} if it is nonzero has no nontrivial proper subrepresentation.
 \end{defi}
 
 It is clear that every irreducible representation is also indecomposable. The converse is not true in general as the following example shows.
@@ -758,7 +758,7 @@ It is clear that every irreducible representation is also indecomposable. The co
 
 
 \begin{defi}
- Let $k$ be a field (or a ring) and $G$ a group. Then the group algebra of $G$ over $k$ is the $k$-algebra with $1$ given by the $k$-vector space
+ Let $k$ be a field (or a ring) and $G$ a group. Then the \emph{group algebra of $G$ over $k$} is the $k$-algebra with $1$ given by the $k$-vector space
  \[
   kG \coloneqq \{f \colon G \to k \mid f(g) \neq 0 \text{ for only finitely many } g \in G\}
  \]
@@ -842,7 +842,7 @@ So we can think of the multiplication in $kG$ as the $k$-bilinear extension of t
 
 
 \begin{defi}
-Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f \colon V \to W$ is called a morphism of $G$-spaces or morphism  of representations of $G$ if $f$ is $k$-linear and $G$-equivariant. An isomorphism of representations is an morphism of representations which is also invertible as a $k$-linear map. We call $V$ and $W$ isomorphic (as representations of $G$), denoted by $V \cong W$, if there exists an isomorphism of representations between $V$ and $W$. We denote
+Let $G$ be a group, $k$ any field and $V,W$ representations of $G$. A map $f \colon V \to W$ is called a \emph{morphism of $G$-spaces} or \emph{morphism of representations of $G$} if $f$ is $k$-linear and $G$-equivariant. An \emph{isomorphism of representations} is an morphism of representations which is also invertible as a $k$-linear map. We call $V$ and $W$ \emph{isomorphic (as representations of $G$)}, denoted by $V \cong W$, if there exists an isomorphism of representations between $V$ and $W$. We denote
 \[
  \Hom_G(V,W) = \{f \colon V \to W \mid f \text{ is a morphism of representations}\}.
 \]
@@ -977,7 +977,7 @@ Therefore we find that we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ whi
 
 
 \begin{defi}
- Let $G$ be a group. A representation $V$ of $G$ (over a field $k$) is completely reducible if
+ Let $G$ be a group. A representation $V$ of $G$ (over a field $k$) is \emph{completely reducible} if
  \[
   V \cong V_1 \oplus \dotsb \oplus V_r
  \]
@@ -1077,7 +1077,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 
 
 \begin{defi}
- Let $k$ be a group and $W$ any $k$-vector space. Then $g.w = w$ for all $g \in G, w \in W$ defines a representation $W$ of $G$. This is called the trivial representation. For each fixed dimension there is (up to isomorphism) one trivial representation. Therefore we usually say \emph{the} trivial representation of $G$ (of dimension $\dim W$).
+ Let $k$ be a group and $W$ any $k$-vector space. Then $g.w = w$ for all $g \in G, w \in W$ defines a representation $W$ of $G$. This is called the \emph{trivial representation}. For each fixed dimension there is (up to isomorphism) one trivial representation. Therefore we usually say \emph{the} trivial representation of $G$ (of dimension $\dim W$).
 \end{defi}
 
 
