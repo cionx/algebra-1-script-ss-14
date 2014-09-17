@@ -8,11 +8,11 @@
 
 
 \begin{defi}
- A $k$-Algebra $A$ is called graded (or more precisely $\Z$-graded) if there is a decomposition $A = \bigoplus_{d \in \Z} A_d$ into vector subspaces $A_d$ sucht that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
+ A $k$-Algebra $A$ is called \emph{graded} (or more precisely \emph{$\Z$-graded}) if there is a decomposition $A = \bigoplus_{d \in \Z} A_d$ into vector subspaces $A_d$ sucht that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
  
- A ring $R$ is called graded if there is a decomposition $R = \bigoplus_{d \in \Z} R_d$ into $\Z$-modules such that $R_i R_j \subseteq R_{i+j}$ for all $i,j \in \Z$.
+ A ring $R$ is called \emph{graded} if there is a decomposition $R = \bigoplus_{d \in \Z} R_d$ into $\Z$-modules such that $R_i R_j \subseteq R_{i+j}$ for all $i,j \in \Z$.
  
- We call $A_d$, resp. $R_d$, the homogeneous part of degree $d$.
+ We call $A_d$, resp. $R_d$, the \emph{homogeneous part of degree $d$}.
 \end{defi}
 
 \begin{rem}
@@ -78,7 +78,7 @@
 
 
 \begin{defi}
- A $k$-algebra $A$ is filtered if there exists a (potentially infinite) sequence
+ A $k$-algebra $A$ is \emph{filtered} if there exists a (potentially infinite) sequence
  \[
   0 = F_{-1}(A) \subseteq F_0(A) \subseteq F_1(A) \subseteq F_2(A) \subseteq \dotsb \subseteq A
  \]
@@ -88,7 +88,7 @@
  \shortintertext{and}
   F_i(A) F_j(A) \subseteq F_{i+j}(A) \text{ for all } i,j \geq -1.
  \end{gather*}
- This sequence is called a filtration of $A$.
+ This sequence is called a \emph{filtration of $A$}.
 \end{defi}
 
 
@@ -105,7 +105,7 @@
  \[
   \gr_\mc{F}(A) \coloneqq \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i.
  \]
- $\gr_\mc{F}(A)$ is the associated graded algebra to the filtered algebra $A$
+ $\gr_\mc{F}(A)$ is the \emph{associated graded algebra to the filtered algebra $A$}.
 \end{defi}
 
 
@@ -184,7 +184,7 @@
  \[
   g.X^{\alpha_1} \dotsm X_n^{\alpha_n} = X_{g(1)}^{\alpha_1} \dotsm X_{g(n)}^{\alpha_n} \text{ for all } g \in G
  \]
- linearly. A polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ is called a symmetric polynomial (in $n$ variables).
+ linearly. A polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ is called a \emph{symmetric polynomial (in $n$ variables)}.
 \end{defi}
 
 
@@ -201,15 +201,15 @@
 
 
 \begin{defi}
- Fix $n \in \N$. The $r$-th power symmetric polynomial, also called the $r$-th power sum, is defined as
+ Fix $n \in \N$. The \emph{$r$-th power symmetric polynomial}, also called the \emph{$r$-th power sum}, is defined as
  \[
   p_r^{(n)} \coloneqq X_1^r + \dotsb + X_n^r,
  \]
- the $r$-th completely symmetric polynomial as
+ the \emph{$r$-th completely symmetric polynomial} as
  \[
   h_r^{(n)} \coloneqq \sum_{|\alpha|=r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n}.
  \]
- and the $r$-th elementary symmetric polynomial as
+ and the \emph{$r$-th elementary symmetric polynomial} as
  \[
   e_r^{(n)} \coloneqq \sum_{1 \leq i_1 < \dotsb < i_r \leq n} X_{i_1} \dotsm X_{i_r}.
  \]
@@ -668,9 +668,10 @@ Since $e^{(n)}_1$, \dots, $e^{(n)}_n$ and $h^{(n)}_1$, \dots, $h^{(n)}_n$ are ea
  \]
  are linearly independent. For this is sufficies to show that the monomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$ of degree $\leq N$ form a $k$-basis of the symmetric polynomials of degree $\leq N$. We denote the number of (pairwise different) monomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$ by $P_N$ and this subspace by $V_N$. Because $p^{(n)}_1$, \dots, $p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra we already know that $V_N$ is generated as a vector subspace by the monomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$ of degree $\leq N$. Thus $\dim V_N \leq P_N$. Because $e^{(n)}_1$, \dots, $e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we also know that the monomials in $e^{(n)}_1$, \dots, $e^{(n)}_n$ of degree $\leq N$ form a $k$-basis of $V_N$. We denote the number of these monomials by $E_N$ and have $\dim V_N = E_N$. Since $P_N \leq E_N$ we also have $P_N \leq \dim V_N$. (That $P_N \leq E_N$ follows from the fact that for each monomial in $p^{(n)}_1$, \dots, $p^{(n)}_n$ we have a corresponding monomial in $e^{(n)}_1$, \dots, $e^{(n)}_n$ of the same degree, i.e.\ we have a surjective map
 \begin{align*}
-    &\, \{\text{monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$}\} \\
-    &\, \to \{\text{monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$}\}, \\
-    &\, \left(e^{(n)}\right)^\alpha \mapsto \left(p^{(n)}\right)^\alpha,
+    \left\{ \begin{array}{c} \text{monomials in} \\ e^{(n)}_1, \dotsc, e^{(n)}_n \\ \text{of degree $\leq N$} \end{array} \right\}
+    \to
+    \left\{ \begin{array}{c} \text{monomials in} \\ p^{(n)}_1, \dotsc, p^{(n)}_n \\ \text{of degree $\leq N$} \end{array} \right\},
+    \left(e^{(n)}\right)^\alpha \mapsto \left(p^{(n)}\right)^\alpha,
 \end{align*}
 where we use that the monomials in $e^{(n)}_1$, \dots, $e^{(n)}_n$ are pairwise different.)
 Therefore we have $P_N = \dim V_N$, so the monomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$ of degree $\leq N$ are a $k$-basis of $V_N$.
@@ -719,13 +720,13 @@ both $F$ and $G$ must have integer coefficients.
 
 
 \begin{defi}
- $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \N^s$ is a partition of $|\lambda| \coloneqq \sum_{i=1}^s \lambda_i$ if
+ $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \N^s$ is \emph{a partition of $|\lambda| \coloneqq \sum_{i=1}^s \lambda_i$} if
  \[
   \lambda_1 \geq \lambda_2 \geq \dotsb \geq \lambda_s \geq 0.
  \]
- The $\lambda_i$ are the parts of $\lambda$ and $l(\lambda) \coloneqq s$ is the length of  $\lambda$.
+ The $\lambda_i$ are the \emph{parts of $\lambda$} and $l(\lambda) \coloneqq s$ is the \emph{length of $\lambda$}.
  
- An infinite partition is a sequence $\lambda_1, \lambda_2, \dotsc \in \N$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \dotsc, \lambda_s)$ is a partition. For a partition $(\lambda_1, \dotsc, \lambda_s) \in \N^s$ the infinite partition associated to $\lambda$ is defined as
+ An \emph{infinite partition} is a sequence $\lambda_1, \lambda_2, \dotsc \in \N$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \dotsc, \lambda_s)$ is a partition. For a partition $(\lambda_1, \dotsc, \lambda_s) \in \N^s$ the \emph{infinite partition associated to $\lambda$} is defined as
  \[
   \hat{\lambda}_i \coloneqq
   \begin{cases}
@@ -734,13 +735,13 @@ both $F$ and $G$ must have integer coefficients.
   \end{cases}
  \]
  
- The transposed partition of a partition $\lambda$ is defined as
+ The \emph{transposed partition of a partition $\lambda$} is defined as
  \[
   \lambda'_i \coloneqq |\{j \mid \lambda_j \geq i\}|.
  \]
 \end{defi}
 
-Partitions are often displayed in terms of Young diagrams. The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
+Partitions are often displayed in terms of \emph{Young diagrams}. The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
 
 
 \begin{expl}
@@ -813,19 +814,19 @@ Partitions are often displayed in terms of Young diagrams. The Young diagram cor
 
 
 \begin{defi}
- Let $\lambda = (\lambda_1, \dotsc, \lambda_r)$ be a partition. We define the elementary symmetric polynomial
+ Let $\lambda = (\lambda_1, \dotsc, \lambda_r)$ be a partition. We define the \emph{elementary symmetric polynomial}
  \[
   e^{(n)}_\lambda \coloneqq e^{(n)}_{\lambda_1} \dotsm e^{(n)}_{\lambda_r},
  \]
- the complete symmetric polynomial
+ the \emph{complete symmetric polynomial}
  \[
   h^{(n)}_\lambda \coloneqq h^{(n)}_{\lambda_1} \dotsm h^{(n)}_{\lambda_r},
  \]
- the power symmetric polynomial
+ the \emph{power symmetric polynomial}
  \[
   p^{(n)}_\lambda \coloneqq p^{(n)}_{\lambda_1} \dotsm p^{(n)}_{\lambda_r}
  \]
- and the monomial symmetric polynomials
+ and the \emph{monomial symmetric polynomial}
  \[
   m_\lambda \coloneqq X_1^{\lambda_1} \dotsm X_r^{\lambda_r} + \text{ all distinct permutations of this monomial}.
  \]
@@ -1016,7 +1017,7 @@ In this section $k$ is an infinite field. Until further notice we also fix a fin
 
 
 \begin{defi}
- By $\mc{P}_k(V)$ we denote set of polynomial functions $V \to k$, i.e.\ $f \in \mc{P}_k(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
+ By $\mc{P}_k(V)$ we denote set of \emph{polynomial functions} $V \to k$, i.e.\ $f \in \mc{P}_k(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
  \[
   f\left( \sum_{i=1}^n \lambda_i v_i \right) = p(\lambda_1, \dotsc, \lambda_n)
  \]
@@ -1157,7 +1158,7 @@ is an isomorphism of $k$-algebras.
 
 
 \begin{defi}
- $f \in \mc{P}(V)$ is homogeneous of degree $d \in \Z$ if $f(\lambda y) = \lambda^d f(y)$ for all $\lambda \in k, y \in V$. By definition the zero polynomial $f=0$ is homogeneous of degree $d$ for any $d \in \Z$. For $d \in \Z$ we set
+ $f \in \mc{P}(V)$ is \emph{homogeneous of degree $d \in \Z$} if $f(\lambda y) = \lambda^d f(y)$ for all $\lambda \in k, y \in V$. By definition the zero polynomial $f=0$ is homogeneous of degree $d$ for any $d \in \Z$. For $d \in \Z$ we set
  \[
   \mc{P}(V)_d \coloneqq \{f \in \mc{P}(V) \mid f \text{ is homogeneous of degree } d\}.
  \]
@@ -1244,7 +1245,7 @@ We will know generalize the definition of polynomial functions on maps between a
  \[
   f \colon W \to V
  \]
- is called a polynomial map if, given a basis $v_1$, \dots, $v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e.\ there exist $f_1, \dotsc, f_n \in \mc{P}(W)$ with
+ is called a \emph{polynomial map} if, given a basis $v_1$, \dots, $v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e.\ there exist $f_1, \dotsc, f_n \in \mc{P}(W)$ with
  \[
   f(w) = \sum_{i=1}^n f_i(w) v_i
  \]
@@ -1256,12 +1257,12 @@ We will know generalize the definition of polynomial functions on maps between a
 
 
 \begin{rem}
- One can show (as for $\mc{P}(W)$) that the definition doesn’t depend on the chosen basis of $V$.
+ One can show (as for $\mc{P}_k(W)$) that the definition doesn’t depend on the chosen basis of $V$.
 \end{rem}
 
 
 \begin{rem}
- In the case of $V = k$ we have $\Pol_k(W,k) = \mc{P}(W)$.
+ In the case of $V = k$ we have $\Pol_k(W,k) = \mc{P}_k(W)$.
 \end{rem}
 
 
@@ -1415,7 +1416,7 @@ From the definition of a polynomial map it also directly follows that for any fi
 
 
 \begin{defi}
- Given finite-dimensional $k$-vector spaces $W$ and $V$ and a polynomial map $f \colon W \to V$ the algebra homomorphism $f^* \colon \mc{P}(V) \to \mc{P}(W)$ is the comorphism associated with $f$.
+ Given finite-dimensional $k$-vector spaces $W$ and $V$ and a polynomial map $f \colon W \to V$ the algebra homomorphism $f^* \colon \mc{P}(V) \to \mc{P}(W)$ is the \emph{comorphism associated with $f$}.
 \end{defi}
  
 
@@ -1511,7 +1512,7 @@ It is interesting to notice that this functor is fully faithful.
 
 
 \begin{defi}
- Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$. A map $f \colon W \to V$ is called covariant if $f$ is a polynomial map and $G$-equivariant. We denote the space of covariant functions from $W$ to $V$ by
+ Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$. A map $f \colon W \to V$ is called \emph{covariant} if $f$ is a polynomial map and $G$-equivariant. We denote the space of covariant functions from $W$ to $V$ by
  \[
   \Cov_k(W,V) \coloneqq  \Pol_k(W,V)^G.
  \]
