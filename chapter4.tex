@@ -909,6 +909,34 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 
 
 \begin{defi}
+ Let $R$ be a ring. Then
+ \[
+  Z(R) \coloneqq \{r \in R \mid rs = sr \text{ for every } s \in R\}
+ \]
+ is the \emph{center of $R$}.
+\end{defi}
+
+
+\begin{lem}
+ For every ring $R$ the center $Z(R)$ is a commutative subring. For every $k$-algebra $A$ the center $Z(A)$ is a commutative subalgebra.
+\end{lem}
+\begin{proof}
+ This is clear.
+\end{proof}
+
+
+
+
+
+\section{Characters \& Class Functions}
+
+
+\begin{defi}
+ Let $G$ be a group and $X$ a set. A function $f \colon G \to X$ is called a \emph{class function (with values in $X$)} if it is constant on the conjugation classes of $G$, i.e.\ if $f$ is invariant under conjugation. If we see $X$ as a trivial $G$-set then the set of $X$-valued class functions is precisely $\Maps(G,X)^G$ where $G$ acts on itself by conjugation.
+\end{defi}
+
+
+\begin{defi}
  Let $A$ be a $k$-algebra, $V$ a finite-dimensional representation of $A$. Let
  \[
   \rho \colon A \to \End_k(V), a \mapsto (v \mapsto av)
@@ -937,7 +965,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   \item
    We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
   \item
-   We have $\chi_V(hgh^{-1}) = \chi_V(g)$.
+   We have $\chi_V(hgh^{-1}) = \chi_V(g)$. So the restriction $(\chi_V)_{|G} \colon G \to k$ is a class function with values in $k$.
   \item
    When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
  \end{enumerate}
@@ -1034,69 +1062,6 @@ Applying our results about finite-dimensional simple modules over algebras to gr
     \qedhere
    \end{align*}
  \end{enumerate}
-\end{proof}
-
-
-\begin{defi}
- Let $R$ be a ring. Then
- \[
-  Z(R) \coloneqq \{r \in R \mid rs = sr \text{ for every } s \in R\}
- \]
- is the \emph{center of $R$}.
-\end{defi}
-
-
-\begin{lem}
- For every ring $R$ the center $Z(R)$ is a commutative subring. For every $k$-algebra $A$ the center $Z(A)$ is a commutative subalgebra.
-\end{lem}
-\begin{proof}
- This is clear.
-\end{proof}
-
-
-\begin{lem}\label{lem: Z(A o B) = Z(A) o Z(B)}
- Let $A$ and $B$ be $k$-algebras. Then
- \[
-  Z(A \otimes_k B) = Z(A) \otimes_k Z(B).
- \]
-\end{lem}
-
-
-\begin{rec}
- Let $k$ be a field $V$ and $W$ be $k$-vector spaces. We know from linear algebra that every element $x \in V \otimes_k W$ can be written as a finite sum of simple tensors $x = \sum_{i=1}^n v_i \otimes w_i$. Furthermore $v_1$, \dots, $v_n$ are unique if $w_1, \dotsc, w_n \in W$ are linearly independent.
- \begin{proof}
-  We can assume w.l.o.g.\ that $W = \vspan_k \{w_1, \dotsc, w_n\}$. We have for every $1 \leq i \leq n$ a $k$-bilinear map
-  \[
-   s_i \colon V \times W \to V, \left(v, \sum_{i=1}^n \lambda_i w_i\right) \mapsto \lambda_i v.
-  \]
-  and thus a $k$-linear map
-  \[
-   f_i \colon V \otimes_k W \to V, v \otimes w_j \mapsto \delta_{ij} v.
-  \]
-  For $x \in V \otimes_k W$ with $x = \sum_{j=1}^n v_j \otimes w_j = \sum_{j=1}^n v'_j \otimes w_j$ we have
-  \[
-   0
-   = \left( \sum_{j=1}^n v_j \otimes w_j \right) - \left( \sum_{j=1}^n v'_j \otimes w_j \right)
-   = \sum_{j=1}^n (v_j - v'_j) \otimes w_j
-  \]
-  and therefore for every $1 \leq i \leq n$
-  \[
-   v_i - v'_i = f_i\left( \sum_{j=1}^n (v_j - v'_j) \otimes w_j\right) = f_i(0) = 0.
-   \qedhere
-  \]
- \end{proof}
-\end{rec}
-
-
-\begin{proof}[Proof of the Lemma]
- It is clear that $Z(A) \otimes_k Z(B) \subseteq Z(A \otimes_k B)$. To show the other inclusion let $x \in Z(A \otimes_k B)$. We can write $x = \sum_{i=1}^n a_i \otimes b_i$. We can assume w.l.o.g.\ that both $a_1$, \dots, $a_n$ and $b_1$, \dots, $b_n$ are linearly independent. For every $a \in A$ we have
- \[
-  \sum_{i=1}^n (a a_i) \otimes b_i
-  = (a \otimes 1) x
-  = x (a \otimes 1)
-  = \sum_{i=1}^n (a_i a) \otimes b_i
- \]
- and thus $a_i a = a a_i$ (because $b_1$, \dots, $b_n$ are linearly independent). So $a_i \in Z(A)$ for every $1 \leq i \leq n$. In the same way we find that $b_1, \dotsc, b_n \in Z(B)$. This shows that $x \in Z(A) \otimes_k Z(B)$.
 \end{proof}
 
 
@@ -1899,9 +1864,55 @@ so $A = \diag(d, \dotsc, d)$ for $d \coloneqq d_1 = \dotsb = d_n$. Since $A$ com
 \end{defi}
 
 
-\begin{lem}
- Let $A$ and $B$ be central simple algebras over the same field $k$. Then $A \otimes_k B$ is a central simple algebra.
+\begin{lem}\label{lem: Z(A o B) = Z(A) o Z(B)}
+ Let $A$ and $B$ be $k$-algebras. Then
+ \[
+  Z(A \otimes_k B) = Z(A) \otimes_k Z(B).
+ \]
 \end{lem}
+
+
+\begin{rec}
+ Let $k$ be a field $V$ and $W$ be $k$-vector spaces. We know from linear algebra that every element $x \in V \otimes_k W$ can be written as a finite sum of simple tensors $x = \sum_{i=1}^n v_i \otimes w_i$. Furthermore $v_1$, \dots, $v_n$ are unique if $w_1, \dotsc, w_n \in W$ are linearly independent.
+ \begin{proof}
+  We can assume w.l.o.g.\ that $W = \vspan_k \{w_1, \dotsc, w_n\}$. We have for every $1 \leq i \leq n$ a $k$-bilinear map
+  \[
+   s_i \colon V \times W \to V, \left(v, \sum_{i=1}^n \lambda_i w_i\right) \mapsto \lambda_i v.
+  \]
+  and thus a $k$-linear map
+  \[
+   f_i \colon V \otimes_k W \to V, v \otimes w_j \mapsto \delta_{ij} v.
+  \]
+  For $x \in V \otimes_k W$ with $x = \sum_{j=1}^n v_j \otimes w_j = \sum_{j=1}^n v'_j \otimes w_j$ we have
+  \[
+   0
+   = \left( \sum_{j=1}^n v_j \otimes w_j \right) - \left( \sum_{j=1}^n v'_j \otimes w_j \right)
+   = \sum_{j=1}^n (v_j - v'_j) \otimes w_j
+  \]
+  and therefore for every $1 \leq i \leq n$
+  \[
+   v_i - v'_i = f_i\left( \sum_{j=1}^n (v_j - v'_j) \otimes w_j\right) = f_i(0) = 0.
+   \qedhere
+  \]
+ \end{proof}
+\end{rec}
+
+
+\begin{proof}[Proof of the Lemma]
+ It is clear that $Z(A) \otimes_k Z(B) \subseteq Z(A \otimes_k B)$. To show the other inclusion let $x \in Z(A \otimes_k B)$. We can write $x = \sum_{i=1}^n a_i \otimes b_i$. We can assume w.l.o.g.\ that both $a_1$, \dots, $a_n$ and $b_1$, \dots, $b_n$ are linearly independent. For every $a \in A$ we have
+ \[
+  \sum_{i=1}^n (a a_i) \otimes b_i
+  = (a \otimes 1) x
+  = x (a \otimes 1)
+  = \sum_{i=1}^n (a_i a) \otimes b_i
+ \]
+ and thus $a_i a = a a_i$ (because $b_1$, \dots, $b_n$ are linearly independent). So $a_i \in Z(A)$ for every $1 \leq i \leq n$. In the same way we find that $b_1, \dotsc, b_n \in Z(B)$. This shows that $x \in Z(A) \otimes_k Z(B)$.
+\end{proof}
+
+
+\begin{prop}
+ Let $A$ and $B$ be central simple algebras over the same field $k$. Then $A \otimes_k B$ is a central simple algebra.
+\end{prop}
 \begin{proof}
  Since both $A$ and $B$ are finite-dimensional the same holds for $A \otimes_k B$. By Lemma \ref{lem: Z(A o B) = Z(A) o Z(B)} we have
  \[
