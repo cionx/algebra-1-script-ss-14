@@ -925,146 +925,6 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{proof}
 
 
-
-
-
-\section{Characters \& Class Functions}
-
-
-\begin{defi}
- Let $G$ be a group and $X$ a set. A function $f \colon G \to X$ is called a \emph{class function (with values in $X$)} if it is constant on the conjugation classes of $G$, i.e.\ if $f$ is invariant under conjugation. If we see $X$ as a trivial $G$-set then the set of $X$-valued class functions is precisely $\Maps(G,X)^G$ where $G$ acts on itself by conjugation.
-\end{defi}
-
-
-\begin{defi}
- Let $A$ be a $k$-algebra, $V$ a finite-dimensional representation of $A$. Let
- \[
-  \rho \colon A \to \End_k(V), a \mapsto (v \mapsto av)
- \]
- be the corresponding algebra homomorphism. Then the \emph{character $\chi_V \in A^*$ of $V$} is defined as
- \[
-  \chi_V \colon A \to k, a \mapsto \tr \rho(a).
- \]
-\end{defi}
-
-
-\begin{prop}
- Let $A$ be a $k$-algebra. Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
- \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-  \item
-   If $V \cong W$ (as $A$-modules) then $\chi_V = \chi_W$.
-  \item
-   We have $\chi_{V \oplus W} = \chi_V + \chi_W$.
-  \item
-   We have $\chi_V = \chi_U + \chi_{V/U}$.
-  \item
-   We have $\chi_{V \otimes W} = \chi_V \cdot \chi_W$.
- \end{enumerate}
- Suppose that $A = kG$ for some group $G$ and let $g,h \in G$.
- \begin{enumerate}[label=\emph{\alph*)},leftmargin=*,resume]
-  \item
-   We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
-  \item
-   We have $\chi_V(hgh^{-1}) = \chi_V(g)$. So the restriction $(\chi_V)_{|G} \colon G \to k$ is a class function with values in $k$.
-  \item
-   When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
- \end{enumerate}
-\end{prop}
-\begin{proof}
- Let $v_1$, \dots, $v_r$ be a $k$-basis of $U$, $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ a $k$-basis of $V$ and $w_1$, \dots, $w_t$ a $k$-basis of $W$. For every occuring module $X$ of $A$ let
- \[
-  \rho_X \colon A \to \End_k(X), a \mapsto (x \mapsto ax).
- \]
- \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-  \item
-   Let $\varphi \colon V \to W$ be an isomorphism of $A$-modules. Since $A$ is unary $\varphi$ is $k$-linear. Therefore $\varphi(v_1)$, \dots, $\varphi(v_s)$ is a $k$-basis of $W$. Let $a \in A$. If $M \in \Mat_r(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ it is also the representing matrix of $\rho_W(a)$ with respect to the basis $\varphi(v_1)$, \dots, $\varphi(v_s)$. Therefore
-   \[
-    \chi_V(a) = \tr \rho_V(a) = \tr M = \tr \rho_W(a) = \chi_W(a).
-   \]
-  \item
-   Let $a \in A$. If $M_1 \in \Mat_s(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $M_2 \in \Mat_t(k)$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$, then
-   \[
-    M \coloneqq \vect{M_1 & 0  \\ 0 & M_2}
-   \]
-   is the representing matrix of $\rho_{V \oplus W}(a)$ with respect to the basis $v_1$, \dots, $v_s$, $w_1$, \dots, $w_t$. Therefore
-   \begin{align*}
-    \chi_{V \oplus W}(a)
-    &= \tr \rho_{V \oplus W}(a)
-    = \tr M
-    = \tr M_1 + \tr M_2 \\
-    &= \tr \rho_V(a) + \tr \rho_W(a)
-    = \chi_V(a) + \chi_W(a).
-   \end{align*}
-  \item
-   Let $a \in A$. Let $M_1 \in \Mat_r(k)$ be the representing basis of $\rho_U(a)$ with respect to $v_1$, \dots, $v_r$ and $M_2 \in \Mat_{s-r}$ be the representing matrix of $\rho_{V/U}(a)$ with respect to the basis $v_{r+1} + U$, \dots, $v_s + U$. Then
-   \[
-    M \coloneqq \vect{M_1 & 0 \\ 0 & M_2}
-   \]
-   is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ of $V$. Therefore
-   \begin{align*}
-    \chi_V(a)
-    &= \tr \rho_V(a)
-    = \tr M
-    = \tr M_1 + \tr M_2 \\
-    &= \tr \rho_U(a) + \tr \rho_{V/U}(a)
-    = \chi_U(a) + \chi_{V/U}(a).
-   \end{align*}
-  \item
-   Let $a \in A$. Let $M \in \Mat_s(k) = (m_{ij})_{1 \leq i,j \leq s}$ be the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $N$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$. Since
-   \[
-    \rho_{V \otimes W}(a) = \rho_V(a) \otimes \rho_W(a)
-   \]
-   the representing matrix of $\rho_{V \otimes W}(a)$ with respect to the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_r \otimes w_t$ is
-   \[
-    M \otimes N =
-    \begin{pmatrix}
-     m_{11} N & m_{12} N & \cdots & m_{1s} N \\
-     m_{21} N & m_{22} N & \cdots & m_{2s} N \\
-     \vdots   & \vdots   & \ddots & \vdots   \\
-     m_{s1} N & m_{s2} N & \cdots & m_{ss} N
-    \end{pmatrix}.
-   \]
-   Therefore
-   \begin{align*}
-    \chi_{V \otimes W}(a)
-    &= \tr \rho_{V \otimes W}(a)
-    = \tr M \otimes N
-    = \tr M \cdot \tr N \\
-    &= \tr \rho_V(a) \cdot \tr \rho_W(a)
-    = \chi_V(a) \cdot \chi_W(a).
-   \end{align*}
-  \item
-   The representing matrix of $\rho_V(e)$ (with respect to any $k$-basis of $V$) is the identity matrix $I_s \in \Mat_s(k)$. Therefore
-   \[
-    \chi_V(e) = \tr \rho_V(e) = \tr I_s = s \bmod \kchar k = \dim_k V \bmod \kchar k
-   \]
-  \item
-   Let $M$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1$, \dots, $v_s$ and $N$ be the representing matrix of $\rho_V(h)$ with respect to the basis $v_1$, \dots, $v_s$. Then $N^{-1}$ is the representing matrix of $\rho_V(h^{-1}) = \rho_V(h)^{-1}$ with respect to the basis $v_1$, \dots, $v_s$. Therefore
-   \begin{align*}
-    \chi_V\left( hgh^{-1} \right)
-    &= \tr \rho_V\left( hgh^{-1} \right)
-    = \tr\left( \rho_V(h) \rho_V(g) \rho_V\left( h^{-1} \right) \right) \\
-    &= \tr\left( NMN^{-1} \right)
-    = \tr M
-    = \tr \rho_V(g)
-    = \chi_V(g).
-   \end{align*}
-  \item
-   Let $M \in \Mat_s(k)$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1$, \dots, $v_s$ and $M^* \in \Mat_s(k)$ be the representing matrix of $\rho_{V^*}(g)$ with respect to the basis $v_1^*$, \dots, $v_s^*$. Then $M^{-1}$ is the representing matrix of $\rho_V(g^{-1}) = \rho_V(g)^{-1}$ with respect to the basis $v_1$, \dots, $v_s$. We also know from the tutorial problems that $M^* = \left(A^{-1}\right)^T$. Therefore
-   \begin{align*}
-    \chi_{V^*}(g)
-    &= \tr \rho_{V^*}(g)
-    = \tr M^*
-    = \tr \left(M^{-1}\right)^T \\
-    &= \tr M^{-1}
-    = \tr \rho_V\left( g^{-1} \right)
-    = \chi_V\left( g^{-1} \right).
-    \qedhere
-   \end{align*}
- \end{enumerate}
-\end{proof}
-
-
 \begin{defi}
  Let $A$ be a $k$-algebra. Then the \emph{commutator of $A$} is defined as
  \[
@@ -1110,7 +970,6 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{rem}
 
 
-
 \begin{lem}
  Let $A$ and $B$ be $k$-algebras. Then
  \[
@@ -1150,228 +1009,6 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   = \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k).
  \]
 \end{cor}
-
-
-\begin{lem}
- Let $A$ be a $k$-algebra and $V$ an $A$-module. Then $\chi_V(a) = 0$ for every $a \in [A,A]$.
-\end{lem}
-\begin{proof}
- Let $a, b \in A$. Then
- \begin{align*}
-   &\, \chi_V(ab-ba)
-  =    \tr \rho_V(ab-ba) \\
-  =&\, \tr\left( \rho_V(a)\rho_V(b)-\rho_V(b)\rho_V(a) \right) \\
-  =&\, \tr(\rho_V(a)\rho_V(b)) - \tr(\rho_V(b)\rho_V(a)) \\
-  =&\, \tr(\rho_V(a)\rho_V(b)) - \tr(\rho_V(a)\rho_V(b)) \\
-  =&\, 0.
- \end{align*}
- Since $[A,A]$ is generated by the elements $ab-ba$ as a $k$-vector space and $\chi_V$ is $k$-linear we have $\chi_V(a) = 0$ for all $a \in [A,A]$.
-\end{proof}
-
-
-With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the character $\chi_V$ factors through $A/[A,A]$ a $k$-linear map. Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
-
-
-\begin{thrm}
- Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
- \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-  \item
-   Let $V_i$, $i \in I$ be pairwise non-isomorphic simple $A$-modules. Then $\chi_i$, $i \in I$ are linearly independent (over $k$).
-  \item
-   Let $k$ be algebraically closed. If $A$ is finite-dimensional and semisimple we know from Proposition \ref{prop: simple modules over finite-dimensional algebras} that $\irr(A) = \Irr(A)$. Then the characters $\chi_{V_i}$, $[V_i] \in \Irr(A)$ form a $k$-basis of $(A/[A,A])^*$.
- \end{enumerate}
-\end{thrm}
-\begin{proof}
- \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-  \item
-   Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic simple $A$-modules and $\lambda_1, \dotsc, \lambda_r \in k$ with
-   \[
-    \sum_{i=1}^r \lambda_i \chi_{V_i} = 0.
-   \]
-   For all $1 \leq i \leq r$ let
-   \[
-    \rho_i \colon A \to \End_k(V_i), a \mapsto (v \mapsto av).
-   \]
-   For every $a \in A$ we have
-   \[
-    0
-    = \left( \sum_{i=1}^r \lambda_i \chi_{V_i} \right)(a)
-    = \sum_{i=1}^r \lambda_i \chi_{V_i}(a)
-    = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(a).
-   \]
-   Fix $1 \leq j \leq r$. For every $1 \leq i \leq r$ there exists $\varphi_i \in \End_k(V_i)$ with $\tr \varphi_i = \delta_{ij}$. By the Lemma \ref{lem: map into sum endomorphisms surjective} the map
-   \[
-    \bigoplus_{i=1}^r \rho_{V_i} \colon A \to \bigoplus_{i=1}^r \End_k(V_i)
-   \]
-   is surjective. Therefore there exists $b \in A$ such that $\rho_{V_i}(b) = \varphi_i$ for all $1 \leq i \leq r$. Thus we have
-   \[
-    0
-    = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(b)
-    = \sum_{i=1}^r \lambda_i \tr \varphi_i
-    = \sum_{i=1}^r \lambda_i \delta_{ij}
-    = \lambda_j.
-   \]
-   Because $j$ is arbitrary we find that $\lambda_j = 0$ for all $1 \leq j \leq r$.
-  \item
-   $A$ is of the form 
-   \[
-    A \cong \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
-   \]
-   for $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$. (This is a corollary from the Theorem of Artin--Wedderburn, both of which we will prove in the near future.) Therefore
-   \[
-    [A,A] \cong \Sl_{n-1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k)
-   \]
-   by Corollary \ref{cor: commutator product of matrix algebras}. Since $\dim_k \Sl_m(k) = m^2 - 1$ for every $m \geq 1$ we find that
-   \begin{align*}
-     &\, \dim_k (A/[A,A])^*
-    =    \dim_k A/[A,A] \\
-    =&\, \dim_k\left( \Mat_{n_1}(k)/\Sl_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)/\Sl_{n_r}(k) \right) \\
-    =&\, r.
-   \end{align*}
-   From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules. Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$.
-  \qedhere
- \end{enumerate}
-\end{proof}
-
-
-\begin{cor}\label{cor: number of irreducible representations of finite abelian group}
- Let $k$ be an algebraically closed field and $G$ a finite, abelian group with $\kchar k \nmid |G|$. Then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
-\end{cor}
-\begin{proof}
- The group algebra $kG$ is finite-dimensional and by Maschke’s Theorem also semisimple. Therefore
- \[
-  |\Irr_k(G)| = |\Irr(kG)| = \dim_k (kG/[kG, kG])^* = \dim_k kG/[kG, kG].
- \]
- Since $G$ is abelian the group algebra $kG$ is commutative, so $[kG,kG] = 0$ and
- \[
-  \dim_k kG/[kG, kG] = \dim_k kG = |G|.
-  \qedhere
- \]
-\end{proof}
-
-
-\begin{prop}
- Let $A$ be a finite-dimensional $k$-algebra. Then the following are equivalent:
- \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
-  \item \label{enum: nondegenerate symmetric associative bilinear form}
-   There exists a nondegenerate symmetric bilinear form $(-,-) \colon A \times A \to k$ which is associative (i.e. $(ab,c) = (a,bc)$ for all $a,b,c \in A$.)
-  \item \label{enum: nondegenerato linear map}
-   There exists a $k$-linear map $\varepsilon \colon A \to k$ satisfying the following properties:
-   \begin{enumerate}[label=\emph{(\roman*)},leftmargin=*]
-    \item
-     $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$.
-    \item
-     For any $a \in A$ with $a \neq 0$ there exists $b \in B$ such that $\varepsilon(ba) \neq 0$.
-   \end{enumerate}
-  \item \label{enum: no nonzero ideals in kernel of linear map}
-   There exists a $k$-linear map $\lambda \colon A \to k$ satisfying the following properties:
-   \begin{enumerate}[label=\emph{(\roman*)},leftmargin=*]
-    \item
-     $\lambda(ab) = \lambda(ba)$ for all $a,b \in A$.
-    \item
-     $\ker \lambda$ does not contain any nonzero left-ideals of $A$.
-   \end{enumerate}
- \end{enumerate}
-\end{prop}
-\begin{proof}
- We first show the equivalence of \ref{enum: nondegenerato linear map} and \ref{enum: no nonzero ideals in kernel of linear map}. For this let $\varepsilon \colon A \to k$ be a $k$-linear map such that $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$. That $\ker \varepsilon$ contains no nonzero left-ideals of $A$ is equivalent to saying that it does not contain any non-zero principal left-ideals of $A$. This is equivalent to saying that for every $a \in A$ with $a \neq 0$ we have $Aa \subsetneq \ker \varepsilon$, which is the same as saying that for every $a \in A$ with $a \neq 0$ there exists $b \in A$ with $\varepsilon(ba) \neq 0$.
- 
- Next we show the equivalence of \ref{enum: nondegenerate symmetric associative bilinear form} and \ref{enum: nondegenerato linear map}. If \ref{enum: nondegenerate symmetric associative bilinear form} holds then \ref{enum: nondegenerato linear map} follows by setting $\varepsilon = (1,-)$. If \ref{enum: nondegenerato linear map} holds then \ref{enum: nondegenerate symmetric associative bilinear form} follows by defining
- \[
-  (a,b) \coloneqq \varepsilon(ab) \text{ for all } a,b \in A.
-  \qedhere
- \]
-\end{proof}
-
-
-\begin{rem}
- Since the bilinear form in \ref{enum: nondegenerate symmetric associative bilinear form} is symmetric one can also show \ref{enum: nondegenerato linear map} with $\varepsilon(ab) \neq 0$ instead of $\varepsilon(ba) \neq 0$ as well as \ref{enum: no nonzero ideals in kernel of linear map} for right-ideals instead of left-ideals.
-\end{rem}
-
-
-\begin{defi}
- A finite-dimensional $k$-Algebra satisfying one (and thus all) of the above conditions is called a \emph{(symmetric) Frobenius algebra}. A \emph{Frobenius form of $A$} refers either to a $k$-bilinear map $A \times A \to k$ satisfying \ref{enum: nondegenerate symmetric associative bilinear form} or a $k$-linear map $A \to k$ satisfying \ref{enum: nondegenerato linear map} (and thus also \ref{enum: no nonzero ideals in kernel of linear map}), depending on the situation.
-\end{defi}
-
-
-\begin{rem}
- For a Frobenius algebra $A$ with a Frobenius form $(-,-) \colon A \times A \to k$. Because $(-,-)$ is nondegenerate the $k$-linear map
- \[
-  \phi \colon A \to A^*, a \mapsto (a,-)
- \]
- is injective. Because $A$ is finite-dimensional $\phi$ is an isomorphism of $k$-vector spaces.
-\end{rem}
-
-
-\begin{expls}
- \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-  \item
-   Let $G$ be a finite-group and $k$ a field. Then $kG$ is a Frobenius algebra. To see this let the $k$-linear map $\varepsilon \colon kG \to k$ be defined as
-   \[
-    \varepsilon(g) =
-    \begin{cases}
-     1 & \text{if } g = e, \\
-     0 & \text{otherwise}
-    \end{cases}
-   \]
-   for every $g \in G$, i.e.\ $\varepsilon = e^*$ with respect to the basis $G$. For all $a,b \in kG$ with $a = \sum_{g \in G} \lambda_g g$ and $b = \sum_{g \in G} \mu_g g$ we have
-   \[
-    \varepsilon(ab)
-    = \sum_{g \in G} \lambda_g \mu_{g^{-1}}
-    = \sum_{h \in G} \mu_h \lambda_{h^{-1}}
-    =  \varepsilon(ba).
-   \]
-   For a left-ideal $I \subseteq \ker \varepsilon$ and $a \in I $ with $a \neq 0$ we have $a = \sum_{g \in G} \lambda_g g$ with $\lambda_h \neq 0$ for some $h \in G$ and thus
-   \[
-    \lambda_h = \varepsilon\left( h^{-1} a \right)
-   \]
-   for $h^{-1} a \in I$, so $I = 0$. So $\varepsilon$ is a Frobenius form.
-   
-   That the corresponding bilinear form $(-,-) \colon kG \times kG \to k$, i.e.\
-   \[
-    (a,b) = \varepsilon(ab) \text{ for all } a,b \in A,
-   \]
-   is nondegenerate can also be seen by noticing that $(g^{-1},-) = g^*$ with respect to the basis $G$ for every $g \in G$. Therefore the $k$-linear map $kG \to kG^*, a \mapsto (a,-)$ is an isomorphism and in particular injective.
-  \item
-   Let $k$ be a field and $n \geq 1$. Then $\Mat_n(k)$ is the Frobenius algebra. To see this notice that $\tr \colon \Mat_n(k) \to k$ is a Frobenius form: It it clear that the corresponding bilinear form $(-,-) \colon \Mat_n(k) \times \Mat_n(k) \to k$, i .e.\
-   \[
-    (A,B) = \tr(AB) \text{ for all } A,B \in \Mat_n(k),
-   \]
-   is symmetric and associative. To see that it is nondegenerate notice that $(E_{ij}, -) = E_{ji}^*$ with respect to the basis $(E_{ij})_{1 \leq i,j \leq n}$ for every $1 \leq i,j \leq n$. Thus the map $\Mat_n(k) \to \Mat_n(k)^*, A \mapsto (A,-)$ is an isomorphism and in particular injective.
- \end{enumerate}
-\end{expls}
-
-
-
-\begin{prop}
- Let $A$ be a Frobenius algebra and $(-,-) \colon A \times A \to k$ a Frobenius form of $A$. Then
- \[
-  \psi \colon Z(A) \to (A/[A,A])^*, a \mapsto (a,-)
- \]
- is an isomorphism of $k$-vector spaces.
-\end{prop}
-\begin{proof}
- The map
- \[
-  \varphi \colon A \to A^*, a \mapsto (a, -)
- \]
- is an isomorphism of $k$-vector spaces. To prove the proposition we show that $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
- 
- For all $z, a, b \in A$ we have
- \[
-  (z,ba) = (1,zba) = (zba,1) = (zb,a) = (a,zb) = (az,b)
- \]
- and therefore
- \begin{align*}
-  \varphi(z)(ab-ba)
-  &= (z,ab-ba)
-  = (z,ab) - (z,ba) \\
-  &= (za,b) - (az,b)
-  = (za-az,b)
-  = ([z,a],b)
- \end{align*}
- Fix $z \in A$. That $\varphi(z)_{|[A,A]} = 0$ is equivalent to $\varphi(z)(ab-ba) = 0$ for all $a,b \in A$. By the observation above this is equivalent to $([z,a],b) = 0$ for every $a,b \in A$. Because $(-,-)$ is nondegenerate this is equivalent to saying that $[z,a] = 0$ for every $a \in A$. So $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
-\end{proof}
 
 
 
@@ -1623,7 +1260,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 \end{proof}
 
 
-\begin{cor}
+\begin{cor}\label{cor: semisimple algebra product of matrix algebras over field}
  Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra. Then
  \[
   A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
@@ -1957,6 +1594,470 @@ so $A = \diag(d, \dotsc, d)$ for $d \coloneqq d_1 = \dotsb = d_n$. Since $A$ com
   I \supseteq (A \otimes 1) (1 \otimes B) = A \otimes_k B.
  \]
  So $0$ and $A \otimes_k B$ are the only two-sided ideals in $A \otimes_k B$.
+\end{proof}
+
+
+
+
+
+\section{Characters \& Class Functions}
+
+
+\begin{defi}
+ Let $A$ be a $k$-algebra, $V$ a finite-dimensional representation of $A$. Let
+ \[
+  \rho \colon A \to \End_k(V), a \mapsto (v \mapsto av)
+ \]
+ be the corresponding algebra homomorphism. Then the \emph{character $\chi_V \in A^*$ of $V$} is defined as
+ \[
+  \chi_V \colon A \to k, a \mapsto \tr \rho(a).
+ \]
+\end{defi}
+
+
+\begin{prop}\label{prop: properties characters}
+ Let $A$ be a $k$-algebra. Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   If $V \cong W$ (as $A$-modules) then $\chi_V = \chi_W$.
+  \item
+   We have $\chi_{V \oplus W} = \chi_V + \chi_W$.
+  \item
+   We have $\chi_V = \chi_U + \chi_{V/U}$.
+  \item
+   We have $\chi_{V \otimes W} = \chi_V \cdot \chi_W$.
+ \end{enumerate}
+ Suppose that $A = kG$ for some group $G$ and let $g,h \in G$.
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*,resume]
+  \item
+   We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
+  \item
+   We have $\chi_V(hgh^{-1}) = \chi_V(g)$.
+  \item
+   When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ Let $v_1$, \dots, $v_r$ be a $k$-basis of $U$, $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ a $k$-basis of $V$ and $w_1$, \dots, $w_t$ a $k$-basis of $W$. For every occuring module $X$ of $A$ let
+ \[
+  \rho_X \colon A \to \End_k(X), a \mapsto (x \mapsto ax).
+ \]
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   Let $\varphi \colon V \to W$ be an isomorphism of $A$-modules. Since $A$ is unary $\varphi$ is $k$-linear. Therefore $\varphi(v_1)$, \dots, $\varphi(v_s)$ is a $k$-basis of $W$. Let $a \in A$. If $M \in \Mat_r(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ it is also the representing matrix of $\rho_W(a)$ with respect to the basis $\varphi(v_1)$, \dots, $\varphi(v_s)$. Therefore
+   \[
+    \chi_V(a) = \tr \rho_V(a) = \tr M = \tr \rho_W(a) = \chi_W(a).
+   \]
+  \item
+   Let $a \in A$. If $M_1 \in \Mat_s(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $M_2 \in \Mat_t(k)$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$, then
+   \[
+    M \coloneqq \vect{M_1 & 0  \\ 0 & M_2}
+   \]
+   is the representing matrix of $\rho_{V \oplus W}(a)$ with respect to the basis $v_1$, \dots, $v_s$, $w_1$, \dots, $w_t$. Therefore
+   \begin{align*}
+    \chi_{V \oplus W}(a)
+    &= \tr \rho_{V \oplus W}(a)
+    = \tr M
+    = \tr M_1 + \tr M_2 \\
+    &= \tr \rho_V(a) + \tr \rho_W(a)
+    = \chi_V(a) + \chi_W(a).
+   \end{align*}
+  \item
+   Let $a \in A$. Let $M_1 \in \Mat_r(k)$ be the representing basis of $\rho_U(a)$ with respect to $v_1$, \dots, $v_r$ and $M_2 \in \Mat_{s-r}$ be the representing matrix of $\rho_{V/U}(a)$ with respect to the basis $v_{r+1} + U$, \dots, $v_s + U$. Then
+   \[
+    M \coloneqq \vect{M_1 & 0 \\ 0 & M_2}
+   \]
+   is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ of $V$. Therefore
+   \begin{align*}
+    \chi_V(a)
+    &= \tr \rho_V(a)
+    = \tr M
+    = \tr M_1 + \tr M_2 \\
+    &= \tr \rho_U(a) + \tr \rho_{V/U}(a)
+    = \chi_U(a) + \chi_{V/U}(a).
+   \end{align*}
+  \item
+   Let $a \in A$. Let $M \in \Mat_s(k) = (m_{ij})_{1 \leq i,j \leq s}$ be the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $N$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$. Since
+   \[
+    \rho_{V \otimes W}(a) = \rho_V(a) \otimes \rho_W(a)
+   \]
+   the representing matrix of $\rho_{V \otimes W}(a)$ with respect to the basis $v_1 \otimes w_1$, $v_1 \otimes w_2$, \dots, $v_r \otimes w_t$ is
+   \[
+    M \otimes N =
+    \begin{pmatrix}
+     m_{11} N & m_{12} N & \cdots & m_{1s} N \\
+     m_{21} N & m_{22} N & \cdots & m_{2s} N \\
+     \vdots   & \vdots   & \ddots & \vdots   \\
+     m_{s1} N & m_{s2} N & \cdots & m_{ss} N
+    \end{pmatrix}.
+   \]
+   Therefore
+   \begin{align*}
+    \chi_{V \otimes W}(a)
+    &= \tr \rho_{V \otimes W}(a)
+    = \tr M \otimes N
+    = \tr M \cdot \tr N \\
+    &= \tr \rho_V(a) \cdot \tr \rho_W(a)
+    = \chi_V(a) \cdot \chi_W(a).
+   \end{align*}
+  \item
+   The representing matrix of $\rho_V(e)$ (with respect to any $k$-basis of $V$) is the identity matrix $I_s \in \Mat_s(k)$. Therefore
+   \[
+    \chi_V(e) = \tr \rho_V(e) = \tr I_s = s \bmod \kchar k = \dim_k V \bmod \kchar k
+   \]
+  \item
+   Let $M$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1$, \dots, $v_s$ and $N$ be the representing matrix of $\rho_V(h)$ with respect to the basis $v_1$, \dots, $v_s$. Then $N^{-1}$ is the representing matrix of $\rho_V(h^{-1}) = \rho_V(h)^{-1}$ with respect to the basis $v_1$, \dots, $v_s$. Therefore
+   \begin{align*}
+    \chi_V\left( hgh^{-1} \right)
+    &= \tr \rho_V\left( hgh^{-1} \right)
+    = \tr\left( \rho_V(h) \rho_V(g) \rho_V\left( h^{-1} \right) \right) \\
+    &= \tr\left( NMN^{-1} \right)
+    = \tr M
+    = \tr \rho_V(g)
+    = \chi_V(g).
+   \end{align*}
+  \item
+   Let $M \in \Mat_s(k)$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1$, \dots, $v_s$ and $M^* \in \Mat_s(k)$ be the representing matrix of $\rho_{V^*}(g)$ with respect to the basis $v_1^*$, \dots, $v_s^*$. Then $M^{-1}$ is the representing matrix of $\rho_V(g^{-1}) = \rho_V(g)^{-1}$ with respect to the basis $v_1$, \dots, $v_s$. We also know from the tutorial problems that $M^* = \left(A^{-1}\right)^T$. Therefore
+   \begin{align*}
+    \chi_{V^*}(g)
+    &= \tr \rho_{V^*}(g)
+    = \tr M^*
+    = \tr \left(M^{-1}\right)^T \\
+    &= \tr M^{-1}
+    = \tr \rho_V\left( g^{-1} \right)
+    = \chi_V\left( g^{-1} \right).
+    \qedhere
+   \end{align*}
+ \end{enumerate}
+\end{proof}
+
+
+\begin{lem}
+ Let $A$ be a $k$-algebra and $V$ an $A$-module. Then $\chi_V(a) = 0$ for every $a \in [A,A]$.
+\end{lem}
+\begin{proof}
+ Let $a, b \in A$. Then
+ \begin{align*}
+   &\, \chi_V(ab-ba)
+  =    \tr \rho_V(ab-ba) \\
+  =&\, \tr\left( \rho_V(a)\rho_V(b)-\rho_V(b)\rho_V(a) \right) \\
+  =&\, \tr(\rho_V(a)\rho_V(b)) - \tr(\rho_V(b)\rho_V(a)) \\
+  =&\, \tr(\rho_V(a)\rho_V(b)) - \tr(\rho_V(a)\rho_V(b)) \\
+  =&\, 0.
+ \end{align*}
+ Since $[A,A]$ is generated by the elements $ab-ba$ as a $k$-vector space and $\chi_V$ is $k$-linear we have $\chi_V(a) = 0$ for all $a \in [A,A]$.
+\end{proof}
+
+
+With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the character $\chi_V$ factors through $A/[A,A]$ a $k$-linear map. Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
+
+
+\begin{thrm} \label{thrm: characters as a basis}
+ Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   Let $V_i$, $i \in I$ be pairwise non-isomorphic simple $A$-modules. Then $\chi_i$, $i \in I$ are linearly independent (over $k$).
+  \item
+   Let $k$ be algebraically closed. If $A$ is finite-dimensional and semisimple we know from Proposition \ref{prop: simple modules over finite-dimensional algebras} that $\irr(A) = \Irr(A)$. Then the characters $\chi_{V_i}$, $[V_i] \in \Irr(A)$ form a $k$-basis of $(A/[A,A])^*$.
+ \end{enumerate}
+\end{thrm}
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   Let $V_1$, \dots, $V_r$ be pairwise non-isomorphic simple $A$-modules and $\lambda_1, \dotsc, \lambda_r \in k$ with
+   \[
+    \sum_{i=1}^r \lambda_i \chi_{V_i} = 0.
+   \]
+   For all $1 \leq i \leq r$ let
+   \[
+    \rho_i \colon A \to \End_k(V_i), a \mapsto (v \mapsto av).
+   \]
+   For every $a \in A$ we have
+   \[
+    0
+    = \left( \sum_{i=1}^r \lambda_i \chi_{V_i} \right)(a)
+    = \sum_{i=1}^r \lambda_i \chi_{V_i}(a)
+    = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(a).
+   \]
+   Fix $1 \leq j \leq r$. For every $1 \leq i \leq r$ there exists $\varphi_i \in \End_k(V_i)$ with $\tr \varphi_i = \delta_{ij}$. By the Lemma \ref{lem: map into sum endomorphisms surjective} the map
+   \[
+    \bigoplus_{i=1}^r \rho_{V_i} \colon A \to \bigoplus_{i=1}^r \End_k(V_i)
+   \]
+   is surjective. Therefore there exists $b \in A$ such that $\rho_{V_i}(b) = \varphi_i$ for all $1 \leq i \leq r$. Thus we have
+   \[
+    0
+    = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(b)
+    = \sum_{i=1}^r \lambda_i \tr \varphi_i
+    = \sum_{i=1}^r \lambda_i \delta_{ij}
+    = \lambda_j.
+   \]
+   Because $j$ is arbitrary we find that $\lambda_j = 0$ for all $1 \leq j \leq r$.
+  \item
+   $A$ is of the form 
+   \[
+    A \cong \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
+   \]
+   for $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$. (This is a corollary from the Theorem of Artin--Wedderburn, both of which we will prove in the near future.) Therefore
+   \[
+    [A,A] \cong \Sl_{n-1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k)
+   \]
+   by Corollary \ref{cor: commutator product of matrix algebras}. Since $\dim_k \Sl_m(k) = m^2 - 1$ for every $m \geq 1$ we find that
+   \begin{align*}
+     &\, \dim_k (A/[A,A])^*
+    =    \dim_k A/[A,A] \\
+    =&\, \dim_k\left( \Mat_{n_1}(k)/\Sl_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)/\Sl_{n_r}(k) \right) \\
+    =&\, r.
+   \end{align*}
+   From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules. Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$.
+  \qedhere
+ \end{enumerate}
+\end{proof}
+
+
+\begin{cor}\label{cor: number of irreducible representations of finite abelian group}
+ Let $k$ be an algebraically closed field and $G$ a finite, abelian group with $\kchar k \nmid |G|$. Then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
+\end{cor}
+\begin{proof}
+ The group algebra $kG$ is finite-dimensional and by Maschke’s Theorem also semisimple. Therefore
+ \[
+  |\Irr_k(G)| = |\Irr(kG)| = \dim_k (kG/[kG, kG])^* = \dim_k kG/[kG, kG].
+ \]
+ Since $G$ is abelian the group algebra $kG$ is commutative, so $[kG,kG] = 0$ and
+ \[
+  \dim_k kG/[kG, kG] = \dim_k kG = |G|.
+  \qedhere
+ \]
+\end{proof}
+
+
+\begin{defi}
+ Let $G$ be a group and $X$ a set. A function $f \colon G \to X$ is called a \emph{class function (with values in $X$)} if it is constant on the conjugation classes of $G$, i.e.\ if $f$ is invariant under conjugation. If we see $X$ as a trivial $G$-set then the set of $X$-valued class functions is precisely $\Maps(G,X)^G$ where $G$ acts on itself by conjugation.
+\end{defi}
+
+
+\begin{lem} \label{lem: characterisation class functions}
+ Let $G$ be a group and $k$ a field (not necessarily algebraically closed). Let $f \colon G \to k$ be a map and $F \colon kG \to k$ the corresponding $k$-linear extension. Then the following are equivalent:
+ \begin{enumerate}[label=\emph{\roman*)}, leftmargin=*]
+  \item \label{enum: class function}
+   $f$ is a class function.
+  \item
+   $f(gh) = f(hg)$ for all $g \in G$, $h \in H$.
+  \item
+   $F(ab) = F(ba)$ for all $a, b \in kG$.
+  \item
+   The restriction $F_{|[kG,kG]}$ is the zero map.
+ \end{enumerate}
+ If $G$ is additionally finite we also have the following:
+ \begin{enumerate}[label=\emph{\roman*)}, leftmargin=*, resume]
+  \item \label{enum: center of group algebra}
+   If we see $f$ as an element of $kG$, i.e.\ $f = \sum_{g \in G} f(g) g$, then $f \in Z(kG)$.
+ \end{enumerate}
+\end{lem}
+\begin{proof}
+ The equivalence of the first four are easy to see. To see the equivalence of \ref{enum: class function} and \ref{enum: center of group algebra} notice that $f \in Z(kG)$ if and only if $hfh^{-1} = f$ for every $h \in G$. Since we have
+  \[
+   h f h^{-1}
+   = h\left( \sum_{g \in G} f(g) g \right) h^{-1}
+   = \sum_{g \in G} f(g) hgh^{-1}
+   = \sum_{g \in G} f(h^{-1} g h) g
+  \]
+  this is equivalent to $f(h^{-1} g h) = f(g)$ for all $g, h \in G$.
+\end{proof}
+
+
+\begin{defi}
+ Let $G$ be a group and $V$ a finite-dimensional representation of $G$ over a field $k$. If $\rho \colon G \to \GL(V)$ is the corresponding group homomorphism the \emph{character} of the representation $V$ is defined as the map $\chi_V \colon G \to k$ with $\chi_V(g) \coloneqq \tr \rho(g)$. It is equivalently the restriction of the character $\chi_V$ of $V$ as a $kG$-module to $G$.
+\end{defi}
+
+
+From Lemma \ref{lem: characterisation class functions} we know that the character $\chi_V$ of a representation $V$ of a group $G$ over a field $k$ is a class function from $G$ to $k$.
+
+
+\begin{prop} \label{prop: conjugation classes and irreducible representations}
+ Let $G$ be a finite group and $k$ an algebraically closed field with $\kchar k \nmid |G|$.
+ \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
+  \item
+   Then the characters of the irreducible representations of $G$ form a $k$-basis of the $k$-vector space of class functions from $G$ to $k$.
+  \item
+   The number of irreducible representations of $G$ is exactly the number conjugation classes of $G$.
+  \item
+   The number of irreducible representations of $G$ is exactly $\dim_k Z(kG)$.
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
+  \item
+   By Lemma \ref{lem: characterisation class functions} we can regard the $k$-vector space of class functions from $G$ to $k$ as $(kG/[kG,kG])^*$. Thus the statement follows directly from Theorem \ref{thrm: characters as a basis} since $kG$ is semisimple by Maschke’s theorem.
+  \item
+   Let $\mc{O}_1$, \dots, $\mc{O}_n$ be the conjugation classes of $G$. Then the characteristic functions $\chi_{\mc{O}_1}$, \dots, $\chi_{\mc{O}_n}$ form a $k$-basis of the $k$-valued class functions of $G$. By identifying the $k$-vector space of $k$-valued class functions of $G$ with $kG/[kG,kG]$ the same holds for the characters of irreducible representations of $G$ by the first part. Therefore $G$ has precisely $n$ irreducible representations.
+  \item
+   This follows directly from Lemma \ref{lem: characterisation class functions} and the previous parts.
+ \end{enumerate}
+\end{proof}
+
+
+\begin{expls}
+ \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
+  \item
+   Corollary is also \ref{cor: number of irreducible representations of finite abelian group} a direct corollary of \ref{prop: conjugation classes and irreducible representations}.
+  \item
+   The conjugation class of the symmetric group $S_n$ correspond directly to the partitions of $n$ in the following way: We can write every permutation $\pi \in S_n$ as a product of cycles
+   \[
+    \pi = \left( x^1_1 \; \dots \; x^1_{n_1}\right) \dotsm \left(x^s_1 \; \dots \; x^s_{n_s} \right),
+   \]
+   which is unique up to permutation of the cycles. For every $\sigma \in S_n$ we have
+   \[
+    \sigma \pi \sigma^{-1}
+    = \left( \sigma\left(x^1_1\right) \; \dotso \; \sigma\left(x^1_{n_1}\right) \right)
+    \dotsm \left( \sigma\left(x^s_1\right) \; \dotso \; \sigma\left(x^s_{n_s}\right) \right)
+   \]
+   So for every $m \geq 1$ the number of cycles in $\pi$ of length $m$ is invariant under conjugation. This is the \emph{cycle type of $\pi$}.
+   
+   \begin{claim}
+    Two permutations are conjugated if and only if they have the same cycle type.
+   \end{claim}
+   \begin{proof}
+    We have already seen that conjugated permutations have the same cycle type. On the other hand let $\pi \in S_n$ and denote by $l_m$ the number of cycles of length $m$ in $\pi$ and by $M$ the maximal length of a cycle in $\pi$. Then $\pi$ is conjugated to the permutation
+    \[
+     \underbrace{(1 \; \dots \; M) \dotsm ((l_M-1)M+1 \; \dots \; l_M M)}_{\text{$l_M$ many}}
+     \dotsm \underbrace{(n-l_1+1) \dotsm (n)}_{\text{$l_1$ many}}.
+    \]
+    Since this permutation depends only on the cycle type of $\pi$ the statement follows.
+   \end{proof}
+   
+   Using this we find that the permutations
+   \[
+    (1 \; \dotso \; \lambda_1) (\lambda_1 + 1 \; \dotso \; \lambda_1 + \lambda_2) \dotsm (n-\lambda_s \; \dots \; n)
+   \]
+   for the partitions $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \Par(n)$ are a set of representatives of the permutations classes of $S_n$.
+   
+   So we find that the number of irreducible representations of $S_n$ over an algebraically closed field $k$ with $\kchar k \nmid |S_n|$, i.e.\ $\kchar k = 0$ or $\kchar k > n$, is precisely the number of partitions of $n$.
+ \end{enumerate}
+\end{expls}
+
+
+
+\begin{prop}
+ Let $A$ be a finite-dimensional $k$-algebra. Then the following are equivalent:
+ \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+  \item \label{enum: nondegenerate symmetric associative bilinear form}
+   There exists a nondegenerate symmetric bilinear form $(-,-) \colon A \times A \to k$ which is associative (i.e. $(ab,c) = (a,bc)$ for all $a,b,c \in A$.)
+  \item \label{enum: nondegenerato linear map}
+   There exists a $k$-linear map $\varepsilon \colon A \to k$ satisfying the following properties:
+   \begin{enumerate}[label=\emph{(\roman*)},leftmargin=*]
+    \item
+     $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$.
+    \item
+     For any $a \in A$ with $a \neq 0$ there exists $b \in B$ such that $\varepsilon(ba) \neq 0$.
+   \end{enumerate}
+  \item \label{enum: no nonzero ideals in kernel of linear map}
+   There exists a $k$-linear map $\lambda \colon A \to k$ satisfying the following properties:
+   \begin{enumerate}[label=\emph{(\roman*)},leftmargin=*]
+    \item
+     $\lambda(ab) = \lambda(ba)$ for all $a,b \in A$.
+    \item
+     $\ker \lambda$ does not contain any nonzero left-ideals of $A$.
+   \end{enumerate}
+ \end{enumerate}
+\end{prop}
+\begin{proof}
+ We first show the equivalence of \ref{enum: nondegenerato linear map} and \ref{enum: no nonzero ideals in kernel of linear map}. For this let $\varepsilon \colon A \to k$ be a $k$-linear map such that $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$. That $\ker \varepsilon$ contains no nonzero left-ideals of $A$ is equivalent to saying that it does not contain any non-zero principal left-ideals of $A$. This is equivalent to saying that for every $a \in A$ with $a \neq 0$ we have $Aa \subsetneq \ker \varepsilon$, which is the same as saying that for every $a \in A$ with $a \neq 0$ there exists $b \in A$ with $\varepsilon(ba) \neq 0$.
+ 
+ Next we show the equivalence of \ref{enum: nondegenerate symmetric associative bilinear form} and \ref{enum: nondegenerato linear map}. If \ref{enum: nondegenerate symmetric associative bilinear form} holds then \ref{enum: nondegenerato linear map} follows by setting $\varepsilon = (1,-)$. If \ref{enum: nondegenerato linear map} holds then \ref{enum: nondegenerate symmetric associative bilinear form} follows by defining
+ \[
+  (a,b) \coloneqq \varepsilon(ab) \text{ for all } a,b \in A.
+  \qedhere
+ \]
+\end{proof}
+
+
+\begin{rem}
+ Since the bilinear form in \ref{enum: nondegenerate symmetric associative bilinear form} is symmetric one can also show \ref{enum: nondegenerato linear map} with $\varepsilon(ab) \neq 0$ instead of $\varepsilon(ba) \neq 0$ as well as \ref{enum: no nonzero ideals in kernel of linear map} for right-ideals instead of left-ideals.
+\end{rem}
+
+
+\begin{defi}
+ A finite-dimensional $k$-Algebra satisfying one (and thus all) of the above conditions is called a \emph{(symmetric) Frobenius algebra}. A \emph{Frobenius form of $A$} refers either to a $k$-bilinear map $A \times A \to k$ satisfying \ref{enum: nondegenerate symmetric associative bilinear form} or a $k$-linear map $A \to k$ satisfying \ref{enum: nondegenerato linear map} (and thus also \ref{enum: no nonzero ideals in kernel of linear map}), depending on the situation.
+\end{defi}
+
+
+\begin{rem}
+ For a Frobenius algebra $A$ with a Frobenius form $(-,-) \colon A \times A \to k$. Because $(-,-)$ is nondegenerate the $k$-linear map
+ \[
+  \phi \colon A \to A^*, a \mapsto (a,-)
+ \]
+ is injective. Because $A$ is finite-dimensional $\phi$ is an isomorphism of $k$-vector spaces.
+\end{rem}
+
+
+\begin{expls}
+ \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \item
+   Let $G$ be a finite-group and $k$ a field. Then $kG$ is a Frobenius algebra. To see this let the $k$-linear map $\varepsilon \colon kG \to k$ be defined as
+   \[
+    \varepsilon(g) =
+    \begin{cases}
+     1 & \text{if } g = e, \\
+     0 & \text{otherwise}
+    \end{cases}
+   \]
+   for every $g \in G$, i.e.\ $\varepsilon = e^*$ with respect to the basis $G$. For all $a,b \in kG$ with $a = \sum_{g \in G} \lambda_g g$ and $b = \sum_{g \in G} \mu_g g$ we have
+   \[
+    \varepsilon(ab)
+    = \sum_{g \in G} \lambda_g \mu_{g^{-1}}
+    = \sum_{h \in G} \mu_h \lambda_{h^{-1}}
+    =  \varepsilon(ba).
+   \]
+   For a left-ideal $I \subseteq \ker \varepsilon$ and $a \in I $ with $a = \sum_{g \in G} \lambda_g g$ we have for every $h \in G$
+   \[
+    \lambda_h = \varepsilon\left( h^{-1} a \right) = 0
+   \]
+   because $h^{-1} a \in I \subseteq \ker \varepsilon$. Therefore $I = 0$, which shows that $\varepsilon$ is a Frobenius form.
+   
+   That the corresponding bilinear form $(-,-) \colon kG \times kG \to k$, i.e.\
+   \[
+    (a,b) = \varepsilon(ab) \text{ for all } a,b \in A,
+   \]
+   is nondegenerate can also be seen by noticing that $(g^{-1},-) = g^*$ with respect to the basis $G$ for every $g \in G$. Therefore the $k$-linear map $kG \to kG^*, a \mapsto (a,-)$ is an isomorphism and in particular injective.
+  \item
+   Let $k$ be a field and $n \geq 1$. Then $\Mat_n(k)$ is the Frobenius algebra. To see this notice that $\tr \colon \Mat_n(k) \to k$ is a Frobenius form: It it clear that the corresponding bilinear form $(-,-) \colon \Mat_n(k) \times \Mat_n(k) \to k$, i .e.\
+   \[
+    (A,B) = \tr(AB) \text{ for all } A,B \in \Mat_n(k),
+   \]
+   is symmetric and associative. To see that it is nondegenerate notice that $(E_{ij}, -) = E_{ji}^*$ with respect to the basis $(E_{ij})_{1 \leq i,j \leq n}$ for every $1 \leq i,j \leq n$. Thus the map $\Mat_n(k) \to \Mat_n(k)^*, A \mapsto (A,-)$ is an isomorphism and in particular injective.
+ \end{enumerate}
+\end{expls}
+
+
+
+\begin{prop}
+ Let $A$ be a Frobenius algebra and $(-,-) \colon A \times A \to k$ a Frobenius form of $A$. Then
+ \[
+  \psi \colon Z(A) \to (A/[A,A])^*, a \mapsto (a,-)
+ \]
+ is an isomorphism of $k$-vector spaces.
+\end{prop}
+\begin{proof}
+ The map
+ \[
+  \varphi \colon A \to A^*, a \mapsto (a, -)
+ \]
+ is an isomorphism of $k$-vector spaces. To prove the proposition we show that $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
+ 
+ For all $z, a, b \in A$ we have
+ \[
+  (z,ba) = (1,zba) = (zba,1) = (zb,a) = (a,zb) = (az,b)
+ \]
+ and therefore
+ \begin{align*}
+  \varphi(z)(ab-ba)
+  &= (z,ab-ba)
+  = (z,ab) - (z,ba) \\
+  &= (za,b) - (az,b)
+  = (za-az,b)
+  = ([z,a],b)
+ \end{align*}
+ Fix $z \in A$. That $\varphi(z)_{|[A,A]} = 0$ is equivalent to $\varphi(z)(ab-ba) = 0$ for all $a,b \in A$. By the observation above this is equivalent to $([z,a],b) = 0$ for every $a,b \in A$. Because $(-,-)$ is nondegenerate this is equivalent to saying that $[z,a] = 0$ for every $a \in A$. So $\varphi(z)_{|[A,A]} = 0$ if and only if $z \in Z(A)$.
 \end{proof}
 
 
