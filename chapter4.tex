@@ -1230,6 +1230,20 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 
 
 \begin{cor}
+ Let $R$ be a semisimple ring (with $1$) and $M$ a faithful $R$-module, i.e.\ $rm = 0$ for every $r \in R$ implies $m = 0$. Then the isotypical components of $M$ are all nonzero. In particular $M$ contains every simple $R$-module up to isomorphism.
+\end{cor}
+\begin{proof}
+ By Artin--Wedderburn we have
+ \[
+  R \cong M_{n_1}(D_1) \times \dotsb \times M_{n_s}(D_s)
+ \]
+ for $s \geq 1$, $n_1, \dotsc, n_s \geq 1$ and skew field $D_1$, \dots, $D_s$. Then $D_1^{n_1}$, \dots, $D_r^{n_r}$ are a complete set of representatives of $\Irr(R)$, where $(A_1, \dotsc, A_s) \in R$ acts on $x \in D_i^{n_i}$ by $(A_1, \dotsc, A_n) \cdot x = A_i x$. Since $R$ is semisimple so is $M$ and thus we have a decomposition $M \cong \bigoplus_{i=1}^s M_{D_i^{n_i}}$ into isotypical components. Suppose that $M_{D_i^{n_i}} = 0$ for some $1 \leq i \leq s$. Then every element $A \in M_{n_i}(D_i) \subseteq R$ acts by multiplication with zero on $M$, which contradicts the faithfulness of $M$. Thus the isotypical components $M_{D_i^{n_i}}$ are all nonzero.
+\end{proof}
+
+
+
+
+\begin{cor}
  Let $R$ be a semisimple ring (with $1$). Then $R^\op$ is also semisimple.
 \end{cor}
 \begin{proof}
