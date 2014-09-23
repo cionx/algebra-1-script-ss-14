@@ -117,7 +117,7 @@
  \]
 \end{lem}
 \begin{proof}
- The multiplication is well defined: Let $a \in F_i(A), b \in F_j(A)$. Note that we have
+ The multiplication is well-defined: Let $a \in F_i(A), b \in F_j(A)$. Note that we have
  \begin{align*}
   F_{i-1}(A)F_j(A) &\subseteq F_{i+j-1}(A), \\
   F_i(A) F_{j-1}(A) &\subseteq F_{i+j-1}(A) \text{ and } \\
@@ -323,7 +323,7 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
  \[
   p = c \left(e^{(n)}_1\right)^{\alpha_1 - \alpha_2} \dotsm \left(e^{(n)}_{n-1}\right)^{\alpha_{n-1} - \alpha_n} \left(e^{(n)}_n\right)^{\alpha_n}.
  \]
- From the properties listed above it directly follows that that $p$ is well defined with $\init p = \init f$. Because $e^{(n)}_k$ is homogenous of degree $k$ it follows that $p$ is homogeneous of degree
+ From the properties listed above it directly follows that that $p$ is well-defined with $\init p = \init f$. Because $e^{(n)}_k$ is homogenous of degree $k$ it follows that $p$ is homogeneous of degree
  \begin{align*}
    &\,(\alpha_1-\alpha_2) + 2(\alpha_2-\alpha_3) + \dotsb + (n-1)(\alpha_{n-1}-\alpha_n)+n\alpha_n \\
   =&\, \alpha_1 + \dotsb + \alpha_n
@@ -417,30 +417,30 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
   (Here we use that $k[X_1, \dotsc, X_n]$ is an unique factorization domain.) We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$. [I have no idea why $\deg g \leq \deg f$.] By induction hypothesis (of the induction on $d$) we can write $h$ as a polynomial in $e^{(n)}_1$, \dots, $e^{(n)}_n$ and therefore also $f-g = h e^{(n)}_n$. Since $g$ is a Polynomial in $e^{(n)}_1$, \dots, $e^{(n)}_n$ so is $f$.
   % TODO: Warum ist deg(g) <= deg(f)? Wofür die Homogenität von f? %
  \end{proof}
-  All that is left to show is that $e^{(n)}_1$, \dots, $e^{(n)}_n$ are algebraically independent. We prove this by induction over $n$.
-  
-  For $n = 1$ this is clear, since $e^{(1)}_1 = X_1$. Now suppose $n \geq 2$ and that the elements $e^{(n-1)}_1$, \dots, $e^{(n-1)}_{n-1}$ are algebraically independent. Suppose that
-  \[
-   F\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) = 0
-  \]
-  for some polynomial $F \in k[X_1, \dotsc, X_n]$ with $F \neq 0$ of minimal possible degree. Then
-  \begin{align*}
-   0
-   &= q\left(F\left(e^{(n)}_1, \dotsc, e^{(n)}_{n-1} ,e^{(n)}_n\right)\right) \\
-   &= F\left( q\left(e^{(n)}_1\right), \dotsc, q\left(e^{(n)}_{n-1}\right), q\left(e^{(n)}_n\right) \right) \\
-   &= F\left( e^{n-1}_1, \dotsc, e^{(n-1)}_{n-1}, 0 \right).
-  \end{align*}
-  Using the induction hypothesis we find that $F(X_1, \dotsc, X_{n-1}, 0) = 0$. Therefore $X_n \mid F$. This means that there exists some $\hat{F} \in k[X_1, \dotsc, X_n]$ with $F = X_n \hat{F}$. In particular $\hat{F} \neq 0$. We have
-  \[
-   0
-   = F\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right)
-   = e^{(n)}_n \hat{F}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right).
-  \]
-  Because $k[X_1, \dotsc, X_n]$ is an integral domain and $e^{(n)}_n \neq 0$ it follows that
-  \[
-   \hat{F}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) = 0.
-  \]
-  Because $\hat{F} \neq 0$ and $\deg \hat{F} < \deg F$ this contradicts the assumption that $F$ is of lowest possible degree.
+ All that is left to show is that $e^{(n)}_1$, \dots, $e^{(n)}_n$ are algebraically independent. We prove this by induction over $n$.
+ 
+ For $n = 1$ this is clear, since $e^{(1)}_1 = X_1$. Now suppose $n \geq 2$ and that the elements $e^{(n-1)}_1$, \dots, $e^{(n-1)}_{n-1}$ are algebraically independent. Suppose that
+ \[
+  F\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) = 0
+ \]
+ for some polynomial $F \in k[X_1, \dotsc, X_n]$ with $F \neq 0$ of minimal possible degree. Then
+ \begin{align*}
+  0
+  &= q\left(F\left(e^{(n)}_1, \dotsc, e^{(n)}_{n-1} ,e^{(n)}_n\right)\right) \\
+  &= F\left( q\left(e^{(n)}_1\right), \dotsc, q\left(e^{(n)}_{n-1}\right), q\left(e^{(n)}_n\right) \right) \\
+  &= F\left( e^{n-1}_1, \dotsc, e^{(n-1)}_{n-1}, 0 \right).
+ \end{align*}
+ Using the induction hypothesis we find that $F(X_1, \dotsc, X_{n-1}, 0) = 0$. Therefore $X_n \mid F$. This means that there exists some $\hat{F} \in k[X_1, \dotsc, X_n]$ with $F = X_n \hat{F}$. In particular $\hat{F} \neq 0$. We have
+ \[
+  0
+  = F\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right)
+  = e^{(n)}_n \hat{F}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right).
+ \]
+ Because $k[X_1, \dotsc, X_n]$ is an integral domain and $e^{(n)}_n \neq 0$ it follows that
+ \[
+  \hat{F}\left(e^{(n)}_1, \dotsc, e^{(n)}_n\right) = 0.
+ \]
+ Because $\hat{F} \neq 0$ and $\deg \hat{F} < \deg F$ this contradicts the assumption that $F$ is of lowest possible degree.
 \end{proof}
 
 
@@ -859,8 +859,74 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
 
 
 \begin{expl}[]
- [Here should be a part about Schur polynomials. However, some of the statements are unclear or wrong.]
- % TODO: Definition der Schubert Polynome liefern.
+ Let $k$ be a field with $\kchar k \neq 2$. Let $\lambda = (\lambda_1, \dotsc, \lambda_n) \in \Par$ be a partition. The \emph{Schur polynomial corresponding to $\lambda$} is the symmetric polynomial $s_\lambda \in k[X_1, \dotsc, X_n]^{S_n}$ of homogenous degree $|\lambda|$ defined as
+ \[
+  s_\lambda \coloneqq \frac{\sum_{\sigma \in S_n} \sgn(\sigma) X_{\sigma(1)}^{\lambda_1} X_{\sigma(2)}^{\lambda_2 + 1} \dotsm X_{\sigma(n)}^{\lambda_n + n-1}}{\prod_{1 \leq i < j \leq n} (X_i - X_j)}
+ \]
+ (In the lecture the same statements were made for the ring of integers $\Z$ and arbitrary fields, but the following argumentation does not work in these cases.)
+ 
+ To show that $s_\lambda$ is well-defined we first notice the numerator
+ \[
+  N \coloneqq \sum_{\sigma \in S_n} \sgn(\sigma) X_{\sigma(1)}^{\lambda_1} X_{\sigma(2)}^{\lambda_2 + 1} \dotsm X_{\sigma(n)}^{\lambda_n + n-1}
+ \]
+ and the denumerator
+ \[
+  D \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
+ \]
+ are alternating polynomials, i.e.\ $\sigma.N = \sgn(\sigma) N$ and $\sigma.D = \sgn(\sigma) D$ for every $\sigma \in S_n$, because
+ \begin{gather*}
+  N = \det
+  \begin{pmatrix}
+   X_1^{\lambda_1}       & X_2^{\lambda_1}       & \cdots & X_n^{\lambda_1}       \\
+   X_1^{\lambda_2 + 1}   & X_2^{\lambda_2 + 1}   & \cdots & X_n^{\lambda_2 + 1}   \\
+   \vdots                & \vdots                & \ddots & \vdots                \\
+   X_1^{\lambda_n + n-1} & X_2^{\lambda_n + n-1} & \cdots & X_n^{\lambda_n + n-1}
+  \end{pmatrix}
+ \shortintertext{and}
+  D = \det
+  \begin{pmatrix}
+   1      & X_1    & X_1^2  & \cdots & X_1^{n-1} \\
+   1      & X_2    & X_2^2  & \cdots & X_2^{n-1} \\
+   \vdots & \vdots & \vdots & \ddots & \vdots    \\
+   1      & X_n    & X_n^2  & \cdots & X_n^{n-1}
+  \end{pmatrix}.
+ \end{gather*}
+ That $D$ divides $N$ follows from the following claim:
+ \begin{claim}
+  Let $f \in k[X_1, \dotsc, X_n]$ be an alternating polynomial and
+  \[
+   V \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j) \in k[X_1, \dotsc, X_n].
+  \]
+  Then $V$ divides $f$.
+ \end{claim}
+ \begin{proof}
+  Since the polynomials $X_i - X_j$ with $1 \leq i < j \leq n$ are pairwise non-equivalent primes it sufficies to show that $X_i-X_j$ divides $f$ for all $1 \leq i < j \leq n$. Because $f$ is alternating it is enough to show that $X_1 - X_2$ divides $f$.
+  
+  For $R \coloneqq k[X_3, \dotsc, X_n]$, $u = X_1 + X_2$ and $x = X_1 - X_2$ we have
+  \[
+   k[X_1, \dotsc, X_n] = R[X_1, X_2] = R[u,v],
+  \]
+  so we can write $f = \sum_{i \in \N} f_i v^i$ with $f_i \in R[u]$ for every $i \in \N$. Because $f$ is alternating we have
+  \begin{align*}
+   \sum_{i \in \N} f_i v^i
+   &= f(X_1, X_2, \dotsc, X_n)
+   = -f(X_2, X_1, \dotsc, X_n) \\
+   &= - \sum_{i \in \N} (-1)^i f_i v^i
+   = \sum_{i \in \N} (-1)^{i+1} f_i v^i.
+  \end{align*}
+  So $f_i = 0$ if $i$ is even. Therefore $v$ divides $f$ .
+ \end{proof}
+ Since $D$ and $N$ are both alternating it is also clear that $s_\lambda = N/D$ is symmetric. To see that $s_\lambda$ is homogeneous of degree $|\lambda|$ notice that $N$ is homogeneous of degree
+ \[
+  \lambda_1 + (\lambda_2 + 1) + \dotsb + (\lambda_n + n-1) = |\lambda| + \binom{n}{2}
+ \]
+ and that $D$ is homogeneous of degree $\binom{n}{2}$.
+ \begin{claim}
+  Let $f, g \in k[X_1, \dotsc, X_n]$ be polynomials such that $f$ is homogenous of degree $d_1$ and $g$ homogeneous of degree $d_2$. If $g$ divides $f$ then $f/g$ is homogenous of degree $d_1 - d_2$.
+ \end{claim}
+ \begin{proof}
+  We can write $f/g = \sum_{d \in \N} h_d$ where $h_d \in k[X_1, \dotsc, X_n]$ is homogenous of degree $d$. Then $f = (f/g)g = \sum_{d \in \N} h_d g$ where $h_d g$ is homogeneous of degree $d + d_2$. Because $f$ is homogenous of degree $d_1$ we find that $h_d = 0$ for $d \neq d_1 - d_2$. Thus $f/g = h_d$ is homogeneous of degree $d_1 - d_2$.
+ \end{proof}
 \end{expl}
 
 
@@ -1363,7 +1429,7 @@ From the definition of a polynomial map it also directly follows that for any fi
  is an algebra homomorphism.
 \end{lem}
 \begin{proof}
- We already know that $f^*$ is well defined, i.e.\ that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1$, \dots, $v_n$ of $V$.
+ We already know that $f^*$ is well-defined, i.e.\ that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$. So we just need to show that $f^*$ is an algebra-homomorphism. For this fix a basis $v_1$, \dots, $v_n$ of $V$.
  
  Let $h_1, h_2\in \mc{P}(V)$, i.e.\ we have polynomials $p_1, p_2\in k[X_1, \dotsc, X_n]$ with
  \[
