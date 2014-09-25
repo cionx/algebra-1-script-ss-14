@@ -273,9 +273,9 @@ in $k[t]$. We will formalize this observation in the following lemma.
 \begin{rem}[Newton’s identities]
  One can show that more generally
  \[
-  p^{(n)}_m - e^{(n)}_1 p^{(n)}_{m-1} + \dotsb + (-1)^{m-1} e^{(n)}_{m-1} p^{(n)}_1 + (-1)^m+ m e^{(n)}_m = 0.
+  p^{(n)}_r - e^{(n)}_1 p^{(n)}_{r-1} + \dotsb + (-1)^{r-1} e^{(n)}_{r-1} p^{(n)}_1 + (-1)^r r e^{(n)}_r = 0.
  \]
- for all $m \geq 0$. For $m = n$ this gives us the previous corollary.
+ for all $r \geq 0$. For $m = n$ this gives us the previous corollary.
 \end{rem}
 \begin{proof}
  The proof of these identities is an exercise on the 4th exercise sheet. We will also give a proof later on.
@@ -339,7 +339,7 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
  \begin{align*}
       &\, \init \left(e^{(n)}_1\right)^{\alpha_1} \dotsm \left(e^{(n)}_n\right)^{\alpha_n} \\
      =&\, X_1^{\alpha_1 + \dotsb + \alpha_n} X_2^{\alpha_2 + \dotsb + \alpha_n} \dotsm X_n^{\alpha_n} \\
-  \neq&\, X_1^{\beta_1 + \dotsb + \beta_n} X_2^{\beta_2 + \dotsb + \beta_n} \dotsm X_n^{\beta_n} \\
+  \neq&\, X_1^{\beta_1 + \dotsb + \beta_n} X_2^{\beta_2  + \dotsb + \beta_n} \dotsm X_n^{\beta_n} \\
      =&\, \init \left(e^{(n)}_1\right)^{\beta_1} \dotsm \left(e^{(n)}_n\right)^{\beta_n}.
  \end{align*}
  Now suppose that
@@ -538,7 +538,7 @@ From this equalities we can now easily derive more equalities.
 \begin{cor}
  For all $r \geq 1$ we have
  \[
-  r h^{(n)}_r = p^{(n)}_1 h^{(n)}_{r-1} + p^{(n)}_2 h^{(n)}_{r-2} + \dotsb + p^{(n)}_{n-1} h^{(n)}_1 + p^{(n)}_n.
+  r h^{(n)}_r = p^{(n)}_1 h^{(n)}_{r-1} + p^{(n)}_2 h^{(n)}_{r-2} + \dotsb + p^{(n)}_{r-1} h^{(n)}_1 + p^{(n)}_r.
  \]
 \end{cor}
 \begin{proof}
