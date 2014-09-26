@@ -259,28 +259,11 @@ for some maximal ideal $I \subseteq R$.
    \[
     U_E = M_E \cap U.
    \]
-   To see this let $C$ be a complement of $U$ in $M$, i.e.\ $M = U \oplus C$. Since both $U$ and $C$ are semisimple (by Lemma \ref{lem: inherit semisimple}) we have
+   It is clear that
    \[
-    U = \bigoplus_{i \in I} L_i
+    U_E = \sum_{\substack{L \subseteq U \\ L \cong E}} L \subseteq \sum_{\substack{L \subseteq M \\ L \cong E}} L = M_E.
    \]
-   where $L_i \subseteq U$ is a simple submodule for all $i \in I$ and
-   \[
-    C = \bigoplus_{j \in J} L'_j
-   \]
-   where $L'_j \subseteq C$ is a simple submodule for all $j \in J$. We have
-   \[
-    M = \bigoplus_{i \in I} L_i \oplus \bigoplus_{j \in J} L'_j
-   \]
-   and therefore by Lemma \ref{lem: isotypical component as direct sum}
-   \[
-    M_E
-    = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \oplus \bigoplus_{\substack{j \in J \\ L'_j \cong E}} L'_j
-    = U_E \oplus C_E.
-   \]
-   Since $M = U \oplus C$ we get that
-   \[
-    M_E \cap U = (U_E \oplus C_E) \cap U = U_E.
-   \]
+   Because we have also $U_E \subseteq U$ we have $U_E \subseteq U \cap M_E$. On the other hand $M_E \cap U$ is a submodule of $M_E$ and thus $M_E \cap U \cong \bigoplus_{i \in I} E$ for some index set $I$. Since $M_E \cap U$ is also a submodule of $U$ we have $M_E \cap U \subseteq U_E$.
  \end{enumerate}
 \end{rem}
 
