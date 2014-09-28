@@ -29,18 +29,18 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
  \[
   S(X) \coloneqq \{f \colon X \to X \mid f \text{ is bijective}\}.
  \]
- $S(X)$ is then a group with $fg \coloneqq f \circ g$ (composition of maps) for all $f,g \in S(X)$ and $e = \id_X$. $S(X)$ is called the \emph{symmetry group of $X$}.
+ $S(X)$ is a group via $fg \coloneqq f \circ g$ (composition of maps) for all $f,g \in S(X)$ and $e = \id_X$ and is called the \emph{symmetry group of $X$}.
 \end{defi}
 
 
-Given a group action $\pi \colon G \times X \to X$ any  $g \in G$ defines $\pi_g \in S(X)$ by setting
+Given a group action $\pi \colon G \times X \to X$ any  $g \in G$ defines a bijection $\pi_g \in S(X)$ by setting
 \[
  \pi_g(x) = \pi(g.x) \text{ for all } x \in X, g \in G.
 \]
 
 
 \begin{lem}\label{lem: G-actions = group homos G -> S(X)}
- Fix $G$ a group, $X$ a set. Then there is a 1:1-correspondence
+ For any group $G$ and set $X$ there is a 1:1-correspondence
  \[
  \begin{matrix}
     \left\{\text{$G$-actions on $X$}\right\}
@@ -62,7 +62,7 @@ Given a group action $\pi \colon G \times X \to X$ any  $g \in G$ defines $\pi_g
 \end{lem}
 
 
-From this Lemma we get the idea that group actions are ``the same'' as ``representing'' groups as permutation groups.
+From this lemma we get the idea that group actions are ``the same'' as ``representing'' groups as permutation groups.
 
 
 \begin{expls}
@@ -71,22 +71,23 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
   \item
    $G$ acts on itself by left multiplication, i.e.
    \[
-    g.x = gx \text{ for all } g \in G, x \in X=G.
+    g.x = gx
    \]
-   This is called the \emph{(left) regular action of $G$}.
+   for all $g \in G$ and $x \in G$. This is called the \emph{(left) regular action of $G$}.
   \item
    $G$ acts onto itself by right multiplication with the inverse, i.e
    \[
-    g.x = xg^{-1} \text{ for all } g \in G, x \in X=G.
+    g.x = xg^{-1}
    \]
-   This is called the \emph{right regular action}.
+   for all $g \in G$ and $x \in G$. This is called the \emph{right regular action}.
   \item
    $G$ acts onto itself by conjugation, i.e.
    \[
-    g.x = gxg^{-1} \text{ for all }g \in G, x \in X=G.
+    g.x = gxg^{-1}
    \]
+   for all $g \in G$ and $x \in G$.
   \item
-   Let $X$ be any set. Then $g.x = x$ for all $g \in G, x \in X$ defines an action. This is called the \emph{trivial action} and $X$ is called a \emph{trivial $G$-set}.
+   Let $X$ be any set. Then $g.x = x$ for all $g \in G$ and $x \in X$ defines an action of $G$ on $X$. This is called the \emph{trivial action} and $X$ is called a \emph{trivial $G$-set}.
   \item
    Let $X, Y$ be $G$-sets. Then
    \[
@@ -96,29 +97,32 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
    \[
     (g.f)(x) = g.\left(f\left(g^{-1}.x\right)\right)
    \]
-   for all $g \in G, x \in X$.
-   In the special case that $Y$ is a trivial $G$-set this means $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G, x \in X$.
+   for all $f \in \Maps(X,Y)$, $g \in G$ and $x \in X$. In the special case that $Y$ is a trivial $G$-set we have $(g.f)(x) = f(g^{-1}.x)$ for all $f \in \Maps(X,Y)$, $g \in G$ and $x \in X$.
   \item
    If $X, Y$ are $G$-sets then $X \times Y$ is a $G$-set via
    \[
-    g.(x,y) = (g.x,g.y) \text{ for all } g \in G, x \in X, y \in Y.
+    g.(x,y) = (g.x,g.y)
    \]
+   for all $g \in G$ and $(x,y) \in X \times Y$.
   \item
-   If $X$ is a set and $G = S(X)$, then $X$ is a $G$-set via $f.x = f(x)$ for all $f \in G, x \in X$.
+   If $X$ is a set and $G = S(X)$, then $X$ is a $G$-set via $f.x = f(x)$ for all $f \in G$ and $x \in X$.
  \end{enumerate}
 \end{expls}
 
 
 \begin{defi}
- Let $G$ be a group and $X, Y$ $G$-sets. Then $f \colon X \to Y$ is called \emph{$G$-equivariant} if
+ Let $G$ be a group and $X$ and $Y$ $G$-sets. A map $f \colon X \to Y$ is called \emph{$G$-equivariant} if
  \[
   f(g.x) = g.f(x)
  \]
- for all $g \in G, x \in X$. Denote
+ for all $g \in G$ and $x \in X$. We write
  \[
-  \Hom_G(X,Y) = \{f \colon X \to Y \mid f \text{ is $G$-equivariant}\}.
+  \Hom_G(X,Y) \coloneqq \{f \colon X \to Y \mid f \text{ is $G$-equivariant}\}.
  \]
 \end{defi}
+
+
+The following observation is clear:
 
 
 \begin{lem}
@@ -127,7 +131,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
   \item
    If $X$ is a $G$-set, then $\id_X \in \Hom_G(X,X)$.
   \item
-   If $X, Y, Z$ are $G$-sets with $f_1 \in \Hom_G(X,Y)$ and $f_2 \in \Hom_G(Y,Z)$ then $f_2 \circ f_1 \in \Hom_G(X,Z)$.
+   If $X$, $Y$ and $Z$ are $G$-sets with $f_1 \in \Hom_G(X,Y)$ and $f_2 \in \Hom_G(Y,Z)$ then $f_2 \circ f_1 \in \Hom_G(X,Z)$.
  \end{enumerate}
 \end{lem}
 
@@ -141,7 +145,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
     \[
      f(g.x) = f(gx) = (gx)a = g(xa) = g.f(x)
     \]
-    for all $g, x \in G$. To show the other direction set $a \coloneqq f(e)$. Because $f$ is $G$-equivariant we then have
+    for all $g \in G$ and $x \in G$, so $f$ is $G$-equivariant. To show that every $G$-equivariant map $G \to G$ is of this form let $f \colon G \to G$ be a $G$-equivariant map and set $a \coloneqq f(e)$. Because $f$ is $G$-equivariant we have
     \[
      f(g) = f(ge) = f(g.e) = g.f(e) = g.a = ga
     \]
@@ -158,7 +162,7 @@ From this Lemma we get the idea that group actions are ``the same'' as ``represe
 \end{expls}
 
 
-The previous lemma shows that for a group $G$ the class of $G$-sets together with the $G$-equivariant maps between them form a category, which we will refer to as $\cGsets{G}$. So the objects in $\cGsets{G}$ are $G$-sets and
+The previous lemma shows that for a group $G$ the class of $G$-sets together with the $G$-equivariant maps between them form a category, which we will refer to as $\cGsets{G}$. The objects in $\cGsets{G}$ are $G$-sets and
 \[
  \Hom_{\cGsets{G}}(X,Y) = \Hom_G(X,Y)
 \]
@@ -182,7 +186,7 @@ for any two $G$-sets $X$ and $Y$.
  \[
   \can(g.x) = \text{orbit of $g.x$} = \text{orbit of $x$} = \can(x) = g.\can(x)
  \]
- for all $g \in G, x \in X$.
+ for all $g \in G$ and $x \in X$.
 \end{note}
 
 
