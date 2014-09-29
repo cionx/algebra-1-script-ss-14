@@ -193,24 +193,24 @@ for any two $G$-sets $X$ and $Y$.
 \begin{defi}
  Let $X$ be a $G$-set. Then
  \[
-  X^G \coloneqq \{\text{$G$-invariants of $X$}\} = \{x \in X \mid g.x = x \text{ for all } g \in G\}.
+  X^G \coloneqq \{x \in X \mid g.x = x \text{ for all } g \in G\}.
  \]
  The elements in $X^G$ are called \emph{$G$-invariants} or \emph{$G$ fix points}.
 \end{defi}
 
 
 \begin{lem}
- Let $X$ and $Y$ be $G$-sets and $f \colon X \to Y$ be $G$-equivariant. Then
+ Let $X$ and $Y$ be $G$-sets and $f \colon X \to Y$ a $G$-equivariant map. Then
  \[
-  f(X^G) \subseteq Y^G.
+  f\left( X^G \right) \subseteq Y^G.
  \]
 \end{lem}
 \begin{proof}
- For all $x \in X^G$ we have for all $g \in G$
+ For every $x \in X^G$ we have
  \[
   g.f(x) = f(g.x) = f(x).
  \]
- Thus $f(x) \subseteq Y^G$ for all $x \in X^G$.
+ for all $g \in G$ and thus $f(x) \in Y^G$.
 \end{proof}
 
 
@@ -218,23 +218,24 @@ This lemma shows that a $G$-equivariant map $f \colon X \to Y$ between $G$-sets 
 \[
  \id_X^G = \id_{X^G}
 \]
-and that for any $G$-sets $X,Y,Z$ and $G$-equivariant maps $f \colon X \to Y$ and $g \colon Y \to Z$
+and that for all $G$-sets $X$, $Y$, and $Z$ and $G$-equivariant maps $f \colon X \to Y$ and $g \colon Y \to Z$
 \[
  (f \circ g)^G =  f^G \circ g^G.
 \]
-So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set $X$ to the corresponding trivial $G$-set $X^G$ and every $G$-equivariant map $f \colon X \to Y$ between $G$-sets $X$ and $Y$ to the $G$-equivariant $f^G \colon X^G \to Y^G$. (It is clear that $f^G$ is $G$-equivariant since both $X^G$ and $Y^G$ are trivial $G$-sets.)
+Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set $X$ to the corresponding trivial $G$-set $X^G$ and every $G$-equivariant map $f \colon X \to Y$ between $G$-sets $X$ and $Y$ to the $G$-equivariant map $f^G \colon X^G \to Y^G$. (It is clear that $f^G$ is $G$-equivariant since both $X^G$ and $Y^G$ are trivial $G$-sets.)
 
 
 \begin{lem}
- Let $X, Y$ be $G$-sets. Then $\Hom_G(X,Y) = \Maps(X,Y)^G$.
+ Let $X$ and $Y$ be $G$-sets. Then $\Hom_G(X,Y) = \Maps(X,Y)^G$.
 \end{lem}
 \begin{proof}
+ We have
  \begin{align*}
   f \in \Hom_G(X,Y)
-  &\Leftrightarrow \forall g \in G, x \in X : f(g.x) = g.f(x) \\
-  &\Leftrightarrow \forall g \in G, x \in X : f(g^{-1}.x) = g^{-1}.f(x) \\
-  &\Leftrightarrow \forall g \in G, x \in X : g.f(g^{-1}.x) = f(x) \\
-  &\Leftrightarrow \forall g \in G : g.f = f \\
+  &\Leftrightarrow f(g.x) = g.f(x) \text{ for all } g \in G, x \in X \\
+  &\Leftrightarrow f\left(g^{-1}.x\right) = g^{-1}.f(x) \text{ for all } g \in G, x \in X \\
+  &\Leftrightarrow g.f\left(g^{-1}.x\right) = f(x) \text{ for all } g \in G, x \in X \\
+  &\Leftrightarrow g.f = f \text{ for all } g \in G \\
   &\Leftrightarrow f \in \Maps(X,Y)^G.
   \qedhere
  \end{align*}
@@ -242,20 +243,21 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
 
 
 \begin{defi}
- Let $X$ be a $G$-set, $k$ a field or a ring. A map $f \colon X \to k$ is called \emph{invariant} (or better \emph{$G$-invariant}) if
+ Let $X$ be a $G$-set and $k$ a field or a ring. A map $f \colon X \to k$ is called \emph{invariant} (or better \emph{$G$-invariant}) if
  \[
-  f(x) = f(g^{-1}.x) \text{ for all } g \in G, x \in X.
+  f(x) = f\left( g.x \right)
  \]
+ for all $g \in G$ and $x \in X$.
 \end{defi}
 
 
 \begin{note}
- This agrees with the above definition of $f \in \Hom_G(X,k) = \Maps(X,k)^G$ if we consider $k$ as a trivial $G$-set.
+ If we consider $k$ as a trivial $G$-set then a map $f \colon X \to k$ is $G$-invariant if and only if $f \in \Hom(X,k)^G = \Hom_G(X,k)$. So both notions of $G$-invariance agree.
 \end{note}
 
 
 \begin{lem}
- Let $X$ be a $G$-set, $k$ a field or a ring. Then $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if the following diagram commutes.
+ Let $X$ be a $G$-set and $k$ a field or a ring. Then a map $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if the following diagram commutes.
  \tikzsetnextfilename{invariant_functions_factor_through_orbits}
  \begin{center}
  \begin{tikzpicture}[node distance = 2cm, auto]
@@ -269,9 +271,7 @@ So we get a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set 
  \end{center}
 \end{lem}
 \begin{proof}
- If $f$ is invariant then $f(x) = f(g^{-1}.x)$ for all $g \in G, x \in X$. Therefore $f$ is constant on orbits. Now define $\bar{f}(\mc{O}) = f(x)$ where $\mc{O}$ is an orbit and $x \in \mc{O}$.
- 
- To show the other direction assume $f$ factors through $\can$. Then $f$ is constant on orbits, i.e.\ $f(x) = f(g.x)$ for all $g \in G, x \in X$, i.e.\ $f(x) = f(g^{-1}.x)$ for all $g \in G, x \in X$. Therefore $f$ is invariant.
+ That $f$ is $G$-invariant is equivalent to $f$ being constant on the $G$-orbits of $X$, and $f$ is constant on these orbits if and only if $f$ factors through $\can$.
 \end{proof}
 
 
