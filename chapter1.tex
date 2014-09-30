@@ -243,7 +243,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 
 
 \begin{defi}
- Let $X$ be a $G$-set and $k$ a field or a ring. A map $f \colon X \to k$ is called \emph{invariant} (or better \emph{$G$-invariant}) if
+ Let $X$ be a $G$-set and $k$ a field (or a ring). A map $f \colon X \to k$ is called \emph{invariant} (or better \emph{$G$-invariant}) if
  \[
   f(x) = f\left( g.x \right)
  \]
@@ -257,7 +257,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 
 
 \begin{lem}
- Let $X$ be a $G$-set and $k$ a field or a ring. Then a map $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if the following diagram commutes.
+ Let $X$ be a $G$-set and $k$ a field (or a ring). Then a map $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if the following diagram commutes.
  \tikzsetnextfilename{invariant_functions_factor_through_orbits}
  \begin{center}
  \begin{tikzpicture}[node distance = 2cm, auto]
@@ -276,11 +276,11 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 
 
 \begin{expl}
- Let $G = \Z/2 = \{e,s\}$ where $e$ is the neutral element and $s^2 = e$. Let $G$ act on $X = \R$ by $e.\lambda = \lambda$ and $s.\lambda = -\lambda$ for all $\lambda \in \R$. Set $k = \R$ and consider $\Maps(X,k) = \Maps(\R,\R)$. Any polynomial $p \in \R[X]$ can be viewed as an element in $\Maps(\R,\R)$. Take for example $p_n(X) = X^n$. We can ask ourselves which of the $p_n$’s is $G$-invariant. We need to check for which $n$ we have
+ Let $G = \Z/2\Z = \{e,s\}$ where $e$ is the neutral element and $s^2 = e$. Let $G$ act on $X = \R$ by $e.\lambda = \lambda$ and $s.\lambda = -\lambda$ for all $\lambda \in \R$. Set $k = \R$ and consider $\Maps(X,k) = \Maps(\R,\R)$. Any polynomial $p \in \R[X]$ can be viewed as an element in $\Maps(\R,\R)$. Take for example $p_n(X) = X^n$. We can ask ourselves which of the $p_n$’s is $G$-invariant. We need to check for which $n$ we have
  \[
-  p_n(x) = p_n(s^{-1}.x) = p_n(s.x) = p_n(-x) \text{ for all } x \in \R.
+  p_n(\lambda) = p_n\left(s^{-1}.\lambda\right) = p_n(s.\lambda) = p_n(-\lambda)
  \]
- Since $p_n(X) = X^n$ we get that $p_n$ is $G$-invariant if and only if $n$ is even.
+ for all $\lambda \in \R$. Since $p_n(X) = X^n$ we get that $p_n$ is $G$-invariant if and only if $n$ is even.
 \end{expl}
 
 
