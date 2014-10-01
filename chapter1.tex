@@ -316,33 +316,34 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 \begin{proof}
  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-   This is left as an easy exercise for the reader.
+   This is clear.
   \item
-   For $f \in \Maps(X,k)$ we have $f = \sum_{x \in X} f(x) \chi_x$. (Note that this sum is finite, hence defined.) This is true because for all $y \in X$ we have
+   For $f \in \Maps(X,k)$ we have $f = \sum_{x \in X} f(x) \chi_x$. (Note that this sum is finite, hence well defined.) This is true because for all $y \in X$ we have
    \[
     \sum_{x \in X} f(x) \chi_x(y) = f(y).
    \]
-   This shows that the $\chi_x$'s generate $\Maps(X,k)$. They are linear independent since for $\alpha_x \in K, x \in X$ with $\sum_{x \in X} \alpha_x \chi_x = 0$ we have
+   This shows that the $\chi_x$, $x \in X$ generate $\Maps(X,k)$. They are linear independent since for $\alpha_x \in k$ and $x \in X$ with $\sum_{x \in X} \alpha_x \chi_x = 0$ we have
    \[
     \alpha_y = \sum_{x \in X} \alpha_x \chi_x(y) = 0
    \]
    for all $y \in X$.
   \item
-   We need to check that for all $f_1, f_2 \in \Maps(X,k)^G$ we have $f_1+f_2 \in \Maps(X,k)^G$ and that for all $f \in \Maps(X,k)^G$ and $\lambda \in k$ we have $\lambda f \in \Maps(X,k)^G$. This holds because
+   We need to check that for all $f_1, f_2 \in \Maps(X,k)^G$ we have $f_1 + f_2 \in \Maps(X,k)^G$ and that for all $f \in \Maps(X,k)^G$ and $\lambda \in k$ we have $\lambda f \in \Maps(X,k)^G$. This holds because
    \begin{align*}
     (g.(f_1+f_2))(x)
-    &= (f_1+f_2)(g^{-1}.x) = f_1(g^{-1}.x) + f_2(g^{-1}.x) \\
-    &= f_1(x) + f_2(x) = (f_1+f_2)(x) \text{ and} \\
+    &= (f_1+f_2)\left(g^{-1}.x\right) = f_1\left(g^{-1}.x\right) + f_2\left(g^{-1}.x\right) \\
+    &= f_1(x) + f_2(x) = (f_1+f_2)(x)
+   \shortintertext{and}
     (g.(\lambda f))(x)
-    &= (\lambda f)(g^{-1}.x) = \lambda (f(g^{-1}.x)) = \lambda f(x) = (\lambda f)(x)
+    &= (\lambda f)\left(g^{-1}.x\right) = \lambda \left(f\left(g^{-1}.x\right)\right) = \lambda f(x) = (\lambda f)(x)
    \end{align*}
-   for all $x \in X, \lambda \in K$.
+   for all $x \in X$ and $\lambda \in k$.
   \item
-   Let $f \in \Maps(X,k)^G$ and $\mc{O}_1$, \dots, $\mc{O}_n$ be the orbits in $X$. Pick a representative $x_i \in \mc{O}_i$ for all $1 \leq i \leq n$. Then $f = \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}$. This adds because
+   Let $f \in \Maps(X,k)^G$ and $\mc{O}_1$, \dots, $\mc{O}_n$ be the $G$-orbits in $X$. Pick a representative $x_i \in \mc{O}_i$ for all $1 \leq i \leq n$. Then $f = \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}$. This adds because
    \[
     \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}(y) = f(x_j)
    \]
-   for $j$ chosen such that $y \in \mc{O}_j$, i.e.\ $y = g^{-1}.x_j$ for some $g \in G$. We then have $f(y) = f(g^{-1}.x_j) = f(x_j)$. This shows that the $\chi_{\mc{O}_i}$’s generate $\Maps(X,k)^G$. The linear independence is clear (same argumentation as above).
+   for $j$ chosen such that $y \in \mc{O}_j$, i.e.\ $y = g^{-1}.x_j$ for some $g \in G$. We then have $f(y) = f(g^{-1}.x_j) = f(x_j)$. This shows that the $\chi_{\mc{O}_i}$, $1 \leq i \leq n$ generate $\Maps(X,k)^G$. The linear independence follows in the same way as above.
   \qedhere
  \end{enumerate}
 \end{proof}
