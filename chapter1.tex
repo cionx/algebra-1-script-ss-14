@@ -290,7 +290,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
   \item
    $\Maps(X,k)$ forms a $k$-vector space (resp. $k$-module) via pointwise addition and scalar multiplication.
   \item
-   A $k$-basis of $\Maps(X,k)$ is given by $\{\chi_x \mid x \in X\}$ where
+   A $k$-basis of $\Maps(X,k)$ is given by $\chi_x$, $x \in X$ where
    \[
     \chi_x(y) =
     \begin{cases}
@@ -302,7 +302,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
   \item
    $\Maps(X,k)^G = \Hom_G(X,k)$ is a $k$-vector subspace (resp. $k$-submodule) of $\Maps(X,k)$.
   \item
-   A $k$-Basis of $\Maps(X,k)^G$ is given by $\{\chi_\mc{O} \mid \mc{O} \in X/G\}$ with
+   A $k$-Basis of $\Maps(X,k)^G$ is given by $\chi_\mc{O}$, $\mc{O} \in X/G$ with
    \[
     \chi_\mc{O}(y) =
     \begin{cases}
@@ -349,7 +349,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 \end{proof}
 
 
-If $X$ is an infinite $G$-set then we could replace $\Maps(X,k)$ by
+If $X$ is an infinite $G$-set we can replace $\Maps(X,k)$ by
 \[
  kX \coloneqq \{f \in \Maps(X,k) \mid \supp(f) \text{ is finite}\}
 \]
@@ -361,31 +361,21 @@ is the \emph{support of $f$}, i.e
 \[
  kX \coloneqq \{f \colon X \to k \mid f(x) \neq 0 \text{ for only finitely many } x \in X\}.
 \]
-Notice that for $f_1, f_2, f \in \Maps(X,k)$ we have
-\[
+Notice that for all $f_1, f_2, f \in \Maps(X,k)$ and $\lambda \in k$ we have
+\begin{gather*}
  \supp(f_1+f_2) \subseteq \supp(f_1) \cup \supp(f_2)
-\]
-and
+\shortintertext{and}
+ \supp(\lambda f) \subseteq \supp(f).
+\end{gather*}
+Therefore $kX$ is a $k$-vector space (resp. $k$-module) with pointwise addition and scalar multiplication.
+
+Notice that for every $x \in X$ we have $\supp(\chi_x) = \{x\}$ and thus $\chi_x \in kX$. Using the same argumentation as above we can show that $\chi_x$, $x \in X$ is a $k$-basis of $kX$, i.e.\ for every $f \in kX$ we have $f = \sum_{x \in X} f(x) \chi_x$ (this sum is well-defined since only finitely many coefficients $f(x)$ are nonzero) and the $\chi_x$, $x \in X$ are linear independent.
+
+Completely analogous to c) we have that $kX^G = (kX)^G$ is a $k$-vector space (resp. $k$-submodule) inside $kX$. We claim that
 \[
- \supp(\lambda f) \subseteq \supp(f) \text{ for all } \lambda \in k.
+ \chi_\mc{O} \text{ where } \mc{O} \in X/G \text{ is finite}
 \]
-Therefore $kX$ with pointwise addition and scalar multiplication is again a $k$-vector space (resp. $k$-module).
-
-Note that $\chi_x \in kX$ for all $x \in X$, since $\supp(\chi_x) = \{x\}$ is finite. Using the same argumentation as above we can show that $kX$ has a $k$-Basis $\{\chi_x \mid x \in X\}$, i.e.\ for alle $f \in kX$ we have $f = \sum_{x \in X} f(x) \chi_x$ (this sum is well-defined since only finitely many $f(x)$ are nonzero) and the $\chi_x$’s are linear independent.
-
-Completely analogous to c) we have that
-\begin{align*}
- kX^G
- &= (kX)^G = \left\{f \colon X \to k \,\middle|\, f \in kX, f \in \Maps(X,k)^G\right\} \\
- &= kX \cap \Maps(X,k)^G
-\end{align*}
-is a $k$-vector space (resp. $k$-submodule) inside $kX$. We claim that
-\[
- \{\chi_\mc{O} \mid \mc{O} \in X/G, \mc{O} \text{ is finite}\}
-\]
-is a $k$-basis of $kX^G$.
-
-To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ where $\{\mc{O}_i \mid i \in I\}$ is the set of orbits with finitely many elements and $x_i \in \mc{O}_i$ is a representative. Notice that if $f(x) \neq 0$ for some orbit $\mc{O}$ with infinitely many elements and $x \in \mc{O}$, then $\supp(f)$ is not finite, because $f$ is constant on orbits. Also notice that $f(x_i) \neq 0$ for only finitely many of the $x_i$’s because $\supp(f)$ is finite. Therefore the sum $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ is exactly the same as before. The linear independence of the $\chi_x$’s is clear.
+is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ where $\{\mc{O}_i \mid i \in I\}$ is the set of orbits with finitely many elements and $x_i \in \mc{O}_i$ is a representative. Notice that if $f(x) \neq 0$ for some orbit $\mc{O}$ with infinitely many elements and $x \in \mc{O}$, then $\supp(f)$ is not finite, because $f$ is constant on orbits. Also notice that $f(x_i) \neq 0$ for only finitely many of the $x_i$ because $\supp(f)$ is finite. Therefore the sum $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ is exactly the same as before. The linear independence of the $\chi_x$ is clear.
 
 
 \begin{lem}
