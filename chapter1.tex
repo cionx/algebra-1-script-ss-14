@@ -379,22 +379,19 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
 
 
 \begin{lem}
- Let $X$ be a finite $G$-set. Assume that $X = X_1 \cup X_2$ with $X_1, X_2 \neq \emptyset$ and $X_1 \cap X_2 = \emptyset$ such that
- \begin{equation}\tag{\ensuremath{\ast}}\label{eqn:X_1 X_2 closed}
-  g.x_1 \in X_1 \text{ and } g.x_2 \in X_2 \text{ for all } x_1 \in X_1, x_2 \in X_2, g \in G.
- \end{equation}
+ Let $X$ be a finite $G$-set. Suppose that $X = X_1 \dotcup X_2$ with $X_1, X_2 \neq \emptyset$ such that $g.x_1 \in X_1$ and $g.x_2 \in X_2$ for all $x_1 \in X_1$, $x_2 \in X_2$ and $g \in G$.
  Then
  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
    $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2, k)$ as $k$-vector spaces (resp. $k$-modules).
   \item
-   $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp. $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism from a).
+   $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp. $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism of the first part.
  \end{enumerate}
 \end{lem}
 \begin{proof}
  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
   \item
-   By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$. Similarly $\Maps(X_i, k)$ has a basis $B_i \coloneqq \{\chi_x \mid x \in X_i\}$ for $i=1,2$. Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
+   By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$. Similarly $\Maps(X_i, k)$ has a basis $B_i \coloneqq \{\chi_x \mid x \in X_i\}$ for $i = 1, 2$. Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
    \[
     \chi_x \mapsto
     \begin{cases}
@@ -403,7 +400,7 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
     \end{cases}
    \]
   \item
-   Let $f \in \Maps(X_1, k)$. Then define $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G, x \in X_1$. Since $g^{-1}.x \in X_1$ for all $g \in G, x \in X_1$ this gives an induced action of $G$ on $\Maps(X,k)$ since \eqref{eqn:X_1 X_2 closed} holds. Similarly for $\Maps(X_2,k)$. In particular the isomorphism
+   $G$ acts on $\Maps(X,k)$ via $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G$, $x \in X$. Since $g^{-1}.x \in X_1$ for all $g \in G, x \in X_1$ this gives an induced action of $G$ on $\Maps(X_i,k)$ since both $X_1$ and $X_2$ are closed under multiplication with $G$. In particular the isomorphism
    \[
     \Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)
    \]
@@ -426,13 +423,13 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
 
 
 \begin{expl}[\textbf{Warning!}]
- Given a $G$-set $X$ and a decomposition $\Maps(X,k) = V \oplus W$ into $k$-vector spaces (resp. $k$-modules) such that $g.v \in V, g.w \in W$ for all $g \in G, v \in V, w \in W$ this composition is not necessarily arising from a decomposition $X = X_1 \dotcup X_2$ as above.
+ Given a $G$-set $X$ and a decomposition of $k$-vector spaces (resp. $k$-modules) $\Maps(X,k) = V \oplus W$ such that $g.v \in V$, $g.w \in W$ for all $v \in V$, $w \in W$ and $g \in G$ this composition is not necessarily arising from a decomposition $X = X_1 \dotcup X_2$ as above.
  Let $G = \Z/2 = \{e,s\}$ with $s^2 = e$ and let $G$ act on itself by left multiplication, so $X = G$. Let $k$ be a field with $\kchar k \neq 2$.
  \begin{claim}
-  There is no depcomposition $X = X_1 \cup X_2$ such that $X_1, X_2 \neq \emptyset$ and $X_1 \cap X_2 = \emptyset$ satisfying \eqref{eqn:X_1 X_2 closed}.
+  There is no depcomposition $X = X_1 \dotcup X_2$ as above.
  \end{claim}
  \begin{proof}[Proof of claim]
-  If such a decomposition would exist then $X_1 = \{e\}$ and $X_2 = \{s\}$ or $X_1 = \{s\}$ and $X_2 = \{e\}$. But since $s.e = se = s$ and $s.s = ss = e$ the condition \eqref{eqn:X_1 X_2 closed} fails, because we always have $s(X_1) \subseteq X_2$.
+  If such a decomposition would exist then it would either be $X_1 = \{e\}$ and $X_2 = \{s\}$ or $X_1 = \{s\}$ and $X_2 = \{e\}$. But since $s.e = se = s$ and $s.s = ss = e$ we have in both cases that $s(X_1) \subseteq X_2$.
  \end{proof}
  Now consider $\Maps(X,k)$. By Lemma \ref{lem: basis of Maps and Hom} it has $\{\chi_e,\chi_s\}$ as a basis. Define
  \[
@@ -446,7 +443,7 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
  \[
   \Maps(X,k) = \vspan(b_1) \oplus \vspan(b_2)
  \]
- with $g.v \in V$ and $g.w \in W$ for all $g \in G, v \in V, w \in W$.
+ with $g.v \in V$ and $g.w \in W$ for all $v \in V$, $w \in W$ and $g \in G$.
 \end{expl}
 
 
