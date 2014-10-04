@@ -448,24 +448,24 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
 
 
 \begin{lem}\label{lem: group action by ring automorphisms}
- Assume $G$ acts on $R$ where $R$ is a set but also a ring. Assume $G$ acts by ring automorphisms (i.e.\ if $\pi \colon G \times R \to R$ is the action then $\pi_g \colon r \mapsto g.r$ is an ring automorphism of $R$ for all $g \in G$). Then $R^G = \{\text{$G$-invariants of $R$}\}$ forms again a ring, namely a subring of $R$.
+ Suppose the group $G$ acts on a ring $R$ by ring automorphisms (i.e.\ if $\pi \colon G \times R \to R$ is the action then $\pi_g \colon r \mapsto g.r$ is an ring automorphism of $R$ for all $g \in G$). Then $R^G = \{\text{$G$-invariants of $R$}\}$ forms again a ring, namely a subring of $R$.
 \end{lem}
-\begin{proof}
- We need to show that for all $r_1, r_2 \in R^G$ we have $r_1 + r_2 \in R^G$ and $r_1 r_2 \in R^G$. This is true because
- \[
-  g.(r_1 + r_2) = \pi_g(r_1 + r_2) = \pi_g(r_1) + \pi_g(r_2) = g.r_1 + g.r_2 = r_1 + r_2
- \]
- and
- \[
-  g.(r_1 r_2) = \pi_g(r_1 r_2) = \pi_g(r_1) \pi_g(r_2) = (g.r_1)(g.r_2) = r_1 r_2
- \]
- for all $g \in G$.
-\end{proof}
 
 
 \begin{rem}
  Here rings don't necessarily have an 1-element.
 \end{rem}
+
+
+\begin{proof}
+ We need to show that for all $r_1, r_2 \in R^G$ we have $r_1 + r_2 \in R^G$ and $r_1 r_2 \in R^G$. This is true because
+ \begin{gather*}
+  g.(r_1 + r_2) = \pi_g(r_1 + r_2) = \pi_g(r_1) + \pi_g(r_2) = g.r_1 + g.r_2 = r_1 + r_2
+ \shortintertext{and}
+  g.(r_1 r_2) = \pi_g(r_1 r_2) = \pi_g(r_1) \pi_g(r_2) = (g.r_1)(g.r_2) = r_1 r_2
+ \end{gather*}
+ for all $g \in G$.
+\end{proof}
 
 
 \begin{expl}
@@ -474,21 +474,23 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
   \item
    $\Maps(X,k)$ forms a ring via pointwise addition and multiplication.
   \item
-   The usual $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G, x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
+   The usual $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for each $g \in G$ and $x \in X$) is an action by ring automorphisms. Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
  \end{enumerate}
  \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
    \item
-    We leave this as an exercise to the reader.
+    This is clear.
    \item
-    For all $f_1, f_2 \in \Maps(X,k), x \in X$ we have
+    For all $f_1, f_2 \in \Maps(X,k)$, $g \in G$ and $x \in X$ we have
     \begin{align*}
-     (g.(f_1+f_2))(x) &= \left(f_1+f_2)(g^{-1}.x\right) = f_1\left(g^{-1}.x\right) + f_2\left(g^{-1}.x\right) \\
+     (g.(f_1+f_2))(x)
+     &= (f_1+f_2)\left(g^{-1}.x\right)
+     = f_1\left(g^{-1}.x\right) + f_2\left(g^{-1}.x\right) \\
      &= (g.f_1)(x) + (g.f_2)(x) = ((g.f_1)+(g.f_2))(x)
-    \end{align*}
-    and
-    \begin{align*}
-     (g.(f_1 f_2))(x) &= (f_1 f_2)\left(g^{-1}.x\right) = f_1\left(g^{-1}.x\right) f_2\left(g^{-1}.x\right) \\
+    \shortintertext{and}
+     (g.(f_1 f_2))(x)
+     &= (f_1 f_2)\left(g^{-1}.x\right)
+     = f_1\left(g^{-1}.x\right) f_2\left(g^{-1}.x\right) \\
      &= (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x),
     \end{align*}
     so $G$ acts by ring homomorphisms. Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms. The rest is a consequence of Lemma \ref{lem: group action by ring automorphisms}.
