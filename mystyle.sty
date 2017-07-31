@@ -20,7 +20,7 @@
   -halt-on-error -interaction=batchmode
   -jobname "\image" "\texsource"}}
 \usepackage{enumitem}
-\usepackage{fancyhdr}
+\usepackage[autooneside,headsepline]{scrlayer-scrpage} %for headers
 
 % keine leere Seite zu Beginn von \mainmatter
 \makeatletter
@@ -30,17 +30,15 @@
   \pagenumbering{arabic}}
 \makeatother
 
-% das Aussehen der Seitenheader und Seitenzahlanzeige
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{%
- \markboth{\arabic{chapter}. \MakeUppercase{#1}}{}%
-}
-\fancyhead{}
-\fancyhead[LO]{\slshape \leftmark}
-\fancyhead[RE]{\slshape \rightmark}
-\fancyfoot[C]{\thepage}
-
-\setlength{\headheight}{23pt}
+% settings for scrlayer-scrpage
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\lehead{\leftmark}
+\rehead{\rightmark}
+\lohead{\leftmark}
+\rohead{\rightmark}
+\cefoot[\pagemark]{\pagemark}
+\cofoot[\pagemark]{\pagemark}
 
 %Farben
 \definecolor{light-gray}{gray}{0.9}
