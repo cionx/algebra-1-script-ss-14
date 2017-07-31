@@ -24,19 +24,19 @@
 \usepackage[autooneside,headsepline]{scrlayer-scrpage} %for headers
 
 % keine leere Seite zu Beginn von \mainmatter
-\makeatletter
-\renewcommand\mainmatter{%
-    \clearpage
-  \@mainmattertrue
-  \pagenumbering{arabic}}
-\makeatother
+% \makeatletter
+% \renewcommand\mainmatter{%
+%     \clearpage
+%   \@mainmattertrue
+%   \pagenumbering{arabic}}
+% \makeatother
 
 % settings for scrlayer-scrpage
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\lehead{\leftmark}
+\lehead{}
 \rehead{\rightmark}
-\lohead{\leftmark}
+\lohead{}
 \rohead{\rightmark}
 \cefoot[\pagemark]{\pagemark}
 \cofoot[\pagemark]{\pagemark}
