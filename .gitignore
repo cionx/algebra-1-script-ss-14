@@ -9,3 +9,4 @@
 *.auxlock
 *.synctex.gz
 *.dpth
+*.out

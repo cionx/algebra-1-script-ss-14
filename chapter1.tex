@@ -673,15 +673,15 @@ It is clear that every irreducible representation is also indecomposable. The co
 \begin{expl}
  Let
  \[
-  G \coloneqq \left\{ \vect{a&b\\0&c} \,\middle|\, a,b,c \in \C \text{ and } a, c \neq 0 \right\}.
+  G \coloneqq \left\{ \vect{a&b\\0&c} \,\middle|\, a,b,c \in \Complex \text{ and } a, c \neq 0 \right\}.
  \]
- $G$ acts on $V \coloneqq \C^2$ in the natural way. Notice that $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation since
+ $G$ acts on $V \coloneqq \Complex^2$ in the natural way. Notice that $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation since
  \[
   \vect{a&b\\0&c} \vect{\alpha\\0} = \vect{\alpha a\\0} \in U
  \]
- for all $\alpha \in \C$. But $V$ is indecomposible because $U$ is the unique $1$-dimensional subrepresentation of $V$.  Therefore there exist no proper subrepresentations $U_1, U_2$ of $V$ with $V = U_1 \oplus U_2$. To show that $U$ is the unique $1$-dimensional subrepresentation of $V$ let $W$ be an $1$-dimensional subrepresentation of $V$. Then
+ for all $\alpha \in \Complex$. But $V$ is indecomposible because $U$ is the unique $1$-dimensional subrepresentation of $V$.  Therefore there exist no proper subrepresentations $U_1, U_2$ of $V$ with $V = U_1 \oplus U_2$. To show that $U$ is the unique $1$-dimensional subrepresentation of $V$ let $W$ be an $1$-dimensional subrepresentation of $V$. Then
  \[
-  W = \vspan\left\{ \vect{\alpha\\\beta} \right\} \text{ for some } \vect{\alpha\\\beta} \in \C^2.
+  W = \vspan\left\{ \vect{\alpha\\\beta} \right\} \text{ for some } \vect{\alpha\\\beta} \in \Complex^2.
  \]
  Because $W$ is a subrepresentation of $V$ we have
  \[
@@ -893,7 +893,7 @@ The previous lemma shows that for any group $G$ and field $k$ the class of repre
   \item
    $\Hom_G(V,V)$ is a divison ring / skew field (i.e.\ we have $1 \neq 0$ and every non zero endomorphism is invertible).
   \item
-   In the special case that $k$ is algebraically closed (e.g. $k = \C$) and $V$ and $W$ are both finite dimensional we have that
+   In the special case that $k$ is algebraically closed (e.g. $k = \Complex$) and $V$ and $W$ are both finite dimensional we have that
    \[
     \Hom_G(V,W) \cong
     \begin{cases}
@@ -975,10 +975,10 @@ The previous lemma shows that for any group $G$ and field $k$ the class of repre
 \begin{rem}
  Not every representation is completely reducible, even if $k$ is algebraically closed. Consider, for example,
  \[
-  G \coloneqq \left\{\vect{a & b \\ 0 & c} \,\middle|\, a,b,c \in \C \text{ and } a,c \neq 0\right\}
-  \subseteq \GL_2(\C)
+  G \coloneqq \left\{\vect{a & b \\ 0 & c} \,\middle|\, a,b,c \in \Complex \text{ and } a,c \neq 0\right\}
+  \subseteq \GL_2(\Complex)
  \]
- and the natural representation of $G$ on $\C^2$. We saw earlier that $U \coloneqq \vspan(e_1)$ gives a subrepresentation and it’s the only $1$-dimensional subrepresentation. So the representation is not irreducible, but at the same time not isomorphic to a direct sum of irreducible representations.
+ and the natural representation of $G$ on $\Complex^2$. We saw earlier that $U \coloneqq \vspan(e_1)$ gives a subrepresentation and it’s the only $1$-dimensional subrepresentation. So the representation is not irreducible, but at the same time not isomorphic to a direct sum of irreducible representations.
 \end{rem}
 
 
@@ -1035,7 +1035,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
  \[
   h.\left(\sum_{g \in G} a_g g\right) = \sum_{g \in G} a_g hg.
  \]
- Let $k = \C$, hence Maschke’s theorem holds. We want to find a decomposition of $kG$. Recall that $S_3 = \gen{s,t}$ where $s = (1 \; 2)$ and $t = (2 \; 3)$. We claim that
+ Let $k = \Complex$, hence Maschke’s theorem holds. We want to find a decomposition of $kG$. Recall that $S_3 = \gen{s,t}$ where $s = (1 \; 2)$ and $t = (2 \; 3)$. We claim that
  \[
   kG = V_{\text{triv}} \oplus V_{\text{sgn}} \oplus V_1 \oplus V_2
  \]

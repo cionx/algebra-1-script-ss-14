@@ -8,6 +8,7 @@
 \usepackage{extarrows} %für \xlongequal
 \usepackage{ellipsis} %für passende Auslangspunkte für \dots
 \usepackage{fontspec}
+\usepackage{hyperref}
 \usepackage[centertableaux,boxsize=1.2em]{ytableau} % für Young-Diagramme
 \usepackage{color} % für Farben
 \usepackage{tikz} %für Diagrame
@@ -42,6 +43,14 @@
 
 %Farben
 \definecolor{light-gray}{gray}{0.9}
+
+% colours for hyperref
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
 
 % die Umgebungen mit kursiver Schrift
 \newcounter{saetze}[chapter]
@@ -80,7 +89,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
+\newcommand{\Complex}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 
 % Abkürzungen für häufig benutzte Befehle
