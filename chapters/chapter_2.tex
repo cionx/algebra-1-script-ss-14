@@ -12,7 +12,7 @@
   
   A ring $R$ is called \emph{graded} if there is a decomposition $R = \bigoplus_{d \in \Z} R_d$ into $\Z$-modules such that $R_i R_j \subseteq R_{i+j}$ for all $i,j \in \Z$.
   
-  We call $A_d$, resp. $R_d$, the \emph{homogeneous part of degree $d$}.
+  We call $A_d$, resp.\ $R_d$, the \emph{homogeneous part of degree $d$}.
 \end{defi}
 
 \begin{rem}
@@ -111,7 +111,7 @@
 
 
 \begin{lem}
-  $\gr_\mc{F}(A) = \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i$ is a graded algebra with the multiplication indexed from the multiplication of $A$, i.e.
+  $\gr_\mc{F}(A) = \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i$ is a graded algebra with the multiplication indexed from the multiplication of $A$, i.e.\
   \[
     ( a + F_{i-1}(A) )( b + F_{j-1}(A) ) = ab + F_{i+j-1}(A).
   \]
@@ -331,7 +331,7 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
   \end{align*}
   (Because $f$ is homogenous we have $d = \deg f = \deg \init f = \alpha_1 + \dotsb + \alpha_n$.) Combining these observations we find that $f-p$ is a homogeneous symmetric polynomial of degree $d$ with either $f-p = 0$ or at least $\init (f-p) < \init f$. Because there are only finitely many monomials of degree $d$ repeating this procedure must lead us to the zero polynomial in finitely many steps.
   
-  To show that $e^{(n)}_1$, \dots, $e^{(n)}_n$ are algebraically independent we need to show that the monomials in $e^{(n)}_1$, \dots, $e^{(n)}_n$, i.e.
+  To show that $e^{(n)}_1$, \dots, $e^{(n)}_n$ are algebraically independent we need to show that the monomials in $e^{(n)}_1$, \dots, $e^{(n)}_n$, i.e.\
   \[
     \left(e^{(n)}\right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \dotsm \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
   \]
@@ -454,7 +454,7 @@ To makes our lifes easier we introduce an ordering on the monomials in $k[X_1, \
 \end{rem}
 
 
-To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \dotsc, X_n]\dblbrack{t}$, i.e.
+To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \dotsc, X_n]\dblbrack{t}$, i.e.\
 \begin{align*}
   E(t) &\coloneqq \sum_{k \geq 0} e^{(n)}_k t^k, \\
   H(t) &\coloneqq \sum_{k \geq 0} h^{(n)}_k t^k \text{ and} \\
@@ -662,7 +662,7 @@ Since $e^{(n)}_1$, \dots, $e^{(n)}_n$ and $h^{(n)}_1$, \dots, $h^{(n)}_n$ are ea
 \begin{proof}
   We first show that $p^{(n)}_1$, \dots, $p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra. For this it is enough to show that $e^{(n)}_1$, \dots, $e^{(n)}_n$ can be expressed as polynomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$. That this is possible follows directly from Newton’s identities. (Here we need that $2, \dotsc, n$ are invertible in $k$.)
   
-  To show that $p^{(n)}_1$, \dots, $p^{(n)}_n$ are algebraically independent we need to show that the monomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$, i.e.
+  To show that $p^{(n)}_1$, \dots, $p^{(n)}_n$ are algebraically independent we need to show that the monomials in $p^{(n)}_1$, \dots, $p^{(n)}_n$, i.e.\
   \[
     \left(p^{(n)}\right)^\alpha = \left(p^{(n)}_1\right)^{\alpha_1} \dotsm \left(p^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
   \]
@@ -833,7 +833,7 @@ Partitions are often displayed in terms of \emph{Young diagrams}. The Young diag
 \end{defi}
 
 
-One can also define $m_\lambda$ in a formal way: Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \dotsm X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials. To formalize this we let $S_r$ act on $\N^r$ by permuting the entries, i.e.
+One can also define $m_\lambda$ in a formal way: Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \dotsm X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials. To formalize this we let $S_r$ act on $\N^r$ by permuting the entries, i.e.\
 \[
   \pi.(a_1, \dotsc, a_r) = \left( a_{\pi^{-1}(1)}, \dotsc, a_{\pi^{-1}(r)} \right)
 \]
@@ -1022,7 +1022,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
 \end{proof}
 
 
-We know from the Fundamental Theorem that $e^{(n)}_1$, \dots, $e^{(n)}_n$ generate the $k$-algebra of symmetric polynomials $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1$, \dots, $e^{(n)}_n$, i.e.
+We know from the Fundamental Theorem that $e^{(n)}_1$, \dots, $e^{(n)}_n$ generate the $k$-algebra of symmetric polynomials $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1$, \dots, $e^{(n)}_n$, i.e.\
 \[
   \left( e^{(n)} \right)^\alpha = \left(e^{(n)}_1\right)^{\alpha_1} \dotsm \left(e^{(n)}_n\right)^{\alpha_n} \text{ with } \alpha = (\alpha_1, \dotsc, \alpha_n)
 \]
@@ -1599,7 +1599,7 @@ It is interesting to notice that this functor is fully faithful.
       \]
       for all $g \in G, w \in W$.
     \item
-      Fix a field $k$. Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.
+      Fix a field $k$. Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.\
       \[
         g.A = gAg^{-1}
       \]

@@ -69,7 +69,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
   Let $G$ be a group.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
-      $G$ acts on itself by left multiplication, i.e.
+      $G$ acts on itself by left multiplication, i.e.\
       \[
         g.x = gx
       \]
@@ -81,7 +81,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
       \]
       for all $g \in G$ and $x \in G$. This is called the \emph{right regular action}.
     \item
-      $G$ acts onto itself by conjugation, i.e.
+      $G$ acts onto itself by conjugation, i.e.\
       \[
         g.x = gxg^{-1}
       \]
@@ -288,7 +288,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
   Let $X$ be a finite $G$-set. Let $k$ be a field (or a ring).
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
-      $\Maps(X,k)$ forms a $k$-vector space (resp. $k$-module) via pointwise addition and scalar multiplication.
+      $\Maps(X,k)$ forms a $k$-vector space (resp.\ $k$-module) via pointwise addition and scalar multiplication.
     \item
       A $k$-basis of $\Maps(X,k)$ is given by $\chi_x$, $x \in X$ where
       \[
@@ -300,7 +300,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
       \]
       for all $y \in X$.
     \item
-      $\Maps(X,k)^G = \Hom_G(X,k)$ is a $k$-vector subspace (resp. $k$-submodule) of $\Maps(X,k)$.
+      $\Maps(X,k)^G = \Hom_G(X,k)$ is a $k$-vector subspace (resp.\ $k$-submodule) of $\Maps(X,k)$.
     \item
       A $k$-Basis of $\Maps(X,k)^G$ is given by $\chi_\mc{O}$, $\mc{O} \in X/G$ with
       \[
@@ -367,11 +367,11 @@ Notice that for all $f_1, f_2, f \in \Maps(X,k)$ and $\lambda \in k$ we have
 \shortintertext{and}
   \supp(\lambda f) \subseteq \supp(f).
 \end{gather*}
-Therefore $kX$ is a $k$-vector space (resp. $k$-module) with pointwise addition and scalar multiplication.
+Therefore $kX$ is a $k$-vector space (resp.\ $k$-module) with pointwise addition and scalar multiplication.
 
 Notice that for every $x \in X$ we have $\supp(\chi_x) = \{x\}$ and thus $\chi_x \in kX$. Using the same argumentation as above we can show that $\chi_x$, $x \in X$ is a $k$-basis of $kX$, i.e.\ for every $f \in kX$ we have $f = \sum_{x \in X} f(x) \chi_x$ (this sum is well-defined since only finitely many coefficients $f(x)$ are nonzero) and the $\chi_x$, $x \in X$ are linear independent.
 
-Completely analogous to c) we have that $kX^G = (kX)^G$ is a $k$-vector space (resp. $k$-submodule) inside $kX$. We claim that
+Completely analogous to c) we have that $kX^G = (kX)^G$ is a $k$-vector space (resp.\ $k$-submodule) inside $kX$. We claim that
 \[
   \chi_\mc{O} \text{ where } \mc{O} \in X/G \text{ is finite}
 \]
@@ -383,9 +383,9 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
   Then
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
-      $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2, k)$ as $k$-vector spaces (resp. $k$-modules).
+      $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2, k)$ as $k$-vector spaces (resp.\ $k$-modules).
     \item
-      $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp. $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism of the first part.
+      $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp.\ $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism of the first part.
   \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -423,7 +423,7 @@ is a $k$-basis of $kX^G$. To show this let $f \in kX^G$. Then $f = \sum_{i \in I
 
 
 \begin{expl}[\textbf{Warning!}]
-  Given a $G$-set $X$ and a decomposition of $k$-vector spaces (resp. $k$-modules) $\Maps(X,k) = V \oplus W$ such that $g.v \in V$, $g.w \in W$ for all $v \in V$, $w \in W$ and $g \in G$ this composition is not necessarily arising from a decomposition $X = X_1 \dotcup X_2$ as above.
+  Given a $G$-set $X$ and a decomposition of $k$-vector spaces (resp.\ $k$-modules) $\Maps(X,k) = V \oplus W$ such that $g.v \in V$, $g.w \in W$ for all $v \in V$, $w \in W$ and $g \in G$ this composition is not necessarily arising from a decomposition $X = X_1 \dotcup X_2$ as above.
   Let $G = \Z/2 = \{e,s\}$ with $s^2 = e$ and let $G$ act on itself by left multiplication, so $X = G$. Let $k$ be a field with $\kchar k \neq 2$.
   \begin{claim}
     There is no depcomposition $X = X_1 \dotcup X_2$ as above.
@@ -637,7 +637,7 @@ For a $k$-vector space $V$ we set
         \end{tikzpicture}
         \caption{The action of $g \in G$ on $V \times W$ and $V \otimes W$.}
       \end{figure}
-      If $v_1$, \dots, $v_n$ is a basis of $V$ and $w_1$, \dots, $w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp. $W$, as a matrix $A$, resp. $B$. The actions $(1)$ and $(2)$ are then given by matrices
+      If $v_1$, \dots, $v_n$ is a basis of $V$ and $w_1$, \dots, $w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp.\ $W$, as a matrix $A$, resp.\ $B$. The actions $(1)$ and $(2)$ are then given by matrices
       \[
         \begin{pmatrix}
           A & 0 \\
@@ -907,7 +907,7 @@ The previous lemma shows that for any group $G$ and field $k$ the class of repre
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item 
-      Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp. $W$. Since $V$ and $W$ are irreducible we have that
+      Assume $0 \neq f \in \Hom_G(V,W)$. Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp.\ $W$. Since $V$ and $W$ are irreducible we have that
       \[
         \ker f = 0 \text{ or } \ker f = V \quad \text{and} \quad \im f = 0 \text{ or } \im f = W.
       \]
@@ -1031,7 +1031,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
 \begin{expl}
   In general it is hard to compute a decomposition using Maschke’s theorem in practice!
   
-  Let $G = S_3$. Let $V = kG$ be viewed as a representation of $G$ via the left multiplication, i.e.
+  Let $G = S_3$. Let $V = kG$ be viewed as a representation of $G$ via the left multiplication, i.e.\
   \[
     h.\left(\sum_{g \in G} a_g g\right) = \sum_{g \in G} a_g hg.
   \]
@@ -1055,7 +1055,7 @@ where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$. So the projecti
   \[
     g.e_i = e_{g(i)}
   \]
-  where $e_1$, \dots, $e_n$ denotes the standard basis of $k^n$. Extending this linearly we get a representation of $G$ on $k^n$, i.e.
+  where $e_1$, \dots, $e_n$ denotes the standard basis of $k^n$. Extending this linearly we get a representation of $G$ on $k^n$, i.e.\
   \[
     g.(a_1, \dotsc, a_n) = \left(a_{g^{-1}(1)}, \dotsc, a_{g^{-1}(n)}\right).
   \]
