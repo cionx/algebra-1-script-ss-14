@@ -1,4 +1,4 @@
-Algebra-I-Skript
+Algebra I Notes
 =================
 
-Meine Mitschriften zur Algebra I Vorlesung.
+My notes for the lecture course “Algebra I”.
