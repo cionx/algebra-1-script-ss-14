@@ -133,7 +133,10 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
       \[
                   R
         \coloneqq \left\{
-                    \vect{a & b \\ 0 & c}
+                    \begin{pmatrix}
+                      a & b \\
+                      0 & c
+                    \end{pmatrix}
                     \,\middle|\,
                     a, b, c \in k
                   \right\}
@@ -149,15 +152,27 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
       \]
       To see this notice that
       \[
-          \vect{a & b \\ 0 & c} \vect{x \\ y}
+          \begin{pmatrix}
+            a & b \\
+            0 & c
+          \end{pmatrix}
+          \vect{x \\ y}
         = \vect{ax + by \\ cy},
       \]
       so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both
       \begin{align*}
-            \vect{0 & y^{-1} \\ 0 & 0} \vect{x \\ y}
+            \begin{pmatrix}
+              0 & y^{-1} \\
+              0 & 0
+            \end{pmatrix}
+            \vect{x \\ y}
         &=  \vect{1 \\ 0}
       \shortintertext{and}
-            \vect{0 & 0 \\ 0 & y^{-1}} \vect{x \\ y}
+            \begin{pmatrix}
+              0 & 0 \\
+              0 & y^{-1}
+            \end{pmatrix}
+            \vect{x \\ y}
         &=  \vect{0 \\ 1}
       \end{align*}
       and therefore $M = k^2$.
@@ -2288,7 +2303,11 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
       Let $a \in A$.
       If $M_1 \in \Mat_s(k)$ is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_s$ and $M_2 \in \Mat_t(k)$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1$, \dots, $w_t$, then
       \[
-        M \coloneqq \vect{M_1 & 0  \\ 0 & M_2}
+                  M
+        \coloneqq \begin{pmatrix}
+                    M_1 & 0 \\
+                    0 & M_2
+                  \end{pmatrix}
       \]
       is the representing matrix of $\rho_{V \oplus W}(a)$ with respect to the basis $v_1$, \dots, $v_s$, $w_1$, \dots, $w_t$.
       Therefore
@@ -2305,7 +2324,11 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
       Let $M_1 \in \Mat_r(k)$ be the representing basis of $\rho_U(a)$ with respect to $v_1$, \dots, $v_r$ and $M_2 \in \Mat_{s-r}$ be the representing matrix of $\rho_{V/U}(a)$ with respect to the basis $v_{r+1} + U$, \dots, $v_s + U$.
       Then
       \[
-        M \coloneqq \vect{M_1 & 0 \\ 0 & M_2}
+                  M
+        \coloneqq \begin{pmatrix}
+                    M_1 & 0 \\
+                    0 & M_2
+                  \end{pmatrix}
       \]
       is the representing matrix of $\rho_V(a)$ with respect to the basis $v_1$, \dots, $v_r$, $v_{r+1}$, \dots, $v_s$ of $V$.
       Therefore
@@ -3284,7 +3307,10 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
     for
     \[
                 A
-      \coloneqq \vect{1 & 0 \\ 0 & -1}
+      \coloneqq \begin{pmatrix}
+                  1 &  0 \\
+                  0 & -1
+                \end{pmatrix}
       \in       \GL_2(\Complex).
     \]
     If $\lambda_2 = 0$ we have $x = \lambda_1 e_1^2 + \lambda_3 e_2^2$.
@@ -3299,10 +3325,16 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
     for the matrices $B, C \in \GL_2(\Complex)$ with
     \[
         B
-      = \vect{1 & 0 \\ 1 & 1}
+      = \begin{pmatrix}
+          1 & 0 \\
+          1 & 1
+        \end{pmatrix}
       \text{ and }
         C
-      = \vect{0 & 1 \\ 1 & 0}
+      = \begin{pmatrix}
+          0 & 1 \\
+          1 & 0
+        \end{pmatrix}
     \]
     If $\lambda_3 \neq 0$ we have
     \[
@@ -3313,10 +3345,16 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
     for the matrices $D, E \in \GL_2(\Complex)$ with
     \[
         D
-      = \vect{1 & 1 \\ 0 & 1}
+      = \begin{pmatrix}
+          1 & 1 \\
+          0 & 1
+        \end{pmatrix}
       \text{ and }
         E
-      = \vect{2 & -1 \\ 0 & 1}.
+      = \begin{pmatrix}
+          2 & -1 \\
+          0 &  1
+        \end{pmatrix}.
     \]
     Since $e_1 e_2 \in U$ we also have
     \begin{gather*}
@@ -3325,7 +3363,10 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
       \in U
     \shortintertext{for}
                 A
-      \coloneqq \vect{1 & 1 \\ 0 & 1}
+      \coloneqq \begin{pmatrix}
+                  1 & 1 \\
+                  0 & 1
+                \end{pmatrix}
       \in       \GL_2(\Complex)
     \end{gather*}
     as well as
@@ -3335,7 +3376,10 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
       \in U
     \shortintertext{for}
                 B
-      \coloneqq \vect{1 & 0 \\ 1 & 1}
+      \coloneqq \begin{pmatrix}
+                  1 & 0 \\
+                  1 & 1
+                \end{pmatrix}
       \in       \GL_2(\Complex).
     \end{gather*}
     So $U$ contains a basis of $S^2(\Complex^2)$ and therefore $U = \Complex^2$.

@@ -745,9 +745,13 @@ The linear independence of the $\chi_x$ is clear.
       \[
                   H
         \coloneqq \left\{
-                    \vect{\lambda&0\\0&\lambda}
+                    \begin{pmatrix}
+                      \lambda & 0       \\
+                      0       &\lambda
+                    \end{pmatrix}
                   \,\middle|\,
-                    \lambda \in \R, \lambda \neq 0
+                    \lambda \in \R,
+                    \lambda \neq 0
                   \right\}
         \subseteq \GL(2,\R).
       \]
@@ -926,7 +930,10 @@ The converse is not true in general as the following example shows.
   \[
               G
     \coloneqq \left\{
-                \vect{a & b \\ 0 & c}
+                \begin{pmatrix}
+                  a & b \\
+                  0 & c
+                \end{pmatrix}
               \,\middle|\,
                 a, b, c \in \Complex
                 \text{ and }
@@ -936,7 +943,11 @@ The converse is not true in general as the following example shows.
   $G$ acts on $V \coloneqq \Complex^2$ in the natural way.
   Notice that $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation since
   \[
-        \vect{a & b \\ 0 & c} \vect{\alpha \\ 0}
+        \begin{pmatrix}
+          a & b \\
+          0 & c 
+        \end{pmatrix}
+        \vect{\alpha \\ 0}
     =   \vect{\alpha a \\ 0}
     \in U
   \]
@@ -948,7 +959,7 @@ The converse is not true in general as the following example shows.
   \[
       W
     = \vspan\left\{
-              \vect{\alpha\\\beta}
+              \vect{\alpha \\ \beta}
             \right\}
     \text{ for some }
         \vect{\alpha \\ \beta}
@@ -956,7 +967,11 @@ The converse is not true in general as the following example shows.
   \]
   Because $W$ is a subrepresentation of $V$ we have
   \[
-        \vect{1 & 1 \\ 0 & 1} \vect{\alpha \\ \beta}
+        \begin{pmatrix}
+          1 & 1 \\
+          0 & 1
+        \end{pmatrix}
+        \vect{\alpha \\ \beta}
     =   \vect{\alpha + \beta \\ \beta}
     \in W.
   \]
@@ -971,9 +986,7 @@ The converse is not true in general as the following example shows.
   and thus
   \[
       W
-    = \vspan  \left\{
-                \vect{1 \\ 0}
-              \right\}
+    = \vspan \left\{ \vect{1 \\ 0} \right\}
     = U.
   \]
 \end{expl}
@@ -1355,7 +1368,10 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   \[
     G
     \coloneqq \left\{
-                \vect{a & b \\ 0 & c}
+                \begin{pmatrix}
+                  a & b \
+                  0 & c
+                \end{pmatrix}
               \,\middle|\,
                 a, b, c \in \Complex
                 \text{ and }
