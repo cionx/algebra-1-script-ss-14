@@ -53,25 +53,25 @@
 }
 
 % die Umgebungen mit kursiver Schrift
-\newcounter{saetze}[chapter]
-\newtheorem{prop}[saetze]{Proposition}
-\newtheorem{lem}[saetze]{Lemma}
-\newtheorem{thrm}[saetze]{Theorem}
-\newtheorem{cor}[saetze]{Corollary}
+\newcounter{everything}[section]
+\newtheorem{cor}[everything]{Corollary}
+\newtheorem{defi}[everything]{Definition}
+\newtheorem{lem}[everything]{Lemma}
+\newtheorem{prop}[everything]{Proposition}
+\newtheorem{thrm}[everything]{Theorem}
 \newtheorem*{claim}{Claim}
 
 % die Umgebungen mit normaler Schrift
 \theoremstyle{definition}
-\newtheorem*{defi}{Definition}
-\newtheorem*{expl}{Example}
-\newtheorem*{expls}{Examples}
-\newtheorem*{rem}{Remark}
+\newtheorem{expl}[everything]{Example}
+\newtheorem{expls}[everything]{Examples}
 \newtheorem*{rec}{Recall}
+\newtheorem{rem}[everything]{Remark}
 \newtheorem*{note}{Note}
 \newtheorem*{warn}{Warning}
 
 % Ausgabe für diverse Counter
-\renewcommand{\thesaetze}{\thechapter.\arabic{saetze}}
+\renewcommand{\theeverything}{\thesection.\arabic{everything}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{equation}}
 
