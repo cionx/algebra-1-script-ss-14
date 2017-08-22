@@ -21,7 +21,7 @@
   -halt-on-error -interaction=batchmode
   -jobname "\image" "\texsource"}}
 \usepackage{enumitem}
-\usepackage[autooneside,headsepline]{scrlayer-scrpage} %for headers
+\usepackage[automark, headsepline]{scrlayer-scrpage} %for headers
 
 % keine leere Seite zu Beginn von \mainmatter
 % \makeatletter
@@ -33,13 +33,7 @@
 
 % settings for scrlayer-scrpage
 \pagestyle{scrheadings}
-\clearscrheadfoot
-\lehead{}
-\rehead{\rightmark}
-\lohead{}
-\rohead{\rightmark}
-\cefoot[\pagemark]{\pagemark}
-\cofoot[\pagemark]{\pagemark}
+\automark{section}
 
 %Farben
 \definecolor{light-gray}{gray}{0.9}
