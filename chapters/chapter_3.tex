@@ -26,7 +26,7 @@ For this section we require all fields to be infinite.
 \end{thrm}
 \begin{proof}
   We choose the basis $E_{ij}$, $1 \leq i,j \leq n$ of $M_n(k)$ where the $E_{ij}$ is the matrix with $1$ as the entry in the $i$-th row and $j$-th colomn and $0$ otherwise.
-  (So $E_{ij} e_k = \delta_{jk}e_i$ where $e_1$, \dots, $e_n$ is the standard basis of $k^n$.)
+  (So $E_{ij} e_k = \delta_{jk}e_i$ where $e_1, \dotsc, e_n$ is the standard basis of $k^n$.)
   For a matrix $A = (a_{ij})_{1 \leq i,j \leq n}$ we then have
   \[
       \det A
@@ -162,7 +162,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
     = SAS^{-1}
   \]
   for all $A \in \Mat_n(k)$ and $S \in \GL_n(k)$.
-  Then $s_1$, \dots, $s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent.
+  Then $s_1, \dotsc, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent.
   Therefore
   \[
               \mc{P}(\Mat_n(k))^{\GL_n(k)}
@@ -174,9 +174,9 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
 \end{thrm}
 \begin{proof}
   We already know that $s_1, \dotsc, s_n \in \mc{P}(\Mat_n(k))$.
-  That $s_1$, \dots, $s_n$ are $\GL_n(k)$-invariant directly follows from the fact that the characteristic polynomial of a matrix is invariant under conjugation.
+  That $s_1, \dotsc, s_n$ are $\GL_n(k)$-invariant directly follows from the fact that the characteristic polynomial of a matrix is invariant under conjugation.
   
-  Next we show that $s_1$, \dots, $s_n$ are algebraically independent.
+  Next we show that $s_1, \dotsc, s_n$ are algebraically independent.
   For this let $p \in k[X_1, \dotsc, X_n]$ with $p(s_1, \dotsc, s_n) = 0$.
   This means that
   \[
@@ -213,9 +213,9 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
     \in k.
   \]
   Because $k$ is infinite this mean that $p(e_1, \dotsc, e_n) = 0$.
-  Since $e_1$, \dots, $e_n$ are algebraically independent we find that $p =0$.
+  Since $e_1, \dotsc, e_n$ are algebraically independent we find that $p =0$.
   
-  All that’s left to show is that $s_1$, \dots, $s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra.
+  All that’s left to show is that $s_1, \dotsc, s_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra.
   For this let $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$.
   Because $f$ is a polynomial map there exists $p \in k[X_{11}, \dotsc, X_{nn}]$ such that
   \[
@@ -286,7 +286,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
   This shows that $\Phi(\bar{p})$ is $S_n$-equivariant.
   So $\bar{p}$ is symmetric.
   
-  Since $e_1$, \dots, $e_n$ generate $k[t_1, \dotsc, t_n]^{S_n}$ there exists $q \in k[X_1, \dotsc, X_n]$ such that
+  Since $e_1, \dotsc, e_n$ generate $k[t_1, \dotsc, t_n]^{S_n}$ there exists $q \in k[X_1, \dotsc, X_n]$ such that
   \[
       \bar{p}
     = q(e_1, \dotsc, e_n),
@@ -334,7 +334,7 @@ It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and
 \begin{thrm}
   Let $n \geq 1$ and let $k$ be an infinite field with either $\kchar k = 0$ or $\kchar k > n$.
   Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
-  Then $\tr_1$, \dots, $\tr_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent, i.e.\
+  Then $\tr_1, \dotsc, \tr_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent, i.e.\
   \[
           \mc{P}(\Mat_n(k))^{\GL_n(k)}
     \cong k[X_1, \dotsc, X_n]
@@ -361,7 +361,7 @@ It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and
     = p^{(n)}_m(d_1, \dotsc, d_n)
   \]
   for all $m \geq 0$.
-  Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that $p^{(n)}_1$, \dots, $p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
+  Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
   
   Using these observations we can now prove the theorem by simpley copying the proof of the previous theorem and replacing $s_i$ with $\tr_i$ and $e_i$ with $p_i$.
 \end{proof}
@@ -401,7 +401,7 @@ In this section let $k$ be an infinite field.
     \item
       Let $W$ be a finite-dimensional $k$-vector space and $U \subsetneq W$ a vector subspace.
       Then $U$ is not Zariski dense in $W$ over $k$:
-      To see this let $w_1$, \dots, $w_n$, $w_{n+1}$, \dots, $w_m$ be a $k$-basis of $W$ such that $w_1$, \dots, $w_n$ is a $k$-basis of $U$.
+      To see this let $w_1, \dotsc, w_n$, $w_{n+1}, \dotsc, w_m$ be a $k$-basis of $W$ such that $w_1, \dotsc, w_n$ is a $k$-basis of $U$.
       Since $U \neq W$ we have $n < m$.
       We define $\pi \in \mc{P}_k(W)$ as the projection
       \[
@@ -463,8 +463,8 @@ We can generalize this obeservation in the language of extension of scalars:
   Then $W$ is Zariski dense in $W_L$ over $L$.
 \end{lem}
 \begin{proof}
-  Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$.
-  Then $1 \otimes w_1$, \dots, $1 \otimes w_n$ is an $L$-basis of $W_L$.
+  Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
+  Then $1 \otimes w_1, \dotsc, 1 \otimes w_n$ is an $L$-basis of $W_L$.
   Using this bases we have an isomorphism of $k$-vector spaces
   \[
             \phi
@@ -539,7 +539,7 @@ We will now construct an isomorphism which does not depend on such choice.
   $\iota$ is a monomorphism of $k$-algebras.
 \end{lem}
 \begin{proof}
-  Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$ and
+  Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$ and
   \[
         \varphi_1, \dotsc, \varphi_n
     \in \mc{P}_k(W)
@@ -549,7 +549,7 @@ We will now construct an isomorphism which does not depend on such choice.
         \psi_1, \dotsc, \psi_n
     \in \mc{P}_L(W_L)
   \]
-  be the coordinate functions of the $L$-basis $1 \otimes w_1$, \dots, $1 \otimes w_n$ of $W_L$.
+  be the coordinate functions of the $L$-basis $1 \otimes w_1, \dotsc, 1 \otimes w_n$ of $W_L$.
   Then we define $\iota$ to be the unique homomorphism of $k$-algebras with
   \[
       \iota(\varphi_i)
@@ -557,7 +557,7 @@ We will now construct an isomorphism which does not depend on such choice.
     \text{ for all }
     1 \leq i \leq n.
   \]
-  Since $\psi_1$, \dots, $\psi_n$ are algebraically independent over $L$ we know that $\iota$ is injective.
+  Since $\psi_1, \dotsc, \psi_n$ are algebraically independent over $L$ we know that $\iota$ is injective.
   We have for every $f \in k[X_1, \dotsc, X_n]$ and $w = \sum_{i=1}^n \mu_i w_i \in W$
   \begin{align*}
      &\,  \iota(f(\varphi_1, \dotsc, \varphi_n))(\can_W(w)) \\
@@ -566,7 +566,7 @@ We will now construct an isomorphism which does not depend on such choice.
      =    f(\varphi_1, \dotsc, \varphi_n)\left( \sum_{i=1}^n \mu_i w_i \right) \\
     =&\,  f(\varphi_1, \dotsc, \varphi_n)(w).
   \end{align*}
-  Since $\varphi_1$, \dots, $\varphi_n$ generate $\mc{P}_k(W)$ as a $k$-algebra it follows that the diagram does commutes.
+  Since $\varphi_1, \dotsc, \varphi_n$ generate $\mc{P}_k(W)$ as a $k$-algebra it follows that the diagram does commutes.
   
   All that’s left to show is the uniqueness of $\iota$.
   For this we will use our newly acquired wisdom about Zariski density.
@@ -623,7 +623,7 @@ for free.
   is an isomorphism of $L$-algebras, where $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ is the inclusion as before.
 \end{prop}
 \begin{proof}
-  Let $v_1$, \dots, $v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions.
+  Let $v_1, \dotsc, v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions.
   Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \N^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$).
   Therefore the statement follows from corollary \ref{cor: inclusion to bijection algebras}.
 \end{proof}
@@ -634,12 +634,12 @@ We also identify $\mc{P}_k(W)$ with its image under $\iota$.
 
 
 We can also combine all these commuting diagrams into a big one:
-Given a $k$-vector space $W$ and a $k$-basis $w_1$, \dots, $w_n$ of $W$ we have an isomorphism
+Given a $k$-vector space $W$ and a $k$-basis $w_1, \dotsc, w_n$ of $W$ we have an isomorphism
 \[
         k[X_1, \dotsc, X_n]
   \cong \mc{P}_k(W)
 \]
-of $k$-vector spaces, and corresponding with the $L$-basis $1 \otimes w_1$, \dots, $1 \otimes w_n$ of $W_L$ we have an isomorphism of $L$-algebras
+of $k$-vector spaces, and corresponding with the $L$-basis $1 \otimes w_1, \dotsc, 1 \otimes w_n$ of $W_L$ we have an isomorphism of $L$-algebras
 \[
         L[X_1, \dotsc, X_n]
   \cong \mc{P}_L(W_L).
@@ -846,7 +846,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{prop}
 \begin{proof}
   Let $f \in \mc{P}(\Mat_n(k))$ with $f_{|\Diag_n(k)} = 0$ and $A \in \Mat_n(k)$.
-  Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1$, \dots, $b_n$ (not necessarily pairwise distinct).
+  Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1, \dotsc, b_n$ (not necessarily pairwise distinct).
   
   Let $a_1, \dotsc, a_n \in k^\times$ be pairwise different (this is possible since $k$ is infinite).
   We define
@@ -879,7 +879,7 @@ By putting all of this together we get the following nice commutative diagram:
     \mapsto S^{-1} M(z) S
     =       S^{-1}(SAS^{-1}+D(z))S.
   \]
-  Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z$, \dots, $b_n + a_n z$ for all $z \in \Complex$.
+  Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z, \dotsc, b_n + a_n z$ for all $z \in \Complex$.
   It is easy to see that these eigenvalues are distinct for all but finitely many $z \in \Complex$ (since for all $1 \leq i < j \leq n$ there exists exactly one $z_{ij} \in \Complex$ with $b_i + a_i z_{ij} = b_j + a_j z_{ij}$).
   Therefore $\varphi(z)$ is diagonalizable for all but finitely many $z \in \Complex$.
   
@@ -1011,7 +1011,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 More generally:
-If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $w_n$ a $k$-basis of $W$ and $\varphi_1$, \dots, $\varphi_n$ the corresponding coordinate functions then for every $w = \sum_{i=1}^n \lambda_i w_i \in W$
+If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n$ the corresponding coordinate functions then for every $w = \sum_{i=1}^n \lambda_i w_i \in W$
 \[
     \mc{I}_k(\{w\})
   = ( \varphi_1 - w_1, \dotsc, \varphi_n - w_n )_{\mc{P}_k(W)}.
@@ -1028,7 +1028,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1$, \dots, $w_n$ a $k$-basis
   (We identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$ via the isomorphism $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$.)
 \end{lem}
 \begin{proof}
-  Let $w_1$, \dots, $w_n$ be a $k$-basis of $W$.
+  Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
   For every point $w = \sum_{i=1}^n \lambda_i w_i$ we have
   \begin{align*}
         \mc{I}_L(\{w\})
@@ -1525,7 +1525,7 @@ To prove the first part of the previous lemma we need some preparation.
   For this we use the Rabinowitsch trick:
   We adjoint a new variable $X_0$ to $k[X_1, \dotsc, X_n]$ and get $k[X_0, X_1, \dotsc, X_n]$.
   If $f_i(x) = 0$ for every $1 \leq i \leq s$ then $h(x) = 0$.
-  Therefore $f_1$, \dots, $f_s$ and $1 - X_0 h$ have no common zeros.
+  Therefore $f_1, \dotsc, f_s$ and $1 - X_0 h$ have no common zeros.
   Hence
   \[
       \mc{V}((f_1, \dotsc, f_s, 1 - X_0 h))
@@ -1595,7 +1595,7 @@ We are now prepared to prove the weak Nullstellensatz.
   We write $R \coloneqq k[X_1, \dotsc, X_n]$ and fix a maximal ideal $\mf{m} \subseteq R$.
   
   Since $\mf{m}$ is maximal we know that $R / \mf{m}$ is a field.
-  Moreover $R / \mf{m}$ is finitely generated as a $k$-algebra (by the elements $X_1 + \mf{m}$, \dots, $X_n + \mf{m}$).
+  Moreover $R / \mf{m}$ is finitely generated as a $k$-algebra (by the elements $X_1 + \mf{m}, \dotsc, X_n + \mf{m}$).
   By Lemma \ref{lem: finitely generated field extensions are algebraic} we find that $R/\mf{m}$ is algebraic over $k$.
   Since $k$ is algebraically closed we have $R / \mf{m} = k$, i.e.\ the inclusion $k \to R / \mf{m}$, $a \mapsto a + \mf{m}$ is bijective.
   
@@ -1747,7 +1747,7 @@ To prove this theorem we will use the following lemmata.
       A \mf{m}_0
     = (f_1, \dotsc, f_n)_A.
   \]
-  By \eqref{eqn: reynold ideal} we find that $\mf{m}_0$ is generated by $f_1$, \dots, $f_s$ as in $A^G$-module because
+  By \eqref{eqn: reynold ideal} we find that $\mf{m}_0$ is generated by $f_1, \dotsc, f_s$ as in $A^G$-module because
   \begin{align*}
       \mf{m}_0
     = \pi(A \mf{m_0})
