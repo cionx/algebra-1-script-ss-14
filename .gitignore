@@ -5,6 +5,7 @@
 *.kilepr
 *.log
 *.out
+notes.pdf
 *.synctex.gz
 *.toc
 
