@@ -9,15 +9,18 @@ before_install:
 - eval "$(sed 's/^/export /' /etc/environment)"
 - cd ..
 script:
-- xelatex -interaction=nonstopmode -halt-on-error notes.tex
-- xelatex -interaction=nonstopmode -halt-on-error notes.tex
-- xelatex -interaction=nonstopmode -halt-on-error notes.tex
+- mkdir github-pages
+- mkdir github-pages/chapters
+- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN	# defined in travis dashboard
   target_branch: gh-pages
+  local_dir: github-pages
   on:
     branch: master
 
