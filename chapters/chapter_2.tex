@@ -69,8 +69,8 @@
                             \mid
                               \sum_{i=1}^n a_i = d\}
                             )
-                            & \text{if } d \geq 0, \\
-                    0       & \text{otherwise}.
+                            & \text{if } d \geq 0 \,, \\
+                    0       & \text{otherwise} \,.
                   \end{cases}
       \]
       By definition $A_d$ is a $k$-vector space (or $\Z$-module).
@@ -94,15 +94,15 @@
       $T(V)$ is a graded algebra via
       \[
           T(V)
-        = \bigoplus_{d \in \Z} T(V)_d,
+        = \bigoplus_{d \in \Z} T(V)_d \,,
       \]
       where
       \[
           T(V)_d
         = \begin{cases}
-            V^{\otimes d} & \text{if } d > 0, \\
-            k             & \text{if } d = 0, \\
-            0             & \text{if } d < 0.
+            V^{\otimes d} & \text{if } d > 0 \,,  \\
+            k             & \text{if } d = 0 \,,  \\
+            0             & \text{if } d < 0 \,.
           \end{cases}
       \]
   \end{enumerate}
@@ -127,7 +127,7 @@
   \shortintertext{and}
               F_i(A) F_j(A)
     \subseteq F_{i+j}(A)
-    \text{ for all } i,j \geq -1.
+    \text{ for all } i,j \geq -1 \,.
   \end{gather*}
   This sequence is called a \emph{filtration of $A$}.
 \end{defi}
@@ -152,7 +152,7 @@
   and
   \[
               \gr_\mc{F}(A)
-    \coloneqq \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i.
+    \coloneqq \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i \,.
   \]
   $\gr_\mc{F}(A)$ is the \emph{associated graded algebra to the filtered algebra $A$}.
 \end{defi}
@@ -163,7 +163,7 @@
   $\gr_\mc{F}(A) = \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i$ is a graded algebra with the multiplication indexed from the multiplication of $A$, i.e.\
   \[
       ( a + F_{i-1}(A) )( b + F_{j-1}(A) )
-    = ab + F_{i+j-1}(A).
+    = ab + F_{i+j-1}(A) \,.
   \]
 \end{lem}
 \begin{proof}
@@ -174,7 +174,7 @@
                 F_i(A) F_{j-1}(A)
     &\subseteq  F_{i+j-1}(A) \text{ and } \\
                 F_{i-i}(A)F_{j-1}(A)
-    &\subseteq  F_{i+j-2}(A) \subseteq F_{i+j-1}(A).
+    &\subseteq  F_{i+j-2}(A) \subseteq F_{i+j-1}(A) \,.
   \end{align*}
   Because of this, we have for all $x_1 \in F_{i-1}(A)$ and $x_2 \in F_{j-1}(A)$ that
   \[
@@ -184,10 +184,10 @@
   for some $x \in F_{i+j-1}(A)$. So we get a well-defined multiplication
   \begin{align*}
               (\gr_\mc{F} A) \times (\gr_\mc{F} A)
-    &\to      \gr_\mc{F} A,
+    &\to      \gr_\mc{F} A \,,
     \\
               (a + F_{i-1}, b + F_{j-i})
-    &\mapsto  ab + F_{i+j-1}.
+    &\mapsto  ab + F_{i+j-1} \,.
   \end{align*}
   It now easily follows that $\gr_\mc{F} A$ is an associative algebra.
   
@@ -196,7 +196,7 @@
               (\gr_\mc{F} A)_i (\gr_\mc{F} A)_j
     \subseteq (\gr_\mc{F} A)_{i+j}
     \text{ for all }
-    i,j \geq 0.
+    i,j \geq 0 \,.
   \]
   This shows that $\gr_\mc{F} A$ is a graded algebra.
 \end{proof}
@@ -242,7 +242,7 @@
               F_i(\mc{A}_1)
     \coloneqq \vspan_k( \{\text{images of $X^\alpha \partial^\beta$ where $\alpha+\beta \leq i$})
     \text{ for all }
-    i \geq -1.
+    i \geq -1 \,.
   \]
   This gives us a filtration on $\mc{A}_1$.
   (We leave the proof of this claims as an exercise to the reader. It will also appear on the exercise sheets.)
@@ -273,17 +273,16 @@
   In $k[X_1, X_2, X_3]$ we have the symmetric polynomials
   \begin{align*}
                 p_2
-    &\coloneqq  X_1^2 + X_2^2 + X_3^2,
+    &\coloneqq  X_1^2 + X_2^2 + X_3^2 \,,
     \\
                 h_2
-    &\coloneqq  X_1^2 + X_1 X_2 + X_1 X_3 + X_2^2 + X_2 X_3 + X_3^2,
+    &\coloneqq  X_1^2 + X_1 X_2 + X_1 X_3 + X_2^2 + X_2 X_3 + X_3^2 \,,
     \\
                 e_2
-    &\coloneqq  X_1 X_2 + X_1 X_3 + X_2 X_3
-    \text{ and}
+    &\coloneqq  X_1 X_2 + X_1 X_3 + X_2 X_3 \,,
     \\
                 m_{(4,4,2)}
-    &\coloneqq  X_1^4 X_2^2 X_3^2 + X_1^2 X_2^4 X_3^2 + X_1^2 X_2^2 X_3^4.
+    &\coloneqq  X_1^4 X_2^2 X_3^2 + X_1^2 X_2^4 X_3^2 + X_1^2 X_2^2 X_3^4 \,.
   \end{align*}
   More generally in $k[X_1, \dotsc, X_n]$ we have the following symmmetric polynomials:
 \end{expl}
@@ -294,17 +293,17 @@
   The \emph{$r$-th power symmetric polynomial}, also called the \emph{$r$-th power sum}, is defined as
   \[
               p_r^{(n)}
-    \coloneqq X_1^r + \dotsb + X_n^r,
+    \coloneqq X_1^r + \dotsb + X_n^r \,,
   \]
   the \emph{$r$-th completely symmetric polynomial} as
   \[
               h_r^{(n)}
-    \coloneqq \sum_{|\alpha|=r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n}.
+    \coloneqq \sum_{|\alpha|=r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \,.
   \]
   and the \emph{$r$-th elementary symmetric polynomial} as
   \[
               e_r^{(n)}
-    \coloneqq \sum_{1 \leq i_1 < \dotsb < i_r \leq n} X_{i_1} \dotsm X_{i_r}.
+    \coloneqq \sum_{1 \leq i_1 < \dotsb < i_r \leq n} X_{i_1} \dotsm X_{i_r} \,.
   \]
   We also set $e_0^{(n)} \coloneqq 1$ and $e_r^{(n)} = 0$ for $r > n$.
   If the number of variables in clear we also write $p_r$, $h_r$ and $e_r$.
@@ -313,7 +312,7 @@
 Another possible way of writing $e^{(n)}_r$ is
 \[
     e^{(n)}_r
-  = \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i.
+  = \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i \,.
 \]
 From this we get that $e^{(n)}_0 = 1$ because the only subset of $\{1, \dotsc, n\}$ which contains $0$ elements is the empty set and thus the sum consists only of the empty product.
 We also get that $e^{(n)}_r = 0$ for $r > n$ since $\{1, \dotsc, n\}$ has no subsets which contain more than $n$ elements.
@@ -342,7 +341,7 @@ We will formalize this observation in the following lemma.
   For $n \geq 1$ the coefficient of the left-hand side of $t^{n-r}$ is $e^{(n)}_0 = 1$ for $r = 0$ and
   \[
       \sum_{1 \leq i_1 < \dotsb < i_r \leq n} (-X_{i_1}) \dotsm (-X_{i_r})
-    = (-1)^r e^{(n)}_r.
+    = (-1)^r e^{(n)}_r \,.
   \]
   for $0 < r \leq n$.
 \end{proof}
@@ -352,7 +351,7 @@ We will formalize this observation in the following lemma.
   For all $n \in \N$ we have
   \[
       p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \dotsb + (-1)^n n e^{(n)}_n
-    = 0.
+    = 0 \,.
   \]
 \end{cor}
 \begin{proof}
@@ -364,12 +363,12 @@ We will formalize this observation in the following lemma.
   and evaluating at $t = X_j$ gives
   \[
       X_j^n - e^{(n)}_1 X_j^{n-1} + e^{(n)}_2 X_j^{n-2} + \dotsb + (-1)^n e^{(n)}_n
-    = 0.
+    = 0 \,.
   \]
   By summing over all $1 \leq j \leq n$ we get
   \[
       p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \dotsb + (-1)^n n e^{(n)}_n
-    = 0.
+    = 0 \,.
     \qedhere
   \]
 \end{proof}
@@ -379,7 +378,7 @@ We will formalize this observation in the following lemma.
   One can show that more generally
   \[
       p^{(n)}_r - e^{(n)}_1 p^{(n)}_{r-1} + \dotsb + (-1)^{r-1} e^{(n)}_{r-1} p^{(n)}_1 + (-1)^r r e^{(n)}_r
-    = 0.
+    = 0 \,.
   \]
   for all $r \geq 0$.
   For $m = n$ this gives us the previous corollary.
@@ -397,9 +396,9 @@ We will formalize this observation in the following lemma.
   \[
             k[X_1, \dotsc, X_n]^{S_n}
     \cong   k[X_1, \dotsc, X_n]
-    \text{ via }
+    \quad\text{via}\quad
             e^{(n)}_k
-    \mapsto X_k.
+    \mapsto X_k \,.
   \]
 \end{thrm}
 
@@ -459,7 +458,7 @@ We will give two possible proofs, where the second one is the one given in the l
   \begin{align*}
      &\,  (\alpha_1-\alpha_2) + 2(\alpha_2-\alpha_3) + \dotsb + (n-1)(\alpha_{n-1}-\alpha_n)+n\alpha_n \\
     =&\,  \alpha_1 + \dotsb + \alpha_n
-    =     d.
+    =     d \,.
   \end{align*}
   (Because $f$ is homogenous we have $d = \deg f = \deg \init f = \alpha_1 + \dotsb + \alpha_n$.)
   Combining these observations we find that $f-p$ is a homogeneous symmetric polynomial of degree $d$ with either $f-p = 0$ or at least $\init (f-p) < \init f$.
@@ -501,15 +500,15 @@ We will give two possible proofs, where the second one is the one given in the l
   Note that
   \begin{align*}
         e^{(n)}_1
-    &=  X_1 + \dotsb + X_n = e_1^{(n-1)} + X_n, \\
+    &=  X_1 + \dotsb + X_n = e_1^{(n-1)} + X_n \,,  \\
         e^{(n)}_2
-    &=  \sum_{1 \leq i_1 < i_2 \leq n} X_{i_1} X_{i_2} = e_2^{(n-1)} + X_n e_1^{(n-1)}, \\
+    &=  \sum_{1 \leq i_1 < i_2 \leq n} X_{i_1} X_{i_2} = e_2^{(n-1)} + X_n e_1^{(n-1)} \,,  \\
     &   \vdots \tag{$\ast$}\\ 
         e^{(n)}_r
-    &=  e^{(n-1)}_r + X_n e^{(n-1)}_{r-1} \text{ for } 1 \leq r \leq n-1, \\
+    &=  e^{(n-1)}_r + X_n e^{(n-1)}_{r-1} \text{ for } 1 \leq r \leq n-1 \,,  \\
     &   \vdots \\
         e^{(n)}_n
-    &=  X_1 \dotsm X_{n-1} X_n = X_n e^{(n-1)}_{n-1}.
+    &=  X_1 \dotsm X_{n-1} X_n = X_n e^{(n-1)}_{n-1} \,.
   \end{align*}
   \begin{claim}
     A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if $f$ can be written as a polyonmial in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e.\ we have
@@ -544,7 +543,7 @@ We will give two possible proofs, where the second one is the one given in the l
       \text{ and}
       \\
           q\left( e^{(n)}_n \right)
-      &=  0.
+      &=  0 \,.
     \end{align*}
     We notice that $q(f) \in k[X_1, \dotsc, X_{n-1}]$ is symmetric:
     Because $f$ is symmetric we have
@@ -557,7 +556,7 @@ We will give two possible proofs, where the second one is the one given in the l
     Thus we have
     \[
         f(X_1, \dotsc, X_{n-1}, 0)
-      = f(X_{\tau(1)}, \dotsc, X_{\tau(n-1)}, 0).
+      = f(X_{\tau(1)}, \dotsc, X_{\tau(n-1)}, 0) \,.
     \]
     for every $\tau \in S_{n-1}$.
     Because $q(f) \in k[X_1, \dotsc, X_{n-1}]$ is symmetric we can use the induction hypothesis (from the induction on $n$) to write
@@ -570,7 +569,7 @@ We will give two possible proofs, where the second one is the one given in the l
     \[
                 g
       \coloneqq P\left( e^{(n)}_1, \dotsc, e^{(n)}_{n-1} \right)
-      \in       k[X_1, \dotsc, X_n].
+      \in       k[X_1, \dotsc, X_n] \,.
     \]
     Because $q$ is a $k$-algebra homomorphism we have
     \begin{align*}
@@ -583,7 +582,7 @@ We will give two possible proofs, where the second one is the one given in the l
     and therefore
     \[
         q(f - g)
-      = 0.
+      = 0 \,.
     \]
     Because $\ker q = (X_n)$ this means that $X_n \mid (f-g)$.
     Because $f-g$ is symmetric (because $f$ and $g$ are symmetric) it follows that $X_i \mid (f-g)$ for all $1 \leq i \leq n$.
@@ -591,7 +590,7 @@ We will give two possible proofs, where the second one is the one given in the l
     \[
                 h
       \coloneqq \frac{f-g}{X_1 \dotsm X_n}
-      =         \frac{f-g}{e^{(n)}_n}.
+      =         \frac{f-g}{e^{(n)}_n} \,.
     \]
     (Here we use that $k[X_1, \dotsc, X_n]$ is an unique factorization domain.)
     We have $\deg h < \deg f = d$, since $\deg g \leq \deg f$.
@@ -633,7 +632,7 @@ We will give two possible proofs, where the second one is the one given in the l
   Because $k[X_1, \dotsc, X_n]$ is an integral domain and $e^{(n)}_n \neq 0$ it follows that
   \[
       \hat{F}\left( e^{(n)}_1, \dotsc, e^{(n)}_n \right)
-    = 0.
+    = 0 \,.
   \]
   Because $\hat{F} \neq 0$ and $\deg \hat{F} < \deg F$ this contradicts the assumption that $F$ is of lowest possible degree.
 \end{proof}
@@ -652,14 +651,13 @@ We will give two possible proofs, where the second one is the one given in the l
 To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \dotsc, X_n]\dblbrack{t}$, i.e.\
 \begin{align*}
               E(t)
-  &\coloneqq  \sum_{k \geq 0} e^{(n)}_k t^k,
+  &\coloneqq  \sum_{k \geq 0} e^{(n)}_k t^k \,,
   \\
               H(t)
-  &\coloneqq  \sum_{k \geq 0} h^{(n)}_k t^k
-  \text{ and}
+  &\coloneqq  \sum_{k \geq 0} h^{(n)}_k t^k \,,
   \\
               P(t)
-  &\coloneqq  \sum_{k \geq 0} p^{(n)}_{k+1} t^k.
+  &\coloneqq  \sum_{k \geq 0} p^{(n)}_{k+1} t^k \,.
 \end{align*}
 (Notice that for $P(t)$ we shift the index by $1$.)
 
@@ -681,7 +679,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
     \item
       The coefficient of $t^r$ on the right hand side of the equation is
       \[
-        \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i,
+        \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i \,,
       \]
       which is precisely $e^{(n)}_r$.
     \item
@@ -690,21 +688,21 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
       For $1 \leq i \leq n$ let
       \[
                   Q_i
-        \coloneqq \frac{1}{1-X_i t} \in k[X_1, \dotsc, X_n] \dblbrack{t}.
+        \coloneqq \frac{1}{1-X_i t} \in k[X_1, \dotsc, X_n] \dblbrack{t} .
       \]
       We then have
       \[
           \prod_{i=1}^n \frac{1}{1-X_i t}
-        = Q_1 \dotsm Q_n.
+        = Q_1 \dotsm Q_n \,.
       \]
       By using the geometric series it is now easy to see that
       \[
           Q_i
-        = 1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb.
+        = 1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb
       \]
       With this we find that the coefficient of $t^r$ in $Q_1 \dotsm Q_n$ is
       \[
-        \sum_{|\alpha| = r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n},
+        \sum_{|\alpha| = r} X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \,,
       \]
       which is precisely $h^{(n)}_r$.
     \item
@@ -742,14 +740,14 @@ From this equalities we can now easily derive more equalities.
       + \dotsb
       + (-1)^{s-1} h^{(n)}_{s-1} e^{(n)}_1
       + (-1)^s h^{(n)}_s
-    = 0.
+    = 0 \,
   \]
 \end{cor}
 \begin{proof}
   From the previous proposition it follows that
   \[
       E(-t)H(t)
-    = H(-t)E(t) = 1.
+    = H(-t)E(t) = 1 \,.
   \]
   The first sum is the $s$-th coefficient of $E(-t)H(t)$ and the second sum is the $s$-th coefficient of $H(-t)E(t)$.
   One equation can also be obtained from the other by multiplying with $(-1)^s$.
@@ -772,14 +770,14 @@ From this equalities we can now easily derive more equalities.
   On the one hand we have
   \[
       H'(t)
-    = \sum_{k \geq 1} k h^{(n)}_k t^{k-1}.
+    = \sum_{k \geq 1} k h^{(n)}_k t^{k-1} \,.
   \]
   On the other hand we have
   \[
       H'(t)
     = \sum_{i=1}^n \frac{X_i}{(1-X_i t)^2} \prod_{j \neq i} \frac{1}{1 - X_j t}
     = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \prod_{j=1}^n \frac{1}{1 - X_j t}
-    = P(t) H(t).
+    = P(t) H(t) \,.
   \]
   By comparing the $(r-1)$-th coefficient on both expressions we find that
   \[
@@ -805,19 +803,19 @@ In the same way we can derive Newton’s identities as another corollary.
       E'(t)
     = \sum_{i=1}^n X_i \prod_{j \neq i} (1 + X_j t)
     = \sum_{i=1}^n \frac{X_i}{1 + X_i t} \prod_{j=1}^n (1 + X_j t)
-    = P(-t)E(t).
+    = P(-t)E(t) \,.
   \]
   Comparing the $(r-1)$-th coefficient of both expressions gives us
   \[
       r e^{(n)}_r
     = \sum_{i=0}^{r-1} (-1)^i p^{(n)}_{1+i} e^{(n)}_{r-1-i}
-    = \sum_{i=1}^r (-1)^{i+1} p^{(n)}_i e^{(n)}_{r-i}.
+    = \sum_{i=1}^r (-1)^{i+1} p^{(n)}_i e^{(n)}_{r-i} \,.
   \]
   for all $r \geq 1$ and thus
   \begin{align*}
         0
     &=  \sum_{i=0}^r (-1)^{i+1} p^{(n)}_i e^{(n)}_{r-i} \\
-    &=  (-1)^{r+1} p^{(n)}_r + (-1)^r p^{(n)}_{r-1} e^{(n)}_1 + \dotsb + p^{(n)}_1 e^{(n)}_{r-1} - r e^{(n)}_r.
+    &=  (-1)^{r+1} p^{(n)}_r + (-1)^r p^{(n)}_{r-1} e^{(n)}_1 + \dotsb + p^{(n)}_1 e^{(n)}_{r-1} - r e^{(n)}_r \,.
   \end{align*}
   Multplying by $(-1)^{r+1}$ results in Newton’s identities as they were given before.
 \end{proof}
@@ -959,7 +957,7 @@ The next theorem shows that this is true under additional assumptions.
       \text{of degree $\leq N$}
     \end{array}
   \right\},
-          \left( e^{(n)} \right)^\alpha
+  \quad   \left( e^{(n)} \right)^\alpha
   \mapsto \left( p^{(n)} \right)^\alpha,
 \end{align*}
 where we use that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ are pairwise different.)
@@ -970,7 +968,7 @@ Therefore we have $P_N = \dim V_N$, so the monomials in $p^{(n)}_1, \dotsc, p^{(
 It is important to notice that the theorem does not hold for $k = \Z$! This is easy to see: In $\Q[X_1, X_2]^{S_2}$ we have
 \[
     e^{(2)}_2
-  = \frac{1}{2} \left( p^{(2)}_1 \right)^2 - \frac{1}{2} p^{(2)}_2.
+  = \frac{1}{2} \left( p^{(2)}_1 \right)^2 - \frac{1}{2} p^{(2)}_2 \,.
 \]
 If $\Z[X_1, X_2]^{S_2}$ was generated by $p^{(n)}_1, p^{(n)}_2$ a polynomial $F \in \Z[X_1, X_2]$ with $e^{(2)}_2 = F\left( e^{(2)}_1, e^{(2)}_2 \right)$ would exist.
 But this would contradict the algebraically independency of $p^{(2)}_1, p^{(2)}_2$ in $\Q[X_1, X_2]^{S_2}$ as $F(X_1, X_2) \neq \frac{1}{2} X_1^2 - \frac{1}{2} X_2$.
@@ -1003,7 +1001,7 @@ both $F$ and $G$ must have integer coefficients.
   and a graded $k$-algebra $A \otimes B = \bigoplus_{d \geq 0} (A \otimes B)_d$ by setting
   \[
       (A \otimes B)_d
-    = \bigoplus_{i=0}^d (A_i \otimes B_{d-i}).
+    = \bigoplus_{i=0}^d (A_i \otimes B_{d-i}) \,.
   \]
   We than have
   \[
@@ -1014,7 +1012,7 @@ both $F$ and $G$ must have integer coefficients.
   for all $d \geq 0$ and thus
   \[
       P_{A \otimes B}(t)
-    = P_A(t) P_B(t).
+    = P_A(t) P_B(t) \,.
   \]
 \end{expl}
 
@@ -1027,7 +1025,7 @@ both $F$ and $G$ must have integer coefficients.
     \geq  \lambda_2
     \geq  \dotsb
     \geq  \lambda_s
-    \geq  0.
+    \geq  0 \,.
   \]
   The $\lambda_i$ are the \emph{parts of $\lambda$} and $l(\lambda) \coloneqq s$ is the \emph{length of $\lambda$}.
   
@@ -1036,15 +1034,15 @@ both $F$ and $G$ must have integer coefficients.
   \[
               \hat{\lambda}_i
     \coloneqq \begin{cases}
-                \lambda_i & \text{for } 1 \leq i \leq l(\lambda) \\
-                        0 & \text{otherwise}.
+                \lambda_i & \text{for } 1 \leq i \leq l(\lambda) \,,  \\
+                        0 & \text{otherwise} \,.
               \end{cases}
   \]
   
   The \emph{transposed partition of a partition $\lambda$} is defined as
   \[
               \lambda'_i
-    \coloneqq |\{j \mid \lambda_j \geq i\}|.
+    \coloneqq |\{j \mid \lambda_j \geq i\}| \,.
   \]
 \end{defi}
 
@@ -1077,7 +1075,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
   and we set
   \[
               \Par
-    \coloneqq \bigcup_{n \in \N} \Par(n).
+    \coloneqq \bigcup_{n \in \N} \Par(n) \,.
   \]
 \end{defi}
   
@@ -1140,7 +1138,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
   because $\lambda \geq \mu$ and $\mu \geq \sigma$, and therefore
   \[
           \sum_{i=1}^r \lambda_i
-    \geq  \sum_{i=1}^r \sigma_i.
+    \geq  \sum_{i=1}^r \sigma_i \,.
     \qedhere
   \]
 \end{proof}
@@ -1150,12 +1148,12 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
   Let $\lambda = (\lambda_1, \dotsc, \lambda_r)$ be a partition. We define the \emph{elementary symmetric polynomial}
   \[
               e^{(n)}_\lambda
-    \coloneqq e^{(n)}_{\lambda_1} \dotsm e^{(n)}_{\lambda_r},
+    \coloneqq e^{(n)}_{\lambda_1} \dotsm e^{(n)}_{\lambda_r} \,,
   \]
   the \emph{complete symmetric polynomial}
   \[
               h^{(n)}_\lambda
-    \coloneqq h^{(n)}_{\lambda_1} \dotsm h^{(n)}_{\lambda_r},
+    \coloneqq h^{(n)}_{\lambda_1} \dotsm h^{(n)}_{\lambda_r} \,,
   \]
   the \emph{power symmetric polynomial}
   \[
@@ -1166,7 +1164,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
   \[
               m_\lambda
     \coloneqq   X_1^{\lambda_1} \dotsm X_r^{\lambda_r}
-              + \text{ all distinct permutations of this monomial}.
+              + \text{ all distinct permutations of this monomial} \,.
   \]
 \end{defi}
 
@@ -1193,7 +1191,7 @@ Thus we can write
 \[
     m_\lambda
   = \sum_{[\pi] \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \dotsm X_r^{\lambda_{\pi^{-1}(r)}}
-  = \sum_{[\pi] \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r}.
+  = \sum_{[\pi] \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r} \,.
 \]
 Also notice that
 \[
@@ -1268,7 +1266,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
     \[
                 V
       \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
-      \in       k[X_1, \dotsc, X_n].
+      \in       k[X_1, \dotsc, X_n] \,.
     \]
     Then $V$ divides $f$.
   \end{claim}
@@ -1280,7 +1278,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
     \[
         k[X_1, \dotsc, X_n]
       = R[X_1, X_2]
-      = R[u,v],
+      = R[u,v] \,,
     \]
     so we can write $f = \sum_{i \in \N} f_i v^i$ with $f_i \in R[u]$ for every $i \in \N$.
     Because $f$ is alternating we have
@@ -1289,7 +1287,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
       &=   f(X_1, X_2, \dotsc, X_n)
        =  -f(X_2, X_1, \dotsc, X_n) \\
       &=  -\sum_{i \in \N} (-1)^i f_i v^i
-       =   \sum_{i \in \N} (-1)^{i+1} f_i v^i.
+       =   \sum_{i \in \N} (-1)^{i+1} f_i v^i \,.
     \end{align*}
     So $f_i = 0$ if $i$ is even.
     Therefore $v$ divides $f$ .
@@ -1345,7 +1343,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
                         l(\lambda) = n,
                         |\lambda| = d
                       \}
-  \subseteq k[X_1, \dotsc, X_n]^{S_n}_d.
+  \subseteq k[X_1, \dotsc, X_n]^{S_n}_d \,.
   \]
   On the other side let $f \in k[X_1, \dotsc, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
   \[
@@ -1356,14 +1354,14 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
                     \lambda \in \Par,
                     l(\lambda) = n,
                     |\lambda| = d
-                  \}.
+                  \} \,.
   \]
   For $f = 0$ this is clear.
   Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \dotsc, X_n]^{S_n}_d$ which consists of fewer monomials than $f$.
   Because $\{X^\alpha \mid \alpha \in \N^n, |\alpha| = d \}$ is a $k$-basis of $k[X_1, \dotsc, X_n]_d$ we can write
   \[
       f
-    = \sum_{\substack{\alpha \in \N^n \\ |\alpha| = d}} c_\alpha X^\alpha.
+    = \sum_{\substack{\alpha \in \N^n \\ |\alpha| = d}} c_\alpha X^\alpha \,.
   \]
   with unique $c_\alpha \in k$ such that $c_\alpha \neq 0$ for only finitely many $\alpha$.
   Because $f$ is symmetric we find that
@@ -1387,7 +1385,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
                     \lambda \in \Par,
                     l(\lambda) = n,
                     |\lambda| = d
-                  \}.
+                  \} \,.
   \]
   The statement for $f$ follows directly.
   
@@ -1427,9 +1425,9 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
   \[
       (\lambda+\mu)_i
     = \begin{cases}
-        \lambda_i + \mu_i & \text{if } i \leq l(\lambda),l(\mu),      \\
-        \lambda_i         & \text{if } i \leq l(\lambda), i > l(\mu), \\
-        \mu_i             & \text{if } i \leq l(\mu), i > l(\lambda).
+        \lambda_i + \mu_i & \text{if } i \leq l(\lambda),l(\mu)       \,, \\
+        \lambda_i         & \text{if } i \leq l(\lambda), i > l(\mu)  \,, \\
+        \mu_i             & \text{if } i \leq l(\mu), i > l(\lambda)  \,.
       \end{cases}
   \]
   So $\lambda+\mu$ is the partition of minimal length with
@@ -1437,7 +1435,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
       \hat{\lambda}_i + \hat{\mu}_i
     = \widehat{\lambda + \mu}_i
     \text{ for all }
-    i \geq 0.
+    i \geq 0 \,.
   \]
 \end{defi}
 
@@ -1637,7 +1635,7 @@ This has the effect that the restriction of a polynomial function to a vector su
             \varphi_j
     \colon  V \to k,
             \sum_{i=1}^n \lambda_i v_i
-    \mapsto \lambda_j.
+    \mapsto \lambda_j \,.
   \]
   By the universal property of the polynomial ring the assignment $X_j \to \varphi_j$ extends to a ring homomorphism
   \[
@@ -1649,7 +1647,7 @@ This has the effect that the restriction of a polynomial function to a vector su
   where
   \[
       \Phi(p)\left( \sum_{i=1}^n \lambda_i v_i \right)
-    = p(\lambda_1, \dotsc, \lambda_n).
+    = p(\lambda_1, \dotsc, \lambda_n) \,.
   \]
   Is it clear that $\Phi$ is surjective.
   It is left as an exercise to the reader to check that $\Phi$ is injective.
@@ -1723,7 +1721,7 @@ Together with the exercise sheet we find that
           \Phi
   \colon  k[X_1, \dotsc, X_n]
   \to     \mc{P}(V),
-          X_j
+  \quad   X_j
   \mapsto \varphi_j
 \]
 is an isomorphism of $k$-algebras.
@@ -1736,7 +1734,7 @@ is an isomorphism of $k$-algebras.
     \colon  k[X_1, \dotsc, X_n]
     \to     \mc{P}(k^n),
             X_i
-    \mapsto \varphi_i,
+    \mapsto \varphi_i \,,
   \]
   where $S_n$ acts on $k[X_1, \dotsc, X_n]$ as usual by permuting the $X_i$ and on $\mc{P}(k^n)$ via
   \[
@@ -1745,7 +1743,7 @@ is an isomorphism of $k$-algebras.
     \text{ for all }
     \sigma \in S_n,
     f \in \mc{P}(V),
-    v \in k^n.
+    v \in k^n \,.
   \]
   We know that $\Phi$ is an isomorphism of $k$-vector spaces.
   It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in k[X_1, \dotsc, X_n]$ and $v = (\lambda_1, \dotsc, \lambda_n) \in k^n$
@@ -1755,7 +1753,7 @@ is an isomorphism of $k$-algebras.
      = \lambda_{g(1)}^{\alpha_1} \dotsm \lambda_{g(n)}^{\alpha_n} \\
     &= \Phi(p)( \lambda_{g(1)}, \dotsc, \lambda_{g(n)} )
      = \Phi(p)\left( g^{-1}.(\lambda_1, \dotsc, \lambda_n) \right) \\
-    &= (g.\Phi(p))(\lambda_1, \dotsc, \lambda_n).
+    &= (g.\Phi(p))(\lambda_1, \dotsc, \lambda_n) \,.
   \end{align*}
 \end{rem}
 
@@ -1770,7 +1768,7 @@ is an isomorphism of $k$-algebras.
                 f \in \mc{P}(V)
               \mid
                 f \text{ is homogeneous of degree } d
-              \}.
+              \} \,.
   \]
 \end{defi}
 
@@ -1798,7 +1796,7 @@ is an isomorphism of $k$-algebras.
           (\mu f)(\lambda v)
         = \mu f(\lambda v)
         = \lambda^d \mu f(v)
-        = \lambda^d (\mu f)(v),
+        = \lambda^d (\mu f)(v) \,,
       \]
       so $\mu f \in \mc{P}(V)_d$.
     \item
@@ -1808,7 +1806,7 @@ is an isomorphism of $k$-algebras.
         = f(\lambda v) g(\lambda v)
         = \left( \lambda^i f(v) \right)\left( \lambda^j g(v) \right)
         = \lambda^{i+j} f(v) g(v)
-        = \lambda^{i+j} (fg)(v),
+        = \lambda^{i+j} (fg)(v) \,,
       \]
       and therefore $fg \in \mc{P}(V)_{i+j}$.
     \qedhere
@@ -1818,7 +1816,7 @@ is an isomorphism of $k$-algebras.
 This shows that $\mc{P}(V)$ is a graded algebra via
 \[
       \mc{P}(V)
-    = \bigoplus_{d \in \Z} \mc{P}(V)_d.
+    = \bigoplus_{d \in \Z} \mc{P}(V)_d \,.
 \]
 This grading can be seen as inherted from $k[X_1, \dotsc, X_n]$ via the isomorphism $\Phi$. Since
 \[
@@ -1837,7 +1835,7 @@ and therefore an isomorphism of $L$-algebras
 \[
         \mc{P}_k(W)_L
   \cong k[X_1, \dotsc, X_n]_L
-  \cong L[X_1, \dotsc, X_n].
+  \cong L[X_1, \dotsc, X_n] \,.
 \]
 Since $\dim_L W_L = \dim_k W = n$ we also have an isomorphism of $L$-algebras
 \[
@@ -1884,7 +1882,7 @@ For this we also stop fixing $V$.
                 \to     W
               \mid
                 f \text{ is a polynomial map}
-              \}.
+              \} \,.
   \]
 \end{defi}
 
@@ -1906,7 +1904,7 @@ For this we also stop fixing $V$.
     \colon  W
     \to     W^{\otimes r},
             w
-    \mapsto w \otimes \dotsb \otimes w.
+    \mapsto w \otimes \dotsb \otimes w \,.
   \]
   is a polynomial map.
   To see this choose a basis $w_1, \dotsc, w_n$ of $W$. Then the elements
@@ -1926,7 +1924,7 @@ For this we also stop fixing $V$.
     =         \left( \sum_{i=1}^r \lambda_i w_i \right)
       \otimes \dotsb
       \otimes \left( \sum_{i=1}^r \lambda_i w_i \right)
-    = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} w_{\underline{i}}.
+    = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} w_{\underline{i}} \,.
   \]
   For the polynomials
   \[
@@ -1941,7 +1939,7 @@ For this we also stop fixing $V$.
   we thus have
   \[
       f(w)
-    = \sum_{\underline{i}} f_{\underline{i}}(w) w_{\underline{i}}.
+    = \sum_{\underline{i}} f_{\underline{i}}(w) w_{\underline{i}} \,.
   \]
 \end{expl}
 
@@ -1961,7 +1959,7 @@ For this we also stop fixing $V$.
   and because $g$ is a polynomial map we can find polynomials $Q_1, \dotsc, Q_t \in k[X_1, \dotsc, X_s]$ such that
   \[
       g\left( \sum_{j=1}^s \mu_j w_j \right)
-    = \sum_{k=1}^t G_k(\mu_1, \dotsc, \mu_s) u_k.
+    = \sum_{k=1}^t G_k(\mu_1, \dotsc, \mu_s) u_k \,.
   \]
   Combining this we find that
   \begin{align*}
@@ -1974,7 +1972,7 @@ For this we also stop fixing $V$.
   \[
               R_k
     \coloneqq Q_k(F_1(X_1, \dotsc, X_r), \dotsc, F_s(X_1, \dotsc, X_r))
-    \in       k[X_1, \dotsc, X_r].
+    \in       k[X_1, \dotsc, X_r] \,.
     \qedhere
   \]
 \end{proof}
@@ -2012,7 +2010,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
       f(w)
     = \sum_{i=1}^n f_i(w) v_i
     \text{ for all }
-    w \in W.
+    w \in W \,.
   \]
   Since for all $g \in \mc{P}(W)$
   \begin{align*}
@@ -2033,7 +2031,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
             f^*
     \colon  \mc{P}(V)
     \to     \mc{P}(W),
-            h
+    \quad   h
     \mapsto h \circ f
   \]
   is an algebra homomorphism.
@@ -2048,7 +2046,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
       h_j\left( \sum_{i=1}^n \lambda_i v_i \right)
     = p_j(\lambda_1, \dotsc, \lambda_n)
     \text{ for }
-    j = 1, 2.
+    j = 1, 2 \,.
   \]
   For all $w \in W$ we have
   \begin{align*}
@@ -2063,7 +2061,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
   and therefore
   \[
       f^*(h_1 + h_2)
-    = f^*(h_1) + f^*(h_2).
+    = f^*(h_1) + f^*(h_2) \,.
   \]
   For all $\lambda \in k$ and $w \in W$ we have
   \begin{align*}
@@ -2078,7 +2076,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
   and therefore
   \[
       f^*(\lambda h_1)
-    = \lambda f^*(h_1).
+    = \lambda f^*(h_1) \,.
   \]
   This shows that $f^*$ is $k$-linear. That it is also a ring homomorphism follows from the fact that for all $w \in W$
   \begin{align*}
@@ -2093,7 +2091,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
   and therefore
   \[
       f^*(h_1 h_2)
-    = f^*(h_1) f^*(h_2).
+    = f^*(h_1) f^*(h_2) \,.
     \qedhere
   \]
 \end{proof}
@@ -2113,7 +2111,7 @@ This gives rise to a contravariant functor from $\cpol{k}$ to $\cAlg{k}$, as the
   We have $\id_V^* = \id_{\mc{P}(V)}$ and for polynomial maps $f \colon W \to V$ and $g \colon V \to U$ we have
   \[
       (g \circ f)^*
-    = f^* \circ g^*.
+    = f^* \circ g^* \,.
   \]
 \end{prop}
 \begin{proof}
@@ -2125,7 +2123,7 @@ This gives rise to a contravariant functor from $\cpol{k}$ to $\cAlg{k}$, as the
      =  (h \circ g) \circ f \\
     &=  f^* (h \circ g)
      =  f^*(g^*(h))
-     = (f^* \circ g^*)(h).
+     = (f^* \circ g^*)(h) \,.
     \qedhere
   \end{align*}
 \end{proof}
@@ -2141,7 +2139,7 @@ It is interesting to notice that this functor is fully faithful.
             \Omega
     \colon  \Pol_k(W,V)
     \to     \Hom_{\cAlg{k}}(\mc{P}(V), \mc{P}(W)),
-            f
+    \quad   f
     \mapsto f^*
   \]
   is a bijection.
@@ -2151,7 +2149,7 @@ It is interesting to notice that this functor is fully faithful.
   Remember that $\mc{P}(V) = k[\varphi_1, \dotsc, \varphi_n]$ where $\varphi_j \in \mc{P}(V)$ is the $j$-th coordinate function, which is defined as
   \[
       \varphi_j\left( \sum_{i=1}^n \lambda_i v_i \right)
-    = \lambda_j,
+    = \lambda_j \,,
 \]
   and $\varphi_1, \dotsc, \varphi_n$ are algebraically independent.
   In particular the map
@@ -2159,7 +2157,7 @@ It is interesting to notice that this functor is fully faithful.
             \Psi
     \colon  \mc{P}(W)^n
     \to     \Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W)),
-            (f_1, \dotsc, f_n)
+    \quad   (f_1, \dotsc, f_n)
     \mapsto (\varphi_j \mapsto f_j)
   \]
   is bijective (this is basically the universal property of the polynomial ring).
@@ -2194,14 +2192,14 @@ It is interesting to notice that this functor is fully faithful.
   and therefore for all $1 \leq j \leq n$
   \[
       f^*(\varphi_j)
-    = f_j.
+    = f_j \,.
   \]
   Therefore we have
   \[
       \Omega(\Phi(f_1, \dotsc, f_n))
     = \Omega(f)
     = f^*
-    = \Psi(f_1, \dotsc, f_n).
+    = \Psi(f_1, \dotsc, f_n) \,.
   \]
   
   We have shown that $\Omega \Phi = \Psi$ (see figure \ref{fig: bijections}).
@@ -2236,7 +2234,7 @@ It is interesting to notice that this functor is fully faithful.
   We denote the space of covariant functions from $W$ to $V$ by
   \[
               \Cov_k(W,V)
-    \coloneqq \Pol_k(W,V)^G.
+    \coloneqq \Pol_k(W,V)^G \,.
   \]
   We also write $\Cov(W,V)$ if it is clear over what field we work.
 \end{defi}
@@ -2250,7 +2248,7 @@ It is interesting to notice that this functor is fully faithful.
       \[
                 \beta
         \colon  W \to W^{\otimes d},
-                w
+        \quad   w
         \mapsto w \otimes \dotsb \otimes w
       \]
       is a polynomial map.
@@ -2288,7 +2286,7 @@ Notice that since we have $\Hom_k(W,V) \subseteq \Pol_k(W,V)$ we also have
             \Hom_G(W,V)
   =         \Hom_k(W,V)^G
   \subseteq \Pol_k(W,V)^G
-  =         \Cov(W,V).
+  =         \Cov(W,V) \,.
 \]
 Therefore every morphism of representations is covariant.
 
@@ -2299,12 +2297,12 @@ For finite-dimensional representations $W$ and $V$ of a group $G$ we know that $
   = g.f\left( g^{-1}.w \right)
   \text{ for all }
   g \in G,
-  w \in W.
+  w \in W \,.
 \]
 That $g.f$ is polynomial follows from the fact that $\tau_{g^{-1}} \colon W \to W$ and $\pi_g \colon V \to V$ are $k$-linear and thus polynomial, and therefore also
 \[
     g.f
-  = \pi_g \circ f \circ \tau_{g^{-1}}.
+  = \pi_g \circ f \circ \tau_{g^{-1}} \,.
 \]
 We also know that $\Pol_k(W,V)$ is a $k$-vector space via pointwise addition and multiplication.
 Since the composition above is clearly $k$-linear in $f$ we find that $\Pol_k(W,V)$ is a representation of $G$.
@@ -2316,7 +2314,7 @@ As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is 
   Then
   \[
               \beta^*\left( \mc{P}(V)^G \right)
-    \subseteq \mc{P}(W)^G.
+    \subseteq \mc{P}(W)^G \,.
   \]
   Therefore $\beta^*$ induces an algebra-homomorphism from $\mc{P}(V)^G$ to $\mc{P}(W)^G$ by restriction.
 \end{prop}
@@ -2331,14 +2329,14 @@ As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is 
      =  (g.f)(\beta(w)) \\
     &=  f(\beta(w))
      =  (f \circ \beta)(w)
-     =  \beta^*(f)(w).
+     =  \beta^*(f)(w) \,.
   \end{align*}
   Therefore
   \[
       g.\beta^*(f)
     = \beta^*(f)
     \text{ for all }
-    g \in G.
+    g \in G \,.
     \qedhere
   \]
 \end{proof}
@@ -2361,7 +2359,7 @@ As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is 
     &=  f\left( g^{-1}.w \right) \cdot g.\beta\left( g^{-1}.w \right)
      =  (g.f)(w) \cdot (g.\beta)(w) \\
     &=  f(w) \cdot \beta(w)
-     =  (f \cdot \beta)(w).
+     =  (f \cdot \beta)(w) \,.
   \end{align*}
   This shows that $\Cov(W,V)$ is also closed under multiplication by $\mc{P}(W)^G$.
 \end{proof}

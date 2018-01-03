@@ -25,8 +25,8 @@ To see that this multiplication is well-defined notice that for every $\lambda \
           \pi_\lambda
   \colon  L
   \to     L,
-          l
-  \mapsto \lambda l,
+  \quad   l
+  \mapsto \lambda l \,,
 \]
 is $L$-linear and thus $k$-linear.
 The multiplication with $\lambda \in L$ as defined above is simply $\pi_\lambda \otimes \id_V$.
@@ -37,8 +37,8 @@ For any $k$-vector space $V$ we have a $k$-linear inclusion
                   \can_V
   \colon          V
   \hookrightarrow V_L,
-                  v
-  \mapsto         1 \otimes v.
+  \quad           v
+  \mapsto         1 \otimes v \,.
 \]
 The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an universal property.
 
@@ -48,9 +48,9 @@ The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an uni
   \begin{align*}
               \beta_W
     \colon    \Hom_L(V_L, W)
-    &\to      \Hom_k(V,W), \\
+    &\to      \Hom_k(V,W) \,, \\
               f
-     &\mapsto f \circ \can_V, \\
+     &\mapsto f \circ \can_V \,,  \\
               ( \lambda \otimes v \mapsto \lambda g(v) )
     &\mapsfrom g
   \end{align*}
@@ -59,8 +59,8 @@ The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an uni
   \[
             \alpha_W
     \colon  \Hom_L(V', W)
-    \to     \Hom_k(V,W),
-            f
+    \to     \Hom_k(V,W) \,,
+    \quad   f
     \mapsto f \circ \iota
   \]
   is an isomorphism of $k$-vector spaces for every $L$-vector space $W$ then there exists an unique $L$-linear map
@@ -95,7 +95,7 @@ where $F_1(W) \coloneqq \Hom_L(V_L,W)$ for every $L$-vector space $W$ and for ev
           F_1(f)
   \colon  \Hom_L(V_L, W)
   \to     \Hom_L(V_L, W'),
-          h
+  \quad   h
   \mapsto f \circ h,
 \]
 as well as $F_2(W) \coloneqq \Hom_k(V,W)$ for every $L$-vector space $W$ and for every $L$-linear map $f \colon W \to W'$
@@ -103,7 +103,7 @@ as well as $F_2(W) \coloneqq \Hom_k(V,W)$ for every $L$-vector space $W$ and for
           F_2(f)
   \colon  \Hom_k(V,W)
   \to     \Hom_k(V,W'),
-          h
+  \quad   h
   \mapsto f \circ h.
 \]
 The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$, i.e.\ they form a natural transformation from $F_1$ to $F_2$ and $\beta_W$ is an isomorphism for every $L$-vector space $W$.
@@ -129,7 +129,7 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
   \[
             L \times V
     \to     W,
-            (\lambda, v)
+    \quad   (\lambda, v)
     \mapsto \lambda g(v)
   \]
   is well-defined and $k$-bilinear.
@@ -182,7 +182,7 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
     =&\,  (f \circ h) \circ \can_V
     =     \beta_{W'}(f \circ h) \\
     =&\,  \beta_{W'}(F_1(f)(h))
-    =     (\beta_{W'} \circ F_1(f))(h).
+    =     (\beta_{W'} \circ F_1(f))(h) \,.
   \end{align*}
   
   All that’s left to show is that property defines $V_L$ uniquely up to unique isomorphism.
@@ -191,7 +191,7 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
             \alpha_W
     \colon  \Hom_L(V', W)
     \to     \Hom_k(V, W),
-            f
+    \quad   f
     \mapsto f \circ \iota
   \]
   is an isomorphism of $k$-vector spaces.
@@ -200,7 +200,7 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
   \[
             \Hom_L(V_L, V_L)
     \cong   \Hom_k(V, V_L),
-            f
+    \quad   f
     \mapsto f \circ \can_V.
   \]
   Therefore there exists exactly one $f \in \Hom_L(V_L, V_L)$ with $f \circ \can_V = \can_V$.
@@ -242,7 +242,7 @@ Recall the following from linear algebra:
   \[
         \Hom_k(V,W
     \to \Maps(B,W),
-            f
+    \quad   f
     \mapsto f_{|B}
   \]
   is a bijection.
@@ -281,15 +281,15 @@ Recall the following from linear algebra:
   \[
             \Hom_L(V_L, W)
     \cong   \Hom_k(V, W),
-            h
-    \mapsto h \circ \can_V,
+    \quad   h
+    \mapsto h \circ \can_V \,,
   \]
   and the bijection
   \[
           \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
     \cong \Maps\left( \{v_i\}_{i \in I} ,W \right),
-            h
-    \mapsto h \circ \phi.
+    \quad   h
+    \mapsto h \circ \phi \,.
   \]
   That $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ is equivalent to saying that the restriction on the right side is a bijection and that $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$ is equivalent to saying that the restriction on the left side is a bijection.
   Since the diagram commutes these two are equivalent.
@@ -303,7 +303,7 @@ Recall the following from linear algebra:
             \phi
     \colon  U_L
     \colon  V,
-            \lambda \otimes u
+    \quad   \lambda \otimes u
     \mapsto \lambda u
   \]
   is an isomorphism of $L$-vector spaces.
@@ -319,7 +319,7 @@ Recall the following from linear algebra:
   Then
   \[
       L \otimes_k \bigcap_{i \in I} U_i
-    = \bigcap_{i \in I} L \otimes_k U_i.
+    = \bigcap_{i \in I} L \otimes_k U_i \,.
   \]
 \end{lem}
 \begin{proof}
@@ -373,7 +373,7 @@ with $E(V) = V_L$ for every $k$-vector space $V$ and $E(f) = f_L$ for every $k$-
      =  f_L(1 \otimes v) \\
     &=  1 \otimes f(v)
      =  \can_{V'}(f(v))
-     =  (\can_{V'} \circ f)(v).
+     =  (\can_{V'} \circ f)(v) \,.
     \qedhere
   \end{align*}
 \end{proof}
@@ -432,16 +432,16 @@ If $A_1$ and $A_2$ are unitial, then so is $A_1 \otimes_k A_2$.
 To see that this multiplication is well-defined notice that the map
 \begin{align*}
             A_1 \times A_2 \times A_1 \times A_2
-  &\to      A_1 \otimes_k A_2, \\
+  &\to      A_1 \otimes_k A_2 \,, \\
             (a_1, b_1, a_2, b_2)
   &\mapsto  (a_1 a_2) \otimes (b_1 b_2)
 \end{align*}
 is well-defined and $k$-multilinear, so we get a $k$-linear map
 \begin{align*}
             A_1 \otimes_k A_2 \otimes_k A_1 \otimes_k A_2
-  &\to      A_1 \otimes_k A_2, \\
+  &\to      A_1 \otimes_k A_2 \,, \\
             a_1 \otimes b_1 \otimes a_2 \otimes b_2
-  &\mapsto  (a_1 a_2) \otimes (b_1 b_2),
+  &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,,
 \end{align*}
 which under the isomorphism of $k$-vector spaces
 \[
@@ -451,9 +451,9 @@ which under the isomorphism of $k$-vector spaces
 corresponds to a $k$-bilinear map
 \begin{align*}
             (A_1 \otimes_k A_2) \times (A_1 \otimes_k A_2)
-  &\to      A_1 \otimes_k A_2, \\
+  &\to      A_1 \otimes_k A_2 \,, \\
             (a_1 \otimes b_1, a_2 \otimes b_2)
-  &\mapsto  (a_1 a_2) \otimes (b_1 b_2).
+  &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,.
 \end{align*}
 
 
@@ -462,9 +462,9 @@ It is easy to see that that these structures are compatible and give $A_L$ the s
 To see this compatibility simply notice that the $k$-bilinear map
 \begin{align*}
             (A_1 \otimes_k A_2) \times (A_1 \otimes_k A_2)
-  &\to      A_1 \otimes_k A_2, \\
+  &\to      A_1 \otimes_k A_2 \,, \\
             (a_1 \otimes b_1, a_2 \otimes b_2)
-  &\mapsto  (a_1 a_2) \otimes (b_1 b_2).
+  &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,.
 \end{align*}
 is also $L$-bilinear.
 
@@ -501,7 +501,7 @@ is also $L$-bilinear.
     =     (\lambda_1 \lambda_2) \otimes f(a_1 a_2) \\
     =&\,  (\lambda_1 \lambda_2) \otimes (f(a_1)f(a_2))
     =     (\lambda_1 \otimes f(a_1)) (\lambda_2 \otimes f(a_2)) \\
-    =&\,  f_L(\lambda_1 \otimes a_1) f_L(\lambda_2 \otimes a_2).
+    =&\,  f_L(\lambda_1 \otimes a_1) f_L(\lambda_2 \otimes a_2) \,.
   \end{align*}
   Since these simple tensors generate $L \otimes_k A_1$ it follows that $f_L$ is multiplicative.
 \end{proof}
@@ -521,7 +521,7 @@ This shows that we can understand the extension of scalars for $k$-algebras als 
        =  \lambda_1 \lambda_2 f(a_1 a_2)    \\
       &=  \lambda_1 \lambda_2 f(a_1) f(a_2)
        =  \lambda_1 f(a_1) \lambda_2 f(a_2) \\
-      &=  \hat{f}(\lambda_1 \otimes a_1) \hat{f}(\lambda_2 \otimes a_2).
+      &=  \hat{f}(\lambda_1 \otimes a_1) \hat{f}(\lambda_2 \otimes a_2) \,.
     \end{align*}
     Since the simple tensors generate $A_L$ it follows that $\hat{f}$ is multiplicative.
   \end{proof}
@@ -534,8 +534,8 @@ This shows that we can understand the extension of scalars for $k$-algebras als 
   \[
             \phi
     \colon  A_L
-    \to     B,
-            \lambda \otimes a
+    \to     B \,,
+    \quad   \lambda \otimes a
     \mapsto \lambda a
   \]
   is an isomorphism of $L$-algebras.
@@ -586,7 +586,7 @@ This shows that we can understand the extension of scalars for $k$-algebras als 
               \mid
                 1 \otimes a \in I_0
               \}
-    =         \can_A^{-1}(I_0).
+    =         \can_A^{-1}(I_0) \,.
   \]
   $I'$ is a left-sided ideal in $A$ since $\can_A$ is a homomorphism of $k$-algebras.
   Since $1 \otimes b_j \in I_0$ für alle $j \in J$ we have $b_j \in I'$ für alle $j \in J$.
@@ -615,7 +615,7 @@ This shows that we can understand the extension of scalars for $k$-algebras als 
 For the polynomial ring $k[X_1, \dotsc, X_n]$ we have an $L$-algebra
 \[
     k[X_1, \dotsc, X_n]_L
-  = L \otimes_k k[X_1, \dotsc, X_n].
+  = L \otimes_k k[X_1, \dotsc, X_n] \,.
 \]
 The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, X_n]$.
 
@@ -625,9 +625,9 @@ The interesting thing about this algebra is that is it actually $L[X_1, \dotsc, 
   \[
             \Phi
     \colon  k[X_1, \dotsc, X_n]_L
-    \to     L[X_1, \dotsc, X_n],
-            \lambda \otimes f
-    \mapsto \lambda f.
+    \to     L[X_1, \dotsc, X_n]0\,,
+    \quad   \lambda \otimes f
+    \mapsto \lambda f \,.
   \]
 \end{prop}
 \begin{proof}
@@ -641,7 +641,7 @@ Another interesting example of the extension of scalars is $L \otimes_k \Mat_n(k
 \begin{prop}
   We have an isomorphism of $L$-algebras
   \[
-    \Phi \colon L \otimes_k \Mat_n(k) \to \Mat_n(L).
+    \Phi \colon L \otimes_k \Mat_n(k) \to \Mat_n(L) \,.
   \]
 \end{prop}
 \begin{proof}

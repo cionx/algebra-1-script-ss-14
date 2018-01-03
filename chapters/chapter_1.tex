@@ -15,9 +15,9 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
   \begin{gather*}
             \pi
     \colon  G \times X
-    \to     X,
+    \to     X \,,
     \quad   (g,x)
-    \to     g.x,
+    \to     g.x \,,
   \shortintertext{such that}
     e.x = x
     \quad\text{and}\quad
@@ -36,7 +36,7 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
                 f \colon X \to X
               \mid
                 \text{$f$ is bijective}
-              \}.
+              \} \,.
   \]
   becomes a group via $fg \coloneqq f \circ g$ \textup(composition of maps\textup) for all $f, g \in S(X)$, the neutral element being given by $\id_X$.
   This is called the \emph{symmetry group of $X$}.
@@ -61,11 +61,11 @@ Given a group action $\pi \colon G \times X \to X$, any $g \in G$ defines a bije
     & \xleftrightarrow{1:1}
       \left\{
         \text{group homomorphisms $G \to S(X)$}
-      \right\},
+      \right\} \,,
     \\
       \pi
     & \longmapsto
-      \hat{\pi},
+      \hat{\pi} \,,
     \\
       \mathring{\varphi}
     & \longmapsfrom
@@ -95,7 +95,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
                   g.x
         \coloneqq gx
         \qquad
-        \text{for all $g \in G$, $x \in G$}.
+        \text{for all $g \in G$, $x \in G$} \,.
       \]
       This is called the \emph{\textup(left\textup) regular action of $G$}.
     \item
@@ -104,7 +104,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
                   g.x
         \coloneqq xg^{-1}
         \qquad
-        \text{for all $g \in G$, $x \in G$}.
+        \text{for all $g \in G$, $x \in G$} \,.
       \]
       This is called the \emph{right regular action of $G$}.
     \item
@@ -113,7 +113,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
                   g.x
         \coloneqq gxg^{-1}
         \qquad
-        \text{for all $g \in G$, $x \in G$}.
+        \text{for all $g \in G$, $x \in G$} \,.
       \]
     \item
       Let $X$ be a set.
@@ -143,7 +143,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
                   g.(x,y)
         \coloneqq (g.x,g.y)
         \qquad
-        \text{for all $g \in G$, $(x,y) \in X \times Y$}.
+        \text{for all $g \in G$, $(x,y) \in X \times Y$} \,.
       \]
     \item
       If $X$ is a set and $G = S(X)$, then $X$ is a $G$-set via $f.x \coloneqq f(x)$ for all $f \in G$ and $x \in X$.
@@ -159,14 +159,14 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
       f(g.x)
     = g.f(x)
     \qquad
-    \text{for all $g \in G$ and $x \in X$}.
+    \text{for all $g \in G$ and $x \in X$} \,.
   \shortintertext{Then}
               \Hom_G(X,Y)
     \coloneqq \{
                 f \colon X \to Y
               \mid
                 \text{$f$ is $G$-equivariant}
-              \}.
+              \} \,.
   \end{gather*}
 \end{defi}
 
@@ -196,7 +196,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
           = gxa
           = g.f(x)
           \qquad
-          \text{for all $g \in G$, $x \in G$},
+          \text{for all $g \in G$, $x \in G$} \,,
         \]
         so $f$ is $G$-equivariant.
         If on the other hand $f \colon G \to G$ is any $G$-equivariant map, then for $a \coloneqq f(e)$ one has that
@@ -207,7 +207,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
           = g.a
           = ga
           \qquad
-          \text{for all $g \in G$}.
+          \text{for all $g \in G$} \,.
           \qedhere
         \]
       \end{proof}
@@ -246,7 +246,7 @@ for all $G$-sets $X$ and $Y$.
   The canonical map
   \[
             \can
-    \colon  X \to X/G,
+    \colon  X \to X/G \,,
     \quad   x
     \mapsto G.x
     =       \text{$G$-orbit of $x$}
@@ -259,7 +259,7 @@ for all $G$-sets $X$ and $Y$.
     = \can(x)
     = g.\can(x)
     \qquad
-    \text{for all $g \in G$, $x \in X$}.
+    \text{for all $g \in G$, $x \in X$} \,.
   \]
 \end{note}
 
@@ -273,7 +273,7 @@ for all $G$-sets $X$ and $Y$.
                 x \in X
               \mid
                 \text{$g.x = x$ for all $g \in G$}
-              \}.
+              \} \,.
   \]
   The elements in $X^G$ are called \emph{$G$-invariants} or \emph{$G$ fix points}.
 \end{defi}
@@ -284,7 +284,7 @@ for all $G$-sets $X$ and $Y$.
   Then
   \[
               f\left( X^G \right)
-    \subseteq Y^G.
+    \subseteq Y^G \,.
   \]
 \end{lem}
 \begin{proof}
@@ -304,12 +304,12 @@ This lemma shows that a $G$-equivariant map $f \colon X \to Y$ between $G$-sets 
 For every $G$-set $X$ one has
 \[
     \id_X^G
-  = \id_{X^G},
+  = \id_{X^G} \,,
 \]
 and for all $G$-sets $X$, $Y$, $Z$ and $G$-equivariant maps $f \colon X \to Y$ and $g \colon Y \to Z$ one has
 \[
     (f \circ g)^G
-  = f^G \circ g^G.
+  = f^G \circ g^G \,.
 \]
 Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every $G$-set $X$ to the corresponding trivial $G$-set $X^G$, and every $G$-equivariant map $f \colon X \to Y$ to the $G$-equivariant map $f^G \colon X^G \to Y^G$.
 (That $f^G$ is $G$-equivariant follows from the actions on $X^G$ and $Y^G$ being trivial.)
@@ -327,7 +327,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
     &\iff \text{$f\left( g^{-1}.x \right) = g^{-1}.f(x)$ for all $g \in G$, $x \in X $} \\
     &\iff \text{$g.f\left( g^{-1}.x \right) = f(x)$ for all $g \in G$, $x \in X$} \\
     &\iff \text{$g.f = f$ for all $g \in G$}  \\
-    &\iff f \in \Maps(X,Y)^G.
+    &\iff f \in \Maps(X,Y)^G \,.
     \qedhere
   \end{align*}
 \end{proof}
@@ -340,7 +340,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
       f(x)
     = f\left( g.x \right)
     \qquad
-    \text{for all $g \in G$, $x \in X$}.
+    \text{for all $g \in G$, $x \in X$} \,.
   \]
 \end{defi}
 
@@ -386,7 +386,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
     = p_n(-\lambda)
     = (-1)^n p_n(\lambda)
     \qquad
-    \text{for all $\lambda \in \R$}.
+    \text{for all $\lambda \in \R$} \,.
   \]
   This holds if and only if $n$ is even.
 \end{expl}
@@ -402,11 +402,11 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
       \[
           \chi_x(y)
         = \begin{cases}
-            1 & \text{if $x = y$}, \\
-            0 & \text{otherwise},
+            1 & \text{if $x = y$} \,, \\
+            0 & \text{otherwise} \,,
           \end{cases}
         \qquad
-        \text{for all $y \in X$}.
+        \text{for all $y \in X$} \,.
       \]
     \item
       \label{enum: invariants form a submodule}
@@ -416,11 +416,11 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
       \[
           \chi_\mc{O}(y)
         = \begin{cases}
-            1 & \text{if $y \in \mc{O}$}, \\
-            0 & \text{otherwise},
+            1 & \text{if $y \in \mc{O}$} \,,  \\
+            0 & \text{otherwise} \,,
           \end{cases}
         \qquad
-        \text{for all $y \in X$}.
+        \text{for all $y \in X$} \,.
       \]
   \end{enumerate}
 \end{lem}
@@ -435,7 +435,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
       \[
           \left( \sum_{x \in X} f(x)  \chi_x \right)(y)
         = \sum_{x \in X} f(x) \underbrace{\chi_x(y)}_{= \delta_{xy}}
-        = f(y).
+        = f(y) \,.
       \]
       This shows that the maps $\chi_x$, $x \in X$ generate $\Maps(X,k)$.
       They are linear independent since for all $\alpha_x \in k$, $x \in X$ with $\sum_{x \in X} \alpha_x \chi_x = 0$ one has that
@@ -444,7 +444,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
         = \sum_{x \in X} \alpha_x \underbrace{ \chi_x(y) }_{= \delta_{xy}}
         = 0
         \qquad
-        \text{for all $y \in X$}.
+        \text{for all $y \in X$} \,.
       \]
     \item
       We need to check that for all $f, f_1, f_2 \in \Maps(X,k)^G$ and $\lambda \in k$ we have that $f_1 + f_2 \in \Maps(X,k)^G$ and $\lambda f \in \Maps(X,k)^G$.
@@ -505,7 +505,7 @@ is the \emph{support of $f$}, i.e\
               f \colon X \to k
             \mid
               \text{$f(x) \neq 0 $ for only finitely many $x \in X$}
-            \}.
+            \} \,.
 \]
 Note that for all $f_1, f_2, f \in \Maps(X,k)$ and $\lambda \in k$ we have that
 \begin{gather*}
@@ -513,7 +513,7 @@ Note that for all $f_1, f_2, f \in \Maps(X,k)$ and $\lambda \in k$ we have that
   \subseteq \supp(f_1) \cup \supp(f_2)
 \shortintertext{and}
             \supp(\lambda f)
-  \subseteq \supp(f).
+  \subseteq \supp(f) \,.
 \end{gather*}
 Therefore $kX$ is a $k$-vector space (resp.\ $k$-module) via pointwise addition and scalar multiplication.
 
@@ -559,8 +559,8 @@ The linear independence of the $\chi_x$ is clear.
       \[
                 \chi_x
         \mapsto \begin{cases}
-                  (\chi_x,0) & \text{ if } x \in X_1, \\
-                  (0,\chi_x) & \text{ if } x \in X_2.
+                  (\chi_x,0) & \text{ if } x \in X_1 \,,  \\
+                  (0,\chi_x) & \text{ if } x \in X_2 \,.
                 \end{cases}
       \]
     \item
@@ -585,7 +585,7 @@ The linear independence of the $\chi_x$ is clear.
                                                                 \Maps(X,k)
     \xlongequal{\text{Lemma \ref{lem: basis of Maps and Hom}}}  \vspan \{\chi_x \mid x \in X\}
     =                                                           \bigoplus_{x \in X} k \chi_x
-    =                                                           \bigoplus_{x \in X} \Maps(\{x\},k).
+    =                                                           \bigoplus_{x \in X} \Maps(\{x\},k) \,.
   \]
   In this case we have $\Maps(X,k)^G = \Maps(X,k)$ because the $G$-action on $k$ is trivial.
 \end{expl}
@@ -610,7 +610,7 @@ The linear independence of the $\chi_x$ is clear.
     \coloneqq \frac{\chi_e + \chi_s}{2}
     \text{ and }
               b_2
-    \coloneqq \frac{\chi_e - \chi_s}{2}.
+    \coloneqq \frac{\chi_e - \chi_s}{2} \,.
   \]
   This is a basis of $\Maps(X,k)$.
   Since $s.\chi_e = \chi_s$ and $s.\chi_s = \chi_e$ we have
@@ -619,7 +619,7 @@ The linear independence of the $\chi_x$ is clear.
     = b_1
     \text{ and }
       s.b_2
-    = -b_2.
+    = -b_2 \,.
   \]
   Therefore
   \[
@@ -685,7 +685,7 @@ The linear independence of the $\chi_x$ is clear.
               (g.(f_1 f_2))(x)
           &=  (f_1 f_2)\left( g^{-1}.x \right)
            =  f_1\left( g^{-1}.x \right) f_2\left( g^{-1}.x \right) \\
-          &=  (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x),
+          &=  (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x) \,,
         \end{align*}
         so $G$ acts by ring homomorphisms. Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms. The rest is a consequence of Lemma \ref{lem: group action by ring automorphisms}.
       \qedhere
@@ -743,7 +743,7 @@ The linear independence of the $\chi_x$ is clear.
             g_2.(g_1*x)
         &=  g_2 \left(g_1 x g_1^{-1}\right)
          =  g_2 g_1 x g_1^{-1}
-        \tag{\ensuremath{\ast\ast}},
+        \tag{\ensuremath{\ast\ast}} \,,
       \end{align*}
       for all $g_1, g_2, x \in G$. So
       \begin{align*}
@@ -756,7 +756,7 @@ The linear independence of the $\chi_x$ is clear.
                           \text{ for all }
                           g_1, g_2 \in G
         \\
-        &\Leftrightarrow  \text{$G$ is abelian}.
+        &\Leftrightarrow  \text{$G$ is abelian} \,.
       \end{align*}
     \item
       Let $G = \GL(2,\R)$. $G$ acts on $\R^2$ in the natural way. Consider
@@ -771,7 +771,7 @@ The linear independence of the $\chi_x$ is clear.
                     \lambda \in \R,
                     \lambda \neq 0
                   \right\}
-        \subseteq \GL(2,\R).
+        \subseteq \GL(2,\R) \,.
       \]
       Then $H$ acts on $\R^2$ by restriction of the $G$-action.
       The two actions commute since $gh = hg$ for all $g \in G$, $h \in H$.
@@ -805,7 +805,7 @@ For a $k$-vector space $V$ we set
               f \colon V \to V
             \mid
               f \text{ is $k$-linear and invertible}
-            \}.
+            \} \,.
 \]
 
 
@@ -819,7 +819,7 @@ For a $k$-vector space $V$ we set
     \overset{1:1}{\longleftrightarrow}
     \left\{
       \text{group homomorphisms $G \to \GL(V)$}
-    \right\}.
+    \right\} \,.
   \]
 \end{lem}
 \begin{proof}
@@ -850,12 +850,12 @@ For a $k$-vector space $V$ we set
           (g.\chi_x)(y)
         = \chi_x(g^{-1}.y)
         = \begin{cases}
-            1 & \text{if } x = g^{-1}.y, \\
-            0 & \text{otherwise},
+            1 & \text{if } x = g^{-1}.y \,, \\
+            0 & \text{otherwise} \,,
           \end{cases}
         = \begin{cases}
-            1 & \text{if } g.x = y, \\
-            0 & \text{otherwise},
+            1 & \text{if } g.x = y \,,  \\
+            0 & \text{otherwise} \,,
           \end{cases}
         = \chi_{g.x}(y)
       \]
@@ -868,7 +868,7 @@ For a $k$-vector space $V$ we set
       \[
             g.f
         =   \tau_g \circ f \circ \pi_{g^{-1}}
-        \in \Hom(V,W).
+        \in \Hom(V,W) \,.
       \]
       Therefore $\Hom(V,W)$ is closed under the action of $G$ on $\Maps(V,W)$.
       Since the composition above is $k$-linear in $f$ it also follows that the action is linear on $\Hom(V,W)$.
@@ -956,7 +956,7 @@ The converse is not true in general as the following example shows.
                 a, b, c \in \Complex
                 \text{ and }
                 a, c \neq 0
-              \right\}.
+              \right\} .
   \]
   $G$ acts on $V \coloneqq \Complex^2$ in the natural way.
   Notice that $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation since
@@ -981,7 +981,7 @@ The converse is not true in general as the following example shows.
             \right\}
     \text{ for some }
         \vect{\alpha \\ \beta}
-    \in \Complex^2.
+    \in \Complex^2 \,.
   \]
   Because $W$ is a subrepresentation of $V$ we have
   \[
@@ -991,11 +991,11 @@ The converse is not true in general as the following example shows.
         \end{pmatrix}
         \vect{\alpha \\ \beta}
     =   \vect{\alpha + \beta \\ \beta}
-    \in W.
+    \in W \,.
   \]
   and therefore
   \[
-    \vect{\beta \\ 0} \in W.
+    \vect{\beta \\ 0} \in W \,.
   \]
   So we find that
   \[
@@ -1005,7 +1005,7 @@ The converse is not true in general as the following example shows.
   \[
       W
     = \vspan \left\{ \vect{1 \\ 0} \right\}
-    = U.
+    = U \,.
   \]
 \end{expl}
 
@@ -1026,7 +1026,7 @@ The converse is not true in general as the following example shows.
           \left(
             \bigoplus_{i \in I} V_i
           \right)^G
-        = \bigoplus_{i \in I} V_i^G.
+        = \bigoplus_{i \in I} V_i^G \,.
       \]
   \end{enumerate}
 \end{lem}
@@ -1037,7 +1037,7 @@ The converse is not true in general as the following example shows.
       This holds becaues $\pi_g \colon V \to V$, $v \mapsto g.v$ is linear for every $g \in G$ and
       \[
           V^G
-        = \bigcap_{g \in G} \ker(\pi_g - \id_V).
+        = \bigcap_{g \in G} \ker(\pi_g - \id_V) \,.
       \]
     \item
       Let $v \in \left( \bigoplus_{i \in I} V_i \right)^G$ with $v = \sum_{i \in I} v_i$ where $v_i \in V_i$ for every $i \in I$ and $v_i = 0$ for all but finitely many $i \in I$.
@@ -1047,7 +1047,7 @@ The converse is not true in general as the following example shows.
         = v
         = g.v
         = g.\left( \sum_{i \in I} v_i \right)
-        = \sum_{i \in I} g.v_i.
+        = \sum_{i \in I} g.v_i \,.
       \]
       Because the sum $\bigoplus_{i \in I} V_i$ is direct we find that $g.v_i = v_i$ for every $g \in G$, $i \in I$.
       So $v_i \in V_i^G$ for every $i \in I$.
@@ -1056,7 +1056,7 @@ The converse is not true in general as the following example shows.
                   \left(
                     \bigoplus_{i \in I} V_i
                   \right)^G
-        \subseteq \bigoplus_{i \in I} V_i^G.
+        \subseteq \bigoplus_{i \in I} V_i^G \,.
       \]
       The other inclusion is obvious.
   \end{enumerate}
@@ -1112,7 +1112,7 @@ and the multiplication (2) as
           \left( \sum_{g \in G} a_g g \right)
     \cdot \left( \sum_{g \in G} b_g g \right)
   = \sum_{h, g \in G} a_g b_{g^{-1}h} h
-  = \sum_{g, g' \in G} a_g b_{g'} (g g').
+  = \sum_{g, g' \in G} a_g b_{g'} (g g') \,.
 \]
 To verify that this multiplication is equivalent to (2) it is enough to check this on a basis, because both multiplications are $k$-bilinear.
 
@@ -1122,22 +1122,22 @@ Multiplying in the first way gives us
   &=  \sum_{y \in G} \chi_{g_1}(y) \chi_{g_2}\left( y^{-1} h \right)
    =  \chi_{g_2}\left( g_1^{-1}h \right) \\
   &=  \begin{cases}
-        1 & \text{if } g_2 = g_1^{-1}h, \\
-        0 & \text{otherwise},
+        1 & \text{if } g_2 = g_1^{-1}h \,,  \\
+        0 & \text{otherwise} \,,
       \end{cases}
    =  \begin{cases}
-        1 & \text{if } g_1 g_2 = h, \\
-        0 & \text{otherwise},
+        1 & \text{if } g_1 g_2 = h \,,  \\
+        0 & \text{otherwise} \,,
       \end{cases}
-   =  \chi_{g_1 g_2}(h),
+   =  \chi_{g_1 g_2}(h) \,,
 \end{align*}
 so $\chi_{g_1} \cdot \chi_{g_2} = \chi_{g_1 g_2}$ for all $g_1, g_2 \in G$.
 For multiplication in the second way we write $\chi_g$ as $\sum_{h \in G} a^g_h h$ where
 \[
     a^g_h
   = \begin{cases}
-      1 & \text{if } h = g, \\
-      0 & \text{otherwise},
+      1 & \text{if } h = g \,, \\
+      0 & \text{otherwise} \,,
     \end{cases}
 \]
 for all $g \in G$.
@@ -1148,7 +1148,7 @@ For $g_1, g_2 \in G$ multiplying $\chi_{g_1}$ and $\chi_{g_2}$ in the second way
     \cdot \left( \sum_{g \in G} a^{g_2}_g g \right)
   = \sum_{g,g' \in G} a^{g_1}_g a^{g_2}_{g'} (g g')
   = (g_1 g_2)
-  = \chi_{g_1 g_2}.
+  = \chi_{g_1 g_2} \,.
 \]
 This shows that the multiplications the same.
 
@@ -1163,7 +1163,7 @@ Also note that $kG$ is commutative if and only if $G$ is commutative.
   \begin{matrix}
         \left\{\text{linear $G$-actions on $V$}\right\}
     & \overset{1:1}{\longleftrightarrow}
-    & \left\{\text{$kG$-module structures on $V$}\right\} \\
+    & \left\{\text{$kG$-module structures on $V$}\right\} \,, \\
         \pi
     & \longmapsto
     & \hat{\pi}
@@ -1175,7 +1175,7 @@ Also note that $kG$ is commutative if and only if $G$ is commutative.
     \colon  kG \times V
     \to     V,
             \left( \sum_{g \in G} a_g g, v \right)
-    \mapsto \sum_{g \in G} a_g (g.v).
+    \mapsto \sum_{g \in G} a_g (g.v) \,.
   \]
 \end{lem}
 \begin{proof}
@@ -1201,7 +1201,7 @@ We denote
       f \colon V \to W
     \mid
       f \text{ is a morphism of representations}
-    \}.
+    \} \,.
 \]
 \end{defi}
 
@@ -1271,8 +1271,8 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
       \[
               \Hom_G(V,W)
         \cong \begin{cases}
-                k & \text{if } V \cong W,     \\
-                0 & \text{if } V \not\cong W,
+                k & \text{if } V \cong     W \,,  \\
+                0 & \text{if } V \not\cong W \,,
               \end{cases}
       \]
       as vector spaces.
@@ -1288,12 +1288,12 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
           \ker f = 0
           \text{ or }
           \ker f = V
-        \quad
+        \qquad
         \text{and}
-        \quad
+        \qquad
           \im f = 0
           \text{ or }
-          \im f = W.
+          \im f = W \,.
       \]
       Since $f \neq 0$ we have $\ker f \neq V$ and $\im f \neq 0$.
       So $\ker f = 0$ and $\im f = W$.
@@ -1326,8 +1326,8 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   For every $g \in G$ the map
   \[
             \pi_g
-    \colon  V \to V,
-            v
+    \colon  V \to V \,,
+    \quad   v
     \mapsto g.v
   \]
   is $G$-equivariant, since for all $h \in G$
@@ -1335,7 +1335,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
       \pi_g \circ \pi_h
     = \pi_{gh}
     = \pi_{hg}
-    = \pi_h \circ \pi_g.
+    = \pi_h \circ \pi_g \,.
   \]
   So $\pi_g \in \End_G(V)$ for all $g \in G$.
   By Schur’s Lemma we find that $\End_G(V) \cong k$, and so every $g \in G$ acts by multiplication with some scalar $\lambda \in k$.
@@ -1415,7 +1415,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   We define $\hat{p} \colon V \to U$ as
   \[
               \hat{p}(v)
-    \coloneqq \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v).
+    \coloneqq \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v) \,.
   \]
 
   This is well defined since $|G| < \infty$ and $1/|G|$ is defined, because $\kchar k \nmid |G|$.
@@ -1427,7 +1427,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     = \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.u)
     = \frac{1}{|G|} \sum_{g \in G} g^{-1}.g.u
     = \frac{1}{|G|} \sum_{g \in G} u
-    = u.
+    = u \,.
   \]
   $\hat{p}$ is $G$-equivariant because for all $h \in G$ and $v \in V$
   \begin{align*}
@@ -1435,7 +1435,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     &=  \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(gh.v)
      =  \frac{1}{|G|} \sum_{g \in G} h.h^{-1}.g^{-1}.p(g.h.v) \\
     &=  \frac{1}{|G|} \sum_{\bar{g} \in G} h.\bar{g}^{-1}.p(\bar{g}.v)
-     =  h.\hat{p}(v).
+     =  h.\hat{p}(v) \,.
   \end{align*}
   Altogether we have
   \tikzsetnextfilename{proof_of_Maschke}
@@ -1465,7 +1465,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   Let $V = kG$ be viewed as a representation of $G$ via the left multiplication, i.e.\
   \[
       h.\left( \sum_{g \in G} a_g g \right)
-    = \sum_{g \in G} a_g hg.
+    = \sum_{g \in G} a_g hg \,.
   \]
   Let $k = \Complex$, hence Maschke’s theorem holds. We want to find a decomposition of $kG$. Recall that $S_3 = \gen{s,t}$ where $s = (1 \; 2)$ and $t = (2 \; 3)$. We claim that
   \[
@@ -1475,17 +1475,16 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   where
   \begin{align*}
                 V_{\text{triv}}
-    &\coloneqq  \vspan\left(\sum_{g \in G} g \right) = \vspan(e+s+t+st+ts+sts),
+    &\coloneqq  \vspan\left(\sum_{g \in G} g \right) = \vspan(e+s+t+st+ts+sts) \,,
     \\
                 V_{\text{sgn}}
-    &\coloneqq  \vspan\left(e-s-t+st+ts-sts\right),
+    &\coloneqq  \vspan\left(e-s-t+st+ts-sts\right) \,,
     \\
                 V_1
-    &\coloneqq  \vspan\left(e+s-ts, t+ts-st-sts\right)
-    \text{ and}
+    &\coloneqq  \vspan\left(e+s-ts, t+ts-st-sts\right) \,,
     \\
                 V_2
-    &\coloneqq  \vspan\left(s+st-sts,e+t-s-st\right).
+    &\coloneqq  \vspan\left(s+st-sts,e+t-s-st\right) \,.
   \end{align*}
   Note that $G$ acts trivially on $V_{\text{triv}}$ and by multiplication with $-1$ on $V_{\text{sgn}}$ , hence $V_{\text{triv}}$ and $V_{\text{sgn}}$ are subrepresentations.
   One can also check that $V_1$ and $V_2$ are irreducible subrepresentations which are isomorphic.
@@ -1541,8 +1540,8 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
       $U_1$ is the trivial $1$-dimensional subrepresentation and
       \[
         \begin{cases}
-          U_1 = U_2 & \text{if } n = 2, \kchar k = 2,\\
-          U_1 \ncong U_2 & \text{otherwise}.
+          U_1 =      U_2 & \text{if } n = 2, \kchar k = 2 \,, \\
+          U_1 \ncong U_2 & \text{otherwise} \,.
         \end{cases}
       \]
     \item

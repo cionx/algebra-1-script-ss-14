@@ -6,7 +6,7 @@ In this chapter we will require all modules over unitary rings to be unitary, i.
     1 \cdot m
   = m
   \text{ for all }
-  m \in M.
+  m \in M \,.
 \]
 We also require all $k$-algebras to be unitary.
 In particular modules over $k$-algebras are always $k$-vector spaces and module-homomorphisms are always $k$-linear.
@@ -43,7 +43,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
   For all $J \subseteq I$ let
   \[
               M_J
-    \coloneqq \sum_{j \in J} L_j.
+    \coloneqq \sum_{j \in J} L_j \,.
   \]
   Using Zorn’s Lemma let $J_0 \subseteq I$ be maximal with \mbox{$U \cap M_{J_0} = 0$}.
   We claim that $M = U \oplus M_{J_0}$.
@@ -58,7 +58,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
   Since $L_{i_0}$ is simple we find that
   \[
       L_{i_0} \cap (U \oplus M_{J_0})
-    = 0.
+    = 0 \,.
   \]
   Therefore the sum
   \[
@@ -72,7 +72,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
   we find for $J_1 \coloneqq J_0 \cup \{i_0\} \supsetneq J_0$
   \[
       U \cap M_{J_1}
-    = 0.
+    = 0 \,.
   \]
   This contradicts the maximality of $J_0$.
   
@@ -86,7 +86,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
     Let $V \subseteq M$ be a direct complement of $U$ in $M$, i.e.\ $M = U \oplus V$.
     Then
     \[
-      N = U \oplus (V \cap N).
+      N = U \oplus (V \cap N) \,.
     \]
     To see this fix $n \in N$.
     Let $u \in U$ and $v \in V$ with $n = u + v$.
@@ -98,7 +98,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
   Let $D \subseteq M$ be a direct complement of
   \[
               S
-    \coloneqq \bigoplus_{i \in I} L_i,
+    \coloneqq \bigoplus_{i \in I} L_i \,,
   \]
   i.e.\ $M = S \oplus D$.
   By construction $D$ contains no simple submodules.
@@ -110,8 +110,8 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
             \phi
     \colon  R
     \to     Rd,
-            r
-    \mapsto rd.
+    \quad   r
+    \mapsto rd \,.
   \]
   So the existence of a maximal submodule of $Rd$ is equivalent to the existance of a maximal ideal $I \subseteq R$ with $\ker \phi \subseteq I$.)
   By the claim there exists a direct complement $F$ of $K$ in $Rd$, i.e.\ $Rd = K \oplus F$.
@@ -140,7 +140,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
                     \,\middle|\,
                     a, b, c \in k
                   \right\}
-        \subseteq \Mat_2(k).
+        \subseteq \Mat_2(k) \,.
       \]
       Then $k^2$ is not semisimple as an $R$-module since the only non-trivial submodule of $k^2$ is
       \[
@@ -148,7 +148,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
           (x,0)
         \mid
           x \in k
-        \}.
+        \} \,.
       \]
       To see this notice that
       \[
@@ -225,7 +225,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
         =     \pi(M)
         =     \pi\left( \sum_{i \in I} L_i \right)
         =     \sum_{j \in J} \pi(L_j)
-        \cong \sum_{j \in J} L_j.
+        \cong \sum_{j \in J} L_j \,.
         \qedhere
       \]
   \end{enumerate}
@@ -251,7 +251,7 @@ The isotypical components of a semisimple module can also be described by using 
   For every simple $R$-module $E$ we have
   \[
       M_E
-    = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i.
+    = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \,.
   \]
 \end{lem}
 \begin{proof}
@@ -262,7 +262,7 @@ The isotypical components of a semisimple module can also be described by using 
                 i \in I
               \mid
                 L_i \cong E
-              \}.
+              \} \,.
   \]
   It is clear that $\bigoplus_{j \in J} L_j \subseteq M_E$.
   To show the other inclusion it suffices to show that $F \subseteq \bigoplus_{j \in J} L_j$ for every simple submodule $F \subseteq M$ with $F \cong E$.
@@ -291,10 +291,10 @@ The isotypical components of a semisimple module can also be described by using 
               E
     \subseteq \sum_{\substack{L \subseteq M \\ L \cong E}} L
     =         M_E
-    =         \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i,
+    =         \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \,,
   \shortintertext{so}
           \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i
-    \neq  0.
+    \neq  0 \,.
   \end{gather*}
   Therefore we have some $i \in I$ with $L_i \cong E$.
 \end{proof}
@@ -305,7 +305,7 @@ The isotypical components of a semisimple module can also be described by using 
   Then
   \[
               \Irr(R)
-    \coloneqq \{\text{isomorphism classes of simple $R$-modules}\}.
+    \coloneqq \{\text{isomorphism classes of simple $R$-modules}\} \,.
   \]
 \end{defi}
 
@@ -323,7 +323,7 @@ for some maximal ideal $I \subseteq R$.
   Then we have a canonical decomposition
   \[
       M
-    = \bigoplus_{[E] \in \Irr(R)} M_E.
+    = \bigoplus_{[E] \in \Irr(R)} M_E \,.
   \]
 \end{cor}
 
@@ -345,7 +345,7 @@ for some maximal ideal $I \subseteq R$.
         \hookrightarrow     \sum_{i \in I} L_i
         =                   M_E
         =                   F \oplus C
-        \twoheadrightarrow  F.
+        \twoheadrightarrow  F \,.
       \]
       Since the projection $F \oplus C \twoheadrightarrow F$ is non-zero we have $f_j \neq 0$ for some $j \in I$.
       Since $L_j$ and $F$ are simple the homomorphism $f_j \colon L_j \to F$ is an isomorphism.
@@ -356,8 +356,8 @@ for some maximal ideal $I \subseteq R$.
       \[
           (M_E)_F
         = \begin{cases}
-            M_E & \text{if } E \cong F, \\
-              0 & \text{otherwise}.
+            M_E & \text{if } E \cong F \,,  \\
+              0 & \text{otherwise} \,.
           \end{cases}
       \]
     \item
@@ -379,14 +379,14 @@ for some maximal ideal $I \subseteq R$.
       If $U \subseteq M$ is a submodule then
       \[
           U_E
-        = M_E \cap U.
+        = M_E \cap U \,.
       \]
       It is clear that
       \[
                   U_E
         =         \sum_{\substack{L \subseteq U \\ L \cong E}} L
         \subseteq \sum_{\substack{L \subseteq M \\ L \cong E}} L
-        =         M_E.
+        =         M_E \,.
       \]
       Because we have also $U_E \subseteq U$ we have $U_E \subseteq U \cap M_E$.
       On the other hand $M_E \cap U$ is a submodule of $M_E$ and thus $M_E \cap U \cong \bigoplus_{i \in I} E$ for some index set $I$.
@@ -434,7 +434,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
                     A \in \Mat_n(D)
                   \mid
                     \text{ all except the $i$-th column are zero}
-                  \}.
+                  \} \,.
       \]
       Then
       \[
@@ -479,7 +479,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
     \colon              L_i
     \hookrightarrow     \bigoplus_{i \in I} L_i
     =                   R
-    \twoheadrightarrow  E.
+    \twoheadrightarrow  E \,.
   \]
   with $\psi = \bigoplus_{i \in I} \phi_i$.
   Since $\psi \neq 0$ we have $\phi_j \neq 0$ for some $j \in I$.
@@ -522,7 +522,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$. Let
   \[
               J
-    \coloneqq \{i \in I \mid e_i \neq 0\}.
+    \coloneqq \{i \in I \mid e_i \neq 0\} \,.
   \]
   Then
   \[
@@ -544,7 +544,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   \[
       R
     = \sum_{j \in J} L_j
-    = \bigoplus_{j \in J} L_j.
+    = \bigoplus_{j \in J} L_j \,.
     \qedhere
   \]
 \end{proof}
@@ -563,15 +563,15 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
       f \cdot m
     = f(m)
     \text{ for all }
-    f \in \End_R(M),
-    m \in M.
+    f \in \End_R(M)\,,\,
+    m \in M \,.
   \]
   We then have a map
   \[
             \Phi
     \colon  R
     \to     \End_{\End_R(M)}(M),
-            r
+    \quad   r
     \mapsto (m \mapsto rm)
   \]
   and $\im \Phi$ is `dense' in $\End_{\End_R(M)}(M)$ in the following sense:
@@ -584,7 +584,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
       x m_i
     = f(m_i)
     \text{ for all }
-    1 \leq i \leq s.
+    1 \leq i \leq s \,.
   \]
 \end{thrm}
 \begin{proof}
@@ -601,20 +601,20 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
                         \pi
     \colon              M
     \twoheadrightarrow  Rm
-    \hookrightarrow     M.
+    \hookrightarrow     M \,.
   \]
   It is clear that $\pi \in \End_R(M)$.
   So given $f \in \End_{\End_R(M)}(M)$ we have
   \[
       f \circ \pi
-    = \pi \circ f.
+    = \pi \circ f \,.
   \]
   Because of this we have
   \[
         f(m)
     =   f(\pi(m))
     =   \pi(f(m))
-    \in Rm.
+    \in Rm \,.
   \]
   Therefore there exists $x \in R$ such that $f(m) = xm$.
 
@@ -625,7 +625,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
     \colon  M^s
     \to     M^s,
             (n_1, \dotsc, n_s)
-    \mapsto (f(n_1), \dotsc, f(n_s)).
+    \mapsto (f(n_1), \dotsc, f(n_s)) \,.
   \]
   It is easy to see that $\hat{f} \in \End_{\End_R(M^s)}(M^s)$:
   Let $g \in \End_R(M^s)$.
@@ -653,14 +653,14 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
             \dotsc,
             g_{s1}(f(n_1)) + \dotsb + g_{ss}(f(n_s))  ) \\
     =&\,  g( f(n_1), \dotsc, f(n_s) )
-    =     g( \hat{f}(n_1, \dotsc, n_s )).
+    =     g( \hat{f}(n_1, \dotsc, n_s )) \,.
   \end{align*}
   Since $f \in \End_{\End_R(M^s)}(M^s)$ we can use the previous case to find that there exists some $x \in R$ such that
   \[
     (f(m_1), \dotsc, f(m_s))
     = \hat{f}(m_1, \dotsc, m_s)
     = x (m_1, \dotsc, m_s)
-    = (x m_1, \dotsc, x m_s).
+    = (x m_1, \dotsc, x m_s) \,.
   \]
   Therefore $x m_i = f(m_i)$ for all $1 \leq i \leq s$.
 \end{proof}
@@ -670,11 +670,11 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   In the special case that $M = R$ this results into an isomorphism
   \begin{align*}
                 R
-    &\cong      \End_{\End_R(R)}(R), \\
+    &\cong      \End_{\End_R(R)}(R) \,, \\
                 r
-    &\mapsto    (m \mapsto rm), \\
+    &\mapsto    (m \mapsto rm) \,,  \\
                 \varphi(1)
-    &\mapsfrom  \varphi.
+    &\mapsfrom  \varphi \,.
   \end{align*}
 \end{rem}
 
@@ -693,7 +693,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   Because we have $k \subseteq \End_A(M)$ we also have
   \[
               \End_{\End_A(M)}(M)
-    \subseteq \End_k(M).
+    \subseteq \End_k(M) \,.
   \]
   Let $m_1, \dotsc, m_s$ be a $k$-basis of $M$.
   For $\varphi \in \End_{\End_A(M)}(M)$ we have $a \in A$ with
@@ -708,8 +708,8 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
   \[
             \psi
     \colon  M \to M,
-            m
-    \mapsto am.
+    \quad   m
+    \mapsto am \,.
   \]
   Because $m_1, \dotsc, m_s$ generates $M$ as a $k$-vector space and $\varphi$ and $\psi$ are $k$-linear it follows that $\varphi = \psi$.
 \end{proof}
@@ -723,7 +723,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
       r u_i
     = v_i
     \text{ for all }
-    1 \leq i \leq s.
+    1 \leq i \leq s \,.
   \]
   This is equivalent to saying that $N^s$ is generated by $(u_1, \dotsc, u_s)$ as an $R$-module.
 \end{thrm}
@@ -737,7 +737,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
                         \pi
     \colon              N^s
     \twoheadrightarrow  Q
-    \hookrightarrow     N^s.
+    \hookrightarrow     N^s \,.
   \]
   Then $\pi \in \End_R(N^s)$.
   $\pi$ is given as a matrix $(d_{ij})_{1 \leq i,j \leq s}$ with entries in $\End_R(N)$.
@@ -746,7 +746,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
       d_{i1} u_1 + \dotsc + d_{is} u_s
     = 0
     \text{ for all }
-    1 \leq i \leq s.
+    1 \leq i \leq s \,.
   \]
   Since $u_1, \dotsc, u_s$ are linearly independent over $\End_R(N)$ we find that $d_{ij} = 0$ for all $1 \leq i,j \leq s$ and therefore $\pi = 0$.
   From this we find that $Q = 0$ and thus $Rx = N^s$.
@@ -863,7 +863,7 @@ It is perhaps interesting to notice that this could also be proven using the 2.\
       am
     = \Phi(a)(m)
     = \varphi(m)
-    = m.
+    = m \,.
   \]
   Therefore $Am = M$.
 \end{proof}
@@ -874,7 +874,7 @@ It is perhaps interesting to notice that this could also be proven using the 2.\
   Then
   \[
           (\dim_k M)^2
-    \leq  \dim_k A.
+    \leq  \dim_k A \,.
   \]
 \end{cor}
 \begin{proof}
@@ -889,7 +889,7 @@ It is perhaps interesting to notice that this could also be proven using the 2.\
           (\dim_k M)^2
     =     \dim_k \End_k(M)
     =     \dim_k \im \Phi
-    \leq  \dim_k A.
+    \leq  \dim_k A \,.
     \qedhere
   \]
 \end{proof}
@@ -905,7 +905,7 @@ We can strengthen this result.
   \[
                         \phi_i
     \colon              A
-    \twoheadrightarrow  \End_k(M_i).
+    \twoheadrightarrow  \End_k(M_i) \,.
   \]
   The map
   \[
@@ -919,7 +919,7 @@ We can strengthen this result.
 \begin{proof}
   We set
   \[
-    M \coloneqq \bigoplus_{i=1}^r M_i.
+    M \coloneqq \bigoplus_{i=1}^r M_i \,.
   \]
   Because the $M_i$ are simple and pairwise non-isomorphic we know from Schur’s Lemma that
   \begin{align*}
@@ -932,7 +932,7 @@ We can strengthen this result.
   \[
               \End_A(M_i)
     \cong     k,
-              \lambda \id_{M_i}
+    \quad     \lambda \id_{M_i}
     \mapsfrom \lambda
   \]
   for every $1 \leq i \leq r$.
@@ -954,20 +954,20 @@ We can strengthen this result.
   where $(a_1, \dotsc, a_r) \in k^r$ acts on $(m_1, \dotsc, m_r) \in M$ as
   \[
       (a_1, \dotsc, a_n)(m_1, \dotsc, m_r)
-    = (a_1 m_1, \dotsc, a_r m_r).
+    = (a_1 m_1, \dotsc, a_r m_r) \,.
   \]
   It is clear that
   \begin{align*}
                 \End_{k^r}(M)
-    &\cong      \bigoplus_{i=1}^r \End_k(M_i), \\
+    &\cong      \bigoplus_{i=1}^r \End_k(M_i) \,, \\
                 \varphi_1 \oplus \dotsb \oplus \varphi_r
-    &\mapsfrom  (\varphi_1, \dotsc, \varphi_r).
+    &\mapsfrom  (\varphi_1, \dotsc, \varphi_r) \,.
   \end{align*}
   By the Density Theorem we find that the map
   \[
             A
-    \to     \End_{k^r}(M),
-            a
+    \to     \End_{k^r}(M) \,,
+    \quad   a
     \mapsto (m \mapsto am)
   \]
   is surjective.
@@ -1002,8 +1002,8 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       \[
                 \Phi
         \colon  kG
-        \to     \End_k(V),
-                a
+        \to     \End_k(V) \,,
+        \quad   a
         \mapsto (v \mapsto av)
       \]
       is surjective.
@@ -1020,7 +1020,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   Then
   \[
           \left( \dim_k V \right)^2
-    \leq |G|.
+    \leq |G| \,.
   \]
 \end{cor}
 \begin{proof}
@@ -1028,7 +1028,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   \[
           (\dim_k V)^2
     \leq  \dim_k kG
-    =     |G|.
+    =     |G| \,.
     \qedhere
   \]
 \end{proof}
@@ -1046,8 +1046,8 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   \[
       (1_i)_j
     = \begin{cases}
-        1 & \text{if } j = i, \\
-        0 & \text{otherwise}.
+        1 & \text{if } j = i \,,  \\
+        0 & \text{otherwise} \,.
       \end{cases}
   \]
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
@@ -1059,22 +1059,22 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       If $M_i$ is an $R_i$-module for every $1 \leq i \leq n$ then $M \coloneqq M_1 \oplus \dotsb \oplus M_n$ is an $R$-module via
       \[
           (r_1, \dotsc, r_n) (m_1, \dotsc, m_n)
-        = (r_1 m_1, \dotsc, r_n m_n).
+        = (r_1 m_1, \dotsc, r_n m_n) \,.
       \]
     \item
       Let $M$ be an $R$-module and $M_i \coloneqq 1_i M$ for every $1 \leq i \leq n$.
       Then the abelian subgroup \mbox{$\sum_{i=1}^n M_i \subseteq M$} is an $R$-submodule.
       We have $\sum_{i=1}^n M_i = M$ and the sum is direct, so
       \[
-        M = M_1 \oplus \dotsb \oplus M_r.
+        M = M_1 \oplus \dotsb \oplus M_r \,.
       \]
     \item
       An $R$-module $M \neq 0$ is simple if and only if there exists an (unique) \mbox{$1 \leq i \leq n$} such that for every $1 \leq j \leq n$
       \[
         1_j M
         = \begin{cases}
-            \text{a simple $R_j$-module} & \text{if } i = j, \\
-                                       0 & \text{otherwise}.
+            \text{a simple $R_j$-module} & \text{if } i = j \,, \\
+                                       0 & \text{otherwise} \,.
           \end{cases}
       \]
   \end{enumerate}
@@ -1095,27 +1095,27 @@ Applying our results about finite-dimensional simple modules over algebras to gr
                   R_i 1_i M
         =         1_i R_i M
         =         1_i R M
-        \subseteq 1_i M,
+        \subseteq 1_i M \,,
       \]
       and for every $m \in M$ we have
       \[
           1_i (1_i m)
         = (1_i 1_i) m
-        = 1_i m.
+        = 1_i m \,.
       \]
       For every $1 \leq j \leq n$ with $j \neq i$ we have
       \[
           R_j M_i
         = (R 1_j) (1_i M)
         = R \underbrace{1_j 1_i}_{=0} M
-        = 0.
+        = 0 \,.
       \]
     \item
       This is clear.
     \item
       We set
       \[
-        M' \coloneqq \sum_{i=1}^n M_i.
+        M' \coloneqq \sum_{i=1}^n M_i \,.
       \]
       $M'$ is an $R$-submodule since
       \[
@@ -1125,7 +1125,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         = \sum_{i=1}^n R 1_i M_i
         = \sum_{i=1}^n R_i M_i
         = \sum_{i=1}^n M_i
-        = M'.
+        = M' \,.
       \]
       To see that $M = M'$ notice that
       \[
@@ -1134,7 +1134,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         = \left( \sum_{i=1}^n 1_i \right) M
         = \sum_{i=1}^n (1_i M)
         = \sum_{i=1}^n M_i
-        = M'.
+        = M' \,.
       \]
       To see that this sum is direct let $m = \sum_{i=1}^n m_i = \sum_{i=1}^n m'_i \in M$ with $m_i, m'_i \in M_i$ for every $1 \leq i \leq n$.
       Then we have for every $1 \leq i \leq n$
@@ -1152,7 +1152,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
                 S_1 \times \dotsb \times S_n
         \to     S,
                 (N_1, \dotsb, N_n)
-        \mapsto N_1 \oplus \dotsb \oplus N_n,
+        \mapsto N_1 \oplus \dotsb \oplus N_n \,,
       \]
       where $S_i$ is the set of $R_i$-submodules of $M_i$ for every $1 \leq i \leq n$ and $S$ is the set of $R$-submodules of $M$.
       Since $M$ is simple we have $|S| = 2$, so
@@ -1160,7 +1160,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
           2
         = |S|
         = |S_1 \times \dotsb \times S_n|
-        = |S_1| \dotsm |S_n|.
+        = |S_1| \dotsm |S_n| \,.
       \]
       So we have $|S_i| = 2$ for exactly one $1 \leq i \leq n$ and $|S_j| = 1$ for $j \neq i$.
       So $M_i$ is a simple $R_i$-module and $M_j = 0$ for $j \neq i$.
@@ -1181,7 +1181,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   Then there are up to isomorphism exactly $r$ simple $R$-modules, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$, where $(B_1, \dotsc, B_r) \in R$ acts on $x \in D_i^{n_i}$ by
   \[
       (B_1, \dotsc, B_r) x
-    =  B_i x.
+    =  B_i x \,.
   \]
 \end{cor}
 \begin{proof}
@@ -1202,7 +1202,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
     \item
       If $k$ is algebraically closed there are (up to isomorphism) only finitely many simple $A$-modules. More precisely
       \[
-        |\Irr(A)| \leq \dim_k A.
+        |\Irr(A)| \leq \dim_k A \,.
       \]
   \end{enumerate}
 \end{prop}
@@ -1213,7 +1213,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       \[
                             \varphi
         \colon              A
-        \twoheadrightarrow  V.
+        \twoheadrightarrow  V \,.
       \]
       Because $\varphi$ is $k$-linear we find that $\dim_k V \leq \dim_k A$.
     \item
@@ -1226,7 +1226,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       \[
               r
         \leq  \sum_{i=1}^r \dim_k \End_k(V_i)
-        \leq  \dim_k A.
+        \leq  \dim_k A \,.
         \qedhere
       \]
   \end{enumerate}
@@ -1268,7 +1268,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
                         \mid
                           a, b \in A
                         \}
-    \subseteq A.
+    \subseteq A \,.
   \]
 \end{defi}
 
@@ -1286,7 +1286,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         M \in \Mat_n(k)
       \mid
         \tr M = 0
-      \}.
+      \} \,.
   \]
   \begin{proof}
     For all $A, B \in \Mat_n(k)$ we have
@@ -1294,7 +1294,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         \tr(AB - BA)
       = \tr(AB) - \tr(BA)
       = \tr(AB) -0\tr(AB)
-      = 0.
+      = 0 \,.
     \]
     Since these elements generate $\Sl_n(k)$ as a $k$-vector space and $\tr$ is $k$-linear we find that $\Sl_n(k) \subseteq \ker \tr$.
     
@@ -1312,7 +1312,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
           E_{ii} - E_{i+1,i+1}
       =   E_{i,i+1} E_{i+1,i} - E_{i+1,i} E_{i,i+1}
       =   [E_{i,i+1}, E_{i+1,i}]
-      \in \Sl_n(k),
+      \in \Sl_n(k) \,,
     \]
     so $\ker \tr \subseteq \Sl_n(k)$.
   \end{proof}
@@ -1329,7 +1329,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         [A,B]
       \mid
         A, B \in \Mat_n(k)
-      \}.
+      \} \,.
   \]
 \end{rem}
 
@@ -1349,7 +1349,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
     &=  (a,b)(a',b') - (a',b')(a,b)
      =  (aa',bb') - (a'a, b'b) \\
     &=  (aa'-a'a, bb' - b'b)
-     =  ([a,a'], [b,b']).
+     =  ([a,a'], [b,b']) \,.
   \end{align*}
   Therefore
   \begin{align*}
@@ -1373,7 +1373,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         \left(
           \vspan_k \{ [b,b'] \mid b, b' \in B \}
         \right) \\
-    &= [A,A] \oplus [B,B].
+    &= [A,A] \oplus [B,B] \,.
     \qedhere
   \end{align*}
 \end{proof}
@@ -1387,7 +1387,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
   we then have
   \[
       [A,A]
-    = \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k).
+    = \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k) \,.
   \]
 \end{cor}
 
@@ -1404,7 +1404,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       a * b
     = b \cdot a
     \text{ for all }
-    a, b \in R^\op.
+    a, b \in R^\op \,.
   \]
 \end{defi}
 
@@ -1428,7 +1428,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       and
       \[
           \left( \bigoplus_{i \in I} R_i \right)^\op
-        = \bigoplus_{i \in I} R_i^\op.
+        = \bigoplus_{i \in I} R_i^\op \,.
       \]
   \end{enumerate}
 \end{rem}
@@ -1441,14 +1441,14 @@ Applying our results about finite-dimensional simple modules over algebras to gr
             \Mat_n(D)
     \cong   \Mat_n\left( D^\op \right)^\op,
             A
-    \mapsto A^T.
+    \mapsto A^T \,.
   \]
   For a field $k$ this gives us an isomorphism
   \[
             \Mat_n(k)
     \cong   \Mat_n(k)^\op,
             A
-    \mapsto A^T.
+    \mapsto A^T \,.
   \]
 \end{expl}
 
@@ -1463,8 +1463,8 @@ For a ring $R$ there is a strong connection between left $R$-modules and right $
               m \bullet r
     \coloneqq r \cdot m
     \text{ for every }
-    m \in M^\op,
-    r \in R^\op,
+    m \in M^\op \,,\,
+    r \in R^\op \,,
   \]
   where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
 \end{prop}
@@ -1481,7 +1481,7 @@ For a ring $R$ there is a strong connection between left $R$-modules and right $
           \End_R(R)
     \cong R^\op,
               (s \mapsto s \cdot r)
-    \mapsfrom r.
+    \mapsfrom r \,.
   \]
 \end{lem}
 
@@ -1495,8 +1495,8 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
             \varphi
     \colon  R^\op
     \to     \End_R(R),
-            r
-    \mapsto (s \mapsto s \cdot r).
+    \quad   r
+    \mapsto (s \mapsto s \cdot r) \,.
   \]
   We first show that $\varphi$ is well-defined:
   Notice that $(s \mapsto s \cdot r)$ is $\Z$-linear for every $r \in R^\op$ by the distributivity of $\cdot$ and $R$-linear by the associativity of $\cdot$.
@@ -1515,7 +1515,7 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
     &=  s \cdot (r * r')
      =  s \cdot (r' \cdot r) \\
     &=  (s \cdot r') \cdot r
-     =  \left(\varphi(r) \circ \varphi(r')\right)(s).
+     =  \left(\varphi(r) \circ \varphi(r')\right)(s) \,.
   \end{align*}
   
   That $\varphi$ is injective is clear, since for every $r \in \ker \varphi$
@@ -1523,7 +1523,7 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
       0
     = \varphi(r)(1)
     = 1 \cdot r
-    = r.
+    = r \,.
   \]
   To see that it is surjective let $f \in \End_R(R)$ and set $r \coloneqq f(1)$.
   For every $s \in R$ we then have
@@ -1532,7 +1532,7 @@ The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatib
     = f(s \cdot 1)
     = s \cdot f(1)
     = s \cdot r
-    = \varphi(r)(s),
+    = \varphi(r)(s) \,,
   \]
   and thus $f = \varphi(r)$.
 \end{proof}
@@ -1558,7 +1558,7 @@ These observations lead to the following Lemma:
   \[
               \End_{\Mat_n(D)}\left(D^n\right)
     \cong     D^\op,
-              \left(
+    \quad     \left(
                         \vect{x_1 \\ \vdots \\ x_n}
                 \mapsto \vect{x_1 d \\ \vdots \\ x_n d}
               \right)
@@ -1589,8 +1589,8 @@ These observations lead to the following Lemma:
             \varphi
     \colon  D^\op
     \to     \End_{\Mat_n(D)}\left( D^n \right),
-            d
-    \mapsto (x \mapsto x d).
+    \quad   d
+    \mapsto (x \mapsto x d) \,.
   \]
   It is clear that $\varphi$ is well-defined.
   It is clear that $\varphi$ is additive.
@@ -1601,7 +1601,7 @@ These observations lead to the following Lemma:
     = x (d * d')
     = x (d' \cdot d)
     = (x d') d
-    = \left( \varphi(d) \circ \varphi(d') \right)(x).
+    = \left( \varphi(d) \circ \varphi(d') \right)(x) \,.
   \]
   
   It is also easy to see that $\varphi$ is injective:
@@ -1612,7 +1612,7 @@ These observations lead to the following Lemma:
     = \pi_1(\varphi(d)(e_1))
     = \pi_1(\varphi(d')(e_1))
     = \pi_1(e_1 d')
-    = d'.
+    = d' \,.
   \]
   
   All that’s left to show is that $\varphi$ is surjective.
@@ -1622,7 +1622,7 @@ These observations lead to the following Lemma:
       f(dx)
     = f( \diag(d, \dotsc, d) x)
     = \diag(d, \dotsc, d) f(x)
-    = d f(x).
+    = d f(x) \,.
   \]
   For every $1 \leq i \leq n$ we set $d_i \coloneqq \pi_i(f(e_i))$.
   We then have for every $1 \leq i \leq n$
@@ -1651,7 +1651,7 @@ These observations lead to the following Lemma:
     &=  \pi_i(E_{ij} f(e_j))
      =  \pi_i(E_{ij} e_j d_j)
      =  \pi_i(e_i d_j)
-     =  d_j.
+     =  d_j \,.
   \end{align*}   
   This shows that $f = \varphi(d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
 \end{proof}
@@ -1668,7 +1668,7 @@ These observations lead to the following Lemma:
   More precisely:
   If $R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r$ as $R$-modules for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$ then
   \[
-    R \cong \Mat_{n_1}(\End_R(V_1)^\op) \times \dotsb \times \Mat_{n_r}(\End_R(V_r)^\op).
+    R \cong \Mat_{n_1}(\End_R(V_1)^\op) \times \dotsb \times \Mat_{n_r}(\End_R(V_r)^\op) \,.
   \]
 \end{thrm}
 
@@ -1796,7 +1796,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
   To see the uniquness let
   \begin{align}
             R
-    &\cong  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r),
+    &\cong  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \,,
     \label{eqn: artin wedderburn isomorphisms 1}
   \shortintertext{and}
             R
@@ -1808,7 +1808,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
   \[
       r
     = |\Irr(R)|
-    = s,
+    = s \,,
   \]
   so $r$ is unique.
   Using the isomorphisms \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} of rings we can make $\Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)$ and $\Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)$ into $R$-modules, such that \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} are also isomorphisms of $R$-modules.
@@ -1910,7 +1910,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
       \[
             E_{kl}
         =   E_{ki} E_{ij} E_{jl}
-        \in I.
+        \in I \,.
       \]
       Since $I$ is a $D$-submodule of $\Mat_n(D)$ we find that $I = \Mat_n(D)$.
     \item
@@ -1997,7 +1997,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
             \varphi
     \colon  I
     \to     Ir,
-            x
+    \quad   x
     \mapsto xr
   \]
   is an epimorphism of $R$-modules and thus either zero or an isomorphism (since $I$ is a simple $R$ module).
@@ -2041,7 +2041,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
       x^{-1} y
     = x^{-1} y x x^{-1}
     = x^{-1} x y x^{-1}
-    = y x^{-1}.
+    = y x^{-1} \,.
   \]
   
   Next we show that $Z(\Mat_n(D)) \cong Z(D)$.
@@ -2053,7 +2053,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
       a_{ij}
     = \pi_{ij}(E_{ii} A_{ij} E_{jj})
     = \pi_{ij}(E_{ii} E_{jj} A)
-    = \delta_{ij} a_{ij},
+    = \delta_{ij} a_{ij} \,,
   \]
   so $a_{ij} = 0$ for $i \neq j$.
   Let $d_1, \dotsc, d_n \in D$ with $A = \diag(d_1, \dotsc, d_n)$.
@@ -2066,7 +2066,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
     &=  \pi_{ii}(E_{ij} d_j E_{jj} E_{ji})
      =  \pi_{ii}(d_j E_{ij} E_{jj} E_{ji})
      =  \pi_{ii}(d_j E_{ii})
-     =  d_j,
+     =  d_j \,,
   \end{align*}
   so $A = \diag(d, \dotsc, d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
   Since $A$ commutes with all diagonal matrices we have $d \in Z(D)$.
@@ -2084,7 +2084,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
   Then
   \[
       Z(A \otimes_k B)
-    = Z(A) \otimes_k Z(B).
+    = Z(A) \otimes_k Z(B) \,.
   \]
 \end{lem}
 
@@ -2099,16 +2099,16 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
     \[
               s_i
       \colon  V \times W \to V,
-              \left(v, \sum_{i=1}^n \lambda_i w_i\right)
-      \mapsto \lambda_i v.
+      \quad   \left(v, \sum_{i=1}^n \lambda_i w_i\right)
+      \mapsto \lambda_i v \,.
     \]
     and thus a $k$-linear map
     \[
               f_i
       \colon  V \otimes_k W
       \to     V,
-              v \otimes w_j
-      \mapsto \delta_{ij} v.
+      \quad   v \otimes w_j
+      \mapsto \delta_{ij} v \,.
     \]
     For $x \in V \otimes_k W$ with $x = \sum_{j=1}^n v_j \otimes w_j = \sum_{j=1}^n v'_j \otimes w_j$ we have
     \[
@@ -2122,7 +2122,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
         v_i - v'_i
       = f_i\left( \sum_{j=1}^n (v_j - v'_j) \otimes w_j\right)
       = f_i(0)
-      = 0.
+      = 0 \,.
       \qedhere
     \]
   \end{proof}
@@ -2159,7 +2159,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
       Z(A \otimes_k B)
     = Z(A) \otimes_k Z(B
     = k \otimes_k k
-    = k.
+    = k \,.
   \]
   So we only need to show that $A \otimes_k B$ only contains $0$ and $A \otimes_k B$ as two-sided ideals.
   To show this let $I \subseteq A \otimes_k B$ be a two-sided ideal with $I \neq 0$.
@@ -2194,7 +2194,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
         (a \otimes 1) x - x (a \otimes 1)
     =   (a a'_2 - a'_2 a) \otimes b_2
       + \dotsb
-      + (a a'_n - a'_n a) \otimes b_2 \in I.
+      + (a a'_n - a'_n a) \otimes b_2 \in I \,.
   \]
   By the minimality of $u$ we find that
   \[
@@ -2211,13 +2211,13 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
               I
     \supseteq (1 \otimes B) x (1 \otimes B)
     =         1 \otimes (BbB)
-    =         1 \otimes B.
+    =         1 \otimes B \,.
   \]
   Using this we find that
   \[
               I
     \supseteq (A \otimes 1) (1 \otimes B)
-    =         A \otimes_k B.
+    =         A \otimes_k B \,.
   \]
   So $0$ and $A \otimes_k B$ are the only two-sided ideals in $A \otimes_k B$.
 \end{proof}
@@ -2236,7 +2236,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
             \rho
     \colon  A
     \to     \End_k(V),
-            a
+    \quad   a
     \mapsto (v \mapsto av)
   \]
   be the corresponding algebra homomorphism.
@@ -2245,8 +2245,8 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
             \chi_V
     \colon  A
     \to     k,
-            a
-    \mapsto \tr \rho(a).
+    \quad   a
+    \mapsto \tr \rho(a) \,.
   \]
 \end{defi}
 
@@ -2281,8 +2281,8 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
             \rho_X
     \colon  A
     \to     \End_k(X),
-            a
-    \mapsto (x \mapsto ax).
+    \quad   a
+    \mapsto (x \mapsto ax) \,.
   \]
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -2297,7 +2297,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
         = \tr \rho_V(a)
         = \tr M
         = \tr \rho_W(a)
-        = \chi_W(a).
+        = \chi_W(a) \,.
       \]
     \item
       Let $a \in A$.
@@ -2317,7 +2317,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
          =  \tr M
          =  \tr M_1 + \tr M_2 \\
         &=  \tr \rho_V(a) + \tr \rho_W(a)
-         =  \chi_V(a) + \chi_W(a).
+         =  \chi_V(a) + \chi_W(a) \,.
       \end{align*}
     \item
       Let $a \in A$.
@@ -2365,7 +2365,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
          =  \tr M \otimes N
          =  \tr M \cdot \tr N \\
         &=  \tr \rho_V(a) \cdot \tr \rho_W(a)
-         =  \chi_V(a) \cdot \chi_W(a).
+         =  \chi_V(a) \cdot \chi_W(a) \,.
       \end{align*}
     \item
       The representing matrix of $\rho_V(e)$ (with respect to any $k$-basis of $V$) is the identity matrix $I_s \in \Mat_s(k)$.
@@ -2388,7 +2388,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
         &=  \tr\left( NMN^{-1} \right)
          =  \tr M
          =  \tr \rho_V(g)
-         =  \chi_V(g).
+         =  \chi_V(g) \,.
       \end{align*}
     \item
       Let $M \in \Mat_s(k)$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1, \dotsc, v_s$ and $M^* \in \Mat_s(k)$ be the representing matrix of $\rho_{V^*}(g)$ with respect to the basis $v_1^*, \dotsc, v_s^*$.
@@ -2402,7 +2402,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
          =  \tr \left(M^{-1}\right)^T \\
         &=  \tr M^{-1}
          =  \tr \rho_V\left( g^{-1} \right)
-         =  \chi_V\left( g^{-1} \right).
+         =  \chi_V\left( g^{-1} \right) \,.
         \qedhere
       \end{align*}
   \end{enumerate}
@@ -2424,7 +2424,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
               \right) \\
     =&\,  \tr(\rho_V(a)\rho_V(b)) - \tr(\rho_V(b)\rho_V(a)) \\
     =&\,  \tr(\rho_V(a)\rho_V(b)) - \tr(\rho_V(a)\rho_V(b)) \\
-    =&\,  0.
+    =&\,  0 \,.
   \end{align*}
   Since $[A,A]$ is generated by the elements $ab - ba$ as a $k$-vector space and $\chi_V$ is $k$-linear we have $\chi_V(a) = 0$ for all $a \in [A,A]$.
 \end{proof}
@@ -2451,7 +2451,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
       Let $V_1, \dotsc, V_r$ be pairwise non-isomorphic simple $A$-modules and $\lambda_1, \dotsc, \lambda_r \in k$ with
       \[
           \sum_{i=1}^r \lambda_i \chi_{V_i}
-        = 0.
+        = 0 \,.
       \]
       For all $1 \leq i \leq r$ let
       \[
@@ -2466,7 +2466,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
           0
         = \left( \sum_{i=1}^r \lambda_i \chi_{V_i} \right)(a)
         = \sum_{i=1}^r \lambda_i \chi_{V_i}(a)
-        = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(a).
+        = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(a) \,.
       \]
       Fix $1 \leq j \leq r$.
       For every $1 \leq i \leq r$ there exists $\varphi_i \in \End_k(V_i)$ with $\tr \varphi_i = \delta_{ij}$.
@@ -2484,7 +2484,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
         = \sum_{i=1}^r \lambda_i \tr \rho_{V_i}(b)
         = \sum_{i=1}^r \lambda_i \tr \varphi_i
         = \sum_{i=1}^r \lambda_i \delta_{ij}
-        = \lambda_j.
+        = \lambda_j \,.
       \]
       Because $j$ is arbitrary we find that $\lambda_j = 0$ for all $1 \leq j \leq r$.
     \item
@@ -2507,7 +2507,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
                       \oplus  \dotsb
                       \oplus  \Mat_{n_r}(k) / \Sl_{n_r}(k)
                     \right) \\
-        =&\,  r.
+        =&\,  r \,.
       \end{align*}
       From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules.
       Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$.
@@ -2527,13 +2527,13 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
       |\Irr_k(G)|
     = |\Irr(kG)|
     = \dim_k (kG/[kG, kG])^*
-    = \dim_k kG/[kG, kG].
+    = \dim_k kG/[kG, kG] \,.
   \]
   Since $G$ is abelian the group algebra $kG$ is commutative, so $[kG,kG] = 0$ and
   \[
       \dim_k kG/[kG, kG]
     = \dim_k kG
-    = |G|.
+    = |G| \,.
     \qedhere
   \]
 \end{proof}
@@ -2653,7 +2653,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
         Then $\pi$ is conjugated to the permutation
         \[
                   \underbrace{ (1 \; \dots \; M) \dotsm ((l_M-1)M+1 \; \dots \; l_M M) }_{ \text{$l_M$ many} }
-          \dotsm  \underbrace{ (n-l_1+1) \dotsm (n) }_{ \text{$l_1$ many} }.
+          \dotsm  \underbrace{ (n-l_1+1) \dotsm (n) }_{ \text{$l_1$ many} } \,.
         \]
         Since this permutation depends only on the cycle type of $\pi$ the statement follows.
       \end{proof}
@@ -2709,7 +2709,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
               (a,b)
     \coloneqq \varepsilon(ab)
     \text{ for all }
-    a, b \in A.
+    a, b \in A \,.
     \qedhere
   \]
 \end{proof}
@@ -2733,7 +2733,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
             \phi
     \colon  A
     \to     A^*,
-            a
+    \quad   a
     \mapsto (a,-)
   \]
   is injective.
@@ -2750,7 +2750,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
       \[
           \varepsilon(g)
         = \begin{cases}
-            1 & \text{if } g = e, \\
+            1 & \text{if } g = e \,,  \\
             0 & \text{otherwise}
           \end{cases}
       \]
@@ -2760,7 +2760,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
           \varepsilon(ab)
         = \sum_{g \in G} \lambda_g \mu_{g^{-1}}
         = \sum_{h \in G} \mu_h \lambda_{h^{-1}}
-        = \varepsilon(ba).
+        = \varepsilon(ba) \,.
       \]
       For a left-ideal $I \subseteq \ker \varepsilon$ and $a \in I $ with $a = \sum_{g \in G} \lambda_g g$ we have for every $h \in G$
       \[
@@ -2776,7 +2776,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
           (a,b)
         = \varepsilon(ab)
         \text{ for all }
-        a, b \in A,
+        a, b \in A \,,
       \]
       is nondegenerate can also be seen by noticing that $(g^{-1},-) = g^*$ with respect to the basis $G$ for every $g \in G$.
       Therefore the $k$-linear map $kG \to kG^*$, $a \mapsto (a,-)$ is an isomorphism and in particular injective.
@@ -2789,7 +2789,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
           (A,B)
         = \tr(AB)
         \text{ for all }
-        A, B \in \Mat_n(k),
+        A, B \in \Mat_n(k) \,,
       \]
       is symmetric and associative.
       To see that it is nondegenerate notice that $(E_{ij}, -) = E_{ji}^*$ with respect to the basis $(E_{ij})_{1 \leq i,j \leq n}$ for every $1 \leq i,j \leq n$.
@@ -2804,7 +2804,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
             \psi
     \colon  Z(A)
     \to     (A/[A,A])^*,
-            a
+    \quad   a
     \mapsto (a,-)
   \]
   is an isomorphism of $k$-vector spaces.
@@ -2815,7 +2815,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
             \varphi
     \colon  A
     \to     A^*,
-            a
+    \quad   a
     \mapsto (a, -)
   \]
   is an isomorphism of $k$-vector spaces.
@@ -2876,7 +2876,7 @@ Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$
   Then we define the representations $V \boxtimes_k W$ of $G \times H$ as the $k$-vector space $V \otimes_k W$ together with the (linear) group action
   \[
       (g,h).(v \otimes w)
-    = (g.v) \otimes (h.w).
+    = (g.v) \otimes (h.w) \,.
   \]
 \end{defi}
 
@@ -2891,8 +2891,8 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
             \Psi
     \colon  \irr_k(G) \times \irr_k(H)
     \to     \irr_k(G \times H),
-            ([V],[W])
-    \mapsto [V \boxtimes_k W].
+    \quad   ([V],[W])
+    \mapsto [V \boxtimes_k W] \,.
   \]
 \end{thrm}
 \begin{proof}
@@ -2913,7 +2913,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     =&\, (\phi_V(g.v)) \otimes (\phi_W(h.w))
     =    (g.\phi_V(v)) \otimes (h.\phi_W(w)) \\
     =&\, (g,h).(\phi_V(v) \otimes \phi_W(w))
-    =    (g,h).((\phi_V \otimes \phi_W)(v \otimes w)).
+    =    (g,h).((\phi_V \otimes \phi_W)(v \otimes w)) \,.
   \end{align*}
   Since these simple tensors generate $V \otimes_k W$ as a $k$-vector space it follows that $\phi_V \otimes \phi_W$ is $(G \times H)$-equivariant.
   
@@ -2922,7 +2922,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \[
       \dim_k V \otimes_k W
     = \dim_k V \cdot \dim_k W
-    < \infty.
+    < \infty \,.
   \]
   To show that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$ for every irreducible representation $V$ of 
   $G$ and every irreducible representation $W$ of $H$ let
@@ -2943,22 +2943,22 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
             \phi_2
     \colon  kH
     \to     \End_k(W),
-            b
-    \mapsto (w \mapsto bw).
+    \quad   b
+    \mapsto (w \mapsto bw) \,.
   \end{gather*}
   By Lemma \ref{lem: equivalence to irreducible} these homomorphisms are surjective.
   Together with the isomorphisms of $k$-algebras
   \[
             kG \otimes_k kH
     \cong   k(G \times H),
-            g \otimes h
+    \quad   g \otimes h
     \mapsto (g,h)
   \]
   and
   \[
             \End_k(V) \otimes_k \End_k(W)
     \cong   \End(V \otimes_k W),
-            f \otimes g
+    \quad   f \otimes g
     \mapsto f \otimes g
   \]
   we get the following commutative diagram.
@@ -2988,9 +2988,9 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
       (h.f)(v)
     = h.f(v)
     \text{ for all }
-    h \in H,
-    f \in \Hom_G(V, Z),
-    v \in V,
+    h \in H \,,\,
+    f \in \Hom_G(V, Z) \,,\,
+    v \in V \,,
   \]
   where we see $Z$ a representation of $H$ via the identification $H \cong 1 \times H \subseteq G \times H$.
   To see that $h.f$ is $G$-equivariant for all $h \in H$ and $f \in \Hom_G(V,W)$ notice that the actions of $G$ and $H$ on $Z$ commute, since for all $g \in G$, $h \in H$, $z \in Z$
@@ -2999,7 +2999,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     = (g,1).((1,h).z)
     = (g,h).z
     = (1,h).((g,1).z)
-    = h.(g.z),
+    = h.(g.z) \,,
   \]
   and thus
   \[
@@ -3007,7 +3007,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     = h.(f(g.v))
     = h.(g.f(v))
     = g.(h.f(v))
-    = g.((h.f)(v)).
+    = g.((h.f)(v)) \,.
   \]
   Since $\Hom_G(V, Z)$ is finite-dimensional and $\Hom_G(V, Z) \neq 0$ (since the inclusion $\iota \colon V \hookrightarrow Z$ is $G$-equivariant and nonzero) it contains some irreducible subrepresentation $W$ of $H$.
   
@@ -3017,8 +3017,8 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
             \beta
     \colon  V \boxtimes_k \Hom_G(V,Z)
     \to     Z,
-            (v, f)
-    \mapsto f(v).
+    \quad   (v, f)
+    \mapsto f(v) \,.
   \]
   It is clear that $\beta$ is well-defined and $k$-linear.
   It is also $(G \times H)$-equivariant, since for or every $v \otimes f \in V \boxtimes_k \Hom_G(V,Z)$ and $(g,h) \in G \times H$ we have
@@ -3037,8 +3037,8 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
             \gamma
     \colon  V \boxtimes_k W
     \to     Z,
-            v \otimes f
-    \mapsto f(v).
+    \quad   v \otimes f
+    \mapsto f(v) \,.
   \]
   We claim that $\gamma$ is an isomorphism.
   Since $V \boxtimes_k W$ and $Z$ are both irreducible as representations of $G \times H$ and $k$ is algebraically closed it is enough to show $\gamma \neq 0$ by Schur’s Lemma.
@@ -3048,7 +3048,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \[
           \gamma(v \otimes f)
     =     f(v)
-    \neq  0,
+    \neq  0 \,,
   \]
   so $\gamma \neq 0$.
   
@@ -3067,7 +3067,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   and
   \[
           M' \boxtimes_k N'
-    \cong \underbrace{ M' \oplus \dotsb \oplus M' }_{ \dim_k(N') \text{ copies} }.
+    \cong \underbrace{ M' \oplus \dotsb \oplus M' }_{ \dim_k(N') \text{ copies} }\,.
   \]
   Since $\alpha$ is a $(G \times H)$-equivariant also $G$-equivariant and therefore an isomorphism of representations of $G$.
   Therefore we we have $M \cong M'$.
@@ -3086,11 +3086,11 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
                 \varphi s = s \varphi
                 \text{ for all }
                 s \in S
-              \}.
+              \} \,.
   \]
   The \emph{double commutant} or \emph{double centralizer} is defined as
   \[
-    S'' \coloneqq (S')'.
+    S'' \coloneqq (S')' \,.
   \]
   
   For an $R$-module $M$ and $S \subseteq \End_R(M)$ the \emph{commutant} or \emph{centralizer} of $S$ in $\End_R(M)$ is defined as
@@ -3106,7 +3106,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \]
   and the \emph{double commutant} or \emph{double centralizer} of $S$ in $\End_R(M)$ is defined as
   \[
-    S''_R \coloneqq (S'_R)'_R.
+    S''_R \coloneqq (S'_R)'_R \,.
   \]
 \end{defi}
 
@@ -3130,7 +3130,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
         st = ts
         \text{ for every }
         t \in T,
-        s \in S.
+        s \in S \,.
       \]
     \item
       We have $S' \subseteq S'$ and thus $S \subseteq S''$ by \ref{enum: commutant adjoint}.
@@ -3158,7 +3158,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \[
               (a \otimes b) \cdot v
     \coloneqq a \cdot (b \cdot v)
-    =         b \cdot (a \cdot v).
+    =         b \cdot (a \cdot v) \,.
   \]
   for all $v \in V$ and simple tensors $a \otimes b \in A \otimes_k B$.
   
@@ -3173,7 +3173,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
             \Phi_B
     \colon  B
     \to     \End_k(V),
-            b
+    \quad   b
     \mapsto (v \mapsto bv)
   \end{gather*}
   be the corresponding algebra homomorphisms.
@@ -3181,7 +3181,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \[
             A \times B
     \to     \End_k(V),
-            (a,b)
+    \quad   (a,b)
     \mapsto \Phi_A(a) \circ \Phi_B(b)
   \]
   and thus in a $k$-linear map
@@ -3189,7 +3189,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
             \Psi
     \colon  A \otimes_k B
     \to     \End_k(V),
-            a \otimes b
+    \quad   a \otimes b
     \mapsto \Phi_A(a) \circ \Phi_B(b).
   \]
   For all simple tensors $a \otimes b, a' \otimes b' \in A \otimes_k B$ we have
@@ -3199,7 +3199,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
      =  \Phi_A(aa') \circ \Phi_B(bb') \\
     &=  \Phi_A(a) \circ \Phi_A(a') \circ \Phi_B(b) \circ \Phi_B(b') \\
     &=  \Phi_A(a) \circ \Phi_B(b) \circ \Phi_A(a') \circ \Phi_B(b') \\
-    &=  \Psi(a \otimes b) \circ \Psi(a' \otimes b'),
+    &=  \Psi(a \otimes b) \circ \Psi(a' \otimes b') \,,
   \end{align*}
   so $\Psi$ is multiplicative and therefore an algebra homomorphism.
 \end{rem}
@@ -3217,7 +3217,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
         a b = b a
         \text{ for every }
         a \in A
-      \}.
+      \} \,.
   \]
   Then $A'$ is a semisimple subalgebra of $\End_k(W)$ and $A'' = A$.
   As an $(A \otimes_k A')$-module we have a decomposition
@@ -3277,7 +3277,7 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
   \[
             V
     \cong   S^2\left( \Complex^2 \right)  \oplus  \Lambda^2\left( \Complex^2 \right),
-            v \otimes w
+    \quad   v \otimes w
     \mapsto (v \cdot w, v \wedge w)
   \]
   is clearly $\GL_2(\Complex)$-equivariant and thus an isomorphism of representations of $\GL_2(\Complex)$.
@@ -3380,7 +3380,7 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
                   1 & 0 \\
                   1 & 1
                 \end{pmatrix}
-      \in       \GL_2(\Complex).
+      \in       \GL_2(\Complex) \,.
     \end{gather*}
     So $U$ contains a basis of $S^2(\Complex^2)$ and therefore $U = \Complex^2$.
   \end{proof}
@@ -3415,14 +3415,14 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
   \[
             k \GL(V)
     \to     \End_k\left( V^{\otimes d} \right),
-            g
+    \quad   g
     \mapsto (x \mapsto g.x)
   \]
   and $\gen{S_d}$ the image of the algebra homomorphism
   \[
             k S_d
     \to     \End_k\left( V^{\otimes d} \right),
-            \sigma
+    \quad   \sigma
     \mapsto (x \mapsto \sigma.x).
   \]
   \begin{enumerate}[label=\emph{(\alph*)}, leftmargin=*]
@@ -3454,7 +3454,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
     \colon    (\End_k(V))^{\otimes d}
     &\to      \End_k\left( V^{\otimes d} \right), \\
               f_1 \otimes \dotsb \otimes f_d
-    &\mapsto  f_1 \otimes \dotsb \otimes f_d.
+    &\mapsto  f_1 \otimes \dotsb \otimes f_d \,.
   \end{align*}
   Now both $\End_k(V)^{\otimes d}$ and $\End_k\left( V^{\otimes d} \right)$ are representations of $S_d$ in the usual way, i.e.\
   \[
@@ -3477,7 +3477,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
     =&\,  \pi.\Phi(f_1 \otimes \dotsb \otimes f_d)\left( \pi^{-1}.(v_1 \otimes \dotsb \otimes v_d) \right) \\
     =&\,  \pi.\Phi(f_1 \otimes \dotsb \otimes f_d)\left( v_{\pi^{-1}(1)} \otimes \dotsb \otimes v_{\pi^{-1}(d)} \right) \\
     =&\,  \pi.\left( f_1\left(v_{\pi^{-1}(1)}\right) \otimes \dotsb \otimes f_d\left(v_{\pi^{-1}(d)}\right) \right) \\
-    =&\,  f_{\pi(1)}(v_1) \otimes \dotsb \otimes f_{\pi(d)}(v_d).
+    =&\,  f_{\pi(1)}(v_1) \otimes \dotsb \otimes f_{\pi(d)}(v_d)0\,.
   \end{align*}
   So $\Phi$ is an isomorphism of representations of $S_d$. It follows that $\Phi$ induces an isomorphism
   \[
@@ -3489,7 +3489,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
           \End_{S_n}\left( V^{\otimes d} \right)
     &=    \left( \End_k\left( V^{\otimes d} \right) \right)^{S_n}
     \cong \left( \End_k(V)^{\otimes d} \right)^{S_n} \\
-    &=    \text{symmetric tensors in $\End_k(V)^{\otimes d}$}.
+    &=    \text{symmetric tensors in $\End_k(V)^{\otimes d}$} \,.
   \end{align*}
   
   Now $\gen{\GL(V)} \subseteq \End_k(V^{\otimes d})$ is generated as an $k$-vector space by the image of the group homomorphism $\GL(V) \to \GL(V^{\otimes d})$.
@@ -3502,7 +3502,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
                   \psi \otimes \dotsb \otimes \psi
                 \mid
                   \psi \in \GL(V)
-                \}.
+                \} \,.
   \]
   Since $\GL_k(V) \subseteq \End_k(V)$ is Zariski dense over $k$ this will follow from Lemma \ref{lem: symmetric tensors and zariski dense subsets}
 \end{proof}
@@ -3517,7 +3517,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
   \[
               U
     \coloneqq \vspan_k \{ x \otimes \dotsb \otimes x \mid x \in X \}
-    \subseteq E^{\otimes d}.
+    \subseteq E^{\otimes d} \,.
   \]
   For every partition $\lambda \in \N^n$ with $|\lambda| = d$ we write
   \[
@@ -3525,13 +3525,13 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
     =         \underbrace{e_1 \otimes \dotsb \otimes e_1}_{\lambda_1}
       \otimes \underbrace{e_2 \otimes \dotsb \otimes e_2}_{\lambda_2}
       \otimes \dotsb
-      \otimes \underbrace{e_n \otimes \dotsb \otimes e_n}_{\lambda_n}.
+      \otimes \underbrace{e_n \otimes \dotsb \otimes e_n}_{\lambda_n} \,.
   \]
   as well as
   \[
       a^\lambda
     = \sum_{y \in S_d e^\lambda} y
-    = \sum \text{distinct permutations of $e^\lambda$},
+    = \sum \text{distinct permutations of $e^\lambda$} \,,
   \]
   where $S_d e^\lambda$ denotes the orbit of $e^\lambda$.
   It is easy to see that $\{ a^\lambda \mid \lambda \in \N^n, |\lambda| = d \}$ is a $k$-basis of $S$.
@@ -3547,7 +3547,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
   and $\tilde{\lambda} \colon E \to k$ as the corresponding polynomial function
   \[
       \tilde{\lambda}\left( \sum_{i=1}^n \mu_i e_i \right)
-    = p(\mu_1, \dotsc, \mu_n).
+    = p(\mu_1, \dotsc, \mu_n) \,.
   \]
   It is clear that $\tilde{\lambda} \in \Pol_k(E)$.
   For every $x = \sum_{i=1}^n x_i e_i \in X$ we have
@@ -3558,7 +3558,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
         x_1^{\lambda_1} \dotsm x_n^{\lambda_n}
         f\left( a^\lambda \right) 
     = f(x \otimes \dotsb \otimes x)
-    = 0.
+    = 0 \,.
   \]
   Since $X$ is Zariski dense in $E$ we find that $\tilde{\lambda} = 0$.
   Therefore $p = 0$ and thus $f(a^\lambda) = 0$ for every $\lambda \in \N^n$ with $|\lambda| = d$.
