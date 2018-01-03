@@ -7,13 +7,13 @@
 \section{Graded and Filtered \texorpdfstring{$k$}{k}-Algebras}
 
 
-\begin{defi}
+\begin{definition}
   A $k$-Algebra $A$ is called \emph{graded} (or more precisely \emph{$\Z$-graded}) if there is a decomposition $A = \bigoplus_{d \in \Z} A_d$ into vector subspaces $A_d$ such that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
   
   A ring $R$ is called \emph{graded} if there is a decomposition $R = \bigoplus_{d \in \Z} R_d$ into $\Z$-modules such that $R_i R_j \subseteq R_{i+j}$ for all $i,j \in \Z$.
   
   We call $A_d$, resp.\ $R_d$, the \emph{homogeneous part of degree $d$}.
-\end{defi}
+\end{definition}
 
 \begin{rem}
   If $A$ is a $k$-Algebra with $1$, then $A$ is a graded $k$-Algebra if and only if $A$ is a graded ring such that $k1 \subseteq A_0$.
@@ -109,7 +109,7 @@
 \end{expls}
 
 
-\begin{defi}
+\begin{definition}
   A $k$-algebra $A$ is \emph{filtered} if there exists a (potentially infinite) sequence
   \[
               0
@@ -130,10 +130,10 @@
     \text{ for all } i,j \geq -1 \,.
   \end{gather*}
   This sequence is called a \emph{filtration of $A$}.
-\end{defi}
+\end{definition}
 
 
-\begin{defi}
+\begin{definition}
   If $A$ is a filtered algebra and
   \[
               0
@@ -155,17 +155,17 @@
     \coloneqq \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i \,.
   \]
   $\gr_\mc{F}(A)$ is the \emph{associated graded algebra to the filtered algebra $A$}.
-\end{defi}
+\end{definition}
 
 
 
-\begin{lem}
+\begin{lemma}
   $\gr_\mc{F}(A) = \bigoplus_{i \geq 0} (\gr_\mc{F}A)_i$ is a graded algebra with the multiplication indexed from the multiplication of $A$, i.e.\
   \[
       ( a + F_{i-1}(A) )( b + F_{j-1}(A) )
     = ab + F_{i+j-1}(A) \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
   The multiplication is well-defined: Let $a \in F_i(A)$, $b \in F_j(A)$. Note that we have
   \begin{align*}
@@ -202,7 +202,7 @@
 \end{proof}
 
 
-\begin{lem}
+\begin{lemma}
   Let $A = \bigoplus_{d \in \Z} A_d$ be a graded $k$-algebra with $A_d = 0$ for all $d < 0$.
   Then
   \[
@@ -212,7 +212,7 @@
     i \geq -1
   \]
   defines a filtration on $A$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   $F_i(A)$ is a vector subspace for all $i \geq -1$, because $A_d$ is a vector subspace for all $d \in \Z$.
   It is also clear that $F_{-1}(A) = 0$ and $F_i(A) \subseteq F_{i+1}(A)$ for all $i \geq -1$.
@@ -255,7 +255,7 @@
 \section{Symmetric Polynomials}
 
 
-\begin{defi}
+\begin{definition}
   Let $k$ be a field.
   $G \coloneqq S_n$ acts linearly on $k[X_1, \dotsc, X_n]$ by extending
   \[
@@ -266,7 +266,7 @@
   \]
   linearly.
   A polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ is called a \emph{symmetric polynomial (in $n$ variables)}.
-\end{defi}
+\end{definition}
 
 
 \begin{expl}
@@ -288,7 +288,7 @@
 \end{expl}
 
 
-\begin{defi}
+\begin{definition}
   Fix $n \in \N$.
   The \emph{$r$-th power symmetric polynomial}, also called the \emph{$r$-th power sum}, is defined as
   \[
@@ -307,7 +307,7 @@
   \]
   We also set $e_0^{(n)} \coloneqq 1$ and $e_r^{(n)} = 0$ for $r > n$.
   If the number of variables in clear we also write $p_r$, $h_r$ and $e_r$.
-\end{defi}
+\end{definition}
 
 Another possible way of writing $e^{(n)}_r$ is
 \[
@@ -328,14 +328,14 @@ in $k[t]$.
 We will formalize this observation in the following lemma.
 
 
-\begin{lem}
+\begin{lemma}
   For all $n \in \N$ we have
   \[
       \prod_{i=1}^n (t-X_i)
     = t^n - e^{(n)}_1 t^{n-1} + e^{(n)}_2 t^{n-2} + \dotsb + (-1)^n e^{(n)}_n
   \]
   in $k[X_1, \dotsc, X_n][t]$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   For $n = 0$ the statement is clear.
   For $n \geq 1$ the coefficient of the left-hand side of $t^{n-r}$ is $e^{(n)}_0 = 1$ for $r = 0$ and
@@ -347,13 +347,13 @@ We will formalize this observation in the following lemma.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   For all $n \in \N$ we have
   \[
       p^{(n)}_n - e^{(n)}_1 p^{(n)}_{n-1} + e^{(n)}_2 p^{(n)}_{n-2} + \dotsb + (-1)^n n e^{(n)}_n
     = 0 \,.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
   For $n = 0$ the statement is clear. For $n > 0$ we have
   \[
@@ -389,7 +389,7 @@ We will formalize this observation in the following lemma.
 \end{proof}
 
 
-\begin{thrm}[Fundamental Theorem of symmetric functions]
+\begin{theorem}[Fundamental Theorem of symmetric functions]
   The symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \dotsc, X_n]^{S_n}$.
   Moreover they are algebraically independent.
   In other words
@@ -400,16 +400,16 @@ We will formalize this observation in the following lemma.
             e^{(n)}_k
     \mapsto X_k \,.
   \]
-\end{thrm}
+\end{theorem}
 
 
-\begin{lem}
+\begin{lemma}
   A polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if its homogeneous parts are symmetric.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We have $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ as a graded $k$-algebra.
   This decomposition is also a decomposition into subrepresentations of $S_n$.
-  So the statement follows from Lemma \ref{lem: direct sum and invariants commute}.
+  So the statement follows from Lemma \ref{lemma: direct sum and invariants commute}.
 \end{proof}
 
 
@@ -662,7 +662,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
 (Notice that for $P(t)$ we shift the index by $1$.)
 
 
-\begin{prop}
+\begin{proposition}
   We have the following equalities of power series:
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -673,7 +673,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
       $P(t) = \sum_{i=1}^n \frac{X_i}{1 - X_i t}$.
       More generally $\sum_{k \geq 0} p_{k+l} t^k = \sum_{i=1}^n \frac{X_i^l}{1 - X_i t}$ for all $l \geq 0$.
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -721,7 +721,7 @@ To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ an
 From this equalities we can now easily derive more equalities.
 
 
-\begin{cor}
+\begin{corollary}
   For all $s \geq 1$ we have
   \[
         h^{(n)}_s
@@ -742,7 +742,7 @@ From this equalities we can now easily derive more equalities.
       + (-1)^s h^{(n)}_s
     = 0 \,
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
   From the previous proposition it follows that
   \[
@@ -754,7 +754,7 @@ From this equalities we can now easily derive more equalities.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   For all $r \geq 1$ we have
   \[
       r h^{(n)}_r
@@ -764,7 +764,7 @@ From this equalities we can now easily derive more equalities.
       + p^{(n)}_{r-1} h^{(n)}_1
       + p^{(n)}_r.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
   By $H'(t)$ we denote the formal derivative of $H$ with respect to $t$.
   On the one hand we have
@@ -828,7 +828,7 @@ One natural question which comes with this observation is whether $h^{(n)}_1, \d
 Using this symmetrie we get the following Lemma.
 
 
-\begin{lem}
+\begin{lemma}
   There exists polynomials $F_1, \dotsc, F_n \in k[X_1, \dotsc, X_n]$ such that
   \[
       h^{(n)}_i
@@ -838,7 +838,7 @@ Using this symmetrie we get the following Lemma.
     = F_i\left(h^{(n)}_1, \dotsc, h^{(n)}_n\right)
   \]
   for all $1 \leq i \leq n$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We construct $F_1, \dotsc, F_n$ recursively.
   Since $e^{(n)}_1 = h^{(n)}_1$ we start with $F_1 = X_1$.
@@ -877,7 +877,7 @@ Using this symmetrie we get the following Lemma.
 With the help of this Lemma we can now easily prove the following Theorem, which points out a deep connection between the elementary symmetric polynomials and completely homogenous symmetirc polynomials and how they are, in a certain way, dual to each other.
 
 
-\begin{thrm}
+\begin{theorem}
 There exists an unique homomorphism
 \[
           \phi
@@ -886,7 +886,7 @@ There exists an unique homomorphism
 \]
 of $k$-algebras with $\phi\left(e^{(n)}_i\right) = h^{(n)}_i$ for all $1 \leq i \leq n$.
 $\phi$ in an automorphism and involutive
-\end{thrm}
+\end{theorem}
 \begin{proof}
   The existence and uniqueness of $\phi$ follow directly from the fact that $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
   (This is basically the universal property of the polynomial ring.)
@@ -915,10 +915,10 @@ Since $e^{(n)}_1, \dotsc, e^{(n)}_n$ and $h^{(n)}_1, \dotsc, h^{(n)}_n$ are each
 The next theorem shows that this is true under additional assumptions.
 
 
-\begin{thrm}
+\begin{theorem}
   Let $k$ be a field with either $\kchar k = 0$ or $\kchar k > n$.
   Then $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
-\end{thrm}
+\end{theorem}
 \begin{proof}
   We first show that $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra.
   For this it is enough to show that $e^{(n)}_1, \dotsc, e^{(n)}_n$ can be expressed as polynomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$.
@@ -1018,7 +1018,7 @@ both $F$ and $G$ must have integer coefficients.
 
 
 
-\begin{defi}
+\begin{definition}
   $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \N^s$ is \emph{a partition of $|\lambda| \coloneqq \sum_{i=1}^s \lambda_i$} if
   \[
           \lambda_1
@@ -1044,7 +1044,7 @@ both $F$ and $G$ must have integer coefficients.
               \lambda'_i
     \coloneqq |\{j \mid \lambda_j \geq i\}| \,.
   \]
-\end{defi}
+\end{definition}
 
 
 Partitions are often displayed in terms of \emph{Young diagrams}.
@@ -1054,19 +1054,19 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
 \begin{expl}
   $\lambda = (4,2,2)$ is a partition of $8$ and $\lambda' = (3,3,1,1)$ is the transposed partion.
   The Young diagram corresponding to $\lambda'$ is the `transposition' of the Young diagram corresponding to $\lambda$.
-  (See figure \ref{fig: Young diagram example}.)
+  (See figure \ref{figure: Young diagram example}.)
   \begin{figure}
     \centering
     \ydiagram{4,2,2}
     \qquad
     \ydiagram{3,3,1,1}
     \caption{The Young diagrams corresponding to $\lambda$ (left) and to $\lambda'$ (right).}
-    \label{fig: Young diagram example}
+    \label{figure: Young diagram example}
   \end{figure}
 \end{expl}
 
 
-\begin{defi}
+\begin{definition}
   For $n \in \N$ we write
   \[
               \Par(n)
@@ -1077,13 +1077,13 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
               \Par
     \coloneqq \bigcup_{n \in \N} \Par(n) \,.
   \]
-\end{defi}
+\end{definition}
   
 
-\begin{defi}
+\begin{definition}
   Let $\lambda$ and $\mu$ be partitions.
   We say that $\lambda \geq \mu$ if $|\lambda| = |\mu|$ and $\sum_{i=1}^r \hat{\lambda}_i \geq \sum_{i=1}^r \hat{\mu}_i$ for all $r$.
-\end{defi}
+\end{definition}
 
 
 \begin{expls}
@@ -1112,9 +1112,9 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
 \end{expls}
 %TODO: Adding a better explanation of this partial order. Bessere Erklärung der partiellen Ordnung hinzufügen.
 
-\begin{lem}
+\begin{lemma}
   $\geq$ defines a partial ordering on $\Par$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   It is clear that $\geq$ is reflexive.
   
@@ -1144,7 +1144,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $\lambda = (\lambda_1, \dotsc, \lambda_r)$ be a partition. We define the \emph{elementary symmetric polynomial}
   \[
               e^{(n)}_\lambda
@@ -1166,7 +1166,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
     \coloneqq   X_1^{\lambda_1} \dotsm X_r^{\lambda_r}
               + \text{ all distinct permutations of this monomial} \,.
   \]
-\end{defi}
+\end{definition}
 
 
 One can also define $m_\lambda$ in a formal way:
@@ -1312,7 +1312,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
 \end{expl}
 
 
-\begin{lem}
+\begin{lemma}
   The set of monomial symmetric polynomials
   \[
     \{
@@ -1332,7 +1332,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
     \}
   \]
   forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}_d$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Is is clear that
   \[
@@ -1419,7 +1419,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $\lambda, \mu \in \Par$.
   We define the partition $\lambda+\mu$ of length $l(\lambda+\mu) = \max\{ l(\lambda), l(\mu) \}$ as
   \[
@@ -1437,24 +1437,24 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
     \text{ for all }
     i \geq 0 \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{expl}
   For $\lambda = (4,4,2,2)$ and $\mu = (3,2,1)$ we have $\lambda + \mu = (7,6,3,2)$.
-  The addition of two partitions can also easily be visualized with Young diagrams, see figure \ref{fig: addition partition young diagrams}.
+  The addition of two partitions can also easily be visualized with Young diagrams, see figure \ref{figure: addition partition young diagrams}.
   \begin{figure}\centering
     \[
         \ydiagram[*(gray)]{4,4,2,2} + \ydiagram[*(light-gray)]{3,2,1}
       = \ydiagram[*(light-gray)] {4+3,4+2,2+1} *[*(gray)]{7,6,3,2}
     \]
     \caption{Addition of partitions in term of Young diagrams.}
-    \label{fig: addition partition young diagrams}
+    \label{figure: addition partition young diagrams}
   \end{figure}
 \end{expl}
 
 
-\begin{lem}
+\begin{lemma}
   Let $\lambda, \mu \in \Par$.
   Then
   \[
@@ -1464,7 +1464,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
   \]
   for suitable $a^\nu_{\lambda,\mu} \in k$.
   (This also holds for $k = \Z$.)
-\end{lem}
+\end{lemma}
 \begin{proof}
   This is an exercise on the 4th exercise sheet.
 \end{proof}
@@ -1481,9 +1481,9 @@ form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
 We can also describe these polynomials in term of partitions.
 
 
-\begin{prop}
+\begin{proposition}
   The monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ are precisely the polynomials $e^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
-\end{prop}
+\end{proposition}
 \begin{proof}
   On the one side the monomial $e_1^{\alpha_1} \dotsm e_n^{\alpha_n}$ is the same as $e_\lambda$ for the partition
   \[
@@ -1516,7 +1516,7 @@ We can also describe these polynomials in term of partitions.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   The set
   \[
               B
@@ -1542,7 +1542,7 @@ We can also describe these polynomials in term of partitions.
               \right\}
   \]
   forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}_d$ for all $d \geq 0$.
-\end{cor}
+\end{corollary}
 
 
 \begin{rem}
@@ -1565,7 +1565,7 @@ In this section $k$ is an infinite field.
 Until further notice we also fix a finite-dimensional $k$-vector space $V$ with $k$-basis $v_1, \dotsc, v_n$.
 
 
-\begin{defi}
+\begin{definition}
   By $\mc{P}_k(V)$ we denote set of \emph{polynomial functions} $V \to k$, i.e.\ $f \in \mc{P}_k(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
   \[
       f\left( \sum_{i=1}^n \lambda_i v_i \right)
@@ -1573,7 +1573,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $V$ with 
   \]
   for all $\lambda_1, \dotsc, \lambda_n \in k$.
   If the underlying field is clear we also write $\mc{P}(V)$ instead of $\mc{P}_k(V)$.
-\end{defi}
+\end{definition}
 
 
 This definition does not depend on the chosen basis.
@@ -1589,10 +1589,10 @@ So if $f \colon V \to k$ is a polynomial in $(v_1, \dotsc, v_n)$ then also in $(
 
 This has the effect that the restriction of a polynomial function to a vector subspace is again a polynomial function.
 
-\begin{lem}
+\begin{lemma}
   Let $V$ be a finite-dimensional $k$-vector space and $U \subseteq V$ a vector subspace.
   Then for every polynomial function $f \in \mc{P}(V)$ we have $f_{|U} \in \mc{P}(U)$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $v_1, \dotsc, v_n$, $v_{n+1}, \dotsc, v_m$ be a $k$-basis of $V$ such that $v_1, \dotsc, v_n$ is a $k$-basis of $U$.
   Because $f \in \mc{P}(V)$ there exist some $p \in k[X_1, \dotsc, X_m]$ with
@@ -1621,14 +1621,14 @@ This has the effect that the restriction of a polynomial function to a vector su
 \end{rem}
 
 
-\begin{lem}
+\begin{lemma}
   There is an isomorphism of $k$-algebras
   \[
           \mc{P}(V)
     \cong k[X_1, \dotsc, X_n]
   \]
   where $n = \dim V$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   For $1 \leq j \leq n$ define the $j$-th coordinate function (with respect to the chosen basis) as
   \[
@@ -1654,7 +1654,7 @@ This has the effect that the restriction of a polynomial function to a vector su
 \end{proof}
 
 
-\begin{lem}
+\begin{lemma}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       Assume $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1,\dotsc,\lambda_n) \in k^n$.
@@ -1662,7 +1662,7 @@ This has the effect that the restriction of a polynomial function to a vector su
     \item
       The polynomial functions $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e.\ if $f(\varphi_1, \dotsc, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1711,9 +1711,9 @@ This has the effect that the restriction of a polynomial function to a vector su
 \end{warn}
 
 
-\begin{cor}
+\begin{corollary}
   The map $\Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V), X_j \mapsto \varphi_j$ is injective.
-\end{cor}
+\end{corollary}
 
 
 Together with the exercise sheet we find that
@@ -1758,7 +1758,7 @@ is an isomorphism of $k$-algebras.
 \end{rem}
 
 
-\begin{defi}
+\begin{definition}
   $f \in \mc{P}(V)$ is \emph{homogeneous of degree $d \in \Z$} if $f(\lambda y) = \lambda^d f(y)$ for all $\lambda \in k, y \in V$.
   By definition the zero polynomial $f=0$ is homogeneous of degree $d$ for any $d \in \Z$.
   For $d \in \Z$ we set
@@ -1770,17 +1770,17 @@ is an isomorphism of $k$-algebras.
                 f \text{ is homogeneous of degree } d
               \} \,.
   \]
-\end{defi}
+\end{definition}
 
 
-\begin{lem}
+\begin{lemma}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       $\mc{P}(V)_d$ is a $k$-vector space for all $d \in \Z$ (via pointwise addition and scalar multiplication).
     \item
       If $f \in \mc{P}(V)_i$ and $g \in \mc{P}(V)_j$ then $fg \in \mc{P}(V)_{i+j}$, where the multiplication is given by pointwise multiplication.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item For $f_1, f_2 \in \mc{P}(V)_d$ we have
@@ -1860,7 +1860,7 @@ We will know generalize the definition of polynomial functions on maps between a
 For this we also stop fixing $V$.
 
 
-\begin{defi}
+\begin{definition}
   Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map
   \[
             f
@@ -1884,7 +1884,7 @@ For this we also stop fixing $V$.
                 f \text{ is a polynomial map}
               \} \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -1944,10 +1944,10 @@ For this we also stop fixing $V$.
 \end{expl}
 
 
-\begin{lem}
+\begin{lemma}
   For a finite-dimensional $k$-vector space $V$ the map $\id_V \colon V \to V$ is a polynomial map.
   If $U$ and $W$ are finite-dimensonial vector spaces and $f \colon W \to V$ and $g \colon V \to U$ are polynomial maps then $gf \colon W \to U$ is also a polynomial map.
-\end{lem}
+\end{lemma}
 \begin{proof}
   The first statement is clear.
   To show the second let $v_1, \dotsc, v_r$ be a basis of $V$, $w_1, \dotsc, w_s$ be a basis of $W$ and $u_1, \dotsc, u_t$ be a basis of $U$.
@@ -1987,7 +1987,7 @@ Therefore $\cvect{k}$ is a subcategory of $\cpol{k}$.
 From the definition of a polynomial map it also directly follows that for any finite-dimensional $k$-vector spaces $W$ and $V$ the set $\Pol_k(W,V)$ forms a $k$-vector space via pointwise addition and scalar multiplication.
 This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
 
-\begin{prop}
+\begin{proposition}
   Let $W$ and $V$ be finite-dimensional $k$-vector spaces.
   The $k$-vector space $\Pol_k(W,V)$ is a $\mc{P}(W)$-module via
   \[
@@ -1997,7 +1997,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
   for all $g \in \Pol_k(W,V)$,
   $f \in \mc{P}(W)$,
   $w \in W$.
-\end{prop}
+\end{proposition}
 \begin{proof}
   It is clear that $\Maps(W,V)$ becomes a $\Maps(W,k)$-module by defining the multiplication as above.
   Since $\mc{P}(W)$ is a $k$-subalgebra of $\Maps(W,k)$ we find that $\Maps(W,V)$ is a $\mc{P}(W)$-module.
@@ -2025,7 +2025,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
 
 
 
-\begin{lem}
+\begin{lemma}
   Let $W$ and $V$ be finite-dimensional $k$-vector spaces and $f \colon W \to V$ be a polynomial map. Then
   \[
             f^*
@@ -2035,7 +2035,7 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
     \mapsto h \circ f
   \]
   is an algebra homomorphism.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We already know that $f^*$ is well-defined, i.e.\ that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$.
   So we just need to show that $f^*$ is an algebra-homomorphism.
@@ -2097,23 +2097,23 @@ This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Given finite-dimensional $k$-vector spaces $W$ and $V$ and a polynomial map $f \colon W \to V$ the algebra homomorphism $f^* \colon \mc{P}(V) \to \mc{P}(W)$ is the \emph{comorphism associated with $f$}.
-\end{defi}
+\end{definition}
   
 
 We have now associated finite-dimensional $k$-vector spaces with $k$-algebras and the polynomial maps between these vector spaces with algebra homomorphisms between the corresponding algebras.
 This gives rise to a contravariant functor from $\cpol{k}$ to $\cAlg{k}$, as the next lemma shows.
 
 
-\begin{prop}
+\begin{proposition}
   Let $U$, $V$ and $W$ be finite-dimensional $k$-vector spaces.
   We have $\id_V^* = \id_{\mc{P}(V)}$ and for polynomial maps $f \colon W \to V$ and $g \colon V \to U$ we have
   \[
       (g \circ f)^*
     = f^* \circ g^* \,.
   \]
-\end{prop}
+\end{proposition}
 \begin{proof}
   The first statement is clear.
   The second holds because for all $h \in \mc{P}(U)$
@@ -2132,7 +2132,7 @@ This gives rise to a contravariant functor from $\cpol{k}$ to $\cAlg{k}$, as the
 It is interesting to notice that this functor is fully faithful.
 
 
-\begin{prop}
+\begin{proposition}
   Let $W$ and $V$ be finite-dimensional $k$-vector spaces.
   Then the map
   \[
@@ -2143,7 +2143,7 @@ It is interesting to notice that this functor is fully faithful.
     \mapsto f^*
   \]
   is a bijection.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Fix a basis $v_1, \dotsc, v_n$ of $V$.
   Remember that $\mc{P}(V) = k[\varphi_1, \dotsc, \varphi_n]$ where $\varphi_j \in \mc{P}(V)$ is the $j$-th coordinate function, which is defined as
@@ -2202,7 +2202,7 @@ It is interesting to notice that this functor is fully faithful.
     = \Psi(f_1, \dotsc, f_n) \,.
   \]
   
-  We have shown that $\Omega \Phi = \Psi$ (see figure \ref{fig: bijections}).
+  We have shown that $\Omega \Phi = \Psi$ (see figure \ref{figure: bijections}).
   Because $\Phi$ and $\Psi$ are bijections it follows that $\Omega = \Psi \Phi^{-1}$ is a bijection.
   \qedhere
   
@@ -2217,7 +2217,7 @@ It is interesting to notice that this functor is fully faithful.
       \draw[->] (pol) to node {$\Omega$} (alg);
     \end{tikzpicture}
     \caption{Bijections.}
-    \label{fig: bijections}
+    \label{figure: bijections}
   \end{figure}
 \end{proof}
 
@@ -2228,7 +2228,7 @@ It is interesting to notice that this functor is fully faithful.
 \section{Covariants}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$.
   A map $f \colon W \to V$ is called \emph{covariant} if $f$ is a polynomial map and $G$-equivariant.
   We denote the space of covariant functions from $W$ to $V$ by
@@ -2237,7 +2237,7 @@ It is interesting to notice that this functor is fully faithful.
     \coloneqq \Pol_k(W,V)^G \,.
   \]
   We also write $\Cov(W,V)$ if it is clear over what field we work.
-\end{defi}
+\end{definition}
 
 
 \begin{expls}
@@ -2309,7 +2309,7 @@ Since the composition above is clearly $k$-linear in $f$ we find that $\Pol_k(W,
 As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is also a $k$-vector space.
 
 
-\begin{prop}
+\begin{proposition}
   Let $G$ be a group, $W$ and $V$ finite-dimensional representations of $G$ over $k$ and $\beta \colon W \to V$ covariant.
   Then
   \[
@@ -2317,7 +2317,7 @@ As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is 
     \subseteq \mc{P}(W)^G \,.
   \]
   Therefore $\beta^*$ induces an algebra-homomorphism from $\mc{P}(V)^G$ to $\mc{P}(W)^G$ by restriction.
-\end{prop}
+\end{proposition}
 \begin{proof}
   For all $f \in \mc{P}(V)^G$ we have for all $g \in G$, $w \in W$
   \begin{align*}
@@ -2342,10 +2342,10 @@ As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is 
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $V$ and $W$ be finite-dimensional representations of a group $G$ over a field $k$.
   Then the $\mc{P}(W)$-module structure of $\Pol_k(W,V)$ induces a $\mc{P}(W)^G$-module structure on $\Cov(W,V)$ by restriction.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Since $\mc{P}(W)^G$ as a $k$-subalgebra of $\mc{P}(W)$ we have a $\mc{P}(W)^G$-module structure on $\Pol_k(W,V)$ by restriction.
   The proposition claims that $\Cov(W,V)$ is a $\mc{P}(W)^G$-submodule of $\Pol_k(W,V)$.

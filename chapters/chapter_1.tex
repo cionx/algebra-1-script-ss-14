@@ -10,7 +10,7 @@
 If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ the composition of $g,h \in G$ and by $g^{-1}$ the inverse of $g \in G$.
 
 
-\begin{defi}
+\begin{definition}
   Given a group $G$ and a set $X$, an \emph{action of $G$ on $X$} is a map
   \begin{gather*}
             \pi
@@ -25,10 +25,10 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
   \end{gather*}
   for all $x \in X$ and $g, h \in G$.
   Then $X$ is called a \emph{$G$-set}.
-\end{defi}
+\end{definition}
 
 
-\begin{defi}
+\begin{definition}
   Given a set $X$, the set
   \[
               S(X)
@@ -40,7 +40,7 @@ If $G$ is a group then we denote by $e \in G$ the neutral element and by $gh$ th
   \]
   becomes a group via $fg \coloneqq f \circ g$ \textup(composition of maps\textup) for all $f, g \in S(X)$, the neutral element being given by $\id_X$.
   This is called the \emph{symmetry group of $X$}.
-\end{defi}
+\end{definition}
 
 
 Given a group action $\pi \colon G \times X \to X$, any $g \in G$ defines a bijection $\pi_g \in S(X)$ defined by
@@ -52,7 +52,7 @@ Given a group action $\pi \colon G \times X \to X$, any $g \in G$ defines a bije
 \]
 
 
-\begin{lem}\label{lem: G-actions = group homos G -> S(X)}
+\begin{lemma}\label{lemma: G-actions = group homos G -> S(X)}
   For any group $G$ and set $X$ there is a 1:1-correspondence
   \begin{align*}
       \left\{
@@ -80,7 +80,7 @@ Given a group action $\pi \colon G \times X \to X$, any $g \in G$ defines a bije
     = \varphi(g)(x)
   \]
   for all $x \in X$ and $g \in G$.
-\end{lem}
+\end{lemma}
 
 
 From this lemma we get the idea that group actions are ``the same'' as ``representing'' groups as permutation groups.
@@ -152,7 +152,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 \end{expls}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ be a group, and let $X$, $Y$ be $G$-sets.
   A map $f \colon X \to Y$ is called \emph{$G$-equivariant} if
   \begin{gather*}
@@ -168,10 +168,10 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
                 \text{$f$ is $G$-equivariant}
               \} \,.
   \end{gather*}
-\end{defi}
+\end{definition}
 
 
-\begin{lem}
+\begin{lemma}
   Let $G$ be a group.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -179,7 +179,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
     \item
       If $X$, $Y$, $Z$ are $G$-sets and $f_1 \colon X \to Y$ and $f_2 \colon Y \to Z$ are $G$-equivariant, then $f_2 \circ f_1 \colon X \to Z$ is also $G$-equivariant.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 
 
 \begin{expls}
@@ -236,9 +236,9 @@ The objects in $\cGsets{G}$ are $G$-sets and
 for all $G$-sets $X$ and $Y$.
 
 
-\begin{defi}
+\begin{definition}
   For every $G$-set $X$ let $X/G \coloneqq \{ \text{$G$-orbits in $X$} \}$.
-\end{defi}
+\end{definition}
 
 
 \begin{note}
@@ -264,7 +264,7 @@ for all $G$-sets $X$ and $Y$.
 \end{note}
 
 
-\begin{defi}
+\begin{definition}
   Let $X$ be a $G$-set.
   Then
   \[
@@ -276,17 +276,17 @@ for all $G$-sets $X$ and $Y$.
               \} \,.
   \]
   The elements in $X^G$ are called \emph{$G$-invariants} or \emph{$G$ fix points}.
-\end{defi}
+\end{definition}
 
 
-\begin{lem}
+\begin{lemma}
   Let $X$, $Y$ be $G$-sets and let $f \colon X \to Y$ be $G$-equivariant.
   Then
   \[
               f\left( X^G \right)
     \subseteq Y^G \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
   For every $x \in X^G$ we have that
   \[
@@ -315,10 +315,10 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 (That $f^G$ is $G$-equivariant follows from the actions on $X^G$ and $Y^G$ being trivial.)
 
 
-\begin{lem}
+\begin{lemma}
   Let $X$ and $Y$ be $G$-sets.
   Then $\Hom_G(X,Y) = \Maps(X,Y)^G$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We have
   \begin{align*}
@@ -333,7 +333,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $X$ be a $G$-set and let $k$ be field \textup(or a ring\textup).
   A map $f \colon X \to k$ is called \emph{invariant} or \emph{$G$-invariant} if
   \[
@@ -342,7 +342,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
     \qquad
     \text{for all $g \in G$, $x \in X$} \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{note}
@@ -351,7 +351,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 \end{note}
 
 
-\begin{lem}
+\begin{lemma}
   Let $X$ be a $G$-set and let $k$ be field \textup(or a ring\textup).
   Then a map $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if there exists a map $\bar{f} \colon X/G \to k$ which makes the following diagram commute:
   \tikzsetnextfilename{invariant_functions_factor_through_orbits}
@@ -365,7 +365,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
     \draw[->] (XG) to node [swap] {$\exists\bar{f}$} (k);
   \end{tikzpicture}
   \end{center}
-\end{lem}
+\end{lemma}
 \begin{proof}
   Both conditions are equivalent to $f$ being constant on the $G$-orbits of $X$.
 \end{proof}
@@ -392,7 +392,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 \end{expl}
 
 
-\begin{lem}\label{lem: basis of Maps and Hom}
+\begin{lemma}\label{lemma: basis of Maps and Hom}
   Let $X$ be a finite $G$-set and let $k$ be a field \textup(or a ring\textup).
   \begin{enumerate}[label=\alph*),leftmargin=*]
     \item
@@ -423,7 +423,7 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
         \text{for all $y \in X$} \,.
       \]
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\alph*),leftmargin=*]
     \item
@@ -539,7 +539,7 @@ Therefore the sum $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$ is exactly the sam
 The linear independence of the $\chi_x$ is clear.
 
 
-\begin{lem}
+\begin{lemma}
   Let $X$ be a finite $G$-set.
   Suppose that $X = X_1 \dotcup X_2$ with $X_1, X_2 \neq \emptyset$ such that $g.x_1 \in X_1$ and $g.x_2 \in X_2$ for all $x_1 \in X_1$, $x_2 \in X_2$ and $g \in G$.
   Then
@@ -549,11 +549,11 @@ The linear independence of the $\chi_x$ is clear.
     \item
       $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp.\ $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism of the first part.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
-      By Lemma \ref{lem: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$.
+      By Lemma \ref{lemma: basis of Maps and Hom} we have a basis $B \coloneqq \{\chi_x \mid x \in X\}$ of $\Maps(X,k)$.
       Similarly $\Maps(X_i, k)$ has a basis $B_i \coloneqq \{\chi_x \mid x \in X_i\}$ for $i = 1, 2$.
       Since $B = B_1 \dotcup B_2$ we have $\Maps(X,k) \cong \Maps(X_1,k) \oplus \Maps(X_2,k)$ via
       \[
@@ -583,7 +583,7 @@ The linear independence of the $\chi_x$ is clear.
   Since $X = \bigdotcup_{x \in X} \{x\}$ we have
   \[
                                                                 \Maps(X,k)
-    \xlongequal{\text{Lemma \ref{lem: basis of Maps and Hom}}}  \vspan \{\chi_x \mid x \in X\}
+    \xlongequal{\text{Lemma \ref{lemma: basis of Maps and Hom}}}  \vspan \{\chi_x \mid x \in X\}
     =                                                           \bigoplus_{x \in X} k \chi_x
     =                                                           \bigoplus_{x \in X} \Maps(\{x\},k) \,.
   \]
@@ -603,7 +603,7 @@ The linear independence of the $\chi_x$ is clear.
     But since $s.e = se = s$ and $s.s = ss = e$ we have in both cases that $s(X_1) \subseteq X_2$.
   \end{proof}
   Now consider $\Maps(X,k)$.
-  By Lemma \ref{lem: basis of Maps and Hom} it has $\{\chi_e,\chi_s\}$ as a basis.
+  By Lemma \ref{lemma: basis of Maps and Hom} it has $\{\chi_e,\chi_s\}$ as a basis.
   Define
   \[
               b_1
@@ -630,9 +630,9 @@ The linear independence of the $\chi_x$ is clear.
 \end{expl}
 
 
-\begin{lem}\label{lem: group action by ring automorphisms}
+\begin{lemma}\label{lemma: group action by ring automorphisms}
   Suppose the group $G$ acts on a ring $R$ by ring automorphisms (i.e.\ if $\pi \colon G \times R \to R$ is the action then $\pi_g \colon r \mapsto g.r$ is an ring automorphism of $R$ for all $g \in G$). Then $R^G = \{\text{$G$-invariants of $R$}\}$ forms again a ring, namely a subring of $R$.
-\end{lem}
+\end{lemma}
 
 
 \begin{rem}
@@ -687,7 +687,7 @@ The linear independence of the $\chi_x$ is clear.
            =  f_1\left( g^{-1}.x \right) f_2\left( g^{-1}.x \right) \\
           &=  (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x) \,,
         \end{align*}
-        so $G$ acts by ring homomorphisms. Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms. The rest is a consequence of Lemma \ref{lem: group action by ring automorphisms}.
+        so $G$ acts by ring homomorphisms. Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms. The rest is a consequence of Lemma \ref{lemma: group action by ring automorphisms}.
       \qedhere
     \end{enumerate}
   \end{proof}
@@ -699,7 +699,7 @@ The linear independence of the $\chi_x$ is clear.
 \end{rem}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ and $H$ be groups, $X$ a set such that $\pi \colon G \times X \to X$ and $\pi' \colon H \times X \to X$ are group actions (i.e.\ $X$ is a $G$-set and $H$-set).
   Then the actions commute if
   \[
@@ -707,7 +707,7 @@ The linear independence of the $\chi_x$ is clear.
     = g.(h.x)
   \]
   for all $g \in G$, $h \in H$, $x \in X$.
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -786,11 +786,11 @@ The linear independence of the $\chi_x$ is clear.
 \section{Representations of Groups}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ be a group, $V$ a $k$-vector space and $\pi \colon G \times V \to V$ be a group action.
   The action is linear if $\pi_g \colon V \to V$, $v \mapsto g.v$ is $k$-linear for all $g \in G$.
   $V$ is then called a $G$-space.
-\end{defi}
+\end{definition}
 
 
 \begin{expl}
@@ -809,7 +809,7 @@ For a $k$-vector space $V$ we set
 \]
 
 
-\begin{lem}
+\begin{lemma}
   Let $G$ be a group and $V$ a $k$-vector space.
   Then there is a 1:1-correspondence
   \[
@@ -821,9 +821,9 @@ For a $k$-vector space $V$ we set
       \text{group homomorphisms $G \to \GL(V)$}
     \right\} \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
-  As in Lemma \ref{lem: G-actions = group homos G -> S(X)}.
+  As in Lemma \ref{lemma: G-actions = group homos G -> S(X)}.
 \end{proof}
 
 
@@ -889,9 +889,9 @@ For a $k$-vector space $V$ we set
       Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$:
       If $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$ then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$.
       The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$.
-      So $\tau'$ it is the unique action making the diagram in figure \ref{fig: action on product and tensor} commute for all $g \in G$.
+      So $\tau'$ it is the unique action making the diagram in figure \ref{figure: action on product and tensor} commute for all $g \in G$.
       \tikzsetnextfilename{tensor_product_of_representations}
-      \begin{figure}\label{fig: action on product and tensor}\centering
+      \begin{figure}\label{figure: action on product and tensor}\centering
         \begin{tikzpicture}[node distance = 3.5cm, auto]
           % the nodes
           \node (V times W) {$V \times W$};
@@ -929,16 +929,16 @@ For a $k$-vector space $V$ we set
 \end{expls}
 
 
-\begin{defi}
+\begin{definition}
     Let $V$ ba a $G$-space or equivalently a representation of $G$.
 
     A \emph{subrepresentation} of $V$ is a vector subspace $U$ of $V$ such that $g.u \in U$ for all $u \in U, g \in G$.
-    A subrepresentation $U$ of $V$ is \emph{proper} if $U \neq V$.
+    A subrepresentation $U$ of $V$ is \emph{propositioner} if $U \neq V$.
     
     $V$ is \emph{indecomposable} if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
     
     $V$ is \emph{irreducible} if it is nonzero has no nontrivial proper subrepresentation.
-\end{defi}
+\end{definition}
 
 It is clear that every irreducible representation is also indecomposable.
 The converse is not true in general as the following example shows.
@@ -1015,7 +1015,7 @@ The converse is not true in general as the following example shows.
 \end{warn}
 
 
-\begin{lem}\label{lem: direct sum and invariants commute}
+\begin{lemma}\label{lemma: direct sum and invariants commute}
   Let $G$ be a group.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1029,7 +1029,7 @@ The converse is not true in general as the following example shows.
         = \bigoplus_{i \in I} V_i^G \,.
       \]
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1069,7 +1069,7 @@ The converse is not true in general as the following example shows.
 \section{Group Algebras}
 
 
-\begin{defi}
+\begin{definition}
   Let $k$ be a field (or a ring) and $G$ a group.
   Then the \emph{group algebra of $G$ over $k$} is the $k$-algebra with $1$ given by the $k$-vector space
   \[
@@ -1086,7 +1086,7 @@ The converse is not true in general as the following example shows.
     = \sum_{y \in G} f_1(y) f_2\left( y^{-1}x \right)
   \]
   for all $f_1, f_2 \in kG, x \in G$.
-\end{defi}
+\end{definition}
 
 The unit of the group algebra is given by the function $\chi_e$.
 We leave it as an exercise to the reader to check that this is a $k$-algebra.
@@ -1156,7 +1156,7 @@ So we can think of the multiplication in $kG$ as the $k$-bilinear extension of t
 Also note that $kG$ is commutative if and only if $G$ is commutative.
 
 
-\begin{lem}
+\begin{lemma}
   Let $G$ be a group and $V$ a $k$-vector space.
   Then there is a 1:1-correspondence
   \[
@@ -1177,7 +1177,7 @@ Also note that $kG$ is commutative if and only if $G$ is commutative.
     \quad   \left( \sum_{g \in G} a_g g, v \right)
     \mapsto \sum_{g \in G} a_g (g.v) \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
   The proof is left as an exercise to the reader and will most likely appear on some exercise sheet in the future.
 \end{proof}
@@ -1189,7 +1189,7 @@ Also note that $kG$ is commutative if and only if $G$ is commutative.
 \section{Morphism of Representations}
 
 
-\begin{defi}
+\begin{definition}
 Let $G$ be a group, $k$ any field and $V,W$ representations of $G$.
 A map $f \colon V \to W$ is called a \emph{morphism of $G$-spaces} or \emph{morphism of representations of $G$} if $f$ is $k$-linear and $G$-equivariant.
 An \emph{isomorphism of representations} is an morphism of representations which is also invertible as a $k$-linear map.
@@ -1203,7 +1203,7 @@ We denote
       f \text{ is a morphism of representations}
     \} \,.
 \]
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -1224,7 +1224,7 @@ We denote
 \end{rem}
 
 
-\begin{lem}\label{lem: composition of morphisms of representations}
+\begin{lemma}\label{lemma: composition of morphisms of representations}
   Let $G$ be a group.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1232,7 +1232,7 @@ We denote
     \item
       If $f \colon V \to W$  and $g \colon W \to Z$ are morphism of representations of $G$, then $g \circ f \colon V \to Z$ is a morphism of representations.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   Part a) is trivial.
   It is also clear that $g \circ f$ is $k$-linear and $G$-equivariant (see the proof in chapter I for $G$-sets).
@@ -1243,10 +1243,10 @@ The previous lemma shows that for any group $G$ and field $k$ the class of repre
 As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ to $V^G$ and every morphism of representations $f \colon V \to W$ to the restriction $f^G \colon V^G \to W^G$.
 
 
-\begin{lem}\label{lem: ker and im subrepresentations}
+\begin{lemma}\label{lemma: ker and im subrepresentations}
   Let $V,W$ be representations of a group $G$, $f \in \Hom_G(V,W)$.
   Then $\ker f$ is a subrepresentation of $V$ and $\im f$ is a subrepresentation of $W$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Since $f$ is linear, $\ker f$ is a vector subspace of $V$ and $\im f$ is a vector subspace of $W$.
   
@@ -1259,7 +1259,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{proof}
 
 
-\begin{lem}[Schur’s Lemma]
+\begin{lemma}[Schur’s Lemma]
   Let $k$ be a field, $G$ a group, $V$ and $W$ irreducible representations of $G$.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1277,12 +1277,12 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
       \]
       as vector spaces.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item 
       Assume $0 \neq f \in \Hom_G(V,W)$.
-      Then by Lemma \ref{lem: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp.\ $W$.
+      Then by Lemma \ref{lemma: ker and im subrepresentations} $\ker f$ and $\im f$ are subrepresentations of $V$, resp.\ $W$.
       Since $V$ and $W$ are irreducible we have that
       \[
           \ker f = 0
@@ -1302,10 +1302,10 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     \item
       Assume $\alpha, \beta \in \Hom_G(V,W)$ where $V \cong W$ and $\alpha \neq 0$.
       It is enough to show that there exists some $\lambda \in k$ such that $\beta = \lambda \alpha$.
-      Consider the morphism $\alpha^{-1} \beta \in \Hom_G(V,W)$ (this is well defined since we know from a) that $\alpha$ is invertible and $\alpha^{-1}$ is again a morphism of representations by the previous Remark, hence $\alpha^{-1} \beta \in \Hom_G(V,W)$ by lemma \ref{lem: composition of morphisms of representations}).
+      Consider the morphism $\alpha^{-1} \beta \in \Hom_G(V,W)$ (this is well defined since we know from a) that $\alpha$ is invertible and $\alpha^{-1}$ is again a morphism of representations by the previous Remark, hence $\alpha^{-1} \beta \in \Hom_G(V,W)$ by lemma \ref{lemma: composition of morphisms of representations}).
       
       Because $k$ is algebraically closed $\alpha^{-1} \beta$ has some eigenvalue $\lambda \in k$.
-      By \mbox{lemma \ref{lem: ker and im subrepresentations}}
+      By \mbox{lemmama \ref{lemma: ker and im subrepresentations}}
       \[
                   K
         \coloneqq \ker(\alpha^{-1} \beta - \lambda \id_V)
@@ -1318,10 +1318,10 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $k$ be an algebraically closed field, $G$ an abelian group and $V$ a finite-dimensional irreducible representation of $G$ over $k$.
   Then $\dim_k V = 1$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   For every $g \in G$ the map
   \[
@@ -1369,7 +1369,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{rem}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ be a group.
   A representation $V$ of $G$ (over a field $k$) is \emph{completely reducible} if
   \[
@@ -1377,7 +1377,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     \cong V_1 \oplus \dotsb \oplus V_r
   \]
   for some irreducible representations $V_1, \dotsc, V_r$.
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -1402,9 +1402,9 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{rem}
 
 
-\begin{thrm}[Maschke’s theorem]
+\begin{theorem}[Maschke’s theorem]
   Let $G$ be a finite group and $k$ a field such that $\kchar k \nmid |G|$ (in particular $\kchar k = 0$ is allowed). Then any finite dimensional representation of $G$ over $k$ is completely reducible.
-\end{thrm}
+\end{theorem}
 \begin{proof}
   It is enough to show that every subrepresentation $U$ of $V$ has a complement $W$ which is again a subrepresentation, i.e.\ $V = U \oplus W$ as representations.
   
@@ -1509,16 +1509,16 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{expl}
 
 
-\begin{defi}
+\begin{definition}
   Let $k$ be a group and $W$ any $k$-vector space.
   Then $g.w = w$ for all $g \in G, w \in W$ defines a representation $W$ of $G$.
   This is called the \emph{trivial representation}.
   For each fixed dimension there is (up to isomorphism) one trivial representation.
   Therefore we usually say \emph{the} trivial representation of $G$ (of dimension $\dim W$).
-\end{defi}
+\end{definition}
 
 
-\begin{lem}
+\begin{lemma}
   Let $e_1, \dotsc, e_n$ denote the standard basis von $k^n$.
   $G = S_n$ acts linearly on $k^n$ as in the previous example.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
@@ -1547,7 +1547,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     \item
     If $n = 2$ then $V$ is completely reducible if and only if $\kchar k \neq 2$.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item

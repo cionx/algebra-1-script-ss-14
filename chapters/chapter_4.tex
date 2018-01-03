@@ -18,7 +18,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
 \section{Semisimple Modules}
 
 
-\begin{prop}\label{prop: characterisation semisimple modules}
+\begin{proposition}\label{proposition: characterisation semisimple modules}
   Let $R$ be a ring and $M$ an $R$-module. Then the following are equivalent:
   \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
     \item \label{enum: sum of simple}
@@ -28,13 +28,13 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
     \item \label{enum: direct complements}
       Every submodule of $M$ has a direct complement.
   \end{enumerate}
-\end{prop}
+\end{proposition}
 
 
-\begin{defi}
+\begin{definition}
   Let $R$ be a ring and $M$ an $R$-module.
   $M$ is called \emph{semisimple (over $R$)} if it satisfies one (and thus all) of the above conditions.
-\end{defi}
+\end{definition}
 
 
 \begin{proof}
@@ -180,7 +180,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
 \end{expls}
 
 
-\begin{lem}\label{lem: inherit semisimple}
+\begin{lemma}\label{lemma: inherit semisimple}
   Let $R$ be a ring.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -188,7 +188,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
     \item
       If $M$ is a semisimple $R$-module and $N \subseteq M$ a submodule then both $N$ and $M/N$ are also semisimple.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -200,7 +200,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
       \]
       is the direct sum of submodules and therefore semisimple.
     \item
-      That $M/N$ is semisimple have we already shown in the claim of the proof of Proposition \ref{prop: characterisation semisimple modules}.
+      That $M/N$ is semisimple have we already shown in the claim of the proof of Proposition \ref{proposition: characterisation semisimple modules}.
       
       Since $M$ is semisimple we can write $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$.
       Given the canonical projection
@@ -232,7 +232,7 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $R$ be a ring and $M$ an $R$-module.
   For a simple $R$-module $E$ the submodule
   \[
@@ -240,20 +240,20 @@ In particular modules over $k$-algebras are always $k$-vector spaces and module-
     \coloneqq \sum_{\substack{L \subseteq M \\ L \cong E}} L
   \]
   is the \emph{$E$-isotypical compotent of $M$}.
-\end{defi}
+\end{definition}
 
 
 The isotypical components of a semisimple module can also be described by using a decomposition into simple modules.
 
 
-\begin{lem}\label{lem: isotypical component as direct sum}
+\begin{lemma}\label{lemma: isotypical component as direct sum}
   Let $R$ be a ring and $M$ and $R$-module with $M = \bigoplus_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$.
   For every simple $R$-module $E$ we have
   \[
       M_E
     = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $E$ be a simple $R$-module and
   \[
@@ -281,10 +281,10 @@ The isotypical components of a semisimple module can also be described by using 
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $R$ be a ring and $M$ a semisimple $R$-module.
   Given a decomposition $M = \bigoplus_{i \in I} L_i$ into simple submodules and a simple submodule $E \subseteq M$ there exists $i \in I$ with $L_i \cong E$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   We have
   \begin{gather*}
@@ -300,14 +300,14 @@ The isotypical components of a semisimple module can also be described by using 
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $R$ be a ring.
   Then
   \[
               \Irr(R)
     \coloneqq \{\text{isomorphism classes of simple $R$-modules}\} \,.
   \]
-\end{defi}
+\end{definition}
 
 
 Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$ we have
@@ -318,14 +318,14 @@ Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$ we have
 for some maximal ideal $I \subseteq R$.
 
 
-\begin{cor}\label{cor: canonical decomposition semisimple module}
+\begin{corollary}\label{corollary: canonical decomposition semisimple module}
   Let $R$ be a ring and $M$ be a semisimple $R$-module.
   Then we have a canonical decomposition
   \[
       M
     = \bigoplus_{[E] \in \Irr(R)} M_E \,.
   \]
-\end{cor}
+\end{corollary}
 
 
 \begin{rem}
@@ -395,9 +395,9 @@ for some maximal ideal $I \subseteq R$.
 \end{rem}
 
 
-\begin{defi}
+\begin{definition}
   A ring $R$ is called \emph{semisimple} if it is semisimple as a (left) $R$-module, i.e.\ if $\prescript{}{R}{R}$ is semisimple.
-\end{defi}
+\end{definition}
 
 
 If $R$ is a semisimple ring then we have
@@ -405,18 +405,18 @@ If $R$ is a semisimple ring then we have
     R
   = \bigoplus_{[E] \in \Irr(R)} R_E
 \]
-as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple module}.
+as a (left) $R$-module by Corollary \ref{corollary: canonical decomposition semisimple module}.
 
 
-\begin{defi}
+\begin{definition}
   A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
   In particular $R$ is semisimple.
-\end{defi}
+\end{definition}
 
 
-\begin{defi}
+\begin{definition}
   A $k$-algebra $A$ is called \emph{semisimple} (resp.\ \emph{simple}) if it is \emph{semisimple} (resp.\ \emph{simple}) as a ring.
-\end{defi}
+\end{definition}
 
 
 \begin{expls}
@@ -451,21 +451,21 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{expls}
 
 
-\begin{prop}
+\begin{proposition}
   Let $R$ be a semisimple ring (with $1$) and $M$ an $R$-module.
   Then $M$ is semisimple.
-\end{prop}
+\end{proposition}
 \begin{proof}
-  Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lem: inherit semisimple} that $M$ is semisimple.
+  Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lemma: inherit semisimple} that $M$ is semisimple.
 \end{proof}
 
 
-\begin{lem}\label{lem: simple module of semisimple ring is direct summand}
+\begin{lemma}\label{lemma: simple module of semisimple ring is direct summand}
   Let $R$ be a semisimple ring and $E$ a simple $R$-module.
   Then $F \cong E$ for some simple submodule $F \subseteq R$.
   More precisely:
   If $R = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules then $E \cong L_i$ for some $i \in I$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Because $E$ is cyclic there exists a surjective module homomorphism
   \[
@@ -487,10 +487,10 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{cor}\label{cor: simple rings one simple module}
+\begin{corollary}\label{corollary: simple rings one simple module}
   Let $R$ be a simple ring.
   Then there is exactly one simple $R$-module up to isomorphism.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
   For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
@@ -498,21 +498,21 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{cor}\label{cor: D^n only simple M_n(D)-module}
+\begin{corollary}\label{corollary: D^n only simple M_n(D)-module}
   Let $D$ be a skew field.
   Then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
-\end{cor}
+\end{corollary}
 \begin{proof}
   We know that $\Mat_n(D)$ is simple and $D^n$ a simple $\Mat_n(D)$-module.
-  So the statement follows from Corollary \ref{cor: simple rings one simple module}.
+  So the statement follows from Corollary \ref{corollary: simple rings one simple module}.
   (Notice that we have already seen that $\Mat_n(D) \cong \bigoplus_{i=1}^n C_i$ with $C_i \cong D^n$ for every $1 \leq i \leq n$ as $\Mat_n(D)$-modules.)
 \end{proof}
 
 
-\begin{lem}\label{lem: ring with 1 finite sum of submodules}
+\begin{lemma}\label{lemma: ring with 1 finite sum of submodules}
   Let $R$ be a semisimple ring (with $1$) and $R = \sum_{i \in I} M_i$ where $M_i \subseteq R$ is an $R$-submodule for every $i \in I$.
   Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We can write
   \[
@@ -534,13 +534,13 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{cor}\label{lem: semisimple ring with 1 only finitely many summands}
+\begin{corollary}\label{lemma: semisimple ring with 1 only finitely many summands}
   Let $R$ be a semisimple ring (with $1$).
   Then $R$ is the direct sum of finitely many simple submodules.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Because $R$ is semisimple we have $R = \bigoplus_{i \in I} L_i$ where $L_i \subseteq R$ is a simple $R$-submodule for every $i \in I$.
-  By Lemma \ref{lem: ring with 1 finite sum of submodules} there exists a finite subset $J \subseteq I$ with
+  By Lemma \ref{lemma: ring with 1 finite sum of submodules} there exists a finite subset $J \subseteq I$ with
   \[
       R
     = \sum_{j \in J} L_j
@@ -556,7 +556,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \section{(Jacobson) Density Theorems}
 
 
-\begin{thrm}[1.\ Jacobson density theorem]
+\begin{theorem}[1.\ Jacobson density theorem]
   Let $R$ be a ring (with $1$) and $M$ a semisimple $R$-module.
   Then $M$ is an $\End_R(M)$-module in the usual way, i.e.\
   \[
@@ -586,7 +586,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
     \text{ for all }
     1 \leq i \leq s \,.
   \]
-\end{thrm}
+\end{theorem}
 \begin{proof}
   It is clear that $\Phi$ is well defined.
   
@@ -679,7 +679,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{rem}
 
 
-\begin{cor}[Density Theorem]
+\begin{corollary}[Density Theorem]
   Let $A$ be a $k$-algebra and $M$ a finite-dimensional semisimple $A$-module.
   Then the map
   \[
@@ -688,7 +688,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
     \to     \End_{\End_A(M)}(M)
   \]
   is surjective.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Because we have $k \subseteq \End_A(M)$ we also have
   \[
@@ -715,7 +715,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{thrm}[2.\ Jacobson density theorem]
+\begin{theorem}[2.\ Jacobson density theorem]
   Let $R$ be a ring (with $1$) and $N$ a simple $R$-module.
   Let $u_1, \dotsc, u_s \in N$ be linearly independent over $\End_R(N)$ and $v_1, \dotsc, v_n \in N$ arbitrary.
   Then there exists $r \in R$ with
@@ -726,7 +726,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
     1 \leq i \leq s \,.
   \]
   This is equivalent to saying that $N^s$ is generated by $(u_1, \dotsc, u_s)$ as an $R$-module.
-\end{thrm}
+\end{theorem}
 
 
 \begin{proof}
@@ -753,10 +753,10 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{lem}\label{lem: k alg. closed and D/k f.d. division algebra then D=k}
+\begin{lemma}\label{lemma: k alg. closed and D/k f.d. division algebra then D=k}
   Let $k$ be an algebraically closed field and $D$ a finite-dimensional division algebra over $k$.
   Then $D = k$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $a \in D$ with $a \neq 0$.
   Because $\dim_k D < \infty$ we know that the elements $1$, $a$, $a^2$, $a^3$, \dots\ are linearly dependent.
@@ -779,7 +779,7 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{rem}
 
 
-\begin{lem}[Schur’s Lemma for rings and algebras]
+\begin{lemma}[Schur’s Lemma for rings and algebras]
   Let $R$ be a ring and $M$ a simple $R$-module.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -794,9 +794,9 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
     \item
       If $k$ is algebraically closed and $\dim_k M < \infty$ then $\End_R(M) = k$.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
-  The first three statements are clear, the third follows directly from Lemma \ref{lem: k alg. closed and D/k f.d. division algebra then D=k}.
+  The first three statements are clear, the third follows directly from Lemma \ref{lemma: k alg. closed and D/k f.d. division algebra then D=k}.
 \end{proof}
 
 
@@ -805,10 +805,10 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{rem}
 
 
-\begin{cor}[Burnside’s Theorem on matrix algebras (coordinate free version)]
+\begin{corollary}[Burnside’s Theorem on matrix algebras (coordinate free version)]
   Let $k$ be an algebraically closed field and $V$ a finite-dimensional $k$-vector space, $A \subseteq \End(V)$ a subalgebra such that $V$ is a simple $A$-module.
   Then $A = \End_k(V)$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   From Schur’s Lemma we find that $\End_A(k^n) = k$.
   By the Density Theorem the inclusion
@@ -822,10 +822,10 @@ as a (left) $R$-module by Corollary \ref{cor: canonical decomposition semisimple
 \end{proof}
 
 
-\begin{cor}[Burnside’s Theorem on matrix algebras (coordinate version)]
+\begin{corollary}[Burnside’s Theorem on matrix algebras (coordinate version)]
   Let $k$ be an algebraically closed field and $A \subseteq \Mat_n(k)$ a subalgebra, such that $k^n$ is a simple $A$-module.
   Then $A = \Mat_n(k)$.
-\end{cor}
+\end{corollary}
 
 
 It is perhaps interesting to notice that this could also be proven using the 2.\ Jacobson density theorem:
@@ -840,7 +840,7 @@ It is perhaps interesting to notice that this could also be proven using the 2.\
 \end{proof}
 
 
-\begin{cor}\label{cor: simple algebra module surjective algebra homo}
+\begin{corollary}\label{corollary: simple algebra module surjective algebra homo}
   Let $k$ be an algebraically closed field and $A$ a  $k$-algebra.
   For a finite-dimensional $A$-module $M$ the following are equivalent:
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
@@ -849,7 +849,7 @@ It is perhaps interesting to notice that this could also be proven using the 2.\
     \item
       The corresponding algebra homomorphism $\Phi \colon A \to \End_k(M)$ is surjective.
   \end{enumerate}
-\end{cor}
+\end{corollary}
 \begin{proof}
   If $M$ is simple as an $A$-module it is simple as a module over $\im \Phi$.
   By Burnside’s Theorem on matrix algebras we find that $\im \Phi = \End_k(V)$.
@@ -869,16 +869,16 @@ It is perhaps interesting to notice that this could also be proven using the 2.\
 \end{proof}
 
 
-\begin{cor}\label{cor: dimension simple algebra modules}
+\begin{corollary}\label{corollary: dimension simple algebra modules}
   Let $k$ be an algebraically closed field, $A$ a $k$-algebra and $M$ a finite-dimensional simple $A$-module.
   Then
   \[
           (\dim_k M)^2
     \leq  \dim_k A \,.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
-  By Corollary \ref{cor: simple algebra module surjective algebra homo} the corresponding algebra homomorphism
+  By Corollary \ref{corollary: simple algebra module surjective algebra homo} the corresponding algebra homomorphism
   \[
             \Phi
     \colon  A
@@ -899,7 +899,7 @@ If $k$ is algebraically closed and $A$ a $k$-algebra we know that for every fini
 We can strengthen this result.
 
 
-\begin{lem}\label{lem: map into sum endomorphisms surjective}
+\begin{lemma}\label{lemma: map into sum endomorphisms surjective}
   Let $k$ be an algebraically closed field, $A$ a $k$-algebra and $M_1, \dotsc, M_s$ finite-dimensional simple $A$-modules which are pairwise non-isomorphic.
   For every $1 \leq i \leq s$ we have a surjective algebra homomorphism
   \[
@@ -915,7 +915,7 @@ We can strengthen this result.
     \to       \bigoplus_{i=1}^r \End_k(M_i)
   \]
   is also surjective.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We set
   \[
@@ -990,7 +990,7 @@ We can strengthen this result.
 Applying our results about finite-dimensional simple modules over algebras to group algebras gives us corresponding statements about representations of groups.
 
 
-\begin{lem}\label{lem: equivalence to irreducible}
+\begin{lemma}\label{lemma: equivalence to irreducible}
   Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
   \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
     \item \label{enum: V irreducible}
@@ -1008,23 +1008,23 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       \]
       is surjective.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   The equivalence of \ref{enum: V irreducible} and \ref{enum: V simple kG-module} is clear.
-  The equivalence of \ref{enum: V simple kG-module} and \ref{enum: surjective algebra homo} follows directly from Corollary \ref{cor: simple algebra module surjective algebra homo}.
+  The equivalence of \ref{enum: V simple kG-module} and \ref{enum: surjective algebra homo} follows directly from Corollary \ref{corollary: simple algebra module surjective algebra homo}.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $G$ be a finite group and $V$ a finite-dimensional irreducible representation of $G$ over an algebraically closed field $k$.
   Then
   \[
           \left( \dim_k V \right)^2
     \leq |G| \,.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
-  $V$ is a simple $kG$-module, so by Corollary \ref{cor: dimension simple algebra modules}
+  $V$ is a simple $kG$-module, so by Corollary \ref{corollary: dimension simple algebra modules}
   \[
           (\dim_k V)^2
     \leq  \dim_k kG
@@ -1034,7 +1034,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{proof}
 
 
-\begin{lem}\label{lem: modules over direct sum of algebras}
+\begin{lemma}\label{lemma: modules over direct sum of algebras}
   Let $R_i$, $1 \leq i \leq n$ be rings (with $1$) and $R \coloneqq \prod_{i=1}^n R_i$.
   For $1 \leq i \leq n$ let
   \[
@@ -1078,7 +1078,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
           \end{cases}
       \]
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1169,7 +1169,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{proof}
 
 
-\begin{cor}\label{cor: simple modules over product of matrix algebras}
+\begin{corollary}\label{corollary: simple modules over product of matrix algebras}
   Let $R$ be a ring
   \[
                   A
@@ -1183,13 +1183,13 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       (B_1, \dotsc, B_r) x
     =  B_i x \,.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
-  This follows immediately from Corollary \ref{cor: D^n only simple M_n(D)-module} and Lemma \ref{lem: modules over direct sum of algebras}.
+  This follows immediately from Corollary \ref{corollary: D^n only simple M_n(D)-module} and Lemma \ref{lemma: modules over direct sum of algebras}.
 \end{proof}
 
 
-\begin{prop}\label{prop: simple modules over finite-dimensional algebras}
+\begin{proposition}\label{proposition: simple modules over finite-dimensional algebras}
   Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1205,7 +1205,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
         |\Irr(A)| \leq \dim_k A \,.
       \]
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1217,7 +1217,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       \]
       Because $\varphi$ is $k$-linear we find that $\dim_k V \leq \dim_k A$.
     \item
-      Let $V_1, \dotsc, V_r$ be pairwise non-isomorphic simple $A$-modules. By Lemma \ref{lem: map into sum endomorphisms surjective} we find that the map
+      Let $V_1, \dotsc, V_r$ be pairwise non-isomorphic simple $A$-modules. By Lemma \ref{lemma: map into sum endomorphisms surjective} we find that the map
       \[
             A
         \to \bigoplus_{i=1}^r \End_k(V_i)
@@ -1233,7 +1233,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $R$ be a ring. Then
   \[
               Z(R)
@@ -1246,19 +1246,19 @@ Applying our results about finite-dimensional simple modules over algebras to gr
               \}
   \]
   is the \emph{center of $R$}.
-\end{defi}
+\end{definition}
 
 
-\begin{lem}
+\begin{lemma}
   For every ring $R$ the center $Z(R)$ is a commutative subring.
   For every $k$-algebra $A$ the center $Z(A)$ is a commutative subalgebra.
-\end{lem}
+\end{lemma}
 \begin{proof}
   This is clear.
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $A$ be a $k$-algebra.
   Then the \emph{commutator of $A$} is defined as
   \[
@@ -1270,7 +1270,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
                         \}
     \subseteq A \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{expl}
@@ -1334,14 +1334,14 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{rem}
 
 
-\begin{lem}
+\begin{lemma}
   Let $A$ and $B$ be $k$-algebras. Then
   \[
       [A \oplus B, A \oplus B]
     = [A,A] \oplus [B,B].
   \]
   as $k$-vector subspaces of $A \oplus B$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   For all $a, a' \in A$ and $b, b' \in B$ we have
   \begin{align*}
@@ -1379,7 +1379,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \end{proof}
 
 
-\begin{cor}\label{cor: commutator product of matrix algebras}
+\begin{corollary}\label{corollary: commutator product of matrix algebras}
   Let $r \geq 1$ and $n_1, \dots, n_r \geq 1$. For
   \[
     A \coloneqq \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
@@ -1389,7 +1389,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
       [A,A]
     = \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k) \,.
   \]
-\end{cor}
+\end{corollary}
 
 
 
@@ -1398,7 +1398,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 \section{Theorem of Artin--Wedderburn}
 
 
-\begin{defi}
+\begin{definition}
   Let $R$ be a ring. Then the ring $R^\op$ is defined by taking the underlying additive group of $R$ and reversing the multiplication order, i.e.\ if for the multiplication $\cdot$ in $R$ and the multiplication $*$ in $R^\op$ we have
   \[
       a * b
@@ -1406,7 +1406,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
     \text{ for all }
     a, b \in R^\op \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -1456,7 +1456,7 @@ Applying our results about finite-dimensional simple modules over algebras to gr
 For a ring $R$ there is a strong connection between left $R$-modules and right $R^\op$-modules.
 
 
-\begin{prop}\label{prop: opposite modules}
+\begin{proposition}\label{proposition: opposite modules}
   Let $R$ be a ring.
   We have a 1:1-correspondence between the left $R$-modules and $R^\op$-modules, where for a left $R$-module $M$ the corresponding right $R^\op$-module $M^\op$ is defined as
   \[
@@ -1467,13 +1467,13 @@ For a ring $R$ there is a strong connection between left $R$-modules and right $
     r \in R^\op \,,
   \]
   where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
-\end{prop}
+\end{proposition}
 \begin{proof}
   <Insert obvious calculations here>.
 \end{proof}
 
 
-\begin{lem}\label{lem: End_R(R) = Rop}
+\begin{lemma}\label{lemma: End_R(R) = Rop}
   Let $R$ be a ring (with $1$).
   Let $\cdot$ denote the multiplication in $R$ and $*$ the multiplication in $R^\op$.
   Then we have an isomorphism of rings
@@ -1483,7 +1483,7 @@ For a ring $R$ there is a strong connection between left $R$-modules and right $
     \quad     (s \mapsto s \cdot r)
     \mapsfrom r \,.
   \]
-\end{lem}
+\end{lemma}
 
 
 The Lemma basically states that the $\Z$-homomorphisms of $R$ which are compatible with the left multiplication are given by right multiplication.
@@ -1546,14 +1546,14 @@ We know from linear algebra that for every field $k$ we have
         \End_{\Mat_n(k)}(k^n)
   \cong k.
 \]
-From Lemma \ref{lem: End_R(R) = Rop} we also know that in the case $n = 1$. 
+From Lemma \ref{lemma: End_R(R) = Rop} we also know that in the case $n = 1$. 
 \[
   \End_D(D) \cong D^\op
 \]
 These observations lead to the following Lemma:
 
 
-\begin{lem}
+\begin{lemma}
   Let $D$ be a skew field and $n \geq 1$. Then
   \[
               \End_{\Mat_n(D)}\left(D^n\right)
@@ -1565,7 +1565,7 @@ These observations lead to the following Lemma:
     \mapsfrom d
   \]
   as rings.
-\end{lem}
+\end{lemma}
 \begin{proof}
   By $\cdot$ we denote the multiplication in $D$ and by $*$ the multiplication in $D^\op$.
   For all $d \in D$, $d' \in D^\op$ and $x = (x_1, \dotsc, x_n) \in D^n$ we write
@@ -1657,7 +1657,7 @@ These observations lead to the following Lemma:
 \end{proof}
 
 
-\begin{thrm}[Artin--Wedderburn]
+\begin{theorem}[Artin--Wedderburn]
   Let $R$ be a semisimple ring (with $1$). Then
   \[
     R \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
@@ -1670,17 +1670,17 @@ These observations lead to the following Lemma:
   \[
     R \cong \Mat_{n_1}(\End_R(V_1)^\op) \times \dotsb \times \Mat_{n_r}(\End_R(V_r)^\op) \,.
   \]
-\end{thrm}
+\end{theorem}
 
 
-Notice that by Corollary \ref{cor: simple modules over product of matrix algebras} it follows that a ring of the above form has exactly $r$ simple modules up to isomorphism, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$.
+Notice that by Corollary \ref{corollary: simple modules over product of matrix algebras} it follows that a ring of the above form has exactly $r$ simple modules up to isomorphism, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$.
 
 
-\begin{cor}
+\begin{corollary}
   Let $R$ be a semisimple ring (with $1$) and $M$ a faithful $R$-module, i.e.\ $rm = 0$ for every $r \in R$ implies $m = 0$.
   Then the isotypical components of $M$ are all nonzero.
   In particular $M$ contains every simple $R$-module up to isomorphism.
-\end{cor}
+\end{corollary}
 \begin{proof}
   By Artin--Wedderburn we have
   \[
@@ -1697,10 +1697,10 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 
 
 
-\begin{cor}
+\begin{corollary}
   Let $R$ be a semisimple ring (with $1$).
   Then $R^\op$ is also semisimple.
-\end{cor}
+\end{corollary}
 \begin{proof}
   By Artin--Wedderburn we have
   \[
@@ -1718,27 +1718,27 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $A$ be a finite-dimensional semisimple $k$-algebra.
   Then $A$ has finitely many nonzero minimal left ideals (i.e.\ simple $A$-submodules) $I_1, \dotsc, I_r$ (up to isomorphism of left ideal) and
   \[
     A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
   \]
   where $D_i = \End_A(I_i)^\op$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   We will prove this later.
 \end{proof}
 
 
-\begin{cor}\label{cor: semisimple algebra product of matrix algebras over field}
+\begin{corollary}\label{corollary: semisimple algebra product of matrix algebras over field}
   Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra.
   Then
   \[
     A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
   \]
   as $k$-algebras for some $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Using Artin--Wedderburn we find that we have an isomorphism of rings
   \[
@@ -1749,13 +1749,13 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
     D_i = \End_A(S_i)^\op
   \]
   for a simple $A$-module $S_i$ for every $1 \leq i \leq r$.
-  By Proposition \ref{prop: simple modules over finite-dimensional algebras} $\dim_k S_i < \infty$ and thus by Schur’s Lemma $D_i = k$ for every $1 \leq i \leq r$.
+  By Proposition \ref{proposition: simple modules over finite-dimensional algebras} $\dim_k S_i < \infty$ and thus by Schur’s Lemma $D_i = k$ for every $1 \leq i \leq r$.
 \end{proof}
 
 
 \begin{proof}[Proof of Artin--Wedderburn]
   We start by showing the existance:
-  By Lemma \ref{lem: semisimple ring with 1 only finitely many summands} we have $R = \bigoplus_{i = 1}^n L_i$ as $R$-modules for some $n \geq 1$ and simple submodules $L_i \subseteq R$.
+  By Lemma \ref{lemma: semisimple ring with 1 only finitely many summands} we have $R = \bigoplus_{i = 1}^n L_i$ as $R$-modules for some $n \geq 1$ and simple submodules $L_i \subseteq R$.
   By sorting these submoduls by isomorphism classes we get
   \[
     R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r
@@ -1774,7 +1774,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
     \cong \End_R(n_1 V_1) \oplus \dotsb \oplus \End_R(n_r V_r)
   \]
   because the $V_i$ are pairwise non-isomorpic.
-  Using Lemma \ref{lem: End_R(R) = Rop} we find that
+  Using Lemma \ref{lemma: End_R(R) = Rop} we find that
   \begin{align*}
             R^\op
     &\cong  \End_R(R) \\
@@ -1879,9 +1879,9 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 \section{Simple Rings}
 
 
-\begin{defi}
+\begin{definition}
   A ring $R$ is called \emph{simple} if it’s only two-sided ideals are $R$ and $0$.
-\end{defi}
+\end{definition}
 
 
 \begin{warn}
@@ -1930,10 +1930,10 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 \end{warn}
 
 
-\begin{lem}
+\begin{lemma}
   Let $R$ be a ring (with $1$).
   If $R$ is simple according to definition 1 it is also simple.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Since $R$ is semisimple we have
   \[
@@ -1951,7 +1951,7 @@ Notice that by Corollary \ref{cor: simple modules over product of matrix algebra
 We can also ask ourselves under what conditions a simple ring $R$ is semisimple (and thus semisimple as an $R$-module). The following theorem by Wedderburn answers that question:
 
 
-\begin{thrm}[Wedderburn]
+\begin{theorem}[Wedderburn]
   Let $R$ be a simple ring (with $1$). Then the following are equivalent:
   \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
     \item \label{enum: semisimple}
@@ -1963,7 +1963,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
     \item \label{enum: matrix ring over skew field}
       $R \cong \Mat_n(D)$ for some $n \in \N$ and skew field $D$.
   \end{enumerate}
-\end{thrm}
+\end{theorem}
 \begin{proof}
   The equivalence of \ref{enum: semisimple} and \ref{enum: matrix ring over skew field} follows directly from Artin--Wedderburn.
   
@@ -2012,24 +2012,24 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $A$ be finite-dimensional simple $k$-algebra.
   Then $A$ is semisimple and $A \cong \Mat_n(D)$ for some skew field $D$ and $n \in \N$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Because $A$ is finite-dimenisonal it contains a minimal ideal $I \neq 0$.
   The rest follows from Wedderburn’s theorem.
 \end{proof}
 
 
-\begin{lem}
+\begin{lemma}
   Let $D$ be a skew field and $n \geq 1$.
   Then $Z(D)$ is a field and
   \[
     Z(\Mat_n(D)) \cong Z(D)
   \]
   as rings.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We start by showing that $Z(D)$ is a field.
   We know that $Z(D) \subseteq D$ is a commutative subring (with $1$).
@@ -2073,20 +2073,20 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $k$ be a field.
   A $k$-algebra $A$ is called a \emph{central simple algebra (over $k$)} if $A$ is finite-dimensional, simple and $Z(A) = k$.
-\end{defi}
+\end{definition}
 
 
-\begin{lem}\label{lem: Z(A o B) = Z(A) o Z(B)}
+\begin{lemma}\label{lemma: Z(A o B) = Z(A) o Z(B)}
   Let $A$ and $B$ be $k$-algebras.
   Then
   \[
       Z(A \otimes_k B)
     = Z(A) \otimes_k Z(B) \,.
   \]
-\end{lem}
+\end{lemma}
 
 
 \begin{rec}
@@ -2148,13 +2148,13 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $A$ and $B$ be central simple algebras over the same field $k$.
   Then $A \otimes_k B$ is a central simple algebra.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Since both $A$ and $B$ are finite-dimensional the same holds for $A \otimes_k B$.
-  By Lemma \ref{lem: Z(A o B) = Z(A) o Z(B)} we have
+  By Lemma \ref{lemma: Z(A o B) = Z(A) o Z(B)} we have
   \[
       Z(A \otimes_k B)
     = Z(A) \otimes_k Z(B
@@ -2229,7 +2229,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \section{Characters and Class Functions}
 
 
-\begin{defi}
+\begin{definition}
   Let $A$ be a $k$-algebra, $V$ a finite-dimensional representation of $A$.
   Let
   \[
@@ -2248,10 +2248,10 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
     \quad   a
     \mapsto \tr \rho(a) \,.
   \]
-\end{defi}
+\end{definition}
 
 
-\begin{prop}\label{prop: properties characters}
+\begin{proposition}\label{proposition: properties characters}
   Let $A$ be a $k$-algebra.
   Let $V$ and $W$ be finite-dimensional $A$-modules and $U \subseteq V$ a submodule.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
@@ -2273,7 +2273,7 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
     \item
       When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   Let $v_1, \dotsc, v_r$ be a $k$-basis of $U$, $v_1, \dotsc, v_r$, $v_{r+1}, \dotsc, v_s$ a $k$-basis of $V$ and $w_1, \dotsc, w_t$ a $k$-basis of $W$.
   For every occuring module $X$ of $A$ let
@@ -2409,10 +2409,10 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 \end{proof}
 
 
-\begin{lem}
+\begin{lemma}
   Let $A$ be a $k$-algebra and $V$ an $A$-module.
   Then $\chi_V(a) = 0$ for every $a \in [A,A]$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $a, b \in A$.
   Then
@@ -2434,17 +2434,17 @@ With this Lemma we find that for every $k$-Algebra $A$ and $A$-module $V$ the ch
 Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
 
 
-\begin{thrm} \label{thrm: characters as a basis}
+\begin{theorem} \label{theorem: characters as a basis}
   Let $k$ be an algebraically closed field and $A$ a $k$-algebra.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       Let $V_i$, $i \in I$ be pairwise non-isomorphic simple $A$-modules.
       Then $\chi_i$, $i \in I$ are linearly independent (over $k$).
     \item
-      If $A$ is finite-dimensional and semisimple we know from Proposition \ref{prop: simple modules over finite-dimensional algebras} that $\irr(A) = \Irr(A)$.
+      If $A$ is finite-dimensional and semisimple we know from Proposition \ref{proposition: simple modules over finite-dimensional algebras} that $\irr(A) = \Irr(A)$.
       Then the characters $\chi_{V_i}$, $[V_i] \in \Irr(A)$ form a $k$-basis of $(A/[A,A])^*$.
   \end{enumerate}
-\end{thrm}
+\end{theorem}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -2470,7 +2470,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
       \]
       Fix $1 \leq j \leq r$.
       For every $1 \leq i \leq r$ there exists $\varphi_i \in \End_k(V_i)$ with $\tr \varphi_i = \delta_{ij}$.
-      By the Lemma \ref{lem: map into sum endomorphisms surjective} the map
+      By the Lemma \ref{lemma: map into sum endomorphisms surjective} the map
       \[
                 \bigoplus_{i=1}^r \rho_{V_i}
         \colon  A
@@ -2497,7 +2497,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
       \[
         [A,A] \cong \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k)
       \]
-      by Corollary \ref{cor: commutator product of matrix algebras}.
+      by Corollary \ref{corollary: commutator product of matrix algebras}.
       Since $\dim_k \Sl_m(k) = m^2 - 1$ for every $m \geq 1$ we find that
       \begin{align*}
          &\,  \dim_k (A/[A,A])^*
@@ -2509,17 +2509,17 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
                     \right) \\
         =&\,  r \,.
       \end{align*}
-      From Corollary \ref{cor: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules.
+      From Corollary \ref{corollary: simple modules over product of matrix algebras} we find that $A$ has up to isomorphism exactly $r$ simple modules.
       Since the charactors of these are linearly independent we find that they are a $k$-basis of $(A/[A,A])^*$.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
-\begin{cor}\label{cor: number of irreducible representations of finite abelian group}
+\begin{corollary}\label{corollary: number of irreducible representations of finite abelian group}
   Let $k$ be an algebraically closed field and $G$ a finite, abelian group with $\kchar k \nmid |G|$.
   Then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
-\end{cor}
+\end{corollary}
 \begin{proof}
   The group algebra $kG$ is finite-dimensional and by Maschke’s Theorem also semisimple.
   Therefore
@@ -2539,14 +2539,14 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ be a group and $X$ a set.
   A function $f \colon G \to X$ is called a \emph{class function (with values in $X$)} if it is constant on the conjugation classes of $G$, i.e.\ if $f$ is invariant under conjugation.
   If we see $X$ as a trivial $G$-set then the set of $X$-valued class functions is precisely $\Maps(G,X)^G$ where $G$ acts on itself by conjugation.
-\end{defi}
+\end{definition}
 
 
-\begin{lem} \label{lem: characterisation class functions}
+\begin{lemma} \label{lemma: characterisation class functions}
   Let $G$ be a group and $k$ a field (not necessarily algebraically closed).
   Let $f \colon G \to k$ be a map and $F \colon kG \to k$ the corresponding $k$-linear extension.
   Then the following are equivalent:
@@ -2565,7 +2565,7 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
     \item \label{enum: center of group algebra}
       If we see $f$ as an element of $kG$, i.e.\ $f = \sum_{g \in G} f(g) g$, then $f \in Z(kG)$.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   The equivalence of the first four are easy to see.
   To see the equivalence of \ref{enum: class function} and \ref{enum: center of group algebra} notice that $f \in Z(kG)$ if and only if $hfh^{-1} = f$ for every $h \in G$.
@@ -2580,15 +2580,15 @@ Because of this we will regard $\chi_V$ as an element $\chi_V \in (A/[A,A])^*$
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $G$ be a group and $V$ a finite-dimensional representation of $G$ over a field $k$. If $\rho \colon G \to \GL(V)$ is the corresponding group homomorphism the \emph{character} of the representation $V$ is defined as the map $\chi_V \colon G \to k$ with $\chi_V(g) \coloneqq \tr \rho(g)$. It is equivalently the restriction of the character $\chi_V$ of $V$ as a $kG$-module to $G$.
-\end{defi}
+\end{definition}
 
 
-From Lemma \ref{lem: characterisation class functions} we know that the character $\chi_V$ of a representation $V$ of a group $G$ over a field $k$ is a class function from $G$ to $k$.
+From Lemma \ref{lemma: characterisation class functions} we know that the character $\chi_V$ of a representation $V$ of a group $G$ over a field $k$ is a class function from $G$ to $k$.
 
 
-\begin{prop} \label{prop: conjugation classes and irreducible representations}
+\begin{proposition} \label{proposition: conjugation classes and irreducible representations}
   Let $G$ be a finite group and $k$ an algebraically closed field with $\kchar k \nmid |G|$.
   \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
     \item
@@ -2598,19 +2598,19 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
     \item
       The number of irreducible representations of $G$ is exactly $\dim_k Z(kG)$.
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
     \item
-      By Lemma \ref{lem: characterisation class functions} we can regard the $k$-vector space of class functions from $G$ to $k$ as $(kG/[kG,kG])^*$.
-      Thus the statement follows directly from Theorem \ref{thrm: characters as a basis} since $kG$ is semisimple by Maschke’s theorem.
+      By Lemma \ref{lemma: characterisation class functions} we can regard the $k$-vector space of class functions from $G$ to $k$ as $(kG/[kG,kG])^*$.
+      Thus the statement follows directly from Theorem \ref{theorem: characters as a basis} since $kG$ is semisimple by Maschke’s theorem.
     \item
       Let $\mc{O}_1, \dotsc, \mc{O}_n$ be the conjugation classes of $G$.
       Then the characteristic functions $\chi_{\mc{O}_1}, \dotsc, \chi_{\mc{O}_n}$ form a $k$-basis of the $k$-valued class functions of $G$.
       By identifying the $k$-vector space of $k$-valued class functions of $G$ with $kG/[kG,kG]$ the same holds for the characters of irreducible representations of $G$ by the first part.
       Therefore $G$ has precisely $n$ irreducible representations.
     \item
-      This follows directly from Lemma \ref{lem: characterisation class functions} and the previous parts.
+      This follows directly from Lemma \ref{lemma: characterisation class functions} and the previous parts.
   \end{enumerate}
 \end{proof}
 
@@ -2618,7 +2618,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
 \begin{expls}
   \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
     \item
-      Corollary is also \ref{cor: number of irreducible representations of finite abelian group} a direct corollary of \ref{prop: conjugation classes and irreducible representations}.
+      Corollary is also \ref{corollary: number of irreducible representations of finite abelian group} a direct corollary of \ref{proposition: conjugation classes and irreducible representations}.
     \item
       The conjugation class of the symmetric group $S_n$ correspond directly to the partitions of $n$ in the following way:
       We can write every permutation $\pi \in S_n$ as a product of cycles
@@ -2672,7 +2672,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
 
 
 
-\begin{prop}
+\begin{proposition}
   Let $A$ be a finite-dimensional $k$-algebra.
   Then the following are equivalent:
   \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
@@ -2695,7 +2695,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
           $\ker \lambda$ does not contain any nonzero left-ideals of $A$.
       \end{enumerate}
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   We first show the equivalence of \ref{enum: nondegenerato linear map} and \ref{enum: no nonzero ideals in kernel of linear map}.
   For this let $\varepsilon \colon A \to k$ be a $k$-linear map such that $\varepsilon(ab) = \varepsilon(ba)$ for all $a,b \in A$.
@@ -2720,10 +2720,10 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
 \end{rem}
 
 
-\begin{defi}
+\begin{definition}
   A finite-dimensional $k$-Algebra satisfying one (and thus all) of the above conditions is called a \emph{(symmetric) Frobenius algebra}.
   A \emph{Frobenius form of $A$} refers either to a $k$-bilinear map $A \times A \to k$ satisfying \ref{enum: nondegenerate symmetric associative bilinear form} or a $k$-linear map $A \to k$ satisfying \ref{enum: nondegenerato linear map} (and thus also \ref{enum: no nonzero ideals in kernel of linear map}), depending on the situation.
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -2798,7 +2798,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
 \end{expls}
 
 
-\begin{prop}
+\begin{proposition}
   Let $A$ be a Frobenius algebra and $(-,-) \colon A \times A \to k$ a Frobenius form of $A$. Then
   \[
             \psi
@@ -2808,7 +2808,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
     \mapsto (a,-)
   \]
   is an isomorphism of $k$-vector spaces.
-\end{prop}
+\end{proposition}
 \begin{proof}
   The map
   \[
@@ -2853,7 +2853,7 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
 \section{Double Centralizer Theorem \& Schur--Weyl Duality}
 
 
-\begin{defi}
+\begin{definition}
   For a field $k$ and a group $G$ we set
   \[
               \Irr_k(G)
@@ -2865,26 +2865,26 @@ From Lemma \ref{lem: characterisation class functions} we know that the characte
     &\coloneqq  \{ \text{isomorphism classes of finite-dimensional representations of $G$} \} \\
     &=          \{ [V] \in \Irr_k(G) \mid \dim_k V < \infty \}.
   \end{align*}
-\end{defi}
+\end{definition}
 
 
 Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$ are the same as simple $kG$-modules and thus $\Irr_k(G) = \Irr(kG)$ for the group algebra $kG$ of $G$ over $k$.
 
 
-\begin{defi}
+\begin{definition}
   Let $k$ be a field, $V$ a representation of a group $G$ and $W$ a representation of a group $H$.
   Then we define the representations $V \boxtimes_k W$ of $G \times H$ as the $k$-vector space $V \otimes_k W$ together with the (linear) group action
   \[
       (g,h).(v \otimes w)
     = (g.v) \otimes (h.w) \,.
   \]
-\end{defi}
+\end{definition}
 
 
 To see that $V \boxtimes_k W$ is well-defined notice that the multiplication with $(g,h) \in G \times H$ is given by $\pi_g \otimes \tau_h$ where $\pi_g \colon V \to V$, $v \mapsto g.v$ is the multiplication with $g$ and $\tau_h \colon W \to W, w \mapsto h.w$ is the multiplication with $h$.
 
 
-\begin{thrm}
+\begin{theorem}
   Let $k$ be an algebraically closed field, $G$ and $H$ groups.
   Then we have a bijection
   \[
@@ -2894,7 +2894,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     \quad   ([V],[W])
     \mapsto [V \boxtimes_k W] \,.
   \]
-\end{thrm}
+\end{theorem}
 \begin{proof}
   We start by showing that $\Psi$ is well-defined.
   We first show that $\Psi$ is independent of the choice of representatives:
@@ -2946,7 +2946,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     \quad   b
     \mapsto (w \mapsto bw) \,.
   \end{gather*}
-  By Lemma \ref{lem: equivalence to irreducible} these homomorphisms are surjective.
+  By Lemma \ref{lemma: equivalence to irreducible} these homomorphisms are surjective.
   Together with the isomorphisms of $k$-algebras
   \[
             kG \otimes_k kH
@@ -2977,7 +2977,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \end{center}
   Since both $\phi_1$ and $\phi_2$ are surjective $\phi_1 \otimes \phi_2$ is also surjective.
   Therefore $\psi$ is surjective.
-  Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lem: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.
+  Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lemma: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.
   
   Next we show that $\Psi$ is surjective.
   For this let $[Z] \in \irr_k(G \times H)$.
@@ -3076,7 +3076,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   For an abelian group $A$ and a subset $S \subseteq \End_\Z(A)$ the \emph{commutant} or \emph{centralizer} $S'$ of $S$ (in $\End_\Z(M)$) is defined as
   \[
               S'
@@ -3108,7 +3108,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   \[
     S''_R \coloneqq (S'_R)'_R \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -3205,7 +3205,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
 \end{rem}
 
 
-\begin{thrm}[Double Centralizer Theorem]
+\begin{theorem}[Double Centralizer Theorem]
   Let $k$ be a field (not necessarily algebraically closed) and $W$ a finite-dimensional $k$-vector space.
   Let $A \subseteq \End_k(W)$ be a semisimple subalgebra.
   Let $A'$ be the commutant of $A$ in $\End_k(W)$, i.e.\
@@ -3229,7 +3229,7 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
   Furthermore, each $W_i$ is of the form $W_i \cong V_i \otimes_{D_i} V'_i$ where $V_i$ is a simple $A$-module, $V'_i$ is a simple $A'$-module and $D_i = \End_A(V_i) \cong \End_{A'}(V'_i)$.
   The simple $A$-modules $V_1, \dotsc, V_n$ are a complete set of representatives of $\Irr(A)$ and the simple $A'$-modules $V'_1, \dotsc, V'_n$ are a complete set of representatives of $\Irr(A')$.
   In particular we have bijection between the isomorphism classes of simple $A$-modules and the isomorphism classes of simple $A'$-modules.
-\end{thrm}
+\end{theorem}
 
 
 (The proof of the above theorem is missing in these notes.
@@ -3268,7 +3268,7 @@ The usual action of $\GL_2(\Complex)$ on $\Complex^2$ induces an action of $\GL_
           \oplus  \sgn
   \]
   where $\Complex$ is the one-dimensional trivial representation of $S_2$ and $\sgn$ the sign-representation of $S_2$.
-  (Notice that these are, up to isomorphism, the only irreducible representations of $S_2$ by Corollary \ref{cor: number of irreducible representations of finite abelian group} because $|\Irr(S_2)| = |S_2| = 2$.)
+  (Notice that these are, up to isomorphism, the only irreducible representations of $S_2$ by Corollary \ref{corollary: number of irreducible representations of finite abelian group} because $|\Irr(S_2)| = |S_2| = 2$.)
   The corresponding trivial subrepresentations of $V$ are spanned by $e_1 \otimes e_1$, $e_2 \otimes e_2$ and $e_1 \otimes e_2 + e_2 \otimes e_1$ respectively.
   The corresponding sign-subrepresentation of $V$ is spanned by $e_1 \otimes e_2 - e_2 \otimes e_1$.
   
@@ -3410,7 +3410,7 @@ We can also turn $V^{\otimes d}$ into a representation of $S_d$ with
 for every permutation $\pi \in S_d$ and simple tensors $v_1 \otimes \dotsb \otimes v_d \in V^{\otimes d}$. 
 Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
 
-\begin{thrm}(Schur--Weyl duality)
+\begin{theorem}(Schur--Weyl duality)
   Let $\gen{\GL(V)}$ denote the image of the algebra homomorphism
   \[
             k \GL(V)
@@ -3431,7 +3431,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
     \item \label{enum: end gl = sd}
       If $\kchar k = 0$ or $\kchar k > d$ then $\End_{\GL(V)}(V^{\otimes d}) = \gen{S_d}$.
   \end{enumerate}
-\end{thrm}
+\end{theorem}
 \begin{proof}
   We first prove \ref{enum: end gl = sd} assuming \ref{enum: end sd = gl}:
   $V^{\otimes d}$ is a finite-dimenisonal representation of $S_d$ over $k$, where $\kchar k = 0$ or $\kchar k > d$.
@@ -3504,14 +3504,14 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
                   \psi \in \GL(V)
                 \} \,.
   \]
-  Since $\GL_k(V) \subseteq \End_k(V)$ is Zariski dense over $k$ this will follow from Lemma \ref{lem: symmetric tensors and zariski dense subsets}
+  Since $\GL_k(V) \subseteq \End_k(V)$ is Zariski dense over $k$ this will follow from Lemma \ref{lemma: symmetric tensors and zariski dense subsets}
 \end{proof}
 
 
-\begin{lem}\label{lem: symmetric tensors and zariski dense subsets}
+\begin{lemma}\label{lemma: symmetric tensors and zariski dense subsets}
   Let $k$ be an infinite field, $d \geq 1$, $E$ a finite-dimensional $k$-vector space and $X \subseteq E$ Zariski-dense over $k$.
   Then the symmetric tensors in $E^{\otimes d}$ are generated as a $k$-vector space by the tensors $x \otimes \dotsb \otimes x$ where $x \in X$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $e_1, \dotsc, e_n$ be a $k$-basis of $E$, $S \subseteq E^{\otimes d}$ the vector subspace of symmetric tensors (i.e.\ $S = (E^{\otimes d})^{S_n}$) and
   \[
@@ -3566,7 +3566,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $k$ be a field with $\kchar k = 0$ (in particular $k$ is infinite) and $V$ a finite-dimensional $k$-vector space.
   Then $V^{\otimes d}$ is a representation of $S_d \times \GL(V)$ and we have a decomposition into irreducible representations of $S_d \times \GL(V)$ with
   \[
@@ -3574,7 +3574,7 @@ Is is clear that the actions of $\GL(V)$ and $S_d$ commute.
     \cong \bigoplus_{\lambda \in \Delta} S_\lambda \otimes V_\lambda
   \]
   where the $S_\lambda$ are irreducible representations of $S_d$, the $V_\lambda$ are irreducible representations of $\GL(V)$ and the $S_\lambda \otimes V_\lambda$ are irreducible representations of $S_d \times \GL(V)$, where $\Delta$ is a complete set of representatives of $\Irr(S_d)$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   This follows directly from the Schur--Weyl Duality and the Double Centralizer Theorem.
 \end{proof}

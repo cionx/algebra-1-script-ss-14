@@ -8,7 +8,7 @@
 For this section we require all fields to be infinite.
 
 
-\begin{thrm}
+\begin{theorem}
   Let $\SL_n(k)$ act on $\Mat_n(k)$ by left multiplication. Then
   \[
             \det
@@ -23,7 +23,7 @@ For this section we require all fields to be infinite.
               \det
     \mapsfrom X \,.
   \]
-\end{thrm}
+\end{theorem}
 \begin{proof}
   We choose the basis $E_{ij}$, $1 \leq i,j \leq n$ of $M_n(k)$ where the $E_{ij}$ is the matrix with $1$ as the entry in the $i$-th row and $j$-th colomn and $0$ otherwise.
   (So $E_{ij} e_k = \delta_{jk}e_i$ where $e_1, \dotsc, e_n$ is the standard basis of $k^n$.)
@@ -155,7 +155,7 @@ Therefore
 for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
 
 
-\begin{thrm}
+\begin{theorem}
   Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation, i.e.\
   \[
       S.A
@@ -171,7 +171,7 @@ for all $1 \leq i \leq n$ and every diagonal matrix $\diag(d_1, \dotsc, d_n)$.
               s_i
     \mapsfrom X_i \,.
   \]
-\end{thrm}
+\end{theorem}
 \begin{proof}
   We already know that $s_1, \dotsc, s_n \in \mc{P}(\Mat_n(k))$.
   That $s_1, \dotsc, s_n$ are $\GL_n(k)$-invariant directly follows from the fact that the characteristic polynomial of a matrix is invariant under conjugation.
@@ -331,7 +331,7 @@ It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and
 \end{align*}
 
 
-\begin{thrm}
+\begin{theorem}
   Let $n \geq 1$ and let $k$ be an infinite field with either $\kchar k = 0$ or $\kchar k > n$.
   Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
   Then $\tr_1, \dotsc, \tr_n$ generate $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ as a $k$-algebra and are algebraically independent, i.e.\
@@ -342,7 +342,7 @@ It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and
               \tr_i
     \mapsfrom X_i \,.
   \]
-\end{thrm}
+\end{theorem}
 \begin{proof}
   As before let 
   \[
@@ -374,7 +374,7 @@ It is clear that $\tr_m \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ for all $m \geq 0$ and
 In this section let $k$ be an infinite field.
 
 
-\begin{defi}
+\begin{definition}
   Let $W$ be a finite-dimensional $k$-vector space.
   A subset $X \subseteq W$ is called \emph{Zariski dense (over $k$)} if for any $f \in \mc{P}_k(W)$ we have
   \[
@@ -386,7 +386,7 @@ In this section let $k$ be an infinite field.
                 f_{|X} = 0
     \Rightarrow f_{|Y} = 0 \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{expls}
@@ -420,9 +420,9 @@ In this section let $k$ be an infinite field.
 
 
 
-\begin{lem}
+\begin{lemma}
   $k^n \subseteq L^n$ is Zariski dense over $L$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   We show the statement by induction over $n$.
   
@@ -458,10 +458,10 @@ In this section let $k$ be an infinite field.
 We can generalize this obeservation in the language of extension of scalars:
 
 
-\begin{lem}\label{lem: W Zariski dense in W_L}
+\begin{lemma}\label{lemma: W Zariski dense in W_L}
   Let $W$ be a finite-dimensional $k$-vector space.
   Then $W$ is Zariski dense in $W_L$ over $L$.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
   Then $1 \otimes w_1, \dotsc, 1 \otimes w_n$ is an $L$-basis of $W_L$.
@@ -514,7 +514,7 @@ The problem of the constructed isomorphism is that it depends on choosing a $k$-
 We will now construct an isomorphism which does not depend on such choice.
 
 
-\begin{lem}
+\begin{lemma}
   Let $W$ be a finite-dimensional $k$-vector space. Then there exists an unique map
   \[
             \iota
@@ -537,7 +537,7 @@ We will now construct an isomorphism which does not depend on such choice.
   \end{center}
   commutes.
   $\iota$ is a monomorphism of $k$-algebras.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$ and
   \[
@@ -610,7 +610,7 @@ This inclusion gives us the desired isomorphism of $L$-algebras
 for free.
 
 
-\begin{prop}
+\begin{proposition}
   Let $k$ be a finite-dimensional $k$-vector space.
   Then the map
   \[
@@ -621,11 +621,11 @@ for free.
     \mapsto \lambda \iota(f)
   \]
   is an isomorphism of $L$-algebras, where $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ is the inclusion as before.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Let $v_1, \dotsc, v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions.
   Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \N^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$).
-  Therefore the statement follows from corollary \ref{cor: inclusion to bijection algebras}.
+  Therefore the statement follows from corollary \ref{corollary: inclusion to bijection algebras}.
 \end{proof}
 
 
@@ -735,7 +735,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{center}
 
 
-\begin{lem}
+\begin{lemma}
   Let $W$ be a finite-dimensional $k$-vector space.
   Let $h \in \mc{P}(W)$ with $h \neq 0$ and
   \[
@@ -747,7 +747,7 @@ By putting all of this together we get the following nice commutative diagram:
               \} \,.
   \]
   Then $W_h$ is Zariski dense.
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $f \in \mc{P}(W)$ with $f_{|W_h} = 0$. Then
   \[
@@ -761,9 +761,9 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   $\GL_n(k)$ is Zariski-dense in $\Mat_n(k)$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   We know that $\det \in \mc{P}(\Mat_n(k))$ with $\det \neq 0$.
   Since
@@ -780,10 +780,10 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $W$ be a finite-dimensional $k$-vector space and $X \subseteq Y \subseteq Z \subseteq W$ such that $X$ is Zariski-dense in $Y$ and $Y$ is Zariski-dense in $Z$.
   Then $X$ is Zariski-dense in $Z$.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Let $f \in \mc{P}(W)$ with $f_{|X} = 0$.
   Because $X$ is Zariski dense in $Y$ it follows that $f_{|Y} = 0$.
@@ -791,7 +791,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 
-\begin{lem}\label{lem: zariski density orbits}
+\begin{lemma}\label{lemma: zariski density orbits}
   Let $W$ be a finite-dimensional representation of a group $G$ and $f \in \mc{P}(W)^G$.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -810,7 +810,7 @@ By putting all of this together we get the following nice commutative diagram:
     \item
       If there is a Zariski dense $G$-orbit then $f$ is constant.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -832,7 +832,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $k$ be an algebraically closed field and
   \[
               \Diag_n(k)
@@ -843,7 +843,7 @@ By putting all of this together we get the following nice commutative diagram:
               \} \,.
   \]
   Then $\Diag_n(k)$ is Zariski-dense in $\Mat_n(k)$.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Let $f \in \mc{P}(\Mat_n(k))$ with $f_{|\Diag_n(k)} = 0$ and $A \in \Mat_n(k)$.
   Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1, \dotsc, b_n$ (not necessarily pairwise distinct).
@@ -896,17 +896,17 @@ By putting all of this together we get the following nice commutative diagram:
 \end{proof}
 
 
-\begin{cor}\label{cor: diagonal matrices dense alg closed}
+\begin{corollary}\label{corollary: diagonal matrices dense alg closed}
   Let $k$ be an algebraically closed field and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
   For $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ with $f_{|D} = 0$ we then have $f = 0$.
   (As usual $D$ denotes the set of diagonal matrices in $\Mat_n(k)$.)
-\end{cor}
+\end{corollary}
 \begin{proof}
-  Since $\GL_n(k).D = \Diag_n(k)$ is Zariski dense in $\Mat_n(k)$ this directly follows from lemma \ref{lem: zariski density orbits}.
+  Since $\GL_n(k).D = \Diag_n(k)$ is Zariski dense in $\Mat_n(k)$ this directly follows from lemma \ref{lemma: zariski density orbits}.
 \end{proof}
 
 
-\begin{defi}
+\begin{definition}
   Let $W$ be a finite-dimensional $k$-vector space.
   For a subset $X \subseteq W$ we define
   \[
@@ -931,7 +931,7 @@ By putting all of this together we get the following nice commutative diagram:
                 f(a) = 0
               \} \,.
   \]
-\end{defi}
+\end{definition}
 
 
 \begin{rem}
@@ -955,7 +955,7 @@ By putting all of this together we get the following nice commutative diagram:
 \end{rem}
 
 
-\begin{lem}
+\begin{lemma}
   For $a = (a_1, \dotsc, a_n) \in k^n$ the ideal
   \[
               (X_1 - a_1, \dotsc, X_n - a_n)
@@ -966,7 +966,7 @@ By putting all of this together we get the following nice commutative diagram:
     \mf{M}_a = (X_1 - a_1, \dotsc, X_n - a_n) \,.
   \]
   (We identify $k[X_1, \dotsc, X_n]$ with $\mc{P}(k^n)$ under the isomorphism which identifies $X_i$ with the $i$-th coordinate function $\varphi_i$.)
-\end{lem}
+\end{lemma}
 \begin{proof}
   We write $\mf{M} \coloneqq (X_1 - a_1, \dotsc, X_n - a_n)$. We define the evaluation map
   \[
@@ -1018,7 +1018,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
 \]
 
 
-\begin{lem}
+\begin{lemma}
   Let $L/k$ be a field extension and $W$ a finite-dimensional $k$-vector space.
   For a subset $X \subseteq W \subseteq W_L$ we have
   \[
@@ -1026,7 +1026,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
     = \mc{I}_L(X) \,.
   \]
   (We identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$ via the isomorphism $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$.)
-\end{lem}
+\end{lemma}
 \begin{proof}
   Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
   For every point $w = \sum_{i=1}^n \lambda_i w_i$ we have
@@ -1052,7 +1052,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
 \end{proof}
 
 
-\begin{cor}\label{cor: Zariski dense scalar extension}
+\begin{corollary}\label{corollary: Zariski dense scalar extension}
   Let $W$ be a finite-dimensional $k$-vector space and
   \[
               X
@@ -1061,7 +1061,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
     \subseteq W_L \,.
   \]
   If $X$ is Zariski dense in $Y$ over $k$ then it is so over $L$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Because $X$ is Zariski dense in $Y$ over $k$ we have
   \[
@@ -1079,7 +1079,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $L/k$ be a field extension.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1089,13 +1089,13 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
     \item
       $\SL_n(k)$ is Zariski dense in $\SL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$.
-      By corollary \ref{cor: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$.
-      By \mbox{lemma \ref{lem: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$.
+      By corollary \ref{corollary: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$.
+      By \mbox{lemmama \ref{lemma: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$.
       By the transitivity of Zariski density we find that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
     \item
       This follows directly from a).
@@ -1107,10 +1107,10 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $k$ be an infinite field (not necessarily alg. closed) and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
   If $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ with $f_{|\D_n(k)} = 0$ then $f = 0$, where $\D_n(k) \subseteq \Mat_n(k)$ denotes the subset of diagonal matrices.
-\end{prop}
+\end{proposition}
 \begin{proof}
   Let $L \coloneqq \bar{k}$ be an algebraic closure of $k$.
   Then $\GL_n(L)$ acts on $\Mat_n(L)$ by conjugation.
@@ -1123,7 +1123,7 @@ If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis 
   Let $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ with $f_{|\D_n(k)} = 0$.
   Then $f \in \mc{P}_L(\Mat_n(L))^{\GL_n(L)}$ with $f_{|\D_n(k)} = 0$.
   Since $\D_n(k)$ is Zariski-dense in $\D_n(L) \cong \D_n(k)_L$ over $L$ we have $f_{|\D_n(L)} = 0$.
-  By corollary \ref{cor: diagonal matrices dense alg closed} we find that $f = 0$.
+  By corollary \ref{corollary: diagonal matrices dense alg closed} we find that $f = 0$.
   
   \begin{proof}[Proof of the claim]
     We define
@@ -1201,7 +1201,7 @@ In this section we require all fields to be infinite.
 Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 
 
-\begin{defi}
+\begin{definition}
   Let $S \subseteq \mc{P}(W)$.
   Then
   \[
@@ -1215,7 +1215,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
               \} \,.
   \]
   is the \emph{zero set} or \emph{varishing set associated with $S$}, or \emph{affine algebraic variety corresponding to $S$}.
-\end{defi}
+\end{definition}
 
 
 \begin{expls}
@@ -1230,13 +1230,13 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{expls}
 
 
-\begin{lem}
+\begin{lemma}
   Let $X \subseteq W$ be an affine algebraic variety. Then
   \[
       \mc{V}(\mc{I}(X))
     = X \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
   It is clear that $X \subseteq \mc{V}(\mc{I}(X))$.
   To show the other inclusion let $S \subseteq \mc{P}(W)$ such that $X = \mc{V}(S)$.
@@ -1244,18 +1244,18 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   A subset $X \subseteq W$ is an affine algebraic variety if and only if there exists an ideal $I \subseteq \mc{P}(W)$ with $X = \mc{V}(I)$.
-\end{cor}
+\end{corollary}
 
 
-\begin{cor}
+\begin{corollary}
   Let $S \subseteq \mc{P}(W)$ and $I \coloneqq (S)_{\mc{P}(W)}$. Then
   \[
       \mc{V}(S)
     = \mc{V}(I) \,.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
   Because $\mc{I}(\mc{V}(S))$ is an ideal which contains $S$ we have
   \[
@@ -1274,14 +1274,14 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   Let $X \subseteq W$ an affine algebraic variety.
   Then there exists $f_1, \dotsc, f_n \in \mc{P}(W)$ such that
   \[
       X
     = \mc{V}( \{f_1, \dotsc, f_n\} ) \,.
   \]
-\end{cor}
+\end{corollary}
 \begin{proof}
   Since $k$ is infinite we have $\mc{P}(W) \cong k[X_1, \dotsc, X_{\dim(W)}]$, so $\mc{P}(W)$ is noetherian.
   Therefore $\mc{I}(X)$ is finitely generated by some $f_1, \dotsc, f_n \in \mc{P}(W)$.
@@ -1296,7 +1296,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       Let $(I_j)_{j \in J}$ be a family of ideals $I_j \subseteq \mc{P}(W)$. Then
@@ -1311,7 +1311,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
         = \mc{V}(I_1 \cap I_2) \,.
       \]
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1350,7 +1350,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{rem}
 
 
-\begin{defi}
+\begin{definition}
   Let $R$ be a commutative ring and $I \subseteq R$ an ideal. Then
   \[
               \rad_R I
@@ -1365,10 +1365,10 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
   \]
   is the \emph{radical of $I$}.
   If it is clear over what ring we work we also simply write $\rad$ instead of $\rad_R$.
-\end{defi}
+\end{definition}
 
 
-\begin{lem}
+\begin{lemma}
   Let $R$ be a commutative ring and $I \subseteq R$ an ideal. 
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1376,7 +1376,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
     \item
       We have $\rad(\rad I) = \rad I$.
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1409,13 +1409,13 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{proof}
 
 
-\begin{lem}
+\begin{lemma}
   For every affine algebraic variety $X \subseteq W$ we have
   \[
     \mc{I}(X)
   = \rad \mc{I}(X) \,.
   \]
-\end{lem}
+\end{lemma}
 \begin{proof}
   It is clear that $\mc{I}(X) \subseteq \rad \mc{I}(X)$.
   To show the other inclusion let \mbox{$f \in \rad \mc{I}(X)$}.
@@ -1425,7 +1425,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \end{proof}
 
 
-\begin{prop}
+\begin{proposition}
   Let $k$ be algebraically closed.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1441,7 +1441,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
         &\mapsfrom        I \,.
     \end{align*}
   \end{enumerate}
-\end{prop}
+\end{proposition}
 \begin{proof}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
@@ -1462,7 +1462,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 To prove the first part of the previous lemma we need some preparation.
 
 
-\begin{thrm}[Weak Nullstellensatz]
+\begin{theorem}[Weak Nullstellensatz]
   Let $k$ be algebraically closed.
   For every maxmial ideal \mbox{$\mf{m} \subseteq k[X_1, \dotsc, X_n]$} we have
   \[
@@ -1471,7 +1471,7 @@ To prove the first part of the previous lemma we need some preparation.
     \eqqcolon \mf{m}_a
   \]
   for some $a = (a_1, \dotsc, a_n) \in k^n$.
-\end{thrm}
+\end{theorem}
 
 
 \begin{rem}
@@ -1495,10 +1495,10 @@ To prove the first part of the previous lemma we need some preparation.
 \end{rem}
 
 
-\begin{cor}(Nullstellensatz)
+\begin{corollary}(Nullstellensatz)
   Let $k$ be an algebraically closed field.
   For every proper ideal $J \subseteq k[X_1, \dotsc, X_n]$ we have $\mc{V}(J) \neq \emptyset$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   Since $J \neq k[X_1, \dotsc, X_n]$ there exists a maximal ideal $\mf{m} \subseteq k[X_1, \dotsc, X_n]$ with $J \subseteq \mf{m}$.
   By the weak Nullstellensatz we have $\mf{m} = \mf{m}_a$ for some $a \in k^n$.
@@ -1507,9 +1507,9 @@ To prove the first part of the previous lemma we need some preparation.
 \end{proof}
 
 
-\begin{cor}
+\begin{corollary}
   IF $k$ is algebraically closed then $\mc{I}(\mc{V}(J)) = \rad J$ for every ideal $J \subseteq k[X_1, \dotsc, X_n]$.
-\end{cor}
+\end{corollary}
 \begin{proof}
   We fix an ideal $J \subseteq k[X_1, \dotsc, X_n]$.
   Because $k[X_1, \dotsc, X_n]$ is noetherian there exist $f_1, \dotsc, f_s \in k[X_1, \dotsc, X_n]$ with $J = (f_1, \dotsc, f_s)$.
@@ -1558,11 +1558,11 @@ To prove the first part of the previous lemma we need some preparation.
 \end{proof}
 
 
-\begin{lem}\label{lem: finitely generated field extensions are algebraic}
+\begin{lemma}\label{lemma: finitely generated field extensions are algebraic}
   Let $L/k$ be a field extension.
   Assume $L$ is finitely generated as a $k$-algebra.
   Then $L/k$ is an algebraic field extension.
-\end{lem}
+\end{lemma}
 \begin{proof}
   The proof is an exercise on the $8$-th exercise sheet.
 \end{proof}
@@ -1596,7 +1596,7 @@ We are now prepared to prove the weak Nullstellensatz.
   
   Since $\mf{m}$ is maximal we know that $R / \mf{m}$ is a field.
   Moreover $R / \mf{m}$ is finitely generated as a $k$-algebra (by the elements $X_1 + \mf{m}, \dotsc, X_n + \mf{m}$).
-  By Lemma \ref{lem: finitely generated field extensions are algebraic} we find that $R/\mf{m}$ is algebraic over $k$.
+  By Lemma \ref{lemma: finitely generated field extensions are algebraic} we find that $R/\mf{m}$ is algebraic over $k$.
   Since $k$ is algebraically closed we have $R / \mf{m} = k$, i.e.\ the inclusion $k \to R / \mf{m}$, $a \mapsto a + \mf{m}$ is bijective.
   
   Now consider
@@ -1619,7 +1619,7 @@ We are now prepared to prove the weak Nullstellensatz.
 \end{proof}
 
 
-\begin{thrm}(Hilbert)
+\begin{theorem}(Hilbert)
   Let $G$ be a group and $W$ a finite-dimensional representation of $G$ over $k$.
   Then $\mc{P}(W)$ is a representation of $G$ in the usual way (i.e.\ $(g.f)(w) = f\left( g^{-1}.w \right)$ for all $g \in G$, $f \in \mc{P}(W)$ and $w \in W$).
   Suppose that
@@ -1629,23 +1629,23 @@ We are now prepared to prove the weak Nullstellensatz.
   \]
   where $L_i \subseteq \mc{P}(W)$ is an irreducible representation of $G$ for all $i \in I$.
   Then $\mc{P}(W)^G$ is finitely generated as a $k$-algebra.
-\end{thrm}
+\end{theorem}
 
 
 To prove this theorem we will use the following lemmata.
 
 
-\begin{lem}\label{lem: technical lemma about generating}
+\begin{lemma}\label{lemma: technical lemma about generating}
   Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra which is commutative.
   If the ideal $A^+ = \bigoplus_{d > 0} A_d$ is finitely generated over $A$ then $A$ is finitely generated as an $A_0$-algebra by homogeneous elements.
   (By this we mean that there are finitely many homogeneous elements $a_1, \dotsc, a_n \in A^+$ such that $A = A_0[a_1, \dotsc, a_n]$.)
-\end{lem}
+\end{lemma}
 \begin{proof}
   The proof is an exercise on the $7$-th exercise sheet.
 \end{proof}
 
 
-\begin{lem}\label{lem: projection reynold operator}
+\begin{lemma}\label{lemma: projection reynold operator}
   Let $A$ be a commutative $k$-algebra and let $G$ be a group acting on $A$ by algebra automorphisms.
   In particular, $A$ is a representation of $G$.
   Assume that $A = \bigoplus_{i \in I} L_i$ where $L_i \subseteq A$ is an irreducible subrepresentation of $G$ for all $i \in I$.
@@ -1683,14 +1683,14 @@ To prove this theorem we will use the following lemmata.
         f \in A \,.
       \]
   \end{enumerate}
-\end{lem}
+\end{lemma}
 \begin{proof}
   The proof is an exercise on the $7$-th exercise sheet.
 \end{proof}
 
 
 \begin{proof}[Proof of the Theorem]
-  We write $A \coloneqq \mc{P}(W)$. By Lemma \ref{lem: projection reynold operator} we can decompose
+  We write $A \coloneqq \mc{P}(W)$. By Lemma \ref{lemma: projection reynold operator} we can decompose
   \[
       A
     = A^G \oplus N
@@ -1754,7 +1754,7 @@ To prove this theorem we will use the following lemmata.
     = \pi( (f_1, \dotsc, f_s)_A )
     = \left( f_1, \dotsc, f_s \right)_{A^G} \,.
   \end{align*}
-  Since $\mf{m}_0$ is finitely generated as an $A$-module we find by by Lemma \ref{lem: technical lemma about generating} that $A$ is finitely generated as a $A_0^G$-algebra, where $A_0^G = A_0 = k$.
+  Since $\mf{m}_0$ is finitely generated as an $A$-module we find by by Lemma \ref{lemma: technical lemma about generating} that $A$ is finitely generated as a $A_0^G$-algebra, where $A_0^G = A_0 = k$.
 \end{proof}
 
 
