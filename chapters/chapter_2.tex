@@ -2202,22 +2202,23 @@ It is interesting to notice that this functor is fully faithful.
     = \Psi(f_1, \dotsc, f_n) \,.
   \]
   
-  We have shown that $\Omega \Phi = \Psi$ (see figure \ref{figure: bijections}).
+  We have shown that $\Omega \Phi = \Psi$, i.e. that the diagram
+  \[
+    \begin{tikzcd}
+        {}
+      & \mc{P}(W)^n
+        \arrow[swap]{dl}{\Phi}
+        \arrow{dr}{\Psi}
+      & {}
+      \\
+        \Pol_k(W,V)
+        \arrow{rr}{\Omega}
+      & {}
+      & \Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W))
+    \end{tikzcd}
+  \]
+  commutes.
   Because $\Phi$ and $\Psi$ are bijections it follows that $\Omega = \Psi \Phi^{-1}$ is a bijection.
-  \qedhere
-  
-  \begin{figure}\centering
-    \begin{tikzpicture}[node distance = 6em, auto]
-      \node (PWn) {$\mc{P}(W)^n$};
-      \node (pol) [below left= 2em and 2em of PWn] {$\Pol_k(W,V)$};
-      \node (alg) [below right= 2em and 2em of PWn] {$\Hom_{\cAlg{k}}(\mc{P}(V),\mc{P}(W))$};
-      \draw[->] (PWn) to node[swap] {$\Phi$} (pol);
-      \draw[->] (PWn) to node {$\Psi$} (alg);
-      \draw[->] (pol) to node {$\Omega$} (alg);
-    \end{tikzpicture}
-    \caption{Bijections.}
-    \label{figure: bijections}
-  \end{figure}
 \end{proof}
 
 

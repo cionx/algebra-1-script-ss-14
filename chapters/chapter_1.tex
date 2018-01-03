@@ -354,16 +354,20 @@ Therefore we have a functor from $\cGsets{G}$ to $\cGsets{G}$ which sends every 
 \begin{lemma}
   Let $X$ be a $G$-set and let $k$ be field \textup(or a ring\textup).
   Then a map $f \colon X \to k$ is invariant if and only if $f$ factors through $\can$, i.e.\ if there exists a map $\bar{f} \colon X/G \to k$ which makes the following diagram commute:
-  \begin{center}
-  \begin{tikzpicture}[node distance = 2cm, auto]
-    \node (A) {$A$};
-    \node (XG) [below right of = A] {$X/G$};
-    \node (k) [above right of = XG] {$k$};
-    \draw[->] (A) to node {$f$} (k);
-    \draw[->] (A) to node [swap] {$\can$} (XG);
-    \draw[->] (XG) to node [swap] {$\exists\bar{f}$} (k);
-  \end{tikzpicture}
-  \end{center}
+  \[
+    \begin{tikzcd}
+        A
+        \arrow{rr}{f}
+        \arrow[swap]{rd}{\can}
+      & {}
+      & k
+      \\
+        {}
+      & X/G
+        \arrow[swap, dashed]{ru}{\bar{f}}
+      & {}
+    \end{tikzcd}
+  \]
 \end{lemma}
 \begin{proof}
   Both conditions are equivalent to $f$ being constant on the $G$-orbits of $X$.
@@ -888,22 +892,20 @@ For a $k$-vector space $V$ we set
       Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$:
       If $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$ then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$.
       The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$.
-      So $\tau'$ it is the unique action making the diagram in figure \ref{figure: action on product and tensor} commute for all $g \in G$.
-      \begin{figure}\label{figure: action on product and tensor}\centering
-        \begin{tikzpicture}[node distance = 3.5cm, auto]
-          % the nodes
-          \node (V times W) {$V \times W$};
-          \node (V times W 2) [right of = V times W] {$V \times W$};
-          \node (V tensor W) [below of = V times W, node distance = 1.5cm] {$V \otimes W$};
-          \node (V tensor W 2) [right of = V tensor W] {$V \otimes W$};
-          % the arrows
-          \draw[->] (V times W) to node {$\pi_g \times \pi'_g$} (V times W 2);
-          \draw[->] (V times W) to (V tensor W);
-          \draw[->] (V times W 2) to (V tensor W 2);
-          \draw[->] (V tensor W) to node [swap] {$\pi_g \otimes \pi'_g$} (V tensor W 2);
-        \end{tikzpicture}
-        \caption{The action of $g \in G$ on $V \times W$ and $V \otimes W$.}
-      \end{figure}
+      So $\tau'$ it is the unique action which makes the following diagram commute for every $g \in G$:
+      \[
+        \begin{tikzcd}[column sep = large]
+            V \times W
+            \arrow{r}{\pi_g \times \pi'_g}
+            \arrow{d}
+          & V \times W
+            \arrow{d}
+          \\
+            V \otimes W
+            \arrow{r}{\pi_g \otimes \pi'_g}
+          & V \otimes W
+        \end{tikzcd}
+      \]
       If $v_1, \dotsc, v_n$ is a basis of $V$ and $w_1, \dotsc, w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp.\ $W$, as a matrix $A$, resp.\ $B$.
       The actions $(1)$ and $(2)$ are then given by matrices
       \[
@@ -1435,15 +1437,15 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     &=  \frac{1}{|G|} \sum_{\bar{g} \in G} h.\bar{g}^{-1}.p(\bar{g}.v)
      =  h.\hat{p}(v) \,.
   \end{align*}
-  Altogether we have
-  \begin{center}
-    \begin{tikzpicture}[node distance = 6em, auto]
-      \node (U) {$U$};
-      \node (V) [right of = U] {$V$};
-      \draw[->] (U.20) to node {$\iota$}(V.160);
-      \draw[->] (V.200) to node {$\hat{p}$} (U.340);
-    \end{tikzpicture}
-  \end{center}
+  Altogether we have the diagram
+  \[
+    \begin{tikzcd}
+        U
+        \arrow[shift left]{r}{\iota}
+      & V
+        \arrow[shift left]{l}{\hat{p}}
+    \end{tikzcd}
+  \]
   where both maps are $G$-equivariant and $\hat{p} \iota = \id_U$.
   So the projection $\hat{p}$ splits and we obtain $V \cong U \oplus \ker \hat{p}$.
   Because $\hat{p}$ is $G$-equivariant $\ker \hat{p}$ is a subrepresentation of $V$.

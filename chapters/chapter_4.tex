@@ -972,16 +972,20 @@ We can strengthen this result.
   \]
   is surjective.
   Since the diagram
-  \begin{center}
-    \begin{tikzpicture}
-      \node (A) {$A$};
-      \node (End kr) [below left = 4em and 2em of A] {$\End_{k^r}(M)$};
-      \node (plus End k) [below right = 4em and 2em of A] {$\bigoplus_{i=1}^r \End_k(M_i)$};
-      \draw[->>] (A) to (End kr);
-      \draw[->] (A) to node[above right] {$\Phi$} (plus End k);
-      \draw[double equal sign distance] (End kr) to node[above] {$\sim$} (plus End k);
-    \end{tikzpicture}
-  \end{center}
+  \[
+    \begin{tikzcd}[sep = large]
+        {}
+      & A
+        \arrow[two heads]{dl}
+        \arrow{dr}{\Phi}
+      & {}
+      \\
+        \End_{k^r}(M)
+        \arrow[equal]{rr}{\sim}
+      & {}
+      & \bigoplus_{i=1}^r \End_k(M_i)
+    \end{tikzcd}
+  \]
   commutes, we find that $\Phi$ is surjective.
 \end{proof}
 
@@ -2961,18 +2965,19 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
     \mapsto f \otimes g
   \]
   we get the following commutative diagram.
-  \begin{center}
-    \begin{tikzpicture}[node distance = 6em]
-      \node (kG x kH) {$kG \otimes_k kH$};
-      \node (End V x End W) [right = 6em of kG x kH] {$\End_k(V) \otimes_k \End_k(W)$};
-      \node (kGH) [below = of kG x kH] {$k(G \times H)$};
-      \node (End V x W) [below = of End V x End W] {$\End_k (V \otimes_k W)$};
-      \draw[->] (kG x kH) to node[above] {$\phi_1 \otimes \phi_2$} (End V x End W);
-      \draw[->] (kGH) to node[above] {$\psi$} (End V x W);
-      \draw[double equal sign distance] (kG x kH) to node[left] {$\wr$} (kGH);
-      \draw[double equal sign distance] (End V x End W) to node[left] {$\wr$} (End V x W);
-    \end{tikzpicture}
-  \end{center}
+  \[
+    \begin{tikzcd}[column sep = huge]
+        kG \otimes_k kH
+        \arrow{r}{\phi_1 \otimes \phi_2}
+        \arrow[equal]{d}{\wr}
+      & \End_k(V) \otimes_k \End_k(W)
+        \arrow[equal]{d}{\wr}
+      \\
+        k(G \times H)
+        \arrow{r}{\psi}
+      & \End_k(V \otimes_k W)
+    \end{tikzcd}
+  \]
   Since both $\phi_1$ and $\phi_2$ are surjective $\phi_1 \otimes \phi_2$ is also surjective.
   Therefore $\psi$ is surjective.
   Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lemma: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.

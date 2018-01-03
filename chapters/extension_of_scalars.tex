@@ -68,16 +68,20 @@ The $L$-vector space $V_L$ together with the inclusion $\can_V$ satisfies an uni
     \phi \colon V_L \to V'
   \]
   such that the diagram
-  \begin{center}
-    \begin{tikzpicture}[node distance = 6em, auto]
-      \node (V) {$V$};
-      \node (V_L) [below left of = V] {$V_L$};
-      \node (V')  [below right of = V] {$V'$};
-      \draw[->] (V) to node[swap] {$\can_V$} (V_L);
-      \draw[->] (V) to node {$\iota$} (V');
-      \draw[->] (V_L) to node {$\phi$} (V');
-    \end{tikzpicture}
-  \end{center}
+  \[
+    \begin{tikzcd}
+        {}
+      & V
+        \arrow[swap]{dl}{\can_V}
+        \arrow{dr}{\iota}
+      & {}
+      \\
+        V_L
+        \arrow{rr}{\phi}
+      & {}
+      & V'
+    \end{tikzcd}
+  \]
   commutes and this map is an isomorphism of $L$-vector spaces.
 \end{theorem}
 
@@ -158,18 +162,19 @@ The claim is that the $\beta_W$ form an natural isomorphism from $F_1$ to $F_2$,
   
   Next we will show that the $\beta_W$ are natural isomorphisms.
   For this we need to check that for all $L$-vector spaces $W$ and $W'$ and every $L$-linear map \mbox{$f \colon W \to W'$} the diagram
-  \begin{center}
-    \begin{tikzpicture}[node distance = 6em, auto]
-      \node (HomLW) {$\Hom_L(V_L, W)$};
-      \node (HomLW') [right = 6em of HomLW] {$\Hom_L(V_L, W')$};
-      \node (HomkW) [below of = HomLW] {$\Hom_k(V,W)$};
-      \node (HomkW') [below of = HomLW'] {$\Hom_k(V,W')$};
-      \draw[->] (HomLW) to node {$F_1(f)$} (HomLW');
-      \draw[->] (HomkW) to node[swap] {$F_2(f)$} (HomkW');
-      \draw[->] (HomLW) to node[swap] {$\beta_W$} (HomkW);
-      \draw[->] (HomLW') to node {$\beta_{W'}$} (HomkW');
-    \end{tikzpicture}
-  \end{center}
+  \[
+    \begin{tikzcd}[sep = large]
+        \Hom_L(V_L, W)
+        \arrow{r}{F_1(f)}
+        \arrow[swap]{d}{\beta_W}
+      & \Hom_L(V_L, W')
+        \arrow{d}{\beta_{W'}}
+      \\
+        \Hom_k(V,W)
+        \arrow{r}{F_2(f)}
+      & \Hom_k(V,W')
+    \end{tikzcd}
+  \]
   commutes, where $F_1$ and $F_2$ are defined as in the previous explanation.
   This is clear, since $F_1(f)$ and $F_2(f)$ are precomposing with $f$ and $\beta_W$ and $\beta_{W'}$ are composing with $\can_V$, and therefore for all $h \in \Hom_L(V_L, W)$
   \begin{align*}
@@ -262,18 +267,19 @@ Recall the following from linear algebra:
     =       \can_V(v_i)
   \]
   For every $L$-vector space $W$ we therefore get a commutative diagram
-  \begin{center}
-    \begin{tikzpicture}[node distance = 6em, auto]
-      \node (HomL) {$\Hom_L(V_L, W)$};
-      \node (Homk) [right = 6em of HomL] {$\Hom_k(V,W)$};
-      \node (MapsL) [below of = HomL] {$\Maps\left( \{1 \otimes v_i\}_{i \in I}, W\right )$};
-      \node (Mapsk) [below of = Homk] {$\Maps\left( \{v_i\}_{i \in I} ,W\right )$};
-      \draw[double equal sign distance] (HomL) to node {$\sim$} (Homk);
-      \draw[double equal sign distance] (MapsL) to node {$\sim$} (Mapsk);
-      \draw[->] (HomL) to node[swap] {restriction} (MapsL);
-      \draw[->] (Homk) to node {restriction} (Mapsk);
-    \end{tikzpicture}
-  \end{center}
+  \[
+    \begin{tikzcd}[sep = large]
+        \Hom_L(V_L, W)
+        \arrow[equal]{r}{\sim}
+        \arrow[swap]{d}{\text{restriction}}
+      & \Hom_k(V,W)
+        \arrow{d}{\text{restriction}}
+      \\
+        \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
+        \arrow[equal]{r}{\sim}
+      & \Maps\left( \{v_i\}_{i \in I}, W \right)
+    \end{tikzcd}
+  \]
   where we have an isomorphism of $k$-vector spaces
   \[
             \Hom_L(V_L, W)
@@ -284,7 +290,7 @@ Recall the following from linear algebra:
   and the bijection
   \[
           \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
-    \cong \Maps\left( \{v_i\}_{i \in I} ,W \right),
+    \cong \Maps\left( \{v_i\}_{i \in I}, W \right),
     \quad   h
     \mapsto h \circ \phi \,.
   \]
