@@ -1,1 +1,0 @@
-\begingroup \toks 0={macro:->[node distance = 2cm, auto] \node (A) {$A$}; \node (XG) [below right of = A] {$X/G$}; \node (k) [above right of = XG] {$k$}; \draw [->] (A) to node {$f$} (k); \draw [->] (A) to node [swap] {$\can $} (XG); \draw [->] (XG) to node [swap] {$\exists \bar {f}$} (k); }\xdef \tikzexternallastkey {\the \toks 0 }\endgroup %

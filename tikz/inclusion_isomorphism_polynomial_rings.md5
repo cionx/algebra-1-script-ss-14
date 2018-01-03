@@ -1,1 +1,0 @@
-\begingroup \toks 0={macro:->[node distance = 6em, auto] \node (kX) {$k[X_1, \dotsc , X_n]$}; \node (LX) [right = 6em of kX] {$L[X_1, \dotsc , X_n]$}; \node (kXL) [below of = kX] {$k[X_1, \dotsc , X_n]_L$}; \draw [right hook ->] (kX) to (LX); \draw [right hook ->] (kX) to (kXL); \draw [->] (kXL) to node[below] {$\Phi $} (LX); }\xdef \tikzexternallastkey {\the \toks 0 }\endgroup %
