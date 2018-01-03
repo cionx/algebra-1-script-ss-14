@@ -2,8 +2,14 @@ sudo: required
 dist: trusty
 language: generic
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
+- sudo apt-get -qq update
+- git clone https://github.com/cryptofuture/install-tl-ubuntu.git
+- cd install-tl-ubuntu
+- sudo ./install-tl-ubuntu
+- eval "$(sed 's/^/export /' /etc/environment)"
+- cd ..
 script:
+- xelatex -interaction=nonstopmode -halt-on-error notes.tex
 - xelatex -interaction=nonstopmode -halt-on-error notes.tex
 - xelatex -interaction=nonstopmode -halt-on-error notes.tex
 
