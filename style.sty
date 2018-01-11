@@ -1,21 +1,17 @@
-% die verschiedenen benutzen Pakete
+% all the packages
 \usepackage{appendix}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{mathtools}
-\usepackage{stmaryrd} %für \mapsfrom
-\usepackage{extarrows} %für \xlongequal
-%\usepackage{ellipsis} %für passende Auslangspunkte für \dots
+\usepackage{amsmath, amssymb, amsthm, mathtools}  % general math stuff
+\usepackage{stmaryrd}   % \mapsfrom
+\usepackage{extarrows}  % \xlongequal
 \usepackage{fontspec}
 \usepackage{hyperref}
-\usepackage{chngcntr}
-\usepackage[centertableaux,boxsize=1.2em]{ytableau} % für Young-Diagramme
-\usepackage{color} % für Farben
-\usepackage{tikz-cd}
+\usepackage{chngcntr}   % stop section counter from reseting
+\usepackage[centertableaux,boxsize=1.2em]{ytableau} % Young diagrams
+\usepackage{color}    % colors
+\usepackage{tikz-cd}  % commutative diagrams
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
-\usepackage{enumitem}
+\usepackage{enumitem} % more control over enumerates
 \usepackage[automark, headsepline]{scrlayer-scrpage} %for headers
 
 % keine leere Seite zu Beginn von \mainmatter
@@ -30,7 +26,7 @@
 \pagestyle{scrheadings}
 \automark{section}
 
-%Farben
+% colours
 \definecolor{light-gray}{gray}{0.9}
 
 % colours for hyperref
@@ -60,13 +56,13 @@
 % don't reset section counter
 \counterwithout{section}{chapter}
 
-% Ausgabe für diverse Counter
+% how counters are printed
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\theeverything}{\thesection.\arabic{everything}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{equation}}
 
-% useful makros
+% useful macros
 \NewDocumentCommand{\suchthat}{s}{
   \IfBooleanTF{#1}
     {\,\middle|\,}
@@ -75,7 +71,7 @@
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
 
-% Kategoriennamen
+% categories
 \newcommand{\catname}[1]{\mathbf{#1}}
 \newcommand{\cGsets}[1]{\ensuremath{#1\text{-}\catname{Sets}}}
 \newcommand{\cRep}[2]{\ensuremath{\catname{Rep}^#1_#2}} %first argument is the field k, the second the group G
@@ -84,7 +80,7 @@
 \newcommand{\cAlg}[1]{\ensuremath{#1\text{-}\catname{Alg}}}
 \newcommand{\cpol}[1]{\ensuremath{#1\text{-}\catname{pol}}}
 
-% typische Zahlenbereiche
+% numbers and fields
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -92,11 +88,11 @@
 \newcommand{\Complex}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 
-% Abkürzungen für häufig benutzte Befehle
+% often used commands
 \newcommand{\mc}{\mathcal}
 \newcommand{\mf}{\mathfrak}
 
-% Makros für bestimmte Räume
+% spaces
 \DeclareMathOperator{\Maps}{Maps}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Pol}{Pol}
@@ -117,7 +113,7 @@
 \DeclareMathOperator{\vspan}{span}
 \DeclareMathOperator{\gr}{gr}
 
-% Makros für bestimmte Funktionen
+% functions
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\can}{can}
 \DeclareMathOperator{\init}{init}
@@ -127,16 +123,16 @@
 \DeclareMathOperator{\kchar}{char}
 \DeclareMathOperator{\diag}{diag}
 
-% Makros für Operatoren
+% operators
 \newcommand{\dotcup}{\ensuremath{\mathrel{\mathaccent\cdot\cup}}}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 
-% Zeugs das Argumente übernimmt
+% stuff taking arguments
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 
-% technischer Kram für \bigdotcup
+% technical stuff for \bigdotcup
 \makeatletter
 \def\moverlay{\mathpalette\mov@rlay}
 \def\mov@rlay#1#2{\leavevmode\vtop{%
