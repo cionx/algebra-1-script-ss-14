@@ -9,6 +9,7 @@
 %\usepackage{ellipsis} %für passende Auslangspunkte für \dots
 \usepackage{fontspec}
 \usepackage{hyperref}
+\usepackage{chngcntr}
 \usepackage[centertableaux,boxsize=1.2em]{ytableau} % für Young-Diagramme
 \usepackage{color} % für Farben
 \usepackage{tikz-cd}
@@ -60,7 +61,11 @@
 \newtheorem{fluff}[everything]{}
 \newtheorem*{warn}{Warning}
 
+% don't reset section counter
+\counterwithout{section}{chapter}
+
 % Ausgabe für diverse Counter
+\renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\theeverything}{\thesection.\arabic{everything}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{equation}}
