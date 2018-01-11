@@ -55,13 +55,24 @@
 \newtheorem{expls}[everything]{Examples}
 \newtheorem*{rec}{Recall}
 \newtheorem{rem}[everything]{Remark}
+\newtheorem{notation}[everything]{Notation}
 \newtheorem*{note}{Note}
+\newtheorem{fluff}[everything]{}
 \newtheorem*{warn}{Warning}
 
 % Ausgabe für diverse Counter
 \renewcommand{\theeverything}{\thesection.\arabic{everything}}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{equation}}
+
+% useful makros
+\NewDocumentCommand{\suchthat}{s}{
+  \IfBooleanTF{#1}
+    {\,\middle|\,}
+    {\,|\,}       
+}
+\newcommand{\defined}{\coloneqq}
+\newcommand{\defines}{\eqqcolon}
 
 % Kategoriennamen
 \newcommand{\catname}[1]{\mathbf{#1}}
