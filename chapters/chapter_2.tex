@@ -15,9 +15,9 @@
   We call $A_d$, resp.\ $R_d$, the \emph{homogeneous part of degree $d$}.
 \end{definition}
 
-\begin{rem}
+\begin{remark}
   If $A$ is a $k$-Algebra with $1$, then $A$ is a graded $k$-Algebra if and only if $A$ is a graded ring such that $k1 \subseteq A_0$.
-\end{rem}
+\end{remark}
 \begin{proof}
   ($\Rightarrow$)
   Because $A$ is a graded $k$-Algebra there exists a decomposition $A = \bigoplus_{d \in \Z} A_d$ into vector subspaces such that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Z$.
@@ -53,7 +53,7 @@
 \end{proof}
 
 
-\begin{expls}
+\begin{example}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       Let $A$ be a $K$-algebra.
@@ -106,7 +106,7 @@
           \end{cases}
       \]
   \end{enumerate}
-\end{expls}
+\end{example}
 
 
 \begin{definition}
@@ -229,7 +229,7 @@
 \end{proof}
 
 
-\begin{expl}
+\begin{example}
   Consider $k[X]$ for some field $k$.
   Then the multiplication with $X$ defines an element $X \in \End_k(k[X])$.
   Let $\partial = \partial/\partial x \in \End_k(k[X])$ be the (formal) derivative with respect to $X$.
@@ -246,7 +246,7 @@
   \]
   This gives us a filtration on $\mc{A}_1$.
   (We leave the proof of this claims as an exercise to the reader. It will also appear on the exercise sheets.)
-\end{expl}
+\end{example}
 
 
 
@@ -269,7 +269,7 @@
 \end{definition}
 
 
-\begin{expl}
+\begin{example}
   In $k[X_1, X_2, X_3]$ we have the symmetric polynomials
   \begin{align*}
                 p_2
@@ -285,7 +285,7 @@
     &\coloneqq  X_1^4 X_2^2 X_3^2 + X_1^2 X_2^4 X_3^2 + X_1^2 X_2^2 X_3^4 \,.
   \end{align*}
   More generally in $k[X_1, \dotsc, X_n]$ we have the following symmmetric polynomials:
-\end{expl}
+\end{example}
 
 
 \begin{definition}
@@ -374,7 +374,7 @@ We will formalize this observation in the following lemma.
 \end{proof}
 
 
-\begin{rem}[Newton’s identities]
+\begin{remark}[Newton’s identities]
   One can show that more generally
   \[
       p^{(n)}_r - e^{(n)}_1 p^{(n)}_{r-1} + \dotsb + (-1)^{r-1} e^{(n)}_{r-1} p^{(n)}_1 + (-1)^r r e^{(n)}_r
@@ -382,7 +382,7 @@ We will formalize this observation in the following lemma.
   \]
   for all $r \geq 0$.
   For $m = n$ this gives us the previous corollary.
-\end{rem}
+\end{remark}
 \begin{proof}
   The proof of these identities is an exercise on the 4th exercise sheet.
   We will also give a proof later on.
@@ -638,14 +638,14 @@ We will give two possible proofs, where the second one is the one given in the l
 \end{proof}
 
 
-\begin{rem}
+\begin{remark}
   Each of the proofs gives us an algorithm how to express a symmetric polynomial in terms of $e^{(n)}_1, \dotsc, e^{(n)}_n$.
-\end{rem}
+\end{remark}
 
 
-\begin{rem}
+\begin{remark}
   The Fundamental Theorem also holds for $k = \Z$.
-\end{rem}
+\end{remark}
 
 
 To better understand the polynomials $e^{(n)}_k$, $h^{(n)}_k$ and $p^{(n)}_k$ and how they interact with each other it is helpful to have a look at the corresponding generating functions in $k[X_1, \dotsc, X_n]\dblbrack{t}$, i.e.\
@@ -983,7 +983,7 @@ Using the same argumentation we find that for a symmetric polynomial $f \in \Q[X
 both $F$ and $G$ must have integer coefficients.
 
 
-\begin{expl}
+\begin{example}
   Another example of formal power series are Hilbert series.
   Given a graded $k$-algebra $A = \bigoplus_{d \geq 0} A_d$ ($A_d = 0$ for $d < 0$) with $\dim_k A_d < \infty$ for all $d$ the corresponding Hilbert series is defined as
   \[
@@ -1014,7 +1014,7 @@ both $F$ and $G$ must have integer coefficients.
       P_{A \otimes B}(t)
     = P_A(t) P_B(t) \,.
   \]
-\end{expl}
+\end{example}
 
 
 
@@ -1051,7 +1051,7 @@ Partitions are often displayed in terms of \emph{Young diagrams}.
 The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
 
 
-\begin{expl}
+\begin{example}
   $\lambda = (4,2,2)$ is a partition of $8$ and $\lambda' = (3,3,1,1)$ is the transposed partion.
   The Young diagram corresponding to $\lambda'$ is the `transposition' of the Young diagram corresponding to $\lambda$.
   (See figure \ref{figure: Young diagram example}.)
@@ -1063,7 +1063,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
     \caption{The Young diagrams corresponding to $\lambda$ (left) and to $\lambda'$ (right).}
     \label{figure: Young diagram example}
   \end{figure}
-\end{expl}
+\end{example}
 
 
 \begin{definition}
@@ -1086,7 +1086,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
 \end{definition}
 
 
-\begin{expls}
+\begin{example}
   The following is a simple example of partitions of $6$.
   \[
       \ydiagram{6}
@@ -1109,7 +1109,7 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
   \]
   are also not comparable.
   (Because $4+2+1 = 7 < 8 = 3+3+2$ in $\N$.)
-\end{expls}
+\end{example}
 %TODO: Adding a better explanation of this partial order. Bessere Erklärung der partiellen Ordnung hinzufügen.
 
 \begin{lemma}
@@ -1213,7 +1213,7 @@ where
 and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
 
 
-\begin{expl}[]
+\begin{example}[]
   Let $k$ be a field with $\kchar k \neq 2$.
   Let $\lambda = (\lambda_1, \dotsc, \lambda_n) \in \Par$ be a partition.
   The \emph{Schur polynomial corresponding to $\lambda$} is the symmetric polynomial $s_\lambda \in k[X_1, \dotsc, X_n]^{S_n}$ of homogenous degree $|\lambda|$ defined as
@@ -1309,7 +1309,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
     Because $f$ is homogenous of degree $d_1$ we find that $h_d = 0$ for $d \neq d_1 - d_2$.
     Thus $f/g = h_d$ is homogeneous of degree $d_1 - d_2$.
   \end{proof}
-\end{expl}
+\end{example}
 
 
 \begin{lemma}
@@ -1440,7 +1440,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
 \end{definition}
 
 
-\begin{expl}
+\begin{example}
   For $\lambda = (4,4,2,2)$ and $\mu = (3,2,1)$ we have $\lambda + \mu = (7,6,3,2)$.
   The addition of two partitions can also easily be visualized with Young diagrams, see figure \ref{figure: addition partition young diagrams}.
   \begin{figure}\centering
@@ -1451,7 +1451,7 @@ and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
     \caption{Addition of partitions in term of Young diagrams.}
     \label{figure: addition partition young diagrams}
   \end{figure}
-\end{expl}
+\end{example}
 
 
 \begin{lemma}
@@ -1545,11 +1545,11 @@ We can also describe these polynomials in term of partitions.
 \end{corollary}
 
 
-\begin{rem}
+\begin{remark}
   Since $h^{(n)}_1, \dotsc, h^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we can show the same statements for the polynomials $h^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
   
   In the case that $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we can show the same for the polynomials $p^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
-\end{rem}
+\end{remark}
 
 
 % TODO: Adding the basis of schur polynomials.
@@ -1616,9 +1616,9 @@ This has the effect that the restriction of a polynomial function to a vector su
 \end{proof}
 
 
-\begin{rem}
+\begin{remark}
   If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
-\end{rem}
+\end{remark}
 
 
 \begin{lemma}
@@ -1705,10 +1705,10 @@ This has the effect that the restriction of a polynomial function to a vector su
   \end{enumerate}
 \end{proof}
 
-\begin{warn}
+\begin{warning}
   The assumption that $k$ is infinite is necessary.
   If, for example, $p = X^2 + X \in \F_2[X]$, then $p(0) = p(1) = 0$, so $p(\lambda) = 0$ for all $\lambda \in \F_2$, but $p \neq 0$.
-\end{warn}
+\end{warning}
 
 
 \begin{corollary}
@@ -1727,7 +1727,7 @@ Together with the exercise sheet we find that
 is an isomorphism of $k$-algebras.
 
 
-\begin{rem}
+\begin{remark}
   For $k$ infinite we have an isomorphism of representations
   \[
             \Phi
@@ -1755,7 +1755,7 @@ is an isomorphism of $k$-algebras.
      = \Phi(p)\left( g^{-1}.(\lambda_1, \dotsc, \lambda_n) \right) \\
     &= (g.\Phi(p))(\lambda_1, \dotsc, \lambda_n) \,.
   \end{align*}
-\end{rem}
+\end{remark}
 
 
 \begin{definition}
@@ -1887,17 +1887,17 @@ For this we also stop fixing $V$.
 \end{definition}
 
 
-\begin{rem}
+\begin{remark}
   One can show (as for $\mc{P}_k(W)$) that the definition doesn’t depend on the chosen basis of $V$.
-\end{rem}
+\end{remark}
 
 
-\begin{rem}
+\begin{remark}
   In the case of $V = k$ we have $\Pol_k(W,k) = \mc{P}_k(W)$.
-\end{rem}
+\end{remark}
 
 
-\begin{expl}
+\begin{example}
   Let $W$ be a finite dimensional $k$-vector space. Then
   \[
             f
@@ -1941,7 +1941,7 @@ For this we also stop fixing $V$.
       f(w)
     = \sum_{\underline{i}} f_{\underline{i}}(w) w_{\underline{i}} \,.
   \]
-\end{expl}
+\end{example}
 
 
 \begin{lemma}
@@ -2240,7 +2240,7 @@ It is interesting to notice that this functor is fully faithful.
 \end{definition}
 
 
-\begin{expls}
+\begin{example}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       Let $W$ be a finite-dimensional $k$-vector space, $d \in \N, d > 0$.
@@ -2278,7 +2278,7 @@ It is interesting to notice that this functor is fully faithful.
       \]
       is covariant for all $i \geq 1$. 
   \end{enumerate}
-\end{expls}
+\end{example}
 
 
 Notice that since we have $\Hom_k(W,V) \subseteq \Pol_k(W,V)$ we also have

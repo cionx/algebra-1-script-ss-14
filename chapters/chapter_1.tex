@@ -30,7 +30,7 @@
 \end{definition}
 
 
-\begin{expl}
+\begin{example}
   Given a set $X$, the set
   \[
               S(X)
@@ -41,7 +41,7 @@
               \}
   \]
   carries a group structure via $fg \defined f \circ g$ \textup(composition of maps\textup) for all $f, g \in S(X)$. The neutral element is given by the identity $\id_X$.
-\end{expl}
+\end{example}
 
 
 \begin{definition}
@@ -118,7 +118,7 @@
 From this lemma we get the idea that group actions are ``the same'' as ``representing'' groups as permutation groups.
 
 
-\begin{expls}
+\begin{example}
   Let $G$ be a group.
   \begin{enumerate}[label=\alph*), leftmargin=*]
     \item
@@ -182,7 +182,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
       for all $f \in G$, $x \in X$.
       Note that the group homomorphism $S(X) \to S(X)$ which corresponds to this action is just the identity $\id_{S(X)} \colon S(X) \to S(X)$.
   \end{enumerate}
-\end{expls}
+\end{example}
 
 
 \begin{definition}
@@ -216,7 +216,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 \end{lemma}
 
 
-\begin{expls}
+\begin{example}
   Let $G$ be a group.
   \begin{enumerate}[label=\alph*),leftmargin=*]
     \item
@@ -247,7 +247,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
     \item
       If $X$ is any $G$-set and $Y$ is a trivial $G$-set then $f \colon X \to Y$ is $G$-equivariant if and only if $f(g.x) = f(x)$ for all $g \in G$, $x \in X$, i.e.\ if and only if $f$ is constant on the $G$-orbits of $X$.
   \end{enumerate}
-\end{expls}
+\end{example}
 
 
 The previous lemma shows that for every group $G$, the class of $G$-sets together with the $G$-equivariant maps between them form a category, which we will refer to as $\cGsets{G}$.
@@ -264,8 +264,8 @@ for all $G$-sets $X$ and $Y$.
 \end{definition}
 
 
-\begin{note}
-  The action of $G$ on $X$ induces an action of $G$ on $X/G$, which is trivial.
+\begin{fluff}
+  Note that the action of $G$ on $X$ induces an action of $G$ on $X/G$, which is trivial.
   The canonical map
   \[
             \can
@@ -284,7 +284,7 @@ for all $G$-sets $X$ and $Y$.
     = g.\can(x)
   \]
   for all $g \in G$, $x \in X$.
-\end{note}
+\end{fluff}
 
 
 \begin{definition}
@@ -396,7 +396,7 @@ for all $G$-sets $X$ and $Y$.
 \end{proof}
 
 
-\begin{expl}
+\begin{example}
   Let $G = \{e,s\} \cong \Z/2$ where $e$ is the neutral element and $s^2 = e$.
   Let $G$ act on $X = \R$ by $e.\lambda = \lambda$ and $s.\lambda = -\lambda$ for all $\lambda \in \R$.
   We want to know for which $n$ the map $p_n \colon \R \to \R$, $x \mapsto x^n$ is $G$-invariant.
@@ -410,7 +410,7 @@ for all $G$-sets $X$ and $Y$.
   \]
   for all $\lambda \in \R$.
   This holds if and only if $n$ is even.
-\end{expl}
+\end{example}
 
 
 \begin{lemma}\label{lemma: basis of Maps and Hom}
@@ -611,7 +611,7 @@ for all $G$-sets $X$ and $Y$.
 \end{proof}
 
 
-\begin{expl}
+\begin{example}
   Let $X$ be a finite trivial $G$-set.
   It follows from the decomposition $X = \bigdotcup_{x \in X} \{x\}$ that
   \[
@@ -621,10 +621,10 @@ for all $G$-sets $X$ and $Y$.
     \cong \bigoplus_{x \in X} \Maps(\{x\},k) \,.
   \]
   In this case we have $\Maps(X,k)^G = \Maps(X,k)$ because the $G$-action on $k$ is trivial.
-\end{expl}
+\end{example}
 
 
-\begin{warn}
+\begin{warning}
   Given a $G$-set $X$ and a decomposition of $k$-vector spaces (resp.\ $k$-modules) $\Maps(X,k) = V \oplus W$ such that 
   \[
     g.v \in V
@@ -632,10 +632,10 @@ for all $G$-sets $X$ and $Y$.
     g.w \in W
   \]
   for all $v \in V$, $w \in W$, $g \in G$, this decomposition is not necessarily arising from a decomposition $X = X_1 \dotcup X_2$ as above.
-\end{warn}
+\end{warning}
 
 
-\begin{expl}
+\begin{example}
   Take for example the group $G = \{e,s\} \cong \Z/2$ with $s^2 = e$ and let $G$ act on $X = G$ itself by left multiplication.
   Let $k$ be a field with $\kchar k \neq 2$.
   \begin{claim}
@@ -665,7 +665,7 @@ for all $G$-sets $X$ and $Y$.
     = -b_2 \,.
   \]
   It follows for $V \defined \vspan(b_1)$ and $W \defined \vspan(b_2)$ that $\Maps(X, k) = V \oplus W$ with $g.v \in V$ and $g.w \in W$ for all $v \in V$, $w \in W$, $g \in G$.
-\end{expl}
+\end{example}
 
 
 \begin{lemma}
@@ -675,9 +675,9 @@ for all $G$-sets $X$ and $Y$.
 \end{lemma}
 
 
-% \begin{rem}
+% \begin{remark}
 %   Here rings don't necessarily have an 1-element.
-% \end{rem}
+% \end{remark}
 
 
 \begin{proof}
@@ -700,7 +700,7 @@ for all $G$-sets $X$ and $Y$.
 \end{proof}
 
 
-\begin{expl}
+\begin{example}
   Let $X$ be a $G$-set and $k$ a field (or a ring).
   \begin{enumerate}[label=\alph*),leftmargin=*]
     \item
@@ -740,12 +740,12 @@ for all $G$-sets $X$ and $Y$.
       \qedhere
     \end{enumerate}
   \end{proof}
-\end{expl}
+\end{example}
 
 
-\begin{rem}
+\begin{remark}
   Similar statements hold for $kX$ and $(kX)^G$ (with the same proofs).
-\end{rem}
+\end{remark}
 
 
 \begin{definition}
@@ -759,7 +759,7 @@ for all $G$-sets $X$ and $Y$.
 \end{definition}
 
 
-\begin{rem}
+\begin{remark}
   In this case we have that $\pi_g$ is an $H$-equivariant map for every $g \in G$ and that $\pi'_h$ is a $G$-equivariant map for every $h \in H$, because
   \[
       g.\pi_h(x)
@@ -770,10 +770,10 @@ for all $G$-sets $X$ and $Y$.
     = \pi_h(g.x)
   \]
   for all $g \in G$, $h \in H$.
-\end{rem}
+\end{remark}
 
 
-\begin{expls}
+\begin{example}
   Let $G$ be a group.
   \begin{enumerate}[label=\alph*),leftmargin=*]
     \item
@@ -820,7 +820,7 @@ for all $G$-sets $X$ and $Y$.
       The two actions commute since $gh = hg$ for all $g \in G$, $h \in H$.
       (Note that $H$ is the center of $G$.)
   \end{enumerate}
-\end{expls}
+\end{example}
 
 
 
@@ -836,9 +836,9 @@ for all $G$-sets $X$ and $Y$.
 \end{definition}
 
 
-\begin{expl}
+\begin{example}
   The natural action of $\GL(2,\R)$ on $\R^2$ in the previous example is $\R$-linear.
-\end{expl}
+\end{example}
 
 
 For a $k$-vector space $V$ we set
@@ -870,12 +870,12 @@ For a $k$-vector space $V$ we set
 \end{proof}
 
 
-\begin{rem}
+\begin{remark}
   A $G$-space $V$ or equivalently a vector space $V$ with a group homomorphism $G \to \GL(V)$ is called a representation of $G$.
-\end{rem}
+\end{remark}
 
 
-\begin{expls}
+\begin{example}
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
     \item
       Let $V$ be a $k$-vector space.
@@ -966,7 +966,7 @@ For a $k$-vector space $V$ we set
       Let $V$ and $W$ be $G$-spaces over the same field.
       Then $V \vee W$ and $V \wedge W$ can also be given the structure of a $G$-space in the same way as $V \otimes W$.
   \end{enumerate}
-\end{expls}
+\end{example}
 
 
 \begin{definition}
@@ -983,7 +983,7 @@ For a $k$-vector space $V$ we set
 It is clear that every irreducible representation is also indecomposable.
 The converse is not true in general as the following example shows.
 
-\begin{expl}
+\begin{example}
   Let
   \[
               G
@@ -1047,12 +1047,12 @@ The converse is not true in general as the following example shows.
     = \vspan \left\{ \vect{1 \\ 0} \right\}
     = U \,.
   \]
-\end{expl}
+\end{example}
 
 
-\begin{warn}
+\begin{warning}
   As seen above subrepresentations have not always complements which are again subrepresentations.
-\end{warn}
+\end{warning}
 
 
 \begin{lemma}\label{lemma: direct sum and invariants commute}
@@ -1246,7 +1246,7 @@ We denote
 \end{definition}
 
 
-\begin{rem}
+\begin{remark}
   If $f \colon V \to W$ is an isomorphism of representations, then its linear inverse $f^{-1}$ is again a morphism of representations, because $f^{-1}$ is linear by definition and it is $G$-equivariant, because for all $g \in G, v \in V$
   \[
       f\left( f^{-1}(g.v) \right)
@@ -1255,13 +1255,13 @@ We denote
     = f\left( g.f^{-1}(v) \right)
   \]
   and $f$ is bijective (and therefore injective).
-\end{rem}
+\end{remark}
 
 
-\begin{rem}
+\begin{remark}
   If $V$ and $W$ are representations of $G$ then $\Hom_G(V,W)$ is a $k$-vector space via pointwise addition und scalar multiplication.
   (This will be on one of the exercise sheets.)
-\end{rem}
+\end{remark}
 
 
 \begin{lemma}\label{lemma: composition of morphisms of representations}
@@ -1384,7 +1384,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{proof}
 
 
-\begin{rem}
+\begin{remark}
   Assume $k$ is an algebraically closed field and $V$ a finite dimensional irreducible representation of some group $G$.
   Then
   \[
@@ -1406,7 +1406,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
     &\cong  \Mat(n_1 \times n_1, k) \oplus \dotsb \oplus \Mat(n_r \times n_r, k)
   \end{align*}
   as rings.
-\end{rem}
+\end{remark}
 
 
 \begin{definition}
@@ -1420,7 +1420,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{definition}
 
 
-\begin{rem}
+\begin{remark}
   Not every representation is completely reducible, even if $k$ is algebraically closed.
   Consider, for example,
   \[
@@ -1439,7 +1439,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   \]
   and the natural representation of $G$ on $\Complex^2$. We saw earlier that $U \coloneqq \vspan(e_1)$ gives a subrepresentation and it’s the only $1$-dimensional subrepresentation.
   So the representation is not irreducible, but at the same time not isomorphic to a direct sum of irreducible representations.
-\end{rem}
+\end{remark}
 
 
 \begin{theorem}[Maschke’s theorem]
@@ -1492,12 +1492,12 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   So $U$ has a complement which is again a representation.
 \end{proof}
 
-\begin{warn}
+\begin{warning}
   The theorem is wrong in general if $\kchar k \mid |G|$.
   (An example will be on the exercise sheet.)
-\end{warn}
+\end{warning}
 
-\begin{expl}
+\begin{example}
   In general it is hard to compute a decomposition using Maschke’s theorem in practice!
   
   Let $G = S_3$.
@@ -1527,10 +1527,10 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   \end{align*}
   Note that $G$ acts trivially on $V_{\text{triv}}$ and by multiplication with $-1$ on $V_{\text{sgn}}$ , hence $V_{\text{triv}}$ and $V_{\text{sgn}}$ are subrepresentations.
   One can also check that $V_1$ and $V_2$ are irreducible subrepresentations which are isomorphic.
-\end{expl}
+\end{example}
 
 
-\begin{expl}
+\begin{example}
   Let $n \geq 2$ and $G = S_n$.
   Let $k$ be any field and let $S_n$ act on $k^n$ by setting
   \[
@@ -1545,7 +1545,7 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
   \]
   We can then set $V = k^n$ and extend the $G$-action on $V$ to be a $G$-action on $\mc{P}(V)$ by setting $(g.f)(v) = f(g^{-1}.v)$ for all $f \in \mc{P}(V), v \in V$.
   We can then ask ourselves how to describe $\mc{P}(V)$.
-\end{expl}
+\end{example}
 
 
 \begin{definition}
@@ -1627,11 +1627,11 @@ As before we have a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which sends $V$ 
 \end{proof}
 
 
-\begin{rem}
+\begin{remark}
   In the case of $n = 2$ the representation $U_2$ is called the sign representation.
   More generally the sign representation of the symmetric group $S_n$ over a field $k$ is the (up to isomorphism unique) one-dimensional representation of $S_n$ over $k$ such that every $\sigma \in S_n$ acts by multiplication with $\sgn \sigma$.
   If $\kchar k = 2$ the sign representation coincides with the trivial representation of dimension $1$.
-\end{rem}
+\end{remark}
 
 
 
