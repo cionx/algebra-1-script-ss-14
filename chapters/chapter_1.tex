@@ -397,9 +397,9 @@ for all $G$-sets $X$ and $Y$.
 
 
 \begin{example}
-  Let $G = \{e,s\} \cong \Z/2$ where $e$ is the neutral element and $s^2 = e$.
-  Let $G$ act on $X = \R$ by $e.\lambda = \lambda$ and $s.\lambda = -\lambda$ for all $\lambda \in \R$.
-  We want to know for which $n$ the map $p_n \colon \R \to \R$, $x \mapsto x^n$ is $G$-invariant.
+  Let $G = \{e,s\} \cong \Integer/2$ where $e$ is the neutral element and $s^2 = e$.
+  Let $G$ act on $X = \Real$ by $e.\lambda = \lambda$ and $s.\lambda = -\lambda$ for all $\lambda \in \Real$.
+  We want to know for which $n$ the map $p_n \colon \Real \to \Real$, $x \mapsto x^n$ is $G$-invariant.
   For this we need to check for which $n$ we have that
   \[
       p_n(\lambda)
@@ -408,7 +408,7 @@ for all $G$-sets $X$ and $Y$.
     = p_n(-\lambda)
     = (-1)^n p_n(\lambda)
   \]
-  for all $\lambda \in \R$.
+  for all $\lambda \in \Real$.
   This holds if and only if $n$ is even.
 \end{example}
 
@@ -636,7 +636,7 @@ for all $G$-sets $X$ and $Y$.
 
 
 \begin{example}
-  Take for example the group $G = \{e,s\} \cong \Z/2$ with $s^2 = e$ and let $G$ act on $X = G$ itself by left multiplication.
+  Take for example the group $G = \{e,s\} \cong \Integer/2$ with $s^2 = e$ and let $G$ act on $X = G$ itself by left multiplication.
   Let $k$ be a field with $\kchar k \neq 2$.
   \begin{claim}
     There is no decomposition $X = X_1 \dotcup X_2$ as above.
@@ -800,8 +800,8 @@ for all $G$-sets $X$ and $Y$.
         \iff&\, \text{$G$ is abelian} \,.
       \end{align*}
     \item
-      Let $G \defined \GL(2,\R)$.
-      Then $G$ acts on $\R^2$ in the natural way.
+      Let $G \defined \GL(2,\Real)$.
+      Then $G$ acts on $\Real^2$ in the natural way.
       Consider the subgroup
       \[
                   H
@@ -811,12 +811,12 @@ for all $G$-sets $X$ and $Y$.
                       0       & \lambda
                     \end{pmatrix}
                   \suchthat*
-                    \lambda \in \R,
+                    \lambda \in \Real,
                     \lambda \neq 0
                   \right\}
-        \subseteq \GL(2,\R) \,.
+        \subseteq \GL(2,\Real) \,.
       \]
-      Then $H$ acts on $\R^2$ by restriction of the $G$-action.
+      Then $H$ acts on $\Real^2$ by restriction of the $G$-action.
       The two actions commute since $gh = hg$ for all $g \in G$, $h \in H$.
       (Note that $H$ is the center of $G$.)
   \end{enumerate}
@@ -837,7 +837,7 @@ for all $G$-sets $X$ and $Y$.
 
 
 \begin{example}
-  The natural action of $\GL(2,\R)$ on $\R^2$ in the previous example is $\R$-linear.
+  The natural action of $\GL(2,\Real)$ on $\Real^2$ in the previous example is $\Real$-linear.
 \end{example}
 
 

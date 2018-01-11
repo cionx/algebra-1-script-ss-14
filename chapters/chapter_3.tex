@@ -415,7 +415,7 @@ In this section let $k$ be an infinite field.
 
 \begin{warning}
   The notion of Zariski density depends on the underlying field.
-  From the previous examples it follows that $\R \subseteq \Complex$ is Zariski dense over $\Complex$, but not over $\R$.
+  From the previous examples it follows that $\Real \subseteq \Complex$ is Zariski dense over $\Complex$, but not over $\Real$.
 \end{warning}
 
 
@@ -437,20 +437,20 @@ In this section let $k$ be an infinite field.
   We can write $p$ as
   \[
       p(X_1, \dotsc, X_n)
-    = \sum_{i \in \N} p_i(X_1, \dotsc, X_{n-1}) X_n^i
+    = \sum_{i \in \Natural} p_i(X_1, \dotsc, X_{n-1}) X_n^i
   \]
-  with $p_i \in L[X_1, \dotsc, X_{n-1}]$ for all $i \in \N$ and $p_i \neq 0$ for only finitely many $i \in \N$.
+  with $p_i \in L[X_1, \dotsc, X_{n-1}]$ for all $i \in \Natural$ and $p_i \neq 0$ for only finitely many $i \in \Natural$.
   Let $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary and $\bar{p} \in L[X_n]$ be defined as
   \[
               \bar{p}(X_n)
     \coloneqq p(\lambda_1, \dotsc, \lambda_{n-1}, X_n)
-    =         \sum_{i \in \N} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i \,.
+    =         \sum_{i \in \Natural} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i \,.
   \]
   Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes).
-  Because $L$ is infinite this means that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$.
-  Since $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $\lambda_1, \dotsc, \lambda_{n-1} \in k$ for every $i \in \N$.
-  By using the induction hypothesis we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \N$ and $\lambda_1, \dotsc, \lambda_{n-1} \in L$.
-  Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \N$.
+  Because $L$ is infinite this means that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \Natural$.
+  Since $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $\lambda_1, \dotsc, \lambda_{n-1} \in k$ for every $i \in \Natural$.
+  By using the induction hypothesis we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \Natural$ and $\lambda_1, \dotsc, \lambda_{n-1} \in L$.
+  Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \Natural$.
   Therefore $p = 0$ and $f = 0$.
 \end{proof}
 
@@ -624,7 +624,7 @@ for free.
 \end{proposition}
 \begin{proof}
   Let $v_1, \dotsc, v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions.
-  Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \N^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$).
+  Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \Natural^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$).
   Therefore the statement follows from corollary \ref{corollary: inclusion to bijection algebras}.
 \end{proof}
 
@@ -1367,7 +1367,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
                 r \in R
               \mid
                 \text{there exists }
-                n \in \N
+                n \in \Natural
                 \text{ with }
                 r^n \in I
               \}
@@ -1391,7 +1391,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
     \item
       It is clear that $I \subseteq \rad I$.
       
-      For $f,g \in \rad I$ there exist $n,m \in \N$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$. Therefore
+      For $f,g \in \rad I$ there exist $n,m \in \Natural$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$. Therefore
       \[
             (f - g)^{n+m}
         =   \sum_{i=0}^{n+m} (-1)^{n+m-k} \binom{n+m}{k} f^k g^{n+m-k}
@@ -1399,7 +1399,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
       \]
       and thus $f-g \in \rad I$. It is also clear that $0 \in \rad I$.
       
-      For $f \in \rad I$ there exists $n \in \N$ such that $f^n \in I$.
+      For $f \in \rad I$ there exists $n \in \Natural$ such that $f^n \in I$.
       For every $r \in R$ we therefore have
       \[
             (rf)^n
@@ -1409,8 +1409,8 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
       and thus $rf \in \rad I$.
     \item
       Let $r \in \rad(\rad I)$.
-      Then there exists $m \in \N$ with $r^m \in \rad I$.
-      Thus there exists $n \in \N$ with $r^{mn} = (r^m)^n \in I$.
+      Then there exists $m \in \Natural$ with $r^m \in \rad I$.
+      Thus there exists $n \in \Natural$ with $r^{mn} = (r^m)^n \in I$.
       This shows that $\rad \rad I \subseteq \rad I$.
       The other inclusion is clear.
     \qedhere
@@ -1428,7 +1428,7 @@ Until further notice we also fix a finite-dimensional $k$-vector space $W$.
 \begin{proof}
   It is clear that $\mc{I}(X) \subseteq \rad \mc{I}(X)$.
   To show the other inclusion let \mbox{$f \in \rad \mc{I}(X)$}.
-  Then there exists $n \in \N$ with $f^n \in \mc{I}(X)$.
+  Then there exists $n \in \Natural$ with $f^n \in \mc{I}(X)$.
   Therefore $f^n(x) = 0$ for all $x \in X$ and thus $f(x) = 0$ for all $x \in X$.
   So $f \in \mc{I}(X)$.
 \end{proof}
@@ -1497,8 +1497,8 @@ To prove the first part of the previous lemma we need some preparation.
       \end{align*}
     \item
       The theorem does not hold for arbitrary fields:
-      Let \mbox{$\mf{m} = (X^2 + 1) \subseteq \R[X]$}.
-      Then $\R[X]/\mf{m} \cong \Complex$ is a field, so $\mf{m}$ is a maximal ideal.
+      Let \mbox{$\mf{m} = (X^2 + 1) \subseteq \Real[X]$}.
+      Then $\Real[X]/\mf{m} \cong \Complex$ is a field, so $\mf{m}$ is a maximal ideal.
       But since $\mc{V}(\mf{m}) = 0$ the theorem does not hold.
   \end{enumerate}
 \end{remark}
@@ -1524,12 +1524,12 @@ To prove the first part of the previous lemma we need some preparation.
   Because $k[X_1, \dotsc, X_n]$ is noetherian there exist $f_1, \dotsc, f_s \in k[X_1, \dotsc, X_n]$ with $J = (f_1, \dotsc, f_s)$.
   
   Let $f \in \rad J$.
-  Then there exists some $m \in \N$ with $f^m \in J$.
+  Then there exists some $m \in \Natural$ with $f^m \in J$.
   Thus $f^m(x) = 0$ for every $x \in \mc{V}(J)$ and therefore $f(x) = 0$ for every $x \in \mc{V}(J)$.
   So $f \in \mc{I}(\mc{V}(J))$.
   
   To show the other inclusion let $h \in \mc{I}(\mc{V}(J))$.
-  We need to show that $h^m \in J$ for some $m \in \N$.
+  We need to show that $h^m \in J$ for some $m \in \Natural$.
   For $h = 0$ this is clear, so we assume that $h \neq 0$.
   For this we use the Rabinowitsch trick:
   We adjoint a new variable $X_0$ to $k[X_1, \dotsc, X_n]$ and get $k[X_0, X_1, \dotsc, X_n]$.
