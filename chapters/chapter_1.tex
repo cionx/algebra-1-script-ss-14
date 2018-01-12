@@ -93,7 +93,9 @@
   This leads to the following result:
 \end{fluff}
 
-\begin{lemma}\label{lemma: G-actions = group homos G -> S(X)}
+
+\begin{lemma}
+  \label{lemma: G-actions = group homos G -> S(X)}
   For any group $G$ and set $X$ there is a 1:1-correspondence
   \begin{align*}
       \left\{
@@ -120,7 +122,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 
 \begin{example}
   Let $G$ be a group.
-  \begin{enumerate}[label=\alph*), leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       The group $G$ acts on itself by left multiplication, i.e.\
       \[
@@ -207,7 +209,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 
 \begin{lemma}
   Let $G$ be a group.
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       If $X$ is a $G$-set, then $\id_X \colon X \to X$ is $G$-equivariant.
     \item
@@ -218,7 +220,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 
 \begin{example}
   Let $G$ be a group.
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       Consider $G$ as the regular $G$-set.
       Then $f \colon G \to G$ is $G$-equivariant if and only if $f$ is given by right multiplication with some element $a \in G$ (i.e\ if $f(g) = ga$ for all $g \in G$).
@@ -250,13 +252,15 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 \end{example}
 
 
-The previous lemma shows that for every group $G$, the class of $G$-sets together with the $G$-equivariant maps between them form a category, which we will refer to as $\cGsets{G}$.
-The objects of $\cGsets{G}$ are $G$-sets and the $\Hom$-setits of $\cGsets{G}$ are given by
-\[
-            \Hom_{\cGsets{G}}(X,Y)
-  \defined  \Hom_G(X,Y)
-\]
-for all $G$-sets $X$ and $Y$.
+\begin{fluff}
+  The previous lemma shows that for every group $G$, the class of $G$-sets together with the $G$-equivariant maps between them form a category, which we will refer to as $\cGsets{G}$.
+  The objects of $\cGsets{G}$ are $G$-sets and the $\Hom$-setits of $\cGsets{G}$ are given by
+  \[
+              \Hom_{\cGsets{G}}(X,Y)
+    \defined  \Hom_G(X,Y)
+  \]
+  for all $G$-sets $X$ and $Y$.
+\end{fluff}
 
 
 \begin{definition}
@@ -310,6 +314,8 @@ for all $G$-sets $X$ and $Y$.
     \subseteq Y^G \,.
   \]
 \end{lemma}
+
+
 \begin{proof}
   For every $x \in X^G$ we have that
   \[
@@ -415,7 +421,7 @@ for all $G$-sets $X$ and $Y$.
 
 \begin{lemma}\label{lemma: basis of Maps and Hom}
   Let $X$ be a finite $G$-set and let $k$ be a field \textup(or a ring\textup).
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       The set $\Maps(X,k)$ forms a $k$-vector space \textup(resp.\ $k$-module\textup) via pointwise addition and scalar multiplication.
     \item
@@ -443,8 +449,10 @@ for all $G$-sets $X$ and $Y$.
       for all $y \in X$.
   \end{enumerate}
 \end{lemma}
+
+
 \begin{proof}
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       This is clear.
     \item
@@ -574,16 +582,18 @@ for all $G$-sets $X$ and $Y$.
 \begin{lemma}
   Let $X$ be a finite $G$-set.
   Suppose that $X = X_1 \dotcup X_2$ with $X_1, X_2 \neq \emptyset$ such that $g.x_1 \in X_1$ and $g.x_2 \in X_2$ for all $x_1 \in X_1$, $x_2 \in X_2$, $g \in G$.
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \begin{enumerate}[label=\emph{\alph*)}]
     \item
       $\Maps(X,k) \cong \Maps(X_1, k) \oplus \Maps(X_2, k)$ as $k$-vector spaces \textup(resp.\ $k$-modules\textup).
     \item
       $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces \textup(resp.\ $k$-modules\textup) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism of the first part.
   \end{enumerate}
 \end{lemma}
+
+
 \begin{proof}
   \leavevmode
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       By Lemma~\ref{lemma: basis of Maps and Hom} the space $\Maps(X,k)$ has the basis $B \defined \{\chi_x \suchthat x \in X\}$.
       Similarly $\Maps(X_i, k)$ has the basis $B_i \defined \{\chi_x \suchthat x \in X_i\}$ for $i = 1, 2$.
@@ -702,7 +712,7 @@ for all $G$-sets $X$ and $Y$.
 
 \begin{example}
   Let $X$ be a $G$-set and $k$ a field (or a ring).
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       The set $\Maps(X,k)$ carries the structure of a ring via pointwise addition and multiplication.
     \item
@@ -710,7 +720,7 @@ for all $G$-sets $X$ and $Y$.
       Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
   \end{enumerate}
   \begin{proof}
-    \begin{enumerate}[label=\alph*),leftmargin=*]
+    \begin{enumerate}[label=\alph*)]
       \item
         This is clear.
       \item
@@ -774,8 +784,9 @@ for all $G$-sets $X$ and $Y$.
 
 
 \begin{example}
+  \label{example: commuting actions}
   Let $G$ be a group.
-  \begin{enumerate}[label=\alph*),leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
       Then the left regular action and the right regular action of $G$ on $G$ commute.
     \item
@@ -805,7 +816,7 @@ for all $G$-sets $X$ and $Y$.
       Consider the subgroup
       \[
                   H
-        \coloneqq \left\{
+        \defined  \left\{
                     \begin{pmatrix}
                       \lambda & 0       \\
                       0       & \lambda
@@ -830,130 +841,161 @@ for all $G$-sets $X$ and $Y$.
 
 
 \begin{definition}
-  Let $G$ be a group, $V$ a $k$-vector space and $\pi \colon G \times V \to V$ be a group action.
-  The action is linear if $\pi_g \colon V \to V$, $v \mapsto g.v$ is $k$-linear for all $g \in G$.
-  $V$ is then called a $G$-space.
+  Let $G$ be a group, $V$ a $k$-vector space and $\pi \colon G \times V \to V$ a group action.
+  The action $\pi$ is \emph{\textup($k$\textup)-linear} if for every $g \in G$ the map $\pi_g \colon V \to V$, $v \mapsto g.v$ is ($k$)-linear.
+  A \emph{$G$-space}, or \emph{representation of $G$} is a vector space $V$ together with a linear action of $G$ on $V$.
 \end{definition}
 
 
 \begin{example}
-  The natural action of $\GL(2,\Real)$ on $\Real^2$ in the previous example is $\Real$-linear.
+  The natural action of $\GL(2,\Real)$ on $\Real^2$ from Example~\ref{example: commuting actions} is $\Real$-linear.
 \end{example}
 
 
-For a $k$-vector space $V$ we set
-\[
-            \GL(V)
-  \coloneqq \{
-              f \colon V \to V
-            \mid
-              f \text{ is $k$-linear and invertible}
-            \} \,.
-\]
+\begin{notation}
+  For any $k$-vector space $V$ we set
+  \[
+              \GL(V)
+    \defined  \{
+                f \colon V \to V
+              \suchthat
+                \text{$f$ is $k$-linear and invertible}
+              \} \,.
+  \]
+\end{notation}
 
 
 \begin{lemma}
+  \label{lemma: linear G-actions = group homos G -> GL(V)}
   Let $G$ be a group and $V$ a $k$-vector space.
-  Then there is a 1:1-correspondence
+  Then the 1:1-correspondence
+  \[
+    \left\{
+      \text{$G$-actions on $X$}
+    \right\}
+    \xlongleftrightarrow{1:1}
+    \left\{
+      \text{group homomorphisms $G \to S(V)$}
+    \right\} \,.
+  \]
+  from Lemma~\ref{lemma: G-actions = group homos G -> S(X)} restrict to a 1:1-correspondence
   \[
     \left\{
       \text{linear $G$-actions on $X$}
     \right\}
-    \overset{1:1}{\longleftrightarrow}
+    \xlongleftrightarrow{1:1}
     \left\{
       \text{group homomorphisms $G \to \GL(V)$}
     \right\} \,.
   \]
 \end{lemma}
-\begin{proof}
-  As in Lemma \ref{lemma: G-actions = group homos G -> S(X)}.
-\end{proof}
 
 
 \begin{remark}
-  A $G$-space $V$ or equivalently a vector space $V$ with a group homomorphism $G \to \GL(V)$ is called a representation of $G$.
+  By Lemma~\ref{lemma: linear G-actions = group homos G -> GL(V)}, a representation of $G$ can be equivalently characterized as a group homomorphism $\rho \colon G \to \GL(V)$ for a vector space $V$.
 \end{remark}
 
 
 \begin{example}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  Let $G$ be a group.
+  \begin{enumerate}[label=\alph*)]
     \item
       Let $V$ be a $k$-vector space.
-      Then $\GL(V)$ acts linearly on $V$ in a natural way.
-      (The action corresponds to the group homomorphism $\id_{\GL(V)} \colon \GL(V) \to \GL(V)$.)
+      Then $\GL(V)$ acts linearly on $V$ via
+      \[
+                  \varphi.v
+        \defined  \varphi(v)
+      \]
+      for all $\varphi \in \GL(V)$, $v \in V$.
+      Note that this action corresponds to the identity homomorphism $\id_{\GL(V)} \colon \GL(V) \to \GL(V)$.
     \item
-      If $X$ is a $G$-set then $kX$ is naturally a $G$-space by setting
+      If $X$ is a $G$-set then the vector space $kX$ carries the structure of a $G$-space via
       \[
           g.\left(\sum_{x \in X} a_x \chi_x\right)
         = \sum_{x \in X} a_x \chi_{g.x}
       \]
       where almost all $a_x$ are zero.
-      This agrees with the previous action on $kX$, because
+      This agrees with the previous action $*$ on $kX$, because
       \[
-          (g.\chi_x)(y)
+          (g * \chi_x)(y)
         = \chi_x(g^{-1}.y)
-        = \begin{cases}
-            1 & \text{if } x = g^{-1}.y \,, \\
-            0 & \text{otherwise} \,,
-          \end{cases}
-        = \begin{cases}
-            1 & \text{if } g.x = y \,,  \\
-            0 & \text{otherwise} \,,
-          \end{cases}
+        = \delta_{x, g^{-1}.y}
+        = \delta_{g.x, y}
         = \chi_{g.x}(y)
+        = (g.\chi_x)(y)
       \]
-      for all $y \in X$.
+      for all $g \in G$, $x, y \in X$.
     \item
-      Let $V$ and $W$ be $G$-spaces over the same field.
-      Then the $G$-action on $\Maps(V,W)$ induces a linear action of $G$ on $\Hom(V,W)$.
-      Since $G$ acts linearly on $V$ and $W$ we know that for every $g \in G$ the maps $\pi_g \colon V \to V, v \mapsto g.v$ and $\tau_g \colon W \to W, w \mapsto g.w$ are linearly.
-      With this we find that for every $g \in G$ and $f \in \Hom(V,W)$ we have
+      Let $V$ and $W$ be representations of $G$ over the same field.
+      Then the induced $G$-action on $\Maps(V,W)$ induces a linear action of $G$ on $\Hom(V,W)$:
+      
+      For every $g \in G$ the maps $\pi_g \colon V \to V$, $v \mapsto g.v$ and $\tau_g \colon W \to W$, $w \mapsto g.w$ are linear because $G$ acts linearly on both $V$ and $W$.
+      It follows for every $g \in G$ and $f \in \Hom(V,W)$ that
       \[
             g.f
         =   \tau_g \circ f \circ \pi_{g^{-1}}
         \in \Hom(V,W) \,.
       \]
-      Therefore $\Hom(V,W)$ is closed under the action of $G$ on $\Maps(V,W)$.
-      Since the composition above is $k$-linear in $f$ it also follows that the action is linear on $\Hom(V,W)$.
+      Hence $\Hom(V,W)$ is closed under the action of $G$ on $\Maps(V,W)$, so that $G$ acts on $\Hom(V,W)$ by restriction.
+      The map $\tau_g \circ (-) \circ \pi_{g^{-1}} \colon \Hom(V,W) \to \Hom(V,W)$ is linear for every $g \in G$, so that this action is linear.
     \item
-      Let $V$ and $W$ be $G$-spaces over the same field.
-      Then $V \oplus W$ and $V \otimes W$ are $G$-spaces via
+      If $V$ and $W$ be representations of $G$ over the same field, then $G$ acts linearly on $V \oplus W$ and $V \otimes W$ via
       \begin{align*}
-            g.(v,w)
-        &= (g.v,g.w)
-           \text{ and }
-            \tag{1}
+                  g.(v,w)
+        &\defined (g.v,g.w) \,,       \tag{1}
         \\
-            g.(v \otimes w)
-        &=  (g.v) \otimes (g.w)
-            \tag{2}
+                  g.(v \otimes w)
+        &\defined (g.v) \otimes (g.w) \tag{2}
       \end{align*}
-      for all $v \in V, w \in W, g \in G$. 
-      Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$:
-      If $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$ then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$.
-      The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$.
-      So $\tau'$ it is the unique action which makes the following diagram commute for every $g \in G$:
+      for all $v \in V$, $w \in W$, $g \in G$.
+      If the linear actions of $G$ on $V, W$ are denoted by
       \[
-        \begin{tikzcd}[column sep = large]
-            V \times W
-            \arrow{r}{\pi_g \times \pi'_g}
-            \arrow{d}
-          & V \times W
-            \arrow{d}
-          \\
-            V \otimes W
-            \arrow{r}{\pi_g \otimes \pi'_g}
-          & V \otimes W
-        \end{tikzcd}
+        \pi \colon G \times V \to V
+        \quad\text{and}\quad
+        \tau \colon G \times W \to W \,,
       \]
-      If $v_1, \dotsc, v_n$ is a basis of $V$ and $w_1, \dotsc, w_m$ a basis of $W$ we can write the action of $g \in G$ on $V$, resp.\ $W$, as a matrix $A$, resp.\ $B$.
-      The actions $(1)$ and $(2)$ are then given by matrices
+      then the induced actions
+      \begin{align*}
+        \pi \oplus \tau  \colon G \times (V \oplus W)  &\to V \oplus W  \,,
+        \\
+        \pi \otimes \tau \colon G \times (V \otimes W) &\to V \otimes W
+      \end{align*}
+      are given by
+      \[
+          (\pi \oplus \tau)_g
+        = \pi_g \oplus \tau_g
+        \quad\text{and}\quad
+          (\pi \otimes \tau)_g
+        = \pi_g \otimes \tau_g
+      \]
+      for every $g \in G$.
+%       
+%       Note that if $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$, then the action
+%       
+%       Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$:
+%        then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$.
+%       The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$.
+%       So $\tau'$ it is the unique action which makes the following diagram commute for every $g \in G$:
+%       \[
+%         \begin{tikzcd}[column sep = large]
+%             V \times W
+%             \arrow{r}{\pi_g \times \pi'_g}
+%             \arrow{d}
+%           & V \times W
+%             \arrow{d}
+%           \\
+%             V \otimes W
+%             \arrow{r}{\pi_g \otimes \pi'_g}
+%           & V \otimes W
+%         \end{tikzcd}
+%       \]
+      If $v_1, \dotsc, v_n$ is a basis of $V$ with respect to which $\pi_g$ is given by a matrix $A$, and $w_1, \dotsc, w_m$ a basis of $W$ with respect to which $\tau_g$ is given by a matrix $B$, then $(\pi \oplus \tau)_g$ and $(\pi \otimes \tau)_g$ are therefore given by the matrices
       \[
         \begin{pmatrix}
           A & 0 \\
           0 & B
         \end{pmatrix}
-        \text{ and }
+        \quad\text{and}\quad
         \begin{pmatrix}
           a_{11} B & a_{12} B & \cdots & a_{1m} B \\
           a_{21} B & a_{22} B & \cdots & a_{2m} B \\
@@ -961,29 +1003,56 @@ For a $k$-vector space $V$ we set
           a_{n1} B & a_{n2} B & \cdots & a_{nm} B
         \end{pmatrix}
       \]
-      with respect to the basis $v_1, \dotsc, v_n, w_1, \dotsc, w_m$ of $V \oplus W$ and the basis $v_1 \otimes w_1, v_1 \otimes w_2, \dotsc, v_n \otimes w_m$ of $V \otimes W$.
+      with respect to the basis $(v_1,0), \dotsc, (v_n,0), (0,w_1), \dotsc, (0,w_m)$ of $V \oplus W$ and the basis $v_1 \otimes w_1, v_1 \otimes w_2, \dotsc, v_n \otimes w_m$ of $V \otimes W$.
     \item
-      Let $V$ and $W$ be $G$-spaces over the same field.
-      Then $V \vee W$ and $V \wedge W$ can also be given the structure of a $G$-space in the same way as $V \otimes W$.
+      Let $V$ be a representation of $G$ and $\pi \colon G \times V \to V$ the corresponding linear action.
+      Then for every $d \geq 0$ the group $G$ acts linearly on the exterior power $\bigwedge^d V$ and symmetric power $S^d V$ via
+      \begin{align*}
+                  g.(v_1 \wedge \dotsb \wedge v_d)
+        &\defined (g.v_1) \wedge \dotsb \wedge (g.v_d) \,,
+        \\
+                  g.(v_1 \dotsm v_d)
+        &\defined (g.v_m) \dotsm (g.v_d) \,.
+      \end{align*}
+      for all $g \in G$, $v_1, \dotsc, v_d$.
+      If the corresponding linear actions are denoted by
+      \[
+        \bigwedge^d \pi \colon G \times \bigwedge^d V \to \bigwedge^d V
+        \quad\text{and}\quad
+        S^d(\pi) \colon G \times S^d(V) \to S^d(V) \,,
+      \]
+      then
+      \[
+          \left( \bigwedge^d \pi \right)_g
+        = \bigwedge \pi_g
+        \quad\text{and}\quad
+          S^d(\pi)_g
+        = S^d(\pi_g)
+      \]
+      for every $g \in G$.
   \end{enumerate}
 \end{example}
 
 
 \begin{definition}
-    Let $V$ ba a $G$-space or equivalently a representation of $G$.
-
-    A \emph{subrepresentation} of $V$ is a vector subspace $U$ of $V$ such that $g.u \in U$ for all $u \in U, g \in G$.
-    A subrepresentation $U$ of $V$ is \emph{propositioner} if $U \neq V$.
-    
-    $V$ is \emph{indecomposable} if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
-    
-    $V$ is \emph{irreducible} if it is nonzero has no nontrivial proper subrepresentation.
+    Let $V$ be a representation of $G$.
+    \begin{itemize}
+      \item
+        A \emph{subrepresentation} of $V$ is a vector subspace $U \subseteq V$ such that $g.u \in U$ for all $g \in G$, $u \in U$.
+        A subrepresentation $U \subseteq V$ is \emph{proper} if $U \neq V$.
+      \item
+        The representation $V$ is \emph{indecomposable} if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
+      \item
+        The representation $V$ is \emph{irreducible} or \emph{simple} if it is nonzero has no nontrivial proper subrepresentation.
+    \end{itemize}
 \end{definition}
 
-It is clear that every irreducible representation is also indecomposable.
-The converse is not true in general as the following example shows.
+\begin{fluff}
+  Every irreducible representation is also indecomposable, but as the following example shows, the converse is not true:
+\end{fluff}
 
 \begin{example}
+  \label{example: upper triangular action on C2}
   Let
   \[
               G
@@ -998,70 +1067,66 @@ The converse is not true in general as the following example shows.
                 a, c \neq 0
               \right\} .
   \]
-  $G$ acts on $V \coloneqq \Complex^2$ in the natural way.
-  Notice that $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation since
-  \[
-        \begin{pmatrix}
-          a & b \\
-          0 & c 
-        \end{pmatrix}
-        \vect{\alpha \\ 0}
-    =   \vect{\alpha a \\ 0}
-    \in U
-  \]
-  for all $\alpha \in \Complex$.
-  But $V$ is indecomposible because $U$ is the unique $1$-dimensional subrepresentation of $V$.
-  Therefore there exist no proper subrepresentations $U_1, U_2$ of $V$ with $V = U_1 \oplus U_2$.
-  To show that $U$ is the unique $1$-dimensional subrepresentation of $V$ let $W$ be an $1$-dimensional subrepresentation of $V$.
-  Then
-  \[
-      W
-    = \vspan\left\{
-              \vect{\alpha \\ \beta}
-            \right\}
-    \text{ for some }
-        \vect{\alpha \\ \beta}
-    \in \Complex^2 \,.
-  \]
-  Because $W$ is a subrepresentation of $V$ we have
-  \[
-        \begin{pmatrix}
-          1 & 1 \\
-          0 & 1
-        \end{pmatrix}
-        \vect{\alpha \\ \beta}
-    =   \vect{\alpha + \beta \\ \beta}
-    \in W \,.
-  \]
-  and therefore
-  \[
-    \vect{\beta \\ 0} \in W \,.
-  \]
-  So we find that
-  \[
-    \vect{1 \\ 0} \in W
-  \]
-  and thus
-  \[
-      W
-    = \vspan \left\{ \vect{1 \\ 0} \right\}
-    = U \,.
-  \]
+  be the group of upper, triangular, complex $(2 \times 2)$-matrices.
+  The group $G$ acts on the vector space $V \coloneqq \Complex^2$ in the natural way, i.e.\ via left multiplication.
+  
+  The representation $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation.
+  \begin{claim}
+    The subrepresentation $U \subseteq V$ is the unique $1$-dimensional subrepresentation.
+  \end{claim}
+  From this claim it follows that there exists no proper subrepresentations $U_1, U_2$ of $V$ with $V = U_1 \oplus U_2$, so that $V$ is indecomposable.
+  \begin{proof}[Proof of the claim]
+    Let $W$ be any one-dimensional subrepresentation of $V$.
+    Then
+    \[
+        W
+      = \vspan\left\{
+                \vect{\alpha \\ \beta}
+              \right\}
+      \quad
+      \text{for some $0 \neq  \vect{\alpha \\ \beta} \in   \Complex^2$} \,.
+    \]
+    Because $W$ is a subrepresentation of $V$ it follows that
+    \[
+          \begin{pmatrix}
+            1 & 1 \\
+            0 & 1
+          \end{pmatrix}
+          \vect{\alpha \\ \beta}
+      =   \vect{\alpha + \beta \\ \beta}
+      \in W \,.
+    \]
+    and therefore that
+    \[
+      \vect{\beta \\ 0} \in W \,.
+    \]
+    If $\beta \neq 0$ then it follows that
+    \[
+      \vect{1 \\ 0} \in W \,,
+    \]
+    and if $\beta = 0$ then the same follows from $\alpha \neq 0$.
+    Because $W$ is one-dimensional it follows that
+    \[
+        W
+      = \vspan \left\{ \vect{1 \\ 0} \right\}
+      = U \,.
+    \]
+  \end{proof}
 \end{example}
 
 
 \begin{warning}
-  As seen above subrepresentations have not always complements which are again subrepresentations.
+  Example~\ref{example: upper triangular action on C2} also show that subrepresentations do not necessarily have direct complements which are again subrepresentations.
 \end{warning}
 
 
 \begin{lemma}\label{lemma: direct sum and invariants commute}
   Let $G$ be a group.
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
-      Given a representation $V$ of $G$ the subset $V^G \subseteq V$ is a (trivial) subrepresentation of $V$.
+      Given a representation $V$ of $G$, the subset $V^G \subseteq V$ is a (trivial) subrepresentation of $V$.
     \item
-      Given a collection $V_i$, $i \in I$ of representations of $G$ we have
+      For every collection $V_i$, $i \in I$ of representations of $G$ one has that
       \[
           \left(
             \bigoplus_{i \in I} V_i
@@ -1071,34 +1136,34 @@ The converse is not true in general as the following example shows.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \begin{enumerate}[label=\alph*)]
     \item
-      Since $G$ acts trivially on $V^G$ we only need to check that that $V^G$ is a vector subspace of $V$.
-      This holds becaues $\pi_g \colon V \to V$, $v \mapsto g.v$ is linear for every $g \in G$ and
+      Since $G$ acts trivially on $V^G$ it sufficies to check that $V^G$ is a vector subspace of $V$.
+      This holds because $\pi_g \colon V \to V$, $v \mapsto g.v$ is linear for every $g \in G$ and
       \[
           V^G
         = \bigcap_{g \in G} \ker(\pi_g - \id_V) \,.
       \]
     \item
-      Let $v \in \left( \bigoplus_{i \in I} V_i \right)^G$ with $v = \sum_{i \in I} v_i$ where $v_i \in V_i$ for every $i \in I$ and $v_i = 0$ for all but finitely many $i \in I$.
-      Because $V_i$ is a subrepresentation of $\bigoplus_{i \in I} V_i$ for every $i \in I$ and $G$ acts linearly on $\bigoplus_{i \in I} V_i$ we find that for every $g \in G$
+      Let $v \in \bigoplus_{i \in I} V_i$.
+      Then $v = (v_i)_{i \in I}$ with $v_i = 0$ for all but finitely many $i \in I$.
+      For every $g \in G$ one has that
       \[
-          \sum_{i \in I} v_i
-        = v
-        = g.v
-        = g.\left( \sum_{i \in I} v_i \right)
-        = \sum_{i \in I} g.v_i \,.
+          g.v
+        = g.(v_i)_{i \in I}
+        = (g.v_i)_{i \in I}
       \]
-      Because the sum $\bigoplus_{i \in I} V_i$ is direct we find that $g.v_i = v_i$ for every $g \in G$, $i \in I$.
-      So $v_i \in V_i^G$ for every $i \in I$.
-      Thus $v \in \bigoplus_{i \in I} V_i^G$ and therefore
-      \[
-                  \left(
-                    \bigoplus_{i \in I} V_i
-                  \right)^G
-        \subseteq \bigoplus_{i \in I} V_i^G \,.
-      \]
-      The other inclusion is obvious.
+      and therefore
+      \begin{align*}
+              v \in \left( \bigoplus_{i \in I} V_i \right)^G
+        &\iff \text{$g.v = v$ for every $g \in G$}  \\
+        &\iff \text{$(g.v_i)_{i \in I} = (v_i)_{i \in I}$ for every $g \in G$} \\
+        &\iff \text{$g.v_i = v_i$ for all $g \in G$, $i \in I$} \\
+        &\iff \text{$v_i \in V_i^G$ for every $i \in I$}
+         \iff v \in \bigoplus_{i \in I} V_i^G \,.
+      \end{align*}
+      This shows the equality.
+  \qedhere
   \end{enumerate}
 \end{proof}
 
