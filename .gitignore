@@ -2,10 +2,10 @@
 *.auxlock
 *.backup
 *.dpth
+.kile/
 *.kilepr
 *.log
 *.out
 notes.pdf
 *.synctex.gz
 *.toc
-
