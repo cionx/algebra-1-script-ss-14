@@ -81,6 +81,7 @@
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}
 \newcommand{\cGsets}[1]{\ensuremath{#1\text{-}\catname{Sets}}}
+\newcommand{\cMon}{\ensuremath{\catname{Mon}}}
 \newcommand{\cRep}[2]{\ensuremath{\catname{Rep}^#1_#2}} %first argument is the field k, the second the group G
 \newcommand{\cVect}[1]{\ensuremath{#1\text{-}\catname{Vect}}}
 \newcommand{\cvect}[1]{\ensuremath{#1\text{-}\catname{vect}}}
@@ -138,6 +139,11 @@
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\NewDocumentCommand{\restrict}{smmO{}}{
+  \IfBooleanTF{#1}
+    {\left. {#2} \right|_{#3}^{#4}}
+    {{#2}|_{#3}^{#4}}
+}
 
 % technical stuff for \bigdotcup
 \makeatletter
