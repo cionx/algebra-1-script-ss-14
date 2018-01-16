@@ -38,7 +38,7 @@
 }
 
 % settings for list like environments
-\setlist[enumerate, 1]{leftmargin=*}
+\setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
 \setlist[enumerate, 2]{leftmargin=*}
 \setlist[itemize, 1]{leftmargin=*}
 \setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
@@ -122,6 +122,7 @@
 \DeclareMathOperator{\gr}{gr}
 
 % functions
+\DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\can}{can}
 \DeclareMathOperator{\init}{init}
@@ -137,6 +138,7 @@
 
 % stuff taking arguments
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
+\newcommand{\bil}[2]{\langle #1, #2 \rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 \NewDocumentCommand{\restrict}{smmO{}}{
