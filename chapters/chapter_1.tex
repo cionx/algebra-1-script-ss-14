@@ -629,7 +629,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
   It follows from the decomposition $X = \bigdotcup_{x \in X} \{x\}$ that
   \[
           \Maps(X,k)
-    =     \vspan \{\chi_x \suchthat x \in X\}
+    =     \gen{ \chi_x \suchthat x \in X }_k
     =     \bigoplus_{x \in X} k \chi_x
     \cong \bigoplus_{x \in X} \Maps(\{x\},k) \,.
   \]
@@ -677,7 +677,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
       s.b_2
     = -b_2 \,.
   \]
-  It follows for $V \defined \vspan(b_1)$ and $W \defined \vspan(b_2)$ that $\Maps(X, k) = V \oplus W$ with $g.v \in V$ and $g.w \in W$ for all $v \in V$, $w \in W$, $g \in G$.
+  It follows for $V \defined \gen{b_1}_k$ and $W \defined \gen{b_2}_k$ that $\Maps(X, k) = V \oplus W$ with $g.v \in V$ and $g.w \in W$ for all $v \in V$, $w \in W$, $g \in G$.
 \end{example}
 
 
@@ -719,41 +719,42 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
     \item
       The set $\Maps(X,k)$ carries the structure of a ring via pointwise addition and multiplication.
     \item
-      The induced $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G$, $x \in X$) is an action by ring automorphisms.
-      Hence $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
+      The induced $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G$, $x \in X$) is an action by ring automorphisms:
+      
+      For all $g \in G$, $x \in X$ it holds that
+      \[
+          (g.1_{\Maps(X,k)})(x)
+        = 1_{\Maps(X,k)}(g^{-1}.x)
+        = 1
+        = 1_{\Maps(X,k)}(x)
+      \]
+      and therefore $g.1_{\Maps(X,k)} = 1_{\Maps(X,k)}$.
+      For all $f_1, f_2 \in \Maps(X,k)$, $g \in G$, $x \in X$ it holds that
+      \begin{align*}
+            (g.(f_1+f_2))(x)
+        &=  (f_1+f_2)\left( g^{-1}.x \right)
+          =  f_1\left( g^{-1}.x \right) + f_2\left( g^{-1}.x \right) \\
+        &=  (g.f_1)(x) + (g.f_2)(x) = ((g.f_1)+(g.f_2))(x)
+      \shortintertext{and}
+            (g.(f_1 f_2))(x)
+        &=  (f_1 f_2)\left( g^{-1}.x \right)
+          =  f_1\left( g^{-1}.x \right) f_2\left( g^{-1}.x \right) \\
+        &=  (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x) \,.
+      \end{align*}
+      Alltogether this shows that $G$ acts by ring homomorphisms.
+      Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms.
+
+     It follows from Lemma~\ref{lemma: group action by ring automorphisms} that $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
+    \item
+      The symmetric group $S_n$ acts on the polynomial ring $k[X_1, \dotsc, X_n]$ via
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
+      \]
+      for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
+      This is an action by ring automorphisms, so that $k[X_1, \dotsc, X_n]^{S_n}$ is a subring.
+      This is the ring of \emph{symmetric polynomials}.
   \end{enumerate}
-  \begin{proof}
-    \leavevmode
-    \begin{enumerate}
-      \item
-        This is clear.
-      \item
-        For all $g \in G$, $x \in X$ it holds that
-        \[
-            (g.1_{\Maps(X,k)})(x)
-          = 1_{\Maps(X,k)}(g^{-1}.x)
-          = 1
-          = 1_{\Maps(X,k)}(x)
-        \]
-        and therefore $g.1_{\Maps(X,k)} = 1_{\Maps(X,k)}$.
-        For all $f_1, f_2 \in \Maps(X,k)$, $g \in G$, $x \in X$ it holds that
-        \begin{align*}
-              (g.(f_1+f_2))(x)
-          &=  (f_1+f_2)\left( g^{-1}.x \right)
-           =  f_1\left( g^{-1}.x \right) + f_2\left( g^{-1}.x \right) \\
-          &=  (g.f_1)(x) + (g.f_2)(x) = ((g.f_1)+(g.f_2))(x)
-        \shortintertext{and}
-              (g.(f_1 f_2))(x)
-          &=  (f_1 f_2)\left( g^{-1}.x \right)
-           =  f_1\left( g^{-1}.x \right) f_2\left( g^{-1}.x \right) \\
-          &=  (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x) \,.
-        \end{align*}
-        Alltogether this shows that $G$ acts by ring homomorphisms.
-        Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms.
-        The rest is a consequence of Lemma~\ref{lemma: group action by ring automorphisms}.
-      \qedhere
-    \end{enumerate}
-  \end{proof}
 \end{example}
 
 
@@ -836,6 +837,12 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
       (Note that $H$ is the center of $G$.)
   \end{enumerate}
 \end{example}
+
+
+\begin{remark}
+  Let $G, H$ be two groups and let $X$ be a set.
+  %TODO: Commuting acting = Actions of GxH
+\end{remark}
 
 
 
@@ -936,9 +943,19 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
       \]
       for all $\sigma \in S_n$, $v_1, \dotsc, v_n \in V$.
     \item
+      The group $S_n$ acts linearly on the polynomial ring $k[X_1, \dotsc, X_n]$ via
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)}) \,.
+      \]
+      (Note that this is also an action by ring automorphisms, and therefore alltogether an action by $k$-algebra automorphisms.)
+    \item
       The symmetric group $S_n$ acts linearly on $k$ such that $\sigma \in S_n$ acts by multiplication with $\sgn \sigma \in \{1, -1\}$.
       This defines the \emph{sign representation} of $S_n$.
-    
+      
+      For $n \geq 2$ this is the only non-trivial one-dimensional representation of $S_n$:
+      Note that every one-dimensional representation $V$ of $S_n$ corresponds to a group homomorphism $S_n \to \GL(V) \cong \GL_1(k)$, which is abelian.
+      This homomorphism factors through the abelianization $S_n/[S_n, S_n] = S_n/A_n \cong \Integer/2$; it is therefore the trivial homomorphism or the sign homomorphism.
     \item
       If $X$ is a $G$-set then $G$ acts linearly on the vector space $kX$ via
       \[
@@ -1094,11 +1111,94 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
         A \emph{subrepresentation} of $V$ is a vector subspace $U \subseteq V$ such that $g.u \in U$ for all $g \in G$, $u \in U$.
         A subrepresentation $U \subseteq V$ is \emph{proper} if $U \neq V$.
       \item
-        The representation $V$ is \emph{indecomposable} if it can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
+        The representation $V$ is \emph{indecomposable} if it it nonzero and can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
       \item
-        The representation $V$ is \emph{irreducible} or \emph{simple} if it is nonzero has no nontrivial proper subrepresentation.
+        The representation $V$ is \emph{irreducible} or \emph{simple} if it is nonzero has no nontrivial proper subrepresentation, i.e.\ no subrepresentation $U \subseteq V$ with $0 \subsetneq U \subsetneq V$.
     \end{itemize}
 \end{definition}
+
+
+\begin{example}
+  Let $G$ be a group and $k$ a field.
+  \begin{enumerate}
+    \item
+      Let $V$ be a vector space and let $G$ act trivially on $V$.
+      Then every linear subspace $U \subseteq V$ is a subrepresentation.
+      The representation $V$ is indecomposable if and only if it is one-dimensional.
+      It is also irreducible if and only if it is one-dimensional.
+    \item
+      Let $V$ be a representation of $G$.
+      If $(U_i)_{i \in I}$ is any familiy of subrepresentations, then both $\sum_{i \in I} U_i$ and $\bigcap_{i \in I} U_i$ are again subrepresentations of $V$.
+    \item
+      Every finite dimensional representation can be written as a direct sum of indecomposable subrepresentations.
+    \item
+      Let $V$ be a representation of $G$ over $k$.
+      For every subset $E \subseteq V$ there exists a smallest subrepresentation of $V$ containing $E$.
+      This subrepresentation $\gen{E}_G \subseteq V$ can be described in the following equivalent ways:
+      \begin{enumerate}
+        \item
+          One has that $E \subseteq \gen{E}_G$, and for every subrepresentation $U \subseteq V$ with $E \subseteq U$ one has that $\gen{E}_G \subseteq U$.
+        \item
+          The subrepresentation $\gen{E}_G$ is given by
+          \[
+              \gen{E}_G
+            = \bigcap_{\substack{\text{subrep.\ $U \subseteq V$} \\ E \subseteq U}} U \,.
+          \]
+        \item
+          The subrepresentation $\gen{E}_G$ is given by
+          \[
+              \gen{E}_G
+            = \left\{
+                \sum_{i=1}^n \lambda_i g_i.e_i
+              \suchthat*
+                n \geq 0,
+                \lambda_i \in k,
+                g_i \in G,
+                e_i \in E
+              \right\}
+            = \gen{g.e \suchthat g \in G, e \in E}_k \,.
+          \]
+      \end{enumerate}
+    \item
+      A non-zero representation $V$ of $G$ is irreducible if and only if every non-zero $v \in V$ generates the representation $V$:
+      
+      Suppose that $V$ is irreducible and let $v \in V$ be non-zero.
+      Then $\gen{v}_G$ is a non-zero subrepresentation of $V$, so that $\gen{v}_G = V$ by irreducibility.
+      
+      Suppose that $V$ is reducible.
+      Then there exists an non-zero, proper subrepresentation $0 \subsetneq U \subsetneq V$.
+      Then there exists some non-zero $v \in U$, for which it follows that $\gen{v} \subseteq U \subsetneq V$, so that $v$ does not generate $V$.
+    \item
+      The group $G \defined \Integer/n$, $n \geq 1$ acts on the plane $V \defined \Real^2$ by rotation, i.e.
+      \[
+                  \overline{n}.\vect{x \\ y}
+        \defined  \begin{pmatrix*}[r]
+                    \cos(2\pi/n)  & -\sin(2\pi/n) \\
+                    \sin(2\pi/n)  &  \cos(2\pi/n)
+                  \end{pmatrix*}
+                  \vect{x \\ y}.
+      \]
+      Then $V$ is irreducible if and only if $n \geq 3$:
+      
+      For $n = 1$ the action is trivial, but $V$ is two-dimensional, and therefore reducible.
+      For $n = 2$ every element $g \in G$ acts by multiplication with a scalar, so that every one-dimensional subspace is a non-zero proper subrepresentation.
+      
+      If $n \geq 3$ then for every non-zero vector $v \in V$ the two vectors $v, \overline{1}.v$ are linearly independent.
+      Thus $V$ is spanned by $\{v, \overline{1}.v\}$ as a $\Real$-vector space and therefore also as a representation.
+      This shows that every non-zero $v \in V$ generates the representation $V$, so that $V$ is irreducible.
+    \item
+      Let the symmetric group $S_n$ act linearly on the polynomial ring $k[X_1, \dotsc, X_n]$ via
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
+      \]
+      for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
+      For every degree $d \geq 0$ let $k[X_1, \dotsc, X_n]_d$ denote the $k$-linear span of all monomials $X_1^{d_1} \dotsm X_n^{d_n}$ of degree $d_1 + \dotsb + d_n = d$.
+      Then $k[X_1, \dotsc, X_n]_d$ is a subrepresentation of $k[X_1, \dotsc, X_n]$ because the action of $S_n$ on the monomials preserves the degree.
+      This gives a decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresentations.
+  \end{enumerate}
+\end{example}
+
 
 \begin{fluff}
   Every irreducible representation is also indecomposable, but as the following example shows, the converse is not true:
@@ -1178,7 +1278,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
   Let $G$ be a group.
   \begin{enumerate}
     \item
-      Given a representation $V$ of $G$, the subset $V^G \subseteq V$ is a (trivial) subrepresentation of $V$.
+      Given a representation $V$ of $G$, the subset $V^G \subseteq V$ is a subrepresentation of $V$.
     \item
       For every collection $V_i$, $i \in I$ of representations of $G$ one has that
       \[
@@ -1373,6 +1473,18 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 
 
 \begin{remark}
+  Note that the group algebra $k[G]$ is a module over itself via left multiplication.
+  This $k[G]$-module structure corresponds to the linear action of $G$ on $k[G]$ via left multiplication on the basis vectors $h \in G$, i.e.
+  \[
+      g.\left( \sum_{h \in G} a_h h \right)
+    = \sum_{h \in G} a_h (gh)
+  \]
+  for all $g \in G$, $\sum_{h \in G} a_h h \in k[G]$.
+  This is the \emph{\textup(left\textup) regular representation} of $G$.
+\end{remark}
+
+
+\begin{remark}
   \label{remark: monoid algebra}
   Given any ring $R$ and monoid $M$ the \emph{monoid algebra} $R[M]$ is given by the set of all formal linear combination $\sum_{x \in M} r_x x$ (where $r_x = 0$ for all but finitely many $x \in M$) together with the addition
   \[
@@ -1468,7 +1580,7 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 
 
 
-\section{Morphism of Representations}
+\section{Morphism of Representations \& Schur’s Lemma}
 
 
 \begin{definition}
@@ -1553,6 +1665,45 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
          =  (g.\beta(\varphi \otimes w))(v) \,,
       \end{align*}
       where we used for the fourth equality that $g \in G$ acts linearly on $W$.
+    \item
+      If $V$ is a representation of $G$ over $k$, then the evaluation homomorphism
+      \[
+                \alpha
+        \colon  V^* \otimes V
+        \to     k \,,
+        \quad   \varphi \times v
+        \mapsto \varphi(v)
+      \]
+      is a morphism of representations when we regard $k$ as the trivial representation.
+      This holds because
+      \begin{align*}
+            \alpha(g.(\varphi \otimes v))
+        &=  \alpha((g.\varphi) \otimes (g.v))
+         =  (g.\varphi)(g.v)
+        \\
+        &=  \varphi(g^{-1}.g.v)
+         =  \varphi(v)
+         =  g.\varphi(v)
+         =  g.\alpha(\varphi \otimes v) \,.
+      \end{align*}
+      Note that the linear action of $G$ on $V$ is defined precisely so that $\alpha$ is a morphism of representations.
+    \item
+      Let $V$ be a representation of $G$ over $k$ and regard $k$ as the trivial representation.
+      Then for every $v \in V$ the homomorphism
+      \[
+                k
+        \to     V \,,
+        \quad   \lambda
+        \mapsto \lambda v
+      \]
+      is a morphism of representations if and only if $g.(\lambda v) = \lambda v$ for every $\lambda \in K$, i.e.\ if and only if $v$ is $G$-invariant (as can be seen by considering $\lambda = 1$).
+      Thus we have an isomorphism of vector spaces (which is also an isomorphism of trivial representations)
+      \[
+                \Hom_G(k,V)
+        \to     V^G \,,
+        \quad   e
+        \mapsto e(1) \,.
+      \]
   \end{enumerate}
 \end{example}
 
@@ -1679,6 +1830,7 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 
 
 \begin{corollary}
+  \label{corollary: irreducible representation of abelian groups}
   Let $k$ be an algebraically closed field, $G$ an abelian group and $V$ a finite-dimensional irreducible representation of $G$ over $k$.
   Then $\dim_k V = 1$.
 \end{corollary}
@@ -1693,6 +1845,21 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 
 
 \begin{remark}
+  Let $G$ be a group, $k$ an algebraically closed field and $V_1, \dotsc, V_n$ pairwise non-isomorphic irreducible representations of $G$ over $k$.
+  Then
+  \[
+      \dim \Hom_G(V_i, V_j)
+    = \delta_{ij}
+  \]
+  for all $i,j = 1, \dotsc, n$ by Schur’s Lemma.
+  Hence the representations $V_1, \dotsc, V_n$ can be thought of as “orthonormal” with respect to $\dim \Hom_G(-,-)$.
+  We will come back to this idea when we encouter characters of representations.
+  % TODO: Add a link.
+\end{remark}
+
+
+\begin{remark}
+  %TODO: Craft a better explanation.
   Assume $k$ is an algebraically closed field and $V$ a finite dimensional irreducible representation of some group $G$.
   Then $\End_G(V \oplus \dotsb \oplus V)$ and $\Mat(n \times n, k)$ are isomorpic as $k$-algebras by part~\ref{enumerate: morphism space is one-dimensional} of Schur’s Lemma.
   
@@ -1738,7 +1905,7 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
         =       S^{-1} k[t]
         \to     \End_G(V) \,,
         \quad   p(t)/q(t)
-        \mapsto p(f) q(f)^{-1} \..
+        \mapsto p(f) q(f)^{-1} \,.
       \]
       By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(V)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $V$.
       This is precisely the $k(t)$-vector space structure from above.
@@ -1776,6 +1943,12 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 \end{remark}
 
 
+
+
+
+\section{Maschke’s Theorem}
+
+
 \begin{definition}
   Let $G$ be a group.
   A representation $V$ of $G$ (over a field $k$) is \emph{completely reducible} if
@@ -1806,6 +1979,142 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
   We have seen in example~\ref{example: upper triangular action on C2} that the corresponding representation is not irreducible, but still indecomposable.
   It can therefore not be decomposed into a direct sum of irreducible subrepresentations.
 \end{remark}
+
+
+
+\begin{example}
+  \label{example: subrepresentations of natural action of Sn}
+  Let $n \geq 2$ and let the symmetric group $S_n$ acts on $k^n$ so that
+  \[
+    \sigma.e_i = e_{\sigma(i)}
+  \]
+  for all $\sigma \in S_n$, $i = 1, \dotsc, n$, where $e_1, \dotsc, e_n$ denotes the standard basis of $k^n$.
+  We denote this representation by $V$.
+  We will show that $V$ is reducible, but completely reducible if and only if $\kchar k \nmid n$.
+
+  For this we consider the linear subspaces $U_1, U_2 \subseteq k^n$ given by
+  \begin{align*}
+              U_1
+    &\defined \{
+                (x_1, \dotsc, x_n) \in V
+              \suchthat
+                x_1 = \dotsb = x_n
+              \} \,,
+    \\
+              U_2
+    &\defined \left\{
+                (\lambda_1, \dotsc, \lambda_n) \in V
+              \suchthat*
+                \sum_{i=1}^n x_i = 0
+              \right\} \,.
+  \end{align*}
+  These are proper non-zero subrepresentations of $V$ of complementary dimensions $\dim U_1 = 1$ and $\dim U_2 = n - 1$:
+  Both subspaces are invariant under the action of $S_n$ because the conditions $x_1 = \dotsb = x_n$ and $\sum_{i=1}^n x_i = 0$ do not depend on the order of the $x_i$.
+  A basis of $U_1$ is given by the single vector $(1, \dotsc, 1)$, while a basis of $U_2$ is given by the vectors of the form $(0, \dotsc, 0, 1, -1, 0, \dotsc, 0)$, of which there are $n-1$ many.
+  Note that the exstence $U_1$ and $U_2$ already shows that $V$ itself is reducible.
+  
+  To determine when $V$ is completely reducible we note that the subrepresentations $U_1, U_2$ are the only non-zero proper subrepresentations of $V$.
+  To see this we consider an arbitrary non-zero proper subrepresentation $U \subseteq V$ and distinguish between two cases:
+  \begin{itemize}
+    \item
+      If for every $(x_1, \dotsc, x_n) \in U$ we have that $x_1 = \dotsb  = x_n$, then $U$ is contained in $U_1$.
+      Because $U$ is non-zero it follows from $\dim U_1 = 1$ that $U = U_1$.
+    \item
+      Otherwise there exists some $v = (x_1, \dotsc, x_n) \in U$ with $x_i \neq x_j$ for some $i,j$.
+      By using the action of $S_n$ on $U$ we may assume w.l.o.g.\ that $x_1 \neq x_2$.
+      Then $v = (x_1, x_2, x_3, \dotsc, x_n)$ and $(1\,2).v = (x_2, x_1, x_3, \dotsc, x_n)$, so that
+      \[
+            v - (1\,2).v
+        =   (x_1 - x_2, x_2 - x_1, 0, \dotsc, 0)
+        \in U \,.
+      \]
+      After dividing by $x_1 - x_2 \neq 0$ we arrive at
+      \[
+            (1, -1, 0, \dotsc, 0)
+        \in U \,.
+      \]
+      By using the action of $S_n$ on $U$ it further follows that all vectors of the form
+      \[
+        (0, \dotsc, 0, 1, -1, 0, \dotsc, 0)
+      \]
+      are contained in $U$.
+      Because these vectors form a $k$-basis of the subrepresentation $U_2$ it follows that $U_2 \subseteq U$.
+      Because $U$ is a proper subrepresentation it further follows from $\dim U_2 = n-1$ that $U = U_2$.
+  \end{itemize}
+  
+  Because $V$ itself is not irreducible, it follows that $V$ is completely reducible if and only both $U_1$ and $U_2$ are irreducible and $V = U_1 \oplus U_2$, as no other decomposition into subrepresentations is possible.
+  \begin{itemize}
+    \item
+      The condition $V = U_1 \oplus U_2$ is equivalent to $U_1 \cap U_2$ because $U_1$ and $U_2$ have complementary dimensions.
+      Because $U_1$ is one-dimensional this holds if and only if $U_1 \nsubseteq U_2$.
+    \item
+      The representation $U_1$ is one-dimensional, and therefore irreducible.
+      As every subrepresentation of $U_2$ is also a subrepresentation of $V$ it follows that $U_2$ is irreducible if and only if $U_1$ is not a proper subrepresentation of $U_2$.
+  \end{itemize}
+  Hence $V$ is completely reducible if and only if $U_1 \nsubseteq U_2$, which is equivalent to $\kchar k \nmid n$.
+\end{example}
+
+
+\begin{example}
+  \label{example: complex representations of finite abelian groups are completely reducible}
+  \begin{enumerate}
+    \item
+      Let $k = \Complex$ and let the cyclic group $G = \Integer/n$ act linearly on the vector space $V \coloneqq \Complex^n$ by rotating the coordinates to the left, i.e.
+      \[
+          \overline{k}.(x_1, x_2, \dotsc, x_n)
+        = (x_2, \dotsc, x_n, x_1) \,.
+      \]
+      The representation $V$ is completely reducible, with the irreducible subrepresentations being one-dimensional by Corollary~\ref{corollary: irreducible representation of abelian groups}.
+      
+      Let $\omega_0, \dotsc, \omega_{n-1} \in \Complex$ denotes the $n$-th roots of unity, i.e.\ $\omega_j = e^{2 \pi i j/n}$.
+      Then the group $G$ acts on the vectors $v_0, \dotsc, v_{n-1} \in V$ with
+      \[
+          v_j
+        = (1, \omega_j, \omega_j^2, \dotsc, \omega_j^{n-1})
+      \]
+      by mutliplication with scalars, namely
+      \[
+          \overline{1}.v_j
+        = \omega_j v_j
+      \]
+      for every $j = 0, \dotsc, n-1$.
+      The one-dimensional subspaces $U_j \coloneqq \gen{ v_j }_\Complex$ are therefore subrepresentations of $V$.
+      The vectors $v_0, \dotsc, v_{n-1}$ are linearly independent because the Vandermonte determinant
+      \[
+          \det
+          \begin{pmatrix}
+            1       & \omega_0      & \omega_0^2    & \cdots  & \omega_0^{n-1}      \\
+            1       & \omega_1      & \omega_1^2    & \cdots  & \omega_1^{n-1}      \\
+            1       & \omega_2      & \omega_2^3    & \cdots  & \omega_2^{n-1}      \\
+            \vdots  & \vdots        & \vdots        & \ddots  & \vdots              \\
+            1       & \omega_{n-1}  & \omega_{n-1}  & \cdots  & \omega_{n-1}^{n-1}
+          \end{pmatrix}
+        = \prod_{i > j} (\omega_i - \omega_j)
+      \]
+      is non-zero.
+      The resulting decomposition $V = U_0 \oplus \dotsb U_{n-1}$ is a decomposition into one-dimensional subrepresentations.
+    \item
+      More generally, let $G$ be a finite abelian groups and $k$ an algebraically closed field with $\kchar k = 0$.
+      Then every representation $V$ of $G$ over $k$ is completely reducible, with the irreducible subrepresentations being one-dimensional by Corollary~\ref{corollary: irreducible representation of abelian groups}:
+    
+      Let $G = \{1 = g_1, g_2, \dotsc, g_n\}$ and let $\rho \colon G \to \GL(V)$ be the group homomorphism which corresponds to the linear action of $G$ on $V$.
+      Then $\rho(g)^n = \rho(g^n) = \rho(1) = \id_V$ for every $g \in G$, so that every endomorphism $\rho(g) \colon V \to V$ satisfies the polynomial identity $\rho(g)^n - \id_V = 0$, i.e.\ satisfies the polynomial $p(t) \defined t^n - 1 \in k[t]$.
+      The polynomials $p(t)$ decomposes into linear factors because $k$ is algebraically closed.
+      The roots of $p(t)$ are the $n$-th roots of unity $w_1, \dotsc, w_n$, which are pairwise different because $\kchar k = 0$.
+      Hence $\rho(g)$ satisfies the polynomial $p(t)$ which decomposes into pairwise different linear factors $p(t) = (t - w_1) \dotsm (t - w_n)$.
+      It follows from linear algebra that every $\rho(g)$ is diagonalizable with possible eigenvalues $w_1, \dotsc, w_n$.
+      
+      Because $G$ is abelian it further follows that the endomorphisms $\rho(g)$ are simultaneously diagonalizable, i.e.\ there exists a decomposition
+      \[
+          V
+        = U_1 \oplus \dotsb \oplus U_r
+      \]
+      such that every $\rho(g)$ acts on each $U_i$ by multiplication with some scalar $\lambda_i(g) \in k$, namely some of the roots of unity $w_1, \dotsc, w_n$.
+      It then follows that every linear subspace of every $U_i$ is a subrepresentation.
+      By decomposing every $U_i$ into a direct sum of one-dimensional linear subspaces we arrive at a decomposition of $V$ into one-dimensional subrepresentations.
+  \end{enumerate}
+\end{example}
+
 
 
 \begin{theorem}[Maschke’s theorem]
@@ -1860,10 +2169,145 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 \end{proof}
 
 
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Consider the linear action of the symmetric group $S_n$ on the polynomial ring $k[X_1, \dotsc, X_n]$ given by
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
+      \]
+      for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
+      For every $d \geq 0$ let $k[X_1, \dotsc, X_n]_d$ denote the span of all monomials $X_1^{d_1} \dotsm X_n^{d_n}$ of degree $d_1 + \dotsb + d_n = d$ and consider the resulting decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresenations.
+      If $\kchar k = 0$ then it follows from Maschke’s theorem that every $k[X_1, \dotsc, X_n]_d$ is completely reducible.
+      Hence $k[X_1, \dotsc, X_n]$ is completely reducible.
+    \item
+      By combining Maschke’s theorem with Corollary~\ref{corollary: irreducible representation of abelian groups} we can reconstruct the result from Example~\ref{example: complex representations of finite abelian groups are completely reducible}:
+      Under the given conditions the representation $V$ decomposes into a direct sum of irreducible subrepresentations, each of which is one-dimensional.
+      The actions on these one-dimensional subrepresentations must be given by multiplication with scalars from $k^\times$.
+      Because $G$ is finite, so that every element $g \in G$ has finite order, it then follows that these scalars must have finite order in $k^\times$, i.e.\ must be roots of unity.
+      
+    \item
+      Maschke’s theorem confirmes our result from Example~\ref{example: subrepresentations of natural action of Sn}:
+      Note that for $|S_n| = n!$ and that for every field $k$ we have that $\kchar k \nmid n!$ if and only if $\kchar k \nmid n$.
+      This holds because $\kchar k$ is either $0$ or prime.
+      Note however that in Example~\ref{example: subrepresentations of natural action of Sn} the converse of Maschke’s theorem does also hold:
+      If $\kchar K \mid |S_n|$, then the given representations is not completely reducible.
+      This is not a complete coincide:
+  \end{enumerate}
+\end{example}
+
+
 \begin{warning}
-  If $\kchar k \mid |G|$ then Maschke’s theorem does not hold.
-  % TODO: Adding an example.
+  If $\kchar k \mid |G|$ then Maschke’s theorem does not hold:
+  The left regular representation $k[G]$ is then not completely reducible.
+  We will later give a proof of this, when we have another characterization of complete reducibility available.
 \end{warning}
+
+
+\begin{fluff}
+  \label{fluff: orthogonality proof of Maschke}
+  It is worthwhile to mention another proof of Maschke’s theorem for the case that $k \in \{\Rational, \Real, \Complex\}$:
+  
+  Suppose first that $V$ is endowed with an inner product $\bil{\cdot}{\cdot}$ which is $G$-invariant in the sense that
+  \[
+      \bil{g.v_1}{g.v_2}
+    = \bil{v_1}{v_2}
+  \]
+  for all $g \in G$, $v_1, v_2 \in V$.
+  Then for every subrepresentation $U \subseteq V$ the orthogonal complement $U^\perp \subseteq V$ is again a subrepresentation:
+  It is a linear subspace, and for all $g \in G$, $v \in U^\perp$ one has that
+  \[
+      \bil{g.v}{u}
+    = \bil{g.v}{g.g^{-1}.u}
+    = \bil{v}{g^{-1}.u}
+    = 0
+  \]
+  for every $u \in U$ because $g^{-1}.u \in U$.
+  It follows that for every subrepresentation $U \subseteq V$ there exists a subrepresentation $W \subseteq V$ with $V = U \oplus W$, namely $W = U^\perp$.
+  
+  It remains to show that there exists a $G$-invariant inner product on $V$.
+  For this we start off with an arbitrary inner product $\bil{\cdot}{\cdot}$ on $V$ and then define $\bil{\cdot}{\cdot}'$ by
+  \[
+              \bil{v_1}{v_2}'
+    \defined  \frac{1}{|G|} \sum_{g \in G} \bil{g.v_1}{g.v_2}
+  \]
+  for all $v_1, v_2 \in V$.
+  Then $\bil{\cdot}{\cdot}'$ is also an inner product on $V$:
+  The bilinearity (resp.\ sesquilinearity) of $\bil{\cdot}{\cdot}'$ follows from the one of $\bil{\cdot}{\cdot}$ and the linearity of the $G$-action.
+  For every $v \in V$ with $v \neq 0$ we have that
+  \[
+              \bil{v}{v}'
+    \defined  \frac{1}{|G|} \bil{g.v}{g.v}
+    \geq      \frac{\bil{v}{v}}{|G|}
+    >         0 \,,
+  \]
+  so that $\bil{\cdot}{\cdot}'$ is positive definite.
+  This new inner product $\bil{\cdot}{\cdot}'$ is $G$-invariant because
+  \[
+      \bil{g.v_1}{g.v_2}'
+    = \frac{1}{|G|} \sum_{h \in G} \bil{h.g.v_1}{h.g.v_2}
+    = \frac{1}{|G|} \sum_{h' \in G} \bil{h'.v_1}{h'.v_2}
+    = \bil{v_1}{v_2}
+  \]
+  for all $v_1, v_2 \in V$.
+\end{fluff}
+
+
+\begin{remark}
+  Both proofs of Maschke’s theorem show the seemingly stronger statement that every subrepresentation $U \subseteq V$ has a direct complement which is again a subrepresenation.
+  We will see in Proposition~\ref{proposition: characterisation semisimple modules} that both of these conditions are actually equivalent, i.e.\ that a representation $V$ is completely reducible if and only if every subrepresentation $U \subseteq V$ has a direct complement which is again a subrepresentation.
+\end{remark}
+
+
+\begin{remark}
+  Both proofs of Maschke’s theorem make use of a powerful technique, the so called \emph{projection onto the invariants}:
+  If $V$ is a representation of a group $G$ over a field $k$ with $\kchar k \nmid |G|$, then consider the map
+  \[
+              \widehat{(-)} \;
+    \colon    V
+    \to       V^G \,,
+    \quad     v
+    \mapsto   \hat{v}
+    \defined  \frac{1}{|G|} \sum_{g \in G} g.v \,.
+  \]
+  This map “averages” a vector $v \in V$ over the linear group action.
+  The map $\widehat{(-)}$ is linear because $G$ acts linearly on $V$.
+  For every $v \in V$ the element $\hat{v}$ is $G$-invariant because
+  \[
+      g.\hat{v}
+    = g.\left( \frac{1}{|G|} \sum_{h \in G} h.v \right)
+    = \frac{1}{|G|} \sum_{h \in G} (gh).v
+    = \frac{1}{|G|} \sum_{g' \in G} g'.v
+    = \hat{v} \,.
+  \]
+  If $v$ is already invariant itself then $g.v = v$ for every $g \in G$, so that
+  \[
+      \hat{v}
+    = \frac{1}{|G|} \sum_{g \in G} g.v
+    = \frac{1}{|G|} \sum_{g \in G} v
+    = \frac{|G|}{|G|} v
+    = v \,.
+  \]
+  Together this shows that $\widehat{(-)}$ is a projection onto the subspace of invariants $V^G \subseteq V$.
+  
+  In the first proof of Maschke’s theorem it follows for the linear map $p \in \Hom(V,V)$ that $\hat{p} \in \Hom(V,V)^G = \Hom_G(V,V)$, so that $\hat{p}$ is a morphism of representations.
+  (Note however, that from this argumentations is it not yet clear, that $\hat{p}$ is again a projection onto the subrepresentation $U$.)
+  %TODO: Why is \hat{p} again a projection?
+  
+  In the second proof we let $G$ act linearly on the space $\operatorname{BF}(V)$ (resp.\ $\operatorname{SF}(V)$) of bilinear (resp.\ sesquilinear) forms $\beta \colon V \times V \to k$ via
+  \[
+      (g.\beta)(v_1, v_2)
+    = \beta\left( g^{-1}.v_1, g^{-1}.v_2 \right)
+  \]
+  for all $g \in G$, $v_1, v_2 \in V$.
+  Then the bilinear (resp.\ sesquilinear) form $\beta$ is invariant in the sense of \ref{fluff: orthogonality proof of Maschke} if and only if it is invariant in the sense of groups actions.
+  It is then only natural to construct the required invariant inner product $\bil{\cdot}{\cdot}'$ by projection the given inner product $\bil{\cdot}{\cdot}$ onto the invariants $\operatorname{BF}(V)^G$ (resp.\ $\operatorname{SF}(V)^G$).
+\end{remark}
+
+
+
 
 
 % \begin{example}
@@ -1897,101 +2341,6 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 %   Note that $G$ acts trivially on $V_{\text{triv}}$ and by multiplication with $-1$ on $V_{\text{sgn}}$ , hence $V_{\text{triv}}$ and $V_{\text{sgn}}$ are subrepresentations.
 %   One can also check that $V_1$ and $V_2$ are irreducible subrepresentations which are isomorphic.
 % \end{example}
-
-
-% \begin{example}
-%   Let $n \geq 2$ and $G = S_n$.
-%   Let $k$ be any field and let $S_n$ act on $k^n$ by setting
-%   \[
-%       g.e_i
-%     = e_{g(i)}
-%   \]
-%   where $e_1, \dotsc, e_n$ denotes the standard basis of $k^n$.
-%   Extending this linearly we get a representation of $G$ on $k^n$, i.e.\
-%   \[
-%     g.(a_1, \dotsc, a_n)
-%     = \left( a_{g^{-1}(1)}, \dotsc, a_{g^{-1}(n)} \right).
-%   \]
-%   We can then set $V = k^n$ and extend the $G$-action on $V$ to be a $G$-action on $\mc{P}(V)$ by setting $(g.f)(v) = f(g^{-1}.v)$ for all $f \in \mc{P}(V), v \in V$.
-%   We can then ask ourselves how to describe $\mc{P}(V)$.
-% \end{example}
-
-\begin{example}
-  Let the symmetric group $S_n$ acts on $k^n$ so that
-  \[
-    \sigma.e_i = e_{\sigma(i)}
-  \]
-  for all $\sigma \in S_n$, $i = 1, \dotsc, n$, where $e_1, \dotsc, e_n$ denotes the standard basis of $k^n$.
-  \begin{enumerate}
-    \item
-      The linear subspaces $U_1, U_2 \subseteq k^n$ given by
-      \begin{gather*}
-                  U_1
-        \defined  \vspan\left( \sum_{i=1}^n e_i \right) \,,
-        \qquad
-                  U_2
-        \defined  \left\{
-                    (\lambda_1, \dotsc, \lambda_n) \in k^n
-                  \suchthat*
-                    \sum_{i=1}^n \lambda_i = 0
-                  \right\}
-      \end{gather*}
-      are subrepresentations.
-    \item
-      The subrepresentation $U_1$ is the one-dimensional trivial representation, and both $U_1$ and $U_2$ are irreducible.
-    \item
-      If $n = 2$ and $\kchar k = 2$, then $U_1 = U_2$, and otherwise $U_1 \ncong U_2$.
-    \item
-      If $n = 2$ then $V$ is completely reducible if and only if $\kchar k \neq 2$.
-  \end{enumerate}
-  \begin{proof}
-    \leavevmode
-    \begin{enumerate}
-      \item
-        It is clear that $U_1$ and $U_2$ are vector subspaces. Since
-        \[
-            g.\left(\sum_{i=1}^n e_i\right)
-          = \sum_{i=1}^n e_{g(i)}
-          = \sum_{i=1}^n e_i
-            \tag{$\ast$}
-        \]
-        we have $g.u \in U_1$ for all $g \in G, u \in U_1$, thus $U_1$ is a subrepresentation. Since
-        \[
-            g.(\lambda_1, \dotsc, \lambda_n)
-          = \left( \lambda_{g^{-1}(1)}, \dotsc, \lambda_{g^{-1}(n)} \right)
-        \]
-        we have $g.u \in U_2$ for all $g \in G, u \in U_2$, thus $U_2$ is a subrepresentation.
-      \item
-        We have that $g.u = u$ for all $u \in U$ by ($\ast$).
-        If $n > 2$ then
-        \[
-                \dim U_1
-          =     1
-          \neq  \dim U_2
-        \]
-        and thus $U_1 \ncong U_2$.
-        
-        If $n = 2$ and $S_2 = \{e,s\}$ then $s.(1,1) = (1,1)$ for the basis vector $(1,1)$ of $U_1$ and $s.(1,-1) = -(1,-1)$ for the basis vector $(1,-1)$ of $U_2$.
-        So $U_2$ is not the trivial representation if $\kchar k \neq 2$, and thus $U_1 \ncong U_2$.
-        If $\kchar k = 2$ then $U_1$ and $U_2$ are both spanned by $(1,1)$ and thus $U_1 = U_2$.
-      \item
-        If $\kchar k \neq 2$ then $V$ is completely reducible by Maschke’s Theorem.
-        If $\kchar k = 2$ then $U_1 = U_2$.
-        This is the only one-dimensonal subrepresentation of $V$:
-        If $U \subseteq V$ is a subrepresentation such that there exists $(\lambda, \mu) \in U$ with $\lambda \neq \mu$, then $(\mu, \lambda) \in U$ and thus $U = V$.
-        Thus $V$ is indecomposible but reducible.
-      \qedhere
-    \end{enumerate}
-  \end{proof}
-\end{example}
-
-
-\begin{remark}
-  In the case of $n = 2$ the representation $U_2$ is called the sign representation.
-  More generally the sign representation of the symmetric group $S_n$ over a field $k$ is the (up to isomorphism unique) one-dimensional representation of $S_n$ over $k$ such that every $\sigma \in S_n$ acts by multiplication with $\sgn \sigma$.
-  If $\kchar k = 2$ the sign representation coincides with the trivial representation of dimension $1$.
-\end{remark}
-
 
 
 
