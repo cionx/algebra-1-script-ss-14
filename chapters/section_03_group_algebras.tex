@@ -1,0 +1,253 @@
+\section{Group Algebras}
+
+
+\begin{definition}
+  Let $k$ be a field (or a ring) and $G$ a group.
+  Then the \emph{group algebra of $G$ over $k$} is the $k$-algebra given by the $k$-vector space
+  \[
+              k[G]
+    \defined  \{
+                f \colon G \to k
+              \suchthat
+                \text{$f(g) \neq 0$ for only finitely many $g \in G$}
+              \}
+  \]
+  with pointwise addition and scalar multiplication, and multiplication given by convolution, i.e.\
+  \begin{equation}
+  \label{equation: multiplication by convolution}
+      (f_1 \cdot f_2)(x)
+    = \sum_{y \in G} f_1(y) f_2\left( y^{-1}x \right)
+  \end{equation}
+  for all $f_1, f_2 \in k[G]$, $x \in G$.
+  The unit of the group algebra is given by the function $\chi_e$.
+\end{definition}
+
+
+\begin{fluff}
+  To make it easier to work with the group algebra $k[G]$ we provide another way to think about it:
+
+  Every function $f \in k[G]$ can be written as a linear combination $f = \sum_{g \in G} a_g \chi_g$ with $a_g \in k$ for every $g \in G$ (namely $a_g = f(g)$), where almost all of the coefficients $a_g$ are zero.
+  Because the functions $\chi_g$, $g \in G$ form a basis of $k[G]$, the linear combination $\sum_{g \in G} a_g \chi_g$ can be identified with the formular linear combination $\sum_{g \in G} a_g g$.
+  Note that $g \in G$ is then identified with $\chi_g \in k[G]$, so that $G$ becomes a $k$-basis of $k[G]$.
+  
+  The addition and scalar multiplication of $k[G]$ are then given by
+  \begin{gather*}
+        \left( \sum_{g \in G} a_g g \right)
+      + \left( \sum_{g \in G} b_g g \right)
+    = \sum_{g \in G} (a_g + b_g) g \,,
+    \qquad
+      \lambda \left( \sum_{g \in G} a_g g \right)
+    = \sum_{g \in G} (\lambda a_g) g
+  \end{gather*}
+  for every $\lambda \in k$, and the multiplication of $k[G]$ is then given by
+  \begin{equation}
+  \label{equation: multiplication by bilinearity}
+            \left( \sum_{g \in G} a_g g \right)
+      \cdot \left( \sum_{g \in G} b_g g \right)
+    = \sum_{g, g' \in G} a_g b_{g'} (g g') \,.
+  \end{equation}
+  To see that \eqref{equation: multiplication by bilinearity} defines the same multiplication as \eqref{equation: multiplication by convolution} note that
+  \[
+      \left( \chi_{g_1} \cdot \chi_{g_2} \right)(h)
+    = \sum_{g \in G} \chi_{g_1}(g) \chi_{g_2}\left( g^{-1} h \right)
+    = \chi_{g_2}\left( g_1^{-1}h \right)
+    = \delta_{g_2, g_1^{-1} h}
+    = \delta_{g_1 g_2, h}
+    = \chi_{g_1 g_2}(h) \,,
+  \]
+  for every $h \in G$, so that
+  \[
+    \chi_{g_1} \cdot \chi_{g_2} = \chi_{g_1 g_2}
+  \]
+  for all $g_1, g_2 \in G$.
+  This shows that the multiplications \eqref{equation: multiplication by convolution} and \eqref{equation: multiplication by bilinearity} agree on the $k$-basis $(\chi_g)_{g \in G}$, resp.\ $(g)_{g \in G}$ of $k[G]$, and thus on the whole of $k[G]$ by the $k$-bilinearity of both \eqref{equation: multiplication by convolution} and \eqref{equation: multiplication by bilinearity}.
+
+  Alltogether this shows that we can think of the group algebra $k[G]$ as a linearization of the group $G$:
+  The group $G$ is a $k$-basis of $k[G]$, the multiplication of $k[G]$ is the (unique) $k$-bilinear extension of the multiplication of $G$, and $e = 1_{k[G]}$ for the neutral element $e \in G$.
+  Note also that $k[G]$ is commutative if and only if $G$ is abelian.
+\end{fluff}
+
+
+\begin{fluff}
+  \label{fluff: correspondence between representations and module structures}
+  If $V$ is a representation of a group $G$ over a field $k$, then the corresponding group homomorphismus $\rho \colon G \to \GL(V)$ can be regarded as a map $G \to \End(V)$, which then extends (uniquely) to a $k$-linear map
+  \[
+            R
+    \colon  k[G]
+    \to     \End(V) \,,
+    \quad   \sum_{g \in G} a_g g
+    \mapsto \sum_{g \in G} a_g \rho(g) \,.
+  \]
+  The $k$-linear map $R$ is multiplicative on the basis $G \subseteq k[G]$ because $\restrict{R}{G} = \rho$, and is therefore a homomorphisms of $k$-algebras.
+  This homomorphisms corresponds to a $k[G]$-module structure on $V$ given by
+  \[
+              x \cdot v
+    \defined  R(x)(v)
+    =         R\left( \sum_{g \in G} a_g g \right)(v)
+    =         \sum_{g \in G} a_g \rho(g)(v)
+    =         \sum_{g \in G} a_g (g.v)
+  \]
+  for all $x = \sum_{g \in G} a_g g \in k[G]$, $v \in V$.
+  
+  If on the other hand $V$ is a $k[G]$-module, then the corresponding homomorphism of $k$-algebras
+  \[
+            T
+    \colon  k[G]
+    \to     \End(V),
+    \quad   a
+    \mapsto (v \mapsto a \cdot v)
+  \]
+  maps every group element $g \in G$ to linear map $T(g) \colon V \to V$ in a multiplicative way.
+  Note that the linear map $T(g)$ is necessarily bijective because
+  \[
+      T(g) T(g^{-1})
+    = T(g g^{-1})
+    = T(e)
+    = T(1_{K[G]})
+    = \id_V \,.
+  \]
+  Hence $T$ restrict to a group homomorphism $\tau \defined \restrict{T}{G} \colon G \to \GL(V)$, which makes $V$ into a representation of $G$ given via
+  \[
+              g.v
+    \defined  \tau(g)(v)
+    =         T(g)(v)
+    =         g \cdot v
+  \]
+  for all $g \in G$, $v \in V$.
+  
+  The above constructions are inverse to each other, and thus lead to the following result:
+\end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: correspondence between representations and module structures}
+  Let $G$ be a group and $V$ a $k$-vector space.
+  Then there exists a 1:1-correspondence
+  \[
+  \begin{matrix}
+      \{ \text{$k$-linear $G$-actions on $V$} \}
+    & \xleftrightarrow{1:1}
+    & \{ \text{$k[G]$-module structures on $V$} \} \,, \\
+      \pi
+    & \longmapsto
+    & P
+    \end{matrix}
+  \]
+  where for every linear action $\pi \colon G \times V \to V$, $(g,v) \mapsto g.v$ the corresponding $k[G]$-module structure is given by
+  \[
+            P
+    \colon  k[G] \times V
+    \to     V \,,
+    \quad   \left( \sum_{g \in G} a_g g, v \right)
+    \mapsto \sum_{g \in G} a_g (g.v) \,.
+  \]
+\end{corollary}
+
+
+\begin{remark}
+  Note that the group algebra $k[G]$ is a module over itself via left multiplication.
+  This $k[G]$-module structure corresponds to the linear action of $G$ on $k[G]$ via left multiplication on the basis vectors $h \in G$, i.e.
+  \[
+      g.\left( \sum_{h \in G} a_h h \right)
+    = \sum_{h \in G} a_h (gh)
+  \]
+  for all $g \in G$, $\sum_{h \in G} a_h h \in k[G]$.
+  This is the \emph{\textup(left\textup) regular representation} of $G$.
+\end{remark}
+
+
+\begin{remark}
+  \label{remark: monoid algebra}
+  Given any ring $R$ and monoid $M$ the \emph{monoid algebra} $R[M]$ is given by the set of all formal linear combination $\sum_{x \in M} r_x x$ (where $r_x = 0$ for all but finitely many $x \in M$) together with the addition
+  \[
+      \left( \sum_{x \in M} r_x x \right)
+    + \left( \sum_{x \in M} s_x x \right)
+    = \sum_{x \in M} (r_x + s_x) x \,,
+  \]
+  the scalar multiplication
+  \[
+      r \cdot \left( \sum_{x \in M} r_x x \right)
+    = \sum_{x \in M} (r r_x) x \,,
+  \]
+  and the multiplication
+  \[
+          \left( \sum_{x \in M} r_x x \right)
+    \cdot \left( \sum_{x \in M} s_x x \right)
+    = \sum_{x, y \in M} (r_x s_y) (xy) \,.
+  \]
+  Then $R$ can be regarded as a subring of $R[M]$ via the inclusion
+  \[
+                    R
+    \hookrightarrow R[M],
+    \quad           r
+    \mapsto         r 1_{R[M]} \,,
+  \]
+  and $M$ can be regarded as an $R$-basis of $R[M]$.
+  The monoid algebra $R[M]$ has the following universal property:
+  
+  Let $S$ be any ring.
+  Then every ring homomorphism $\Phi \colon R[M] \to S$ restrict to a ring homomorphism $\varphi \colon R \to S$ and to a monoid homomorphism $\psi \colon M \to (S, \cdot)$, while every pair $(\varphi', \psi')$ consisting of a ring homomorphism $\varphi' \colon R \to S$ and monoid homomorphism $\psi' \colon M \to (S, \cdot)$ extend to a ring homomorphism $\Phi' \colon R[M] \to S$.
+  These constructions are inverse to each other and thus lead to a 1:1-correspondence
+  \begin{align*}
+                         &\,  \{ \text{ring homomorphism $\Phi \colon R[M] \to S$} \} \\
+    \xleftrightarrow{1:1}&\,  \left\{
+                                (\varphi, \psi)
+                              \suchthat*
+                                \begin{tabular}{c}
+                                  ring homomorphisms $\varphi \colon R \to S$, \\
+                                  monoid homomorphisms $\psi \colon M \to (S, \cdot)$
+                                \end{tabular}
+                              \right\} \,,
+  \end{align*}
+  given by the restriction(s) $\Phi \mapsto (\restrict{\Phi}{R}, \restrict{\Phi}{M})$.
+  (The necessary calculations are the same as in \ref{fluff: correspondence between representations and module structures}.)
+  
+  If $M = G$ is a group then we retrieve the previous definition of the group algebra $R[G]$.
+  Then the image of every monoid homomorphism $G \to (S,\cdot)$ is already contained in the unit group $S^\times$, and the universal property above becomes a 1:1-correspondence
+  \begin{align*}
+                         &\,  \{ \text{ring homomorphism $\Phi \colon R[G] \to S$} \} \\
+    \xleftrightarrow{1:1}&\,  \left\{
+                                (\varphi, \psi)
+                              \suchthat*
+                                \begin{tabular}{c}
+                                  ring homomorphisms $\varphi \colon R \to S$, \\
+                                  group homomorphisms $\psi \colon M \to S^\times$
+                                \end{tabular}
+                              \right\} \,.
+  \end{align*}
+  
+  One can then retrieve Corollary~\ref{corollary: correspondence between representations and module structures} from the universal property of the group algebra:
+  Suppose that $R = k$ is a field, $M = G$ is a group, $V$ is a $k$-vector space and $S = \End(V)$.
+  Then by letting $\varphi \colon k \to \End(V)$ be the canonical inclusion $\lambda \mapsto \lambda \cdot 1_V$, we get a 1:1-correspondence
+  \begin{align*}
+                         &\,  \{ \text{$k$-algebra homomorphims $R \colon k[G] \to \End(V)$} \} \\
+    \xleftrightarrow{1:1}&\,  \{ \text{group homomorphisms $\rho \colon G \to \End(V)^\times = \GL(V)$} \} \,,
+  \end{align*}
+  which is given by restriction $R \mapsto \restrict{R}{G}$.
+\end{remark}
+
+
+\begin{remark}
+  Let $k$ be a commutative ring and let $\cAlg{k}$ be the category of $k$-algebras.
+  Let $\cMon$ be the category of monoids.
+  
+  There exists a forgetful functor $U \colon \cAlg{k} \to \cMon$ which assigns to each $k$-algebra $S$ its underlying multiplicative monoid $U(S) = (S, \cdot)$, and which regards every $k$-algebra homomorphism $f \colon S \to T$ as a monoid homomorphism (i.e.\ multipicative map) $f \colon (S, \cdot) \to (T, \cdot)$.
+  
+  Note that every homomorphism of monoids $f \colon M \to N$ induces a homomorphism of $k$-algebras
+  \[
+            f_*
+    \colon  k[M]
+    \to     k[N] \,,
+    \quad   \sum_{x \in M} a_x x
+    \mapsto \sum_{x \in M} a_x f(x) \,,
+  \]
+  in such a way that $(\id_M)_* = \id_{k[M]}$ and $(g \circ f)_* = g_* \circ f_*$.
+  The monoid algebra over $k$ can therefore be regarded as a functor $k[-] \colon \cMon \to \cAlg{k}$.
+  
+  The universal property of the monoid algebra then states that the functor $k[-]$ is left-adjoint to the forgetful functor $U$.
+  This also holds true if $k$ is replaced by an arbitrary (not necessarily commutative) ring $R$, if one does not require $R$-algebras to be central.
+\end{remark}
+
+
+
+

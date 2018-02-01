@@ -1,0 +1,843 @@
+\section{Group Actions}
+
+
+\begin{notation}
+  If $G$ is a group then we denote by $e \in G$ the neutral element, by $gh$ the composition of $g,h \in G$ and by $g^{-1}$ the inverse of $g \in G$.
+\end{notation}
+
+
+\begin{definition}
+  Given a group $G$ and a set $X$, an \emph{action of $G$ on $X$} is a map
+  \begin{gather*}
+            \pi
+    \colon  G \times X
+    \to     X \,,
+    \quad   (g,x)
+    \to     g.x \,,
+  \shortintertext{such that}
+    e.x = x
+    \quad\text{and}\quad
+    (gh).x = g.(h.x)
+  \end{gather*}
+  for all $x \in X$, $g, h \in G$.
+  A \emph{$G$-set} is a set $X$ together with an action of $G$ on $X$.
+\end{definition}
+
+
+\begin{example}
+  Given a set $X$, the set
+  \[
+              S(X)
+    \defined  \{
+                f \colon X \to X
+              \suchthat
+                \text{$f$ is bijective}
+              \}
+  \]
+  carries a group structure via $fg \defined f \circ g$ (composition of maps) for all $f, g \in S(X)$. The neutral element is given by the identity $\id_X$.
+\end{example}
+
+
+\begin{definition}
+  This above group is called the \emph{symmetry group of $X$}.
+\end{definition}
+
+
+\begin{fluff}
+  Given a group action $\pi \colon G \times X \to X$, any group element $g \in G$ induces a bijection $\pi_g \in S(X)$ which is given by
+  \[
+              \pi_g(x)
+    \defined  g.x
+  \]
+  for all $x \in X$, $g \in G$.
+  The resulting map $\pi \colon G \to S(X)$, $g \mapsto \pi_g$ is a group homomorphism because
+  \[
+      \pi_{gh}(x)
+    = (gh).x
+    = g.(h.x)
+    = \pi_g( \pi_h(x) )
+    = (\pi_g \pi_h)(x)
+  \]
+  for all $g,h \in G$, $x \in X$.
+
+  If on the other hand $\varphi \colon G \to S(X)$ is any group homomorphism, then the map
+  \[
+            \mathring{\varphi}
+    \colon  G \times X
+    \to     X,
+    \quad   (g,x)
+    \mapsto \varphi(g)(x)
+  \]
+  is an action of $G$ on $X$ because
+  \begin{gather*}
+      e.x
+    = \varphi(e)(x)
+    = \id_X(x)
+    = x
+  \shortintertext{und}
+      (gh).x
+    = \varphi(gh)(x)
+    = (\varphi(g) \varphi(h))(x)
+    = \varphi(g)( \varphi(h)(x) )
+    = g.(h.x)
+  \end{gather*}
+  for all $g,h \in G$, $x \in X$.
+
+  Both of these constructions are inverse to each other.
+  This leads to the following result:
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: G-actions = group homos G -> S(X)}
+  For any group $G$ and set $X$ there is a 1:1-correspondence
+  \begin{align*}
+      \left\{
+        \text{$G$-actions on $X$}
+      \right\}
+    & \xleftrightarrow{1:1}
+      \left\{
+        \text{group homomorphisms $G \to S(X)$}
+      \right\} \,,
+    \\
+      \pi
+    & \longmapsto
+      \hat{\pi} \,,
+    \\
+      \mathring{\varphi}
+    & \longmapsfrom
+      \varphi \,.
+  \end{align*}
+\end{lemma}
+
+
+From this lemma we get the idea that group actions are ``the same'' as ``representing'' groups as permutation groups.
+
+
+\begin{example}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item
+      The group $G$ acts on itself by left multiplication, i.e.\
+      \[
+                  g.x
+        \defined  gx
+      \]
+      for all $g \in G$, $x \in G$.
+      This is called the \emph{\textup(left\textup) regular action of $G$}.
+    \item
+      The group $G$ acts onto itself by right multiplication with the inverse, i.e\
+      \[
+                  g.x
+        \defined  xg^{-1}
+      \]
+      for all $g \in G$, $x \in G$.
+      This is called the \emph{right regular action of $G$}.
+    \item
+      The group $G$ acts onto itself by conjugation, i.e.\
+      \[
+                  g.x
+        \defined  gxg^{-1}
+      \]
+      for all $g \in G$, $x \in G$.
+    \item
+      Let $X$ be a set.
+      Then
+      \[
+                  g.x
+        \defined  x
+      \]
+      for all $g \in G$, $x \in X$ defines an action of $G$ on $X$.
+      This action is called the \emph{trivial action} on $X$, and $X$ is called a \emph{trivial $G$-set}.
+      This action corresponds to the trivial group homomorphism $G \to S(X)$.
+    \item
+      If $X, Y$ are $G$-sets then $G$ acts on $\Maps(X,Y) = \{f \suchthat f \colon X \to Y\}$ via
+      \[
+                  (g.f)(x)
+        \defined g.\left( f\left( g^{-1}.x \right) \right)
+      \]
+      for all $f \in \Maps(X,Y)$, $g \in G$, $x \in X$.
+      In the special case that $Y$ is a trivial $G$-set we have that
+      \[
+          (g.f)(x)
+        = f(g^{-1}.x)
+      \]
+      for all $f \in \Maps(X,Y)$, $g \in G$ and $x \in X$.
+    \item
+      If $X, Y$ are $G$-sets then $G$ acts on $X \times Y$ via
+      \[
+                  g.(x,y)
+        \defined (g.x,g.y)
+      \]
+      for all $g \in G$, $(x,y) \in X \times Y$.
+    \item
+      If $X$ is a set then the symmetry group $G \defined S(X)$ acts on $X$ via
+      \[
+                  f.x
+        \defined  f(x)
+      \]
+      for all $f \in G$, $x \in X$.
+      Note that the group homomorphism $S(X) \to S(X)$ which corresponds to this action is just the identity $\id_{S(X)} \colon S(X) \to S(X)$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{definition}
+  Let $G$ be a group, and let $X$, $Y$ be $G$-sets.
+  A map $f \colon X \to Y$ is called \emph{$G$-equivariant} if
+  \[
+      f(g.x)
+    = g.f(x)
+  \]
+  for all $g \in G$ and $x \in X$.
+  Then set of $G$-equivariant maps $X \to Y$ is denoted by
+  \[
+              \Hom_G(X,Y)
+    \defined  \{
+                f \colon X \to Y
+              \suchthat
+                \text{$f$ is $G$-equivariant}
+              \} \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item
+      If $X$ is a $G$-set, then $\id_X \colon X \to X$ is $G$-equivariant.
+    \item
+      If $X$, $Y$, $Z$ are $G$-sets and $f_1 \colon X \to Y$ and $f_2 \colon Y \to Z$ are $G$-equivariant, then their composition $f_2 \circ f_1 \colon X \to Z$ is also $G$-equivariant.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{example}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item
+      Consider $G$ as the regular $G$-set.
+      Then $f \colon G \to G$ is $G$-equivariant if and only if $f$ is given by right multiplication with some element $a \in G$ (i.e\ if $f(g) = ga$ for all $g \in G$).
+      \begin{proof}
+        Assume there exists $a \in G$ such that $f(g) = ga$ for every $g \in G$.
+        Then
+        \[
+            f(g.x)
+          = f(gx)
+          = gxa
+          = g.f(x)
+        \]
+        for all $g \in G$, $x \in G$, so that $f$ is $G$-equivariant.
+        If on the other hand $f \colon G \to G$ is $G$-equivariant, then it follows for $a \defined f(e)$ that
+        \[
+            f(g)
+          = f(g.e)
+          = g.f(e)
+          = g.a
+          = ga
+        \]
+        for every $g \in G$, so that $G$ is given by right multiplication with $a$.
+      \end{proof}
+    \item
+      If $X$, $Y$ are trivial $G$-sets then every map $X \to Y$ is $G$-equivariant, so that $\Hom_G(X,Y) = \Maps(X,Y)$.
+    \item
+      If $X$ is any $G$-set and $Y$ is a trivial $G$-set then $f \colon X \to Y$ is $G$-equivariant if and only if $f(g.x) = f(x)$ for all $g \in G$, $x \in X$, i.e.\ if and only if $f$ is constant on the $G$-orbits of $X$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{fluff}
+  The previous lemma shows that for every group $G$, the class of $G$-sets together with the $G$-equivariant maps between them form a category, which we will refer to as $\cGsets{G}$.
+  The objects of $\cGsets{G}$ are $G$-sets and the $\Hom$-setits of $\cGsets{G}$ are given by
+  \[
+              \Hom_{\cGsets{G}}(X,Y)
+    \defined  \Hom_G(X,Y)
+  \]
+  for all $G$-sets $X$ and $Y$.
+\end{fluff}
+
+
+\begin{definition}
+  For every $G$-set $X$ let $X/G$ be the \emph{set of $G$-orbits} in $X$.
+\end{definition}
+
+
+\begin{fluff}
+  Note that the action of $G$ on $X$ induces an action of $G$ on $X/G$, which is trivial.
+  The canonical map
+  \[
+            \can
+    \colon  X
+    \to     X/G \,,
+    \quad   x
+    \mapsto G.x
+    =       \text{$G$-orbit of $x$}
+  \]
+  is $G$-equivariant because
+  \[
+      \can(g.x)
+    = G.g.x
+    = G.x
+    = \can(x)
+    = g.\can(x)
+  \]
+  for all $g \in G$, $x \in X$.
+\end{fluff}
+
+
+\begin{definition}
+  Let $X$ be a $G$-set.
+  An element $x \in G$ with $g.x = x$ is called \emph{$G$-invariant} or a \emph{$G$ fixed point}.
+  The set of $G$-invariants is denoted by
+  \[
+              X^G
+    \defined  \{
+                x \in X
+              \suchthat
+                \text{$g.x = x$ for all $g \in G$}
+              \} \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  Let $X$, $Y$ be $G$-sets and let $f \colon X \to Y$ be $G$-equivariant.
+  Then
+  \[
+              f\left( X^G \right)
+    \subseteq Y^G \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  For every $x \in X^G$ we have that
+  \[
+      g.f(x)
+    = f(g.x)
+    = f(x)
+  \]
+  for all $g \in G$ and thus $f(x) \in Y^G$.
+\end{proof}
+
+
+\begin{fluff}
+  This lemma shows that every $G$-equivariant map $f \colon X \to Y$ between $G$-sets $X$ and $Y$ induces a map $f^G \colon X^G \to Y^G$ by restriction.
+  For every $G$-set $X$ one has
+  \[
+      \id_X^G
+    = \id_{X^G} \,,
+  \]
+  and for all $G$-sets $X$, $Y$, $Z$ and $G$-equivariant maps $f \colon X \to Y$, $g \colon Y \to Z$ one has
+  \[
+      (g \circ f)^G
+    = g^G \circ f^G \,.
+  \]
+  This shows that $(-)^G \colon \cGsets{G} \to \cGsets{G}$ defines a functor.
+  (That $f^G$ is $G$-equivariant follows from the actions of $G$ on $X^G$ and $Y^G$ being trivial.)
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: equivariants are invariants}
+  Let $X$, $Y$ be $G$-sets.
+  Then $\Hom_G(X,Y) = \Maps(X,Y)^G$.
+\end{lemma}
+\begin{proof}
+  For every map $f \colon X \to Y$ one has that
+  \begin{align*}
+          f \in \Hom_G(X,Y)
+    &\iff \text{$f(g.x) = g.f(x)$ for all $g \in G$, $x \in X$} \\
+    &\iff \text{$f\left( g^{-1}.x \right) = g^{-1}.f(x)$ for all $g \in G$, $x \in X $} \\
+    &\iff \text{$g.f\left( g^{-1}.x \right) = f(x)$ for all $g \in G$, $x \in X$} \\
+    &\iff \text{$g.f = f$ for all $g \in G$}  \\
+    &\iff f \in \Maps(X,Y)^G \,.
+    \qedhere
+  \end{align*}
+\end{proof}
+
+
+\begin{definition}
+  Let $X$ be a $G$-set and let $k$ be field (or a ring).
+  A map $f \colon X \to k$ is called \emph{invariant} or \emph{$G$-invariant} if
+  \[
+      f(x)
+    = f\left( g.x \right)
+  \]
+  for all $g \in G$, $x \in X$.
+\end{definition}
+
+
+\begin{fluff}
+  If we consider $k$ as a trivial $G$-set then a map $f \colon X \to k$ is $G$-invariant if and only if $f \in \Hom_G(X,k) = \Hom(X,k)^G$.
+  So both notions of $G$-invariance agree.
+\end{fluff}
+
+
+\begin{lemma}
+  Let $X$ be a $G$-set and let $k$ be field (or a ring).
+  Then a map $f \colon X \to k$ is invariant if and only if $f$ factors through the canonical projection $\can \colon X \to X/G$, i.e.\ if there exists a map $\bar{f} \colon X/G \to k$ which makes the following diagram commute:
+  \[
+    \begin{tikzcd}
+        X
+        \arrow{rr}{f}
+        \arrow[swap]{rd}{\can}
+      & {}
+      & k
+      \\
+        {}
+      & X/G
+        \arrow[swap, dashed]{ru}{\bar{f}}
+      & {}
+    \end{tikzcd}
+  \]
+\end{lemma}
+\begin{proof}
+  Both conditions are equivalent to $f$ being constant on the $G$-orbits of $X$.
+\end{proof}
+
+
+\begin{example}
+  Let $G = \{e,s\} \cong \Integer/2$ where $e$ is the neutral element and $s^2 = e$.
+  Let $G$ act on $X = \Real$ by $e.\lambda = \lambda$ and $s.\lambda = -\lambda$ for all $\lambda \in \Real$.
+  We want to know for which $n$ the map $p_n \colon \Real \to \Real$, $x \mapsto x^n$ is $G$-invariant.
+  For this we need to check for which $n$ we have that
+  \[
+      p_n(\lambda)
+    = p_n\left( s^{-1}.\lambda \right)
+    = p_n(s.\lambda)
+    = p_n(-\lambda)
+    = (-1)^n p_n(\lambda)
+  \]
+  for all $\lambda \in \Real$.
+  This holds if and only if $n$ is even.
+\end{example}
+
+
+\begin{lemma}\label{lemma: basis of Maps and Hom}
+  Let $X$ be a finite $G$-set and let $k$ be a field (or a ring).
+  \begin{enumerate}
+    \item
+      The set $\Maps(X,k)$ forms a $k$-vector space (resp.\ $k$-module) via pointwise addition and scalar multiplication.
+    \item
+      A $k$-basis of $\Maps(X,k)$ is given by the maps $\chi_x$, $x \in X$ with
+      \[
+          \chi_x(y)
+        = \delta_{xy}
+        = \begin{cases}
+            1 & \text{if $x = y$} \,, \\
+            0 & \text{otherwise}  \,,
+          \end{cases}
+      \]
+      for all $y \in X$.
+    \item
+      The set of invariant maps $\Maps(X,k)^G = \Hom_G(X,k)$ is a $k$-linear subspace (resp.\ $k$-submodule) of $\Maps(X,k)$.
+    \item
+      A $k$-basis of $\Maps(X,k)^G$ is given by the maps $\chi_\mc{O}$, $\mc{O} \in X/G$ with
+      \[
+          \chi_\mc{O}(y)
+        = \begin{cases}
+            1 & \text{if $y \in \mc{O}$} \,,  \\
+            0 & \text{otherwise} \,,
+          \end{cases}
+      \]
+      for all $y \in X$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      This is clear.
+    \item
+      For $f \in \Maps(X,k)$ one has that $f = \sum_{x \in X} f(x) \chi_x$.
+      (Note that this sum is finite, hence well defined.)
+      This is true since for every $y \in X$ we have that
+      \[
+          \left( \sum_{x \in X} f(x)  \chi_x \right)(y)
+        = \sum_{x \in X} f(x) \underbrace{\chi_x(y)}_{= \delta_{xy}}
+        = f(y) \,.
+      \]
+      This shows that the maps $\chi_x$, $x \in X$ generate $\Maps(X,k)$.
+      They are linear independent since for all coefficients $\alpha_x \in k$, $x \in X$ with $\sum_{x \in X} \alpha_x \chi_x = 0$ one has for every $y \in X$ that
+      \[
+          \alpha_y
+        = \sum_{x \in X} \alpha_x \underbrace{ \chi_x(y) }_{= \delta_{xy}}
+        = 0 \,.
+      \]
+    \item
+      \label{enum: invariants form a submodule}
+      We need to check that for all $f, f_1, f_2 \in \Maps(X,k)^G$ and $\lambda \in k$ we have that $f_1 + f_2 \in \Maps(X,k)^G$ and $\lambda f \in \Maps(X,k)^G$.
+      This holds because
+      \begin{align*}
+            (g.(f_1+f_2))(x)
+        &=  (f_1+f_2)\left(g^{-1}.x\right)
+         = f_1\left(g^{-1}.x\right) + f_2\left(g^{-1}.x\right) \\
+        &=  f_1(x) + f_2(x) = (f_1+f_2)(x)
+      \shortintertext{and}
+            (g.(\lambda f))(x)
+        &=  (\lambda f)\left(g^{-1}.x\right)
+         = \lambda f\left(g^{-1}.x\right)
+         = \lambda f(x)
+         = (\lambda f)(x)
+      \end{align*}
+      for all $x \in X$.
+    \item
+      \label{enum: basis of the submodule of invariants}
+      The maps $\chi_{\mc{O}}$, $\mc{O} \in X/G$ are contained in $\Maps(X,k)^G$ since they are constant on the $G$-orbits of $X$.
+      
+      To see that they are a basis of $\Maps(X,k)^G$ let $\mc{O}_1, \dotsc, \mc{O}_n$ be the $G$-orbits in $X$, and for every $i = 1, \dotsc, n$ let $x_i$ be a representative of $\mc{O}_i$, i.e.\ let $x_i \in \mc{O}_i$.
+      
+      For every $f \in \Maps(X,k)^G$ one then has that $f = \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}$:
+      For every $y \in X$ there exists a unique $j$ with $y \in \mc{O}_j$.
+      Since the map $f$ and the maps $\chi_{\mc{O}_i}$ are constant on the $G$-orbits of $X$ it follows that
+      \[
+          \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}(y)
+        = \sum_{i=1}^n f(x_i) \chi_{\mc{O}_i}(x_j)
+        = f(x_j)
+        = f(y) \,.
+      \]
+      This shows that the maps $\chi_{\mc{O}_i}$, $i = 1, \dotsc, n$ generate $\Maps(X,k)^G$.
+      
+      The linear independence follows in the same way as above:
+      For all coefficients $\alpha_i \in k$, $i = 1, \dotsc, n$ with $\sum_{i=1}^n \alpha_i \chi_{\mc{O}_i}$ one has that
+      \[
+          0
+        = \left( \sum_{i=1}^n \alpha_i \chi_{\mc{O}_i} \right)(x_j)
+        = \sum_{i=1}^n \alpha_i \underbrace{ \chi_{\mc{O}_i}(x_j) }_{= \delta_{ij}}
+        = \alpha_j
+      \]
+      for every $j = 1, \dotsc, n$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{fluff}
+  If $X$ is an infinite $G$-set then we can replace $\Maps(X,k)$ by
+  \[
+              kX
+    \defined \{
+                f \in \Maps(X,k)
+              \suchthat
+                \text{$\supp(f)$ is finite}
+              \}
+  \]
+  where
+  \[
+      \supp(f)
+    = \{
+        x \in X
+      \suchthat
+        f(x) \neq 0
+      \} \,,
+  \]
+  is the \emph{support of $f$}, i.e\
+  \[
+              kX
+    = \{
+        f \colon X \to k
+      \suchthat
+        \text{$f(x) \neq 0 $ for only finitely many $x \in X$}
+      \} \,.
+  \]
+  Note that for all $f_1, f_2, f \in \Maps(X,k)$ and $\lambda \in k$ we have that
+  \begin{gather*}
+              \supp(f_1+f_2)
+    \subseteq \supp(f_1) \cup \supp(f_2)
+  \shortintertext{and}
+              \supp(\lambda f)
+    \subseteq \supp(f) \,.
+  \end{gather*}
+  Therefore $kX$ is a $k$-vector space (resp.\ $k$-module) via pointwise addition and scalar multiplication.
+
+  Note that for every $x \in X$ we have that $\supp(\chi_x) = \{x\}$ and thus $\chi_x \in kX$.
+  By using the same argumentation as above one finds that $\chi_x$, $x \in X$ is a $k$-basis of $kX$, i.e.\ that for every $f \in kX$ we have that $f = \sum_{x \in X} f(x) \chi_x$ (this sum is well-defined since only finitely many coefficients $f(x)$ are nonzero) and the maps $\chi_x$, $x \in X$ are linearly independent.
+
+  The calculation from part~\ref{enum: invariants form a submodule} of the above proof shows that $kX^G \defined (kX)^G$ is a $k$-linear subspace (resp.\ $k$-submodule) of $kX$.
+  We claim that the maps
+  \[
+    \chi_{\mc{O}}
+    \quad\text{where}\quad
+    \text{$\mc{O} \in X/G$ is finite}
+  \]
+  form a $k$-basis of $kX^G$.
+  Let $\{\mc{O}_i \suchthat i \in I\}$ is the set of orbits with finitely many elements and $x_i \in \mc{O}_i$ is a representative.
+  
+  To see that the maps $\chi_{\mc{O}_i}$, $i \in I$ generate $kX^G$, let $f \in kX^G$.
+  The map $f$ is constant on the $G$-orbits of $X$ because $f$ is $G$-invariant.
+  Since $f$ has finite support it further follows that $f$ vanishes on all non-finite $G$-orbits.
+  It therefore follows in the same way as in part~\ref{enum: basis of the submodule of invariants} of the above proof that $f = \sum_{i \in I} f(x_i) \chi_{\mc{O}_i}$.
+  (This sum is finite because $f$ has finite support.) 
+  It also follows as in part~\ref{enum: basis of the submodule of invariants} of the proof that the maps $\chi_{\mc{O}_i}$, $i \in I$ are linearly independent.
+\end{fluff}
+
+
+\begin{lemma}
+  Let $X$ be a finite $G$-set.
+  Suppose that $X = X_1 \dotcup X_2$ with $X_1, X_2 \neq \emptyset$ such that $g.x_1 \in X_1$ and $g.x_2 \in X_2$ for all $x_1 \in X_1$, $x_2 \in X_2$, $g \in G$.
+  \begin{enumerate}
+    \item
+      $\Maps(X,k) \cong \Maps(X_1, k) \oplus \Maps(X_2, k)$ as $k$-vector spaces (resp.\ $k$-modules).
+    \item
+      $\Maps(X,k)^G \cong \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G$ as $k$-vector spaces (resp.\ $k$-modules) where we have an induced action on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$ from the $G$-action on $\Maps(X,k)$ via the isomorphism of the first part.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      By Lemma~\ref{lemma: basis of Maps and Hom} the space $\Maps(X,k)$ has the basis $B \defined \{\chi_x \suchthat x \in X\}$.
+      Similarly $\Maps(X_i, k)$ has the basis $B_i \defined \{\chi_x \suchthat x \in X_i\}$ for $i = 1, 2$.
+      Since $X$ is the disjoint union of $X_1$ and $X_2$, it follows that there exists an isomorphism of $k$-vector spaces (resp.\ $k$-modules) $\Maps(X,k) \xrightarrow{\sim} \Maps(X_1, k) \oplus \Maps(X_2, k)$ given by
+      \[
+                \chi_x
+        \mapsto \begin{cases}
+                  (\chi_x,0) & \text{ if $x \in X_1$} \,,  \\
+                  (0,\chi_x) & \text{ if $x \in X_2$} \,.
+                \end{cases}
+      \]
+    \item
+      The action of $G$ on $X$ restrict to actions of $G$ on both $X_1$ and $X_2$ since these are closed under the action of $G$.
+      The group $G$ now acts on $\Maps(X, k)$ via $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G$, $x \in X$, and simlilary on both $\Maps(X_1, k)$ and $\Maps(X_2, k)$.
+      The above isomorphism $\Maps(X, k) \xrightarrow{\sim} \Maps(X_1, k) \oplus \Maps(X_2, k)$ is then $G$-equivariant.
+      The invariants on the left side are $\Maps(X,k)^G$.
+      The invariants on the right side are
+      \[
+          \left( \Maps(X_1, k) \oplus \Maps(X_2, k) \right)^G
+        = \Maps(X_1, k)^G \oplus \Maps(X_2, k)^G,
+      \]
+      because $G$ acts componentwise on $\Maps(X_1, k) \oplus \Maps(X_2, k)$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{example}
+  Let $X$ be a finite trivial $G$-set.
+  It follows from the decomposition $X = \bigdotcup_{x \in X} \{x\}$ that
+  \[
+          \Maps(X,k)
+    =     \gen{ \chi_x \suchthat x \in X }_k
+    =     \bigoplus_{x \in X} k \chi_x
+    \cong \bigoplus_{x \in X} \Maps(\{x\},k) \,.
+  \]
+  In this case we have $\Maps(X,k)^G = \Maps(X,k)$ because the $G$-action on $k$ is trivial.
+\end{example}
+
+
+\begin{warning}
+  Given a $G$-set $X$ and a decomposition of $k$-vector spaces (resp.\ $k$-modules) $\Maps(X,k) = V \oplus W$ such that 
+  \[
+    g.v \in V
+    \quad\text{and}\quad
+    g.w \in W
+  \]
+  for all $v \in V$, $w \in W$, $g \in G$, then this decomposition is not necessarily arising from a decomposition $X = X_1 \dotcup X_2$ as above.
+\end{warning}
+
+
+\begin{example}
+  Take for example the group $G = \{e,s\} \cong \Integer/2$ with $s^2 = e$ and let $G$ act on $X = G$ itself by left multiplication.
+  Let $k$ be a field with $\kchar k \neq 2$.
+  \begin{claim}
+    There is no decomposition $X = X_1 \dotcup X_2$ as above.
+  \end{claim}
+  \begin{proof}
+    If such a decomposition would exist then it would either be $X_1 = \{e\}$ and $X_2 = \{s\}$ or $X_1 = \{s\}$ and $X_2 = \{e\}$.
+    But since $s.e = se = s$ and $s.s = ss = e$ we have in both cases that $s(X_1) \subseteq X_2$.
+  \end{proof}
+  
+  The vector space $\Maps(X,k)$ has by Lemma~\ref{lemma: basis of Maps and Hom} a basis given by $\{\chi_e,\chi_s\}$ as a basis.
+  Then $\{b_1, b_2\}$ with
+  \[
+              b_1
+    \defined  \frac{\chi_e + \chi_s}{2}
+    \quad\text{and}\quad
+              b_2
+    \defined  \frac{\chi_e - \chi_s}{2} \,.
+  \]
+  is also a basis of $\Maps(X,k)$.
+  From $s.\chi_e = \chi_s$ and $s.\chi_s = \chi_e$ it follows that
+  \[
+      s.b_1
+    = b_1
+    \quad\text{and}\quad
+      s.b_2
+    = -b_2 \,.
+  \]
+  It follows for $V \defined \gen{b_1}_k$ and $W \defined \gen{b_2}_k$ that $\Maps(X, k) = V \oplus W$ with $g.v \in V$ and $g.w \in W$ for all $v \in V$, $w \in W$, $g \in G$.
+\end{example}
+
+
+\begin{lemma}
+  \label{lemma: group action by ring automorphisms}
+  Suppose the group $G$ acts on a ring $R$ by ring automorphisms (i.e.\ if $\pi \colon G \times R \to R$ is the action then $\pi_g \colon r \mapsto g.r$ is an ring automorphism of $R$ for every $g \in G$).
+  Then $R^G$ is a subring of $R$, and therefore in a particular ring itself.
+\end{lemma}
+
+
+% \begin{remark}
+%   Here rings don't necessarily have an 1-element.
+% \end{remark}
+
+
+\begin{proof}
+  It holds for every $g \in G$ that $g.1 = \pi_g(1) = 1$, so that $1 \in R^G$.
+  For all $r_1, r_2 \in R^G$, $g \in G$ it holds that
+  \begin{gather*}
+      g.(r_1 + r_2)
+    = \pi_g(r_1 + r_2)
+    = \pi_g(r_1) + \pi_g(r_2)
+    = g.r_1 + g.r_2
+    = r_1 + r_2
+  \shortintertext{and}
+      g.(r_1 r_2)
+    = \pi_g(r_1 r_2)
+    = \pi_g(r_1) \pi_g(r_2)
+    = (g.r_1)(g.r_2)
+    = r_1 r_2 \,,
+  \end{gather*}
+  so that $r_1 + r_2, r_1 r_2 \in R^G$.
+\end{proof}
+
+
+\begin{example}
+  Let $X$ be a $G$-set and $k$ a field (or a ring).
+  \begin{enumerate}
+    \item
+      The set $\Maps(X,k)$ carries the structure of a ring via pointwise addition and multiplication.
+    \item
+      The induced $G$-action on $\Maps(X,k)$ (i.e.\ $(g.f)(x) = f(g^{-1}.x)$ for all $g \in G$, $x \in X$) is an action by ring automorphisms:
+      
+      For all $g \in G$, $x \in X$ it holds that
+      \[
+          (g.1_{\Maps(X,k)})(x)
+        = 1_{\Maps(X,k)}(g^{-1}.x)
+        = 1
+        = 1_{\Maps(X,k)}(x)
+      \]
+      and therefore $g.1_{\Maps(X,k)} = 1_{\Maps(X,k)}$.
+      For all $f_1, f_2 \in \Maps(X,k)$, $g \in G$, $x \in X$ it holds that
+      \begin{align*}
+            (g.(f_1+f_2))(x)
+        &=  (f_1+f_2)\left( g^{-1}.x \right)
+          =  f_1\left( g^{-1}.x \right) + f_2\left( g^{-1}.x \right) \\
+        &=  (g.f_1)(x) + (g.f_2)(x) = ((g.f_1)+(g.f_2))(x)
+      \shortintertext{and}
+            (g.(f_1 f_2))(x)
+        &=  (f_1 f_2)\left( g^{-1}.x \right)
+          =  f_1\left( g^{-1}.x \right) f_2\left( g^{-1}.x \right) \\
+        &=  (g.f_1)(x) (g.f_2)(x) = ((g.f_1)(g.f_2))(x) \,.
+      \end{align*}
+      Alltogether this shows that $G$ acts by ring homomorphisms.
+      Since $\pi_g$ has the inverse $\pi_{g^{-1}}$ these homomorphisms are automatically automorphisms.
+
+     It follows from Lemma~\ref{lemma: group action by ring automorphisms} that $\Maps(X,k)^G$ is a subring of $\Maps(X,k)$.
+    \item
+      The symmetric group $S_n$ acts on the polynomial ring $k[X_1, \dotsc, X_n]$ via
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
+      \]
+      for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
+      This is an action by ring automorphisms, so that $k[X_1, \dotsc, X_n]^{S_n}$ is a subring.
+      This is the ring of \emph{symmetric polynomials}.
+  \end{enumerate}
+\end{example}
+
+
+\begin{remark}
+  Similar statements hold for $kX$ and $(kX)^G$ (with the same proofs).
+\end{remark}
+
+
+\begin{definition}
+  Let $G$, $H$ be groups and let $X$ be both a $G$-set and $H$-set.
+  Then the actions of $G$ and $H$ on $X$ \emph{commute} if
+  \[
+      h.(g.x)
+    = g.(h.x)
+  \]
+  for all $g \in G$, $h \in H$, $x \in X$.
+\end{definition}
+
+
+\begin{remark}
+  In this case we have that $\pi_g$ is an $H$-equivariant map for every $g \in G$ and that $\pi'_h$ is a $G$-equivariant map for every $h \in H$, because
+  \[
+      g.\pi_h(x)
+    = \pi_g(h.x)
+    = g.(h.x)
+    = h.(g.x)
+    = h.\pi_g(x)
+    = \pi_h(g.x)
+  \]
+  for all $g \in G$, $h \in H$.
+\end{remark}
+
+
+\begin{example}
+  \label{example: commuting actions}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item
+      Then the left regular action and the right regular action of $G$ on $G$ commute.
+    \item
+      The left regular action and conjugation action on $G$ commute if and only if $G$ is abelian:
+      If $.$ denotes the left regular action and $*$ the conjugation then
+      \begin{align*}
+            g_1*(g_2.x)
+        &=  g_1 (g_2 x) g_1^{-1}
+         =  g_1 g_2 x g_1^{-1} \,,
+        \tag{\ensuremath{\ast}}
+        \\
+            g_2.(g_1*x)
+        &=  g_2 \left(g_1 x g_1^{-1}\right)
+         =  g_2 g_1 x g_1^{-1}
+        \tag{\ensuremath{\ast\ast}} \,,
+      \end{align*}
+      for all $g_1, g_2, x \in G$.
+      Therefore
+      \begin{align*}
+            &\, \text{$(\ast) = (\ast\ast)$ for all $g_1, g_2, x \in G$}  \\
+        \iff&\, \text{$g_1 g_2 = g_2 g_1$ for all $g_1, g_2 \in G$}       \\
+        \iff&\, \text{$G$ is abelian} \,.
+      \end{align*}
+    \item
+      Let $G \defined \GL(2,\Real)$.
+      Then $G$ acts on $\Real^2$ in the natural way.
+      Consider the subgroup
+      \[
+                  H
+        \defined  \left\{
+                    \begin{pmatrix}
+                      \lambda & 0       \\
+                      0       & \lambda
+                    \end{pmatrix}
+                  \suchthat*
+                    \lambda \in \Real,
+                    \lambda \neq 0
+                  \right\}
+        \subseteq \GL(2,\Real) \,.
+      \]
+      Then $H$ acts on $\Real^2$ by restriction of the $G$-action.
+      The two actions commute since $gh = hg$ for all $g \in G$, $h \in H$.
+      (Note that $H$ is the center of $G$.)
+  \end{enumerate}
+\end{example}
+
+
+\begin{remark}
+  Let $G, H$ be two groups and let $X$ be a set.
+  %TODO: Commuting acting = Actions of GxH
+\end{remark}
+
+
+
+

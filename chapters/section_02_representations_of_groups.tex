@@ -1,0 +1,477 @@
+\section{Representations of Groups}
+
+
+\begin{definition}
+  Let $G$ be a group, $V$ a $k$-vector space and $\pi \colon G \times V \to V$ a group action.
+  The action $\pi$ is \emph{\textup($k$-\textup)linear} if for every $g \in G$ the map $\pi_g \colon V \to V$, $v \mapsto g.v$ is ($k$-)linear.
+  A \emph{$G$-space}, or \emph{representation of $G$} is a vector space $V$ together with a linear action of $G$ on $V$.
+\end{definition}
+
+
+\begin{example}
+  The natural action of $\GL(2,\Real)$ on $\Real^2$ from Example~\ref{example: commuting actions} is $\Real$-linear.
+\end{example}
+
+
+\begin{notation}
+  For any $k$-vector space $V$ we set
+  \[
+              \GL(V)
+    \defined  \{
+                f \colon V \to V
+              \suchthat
+                \text{$f$ is $k$-linear and invertible}
+              \} \,.
+  \]
+\end{notation}
+
+
+\begin{lemma}
+  \label{lemma: linear G-actions = group homos G -> GL(V)}
+  Let $G$ be a group and $V$ a $k$-vector space.
+  Then the 1:1-correspondence
+  \[
+    \left\{
+      \text{$G$-actions on $X$}
+    \right\}
+    \xlongleftrightarrow{1:1}
+    \left\{
+      \text{group homomorphisms $G \to S(V)$}
+    \right\} \,.
+  \]
+  from Lemma~\ref{lemma: G-actions = group homos G -> S(X)} restrict to a 1:1-correspondence
+  \[
+    \left\{
+      \text{linear $G$-actions on $X$}
+    \right\}
+    \xlongleftrightarrow{1:1}
+    \left\{
+      \text{group homomorphisms $G \to \GL(V)$}
+    \right\} \,.
+  \]
+\end{lemma}
+
+
+\begin{remark}
+  By Lemma~\ref{lemma: linear G-actions = group homos G -> GL(V)}, a representation of $G$ can be equivalently characterized as a group homomorphism $\rho \colon G \to \GL(V)$ for a vector space $V$.
+\end{remark}
+
+
+\begin{example}
+  Let $G$ be a group and $k$ a field.
+  \begin{enumerate}
+    \item
+      Let $V$ be a $k$-vector space.
+      Then $\GL(V)$ acts linearly on $V$ via
+      \[
+                  \varphi.v
+        \defined  \varphi(v)
+      \]
+      for all $\varphi \in \GL(V)$, $v \in V$.
+      Note that this action corresponds to the identity homomorphism $\id_{\GL(V)} \colon \GL(V) \to \GL(V)$.
+    \item
+      If $V$ is any $k$-vector space, then the trivial action of $G$ on $V$ is $k$-linear, and corresponds to the trivial group homomorphism $G \to \GL(V)$.
+      This actions defined the \emph{trivial representation} of $G$ on $V$.
+      For each fixed dimension there is (up to isomorphism) one trivial representation, which is the referred to as \emph{the} trivial representation (of dimension $\dim V$).
+    \item
+      The symmetric group $S_n$ acts linearly on $k^n$ such that
+      \[
+        \sigma.e_i = e_{\sigma(i)}
+      \]
+      for all $\sigma \in S_n$, $i = 1, \dotsc, n$, where $e_1, \dotsc, e_n$ denotes the standard basis of $k^n$.
+      This action can also be written as
+      \[
+          \sigma.(a_1, \dotsc, a_n)
+        = ( a_{\sigma^{-1}(1)}, \dotsc, a_{\sigma^{-1}(n)} )
+      \]
+      for all $\sigma \in S_n$, $(a_1, \dotsc, a_n) \in k^n$.
+    \item
+      For every $k$-vector space $V$ the symmetric group $S_n$ also acts linearly on $V^{\otimes n}$ via
+      \[
+          \sigma.(v_1 \otimes \dotsb \otimes v_n)
+        = v_{\sigma^{-1}(1)} \otimes \dotsb \otimes v_{\sigma^{-1}(n)}
+      \]
+      for all $\sigma \in S_n$, $v_1, \dotsc, v_n \in V$.
+    \item
+      The group $S_n$ acts linearly on the polynomial ring $k[X_1, \dotsc, X_n]$ via
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)}) \,.
+      \]
+      (Note that this is also an action by ring automorphisms, and therefore alltogether an action by $k$-algebra automorphisms.)
+    \item
+      The symmetric group $S_n$ acts linearly on $k$ such that $\sigma \in S_n$ acts by multiplication with $\sgn \sigma \in \{1, -1\}$.
+      This defines the \emph{sign representation} of $S_n$.
+      
+      For $n \geq 2$ this is the only non-trivial one-dimensional representation of $S_n$:
+      Note that every one-dimensional representation $V$ of $S_n$ corresponds to a group homomorphism $S_n \to \GL(V) \cong \GL_1(k)$, which is abelian.
+      This homomorphism factors through the abelianization $S_n/[S_n, S_n] = S_n/A_n \cong \Integer/2$; it is therefore the trivial homomorphism or the sign homomorphism.
+    \item
+      If $X$ is a $G$-set then $G$ acts linearly on the vector space $kX$ via
+      \[
+          g.\left(\sum_{x \in X} a_x \chi_x\right)
+        = \sum_{x \in X} a_x \chi_{g.x}
+      \]
+      where almost all $a_x$ are zero.
+      This agrees with the previous action $*$ on $kX$, because
+      \[
+          (g * \chi_x)(y)
+        = \chi_x(g^{-1}.y)
+        = \delta_{x, g^{-1}.y}
+        = \delta_{g.x, y}
+        = \chi_{g.x}(y)
+        = (g.\chi_x)(y)
+      \]
+      for all $g \in G$, $x, y \in X$.
+    \item
+      Let $V$ and $W$ be representations of $G$ over $k$.
+      Then the induced $G$-action on $\Maps(V,W)$ induces a linear action of $G$ on $\Hom(V,W)$:
+      
+      For every $g \in G$ the maps $\pi_g \colon V \to V$, $v \mapsto g.v$ and $\tau_g \colon W \to W$, $w \mapsto g.w$ are linear because $G$ acts linearly on both $V$ and $W$.
+      It follows for every $g \in G$ and $f \in \Hom(V,W)$ that
+      \[
+            g.f
+        =   \tau_g \circ f \circ \pi_{g^{-1}}
+        \in \Hom(V,W) \,.
+      \]
+      Hence $\Hom(V,W)$ is closed under the action of $G$ on $\Maps(V,W)$, so that $G$ acts on $\Hom(V,W)$ by restriction.
+      The map $\tau_g \circ (-) \circ \pi_{g^{-1}} \colon \Hom(V,W) \to \Hom(V,W)$ is linear for every $g \in G$, so that this action is linear.
+    \item
+      The previous example has an important special case:
+      Let $V$ be a representation of $G$ over $k$.
+      By letting $G$ act trivially on $k$ it follows that $G$ acts linearly on $V^* = \Hom(V,k)$ in such a way that
+      \[
+          (g.\varphi)(v)
+        = \varphi( g^{-1}.v )
+      \]
+      for all $\varphi \in V^*$, $v \in V$.
+      Note that this is the unique $G$-action on $V^*$ such that
+      \[
+          (g.\varphi)(g.v)
+        = \varphi(v)
+      \]
+      for all $g \in G$, $v \in V$, i.e.\ such the actions on $V^*$ and $V$ are compatible with the canonical bilinear form
+      \[
+                \bil{-}{-}
+        \colon  V^* \times V
+        \to     k \,,
+        \quad   (\varphi, v)
+        \mapsto \varphi(v) \,.
+      \]
+    \item
+      If $V$ and $W$ be representations of $G$ over the same field, then $G$ acts linearly on $V \oplus W$ and $V \otimes W$ via
+      \begin{align*}
+                  g.(v,w)
+        &\defined (g.v,g.w) \,,       \tag{1}
+        \\
+                  g.(v \otimes w)
+        &\defined (g.v) \otimes (g.w) \tag{2}
+      \end{align*}
+      for all $v \in V$, $w \in W$, $g \in G$.
+      If the linear actions of $G$ on $V, W$ are denoted by
+      \[
+        \pi \colon G \times V \to V
+        \quad\text{and}\quad
+        \tau \colon G \times W \to W \,,
+      \]
+      then the induced actions
+      \begin{align*}
+        \pi \oplus \tau  \colon G \times (V \oplus W)  &\to V \oplus W  \,,
+        \\
+        \pi \otimes \tau \colon G \times (V \otimes W) &\to V \otimes W
+      \end{align*}
+      are given by
+      \[
+          (\pi \oplus \tau)_g
+        = \pi_g \oplus \tau_g
+        \quad\text{and}\quad
+          (\pi \otimes \tau)_g
+        = \pi_g \otimes \tau_g
+      \]
+      for every $g \in G$.
+%       
+%       Note that if $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$, then the action
+%       
+%       Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$:
+%        then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$.
+%       The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$.
+%       So $\tau'$ it is the unique action which makes the following diagram commute for every $g \in G$:
+%       \[
+%         \begin{tikzcd}[column sep = large]
+%             V \times W
+%             \arrow{r}{\pi_g \times \pi'_g}
+%             \arrow{d}
+%           & V \times W
+%             \arrow{d}
+%           \\
+%             V \otimes W
+%             \arrow{r}{\pi_g \otimes \pi'_g}
+%           & V \otimes W
+%         \end{tikzcd}
+%       \]
+      If $v_1, \dotsc, v_n$ is a basis of $V$ with respect to which $\pi_g$ is given by a matrix $A$, and $w_1, \dotsc, w_m$ a basis of $W$ with respect to which $\tau_g$ is given by a matrix $B$, then $(\pi \oplus \tau)_g$ and $(\pi \otimes \tau)_g$ are therefore given by the matrices
+      \[
+        \begin{pmatrix}
+          A & 0 \\
+          0 & B
+        \end{pmatrix}
+        \quad\text{and}\quad
+        \begin{pmatrix}
+          a_{11} B & a_{12} B & \cdots & a_{1m} B \\
+          a_{21} B & a_{22} B & \cdots & a_{2m} B \\
+            \vdots  &  \vdots  & \ddots &  \vdots  \\
+          a_{n1} B & a_{n2} B & \cdots & a_{nm} B
+        \end{pmatrix}
+      \]
+      with respect to the basis $(v_1,0), \dotsc, (v_n,0), (0,w_1), \dotsc, (0,w_m)$ of $V \oplus W$ and the basis $v_1 \otimes w_1, v_1 \otimes w_2, \dotsc, v_n \otimes w_m$ of $V \otimes W$.
+    \item
+      Let $V$ be a representation of $G$ and $\pi \colon G \times V \to V$ the corresponding linear action.
+      Then for every $d \geq 0$ the group $G$ acts linearly on the exterior power $\bigwedge^d V$ and symmetric power $S^d V$ via
+      \begin{align*}
+                  g.(v_1 \wedge \dotsb \wedge v_d)
+        &\defined (g.v_1) \wedge \dotsb \wedge (g.v_d) \,,
+        \\
+                  g.(v_1 \dotsm v_d)
+        &\defined (g.v_m) \dotsm (g.v_d) \,.
+      \end{align*}
+      for all $g \in G$, $v_1, \dotsc, v_d$.
+      If the corresponding linear actions are denoted by
+      \[
+        \bigwedge^d \pi \colon G \times \bigwedge^d V \to \bigwedge^d V
+        \quad\text{and}\quad
+        S^d(\pi) \colon G \times S^d(V) \to S^d(V) \,,
+      \]
+      then
+      \[
+          \left( \bigwedge^d \pi \right)_g
+        = \bigwedge \pi_g
+        \quad\text{and}\quad
+          S^d(\pi)_g
+        = S^d(\pi_g)
+      \]
+      for every $g \in G$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{definition}
+    Let $V$ be a representation of $G$.
+    \begin{itemize}
+      \item
+        A \emph{subrepresentation} of $V$ is a vector subspace $U \subseteq V$ such that $g.u \in U$ for all $g \in G$, $u \in U$.
+        A subrepresentation $U \subseteq V$ is \emph{proper} if $U \neq V$.
+      \item
+        The representation $V$ is \emph{indecomposable} if it it nonzero and can’t be written as $V = U_1 \oplus U_2$ where $U_1, U_2$ are proper subrepresentations of $V$.
+      \item
+        The representation $V$ is \emph{irreducible} or \emph{simple} if it is nonzero has no nontrivial proper subrepresentation, i.e.\ no subrepresentation $U \subseteq V$ with $0 \subsetneq U \subsetneq V$.
+    \end{itemize}
+\end{definition}
+
+
+\begin{example}
+  Let $G$ be a group and $k$ a field.
+  \begin{enumerate}
+    \item
+      Let $V$ be a vector space and let $G$ act trivially on $V$.
+      Then every linear subspace $U \subseteq V$ is a subrepresentation.
+      The representation $V$ is indecomposable if and only if it is one-dimensional.
+      It is also irreducible if and only if it is one-dimensional.
+    \item
+      Let $V$ be a representation of $G$.
+      If $(U_i)_{i \in I}$ is any familiy of subrepresentations, then both $\sum_{i \in I} U_i$ and $\bigcap_{i \in I} U_i$ are again subrepresentations of $V$.
+    \item
+      Every finite dimensional representation can be written as a direct sum of indecomposable subrepresentations.
+    \item
+      Let $V$ be a representation of $G$ over $k$.
+      For every subset $E \subseteq V$ there exists a smallest subrepresentation of $V$ containing $E$.
+      This subrepresentation $\gen{E}_G \subseteq V$ can be described in the following equivalent ways:
+      \begin{enumerate}
+        \item
+          One has that $E \subseteq \gen{E}_G$, and for every subrepresentation $U \subseteq V$ with $E \subseteq U$ one has that $\gen{E}_G \subseteq U$.
+        \item
+          The subrepresentation $\gen{E}_G$ is given by
+          \[
+              \gen{E}_G
+            = \bigcap_{\substack{\text{subrep.\ $U \subseteq V$} \\ E \subseteq U}} U \,.
+          \]
+        \item
+          The subrepresentation $\gen{E}_G$ is given by
+          \[
+              \gen{E}_G
+            = \left\{
+                \sum_{i=1}^n \lambda_i g_i.e_i
+              \suchthat*
+                n \geq 0,
+                \lambda_i \in k,
+                g_i \in G,
+                e_i \in E
+              \right\}
+            = \gen{g.e \suchthat g \in G, e \in E}_k \,.
+          \]
+      \end{enumerate}
+    \item
+      A non-zero representation $V$ of $G$ is irreducible if and only if every non-zero $v \in V$ generates the representation $V$:
+      
+      Suppose that $V$ is irreducible and let $v \in V$ be non-zero.
+      Then $\gen{v}_G$ is a non-zero subrepresentation of $V$, so that $\gen{v}_G = V$ by irreducibility.
+      
+      Suppose that $V$ is reducible.
+      Then there exists an non-zero, proper subrepresentation $0 \subsetneq U \subsetneq V$.
+      Then there exists some non-zero $v \in U$, for which it follows that $\gen{v} \subseteq U \subsetneq V$, so that $v$ does not generate $V$.
+    \item
+      The group $G \defined \Integer/n$, $n \geq 1$ acts on the plane $V \defined \Real^2$ by rotation, i.e.
+      \[
+                  \overline{n}.\vect{x \\ y}
+        \defined  \begin{pmatrix*}[r]
+                    \cos(2\pi/n)  & -\sin(2\pi/n) \\
+                    \sin(2\pi/n)  &  \cos(2\pi/n)
+                  \end{pmatrix*}
+                  \vect{x \\ y}.
+      \]
+      Then $V$ is irreducible if and only if $n \geq 3$:
+      
+      For $n = 1$ the action is trivial, but $V$ is two-dimensional, and therefore reducible.
+      For $n = 2$ every element $g \in G$ acts by multiplication with a scalar, so that every one-dimensional subspace is a non-zero proper subrepresentation.
+      
+      If $n \geq 3$ then for every non-zero vector $v \in V$ the two vectors $v, \overline{1}.v$ are linearly independent.
+      Thus $V$ is spanned by $\{v, \overline{1}.v\}$ as a $\Real$-vector space and therefore also as a representation.
+      This shows that every non-zero $v \in V$ generates the representation $V$, so that $V$ is irreducible.
+    \item
+      Let the symmetric group $S_n$ act linearly on the polynomial ring $k[X_1, \dotsc, X_n]$ via
+      \[
+          \sigma.p(X_1, \dotsc, X_n)
+        = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
+      \]
+      for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
+      For every degree $d \geq 0$ let $k[X_1, \dotsc, X_n]_d$ denote the $k$-linear span of all monomials $X_1^{d_1} \dotsm X_n^{d_n}$ of degree $d_1 + \dotsb + d_n = d$.
+      Then $k[X_1, \dotsc, X_n]_d$ is a subrepresentation of $k[X_1, \dotsc, X_n]$ because the action of $S_n$ on the monomials preserves the degree.
+      This gives a decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresentations.
+  \end{enumerate}
+\end{example}
+
+
+\begin{fluff}
+  Every irreducible representation is also indecomposable, but as the following example shows, the converse is not true:
+\end{fluff}
+
+\begin{example}
+  \label{example: upper triangular action on C2}
+  Let
+  \[
+              G
+    \coloneqq \left\{
+                \begin{pmatrix}
+                  a & b \\
+                  0 & c
+                \end{pmatrix}
+              \,\middle|\,
+                a, b, c \in \Complex
+                \text{ and }
+                a, c \neq 0
+              \right\} .
+  \]
+  be the group of upper, triangular, complex $(2 \times 2)$-matrices.
+  The group $G$ acts on the vector space $V \coloneqq \Complex^2$ in the natural way, i.e.\ via left multiplication.
+  
+  The representation $V$ is not irreducible because $U \coloneqq \vspan(e_1)$ is a subrepresentation.
+  \begin{claim}
+    The subrepresentation $U \subseteq V$ is the unique $1$-dimensional subrepresentation.
+  \end{claim}
+  From this claim it follows that there exists no proper subrepresentations $U_1, U_2$ of $V$ with $V = U_1 \oplus U_2$, so that $V$ is indecomposable.
+  \begin{proof}[Proof of the claim]
+    Let $W$ be any one-dimensional subrepresentation of $V$.
+    Then
+    \[
+        W
+      = \vspan\left\{
+                \vect{\alpha \\ \beta}
+              \right\}
+      \quad
+      \text{for some $0 \neq  \vect{\alpha \\ \beta} \in   \Complex^2$} \,.
+    \]
+    Because $W$ is a subrepresentation of $V$ it follows that
+    \[
+          \begin{pmatrix}
+            1 & 1 \\
+            0 & 1
+          \end{pmatrix}
+          \vect{\alpha \\ \beta}
+      =   \vect{\alpha + \beta \\ \beta}
+      \in W \,.
+    \]
+    and therefore that
+    \[
+      \vect{\beta \\ 0} \in W \,.
+    \]
+    If $\beta \neq 0$ then it follows that
+    \[
+      \vect{1 \\ 0} \in W \,,
+    \]
+    and if $\beta = 0$ then the same follows from $\alpha \neq 0$.
+    Because $W$ is one-dimensional it follows that
+    \[
+        W
+      = \vspan \left\{ \vect{1 \\ 0} \right\}
+      = U \,.
+    \]
+    This proves the claim.
+  \end{proof}
+\end{example}
+
+
+\begin{warning}
+  Example~\ref{example: upper triangular action on C2} also show that subrepresentations do not necessarily have direct complements which are again subrepresentations.
+\end{warning}
+
+
+\begin{lemma}\label{lemma: direct sum and invariants commute}
+  Let $G$ be a group.
+  \begin{enumerate}
+    \item
+      Given a representation $V$ of $G$, the subset $V^G \subseteq V$ is a subrepresentation of $V$.
+    \item
+      For every collection $V_i$, $i \in I$ of representations of $G$ one has that
+      \[
+          \left(
+            \bigoplus_{i \in I} V_i
+          \right)^G
+        = \bigoplus_{i \in I} V_i^G \,.
+      \]
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Since $G$ acts trivially on $V^G$ it sufficies to check that $V^G$ is a vector subspace of $V$.
+      This holds because $\pi_g \colon V \to V$, $v \mapsto g.v$ is linear for every $g \in G$ and
+      \[
+          V^G
+        = \bigcap_{g \in G} \ker(\pi_g - \id_V) \,.
+      \]
+    \item
+      Let $v \in \bigoplus_{i \in I} V_i$.
+      Then $v = (v_i)_{i \in I}$ with $v_i = 0$ for all but finitely many $i \in I$.
+      For every $g \in G$ one has that
+      \[
+          g.v
+        = g.(v_i)_{i \in I}
+        = (g.v_i)_{i \in I}
+      \]
+      and therefore
+      \begin{align*}
+              v \in \left( \bigoplus_{i \in I} V_i \right)^G
+        &\iff \text{$g.v = v$ for every $g \in G$}  \\
+        &\iff \text{$(g.v_i)_{i \in I} = (v_i)_{i \in I}$ for every $g \in G$} \\
+        &\iff \text{$g.v_i = v_i$ for all $g \in G$, $i \in I$} \\
+        &\iff \text{$v_i \in V_i^G$ for every $i \in I$}
+         \iff v \in \bigoplus_{i \in I} V_i^G \,.
+      \end{align*}
+      This shows the claimed equality.
+  \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+

@@ -1,0 +1,361 @@
+\section{Morphism of Representations \& Schur’s Lemma}
+
+
+\begin{definition}
+Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
+\begin{itemize}
+  \item
+    A map $f \colon V \to W$ is called a \emph{morphism of representations of $G$} or \emph{morphism of $G$-spaces} if it is both $k$-linear and $G$-equivariant.
+    The space of morphisms of representations $V \to W$ is denoted by
+    \[
+                \Hom_G(V,W)
+      \defined  \{
+                  f \colon V \to W
+                \suchthat
+                  f \text{ is a morphism of representations}
+                \} \,.
+    \]
+  \item
+    An \emph{isomorphism of representations} is an morphism of representations which is also invertible, i.e.\ bijective.
+  \item
+    Two representations $V$ and $W$ are \emph{isomorphic}, denoted by $V \cong W$, if there exists an isomorphism of representations between $V$ and $W$.
+\end{itemize}
+
+\end{definition}
+
+
+\begin{remark}
+  If $f \colon V \to W$ is an isomorphism of representations, then its inverse $f^{-1}$ is again a morphism of representations:
+  It is know from linear algebra that $f^{-1}$ is again linear.
+  It is $G$-equivariant, because
+  \[
+      f^{-1}( g.v )
+    = f^{-1}\left( g.f\left( f^{-1}( v ) \right) \right)
+    = f^{-1}\left( f\left( g . f^{-1}( v ) \right) \right)
+    = g.f^{-1}(v)
+  \]
+  for all $g \in G$, $v \in V$.
+\end{remark}
+
+
+\begin{example}
+  Let $G$ be a group and $k$ a field.
+  \begin{enumerate}
+    \item
+      If $V_1$, $V_2$, $W$ are representations of $G$, then the linear isomorphism
+      \[
+                \alpha
+        \colon  (V_1 \oplus V_2) \otimes W
+        \to     V_1 \times W \oplus V_2 \otimes W \,,
+        \quad   (v_1, v_2) \otimes w
+        \mapsto (v_1 \otimes w, v_2 \otimes w)
+      \]
+      is an isomorphism of representations because
+      \begin{align*}
+            \alpha( g . ((v_1,v_2) \otimes w) )
+        &=  \alpha( (g.(v_1, v_2)) \otimes (g.w) )
+         =  \alpha( (g.v_1, g.v_2) \otimes (g.w) )
+        \\
+        &=  ( (g.v_1) \otimes (g.w) , (g.v_2) \otimes (g.w) )
+         =  ( g.(v_1 \otimes w), g.(v_2 \otimes w) )
+        \\
+        &=  g.(v_1 \otimes w, v_2 \otimes w)
+         =  g.\alpha((v_1, v_2) \otimes w) \,.
+      \end{align*}
+    \item
+      If $V$, $W$ are finite-dimensional representations of $G$, then the linear isomorphism
+      \[
+                \beta
+        \colon  V^* \otimes W
+        \to     \Hom(V,W) \,,
+        \quad   \varphi \otimes w
+        \mapsto (v \mapsto \varphi(v) w)
+      \]
+      is an isomorphism of representations because
+      \begin{align*}
+            \beta( g.(\varphi \otimes w) )(v)
+        &=  \beta( (g.\varphi) \otimes (g.w) )(v)
+         =  (g.\varphi)(v) (g.w)
+         =  \varphi(g^{-1}.v) \cdot (g.w)
+        \\
+        &=  g.\left( \varphi(g^{-1}.v) w \right)
+         =  g.\left( \beta(\varphi \otimes w)(g^{-1}.v) \right)
+         =  (g.\beta(\varphi \otimes w))(v) \,,
+      \end{align*}
+      where we used for the fourth equality that $g \in G$ acts linearly on $W$.
+    \item
+      If $V$ is a representation of $G$ over $k$, then the evaluation homomorphism
+      \[
+                \alpha
+        \colon  V^* \otimes V
+        \to     k \,,
+        \quad   \varphi \times v
+        \mapsto \varphi(v)
+      \]
+      is a morphism of representations when we regard $k$ as the trivial representation.
+      This holds because
+      \begin{align*}
+            \alpha(g.(\varphi \otimes v))
+        &=  \alpha((g.\varphi) \otimes (g.v))
+         =  (g.\varphi)(g.v)
+        \\
+        &=  \varphi(g^{-1}.g.v)
+         =  \varphi(v)
+         =  g.\varphi(v)
+         =  g.\alpha(\varphi \otimes v) \,.
+      \end{align*}
+      Note that the linear action of $G$ on $V$ is defined precisely so that $\alpha$ is a morphism of representations.
+    \item
+      Let $V$ be a representation of $G$ over $k$ and regard $k$ as the trivial representation.
+      Then for every $v \in V$ the homomorphism
+      \[
+                k
+        \to     V \,,
+        \quad   \lambda
+        \mapsto \lambda v
+      \]
+      is a morphism of representations if and only if $g.(\lambda v) = \lambda v$ for every $\lambda \in K$, i.e.\ if and only if $v$ is $G$-invariant (as can be seen by considering $\lambda = 1$).
+      Thus we have an isomorphism of vector spaces (which is also an isomorphism of trivial representations)
+      \[
+                \Hom_G(k,V)
+        \to     V^G \,,
+        \quad   e
+        \mapsto e(1) \,.
+      \]
+  \end{enumerate}
+\end{example}
+
+
+\begin{remark}
+  If $V$, $W$ are two representations of $G$ over the same field, then by the restricting the equality from Lemma~\ref{lemma: equivariants are invariants} to the subset of $k$-linear maps on both sides, it follows that
+  \[
+      \Hom_G(V,W)
+    = \Hom(V,W)^G \,.
+  \]
+  It follows in particular that $\Hom_G(V,W)$ is a $k$-vector space via pointwise addition und scalar multiplication.
+\end{remark}
+
+
+\begin{lemma}
+\label{lemma: composition of morphisms of representations}
+  Let $G$ be a group and let $U$, $V$, $W$, be representations of $G$.
+  \begin{enumerate}
+    \item
+      The identity $\id_V \colon V \to V$ is a morphism of representations.
+    \item
+      If $f \colon U \to V$, $g \colon V \to W$ are morphism of representations, then $g \circ f \colon U \to W$ is also a morphism of representations.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{fluff}
+  Lemma~\ref{lemma: composition of morphisms of representations} shows that for any group $G$ and field $k$ the class of representations of $G$ over $k$ together with the morphisms of representations between them form a category, which we will denote by $\cRep{k}{G}$.
+  As before there exists a functor from $\cRep{k}{G}$ to $\cRep{k}{G}$ which maps every representations $V$ to its invariants $V^G$ and every morphism of representations $f \colon V \to W$ to the restriction $f^G \colon V^G \to W^G$.
+\end{fluff}
+
+
+\begin{lemma}\label{lemma: ker and im subrepresentations}
+  Let $V$, $W$ be representations of a group $G$, and let $f \colon V \to W$ be a morphism of representations.
+  Then $\ker f$ is a subrepresentation of $V$ and $\im f$ is a subrepresentation of $W$.
+\end{lemma}
+\begin{proof}
+  It is known from linear algebra that $\ker f$ is a vector subspace of $V$, and that $\im f$ is a vector subspace of $W$.
+  
+  Let $x \in \ker f$.
+  Then $f(g.x) = g.f(x) = g.0 = 0$ for every $g \in G$, because $G$ acts linearly on $V$.
+  This shows that $g.x \in \ker f$ for all $g \in G$, $x \in \ker f$, so that $\ker f$ is a subrepresentation.
+  
+  Let $y \in \im f$ with $y = f(x)$ for some $x \in V$.
+  Then $g.y = g.f(x) = f(g.x) \in \im f$ for every $g \in G$.
+  This shows that $\im f$ is a subrepresentation.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: inj und surj for morphisms between irreducible}
+  Let $V$, $W$ be representations of a group $G$ over the same field $k$.
+  \begin{enumerate}
+    \item
+      If $V$ is irreducible then every nonzero morphism $V \to W$ is injective.
+    \item
+      If $W$ is irreducible then every nonzero morphism $V \to W$ is surjective.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The kernel $\ker f$ is a proper subrepresentation of $V$, so that $\ker f = 0$.
+    \item
+      The image $\im f$ is a non-zero subreprentation of $W$, so that $\im f = W$.
+  \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}[Schur’s Lemma]
+  Let $V$, $W$ be irreducible representations of a group $G$ over the same field $k$.
+  \begin{enumerate}
+    \item
+      \label{enumerate: nonzero morphism is already an iso}
+      Every nonzero morphism $f \colon V \to W$ is an isomorphism.
+    \item
+      If $V \ncong W$ then $\Hom_G(V,W) = 0$, and if $V \cong W$ then $\Hom_G(V,W) \neq 0$.
+    \item
+      The endomorphism ring $\End_G(V) = \Hom_G(V,V)$ is a divison ring, or skew field.
+    \item
+      \label{enumerate: morphism space is one-dimensional}
+      If $k$ is algebraically closed (e.g.\ $k = \Complex$) and both $V$ and $W$ are finite dimensional then
+      \[
+              \Hom_G(V,W)
+        \cong \begin{cases}
+                k & \text{if $V \cong W$}     \,, \\
+                0 & \text{if $V \ncong W$} \,.
+              \end{cases}
+      \]
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item 
+      This follows directly from Lemma~\ref{lemma: inj und surj for morphisms between irreducible}.
+    \item
+      By \ref{enumerate: nonzero morphism is already an iso} there exists a non-zero isomorphism $V \to W$ if and only if $V \cong W$.
+    \item
+      This follows directly from~\ref{enumerate: nonzero morphism is already an iso}.
+    \item
+      For $V \ncong W$ this follows from \ref{enumerate: nonzero morphism is already an iso}, so it sufficies to consider the case $V \cong W$.
+      Every isomorphism $\alpha \colon W \to V$ induces an isomorphism of vector spaces
+      \[
+                \alpha_*
+        \colon  \Hom_G(V,W)
+        \to     \Hom_G(V,V) \,,
+        \quad   f
+        \mapsto \alpha \circ f \,.
+      \]
+      We may therefore assume w.l.o.g.\ that $W = V$.
+      
+      Then every morphism of representations $f \colon V \to V$ has an eigenvalues $\lambda \in k$, for which $f - \lambda \id_V \colon V \to V$ is a morphism of representations with $\ker(f - \lambda \id_V) \neq 0$.
+      Because $V$ is irreducible it follows that $f - \lambda \id_V = 0$, so that $f = \lambda \id_V$.
+  \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: irreducible representation of abelian groups}
+  Let $k$ be an algebraically closed field, $G$ an abelian group and $V$ a finite-dimensional irreducible representation of $G$ over $k$.
+  Then $\dim_k V = 1$.
+\end{corollary}
+\begin{proof}
+  Because every two group elements $g, h \in G$ commute, it follows that the actions of $g$ and $h$ on $V$ commute, so that the map $\pi_g \colon V \to V$, $v \mapsto g.v$ is $G$-equivariant for every group element $g \in G$.
+  Hence $\pi_g \in \End_G(V)$ for every $g \in G$.
+  
+  By Schur’s Lemma we find that $\End_G(V) \cong k$, and so every group element $g \in G$ acts by multiplication with some scalar $\lambda \in k$.
+  It follows that every $k$-linear subspace of $V$ is a subrepresentation of $V$.
+  Since $V$ is irreducible we find that $V$ is one-dimensional.
+\end{proof}
+
+
+\begin{remark}
+  Let $G$ be a group, $k$ an algebraically closed field and $V_1, \dotsc, V_n$ pairwise non-isomorphic irreducible representations of $G$ over $k$.
+  Then
+  \[
+      \dim \Hom_G(V_i, V_j)
+    = \delta_{ij}
+  \]
+  for all $i,j = 1, \dotsc, n$ by Schur’s Lemma.
+  Hence the representations $V_1, \dotsc, V_n$ can be thought of as “orthonormal” with respect to $\dim \Hom_G(-,-)$.
+  We will come back to this idea when we encouter characters of representations.
+  % TODO: Add a link.
+\end{remark}
+
+
+\begin{remark}
+  %TODO: Craft a better explanation.
+  Assume $k$ is an algebraically closed field and $V$ a finite dimensional irreducible representation of some group $G$.
+  Then $\End_G(V \oplus \dotsb \oplus V)$ and $\Mat(n \times n, k)$ are isomorpic as $k$-algebras by part~\ref{enumerate: morphism space is one-dimensional} of Schur’s Lemma.
+  
+  More generally:
+  If $V_1, \dotsc, V_r$ are pairwise non-isomorphic irreducible finite dimensional $k$-representations of some group $G$ and $W_i \coloneqq V_i^{\oplus n_i}$, then
+  \begin{align*}
+            \End_G(W_1 \oplus \dotsb \oplus W_r)
+    &=      \End(V_1^{n_1} \oplus \dotsb \oplus V_n^{n_r})
+    \\
+    &\cong  \End(V_1^{n_1}) \oplus \dotsb \oplus \End(V_r^{n_r})
+    \\
+    &\cong  \Mat(n_1 \times n_1, k) \oplus \dotsb \oplus \Mat(n_r \times n_r, k)
+  \end{align*}
+  as $k$-algebras.
+\end{remark}
+
+
+\begin{remark}
+  Part~\ref{enumerate: morphism space is one-dimensional} of Schur’s Lemma holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $V$, i.e.\ as long as $\card k > \dim_k V$.
+  As every algebraically closed field is infinite this generalizes \ref{enumerate: morphism space is one-dimensional} as stated above.
+  
+  To prove this generalization we may assume (as before) that $V = W$.
+  We then need to show that every morphism of representations $f \colon V \to V$ is a scalar multiple of the identity $\id_V$.
+  We proceed in two steps:
+  We first show that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$.
+  We then show that $f = \lambda \id_V$ where $\lambda \in k$ is a root of $p(t)$.
+  \begin{enumerate}[label=\arabic*)]
+    \item
+      Suppose that $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$.
+      Then $p(f) \colon V \to V$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_G(V)$ is a skew field.
+      It follows that the $k$-vector space structure of $V$ can be extended to a $k(t)$-vector space structure given by
+      \[
+                  \frac{p(t)}{q(t)} \cdot v
+        \defined  \left( p(f) q(f)^{-1} \right)(v)
+      \]
+      for all $p(t)/q(t) \in k(t)$, $v \in V$.
+      
+      Note that this is just the universal property of the localization:
+      The ring homomorphism $\varphi \colon k[t] \to \End_G(V)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
+      \[
+                \Phi
+        \colon  k(t)
+        =       S^{-1} k[t]
+        \to     \End_G(V) \,,
+        \quad   p(t)/q(t)
+        \mapsto p(f) q(f)^{-1} \,.
+      \]
+      By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(V)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $V$.
+      This is precisely the $k(t)$-vector space structure from above.
+      
+      Because $V$ is a non-zero $k(t)$-vector space it follows that
+      \[
+              \dim_k V
+        =     \dim_k k(t) \cdot \dim_{k(t)} V
+        \geq  \card k \cdot 1
+        =     \card k \,,
+      \]
+      which contradicts $\card k > \dim_k V$.
+      For the (in)equalities we used the following facts from linear algebra:
+      \begin{itemize}
+        \item
+          For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $V$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(c_j b_i)_{i \in I, j \in J}$ is a $k$-basis of $V$.
+        \item
+          For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
+        \item
+          That $\dim_{k(t)} V \geq 1$ follows from $V$ being nonzero.
+      \end{itemize}
+      This contradiction shows that $p(f) \neq 0$ for some non-zero $p(t) \in k[t]$.
+      We may assume w.l.o.g.\ that $p(t)$ is monic.
+      
+    \item
+      Because $k$ is algebraically closed it follows that $p(t) = (t - \lambda_1) \dotsm (t - \lambda_n)$ for some $\lambda_i \in k$.
+      In the skew field $\End_G(V)$ we then have the equality
+      \[
+          0
+        = p(f)
+        = (f - \lambda_1 \id_V) \dotsm (f - \lambda_n \id_V) \,,
+      \]
+      so that $f - \lambda_i = 0$ for some $i$, i.e.\ $f = \lambda_i \id_V$.
+  \end{enumerate}
+\end{remark}
