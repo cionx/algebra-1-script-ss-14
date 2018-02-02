@@ -835,7 +835,54 @@ From this lemma we get the idea that group actions are ``the same'' as ``represe
 
 \begin{remark}
   Let $G, H$ be two groups and let $X$ be a set.
-  %TODO: Commuting acting = Actions of GxH
+  
+  If $G$ and $H$ act on $X$ with commuting actions, then $G \times H$ acts on $X$ via
+  \[
+      (g,h).x
+    = g.h.x
+  \]
+  for all $(g,h) \in G \times H$, $x \in X$.
+  This is indeed a group action because
+  \[
+      1_{(G \times H)}.x
+    = (1_G, 1_H).x
+    = 1_G.1_H.x
+    = x
+  \]
+  for every $x \in X$, and
+  \begin{align*}
+      (g', h').((g,h).x)
+    &= (g', h').(g.h.x)
+    = g'.h'.g.h.x
+    \\
+    &= g'.g.h'.h.x
+    = (g'g).(h'h).x
+    = ((g'g),(h'h)).x
+    = ((g',h')(g,h)).x
+  \end{align*}
+  for all $(g',h'), (g,h) \in G \times H$, $x \in X$.
+  
+  If on the other hand $G \times H$ acts on $X$, then this induces actions of both $G$ and $H$ on $X$ which are given by
+  \[
+      g.x
+    = (g,1).x
+    \qquad\text{and}\qquad
+      h.x
+    = (1,h).x
+  \]
+  for all $g \in G$, $h \in H$, $x \in X$.
+  These actions then commute because
+  \[
+      h.(g.x)
+    = (1,h).(g,1).x
+    = (g,h).x
+    = (g,1).(1,h).x
+    = g.(h.x)
+  \]
+  for all $g \in G$, $h \in H$, $x \in X$.
+  
+  The above constructions are inverse to each other.
+  This shows that commuting actions of $G$ and $H$ on $X$ are “the same” as an action of $G \times H$ on $X$.
 \end{remark}
 
 
