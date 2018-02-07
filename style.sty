@@ -37,6 +37,10 @@
     urlcolor={blue!80!black}
 }
 
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
 % settings for list like environments
 \setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
 \setlist[enumerate, 2]{leftmargin=*, label=\arabic*)}
@@ -137,6 +141,7 @@
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 
 % stuff taking arguments
+\newcommand{\class}[1]{\overline{#1}}
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\bil}[2]{\langle #1, #2 \rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
