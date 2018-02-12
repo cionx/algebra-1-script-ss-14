@@ -343,9 +343,18 @@
         = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
       \]
       for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
-      For every degree $d \geq 0$ let $k[X_1, \dotsc, X_n]_d$ denote the $k$-linear span of all monomials $X_1^{d_1} \dotsm X_n^{d_n}$ of degree $d_1 + \dotsb + d_n = d$.
+      For every degree $d \geq 0$ let
+      \[
+                  k[X_1, \dotsc, X_n]_d
+        \defined  \gen{ X_1^{d_1} \dotsm X_n^{d_n} \mid d_1 + \dotsb + d_n = d } \,.
+      \]
       Then $k[X_1, \dotsc, X_n]_d$ is a subrepresentation of $k[X_1, \dotsc, X_n]$ because the action of $S_n$ on the monomials preserves the degree.
-      This gives a decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresentations.
+      Hence
+      \[
+          k[X_1, \dotsc, X_n]
+        = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d
+      \]
+      is a decomposition into finite-dimensional subrepresentations.
   \end{enumerate}
 \end{example}
 

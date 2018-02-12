@@ -46,6 +46,13 @@
 \end{remark}
 
 
+\begin{remark}
+  \label{remark: general definition of degree}
+  If $A$ is a graded algebra with grading $A = \bigoplus_{d \in \Natural} A_d$ then can more generally define for every non-zero $x \in A$ with homogeneous decomposition $x = \sum_{d \in \Natural} x_d$ the \emph{degree of $x$} as the maximal $d \in \Natural$ with $x_d \neq 0$.
+  If $x$ is homogeneous, then the degree of $x$ coincides with its homogeneous degree.
+\end{remark}
+
+
 \begin{example}
   \leavevmode
   \begin{enumerate}
@@ -69,13 +76,15 @@
       Because the monomials $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ with $\alpha_1, \dotsc, \alpha_n \geq 0$ form a $k$-basis of $A$ we find that $A = \bigoplus_{d \in \Natural} A_d = \bigoplus_{d \in \Natural} A_d$.
       For all monomials $X^{\alpha_1} \dotsm X^{\alpha_n} \in A_i$, $X^{\beta_1} \dotsm X^{\beta_n} \in A_j$ we have that
       \[
-            \left( X^{\alpha_1} \dotsm X^{\alpha_n} \right)
-            \left( X^{\beta_1} \dotsm X^{\beta_n} \right)
+            ( X_1^{\alpha_1} \dotsm X_n^{\alpha_n} )
+            ( X_1^{\beta_1} \dotsm X_n^{\beta_n} )
         =   X_1^{\alpha_1+\beta_1} \dotsm X_n^{\alpha_n+\beta_n}
         \in A_{i+j} 
       \]
       because $\sum_{l=1}^n (\alpha_l + \beta_l) = (\sum_{l=1}^n \alpha_l) + (\sum_{l=1}^n \beta_l) = i + j$.
       By the $k$-bilinearity of the multiplication of $A$ it follows that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Natural$.
+      
+      Note that the degree of any non-zero polynomial $f \in k[X_1, \dotsc, X_n]$ with respect to this graduation (as defined in Remark~\ref{remark: general definition of degree}) coincides with its total degree.
     \item
       Let $V$ be a $k$-vector space.
       For every $d \geq 0$ we denote by $V^{\otimes d}$ the $d$-th tensor power of $V$.
@@ -94,7 +103,7 @@
 
 
 \begin{remark}
-  Instead of the natural numbers $\Natural$ one can also define gradings over an arbitrary monoids $(M, \cdot)$, but we will not need this.
+  Instead of the natural numbers $\Natural$ one can also define gradings over an arbitrary monoids $(M, \cdot)$.
 \end{remark}
 
 
@@ -131,7 +140,7 @@
   \begin{enumerate}
     \item
       \label{enumerate: grading leads to filtration}
-      Every grading $A = \bigoplus_{d \in \Natural} A_d$ of $A$ leads to a filtration $F$ of $A$ given by $F_d \defined \bigoplus_{i=0}^d A_i$ for every $d$.
+      Every grading $A = \bigoplus_{d \in \Natural} A_d$ of $A$ leads to a filtration $F$ of $A$ which is given by $F_d \defined \bigoplus_{i=0}^d A_i$ for every $d$.
     \item
       By considering the grading $A_0 = A$ and $A_d = 0$ for $d \geq 1$ it follows that $A$ carries a filtration $F$ given by $F_d(A) = A$ for every $d \geq 0$.
     \item

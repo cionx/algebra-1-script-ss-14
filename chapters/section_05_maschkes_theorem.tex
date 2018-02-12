@@ -231,7 +231,12 @@
         = p(X_{\sigma(1)}, \dotsc, X_{\sigma(n)})
       \]
       for all $\sigma \in S_n$, $p(X_1, \dotsc, X_n) \in k[X_1, \dotsc, X_n]$.
-      For every $d \geq 0$ let $k[X_1, \dotsc, X_n]_d$ denote the span of all monomials $X_1^{d_1} \dotsm X_n^{d_n}$ of degree $d_1 + \dotsb + d_n = d$ and consider the resulting decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresenations.
+      For every $d \geq 0$ let
+      \[
+                  k[X_1, \dotsc, X_n]_d
+        \defined  \gen{ X_1^{d_1} \dotsm X_n^{d_n} \mid d_1 + \dotsb + d_n = d }
+      \]
+      and consider the resulting decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresenations.
       If $\kchar k = 0$ then it follows from Maschke’s theorem that every $k[X_1, \dotsc, X_n]_d$ is completely reducible.
       Hence $k[X_1, \dotsc, X_n]$ is completely reducible.
     \item
@@ -252,7 +257,7 @@
 
 
 \begin{warning}
-  If $\kchar k \mid |G|$ then Maschke’s theorem does not hold:
+  If $\kchar k$ divides $|G|$ then Maschke’s theorem does not hold:
   The left regular representation $k[G]$ is then not completely reducible.
   We will later give a proof of this, when we have another characterization of complete reducibility available.
 \end{warning}
