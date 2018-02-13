@@ -60,6 +60,11 @@
 \end{fluff}
 
 
+\begin{notation}
+  For this section we will fix a number of polynomials $n \in \Natural$.
+\end{notation}
+
+
 
 
 
@@ -67,13 +72,13 @@
 
 
 \begin{definition}
-  For all $n, r \in \Natural$ the \emph{$r$-th elementary symmetric polynomial} in $n$ variables is
+  For all $r \in \Natural$ the \emph{$r$-th elementary symmetric polynomial} (in $n$ variables) is
   \[
-              e^{(n)}_r
+              e_r
     \defined  \sum_{1 \leq i_1 \leq \dotsb \leq i_r \leq n} X_{i_1} \dotsm X_{i_r}
     =         \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \, \prod_{i \in I} X_i \,.
   \]
-  In particular $e^{(n)}_0 = 1$ and $e^{(n)}_r = 0$ for every $r > n$.
+  In particular $e_0 = 1$ and $e_r = 0$ for every $r > n$.
 \end{definition}
 
 
@@ -86,10 +91,10 @@
               + \dotsb
               + (-1)^n a_1 \dotsm a_n \\ 
     =&\,    t^n
-          - e^{(n)}_1(a_1, \dotsc, a_n) t^{n-1}
-          + e^{(n)}_2(a_1, \dotsc, a_n) t^{n-2}
+          - e_1(a_1, \dotsc, a_n) t^{n-1}
+          + e_2(a_1, \dotsc, a_n) t^{n-2}
           - \dotsb
-          + (-1)^n e^{(n)}_n(a_1, \dotsc, a_n)
+          + (-1)^n e_n(a_1, \dotsc, a_n)
   \end{align*}
   in $k[t]$.
   We will formalize this observation in the following lemma:
@@ -101,16 +106,16 @@
   For all $n \in \Natural$ we have in $k[X_1, \dotsc, X_n][t]$ the equality
   \begin{align*}
         \prod_{i=1}^n (t-X_i)
-    &=    e^{(n)}_0 t^n
-        - e^{(n)}_1 t^{n-1}
-        + e^{(n)}_2 t^{n-2}
+    &=    e_0 t^n
+        - e_1 t^{n-1}
+        + e_2 t^{n-2}
         - \dotsb
-        + (-1)^n e^{(n)}_n  \\
+        + (-1)^n e_n  \\
     &=    t^n
-        - e^{(n)}_1 t^{n-1}
-        + e^{(n)}_2 t^{n-2}
+        - e_1 t^{n-1}
+        + e_2 t^{n-2}
         - \dotsb
-        + (-1)^n e^{(n)}_n
+        + (-1)^n e_n
   \end{align*}
 \end{lemma}
 \begin{proof}
@@ -118,16 +123,13 @@
 \end{proof}
 
 
-\subsubsection{The Fundamental Theorem of Symmetric Functions}
-
-
 \begin{theorem}[Fundamental Theorem of Symmetric Functions]
-  The symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate the $k$-algebra of symmetric functions $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent, i.e.\ the unique $k$-algebra homomorphism
+  The symmetric polynomials $e_1, \dotsc, e_n$ generate the $k$-algebra of symmetric functions $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent, i.e.\ the unique $k$-algebra homomorphism
   \[
             k[Y_1, \dotsc, Y_n]
     \to     k[X_1, \dotsc, X_n]^{S_n} \,,
     \quad   Y_r
-    \mapsto e^{(n)}_r
+    \mapsto e_r
   \]
   is an isomorphism of $k$-algebras.
 \end{theorem}
@@ -140,7 +142,7 @@
 
 
 \begin{proof}[First Proof of the Fundamental Theorem]
-  During this proof we will abbreviate $e^{(n)}_k$ as $e_k$.
+  \label{label: first proof of fundamental theorem}
   To makes our lifes easier we introduce an ordering on the set monomials in $k[X_1, \dotsc, X_n]$:
   
   For this we first order the monomials by their power of $X_1$ in decreasing order.
@@ -152,14 +154,14 @@
   
   For any polynomial $p \in k[X_1, \dotsc X_n]$ with $p \neq 0$ we define the initial term $\init p$ to be the highest monomial occuring in $p$, including its coefficient.
   Then the following properties hold:
-  \begin{enumerate}
+  \begin{itemize}
     \item
       If $p \neq 0$ is symmetric then for $\init p = c X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ one has $\alpha_1 \geq \alpha_2 \geq \dotsb \geq \alpha_n$.
     \item
       For $p, q \in k[X_1, \dotsc, X_n]$ with $p, q \neq 0$ one has $\init (p \cdot q) = \init p \cdot \init q$.
     \item
       For all $1 \leq k \leq n$ one has $\init e_k = X_1 \dotsm X_k$ .
-  \end{enumerate}
+  \end{itemize}
   With this we are now well-equipped to prove the theorem:
   
   We first show that $e_1, \dotsc, e_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra.
@@ -176,9 +178,9 @@
   \[
       p
     =         c
-              \left( e_1 \right)^{\alpha_1 - \alpha_2}
-      \dotsm  \left( e_{n-1} \right)^{\alpha_{n-1} - \alpha_n}
-              \left( e_n \right)^{\alpha_n} \,.
+              e_1^{\alpha_1 - \alpha_2}
+      \dotsm  e_{n-1}^{\alpha_{n-1} - \alpha_n}
+              e_n^{\alpha_n} \,.
   \]
   Then $\init p = \init f$ by the above properties of $\init$.
   Because $e_k$ is homogenous of degree $k$ it follows that $p$ is homogeneous of degree
@@ -227,12 +229,14 @@
     > \init e^{\,\underline{\alpha}_s}
   \]
   since all of these terms are pairwise different.
-  It follows that the initial term $\init e^{\underline{\alpha}_1}$ occures only in $e^{\,\underline{\alpha}_1}$ and in no ther of the $e^{\,\underline{\alpha}_i}$.
+  It follows that the initial term $\init e^{\,\underline{\alpha}_1}$ occures only in $e^{\,\underline{\alpha}_1}$ and in no ther of the $e^{\,\underline{\alpha}_i}$.
   From $\lambda_1 = 0$, in contradiction to $\lambda_1 \neq 0$.
 \end{proof}
 
 
 \begin{proof}[Second Proof of the Fundamental Theorem]
+  During this proof we will denote the $r$-th elementary symmetric polynomial in $n$ variables by $e^{(n)}_r$.
+  
   Note that
   \begin{equation}
     \label{equation: recursive formel for elementary symmetric polynomials}
@@ -275,11 +279,11 @@
     be the evaluation at $X_n = 0$.
     By \eqref{equation: recursive formel for elementary symmetric polynomials} we have that
     \begin{align*}
-          q\left( e^{(n)}_r \right)
+          \Phi\left( e^{(n)}_r \right)
       &=  e^{(n-1)}_r
       \quad \text{for all $1 \leq r < n$} \,,
       \\
-          q\left( e^{(n)}_n \right)
+          \Phi\left( e^{(n)}_n \right)
       &=  0 \,.
     \end{align*}
     Note that $\Phi(f) \in k[X_1, \dotsc, X_{n-1}]$ is symmetric:
@@ -412,7 +416,7 @@
 
 
 \begin{remark}
-  Each of the proofs gives us an algorithm how to express a symmetric polynomial in terms of $e^{(n)}_1, \dotsc, e^{(n)}_n$.
+  Each of the proofs gives us an algorithm how to express a symmetric polynomial in terms of $e_1, \dotsc, e_n$.
 \end{remark}
 
 
@@ -421,7 +425,7 @@
   It does in particular hold for $k = \Integer$.
   
   The second proof can be slightly modified to also work for $R$:
-  Instead of using that $R[X_1, \dotsc, X_n]$ is an integral domain (which holds if and only if $R$ itself is an intgeral domain), it sufficies to realize that the polynomial $X_1 \dotsm X_n = e^{(n)}_n$ is a non-zero divisor.
+  Instead of using that $R[X_1, \dotsc, X_n]$ is an integral domain (which holds if and only if $R$ itself is an intgeral domain), it sufficies to realize that the polynomial $X_1 \dotsm X_n = e_n$ is a non-zero divisor.
 \end{remark}
 
 
@@ -430,7 +434,7 @@
   Then
   \[
       a_i
-    = (-1)^{n-i} e^{(n)}_{n-i}(\lambda_1, \dotsc, \lambda_n)
+    = (-1)^{n-i} e_{n-i}(\lambda_1, \dotsc, \lambda_n)
   \]
   for all $i$ by Lemma~\ref{lemma: natural occurence of elementary symmetric polynomials}.
   It follows from the fundamental theorem that every symmetric polynomial in the roots $\lambda_1, \dotsc, \lambda_n$ can already be expressed as a polynomial in the coefficients $a_0, \dotsc, a_{n-1}$.
@@ -441,12 +445,12 @@
     = \prod_{i < j} (\lambda_i - \lambda_j)^2
     = (-1)^{n(n-1)/2} \prod_{i \neq j} (\lambda_i - \lambda_j)
   \]
-  The polynomial $D(X_1, \dotsc, X_n) \defined \prod_{i < j} (X_i - X_j)^2$ is symmetric, which is why there exists a (unique) polynomial $f \in k[Y_1, \dotsc, Y_n]$ with $D = f(e^{(n)}_1, \dotsc, e^{(n)}_n)$.
+  The polynomial $D(X_1, \dotsc, X_n) \defined \prod_{i < j} (X_i - X_j)^2$ is symmetric, which is why there exists a (unique) polynomial $f \in k[Y_1, \dotsc, Y_n]$ with $D = f(e_1, \dotsc, e_n)$.
   Then
   \[
       \Delta(p)
     = D(\lambda_1, \dotsc, \lambda_n)
-    = f(e^{(n)}_1(\lambda_1, \dotsc, \lambda_n), \dotsc, e^{(n)}_n(\lambda_1, \dotsc, \lambda_n))
+    = f(e_1(\lambda_1, \dotsc, \lambda_n), \dotsc, e_n(\lambda_1, \dotsc, \lambda_n))
     = f(a_{n-1}, \dotsc, a_0) \,.
   \]
   This shows that $\Delta(p)$ can be expressed as a polynomial in the coefficients of $p$.
@@ -460,7 +464,7 @@
         D(X_1, X_2)
      =  (X_1 - X_2)^2
      =  (X_1 + X_2)^2 - 4 X_1 X_2
-     =  \left( e^{(2)}_1 \right)^2 - 4 e^{(2)}_2 \,,
+     =  e_1^2 - 4 e_2 \,,
   \end{align*}
   so that $f(Y_1, Y_2) = Y_1^2 - 4 Y_2$.
   Thus for $p(t) = t^2 + a t + b$ one has that
@@ -488,17 +492,17 @@
   \]
   This power series is the \emph{generating series} or \emph{generating function} of the sequence $(a_n)_{n \in \Natural}$.
   
-  In the following we will consider the generating series $E^{(n)}(t)$, $H^{(n)}(t)$, $P^{(n)}(t)$ of families of symmetric polynomials $(e^{(n)}_r)_{r \in \Natural}$, $(h^{(n)}_r)_{r \in \Natural}$, $(p^{(n)}_r)_{r \in \Natural}$, and then use identities involving these generating series $E^{(n)}(t)$, $H^{(n)}(t)$, $P^{(n)}(t)$ to derive formulas for their coefficients, i.e.\ the symmetric polynomials $e^{(n)}_r$, $h^{(n)}_r$, $p^{(n)}_r$.
+  In the following we will consider the generating series $E(t)$, $H(t)$, $P(t)$ of families of symmetric polynomials $(e_r)_{r \in \Natural}$, $(h_r)_{r \in \Natural}$, $(p_r)_{r \in \Natural}$, and then use identities involving these generating series $E(t)$, $H(t)$, $P(t)$ to derive formulas for their coefficients, i.e.\ the symmetric polynomials $e_r$, $h_r$, $p_r$.
   
-  For this we will start with the elementary symmetric polynomials $e^{(n)}_r$ and their generating series:
+  For this we will start with the elementary symmetric polynomials $e_r$ and their generating series:
 \end{fluff}
 
 
 \begin{definition}
-  For every $n \in \Natural$ the power series $E^{(n)}(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(e^{(n)}_r)_{r \in \Natural}$, that is
+  For every $n \in \Natural$ the power series $E(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(e_r)_{r \in \Natural}$, that is
   \[
-              E^{(n)}(t)
-    \defined  \sum_{r=0}^\infty e^{(n)}_r t^r \,.
+              E(t)
+    \defined  \sum_{r=0}^\infty e_r t^r \,.
   \]
 \end{definition}
 
@@ -507,7 +511,7 @@
   \label{lemma: explicit formula for E}
   One has the equality of power series
   \[
-      E^{(n)}(t)
+      E(t)
     = \prod_{i=1}^n (1 + X_i t) \,.
   \]
 \end{lemma}
@@ -518,455 +522,8 @@
   \[
     \sum_{\substack{I \subseteq \{1, \dotsc, n\} \\ |I| = r}} \prod_{i \in I} X_i \,,
   \]
-  which is precisely $e^{(n)}_r$.
+  which is precisely $e_r$.
 \end{proof}
-
-
-
-
-
-\subsection{Completely Symmetric Polynomials}
-
-
-\begin{definition}
-  For all $n, r \in \Natural$ the \emph{$r$-th complete homogeneous symmetric polynomial} in $n$-variables is the sum of all monomials of $k[X_1, \dotsc, X_n]$ of degree $r$, that is
-  \[
-              h^{(n)}_r
-    \defined  \sum_{\substack{\underline{\alpha} \in \Natural^n \\ |\underline{\alpha}| = r}}
-              X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
-  \]
-\end{definition}
-
-
-\begin{definition}
-  For every $n \in \Natural$ the power series $H^{(n)}(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(h^{(n)}_r)_{r \in \Natural}$, that is
-  \[
-              H^{(n)}(t)
-    \defined  \sum_{r=0}^\infty h^{(n)}_r t^r \,.
-  \]
-\end{definition}
-
-
-\begin{lemma}
-  \label{lemma: explicit formula for H}
-  One has the equality of power series
-  \[
-      H^{(n)}(t)
-    = \prod_{i=1}^n \frac{1}{1 - X_i t}
-  \]
-\end{lemma}
-
-
-\begin{proof}
-  Note that the inverse of $1 - X_i t$ is for every $i$ given by the geometric series
-  \[
-              Q_i
-    \defined  1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb
-    \in       k[X_1, \dotsc, X_n]\!\dblbrack{t} \,,
-  \]
-  so that
-  \[
-      \prod_{i=1}^n \frac{1}{1 - X_i t}
-    = \prod_{i=1}^n Q_i
-    = Q_1 \dotsb Q_n \,.
-  \]
-  The coefficient of $t^r$ in $Q_1 \dotsm Q_n$ is given by $\sum_{|\underline{\alpha}| = r}  X_1^{\alpha_1} \dotsm X_n^{\alpha_n} = h^{(n)}_r$.
-\end{proof}
-
-
-\begin{fluff}
-  By comparing the closed expressions of the power series $E^{(n)}(t)$ and $H^{(n)}(t)$ from from Lemma~\ref{lemma: explicit formula for E} and Lemma~\ref{lemma: explicit formula for H} we find that
-  \[
-      E^{(n)}(-t)H^{(n)}(t)
-    = 1
-    = H^{(n)}(-t)E^{(n)}(t) \,.
-  \]
-  By comparing the $s$-th coefficients of these power series we arrive at the following relation between the elementary symmetric polynomials $e^{(n)}_r$ and the complete homogeneous symmetric polynomials $h^{(n)}_r$:
-\end{fluff}
-
-
-\begin{corollary}
-  \label{corollary: combinatorical formula for e and h}
-  For all $s \geq 1$ we have that
-  \begin{align*}
-          h^{(n)}_s
-        - e^{(n)}_1 h^{(n)}_{s-1}
-        + e^{(n)}_2 h^{(n)}_{s-2}
-        - \dotsb
-        + (-1)^{s-1} e^{(n)}_{s-1} h^{(n)}_1
-        + (-1)^s     e^{(n)}_s
-    &=  0
-  \intertext{as well as}
-          e^{(n)}_s
-        - h^{(n)}_1 e^{(n)}_{s-1}
-        + h^{(n)}_2 e^{(n)}_{s-2}
-        - \dotsb
-        + (-1)^{s-1} h^{(n)}_{s-1} e^{(n)}_1
-        + (-1)^s     h^{(n)}_s
-    &=  0 \,.
-  \end{align*}
-\end{corollary}
-
-
-\begin{fluff}
-  From the Fundamental Theorem of Symmetric Polynomials we know that the complete homogeneous symmetric polynomials $h^{(n)}_i$ can be expressed uniquely as polynomials in the elementary symmetric polynomials $e^{(n)}_i$, so that there exist unique polynomials $P_1, \dotsc, P_n \in k[Y_1, \dotsc, Y_n]$ with
-  \[
-      h^{(n)}_i
-    = P_i\left( e^{(n)}_1, \dotsc, e^{(n)}_n \right)
-  \]
-  for all $i = 1, \dotsc, n$.
-  
-  By rearranging the first formula of Corollary~\ref{corollary: combinatorical formula for e and h} to the equality
-  \[
-      h^{(n)}_s
-    =   e^{(n)}_1 h^{(n)}_{s-1}
-      - e^{(n)}_2 h^{(n)}_{s-2}
-      + \dotsb
-      - (-1)^{s-1} e^{(n)}_{s-1} h^{(n)}_1
-      - (-1)^s e^{(n)}_s
-  \]
-  we can recursively express the $h^{(n)}_i$ in terms of the $e^{(n)}_i$, starting off with $e^{(n)}_1 = h^{(n)}_1$ for $s = 1$, and thus inductively determine the polynomials $P_1, \dotsc, P_n$.
-  
-  Note that the second formula of Corollary~\ref{corollary: combinatorical formula for e and h} results from the first by swapping $h^{(n)}_i$ and $e^{(n)}_i$.
-  We can therefore swap the $h^{(n)}_i$ and $e^{(n)}_i$ in the previous paragraph to find that the $e^{(i)}_n$ can be expressed in terms of the $h^{(n)}_i$, and that this can be done in exactly the same way as the $h^{(n)}_i$ are expressed in terms of the $e^{(n)}_i$.
-  In other words, we have that
-  \[
-      e^{(n)}_i
-    = P_i\left( h^{(n)}_1, \dotsc, h^{(n)}_n \right)
-  \]
-  for all $i = 1, \dotsc, n$.
-  
-  This seems to suggest that the elementary symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ and the homomogeneous symmetric polynomials $h^{(n)}_1, \dotsc, h^{(n)}_n$ are somehow dual to each other.
-  To make this notion of duality more precise note that by the Fundamental Theorem of Symmetric Polynomials there exists a unique $k$-algebra homomorphism
-  \[
-            \Phi
-    \colon  k[X_1, \dotsc, X_n]^{S_n}
-    \to     k[X_1, \dotsc, X_n]^{S_n}∀
-  \]
-  with $\Phi(e^{(n)}_i) = h^{(n)}_i$ for every $i = 1, \dotsc, n$.
-  (This follows from combining the universal property of the polynomial ring $k[Y_1, \dotsc, Y_n]$ with the $k$-algebra isomorphism $k[Y_1, \dotsc, Y_n] \to k[X_1, \dotsc, X_n]^{S_n}$, $Y_i \mapsto e^{(n)}_i$.)
-  We then have that
-  \begin{align*}
-        \Phi\left( h^{(n)}_i \right)
-    &=  \Phi
-        \left(
-          P_i\left(
-            e^{(n)}_1,
-            \dotsc,
-            e^{(n)}_n \right)
-        \right) \\
-    &=  P_i\left(
-          \Phi\left(e^{(n)}_1\right),
-          \dotsc,
-          \Phi\left(e^{(n)}_n\right)
-        \right)
-      = P_i
-        \left(
-          h^{(n)}_1, \dotsc, h^{(n)}_n
-        \right)
-      = e^{(n)}_n \,.
-  \end{align*}
-  Hence the homomorphism $\Phi$ swaps $e^{(n)}_i$ with $h^{(n)}_i$ for every $i = 1, \dotsc, n$.
-  It follows that $\Phi^2(e^{(n)}_i) = e^{(n)}_i$ for every $i = 1, \dotsc, n$, and therefore that $\Phi^2 = \id$ because $k[X_1, \dotsc, X_n]^{S_n}$ is generated by $e^{(n)}_1, \dotsc, e^{(n)}_n$.
-  Thus we find the following:
-\end{fluff}
-
-\begin{corollary}
-  There exists an unique $k$-algebra homomorphism
-  \[
-            \Phi
-    \colon  k[X_1, \dotsc, X_n]^{S_n}
-    \to     k[X_1, \dotsc, X_n]^{S_n}
-  \]
-  with $\Phi\left(e^{(n)}_i\right) = h^{(n)}_i$ for every $i = 1, \dotsc, n$, and $\Phi$ is an involutive automorphism.
-\end{corollary}
-
-
-\begin{corollary}
-  The homogeneous symmetric polynomials $h^{(n)}_1, \dotsc, h^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
-\end{corollary}
-
-
-\begin{remark}
-  As for the Fundamental Theorem of Symmetric Polynomials these results remain valid we replace $k$ with any non-zero commutative ring.
-\end{remark}
-
-
-
-
-
-\subsection{Power Symmetric Polynomials}
-
-
-\begin{definition}
-  For all $n, r \in \Natural$ the \emph{$r$-th power symmetric polynomial}, or \emph{$r$-th power sum} in $n$-variables is
-  \[
-              p_r^{(n)}
-    \coloneqq X_1^r + \dotsb + X_n^r \,.
-  \]
-\end{definition}
-
-
-\begin{definition}
-  For all $n \in \Natural$ the power series $P^{(n)}(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(p^{(n)}_r)_{r \geq 1}$, that is
-  \[
-            P^{(n)}(t)
-  \defined  \sum_{r=0}^\infty p^{(n)}_{r+1} t^r \,.
-  \]
-  (Note the shift compared to $E^{(n)}$ and $H^{(n)}$.)
-\end{definition}
-
-
-\begin{lemma}
-  \label{lemma: explicit formula for P}
-  One has the equality of power series
-  \[
-      P^{(n)}(t)
-    = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \,.
-  \]
-  More generally, one has that for every $s \geq 0$ that
-  \[
-      \sum_{r=0}^\infty p_{r+s} t^r
-    = \sum_{i=1}^n \frac{X_i^s}{1 - X_i t} \,.
-  \]
-\end{lemma}
-
-
-\begin{proof}
-  We have that
-  \begin{align*}
-        \sum_{i=1}^n \frac{X_i^s}{1-X_i t}
-    &=  \sum_{i=1}^n X_i^s (1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb) \\
-    &=  \sum_{i=1}^n (X_i^s + X_i^{s+1} t + X_i^{s+2} t^2 + X_i^{s+3} t^3 + \dotsb) \\
-    &=  p^{(n)}_s + p^{(n)}_{s+1} t + p^{(n)}_{s+2} t^2 + p^{(n)}_{s+3} t^3 + \dotsb
-    \qedhere
-  \end{align*}
-\end{proof}
-
-
-\begin{fluff}
-  \label{fluff: connection between E and P}
-  From the explicit formulas for $E^{(n)}(t)$ and $P^{(n)}(t)$ from Lemma~\ref{lemma: explicit formula for E} and Lemma~\ref{lemma: explicit formula for P} it follows that
-  \[
-      \left( E^{(n)} \right)'(t)
-    = \sum_{i=1}^n X_i \prod_{j \neq i} (1 + X_j t)
-    = \sum_{i=1}^n \frac{X_i}{1 + X_i t} \prod_{j=1}^n (1 + X_j t)
-    = P^{(n)}(-t)E^{(n)}(t) \,.
-  \]
-  The power series $(E^{(n)})'(t)$ is given by
-  \[
-      \left( E^{(n)} \right)'(t)
-    = \sum_{r=1}^\infty r e^{(n)}_r t^{r-1}
-    = \sum_{r=0}^\infty (r+1) e^{(n)}_{r+1} t^r \,,
-  \]
-  so by comparing the $(r-1)$-th coefficient we arrive at the \emph{Newton’s identities}.
-\end{fluff}
-
-
-\begin{corollary}[Newton’s identities]
-  \label{corollary: Newtons identities}
-  For every $r \geq 1$ one has that
-  \[
-      r e^{(n)}_r
-    =   p^{(n)}_1 e^{(n)}_{r-1}
-      - p^{(n)}_2 e^{(n)}_{r-2}
-      + \dotsb
-      + (-1)^{r-2}  p^{(n)}_{r-1} e^{(n)}_1
-      + (-1)^{r-1}  p^{(n)}_r \,,
-  \]
-  and equivalently
-  \[
-        p^{(n)}_r
-      - e^{(n)}_1 p^{(n)}_{r-1}
-      + \dotsb
-      + (-1)^{r-1} e^{(n)}_{r-1} p^{(n)}_1
-      + (-1)^r r e^{(n)}_r
-    = 0 \,.
-  \]
-\end{corollary}
-
-
-\begin{fluff}
-  We can proceed similiar as in \ref{fluff: connection between E and P} for the genarating functions $H^{(n)}(t)$ and $P^{(n)}(t)$:
-  It follows from the explicit formulas for $H^{(n)}(t)$ and $P^{(n)}(t)$ from Lemma~\ref{lemma: explicit formula for H} and Lemma~\ref{lemma: explicit formula for P} that
-  \begin{align*}
-        \left( H^{(n)} \right)'(t)
-    &=  \sum_{i=1}^n \frac{X_i}{(1-X_i t)^2} \prod_{j \neq i} \frac{1}{1 - X_j t} \\
-    &=  \sum_{i=1}^n \frac{X_i}{1 - X_i t} \prod_{j=1}^n \frac{1}{1 - X_j t}
-     =  P^{(n)}(t) H^{(n)}(t) \,.
-  \end{align*}
-  Since the power series $(H^{(n)})'(t)$ is given by
-  \[
-      \left( H^{(n)} \right)'(t)
-    = \sum_{k \geq 1} k h^{(n)}_k t^{k-1}
-  \]
-  we get the following result by comparing the $r$-th coefficient:
-\end{fluff}
-
-
-\begin{corollary}
-  \label{corollary: relation between h and p}
-  For all $r \geq 1$ we have that
-  \[
-      r h^{(n)}_r
-    =   p^{(n)}_1 h^{(n)}_{r-1}
-      + p^{(n)}_2 h^{(n)}_{r-2}
-      + \dotsb
-      + p^{(n)}_{r-1} h^{(n)}_1
-      + p^{(n)}_r.
-  \]
-\end{corollary}
-
-
-\begin{fluff}
-  We have seen that the symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ and $h^{(n)}_1, \dotsc, h^{(n)}_n$ each generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
-  It is now only natural to ask if this also holds true for the power sums $p^{(n)}_1, \dotsc, p^{(n)}_n$.
-  The next theorem shows that this holds under additional assumptions.
-\end{fluff}
-
-
-\begin{theorem}
-  Let $k$ be a field with either $\kchar k = 0$ or $\kchar k > n$.
-  Then $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
-\end{theorem}
-\begin{proof}
-  Since $2, \dotsc, n$ are invertible in $k$ one can use the Newton identities (Corollary~\ref{corollary: Newtons identities}) to recursively express the elementary symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ in terms of the power sums $p^{(n)}_1, \dotsc, p^{(n)}_n$, starting off with $e^{(n)}_1 = p^{(n)}_1$.
-  It follows that $p^{(n)}_1, \dotsc, p^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra.
-  
-  To show that $p^{(n)}_1, \dotsc, p^{(n)}_n$ are algebraically independent we need to show that the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$, i.e.\ the polynomials
-  \[
-      \left(p^{(n)}\right)^{\underline{\alpha}}
-    = \left(p^{(n)}_1\right)^{\alpha_1} \dotsm \left(p^{(n)}_n\right)^{\alpha_n}
-    \quad\text{with}\quad
-        \underline{\alpha}
-    =   (\alpha_1, \dotsc, \alpha_n)
-    \in \Natural^n
-  \]
-  are linearly independent.
-  For this it sufficies to show for every $N \geq 1$ that the monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$ form a $k$-basis of the $k$-linear space of symmetric polynomials of degree $\leq N$, which we will denote by $V_N$.
-  
-  We also denote the number of (not necessarily distinct) monomials in $p^{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$ by $P_N$, i.e.\ $P_N$ is the number of multi-indices $\underline{\alpha} \in \Natural^n$ with $\deg (p^{(n)})^{\underline{\alpha}} \leq N$.
-  
-  Note that for every $\underline{\alpha} \in \Natural^n$ we have that
-  \begin{align*}
-        \deg \left( p^{(n)} \right)^{\underline{\alpha}}
-    &=  \deg
-        \left( p^{(n)}_1 \right)^{\alpha_1}
-        \dotsm 
-        \left( p^{(n)}_n \right)^{\alpha_n} \\
-    &=    \alpha_1 \deg p^{(n)}_1
-        + \dotsb 
-        + \alpha_n \deg p^{(n)}_n \\
-    &=    \alpha_1 \cdot 1
-        + \alpha_2 \cdot 2
-        + \dotsb
-        + \alpha_n \cdot n  \\
-    &=    \alpha_1 \deg e^{(n)}_1
-        + \dotsb 
-        + \alpha_n \deg e^{(n)}_n \\
-    &=  \deg
-        \left( e^{(n)}_1 \right)^{\alpha_1}
-        \dotsm 
-        \left( e^{(n)}_n \right)^{\alpha_n}
-     =  \left( e^{(n)} \right)^{\underline{\alpha}} \,,
-  \end{align*}
-  so that $P_N$ is also the number of monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$.
-  Note that these monomials in the $e^{(n)}_i$ are pairwise distinct because the $e^{(n)}_i$ are algebraically independent.
-  Hence $P_N$ is also the number of monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ of degree $\leq N$.
-  With the Fundamental Theorem of symmetric functions it follows that $\dim V_N = P_N$.
-  
-  Because $k[X_1, \dotsc, X_n]^{S_n}$ is generated as a $k$-algebra by the homogeneous elements $p^{(n)}_1, \dotsc, p^{(n)}_n$ it we find that $V_N$ is spanned as a $k$-linear subspace of $K[X_1, \dotsc, X_n]^{S_n}$ by the monomials in $p{(n)}_1, \dotsc, p^{(n)}_n$ of degree $\leq N$, of which they are $\leq P_N$ many distinct ones.
-  It therefore follows from $\dim V_N = P_N$ that $V_N$ is a $k$-basis von $V_N$.
-\end{proof}
-
-
-\begin{remark}
-  Note that the above theorem cannot hold for $k = \Integer$:
-  To see this, note that in $\Rational[X_1, X_2]^{S_2}$ we have that
-  \[
-      e^{(2)}_2
-    = \frac{1}{2} \left( p^{(2)}_1 \right)^2 - \frac{1}{2} p^{(2)}_2 \,.
-  \]
-  If $\Integer[X_1, X_2]^{S_2}$ would be generated by $p^{(n)}_1, p^{(n)}_2$ as a $\Integer$-algebra (i.e.\ ring) then there would exists some polynomial $F \in \Integer[Y_1, Y_2]$ with $e^{(2)}_2 = F( p^{(2)}_1, p^{(2)}_2)$.
-  But this would then contradict the algebraic independence of $p^{(2)}_1, p^{(2)}_2$ in $\Rational[X_1, X_2]^{S_2}$, since $F(X_1, X_2) \neq \frac{1}{2} X_1^2 - \frac{1}{2} X_2$.
-\end{remark}
-
-
-% Using the same argumentation we find that for a symmetric polynomial $f \in \Rational[X_1, \dotsc, X_n]^{S_n}$ with integer coefficients and $F,G \in \Rational[X_1, \dotsc, X_n]^{S_n}$ with
-% \[
-%     f
-%   = F\left( e^{(n)}_1, \dotsc, e^{(n)}_n \right)
-%   = G\left( h^{(n)}_1, \dotsc, h^{(n)}_n \right)
-% \]
-% both $F$ and $G$ must have integer coefficients.
-% 
-
-
-\begin{fluff}
-  We have seen that the elementary symmetric polynomials $e^{(n)}_1, \dotsc, e^{(n)}_n$ and the complete homogeneous symmetric polynomials $h^{(n)}_1, \dotsc, h^{(n)}_n$ are dual to each other in the sense that there exists a involutive algebra automorphism $\Phi$ of $k[X_1, \dotsc, X_n]^{S_n}$ which swaps $e^{(n)}_i$ and $h^{(n)}_i$ for every $i = 1, \dotsc, n$.
-  We can determine the action of $\Phi$ on the power sums $p^{(n)}_1, \dotsc, p^{(n)}_n$.
-  
-  Applying $\Phi$ to Newton’s identities (Corollary~\ref{corollary: Newtons identities}) and comparing the result with Corollary~\ref{corollary: relation between h and p} seems to suggest that
-  \[
-      \Phi\left( p^{(n)}_r \right)
-    = (-1)^{r-1} p^{(n)}_r
-  \]
-  for all $r = 1, \dotsc, n$.
-  We can show this by induction on $r$:
-  
-  For $r = 1$ we have that
-  \[
-      \Phi\left( p^{(n)}_1 \right)
-    = \Phi\left( e^{(n)}_1 \right)
-    = h^{(n)}_1
-    = p^{(n)}_1 \,.
-    = (-1)^{r-1} p^{(n)}_1
-  \]
-  For $r > 1$ we apply $\Phi$ to the Newton identity
-  \[
-      r e^{(n)}_r
-    =   p^{(n)}_1 e^{(n)}_{r-1}
-      - p^{(n)}_2 e^{(n)}_{r-2}
-      + \dotsb
-      + (-1)^{r-2}  p^{(n)}_{r-1} e^{(n)}_1
-      + (-1)^{r-1}  p^{(n)}_r \,,
-  \]
-  which by induction results in the identity
-  \[
-      r h^{(n)}_r
-    =   p^{(n)}_1 h^{(n)}_{r-1}
-      + p^{(n)}_2 h^{(n)}_{r-2}
-      + \dotsb
-      + p^{(n)}_{r-1} h^{(n)}_1
-      + (-1)^{r-1} \Phi\left( p^{(n)}_r \right) \,.
-  \]
-  By comparing this to Corollary~\ref{corollary: relation between h and p} it follows that $\Phi( p^{(n)}_r ) = (-1)^{r-1} p^{(n)}_r$.
-\end{fluff}
-
-
-\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
-
-
-
-
-
-\subsection{Symmetric Polynomials Associated to Partitions}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%  Previous text
 
 
 % \begin{example}
@@ -1004,51 +561,507 @@
 
 
 
+
+
+\subsection{Complete Homogeneous Symmetric Polynomials}
+
+
 \begin{definition}
-  $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \Natural^s$ is \emph{a partition of $|\lambda| \coloneqq \sum_{i=1}^s \lambda_i$} if
+  For all $r \in \Natural$ the \emph{$r$-th complete homogeneous symmetric polynomial} (in $n$-variables) is the sum of all monomials of $k[X_1, \dotsc, X_n]$ of degree $r$, that is
+  \[
+              h_r
+    \defined  \sum_{\substack{\underline{\alpha} \in \Natural^n \\ |\underline{\alpha}| = r}}
+              X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+  \]
+\end{definition}
+
+
+\begin{definition}
+  For every $n \in \Natural$ the power series $H(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(h_r)_{r \in \Natural}$, that is
+  \[
+              H(t)
+    \defined  \sum_{r=0}^\infty h_r t^r \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: explicit formula for H}
+  One has the equality of power series
+  \[
+      H(t)
+    = \prod_{i=1}^n \frac{1}{1 - X_i t}
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  Note that the inverse of $1 - X_i t$ is for every $i$ given by the geometric series
+  \[
+              Q_i
+    \defined  1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb
+    \in       k[X_1, \dotsc, X_n]\!\dblbrack{t} \,,
+  \]
+  so that
+  \[
+      \prod_{i=1}^n \frac{1}{1 - X_i t}
+    = \prod_{i=1}^n Q_i
+    = Q_1 \dotsb Q_n \,.
+  \]
+  The coefficient of $t^r$ in $Q_1 \dotsm Q_n$ is given by $\sum_{|\underline{\alpha}| = r}  X_1^{\alpha_1} \dotsm X_n^{\alpha_n} = h_r$.
+\end{proof}
+
+
+\begin{fluff}
+  By comparing the closed expressions of the power series $E(t)$ and $H(t)$ from from Lemma~\ref{lemma: explicit formula for E} and Lemma~\ref{lemma: explicit formula for H} we find that
+  \[
+      E(-t)H(t)
+    = 1
+    = H(-t)E(t) \,.
+  \]
+  By comparing the $s$-th coefficients of these power series we arrive at the following relation between the elementary symmetric polynomials $e_r$ and the complete homogeneous symmetric polynomials $h_r$:
+\end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: combinatorical formula for e and h}
+  For all $s \geq 1$ we have that
+  \begin{align*}
+          h_s
+        - e_1 h_{s-1}
+        + e_2 h_{s-2}
+        - \dotsb
+        + (-1)^{s-1} e_{s-1} h_1
+        + (-1)^s     e_s
+    &=  0
+  \intertext{as well as}
+          e_s
+        - h_1 e_{s-1}
+        + h_2 e_{s-2}
+        - \dotsb
+        + (-1)^{s-1} h_{s-1} e_1
+        + (-1)^s     h_s
+    &=  0 \,.
+  \end{align*}
+\end{corollary}
+
+
+\begin{fluff}
+  From the Fundamental Theorem of Symmetric Polynomials we know that the complete homogeneous symmetric polynomials $h_i$ can be expressed uniquely as polynomials in the elementary symmetric polynomials $e_i$, so that there exist unique polynomials $P_1, \dotsc, P_n \in k[Y_1, \dotsc, Y_n]$ with
+  \[
+      h_i
+    = P_i(e_1, \dotsc, e_n)
+  \]
+  for all $i = 1, \dotsc, n$.
+  
+  By rearranging the first formula of Corollary~\ref{corollary: combinatorical formula for e and h} to the equality
+  \[
+      h_s
+    =   e_1 h_{s-1}
+      - e_2 h_{s-2}
+      + \dotsb
+      - (-1)^{s-1} e_{s-1} h_1
+      - (-1)^s e_s
+  \]
+  we can recursively express the $h_i$ in terms of the $e_i$, starting off with $e_1 = h_1$ for $s = 1$, and thus inductively determine the polynomials $P_1, \dotsc, P_n$.
+  
+  Note that the second formula of Corollary~\ref{corollary: combinatorical formula for e and h} results from the first by swapping $h_i$ and $e_i$.
+  We can therefore swap the $h_i$ and $e_i$ in the previous paragraph to find that the $e_i$ can be expressed in terms of the $h_i$, and that this can be done in exactly the same way as the $h_i$ are expressed in terms of the $e_i$.
+  In other words, we have that
+  \[
+      e_i
+    = P_i(h_1, \dotsc, h_n)
+  \]
+  for all $i = 1, \dotsc, n$.
+  
+  This seems to suggest that the elementary symmetric polynomials $e_1, \dotsc, e_n$ and the homomogeneous symmetric polynomials $h_1, \dotsc, h_n$ are somehow dual to each other.
+  To make this notion of duality more precise note that by the Fundamental Theorem of Symmetric Polynomials there exists a unique $k$-algebra homomorphism
+  \[
+            \Phi
+    \colon  k[X_1, \dotsc, X_n]^{S_n}
+    \to     k[X_1, \dotsc, X_n]^{S_n}∀
+  \]
+  with $\Phi(e_i) = h_i$ for every $i = 1, \dotsc, n$.
+  (This follows from combining the universal property of the polynomial ring $k[Y_1, \dotsc, Y_n]$ with the $k$-algebra isomorphism $k[Y_1, \dotsc, Y_n] \to k[X_1, \dotsc, X_n]^{S_n}$, $Y_i \mapsto e_i$.)
+  We then have that
+  \[
+      \Phi(h_i)
+    = \Phi( P_i(e_1, \dotsc, e_n) )
+    = P_i( \Phi(e_1), \dotsc, \Phi(e_n) )
+    = P_i( h_1, \dotsc, h_n )
+    = e_n \,.
+  \]
+  Hence the homomorphism $\Phi$ swaps $e_i$ with $h_i$ for every $i = 1, \dotsc, n$.
+  It follows that $\Phi^2(e_i) = e_i$ for every $i = 1, \dotsc, n$, and therefore that $\Phi^2 = \id$ because $k[X_1, \dotsc, X_n]^{S_n}$ is generated by $e_1, \dotsc, e_n$.
+  Thus we find the following:
+\end{fluff}
+
+\begin{corollary}
+  There exists an unique $k$-algebra homomorphism
+  \[
+            \Phi
+    \colon  k[X_1, \dotsc, X_n]^{S_n}
+    \to     k[X_1, \dotsc, X_n]^{S_n}
+  \]
+  with $\Phi(e_i) = h_i$ for every $i = 1, \dotsc, n$, and $\Phi$ is an involutive automorphism.
+\end{corollary}
+
+
+\begin{corollary}
+  The homogeneous symmetric polynomials $h_1, \dotsc, h_n$ generate the $k$-algebra $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
+\end{corollary}
+
+
+\begin{remark}
+  As for the Fundamental Theorem of Symmetric Polynomials these results remain valid we replace $k$ with any non-zero commutative ring.
+\end{remark}
+
+
+
+
+
+\subsection{Power Symmetric Polynomials}
+
+
+\begin{definition}
+  For all $n, r \in \Natural$ the \emph{$r$-th power symmetric polynomial}, or \emph{$r$-th power sum} in $n$-variables is
+  \[
+              p_r
+    \coloneqq X_1^r + \dotsb + X_n^r \,.
+  \]
+\end{definition}
+
+
+\begin{definition}
+  For all $n \in \Natural$ the power series $P(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(p_r)_{r \geq 1}$, that is
+  \[
+            P(t)
+  \defined  \sum_{r=0}^\infty p_{r+1} t^r \,.
+  \]
+  (Note the shift compared to $E$ and $H$.)
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: explicit formula for P}
+  One has the equality of power series
+  \[
+      P(t)
+    = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \,.
+  \]
+  More generally, one has that for every $s \geq 0$ that
+  \[
+      \sum_{r=0}^\infty p_{r+s} t^r
+    = \sum_{i=1}^n \frac{X_i^s}{1 - X_i t} \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+        \sum_{i=1}^n \frac{X_i^s}{1-X_i t}
+    &=  \sum_{i=1}^n X_i^s (1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb) \\
+    &=  \sum_{i=1}^n (X_i^s + X_i^{s+1} t + X_i^{s+2} t^2 + X_i^{s+3} t^3 + \dotsb) \\
+    &=  p_s + p_{s+1} t + p_{s+2} t^2 + p_{s+3} t^3 + \dotsb
+    \qedhere
+  \end{align*}
+\end{proof}
+
+
+\begin{fluff}
+  \label{fluff: connection between E and P}
+  From the explicit formulas for $E(t)$ and $P(t)$ from Lemma~\ref{lemma: explicit formula for E} and Lemma~\ref{lemma: explicit formula for P} it follows that
+  \[
+      E'(t)
+    = \sum_{i=1}^n X_i \prod_{j \neq i} (1 + X_j t)
+    = \sum_{i=1}^n \frac{X_i}{1 + X_i t} \prod_{j=1}^n (1 + X_j t)
+    = P(-t)E(t) \,.
+  \]
+  The power series $E'(t)$ is given by
+  \[
+      E'(t)
+    = \sum_{r=1}^\infty r e_r t^{r-1}
+    = \sum_{r=0}^\infty (r+1) e_{r+1} t^r \,,
+  \]
+  so by comparing the $(r-1)$-th coefficient we arrive at the \emph{Newton’s identities}.
+\end{fluff}
+
+
+\begin{corollary}[Newton’s identities]
+  \label{corollary: Newtons identities}
+  For every $r \geq 1$ one has that
+  \[
+      r e_r
+    =   p_1 e_{r-1}
+      - p_2 e_{r-2}
+      + \dotsb
+      + (-1)^{r-2}  p_{r-1} e_1
+      + (-1)^{r-1}  p_r \,,
+  \]
+  and equivalently
+  \[
+        p_r
+      - e_1 p_{r-1}
+      + \dotsb
+      + (-1)^{r-1} e_{r-1} p_1
+      + (-1)^r r e_r
+    = 0 \,.
+  \]
+\end{corollary}
+
+
+\begin{fluff}
+  We can proceed similiar as in \ref{fluff: connection between E and P} for the genarating functions $H(t)$ and $P(t)$:
+  It follows from the explicit formulas for $H(t)$ and $P(t)$ from Lemma~\ref{lemma: explicit formula for H} and Lemma~\ref{lemma: explicit formula for P} that
+  \[
+      H'(t)
+    = \sum_{i=1}^n \frac{X_i}{(1-X_i t)^2} \prod_{j \neq i} \frac{1}{1 - X_j t} \\
+    = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \prod_{j=1}^n \frac{1}{1 - X_j t}
+    = P(t) H(t) \,.
+  \]
+  Since the power series $H'(t)$ is given by
+  \[
+      H'(t)
+    = \sum_{k \geq 1} k h_k t^{k-1}
+  \]
+  we get the following result by comparing the $r$-th coefficient:
+\end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: relation between h and p}
+  For all $r \geq 1$ we have that
+  \[
+      r h_r
+    =   p_1 h_{r-1}
+      + p_2 h_{r-2}
+      + \dotsb
+      + p_{r-1} h_1
+      + p_r.
+  \]
+\end{corollary}
+
+
+\begin{fluff}
+  We have seen that the symmetric polynomials $e_1, \dotsc, e_n$ and $h_1, \dotsc, h_n$ each generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
+  It is now only natural to ask if this also holds true for the power sums $p_1, \dotsc, p_n$.
+  The next theorem shows that this holds under additional assumptions.
+\end{fluff}
+
+
+\begin{theorem}
+  Let $k$ be a field with either $\kchar k = 0$ or $\kchar k > n$.
+  Then $p_1, \dotsc, p_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
+\end{theorem}
+\begin{proof}
+  Since $2, \dotsc, n$ are invertible in $k$ one can use the Newton identities (Corollary~\ref{corollary: Newtons identities}) to recursively express the elementary symmetric polynomials $e_1, \dotsc, e_n$ in terms of the power sums $p_1, \dotsc, p_n$, starting off with $e_1 = p_1$.
+  It follows that $p_1, \dotsc, p_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra.
+  
+  To show that $p_1, \dotsc, p_n$ are algebraically independent we need to show that the monomials in $p_1, \dotsc, p_n$, i.e.\ the polynomials
+  \[
+      p^{\,\underline{\alpha}}
+    = p_1^{\alpha_1} \dotsm p_n^{\alpha_n}
+    \quad\text{with}\quad
+        \underline{\alpha}
+    =   (\alpha_1, \dotsc, \alpha_n)
+    \in \Natural^n
+  \]
+  are linearly independent.
+  For this it sufficies to show for every $N \geq 1$ that the monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ form a $k$-basis of the $k$-linear space of symmetric polynomials of degree $\leq N$, which we will denote by $V_N$.
+  
+  We also denote the number of (not necessarily distinct) monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ by $P_N$, i.e.\ $P_N$ is the number of multi-indices $\underline{\alpha} \in \Natural^n$ with $\deg p^{\,\underline{\alpha}} \leq N$.
+  
+  Note that for every $\underline{\alpha} \in \Natural^n$ we have that
+  \begin{align*}
+        \deg p^{\,\underline{\alpha}}
+    &=  \deg
+        p_1^{\alpha_1}
+        \dotsm 
+        p_n^{\alpha_n} \\
+    &=    \alpha_1 \deg p_1
+        + \dotsb 
+        + \alpha_n \deg p_n \\
+    &=    \alpha_1 \cdot 1
+        + \alpha_2 \cdot 2
+        + \dotsb
+        + \alpha_n \cdot n  \\
+    &=    \alpha_1 \deg e_1
+        + \dotsb 
+        + \alpha_n \deg e_n \\
+    &=  \deg
+        e_1^{\alpha_1}
+        \dotsm 
+        e_n^{\alpha_n}
+     =  e^{\,\underline{\alpha}} \,,
+  \end{align*}
+  so that $P_N$ is also the number of monomials in $e_1, \dotsc, e_n$ of degree $\leq N$.
+  Note that these monomials in the $e_i$ are pairwise distinct because the $e_i$ are algebraically independent.
+  Hence $P_N$ is also the number of monomials in $e_1, \dotsc, e_n$ of degree $\leq N$.
+  With the Fundamental Theorem of symmetric functions it follows that $\dim V_N = P_N$.
+  
+  Because $k[X_1, \dotsc, X_n]^{S_n}$ is generated as a $k$-algebra by the homogeneous elements $p_1, \dotsc, p_n$ it we find that $V_N$ is spanned as a $k$-linear subspace of $K[X_1, \dotsc, X_n]^{S_n}$ by the monomials in $p{(n)}_1, \dotsc, p_n$ of degree $\leq N$, of which they are $\leq P_N$ many distinct ones.
+  It therefore follows from $\dim V_N = P_N$ that $V_N$ is a $k$-basis von $V_N$.
+\end{proof}
+
+
+\begin{remark}
+  Note that the above theorem cannot hold for $k = \Integer$:
+  To see this, note that in $\Rational[X_1, X_2]^{S_2}$ we have that
+  \[
+      e_2
+    = \frac{1}{2}  p_1^2 - \frac{1}{2} p_2 \,.
+  \]
+  If $\Integer[X_1, X_2]^{S_2}$ would be generated by $p_1, p_2$ as a $\Integer$-algebra (i.e.\ ring) then there would exists some polynomial $F \in \Integer[Y_1, Y_2]$ with $e_2 = F( p_1, p_2)$.
+  But this would then contradict the algebraic independence of $p_1, p_2$ in $\Rational[X_1, X_2]^{S_2}$, since $F(X_1, X_2) \neq \frac{1}{2} X_1^2 - \frac{1}{2} X_2$.
+\end{remark}
+
+
+% Using the same argumentation we find that for a symmetric polynomial $f \in \Rational[X_1, \dotsc, X_n]^{S_n}$ with integer coefficients and $F,G \in \Rational[X_1, \dotsc, X_n]^{S_n}$ with
+% \[
+%     f
+%   = F(e_1, \dotsc, e_n)
+%   = G(h_1, \dotsc, h_n)
+% \]
+% both $F$ and $G$ must have integer coefficients.
+% 
+
+
+\begin{fluff}
+  We have seen that the elementary symmetric polynomials $e_1, \dotsc, e_n$ and the complete homogeneous symmetric polynomials $h_1, \dotsc, h_n$ are dual to each other in the sense that there exists a involutive algebra automorphism $\Phi$ of $k[X_1, \dotsc, X_n]^{S_n}$ which swaps $e_i$ and $h_i$ for every $i = 1, \dotsc, n$.
+  We can determine the action of $\Phi$ on the power sums $p_1, \dotsc, p_n$.
+  
+  Applying $\Phi$ to Newton’s identities (Corollary~\ref{corollary: Newtons identities}) and comparing the result with Corollary~\ref{corollary: relation between h and p} seems to suggest that
+  \[
+      \Phi(p_r)
+    = (-1)^{r-1} p_r
+  \]
+  for all $r = 1, \dotsc, n$.
+  We can show this by induction on $r$:
+  
+  For $r = 1$ we have that
+  \[
+      \Phi(p_1)
+    = \Phi(e_1)
+    = h_1
+    = p_1 \,.
+    = (-1)^{r-1} p_1
+  \]
+  For $r > 1$ we apply $\Phi$ to the Newton identity
+  \[
+      r e_r
+    =   p_1 e_{r-1}
+      - p_2 e_{r-2}
+      + \dotsb
+      + (-1)^{r-2}  p_{r-1} e_1
+      + (-1)^{r-1}  p_r \,,
+  \]
+  which by induction results in the identity
+  \[
+      r h_r
+    =   p_1 h_{r-1}
+      + p_2 h_{r-2}
+      + \dotsb
+      + p_{r-1} h_1
+      + (-1)^{r-1} \Phi(p_r) \,.
+  \]
+  By comparing this to Corollary~\ref{corollary: relation between h and p} it follows that $\Phi( p_r ) = (-1)^{r-1} p_r$.
+\end{fluff}
+
+
+
+
+
+\subsection{Partitions}
+
+\begin{definition}
+  Let $n \in \Natural$.
+  A partition of $n$ is a tupel $\lambda = (\lambda_1, \dotsc, \lambda_s)$ of natural numbers $\lambda_i \in \Natural$ with $n = \sum_{i=1}^s \lambda_i$ and
   \[
           \lambda_1
     \geq  \lambda_2
     \geq  \dotsb
     \geq  \lambda_s
-    \geq  0 \,.
+    >  0 \,.
   \]
-  The $\lambda_i$ are the \emph{parts of $\lambda$} and $l(\lambda) \coloneqq s$ is the \emph{length of $\lambda$}.
-  
-  An \emph{infinite partition} is a sequence $\lambda_1, \lambda_2, \dotsc \in \Natural$ with $\lambda_i = 0$ for all $i \geq s$ for some $s$ such that $(\lambda_1, \dotsc, \lambda_s)$ is a partition.
-  For a partition $(\lambda_1, \dotsc, \lambda_s) \in \Natural^s$ the \emph{infinite partition associated to $\lambda$} is defined as
+  Then $|\lambda| \defined \sum_{i=1}^n \lambda_i$, the $\lambda_i$ are the \emph{parts of $\lambda$} and $\ell(\lambda) \defined s$ is the \emph{length of $\lambda$}.
+\end{definition}
+
+
+\begin{example}
+  The partitions of $4$ are $(4)$, $(3,1)$, $(2,2)$, $(2,1,1)$, $(1,1,1,1)$.
+\end{example}
+
+
+\begin{fluff}
+  Partitions are often displayed in terms of \emph{Young diagrams}.
+  The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
+\end{fluff}
+
+
+\begin{example}
+  The Young diagrams of the partitions of $4$ are as follows:
   \[
-              \hat{\lambda}_i
-    \coloneqq \begin{cases}
-                \lambda_i & \text{for } 1 \leq i \leq l(\lambda) \,,  \\
-                        0 & \text{otherwise} \,.
-              \end{cases}
+    \renewcommand{\arraystretch}{2}
+    \begin{matrix}
+        \ydiagram{4}
+      & \quad
+      & \ydiagram{3,1}
+      & \quad
+      & \ydiagram{2,2}
+      & \quad
+      & \ydiagram{2,1,1}
+      & \quad
+      & \ydiagram{1,1,1,1}
+      \\
+        (4)
+      & {}
+      & (3,1)
+      & {}
+      & (2,2)
+      & {}
+      & (2,1,1)
+      & {}
+      & (1,1,1,1)
+    \end{matrix}
   \]
-  
-  The \emph{transposed partition of a partition $\lambda$} is defined as
+\end{example}
+
+
+\begin{fluff}
+  Note that transposing the Young diagram of a partition $\lambda$ of $n$ gives again the Young-diagram of a partition $\lambda'$ of $n$.
+  If $\lambda = (\lambda_1, \dotsc, \lambda_s)$ then $\lambda' = (\lambda'_1, \dotsc, \lambda'_t)$ for $t = \lambda_1$ with $\lambda'_i = |\{j \mid \lambda_j \geq i\}|$.
+\end{fluff}
+
+\begin{definition}
+  The partition $\lambda'$ is the \emph{transposed} of the partition $\lambda$.
+\end{definition}
+
+
+\begin{definition}
+  An \emph{infinite partition} is a decreasing sequence $\lambda_1, \lambda_2, \dotsc \in \Natural$ with $\lambda_i = 0$ for all but finitely many $i$.
+  For a partition $(\lambda_1, \dotsc, \lambda_s)$ the \emph{infinite partition associated to $\lambda$} is given by
   \[
-              \lambda'_i
-    \coloneqq |\{j \mid \lambda_j \geq i\}| \,.
+      \hat{\lambda}
+    = (\lambda_1, \dotsc, \lambda_s, 0, 0, \dotsc) \,.
   \]
 \end{definition}
 
 
-Partitions are often displayed in terms of \emph{Young diagrams}.
-The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
-
-
 \begin{example}
-  $\lambda = (4,2,2)$ is a partition of $8$ and $\lambda' = (3,3,1,1)$ is the transposed partion.
-  The Young diagram corresponding to $\lambda'$ is the `transposition' of the Young diagram corresponding to $\lambda$.
-  (See figure \ref{figure: Young diagram example}.)
-  \begin{figure}
-    \centering
-    \ydiagram{4,2,2}
-    \qquad
-    \ydiagram{3,3,1,1}
-    \caption{The Young diagrams corresponding to $\lambda$ (left) and to $\lambda'$ (right).}
-    \label{figure: Young diagram example}
-  \end{figure}
+  The partitions $\lambda = (4,2,2)$ and $\lambda' = (3,3,1,1)$ are transposed to each other.
+  \[
+    \renewcommand{\arraystretch}{2}
+    \begin{matrix}
+        \ydiagram{4,2,2}
+      & \quad
+      & \ydiagram{3,3,1,1}
+      \\
+        (4,2,2)
+      & {}
+      & (3,3,1,1)
+    \end{matrix}
+  \]
 \end{example}
 
 
@@ -1064,16 +1077,15 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
     \coloneqq \bigcup_{n \in \Natural} \Par(n) \,.
   \]
 \end{definition}
-  
+
 
 \begin{definition}
-  Let $\lambda$ and $\mu$ be partitions.
-  We say that $\lambda \geq \mu$ if $|\lambda| = |\mu|$ and $\sum_{i=1}^r \hat{\lambda}_i \geq \sum_{i=1}^r \hat{\mu}_i$ for all $r$.
+  If $\lambda, \mu \in P(n)$ then $\lambda \geq \mu$ if $\sum_{i=1}^r \hat{\lambda}_i \geq \sum_{i=1}^r \hat{\mu}_i$ for all $r$.
 \end{definition}
 
 
 \begin{example}
-  The following is a simple example of partitions of $6$.
+  The following are partitions of $6$:
   \[
       \ydiagram{6}
     > \ydiagram{4,2}
@@ -1084,69 +1096,87 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
   The partitions
   \[
     \ydiagram{2,2}
-    \quad \text{and} \quad
+    \quad\text{and}\quad
     \ydiagram{1,1}
   \]
-  are not comparable (because $4 \neq 2$ in $\Natural$). The partitions
+  are not comparable because the first is a partition of $4$ while the second is a partititon of $2$.
+  The partitions
   \[
     \ydiagram{4,2,1,1,1}
     \quad \text{and} \quad
     \ydiagram{3,3,2,1}
   \]
-  are also not comparable.
-  (Because $4+2+1 = 7 < 8 = 3+3+2$ in $\Natural$.)
+  are also not comparable because $4 > 3$ but $4+2+1 = 7 < 8 = 3+3+2$.
 \end{example}
-%TODO: Adding a better explanation of this partial order. Bessere Erklärung der partiellen Ordnung hinzufügen.
+
 
 \begin{lemma}
-  $\geq$ defines a partial ordering on $\Par$.
+  For every $n \in \Natural$, $\leq$ defines a partial ordering on $\Par(n)$.
 \end{lemma}
 \begin{proof}
-  It is clear that $\geq$ is reflexive.
+  The relation $\leq$ is reflexive.
   
-  If $\lambda$ and $\mu$ are partitions with $\lambda \geq \mu$ and $\lambda \leq \mu$ then $\lambda = \mu$:
-  Because $\lambda \geq \mu$ we have $\lambda_1 \geq \mu_1$ and because $\lambda \leq \mu$ we have $\lambda_1 \leq \mu_1$.
-  Thus we have $\lambda_1 = \mu_1$.
-  In the same way we find that $\lambda_1 + \lambda_2 = \mu_1 + \mu_2$, and from $\lambda_1 = \mu_1$ we get that $\lambda_2 = \mu_2$.
-  Because $|\lambda| = |\mu|$ we find inductively that $l(\lambda) = l(\mu)$ and $\lambda_i = \mu_i$ for all $1 \leq i \leq l(\lambda)$.
+  Let $\lambda, \mu \in \Par(n)$ with $\lambda \geq \mu$ and $\lambda \leq \mu$.
+  Because $\lambda \geq \mu$ we have $\hat{\lambda}_1 \geq \hat{\mu}_1$ and because $\lambda \leq \mu$ we have $\hat{\lambda}_1 \leq \hat{\mu}_1$.
+  Thus we have $\hat{\lambda}_1 = \hat{\mu}_1$.
+  In the same way we find that $\hat{\lambda}_1 + \hat{\lambda}_2 = \hat{\mu}_1 + \hat{\mu}_2$, and with $\hat{\lambda}_1 = \hat{\mu}_1$ we get that $\hat{\lambda}_2 = \hat{\mu}_2$.
+  It follows inductively that $\hat{\lambda}_i = \hat{\mu}_i$ for every $i$.
+  We then have that $\hat{\lambda} = \hat{\mu}$, and therefore that $\lambda = \mu$.
+  This shows that $\leq$ is antisymmetric.
   
-  If $\lambda, \mu$ and $\sigma$ are partitions with $\lambda \geq \mu$ and $\mu \geq \sigma$ then $\lambda \geq \sigma$:
-  Because $\lambda \geq \mu$ we have $|\lambda| = |\mu|$ and because $\mu \geq \sigma$ we have $|\mu| = |\sigma|$.
-  Thus we have $|\lambda| = |\sigma|$.
-  For all $r \geq 1$ we have
+  Let $\lambda, \mu, \nu \in \Par(n)$ with $\lambda \geq \mu$ and $\mu \geq \nu$.
+  For all $r \geq 1$ we then have
   \[
-          \sum_{i=1}^r \lambda_i
-    \geq  \sum_{i=1}^r \mu_i
-    \text{ and }
-          \sum_{i=1}^r \mu_i
-    \geq  \sum_{i=1}^r \sigma_i
+          \sum_{i=1}^r \hat{\lambda}_i
+    \geq  \sum_{i=1}^r \hat{\mu}_i
+    \quad\text{and}\quad
+          \sum_{i=1}^r \hat{\mu}_i
+    \geq  \sum_{i=1}^r \hat{\nu}_i
   \]
-  because $\lambda \geq \mu$ and $\mu \geq \sigma$, and therefore
+  and therefore
   \[
-          \sum_{i=1}^r \lambda_i
-    \geq  \sum_{i=1}^r \sigma_i \,.
-    \qedhere
+          \sum_{i=1}^r \hat{\lambda}_i
+    \geq  \sum_{i=1}^r \hat{\nu}_i \,,
   \]
+  so that $\lambda \geq \nu$.
+  This shows that $\leq$ is transitive.
 \end{proof}
 
+\begin{definition}
+  For any two infinite partitions $\lambda, \mu$ their \emph{sum} $\lambda + \mu$ is given by
+  \[
+      (\lambda + \mu)_i
+    = \lambda_i + \mu_i
+  \]
+  for all $i$.
+  For any two partitions $\lambda, \mu \in \Par$ their \emph{sum} $\lambda + \mu$ is the partition with $\widehat{\lambda + \mu} = \hat{\lambda} + \hat{\mu}$, i.e.\ the partitition with $\ell(\lambda + \mu) = \max( \ell(\lambda), \ell(\mu) )$ and
+  \[
+      (\lambda+\mu)_i
+    = \begin{cases}
+        \lambda_i + \mu_i & \text{if $i \leq \ell(\lambda), \ell(\mu)$}       \,, \\
+        \lambda_i         & \text{if $i \leq \ell(\lambda)$, $i > \ell(\mu)$} \,, \\
+        \mu_i             & \text{if $i \leq \ell(\mu)$, $i > \ell(\lambda)$} \,.
+      \end{cases}
+  \]
+\end{definition}
+
+
+\begin{example}
+  For $\lambda = (4,3,2,2)$ and $\mu = (3,2,2)$ we have $\lambda + \mu = (7,5,4,2)$.
+  The addition of two partitions can also be visualized “putting together” their Young diagrams row-wise:
+  \[
+                \ydiagram[*(gray)]{4,3,2,2}
+          \;+\; \ydiagram[*(light-gray)]{3,2,2,0}
+    \;=\; \ydiagram[*(light-gray)]{4+3,3+2,2+2} * [*(gray)]{7,5,4,2}
+  \]
+\end{example}
+
+
+
+\subsection{Monomial Symmetric Polynomials}
 
 \begin{definition}
-  Let $\lambda = (\lambda_1, \dotsc, \lambda_r)$ be a partition. We define the \emph{elementary symmetric polynomial}
-  \[
-              e^{(n)}_\lambda
-    \coloneqq e^{(n)}_{\lambda_1} \dotsm e^{(n)}_{\lambda_r} \,,
-  \]
-  the \emph{complete symmetric polynomial}
-  \[
-              h^{(n)}_\lambda
-    \coloneqq h^{(n)}_{\lambda_1} \dotsm h^{(n)}_{\lambda_r} \,,
-  \]
-  the \emph{power symmetric polynomial}
-  \[
-              p^{(n)}_\lambda
-    \coloneqq p^{(n)}_{\lambda_1} \dotsm p^{(n)}_{\lambda_r}
-  \]
-  and the \emph{monomial symmetric polynomial}
+  For a partition $\lambda = (\lambda_1, \dotsc, \lambda_r)$ the corresponding \emph{monomial symmetric polynomial} is given by
   \[
               m_\lambda
     \coloneqq   X_1^{\lambda_1} \dotsm X_r^{\lambda_r}
@@ -1155,386 +1185,559 @@ The Young diagram corresponding to a partition $\lambda$ is an array of boxes, l
 \end{definition}
 
 
-One can also define $m_\lambda$ in a formal way:
-Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \dotsm X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials.
-To formalize this we let $S_r$ act on $\Natural^r$ by permuting the entries, i.e.\
-\[
-    \pi.(a_1, \dotsc, a_r)
-  = \left( a_{\pi^{-1}(1)}, \dotsc, a_{\pi^{-1}(r)} \right)
-\]
-for all $\pi \in S_r$ and $(a_1, \dotsc, a_r) \in \Natural^r$.
-The set of all distinct permutations of $\lambda$ is precisely the orbit of $\lambda$ under this action.
-As we know from basic group theory we have an isomorphism of $G$-sets
-\[
-          S_r / U
-  \to     S_r \lambda,
-  \quad   [\pi]
-  \mapsto \pi.\lambda
-\]
-where $U$ is the stabilizer group of $\lambda$ and $S_r \lambda$ is the orbit of $\lambda$.
-(Note that $U$ is not necessarily a normal subgroup in $S_r$ and $S_r/U$ is only the set of left cosets.)
-Thus we can write
-\[
-    m_\lambda
-  = \sum_{[\pi] \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \dotsm X_r^{\lambda_{\pi^{-1}(r)}}
-  = \sum_{[\pi] \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r} \,.
-\]
-Also notice that
-\[
-        U
-  \cong S_{\nu_0} \times \dotsb \times S_{\nu_m}
-\]
-where
-\[
-            \nu_n
-  \coloneqq \left|
-              \left\{
-                1 \leq i \leq r
-              \mid
-                  \lambda_i
-                = n
-              \right\}
-            \right|
-\]
-and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
-
-
-\begin{example}[]
-  Let $k$ be a field with $\kchar k \neq 2$.
-  Let $\lambda = (\lambda_1, \dotsc, \lambda_n) \in \Par$ be a partition.
-  The \emph{Schur polynomial corresponding to $\lambda$} is the symmetric polynomial $s_\lambda \in k[X_1, \dotsc, X_n]^{S_n}$ of homogenous degree $|\lambda|$ defined as
-  \[
-              s_\lambda
-    \coloneqq \frac
-              {
-                \sum_{\sigma \in S_n} \sgn(\sigma)          X_{\sigma(1)}^{\lambda_1}
-                                                            X_{\sigma(2)}^{\lambda_2 + 1}
-                                                    \dotsm  X_{\sigma(n)}^{\lambda_n + n-1}
-               }{
-                \prod_{1 \leq i < j \leq n} (X_i - X_j)
-               }
-  \]
-  (In the lecture the same statements were made for the ring of integers $\Integer$ and arbitrary fields, but the following argumentation does not work in these cases.)
+\begin{remark}
+  The monomial symmetric polynomial $m_\lambda$ can also be defined in a more formal way:
   
-  To show that $s_\lambda$ is well-defined we first notice the numerator
+  Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \dotsm X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials.
+  To formalize this we let $S_r$ act on $\Natural^r$ by permuting the entries, i.e.\
   \[
-              N
-    \coloneqq \sum_{\sigma \in S_n} \sgn(\sigma)          X_{\sigma(1)}^{\lambda_1}
-                                                          X_{\sigma(2)}^{\lambda_2 + 1}
-                                                  \dotsm  X_{\sigma(n)}^{\lambda_n + n-1}
+      \pi.(a_1, \dotsc, a_r)
+    = ( a_{\pi^{-1}(1)}, \dotsc, a_{\pi^{-1}(r)} )
   \]
-  and the denumerator
+  for all $\pi \in S_r$, $(a_1, \dotsc, a_r) \in \Natural^r$.
+  The set of all distinct permutations of $\lambda$ is precisely the orbit of $\lambda$ under this action.
+  For the stabilizer subgroup $U \subseteq S_n$ there exists an isomorphism of $G$-sets
   \[
-              D
-    \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
+            S_r / U
+    \to     S_r \lambda,
+    \quad   \class{\pi}
+    \mapsto \pi.\lambda
   \]
-  are alternating polynomials, i.e.\ $\sigma.N = \sgn(\sigma) N$ and $\sigma.D = \sgn(\sigma) D$ for every $\sigma \in S_n$, because
-  \begin{gather*}
-    N = \det
-    \begin{pmatrix}
-      X_1^{\lambda_1}       & X_2^{\lambda_1}       & \cdots & X_n^{\lambda_1}       \\
-      X_1^{\lambda_2 + 1}   & X_2^{\lambda_2 + 1}   & \cdots & X_n^{\lambda_2 + 1}   \\
-      \vdots                & \vdots                & \ddots & \vdots                \\
-      X_1^{\lambda_n + n-1} & X_2^{\lambda_n + n-1} & \cdots & X_n^{\lambda_n + n-1}
-    \end{pmatrix}
-  \shortintertext{and}
-    D = \det
-    \begin{pmatrix}
-      1      & X_1    & X_1^2  & \cdots & X_1^{n-1} \\
-      1      & X_2    & X_2^2  & \cdots & X_2^{n-1} \\
-      \vdots & \vdots & \vdots & \ddots & \vdots    \\
-      1      & X_n    & X_n^2  & \cdots & X_n^{n-1}
-    \end{pmatrix}.
-  \end{gather*}
-  That $D$ divides $N$ follows from the following claim:
-  \begin{claim}
-    Let $f \in k[X_1, \dotsc, X_n]$ be an alternating polynomial and
-    \[
-                V
-      \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
-      \in       k[X_1, \dotsc, X_n] \,.
-    \]
-    Then $V$ divides $f$.
-  \end{claim}
-  \begin{proof}
-    Since the polynomials $X_i - X_j$ with $1 \leq i < j \leq n$ are pairwise non-equivalent primes it sufficies to show that $X_i-X_j$ divides $f$ for all $1 \leq i < j \leq n$.
-    Because $f$ is alternating it is enough to show that $X_1 - X_2$ divides $f$.
-    
-    For $R \coloneqq k[X_3, \dotsc, X_n]$, $u = X_1 + X_2$ and $x = X_1 - X_2$ we have
-    \[
-        k[X_1, \dotsc, X_n]
-      = R[X_1, X_2]
-      = R[u,v] \,,
-    \]
-    so we can write $f = \sum_{i \in \Natural} f_i v^i$ with $f_i \in R[u]$ for every $i \in \Natural$.
-    Because $f$ is alternating we have
-    \begin{align*}
-           \sum_{i \in \Natural} f_i v^i
-      &=   f(X_1, X_2, \dotsc, X_n)
-       =  -f(X_2, X_1, \dotsc, X_n) \\
-      &=  -\sum_{i \in \Natural} (-1)^i f_i v^i
-       =   \sum_{i \in \Natural} (-1)^{i+1} f_i v^i \,.
-    \end{align*}
-    So $f_i = 0$ if $i$ is even.
-    Therefore $v$ divides $f$ .
-  \end{proof}
-  Since $D$ and $N$ are both alternating it is also clear that $s_\lambda = N/D$ is symmetric.
-  To see that $s_\lambda$ is homogeneous of degree $|\lambda|$ notice that $N$ is homogeneous of degree
+  where $S_r.\lambda$ denotes the orbit of $\lambda$.
+  Thus we can write
   \[
-      \lambda_1 + (\lambda_2 + 1) + \dotsb + (\lambda_n + n-1)
-    = |\lambda| + \binom{n}{2}
+      m_\lambda
+    = \sum_{\class{\pi} \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \dotsm X_r^{\lambda_{\pi^{-1}(r)}}
+    = \sum_{\class{\pi} \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r} \,.
   \]
-  and that $D$ is homogeneous of degree $\binom{n}{2}$.
-  \begin{claim}
-    Let $f, g \in k[X_1, \dotsc, X_n]$ be polynomials such that $f$ is homogenous of degree $d_1$ and $g$ homogeneous of degree $d_2$.
-    If $g$ divides $f$ then $f/g$ is homogenous of degree $d_1 - d_2$.
-  \end{claim}
-  \begin{proof}
-    We can write $f/g = \sum_{d \in \Natural} h_d$ where $h_d \in k[X_1, \dotsc, X_n]$ is homogenous of degree $d$.
-    Then $f = (f/g)g = \sum_{d \in \Natural} h_d g$ where $h_d g$ is homogeneous of degree $d + d_2$.
-    Because $f$ is homogenous of degree $d_1$ we find that $h_d = 0$ for $d \neq d_1 - d_2$.
-    Thus $f/g = h_d$ is homogeneous of degree $d_1 - d_2$.
-  \end{proof}
-\end{example}
+%   Also notice that
+%   \[
+%           U
+%     \cong S_{\nu_0} \times \dotsb \times S_{\nu_m}
+%   \]
+%   where
+%   \[
+%               \nu_n
+%     \coloneqq \left|
+%                 \left\{
+%                   1 \leq i \leq r
+%                 \mid
+%                     \lambda_i
+%                   = n
+%                 \right\}
+%               \right|
+%   \]
+%   and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
+\end{remark}
 
 
-\begin{lemma}
-  The set of monomial symmetric polynomials
+\begin{fluff}
+  Note that every multi-index $\underline{\alpha} \in \Natural^n$ can be reordered uniquely to a partition $\lambda$ of length $\ell(\lambda) = n$.
+  Then $m_\lambda$ is the “smallest” symmetric polynomial containing the monomial $X^{\,\underline{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$.
+  The following result should therefore not be too surprising:
+\end{fluff}
+
+
+\begin{proposition}
+  \label{proposition: m_lambda give a basis}
+  The monomial symmetric polynomials
   \[
-    \{
       m_\lambda
-    \mid
-      \lambda \in \Par,
-      l(\lambda) = n
-    \}
+    \quad\text{with}\quad
+      \lambda \in \Par, \,
+      \ell(\lambda) = n
   \]
-  forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$ (as a $k$-vector space). More precisely
-  \[
-    \{
-      m_\lambda
-    \mid
-      \lambda \in \Par(d),
-      l(\lambda) = n
-    \}
-  \]
-  forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}_d$.
-\end{lemma}
+  form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
+\end{proposition}
+
+
+\begin{notation}
+  Every multi-index $\underline{\alpha} \in \Natural^n$ can be permuted to a unique partition $\lambda \in \Par$ of length $n$.
+  We will refer to $\lambda$ as the \emph{partition associated to $\underline{\alpha}$}.
+  
+  We will sometimes want to consider a partition $\lambda = (\lambda_1, \dotsc, \lambda_n)$ as a multi-index.
+  When doing so, we will write $\underline{\lambda}$ instead of just $\lambda$.
+  (So technically speaking both $\underline{\lambda}$ and $\lambda$ are the same thing.)
+  Note that $\lambda$ is then the partition associated to $\underline{\lambda}$.
+\end{notation}
+
+
 \begin{proof}
-  Is is clear that
+  Note that for every monomial $X_1^{\alpha_1} \dotsm X_n^{\alpha}$ the polynomial
   \[
-            \vspan_k \{
-                        m_\lambda
-                      \mid
-                        \lambda \in \Par,
-                        l(\lambda) = n,
-                        |\lambda| = d
-                      \}
-  \subseteq k[X_1, \dotsc, X_n]^{S_n}_d \,.
+      X_1^{\alpha_1} \dotsm X_n^{\alpha}
+    + \text{all distinct permutations of this monomial}
   \]
-  On the other side let $f \in k[X_1, \dotsc, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
-  \[
-        f
-    \in \vspan_k  \{
-                    m_\lambda
-                  \mid
-                    \lambda \in \Par,
-                    l(\lambda) = n,
-                    |\lambda| = d
-                  \} \,.
-  \]
-  For $f = 0$ this is clear.
-  Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \dotsc, X_n]^{S_n}_d$ which consists of fewer monomials than $f$.
-  Because $\{X^\alpha \mid \alpha \in \Natural^n, |\alpha| = d \}$ is a $k$-basis of $k[X_1, \dotsc, X_n]_d$ we can write
-  \[
-      f
-    = \sum_{\substack{\alpha \in \Natural^n \\ |\alpha| = d}} c_\alpha X^\alpha \,.
-  \]
-  with unique $c_\alpha \in k$ such that $c_\alpha \neq 0$ for only finitely many $\alpha$.
-  Because $f$ is symmetric we find that
-  \[
-      c_\alpha
-    = c_{\pi.\alpha}
-    \text{ for all }
-    \alpha \in \Natural^n,
-    \pi \in S_n
-  \]
-  (where the action of $S_n$ on $\Natural^n$ is defined as above).
-  Let $X^\beta$ be a monomial of $f$.
-  Because $f \in k[X_1, \dotsc, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \dotsc, X_n]_d$ and thus $c_\beta m_\beta \in k[X_1, \dotsc, X_n]^{S_n}_d$.
-  Because $c_\beta \neq 0$ and $c_\beta = c_{\pi.\beta}$ for every $\pi \in S_n$ we find that $f - c_{\beta} m_\beta$ consists of fewer monomials than $f$.
-  Because $f-c_{\beta} m_\beta$ is symmetric we find by induction hypothesis that
-  \[
-        f - c_{\beta} m_\beta
-    \in \vspan_k  \{
-                    m_\lambda
-                  \mid
-                    \lambda \in \Par,
-                    l(\lambda) = n,
-                    |\lambda| = d
-                  \} \,.
-  \]
-  The statement for $f$ follows directly.
+  is precisely the monomial symmetric polynomial $m_\lambda$  of the partition $\lambda$ associated to $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
   
-  To show that
-  \[
-    \{
-      m_\lambda
-    \mid
-      \lambda \in \Par,
-      l(\lambda) = n
-    \}
-  \]
-  is linear independent we notice that for $\lambda, \mu \in \Par$ with $\lambda \neq \mu$ the polynomials $m_\lambda$ and $m_\mu$ have no monomials in common. Because
-  \[
-    \{
-      X^\alpha
-    \mid
-      \alpha \in \Natural^n
-    \}
-  \]
-  is linear independent it then follows that
-  \[
-    \{
-      m_\lambda
-    \mid
-      \lambda \in \Par,
-      l(\lambda) = n
-    \}
-  \]
-  is linear independent.
+  Let $f \in k[X_1, \dotsc, X_n]^{S_n}$ be a symmetric polynomial.
+  Then for every monomial $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $f$, all of its permutations must also occur in $f$, all of them with the same coefficient $c$.
+  By the above observation all of these monomials can be grouped together to the symmetric polynomial $c m_{\lambda}$, where $\lambda$ is the partition associated to $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
+  
+  Since $f - c m_\lambda$ is again symmetric one can then inductively continue this process of grouping together permutated monomials to ultimately express $f$ as a linear combination of monomial symmetric polynomials.
+  (Note that no new monomials are introduced during this process, so that it eventually terminates.)
+  
+  The beginning observation also shows that a partition $\lambda$ is uniquely determined by any of the monomials $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$.
+  It follows that for any two distinct partitions $\lambda \neq \mu$ their monomial symmetric polynomials $m_\lambda$, $m_\mu$ have no common monomonials.
+  As the collection of all monomials $X^{\,\underline{\alpha}}$, $\underline{\alpha} \in \Natural^n$ is linearly independent, it follows that the collection of monomial symmetric polynomials $m_\lambda$, $\lambda \in \Par$ is also linearly independent.
 \end{proof}
 
 
-\begin{definition}
-  Let $\lambda, \mu \in \Par$.
-  We define the partition $\lambda+\mu$ of length $l(\lambda+\mu) = \max\{ l(\lambda), l(\mu) \}$ as
-  \[
-      (\lambda+\mu)_i
-    = \begin{cases}
-        \lambda_i + \mu_i & \text{if } i \leq l(\lambda),l(\mu)       \,, \\
-        \lambda_i         & \text{if } i \leq l(\lambda), i > l(\mu)  \,, \\
-        \mu_i             & \text{if } i \leq l(\mu), i > l(\lambda)  \,.
-      \end{cases}
-  \]
-  So $\lambda+\mu$ is the partition of minimal length with
-  \[
-      \hat{\lambda}_i + \hat{\mu}_i
-    = \widehat{\lambda + \mu}_i
-    \text{ for all }
-    i \geq 0 \,.
-  \]
-\end{definition}
+
+% \begin{proof}
+%   The polynomial ring $k[X_1, \dotsc, X_n]$ has the usual monomial basis
+%   \[
+%               B
+%     \defined  \{
+%                   X^{\,\underline{\alpha}}
+%                 = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+%               \mid
+%                     \underline{\alpha}
+%                 =   (\alpha_1, \dotsc, \alpha_n)
+%                 \in \Natural^n
+%               \} \,.
+%   \]
+%   The action of $S_n$ on $k[X_1, \dotsc, X_n]$ restrict to an action of $S_n$ on the basis $B$.
+%   It follows that a polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if its coefficients are constant on the $S_n$-orbits of $B$.
+%   Hence a basis of $k[X_1, \dotsc, X_n]^{S_n}$ is given by the polynomials $f_{\mc{O}}$ whose coefficents are $1$ on an orbit $\mc{O} \in B/S_n$ and $0$ otherwise.
+%   
+%   The action of $S_n$ on $B$ is given by
+%   \[
+%       \sigma.X^{\,\underline{\alpha}}
+%     = \sigma.X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+%     = X_{\sigma(1)}^{\alpha_1} \dotsm X_{\sigma(n)}^{\alpha_n}
+%     = X_1^{\alpha_{\sigma^{-1}(1)}} \dotsm X_n^{\alpha_{\sigma^{-1}(n)}}
+%     = X^{\sigma.\underline{\alpha}} \,,
+%   \]
+%   and thus corresponds to the permutation action of $S_n$ on $\Natural^n$.
+%   The bijection $\Natural^n \to B$, $\underline{\alpha} \mapsto X^{\,\underline{\alpha}}$ therefore induces a bijection
+%   \[
+%           \Natural^n / S_n
+%     \to   B / S_n \,,
+%     \quad [\underline{\alpha}]
+%     \to   [X^{\,\underline{\alpha}}]
+%   \]
+%   With this we can reparametrize the basis
+%   \begin{align*}
+%     f_{\mc{O}}
+%     \quad&\text{with}\quad
+%     \mc{O} \in B/S_n
+%   \shortintertext{as}
+%               g_{[\underline{\alpha}]}
+%     \defined  f_{[X^{\,\underline{\alpha}}]}
+%     \quad&\text{with}\quad
+%     [\underline{\alpha}] \in \Natural^n/S_n \,.
+%   \intertext{
+%   The $S_n$-orbits of $\Natural^n$ have the partitions of length $n$ as a representative system.
+%   Thus a basis of $k[X_1, \dotsc, X_n]^{S_n}$ is given by the polynomials
+%   }
+%     g_{[\lambda]}
+%     \quad&\text{with}\quad
+%     \lambda \in \Par \,,
+%     \ell(\lambda) = n
+%   \intertext{
+%   For every partition $\lambda$ of length $\ell(\lambda) = n$ the polynomial $g_{[\lambda]}$ has coefficient $1$ for the monomial $X_1^{\lambda_1} \dotsm X_n^{\lambda_n}$ and its permutations, and $0$ otherwise.
+%   Thus $g_{[\lambda]}$ is precisely the monomial symmetric polynomial $m_\lambda$.
+%   We thus arrive at the basis
+%   }
+%     m_\lambda
+%     \quad&\text{with}\quad
+%     \lambda \in \Par \,,
+%     \ell(\lambda) = n
+%   \qedhere
+%   \end{align*}
+% \end{proof}
 
 
-\begin{example}
-  For $\lambda = (4,4,2,2)$ and $\mu = (3,2,1)$ we have $\lambda + \mu = (7,6,3,2)$.
-  The addition of two partitions can also easily be visualized with Young diagrams, see figure \ref{figure: addition partition young diagrams}.
-  \begin{figure}\centering
+% Previous Proof:
+% \begin{proof}
+%   Is is clear that
+%   \[
+%             \vspan_k \{
+%                         m_\lambda
+%                       \mid
+%                         \lambda \in \Par,
+%                         l(\lambda) = n,
+%                         |\lambda| = d
+%                       \}
+%   \subseteq k[X_1, \dotsc, X_n]^{S_n}_d \,.
+%   \]
+%   On the other side let $f \in k[X_1, \dotsc, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
+%   \[
+%         f
+%     \in \vspan_k  \{
+%                     m_\lambda
+%                   \mid
+%                     \lambda \in \Par,
+%                     l(\lambda) = n,
+%                     |\lambda| = d
+%                   \} \,.
+%   \]
+%   For $f = 0$ this is clear.
+%   Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \dotsc, X_n]^{S_n}_d$ which consists of fewer monomials than $f$.
+%   Because $\{X^\alpha \mid \alpha \in \Natural^n, |\alpha| = d \}$ is a $k$-basis of $k[X_1, \dotsc, X_n]_d$ we can write
+%   \[
+%       f
+%     = \sum_{\substack{\alpha \in \Natural^n \\ |\alpha| = d}} c_\alpha X^\alpha \,.
+%   \]
+%   with unique $c_\alpha \in k$ such that $c_\alpha \neq 0$ for only finitely many $\alpha$.
+%   Because $f$ is symmetric we find that
+%   \[
+%       c_\alpha
+%     = c_{\pi.\alpha}
+%     \text{ for all }
+%     \alpha \in \Natural^n,
+%     \pi \in S_n
+%   \]
+%   (where the action of $S_n$ on $\Natural^n$ is defined as above).
+%   Let $X^\beta$ be a monomial of $f$.
+%   Because $f \in k[X_1, \dotsc, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \dotsc, X_n]_d$ and thus $c_\beta m_\beta \in k[X_1, \dotsc, X_n]^{S_n}_d$.
+%   Because $c_\beta \neq 0$ and $c_\beta = c_{\pi.\beta}$ for every $\pi \in S_n$ we find that $f - c_{\beta} m_\beta$ consists of fewer monomials than $f$.
+%   Because $f-c_{\beta} m_\beta$ is symmetric we find by induction hypothesis that
+%   \[
+%         f - c_{\beta} m_\beta
+%     \in \vspan_k  \{
+%                     m_\lambda
+%                   \mid
+%                     \lambda \in \Par,
+%                     l(\lambda) = n,
+%                     |\lambda| = d
+%                   \} \,.
+%   \]
+%   The statement for $f$ follows directly.
+%   
+%   To show that
+%   \[
+%     \{
+%       m_\lambda
+%     \mid
+%       \lambda \in \Par,
+%       l(\lambda) = n
+%     \}
+%   \]
+%   is linear independent we notice that for $\lambda, \mu \in \Par$ with $\lambda \neq \mu$ the polynomials $m_\lambda$ and $m_\mu$ have no monomials in common. Because
+%   \[
+%     \{
+%       X^\alpha
+%     \mid
+%       \alpha \in \Natural^n
+%     \}
+%   \]
+%   is linear independent it then follows that
+%   \[
+%     \{
+%       m_\lambda
+%     \mid
+%       \lambda \in \Par,
+%       l(\lambda) = n
+%     \}
+%   \]
+%   is linear independent.
+% \end{proof}
+
+
+\begin{fluff}
+  Note that the proof of Proposition~\ref{proposition: m_lambda give a basis} gives an easy way to express a symmetric polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ in terms of the monomial symmetric polynomials:
+  Simply group together all monomial which are permutated to each other.
+  
+  We will use this to describe the product $m_\lambda m_\mu$ for two partitions $\lambda, \mu \in \Par$ of length $n$ as a linear combination of the basis $m_\nu$, $\nu \in \Par$:
+  
+  The monomials $X^{\,\underline{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$ are those for the multi-indices $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$ with associated partition $\lambda$, and the monomials $X^{\,\underline{\beta}}$ occuring in $m_\mu$ are those for the multi-indices $\underline{\beta}$ with associated partition $\mu$.
+  
+  In follows that all monomials $X^{\,\underline{\gamma}}$ occuring in $m_\lambda m_\mu$ are of the form $\underline{\gamma} = \underline{\alpha} + \underline{\beta}$ for some $\underline{\alpha}$, $\underline{\beta}$ as above.
+  Given such a $\underline{\gamma}$ and corresponding $\underline{\alpha}, \underline{\beta}$, let $\nu \in \Par$ be the partition associated to $\underline{\gamma}$.
+  
+  \begin{claim}
+    The partition $\nu$ satisfies $\nu \leq \lambda + \mu$.
+  \end{claim}
+  
+  \begin{proof}
+    Let $\lambda = (\lambda_1, \dotsc, \lambda_n)$,  $\mu = (\mu_1, \dotsc, \mu_n)$ and $\nu = (\nu_1, \dotsc, \nu_n)$.
+    By definition of $\underline{\alpha}$ and $\underline{\beta}$ there exist permutations $\sigma, \tau \in S_n$ with
     \[
-        \ydiagram[*(gray)]{4,4,2,2} + \ydiagram[*(light-gray)]{3,2,1}
-      = \ydiagram[*(light-gray)] {4+3,4+2,2+1} *[*(gray)]{7,6,3,2}
+        \underline{\alpha}
+      = ( \lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)} )
+      \quad\text{and}\quad
+        \underline{\beta}
+      = ( \mu_{\tau(1)}, \dotsc, \mu_{\tau(n)} )
     \]
-    \caption{Addition of partitions in term of Young diagrams.}
-    \label{figure: addition partition young diagrams}
-  \end{figure}
-\end{example}
+    and by definition of $\nu$ there exists some permutation $\omega \in S_n$ with
+    \[
+        \nu
+      = (\nu_1, \dotsc, \nu_n)
+      = (\alpha_{\omega(1)} + \beta_{\omega(1)},
+         \dotsc,
+         \alpha_{\omega(n)} + \beta_{\omega(n)})
+    \]
+    For every $r = 1, \dotsc, n$ we therefore have that
+    \begin{align*}
+          \sum_{i=1}^r \nu_r
+       =  \sum_{i=1}^r ( \alpha_{\omega(i)} + \beta_{\omega(i)} )
+       =    \sum_{i=1}^r \alpha_{\omega(i)}
+          + \sum_{i=1}^r \beta_{\omega(i)}
+      &=    \sum_{i=1}^r \lambda_{\sigma(\omega(i))}
+          + \sum_{i=1}^r \mu_{\tau(\omega(i))}  \\
+      &=    \sum_{i=1}^r \lambda_{\sigma'(i)}
+          + \sum_{i=1}^r \mu_{\tau'(i)}
+    \end{align*}
+    for the permutations $\sigma' \defined \sigma \omega$ and $\tau' \defined \tau \omega$.
+    Because the entries of the partitions $\lambda$ and $\mu$ are decreasing we have that $\sum_{i=1}^r \lambda_{\sigma'(i)} \leq \sum_{i=1}^r \lambda_i$ and $\sum_{i=0}^r \mu_{\tau'(i)} \leq \sum_{i=1}^r \mu_i$, so that
+    \[
+            \sum_{i=1}^r \nu_i
+      \leq    \sum_{i=1}^r \lambda_i
+            + \sum_{i=1}^r \mu_i
+      =     \sum_{i=1}^r (\lambda_i + \mu_i)
+      =     \sum_{i=1}^r (\lambda + \mu)_i \,.
+    \]
+    As this holds for every $r = 1, \dotsc, n$, this shows that $\nu \leq \mu + \lambda$.
+  \end{proof}
+  
+  We have shown that for every monomial $X^{\,\underline{\gamma}}$ in $m_\lambda m_\mu$ the partition $\nu$ associated to $\underline{\gamma}$ satisfies $\nu \leq \lambda + \mu$.
+  Thus we find that $m_\lambda m_\mu$ is already a linear combination of those $m_\nu$ for which $\nu \leq \mu + \lambda$, i.e. that
+  \[
+      m_\lambda m_\mu
+    = \sum_{\nu \leq \lambda + \mu} a_\nu m_\nu \,.
+  \]
+  for suitable coecffients $a_\nu \in k$.
+  
+  We can also determine the coefficients $a_{\lambda + \mu}$:
+  As in the \hyperref[label: first proof of fundamental theorem]{first proof of the Fundamental Theorem of Symmetric Polynomials} we introduce an ordering on the set of monomials in $k[X_1, \dotsc, X_n]$ by $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} > X_1^{\beta_1} \dotsm X_n^{\beta_n}$ if they exists some $i$ with $\alpha_1 = \beta_1, \dotsc, \alpha_n = \beta_n$ and $\alpha_i > \beta_i$.
+  For every polynomial non-zero $f \in k[X_1, \dotsc, X_n]$ we then denote by $\init f$ the inital term of $f$, that is the biggest monomial occuring in $f$ together with its coefficient.
+  Then
+  \begin{itemize}
+    \item
+      $\init(f \cdot g) = (\init f) \cdot (\init g)$ for all $f, g \in k[X_1, \dotsc, X_n]$ with $f, g \neq 0$, and
+    \item
+      $\init m_\nu = X^{\,\underline{\nu}}$ for every partition $\nu \in \Par$ of length $n$.
+  \end{itemize}
+  With this we find that
+  \[
+      \init(m_\lambda m_\mu)
+    = (\init m_\lambda) (\init m_\mu)
+    = X^{\,\underline{\lambda}} X^{\,\underline{\mu}}
+    = X^{\,\underline{\lambda} + \underline{\mu}}
+    = X^{\,\underline{\lambda + \mu}} \,.
+  \]
+  Hence the monomial $X^{\,\underline{\lambda + \mu}}$ occurts in $m_\lambda m_\mu$ with coefficient $1$.
+  The partition associated to $\underline{\lambda + \mu}$ is $\lambda + \mu$, so the coefficient of $m_{\lambda + \mu}$ in $m_\lambda m_\mu$ is $1$, i.e.\ $a_{\lambda + \mu} = 1$.
+  
+  Alltogether we have proven the following result:
+\end{fluff}
 
 
 \begin{lemma}
-  Let $\lambda, \mu \in \Par$.
+  Let $\lambda, \mu \in \Par$ be partitions of length $\ell(\lambda), \ell(\mu) = n$.
   Then
   \[
-      m_{\lambda} m_{\mu}
+        m_{\lambda} m_{\mu}
     =   m_{\lambda + \mu}
       + \sum_{\nu < \lambda + \mu} a^\nu_{\lambda,\mu} m_\nu
   \]
   for suitable $a^\nu_{\lambda,\mu} \in k$.
-  (This also holds for $k = \Integer$.)
 \end{lemma}
-\begin{proof}
-  This is an exercise on the 4th exercise sheet.
-\end{proof}
 
 
-We know from the Fundamental Theorem that $e^{(n)}_1, \dotsc, e^{(n)}_n$ generate the $k$-algebra of symmetric polynomials $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent. This is equivalent to saying that the monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$, i.e.\
-\[
-    \left( e^{(n)} \right)^\alpha
-  = \left( e^{(n)}_1 \right)^{\alpha_1} \dotsm \left( e^{(n)}_n \right)^{\alpha_n}
-  \text{ with }
-  \alpha = (\alpha_1, \dotsc, \alpha_n)
-\]
-form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
-We can also describe these polynomials in term of partitions.
+\begin{remark}
+  Note that the above results about monomial symmetric polynomials also hold when the field $k$ is replaced by an arbitrary non-zero commutative ring.
+\end{remark}
+
+% TODO: Reread and rework this section some time in the future.
 
 
-\begin{proposition}
-  The monomials in $e^{(n)}_1, \dotsc, e^{(n)}_n$ are precisely the polynomials $e^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
-\end{proposition}
-\begin{proof}
-  On the one side the monomial $e_1^{\alpha_1} \dotsm e_n^{\alpha_n}$ is the same as $e_\lambda$ for the partition
+
+
+
+% TODO: Finding out how Schur polynomials work.
+%
+% \subsection{Schur Polynomials}
+% 
+% \begin{example}
+%   Let $k$ be a field with $\kchar k \neq 2$.
+%   Let $\lambda = (\lambda_1, \dotsc, \lambda_n) \in \Par$ be a partition.
+%   The \emph{Schur polynomial corresponding to $\lambda$} is the symmetric polynomial $s_\lambda \in k[X_1, \dotsc, X_n]^{S_n}$ of homogenous degree $|\lambda|$ defined as
+%   \[
+%               s_\lambda
+%     \coloneqq \frac
+%               {
+%                 \sum_{\sigma \in S_n} \sgn(\sigma)          X_{\sigma(1)}^{\lambda_1}
+%                                                             X_{\sigma(2)}^{\lambda_2 + 1}
+%                                                     \dotsm  X_{\sigma(n)}^{\lambda_n + n-1}
+%                }{
+%                 \prod_{1 \leq i < j \leq n} (X_i - X_j)
+%                }
+%   \]
+%   (In the lecture the same statements were made for the ring of integers $\Integer$ and arbitrary fields, but the following argumentation does not work in these cases.)
+%   
+%   To show that $s_\lambda$ is well-defined we first notice the numerator
+%   \[
+%               N
+%     \coloneqq \sum_{\sigma \in S_n} \sgn(\sigma)          X_{\sigma(1)}^{\lambda_1}
+%                                                           X_{\sigma(2)}^{\lambda_2 + 1}
+%                                                   \dotsm  X_{\sigma(n)}^{\lambda_n + n-1}
+%   \]
+%   and the denumerator
+%   \[
+%               D
+%     \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
+%   \]
+%   are alternating polynomials, i.e.\ $\sigma.N = \sgn(\sigma) N$ and $\sigma.D = \sgn(\sigma) D$ for every $\sigma \in S_n$, because
+%   \begin{gather*}
+%     N = \det
+%     \begin{pmatrix}
+%       X_1^{\lambda_1}       & X_2^{\lambda_1}       & \cdots & X_n^{\lambda_1}       \\
+%       X_1^{\lambda_2 + 1}   & X_2^{\lambda_2 + 1}   & \cdots & X_n^{\lambda_2 + 1}   \\
+%       \vdots                & \vdots                & \ddots & \vdots                \\
+%       X_1^{\lambda_n + n-1} & X_2^{\lambda_n + n-1} & \cdots & X_n^{\lambda_n + n-1}
+%     \end{pmatrix}
+%   \shortintertext{and}
+%     D = \det
+%     \begin{pmatrix}
+%       1      & X_1    & X_1^2  & \cdots & X_1^{n-1} \\
+%       1      & X_2    & X_2^2  & \cdots & X_2^{n-1} \\
+%       \vdots & \vdots & \vdots & \ddots & \vdots    \\
+%       1      & X_n    & X_n^2  & \cdots & X_n^{n-1}
+%     \end{pmatrix}.
+%   \end{gather*}
+%   That $D$ divides $N$ follows from the following claim:
+%   \begin{claim}
+%     Let $f \in k[X_1, \dotsc, X_n]$ be an alternating polynomial and
+%     \[
+%                 V
+%       \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
+%       \in       k[X_1, \dotsc, X_n] \,.
+%     \]
+%     Then $V$ divides $f$.
+%   \end{claim}
+%   \begin{proof}
+%     Since the polynomials $X_i - X_j$ with $1 \leq i < j \leq n$ are pairwise non-equivalent primes it sufficies to show that $X_i-X_j$ divides $f$ for all $1 \leq i < j \leq n$.
+%     Because $f$ is alternating it is enough to show that $X_1 - X_2$ divides $f$.
+%     
+%     For $R \coloneqq k[X_3, \dotsc, X_n]$, $u = X_1 + X_2$ and $x = X_1 - X_2$ we have
+%     \[
+%         k[X_1, \dotsc, X_n]
+%       = R[X_1, X_2]
+%       = R[u,v] \,,
+%     \]
+%     so we can write $f = \sum_{i \in \Natural} f_i v^i$ with $f_i \in R[u]$ for every $i \in \Natural$.
+%     Because $f$ is alternating we have
+%     \begin{align*}
+%            \sum_{i \in \Natural} f_i v^i
+%       &=   f(X_1, X_2, \dotsc, X_n)
+%        =  -f(X_2, X_1, \dotsc, X_n) \\
+%       &=  -\sum_{i \in \Natural} (-1)^i f_i v^i
+%        =   \sum_{i \in \Natural} (-1)^{i+1} f_i v^i \,.
+%     \end{align*}
+%     So $f_i = 0$ if $i$ is even.
+%     Therefore $v$ divides $f$ .
+%   \end{proof}
+%   Since $D$ and $N$ are both alternating it is also clear that $s_\lambda = N/D$ is symmetric.
+%   To see that $s_\lambda$ is homogeneous of degree $|\lambda|$ notice that $N$ is homogeneous of degree
+%   \[
+%       \lambda_1 + (\lambda_2 + 1) + \dotsb + (\lambda_n + n-1)
+%     = |\lambda| + \binom{n}{2}
+%   \]
+%   and that $D$ is homogeneous of degree $\binom{n}{2}$.
+%   \begin{claim}
+%     Let $f, g \in k[X_1, \dotsc, X_n]$ be polynomials such that $f$ is homogenous of degree $d_1$ and $g$ homogeneous of degree $d_2$.
+%     If $g$ divides $f$ then $f/g$ is homogenous of degree $d_1 - d_2$.
+%   \end{claim}
+%   \begin{proof}
+%     We can write $f/g = \sum_{d \in \Natural} h_d$ where $h_d \in k[X_1, \dotsc, X_n]$ is homogenous of degree $d$.
+%     Then $f = (f/g)g = \sum_{d \in \Natural} h_d g$ where $h_d g$ is homogeneous of degree $d + d_2$.
+%     Because $f$ is homogenous of degree $d_1$ we find that $h_d = 0$ for $d \neq d_1 - d_2$.
+%     Thus $f/g = h_d$ is homogeneous of degree $d_1 - d_2$.
+%   \end{proof}
+% \end{example}
+
+
+
+
+
+\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
+%%%%%%  Previous text
+
+
+
+\subsection{Other Symmetric Polynomials Associated to Partitions}
+
+
+
+
+\begin{definition}
+  For a partition $\lambda = (\lambda_1, \dotsc, \lambda_r)$ the corresponding \emph{elementary symmetric polynomial} is given by
   \[
-      \lambda
-    = (
-        \underbrace{n, \dotsc, n}_{\alpha_n},
-        \underbrace{n-1, \dotsc, n-1}_{\alpha_{n-1}},
-        \dotsc,
-        \underbrace{1, \dotsc, 1}_{\alpha_1}
-      ).
+              e_\lambda
+    \defined  e_{\lambda_1} \dotsm e_{\lambda_r} \,,
   \]
-  On the other side the polynomial $e_\lambda$ equals the monomial $e_1^{\nu_1(\lambda)} \dotsm e_n^{\nu_n(\lambda)}$ for the exponents
+  the corresponding \emph{complete symmetric polynomial} is given by
   \[
-      \nu_j(\lambda)
-    = |
-        \{
-          1 \leq i \leq l(\lambda)
-        \mid
-          \lambda_i = j
-        \}
-      |.
+              h_\lambda
+    \defined  h_{\lambda_1} \dotsm h_{\lambda_r} \,,
   \]
-  
-  Notice that for $\lambda \neq \mu$ there exists some $1 \leq j \leq n$ with $\nu_j(\lambda) \neq \nu_j(\mu)$ (here we use that $1 \leq \lambda_i \leq n$ for all $1 \leq i \leq l(\lambda)$ and the same for $\mu$) and therefore
+  the corresponding \emph{power symmetric polynomial} is given by
   \[
-          e_1^{\nu_1(\lambda)} \dotsm e_n^{\nu_n(\lambda)}
-    \neq  e_1^{\nu_1(\mu)} \dotsm e_n^{\nu_n(\mu)}
+              p_\lambda
+    \defined  p_{\lambda_1} \dotsm p_{\lambda_r} \,.
   \]
-  because the monomials in $e_1, \dotsc, e_n$ are linearly independent.
-\end{proof}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{fluff}
+  We know from the Fundamental Theorem of Symmetric Functions that the elementary symmetric polynomials $e_1, \dotsc, e_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent. This is equivalent to saying that the monomials in $e_1, \dotsc, e_n$, i.e.\
+  \[
+      e^{\,\underline{\alpha}}
+    = e_1^{\alpha_1} \dotsm e_n^{\alpha_n}
+    \quad\text{with}\quad
+      \underline{\alpha}
+    = (\alpha_1, \dotsc, \alpha_n)
+  \]
+  form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
+  Note that $e^{\,\underline{\alpha}}$ coincides with $e_\lambda$ for the partition
+  \[
+    \lambda
+  = (
+      \underbrace{n, \dotsc, n}_{\alpha_n},
+      \underbrace{n-1, \dotsc, n-1}_{\alpha_{n-1}},
+      \dotsc,
+      \underbrace{1, \dotsc, 1}_{\alpha_1}
+    ) \,.
+  \]
+  Also note that the above formula gives a bijection
+  \[
+    \{ \text{multi-indices $\underline{\alpha} \in \Natural^n$} \}
+    \longleftrightarrow
+    \{ \text{partitions $\lambda \in \Par$ with $\lambda_1 \leq n$} \} \,.
+  \]
+  With this we arrive at the following reformulation of the Fundamental Theorem of Symmetric Polynomials:
+\end{fluff}
 
 
 \begin{corollary}
-  The set
+  The symmetric polynomials
   \[
-              B
-    \coloneqq \left\{
-                e^{(n)}_\lambda
-              \,\middle|\,
-                \lambda \in \Par,
-                \lambda_1 \leq n,
-                \lambda_{l(\lambda)} \neq 0
-              \right\}
+      e_\lambda
+    \quad\text{with}\quad
+      \lambda \in \Par \,,
+      \lambda_1 \leq n
   \]
-  forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$ and the $e^{(n)}_\lambda$ are pairwise different.
-  More precisely
-  \[
-              B_d
-    \coloneqq \left\{
-                e^{(n)}_\lambda
-              \,\middle|\,
-                \lambda \in \Par,
-                \lambda_1 \leq n,
-                \lambda_{l(\lambda)} \neq 0,
-                |\lambda| = d
-              \right\}
-  \]
-  forms a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}_d$ for all $d \geq 0$.
+  form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
 \end{corollary}
 
 
 \begin{remark}
-  Since $h^{(n)}_1, \dotsc, h^{(n)}_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent we can show the same statements for the polynomials $h^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
-  
-  In the case that $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we can show the same for the polynomials $p^{(n)}_\lambda$ with $\lambda \in \Par$ such that $\lambda_1 \leq n$ and $\lambda_{l(\lambda)} \neq 0$.
+  We can show the same statements for the polynomials $h_\lambda$ since $h_1, \dotsc, h_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
+  If $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we can also show the same for the polynomials $p_\lambda$.
 \end{remark}
 
 
