@@ -1,0 +1,138 @@
+\section{Covariants}
+
+
+\begin{definition}
+  Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$.
+  A map $f \colon W \to V$ is called \emph{covariant} if $f$ is a polynomial map and $G$-equivariant.
+  We denote the space of covariant functions from $W$ to $V$ by
+  \[
+              \Cov_k(W,V)
+    \coloneqq \Pol_k(W,V)^G \,.
+  \]
+  We also write $\Cov(W,V)$ if it is clear over what field we work.
+\end{definition}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Let $W$ be a finite-dimensional $k$-vector space, $d \in \Natural, d > 0$.
+      Then the map
+      \[
+                \beta
+        \colon  W \to W^{\otimes d},
+        \quad   w
+        \mapsto w \otimes \dotsb \otimes w
+      \]
+      is a polynomial map.
+      It is also $G$-equivariant since
+      \[
+          \beta(g.w)
+        = (g.w) \otimes \dotsb \otimes (g.w)
+        = g.(w \otimes \dotsb \otimes w)
+        = g.\beta(w)
+      \]
+      for all $g \in G$, $w \in W$.
+    \item
+      Fix a field $k$.
+      Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.\
+      \[
+          g.A
+        = gAg^{-1}
+      \]
+      for all $g \in \GL_n(k)$, $A \in \Mat_n(k)$.
+      Then the map
+      \[
+                \beta_i 
+        \colon  \Mat_n(k) 
+        \to     \Mat_n(k),
+        \quad   A
+        \mapsto A^i
+      \]
+      is covariant for all $i \geq 1$. 
+  \end{enumerate}
+\end{example}
+
+
+Notice that since we have $\Hom_k(W,V) \subseteq \Pol_k(W,V)$ we also have
+\[
+            \Hom_G(W,V)
+  =         \Hom_k(W,V)^G
+  \subseteq \Pol_k(W,V)^G
+  =         \Cov(W,V) \,.
+\]
+Therefore every morphism of representations is covariant.
+
+
+For finite-dimensional representations $W$ and $V$ of a group $G$ we know that $\Pol_k(W,V)$ is a $G$-set via
+\[
+    (g.f)(w)
+  = g.f\left( g^{-1}.w \right)
+  \text{ for all }
+  g \in G,
+  w \in W \,.
+\]
+That $g.f$ is polynomial follows from the fact that $\tau_{g^{-1}} \colon W \to W$ and $\pi_g \colon V \to V$ are $k$-linear and thus polynomial, and therefore also
+\[
+    g.f
+  = \pi_g \circ f \circ \tau_{g^{-1}} \,.
+\]
+We also know that $\Pol_k(W,V)$ is a $k$-vector space via pointwise addition and multiplication.
+Since the composition above is clearly $k$-linear in $f$ we find that $\Pol_k(W,V)$ is a representation of $G$.
+As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is also a $k$-vector space.
+
+
+\begin{proposition}
+  Let $G$ be a group, $W$ and $V$ finite-dimensional representations of $G$ over $k$ and $\beta \colon W \to V$ covariant.
+  Then
+  \[
+              \beta^*\left( \mc{P}(V)^G \right)
+    \subseteq \mc{P}(W)^G \,.
+  \]
+  Therefore $\beta^*$ induces an algebra-homomorphism from $\mc{P}(V)^G$ to $\mc{P}(W)^G$ by restriction.
+\end{proposition}
+\begin{proof}
+  For all $f \in \mc{P}(V)^G$ we have for all $g \in G$, $w \in W$
+  \begin{align*}
+        (g.\beta^*(f))(w)
+    &=  \beta^*(f)\left( g^{-1}.w \right)
+     =  (f \circ \beta)\left( g^{-1}.w \right) \\
+    &=  f\left( \beta\left( g^{-1}.w \right) \right)
+     =  f\left( g^{-1}.\beta(w) \right)
+     =  (g.f)(\beta(w)) \\
+    &=  f(\beta(w))
+     =  (f \circ \beta)(w)
+     =  \beta^*(f)(w) \,.
+  \end{align*}
+  Therefore
+  \[
+      g.\beta^*(f)
+    = \beta^*(f)
+    \text{ for all }
+    g \in G \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+\begin{proposition}
+  Let $V$ and $W$ be finite-dimensional representations of a group $G$ over a field $k$.
+  Then the $\mc{P}(W)$-module structure of $\Pol_k(W,V)$ induces a $\mc{P}(W)^G$-module structure on $\Cov(W,V)$ by restriction.
+\end{proposition}
+\begin{proof}
+  Since $\mc{P}(W)^G$ as a $k$-subalgebra of $\mc{P}(W)$ we have a $\mc{P}(W)^G$-module structure on $\Pol_k(W,V)$ by restriction.
+  The proposition claims that $\Cov(W,V)$ is a $\mc{P}(W)^G$-submodule of $\Pol_k(W,V)$.
+  
+  We already know that $\Cov(W,V)$ is a $k$-vector subspace of $\Pol_k(W,V)$.
+  For $f \in \mc{P}(W)^G$ and $\beta \in \Cov(W,V)$ we have for all $g \in G$, $w \in W$
+  \begin{align*}
+        (g.(f \cdot \beta))(w)
+    &=  g.(f \cdot \beta)\left( g^{-1}.w \right)
+     =  g.\left( f\left( g^{-1}.w \right) \cdot \beta\left( g^{-1}.w \right) \right) \\
+    &=  f\left( g^{-1}.w \right) \cdot g.\beta\left( g^{-1}.w \right)
+     =  (g.f)(w) \cdot (g.\beta)(w) \\
+    &=  f(w) \cdot \beta(w)
+     =  (f \cdot \beta)(w) \,.
+  \end{align*}
+  This shows that $\Cov(W,V)$ is also closed under multiplication by $\mc{P}(W)^G$.
+\end{proof}
