@@ -1,6 +1,11 @@
 \section{Graded and Filtered \texorpdfstring{$k$}{k}-Algebras}
 
 
+
+
+
+\subsection{Graded Algebras}
+
 \begin{definition}
   A \emph{grading} of a $k$-algebra $A$ is a decomposition $A = \bigoplus_{d \in \Natural} A_d$ into $k$-linear subspaces $A_d \subseteq A$ such that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Natural$.
   A \emph{graded $k$-algebra} is a $k$-algebra $A$ together with a grading $A = \bigoplus_{d \in \Natural} A_d$.
@@ -103,6 +108,21 @@
 
 
 \begin{remark}
+  Given two graded $k$-algebras $A$ and $B$ with gradings $A = \bigoplus_{d \in \Natural} A_d$ and $B = \bigoplus_{d \in \Natural} B_d$ a \emph{morphism of graded $k$-algebras $A \to B$} is a homomorphism of $k$-algebras $f \colon A \to B$ with $f(A_d) \subseteq B_d$ for every $d \in \Natural$.
+  
+  For every graded $k$-algebra $A$ the identity $\id_A \colon A \to A$ is a morphism of graded $k$-algebras, and for any two composable morphisms of graded $k$-algebras $f \colon A \to B$ and $g \colon B \to C$ their composition $g \circ f \colon A \to C$ is again a morphism of graded $k$-algebras.
+  
+  It follows that the class of graded $k$-algebras together with the morphisms of graded $k$-algebras forms a category $\cgrAlg{k}$.
+\end{remark}
+
+
+
+
+
+
+\subsection{Filtered Algebras}
+
+\begin{remark}
   Instead of the natural numbers $\Natural$ one can also define gradings over an arbitrary monoids $(M, \cdot)$.
 \end{remark}
 
@@ -125,7 +145,7 @@
     \subseteq F_{i+j}(A)
   \]
   for all $i, j$.
-  A \emph{filtered} $k$-algebra is a $k$-algebra $A$ together with a filtration of $A$.
+  A \emph{filtered $k$-algebra} is a $k$-algebra $A$ together with a filtration of $A$.
 \end{definition}
 
 
@@ -140,13 +160,30 @@
   \begin{enumerate}
     \item
       \label{enumerate: grading leads to filtration}
-      Every grading $A = \bigoplus_{d \in \Natural} A_d$ of $A$ leads to a filtration $F$ of $A$ which is given by $F_d \defined \bigoplus_{i=0}^d A_i$ for every $d$.
+      Every grading $A = \bigoplus_{d \in \Natural} A_d$ of $A$ leads to a filtration $F$ of $A$ which is given by $F_d(A) \defined \bigoplus_{i=0}^d A_i$ for every $d$.
     \item
       By considering the grading $A_0 = A$ and $A_d = 0$ for $d \geq 1$ it follows that $A$ carries a filtration $F$ given by $F_d(A) = A$ for every $d \geq 0$.
     \item
       Let $A$ be a filtered $k$-algebra with filtration $F$, and let $I \subseteq A$ be an ideal.
       Then the quotient algebra $A/I$ inherits a filtration $F'$ given by $F'_d \defined \pi(F_d)$ for every $d$, where $\pi \colon A \to A/I$ denotes the canonical projection.
   \end{enumerate}
+\end{example}
+
+
+\begin{remark}
+  Given two filtered $k$-algebras $A$ and $B$ with filtrations $F$ and $G$ a \emph{morphism of filtered $k$-algebras $A \to B$} is a homomorphism of $k$-algebras $f \colon A \to B$ with $f(F_d(A)) \subseteq G_d(B)$ for every $d$.
+  
+  For every filtered $k$-algebra $A$ the identity $\id_A \colon A \to A$ is a morphism of filtered $k$-algebras, and for any two composable morphisms of filtered $k$-algebras $f \colon A \to B$ and $g \colon B \to C$ their composition $g \circ f \colon A \to C$ is again a morphism of filtered $k$-algebras.
+  
+  It follows that the class of filtered $k$-algebras together with the morphisms of filtered $k$-algebras forms a category $\cfiltAlg{k}$.
+\end{remark}
+
+
+\begin{example}
+  Let $A$, $B$ be graded $k$-algebras with gradings $A = \bigoplus_{d \in \Natural} A_d$ and $B = \bigoplus_{d \in \Natural} B_d$, and let $F$ and $G$ be the associated filtrations given by $F_d(A) = \bigoplus_{i=0}^d A_i$ and $G_d(B) = \bigoplus_{i=0}^d B_i$ for every $d \in \Natural$.
+  Then every morphism $f \colon A \to B$ of graded $k$-algebras is also a morphism of filtered $k$-algebras.
+  
+  We therefore get a (faithful) functor $\cgrAlg{k} \to \cfiltAlg{k}$.
 \end{example}
 
 
@@ -163,15 +200,19 @@
               \gr_F(A)_d
     \defined  F_d(A) / F_{d-1}(A) \,,
   \]
-  and let $\gr_F(A) \defined \bigoplus_{d \in \Natural} \gr_F(A)_d$.
-  For $\class{x} \in \gr_F(A)_i$ and $\class{y} \in \gr_F(A)_j$ we define their product as
+  and let $\gr_F(A) \defined \bigoplus_{d \geq 0} \gr_F(A)_d$.
+  For every $d \in \Natural$, $x \in F_d(A)$ we denote the residue class of $x$ in $\gr_F(A)_d$ by $[x]_d$.
+  Note that for every $x \in A$, $x \neq 0$ there exists some minimal $d \in \Natural$ with $x \in F_d(A)$.
+  Then $[x]_{d'}$ is not defined for $d' < d$, $[x]_d \neq 0$ and $[x]_{d'} = 0$ for every $d' > d$.
+  
+  For $[x]_i \in \gr_F(A)_i$ and $[y]_j \in \gr_F(A)_j$ we define their product as
   \[
-              \class{x} \cdot \class{y}
-    \defined  \class{xy}
+              [x]_i \cdot [y]_j
+    \defined  [xy]_{i+j}
     \in       \gr_F(A)_{i+j} \,.
   \]
   This product is well-defined:
-  If $\class{x} = \class{x'}$ and $\class{y} = \class{y'}$ for some $x, x' \in F_i(A)$ and $y, y' \in F_j(A)$, then $x - x' \in F_{i-1}(A)$ and $y - y' \in F_{j-1}(A)$, so that
+  If $[x]_i = [x']_i$ and $[y]_j = [y']_j$ for some $x, x' \in F_i(A)$ and $y, y' \in F_j(A)$, then $x - x' \in F_{i-1}(A)$ and $y - y' \in F_{j-1}(A)$, so that
   \begin{align*}
           xy - x'y'
     &=    xy - xy' + xy' - x'y' \\
@@ -179,22 +220,21 @@
      \in  F_{i+j-1}(A) + F_{i-1+j}(A)
      =    F_{i+j-1}(A)
   \end{align*}
-  and therefore $\class{xy} = \class{x'y'}$.
+  and therefore $[xy]_{i+j} = [x'y']_{i+j}$.
   By putting all these multiplications together we arrive at a multiplication $\gr_F(A) \times \gr_F(A) \to \gr_F(A)$.
   This multiplication is $k$-bilinear, associative and distributive, as can be checked on (homogeneous) representatives.
-  For $\class{1} \in \gr_F(A)_0$ we have for every $x \in \gr_F(A)_i$ that
+  For $[1]_0 \in \gr_F(A)_0$ we have for every $[x]_i \in \gr_F(A)_i$ that
   \[
-        \class{1} \cdot \class{x}
-    =   \class{1 \cdot x}
-    =   \class{x}
-    \in \gr_F(A)_{0+i}
-    =   \gr_F(A)_i \..
+        [1]_0 \cdot [x]_i
+    =   [1 \cdot x]_{0+i}
+    =   [x]_i \,.
   \]
-  As every element of $\gr_F(A)$ is the sum of such homogeneous elements it follows that $\class{1}$ is a multiplicative identity for $\gr_F(A)$.
+  As every element of $\gr_F(A)$ is the sum of such homogeneous elements it follows that $[1]_0$ is a multiplicative identity for $\gr_F(A)$.
   Alltogether this shows that $\gr_F(A)$ is a $k$-algebra.
   The decomposition $\gr_F(A) = \bigoplus_{d \geq 0} \gr_F(A)_d$ is a grading of $\gr_F(A)$ by construction of the multiplication of $\gr_F(A)$.
   
   The algebra $\gr_F(A)$ is the \emph{associated graded algebra} of the filtered algebra $A$.
+  The filtration $F$ may be surpressed from the notation, writting $\gr(A)$ instead of $\gr_F(A)$.
 \end{fluff}
 
 
@@ -213,6 +253,49 @@
   for all $d \in \Natural$, and the induced multiplication $\gr_F(A)_i \times \gr_F(A)_j \to \gr_F(A)_{i+1}$ corresponds to the original multiplication $A_i \times A_j \to A_{i+j}$ for all $i, j \in \Natural$.
   Hence $\gr_F(A)$ is nothing but the orginal graded algebra $A$.
 \end{example}
+
+
+\begin{remark}
+  Let $A$ and $B$ be filtered $k$-algebras with filtrations $F$ and $G$.
+  Let $f \colon A \to B$ be a morphism of filtered $k$-algebras.
+  Then $f(F_d(A)) \subseteq G_d(B)$ for every $d$, so that $f$ induces for every $d \geq 0$ an $k$-linear map
+  \begin{align*}
+            f_d
+    \colon  \gr_F(A)_d
+    =       \gr_G(B)_d \,,
+    \quad   [x]_d
+    \mapsto [f(x)]_d \,.
+  \end{align*}
+  By putting all of these maps together, we arriven at a linear map
+  \[
+            \gr(f)
+    \colon  \gr(A)
+    \to     \gr(B) \,.
+  \]
+  For $[x]_i \in \gr(A)_i$ and $[y]_j \in \gr(B)_j$ we have that
+  \begin{align*}
+        f_i([x]_i) f_j([y_j])
+    &=  [f(x)]_i [f(y)]_j
+     =  [f(x) f(y)]_{i+j} \\
+    &=  [f(xy)]_{i+j}
+     =  f_{i+j}([xy]_{i+j})
+     =  f_{i+j}([x]_i [y]_j) \,.
+  \end{align*}
+  Hence $\gr(f)$ is multipliative on homogeneous elements, and thus multiplicative as a whole.
+  We also have that
+  \[
+      f_0([1_A]_0)
+    = [f(1_A)]_0
+    = [1_B]_0 \,,
+  \]
+  so that $\gr(f)(1_{\gr(A)}) = 1_{\gr(B)}$.
+  Alltogether this shows that $\gr(f)$ is a $k$-algebra homomorphism.
+  It respects the gradings of $\gr(A)$ and $\gr(B)$ by construction, and thus is a morphism of graded $k$-algebras.
+  
+  For every filtered $k$-algebra $A$ we have that $\gr(\id_A) = \id_{\gr(A)}$, and for any two composable morphisms of filtered $k$-algebras $f \colon A \to B$ and $g \colon B \to C$ we have that $\gr(g \circ f) = \gr(g) \circ \gr(f)$.
+  
+  Alltogether this shows that $\gr$ defined a functor $\cfiltAlg{k} \to \cgrAlg{k}$.
+\end{remark}
 
 
 \begin{example}
