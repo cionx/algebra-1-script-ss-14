@@ -1,228 +1,300 @@
 \section{Polynomial Maps}
 
 
-In this section $k$ is an infinite field.
-Until further notice we also fix a finite-dimensional $k$-vector space $V$ with $k$-basis $v_1, \dotsc, v_n$.
+
+
+
+\subsection{Polynomial Functions}
+
+\begin{fluff}
+  In this section we introduce the notion of polynomial maps between (finite-dimensional) vector spaces and show some of their basic properties.
+  
+  For the rest of this section let $k$ be an infinite field.
+  We denote by $V$ a finite-dimensional $k$-vector space and by $v_1, \dotsc, v_n$ a basis of $V$.
+\end{fluff}
+
 
 \begin{definition}
-  By $\mc{P}_k(V)$ we denote set of \emph{polynomial functions} $V \to k$, i.e.\ $f \in \mc{P}_k(V)$ if and only if $f \colon V \to k$ and there is some $p \in k[X_1, \dotsc, X_n]$ such that
+  A function $f \colon V \to k$ is \emph{polynomial} if there exists a polynomial $p \in k[X_1, \dotsc, X_n]$ with
   \[
-      f\left( \sum_{i=1}^n \lambda_i v_i \right)
+      f\left( \lambda_1 v_1 + \dotsb + \lambda_n v_n \right)
     = p(\lambda_1, \dotsc, \lambda_n)
   \]
   for all $\lambda_1, \dotsc, \lambda_n \in k$.
-  If the underlying field is clear we also write $\mc{P}(V)$ instead of $\mc{P}_k(V)$.
+  The space of polynomial functions $V \to k$ is denoted $\mc{P}_k(V)$, or by $\mc{P}(V)$ if the field is clear.
 \end{definition}
 
 
-This definition does not depend on the chosen basis.
-If $(w_1, \dotsc, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for $i = 1, \dotsc, n$ then
-\begin{align*}
+\begin{fluff}
+  This definition does not depend on the chosen basis.
+  If $(w_1, \dotsc, w_n)$ is another basis of $V$ with $w_i = \sum_{j=1}^n a_{ij} v_j$ for all $i = 1, \dotsc, n$ then
+  \begin{align*}
       f\left( \sum_{i=1}^n \lambda_i w_i \right)
-  &=  f\left( \sum_{i,j=1}^n \lambda_i a_{ij} v_j \right)
-   =  p\left( \sum_{i=1}^n \lambda_i a_{i1}, \dotsc, \sum_{i=1}^n \lambda_{i} a_{in} \right)  \\
-  &=  p'(\lambda_1, \dotsc, \lambda_n)
-\end{align*}
-for some $p' \in k[X_1, \dotsc, X_n]$.
-So if $f \colon V \to k$ is a polynomial in $(v_1, \dotsc, v_n)$ then also in $(w_1, \dotsc, w_n)$.
-
-This has the effect that the restriction of a polynomial function to a vector subspace is again a polynomial function.
-
-\begin{lemma}
-  Let $V$ be a finite-dimensional $k$-vector space and $U \subseteq V$ a vector subspace.
-  Then for every polynomial function $f \in \mc{P}(V)$ we have $f_{|U} \in \mc{P}(U)$.
-\end{lemma}
-\begin{proof}
-  Let $v_1, \dotsc, v_n$, $v_{n+1}, \dotsc, v_m$ be a $k$-basis of $V$ such that $v_1, \dotsc, v_n$ is a $k$-basis of $U$.
-  Because $f \in \mc{P}(V)$ there exist some $p \in k[X_1, \dotsc, X_m]$ with
+    = f\left( \sum_{i,j=1}^n \lambda_i a_{ij} v_j \right)
+    = p
+      \left(
+        \sum_{i=1}^n \lambda_i a_{i1},
+        \dotsc,
+        \sum_{i=1}^n a_{in} \lambda_i
+      \right)
+    =  p'(\lambda_1, \dotsc, \lambda_n)
+  \end{align*}
+  for $p' \in k[X_1, \dotsc, X_n]$ given by
   \[
-      f\left( \sum_{i=1}^m \lambda_i v_i \right)
-    = p(\lambda_1, \dotsc, \lambda_m)
+      p'(X_1, \dotsc, X_n)
+    = p
+      \left(
+        \sum_{i=1}^n a_{i1} X_i,
+        \dotsc,
+        \sum_{i=1}^n a_{in} X_i
+      \right) \,.
   \]
-  for all $\lambda_1, \dotsc, \lambda_m \in k$. For
-  \[
-              \bar{p}
-    \coloneqq p(X_1, \dotsc, X_n, 0, \dotsc, 0)
-    \in       k[X_1, \dotsc, X_n]
-  \]
-  we thus have
-  \[
-      f\left( \sum_{i=1}^n \lambda_i v_i \right)
-    = \bar{p}(\lambda_1, \dotsc, \lambda_n)
-  \]
-  for all $\lambda_1, \dotsc, \lambda_n \in k$.
-  Since $v_1, \dotsc, v_n$ is a $k$-basis of $U$ this is equivalent to $f_{|U} \in \mc{P}(U)$.
-\end{proof}
-
-
-\begin{remark}
-  If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
-\end{remark}
-
-
-\begin{lemma}
-  There is an isomorphism of $k$-algebras
-  \[
-          \mc{P}(V)
-    \cong k[X_1, \dotsc, X_n]
-  \]
-  where $n = \dim V$.
-\end{lemma}
-\begin{proof}
-  For $1 \leq j \leq n$ define the $j$-th coordinate function (with respect to the chosen basis) as
-  \[
-            \varphi_j
-    \colon  V \to k,
-    \quad   \sum_{i=1}^n \lambda_i v_i
-    \mapsto \lambda_j \,.
-  \]
-  By the universal property of the polynomial ring the assignment $X_j \to \varphi_j$ extends to a ring homomorphism
-  \[
-            \Phi
-    \colon  k[X_1, \dotsc, X_n] \to \mc{P}(V),
-    \quad   p
-    \mapsto \Phi(p)
-  \]
-  where
-  \[
-      \Phi(p)\left( \sum_{i=1}^n \lambda_i v_i \right)
-    = p(\lambda_1, \dotsc, \lambda_n) \,.
-  \]
-  Is it clear that $\Phi$ is surjective.
-  It is left as an exercise to the reader to check that $\Phi$ is injective.
-\end{proof}
-
-
-\begin{lemma}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-    \item
-      Assume $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1,\dotsc,\lambda_n) \in k^n$.
-      Then $p = 0$.
-    \item
-      The polynomial functions $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ are algebraically independent over $k$, i.e.\ if $f(\varphi_1, \dotsc, \varphi_n) = 0$ for some polynomial $f$ (over $k$) then $f = 0$.
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-    \item
-      We show this by induction over $n$.
-      
-      ($n = 1$)
-      Let $p \in k[X_1]$ with $p(\lambda_1) = 0$ for all $\lambda_1 \in k$.
-      Since $k$ is infinite $p$ has infinitely many zeroes.
-      Therefore $p = 0$.
-      
-      ($n \geq 2$)
-      Assume the claim holds for $n-1$ and $1$.
-      Consider $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $(\lambda_1, \dotsc, \lambda_n) \in k^n$.
-      We write $p$ as
-      \[
-          p
-        = \sum_{i \in \Natural} f_i(X_1, \dotsc, X_{n-1}) X_n^i
-      \]
-      with $f_i \in k[X_1, \dotsc, X_{n-1}]$ for all $i \in \Natural$ and $f_i = 0$ for all but finitely many $i \in \Natural$.
-      Let $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary.
-      For all $\lambda_n \in k$ we have
-      \[
-          0
-        = p(\lambda_1, \dotsc, \lambda_n)
-        = \sum_{i \in \Natural} f_i(\lambda_1, \dotsc, \lambda_{n-1}) \lambda_n^i
-      \]
-      By induction hypothesis we find that $f_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \Natural$.
-      Because $(\lambda_1, \dotsc, \lambda_{n-1})$ is fixed but arbitrary we can use the induction hypothesis to get that $f_i = 0$ for all $i \in \Natural$.
-      So $p = 0$.
-    \item
-      Assume $f(\varphi_1, \dotsc, \varphi_n) = 0$. Then
-      \[
-          0
-        = f(\varphi_1, \dotsc, \varphi_n)\left(\sum_{i=1}^n \lambda_i v_i\right)
-        = f(\lambda_1, \dotsc, \lambda_n)
-      \]
-      for all $(\lambda_1, \dotsc, \lambda_n) \in k^n$.
-      Therefore $f = 0$ by part a).
-    \qedhere
-  \end{enumerate}
-\end{proof}
-
-\begin{warning}
-  The assumption that $k$ is infinite is necessary.
-  If, for example, $p = X^2 + X \in \Finite_2[X]$, then $p(0) = p(1) = 0$, so $p(\lambda) = 0$ for all $\lambda \in \Finite_2$, but $p \neq 0$.
-\end{warning}
+  So if $f \colon V \to k$ is polynomial with respect to the basis $(v_1, \dotsc, v_n)$, then it is also polynomial with respect to the basis $(w_1, \dotsc, w_n)$.
+  
+  This basis independence allows us to simplify problems by choosing the right kind of basis for $V$.
+  The following result can be seen as consequence of this:
+\end{fluff}
 
 
 \begin{corollary}
-  The map $\Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V), X_j \mapsto \varphi_j$ is injective.
+  Let $U \subseteq V$ be $k$-linear subspace.
+  Then for every polynomial function $f \colon V \to k$ the restriction $f|_U \colon U \to k$ is also polynomial.
+\end{corollary}
+\begin{proof}
+  Let $v_1, \dotsc, v_m, v_{n+1}, \dotsc, v_n$ be a basis of $V$ such that $v_1, \dotsc, v_m$ is a basis of $U$.
+  There exist some polynomial $p \in k[X_1, \dotsc, X_n]$ with
+  \[
+      f\left( \lambda_1 v_1 + \dotsb + \lambda_n v_n \right)
+    = p(\lambda_1, \dotsc, \lambda_n)
+  \]
+  for all $\lambda_1, \dotsc, \lambda_n \in k$ because $f$ is polynomial.
+  It follows for the polynomial
+  \begin{gather*}∀
+              \bar{p}
+    \defined  p(X_1, \dotsc, X_m, 0, \dotsc, 0)
+    \in       k[X_1, \dotsc, X_m]
+  \shortintertext{that}
+    \begin{aligned}
+          f|_U\left( \lambda_1 v_1 + \dotsb + \lambda_m v_m \right)
+      &=  f\left( \lambda_1 v_1 + \dotsb + \lambda_m v_m \right)  \\
+      &=  p(\lambda_1, \dotsc, \lambda_m, 0, \dotsc, 0)
+        =  \bar{p}(\lambda_1, \dotsc, \lambda_m)
+    \end{aligned}
+  \end{gather*}
+  for all $\lambda_1, \dotsc, \lambda_m \in k$.
+  This shows that $f|_U$ is polynomial.
+\end{proof}
+
+
+\begin{fluff}
+  \label{fluff: polynomial to polynomial function}
+  The space $\mc{P}(V)$ of polynomial functions $V \to k$ carries the structure of a $k$-algebra via pointwise addition, scalar multiplication and multiplication.
+  Every polynomial $p \in k[X_1, \dotsc, X_n]$ leads to a polynomial function $f \colon V \to k$ given by
+  \[
+              f(\lambda_1 v_1 + \dotsb + \lambda_n v_n)
+    \defined  p(\lambda_1, \dotsc, \lambda_n) \,,
+  \]
+  and resulting map $k[X_1, \dotsc, X_n] \to \mc{P}(V)$ is a homomorphism of $k$-algebras.
+  It is surjective by the definition of a polynomial function, and injective by the following lemma:
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: polynomial vanishes everywhere}
+  Let $p \in k[X_1, \dotsc, X_n]$ with $p(\lambda_1, \dotsc, \lambda_n) = 0$ for all $\lambda_1, \dotsc, \lambda_n \in k$.
+  Then $p = 0$.
+\end{lemma}
+
+
+\begin{proof}
+  We show the claim by induction over $n$.
+  For $n = 0$ there is nothing to do, and for $n = 1$ the claim is known from elementary algebra (note that the field $k$ is infinite).
+  
+  Let $n \geq 2$.
+  Thanks to the the usual isomorphism
+  \[
+          k[X_1, \dotsc, X_n]
+    =     k[X_1, \dotsc, X_{n-1}, X_n]
+    \cong k[X_1, \dotsc, X_{n-1}][X_n]
+  \]
+  we may decompose the polynomial $p$ as
+  \[
+      p(X_1, \dotsc, X_n)
+    = \sum_{i=0}^\infty p_i(X_1, \dotsc, X_{n-1}) X_n^i
+  \]
+  with $p_i \in k[X_1, \dotsc, X_{n-1}]$ for every $i$ and $p_i = 0$ for all but finitely many $i$.
+  For fixed $\lambda_1, \dotsc, \lambda_{n-1}$ it follows for the polynomial
+  \[
+              q(X)
+    \defined  p(\lambda_1, \dotsc, \lambda_{n-1}, X)
+    =         \sum_{i=0}^\infty p_i(\lambda_1, \dotsc, \lambda_{n-1}) X^i
+    \in       k[X]
+  \]
+  that $q(\lambda) = 0$ for every $\lambda \in k$.
+  By induction hypothesis it follows that $q = 0$, so that
+  \[
+      p_i(\lambda_1, \dotsc, \lambda_{n-1})
+    = 0
+  \]
+  for all $i$.
+  As this holds for all $\lambda_1, \dotsc, \lambda_{n-1}$ it further follows by induction hypothesis that $p_i = 0$ for every $i$.
+  This shows that $p = 0$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: isomorphism poylnomial ring and polynomial maps}
+  The homomorphism of $k$-algebras $\Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V)$ given by
+  \[
+      \Phi(p)(\lambda_1 v_1 + \dotsb + \lambda_n v_n)
+    = p(\lambda_1, \dotsc, \lambda_n)
+  \]
+  is an isomorphism of $k$-algebras.
 \end{corollary}
 
 
-Together with the exercise sheet we find that
-\[
-          \Phi
-  \colon  k[X_1, \dotsc, X_n]
-  \to     \mc{P}(V),
-  \quad   X_j
-  \mapsto \varphi_j
-\]
-is an isomorphism of $k$-algebras.
-
-
 \begin{remark}
-  For $k$ infinite we have an isomorphism of representations
-  \[
-            \Phi
-    \colon  k[X_1, \dotsc, X_n]
-    \to     \mc{P}(k^n),
-    \quad   X_i
-    \mapsto \varphi_i \,,
-  \]
-  where $S_n$ acts on $k[X_1, \dotsc, X_n]$ as usual by permuting the $X_i$ and on $\mc{P}(k^n)$ via
-  \[
-      (\sigma.f)(v)
-    = f\left( \sigma^{-1}.v \right)
-    \text{ for all }
-    \sigma \in S_n,
-    f \in \mc{P}(V),
-    v \in k^n \,.
-  \]
-  We know that $\Phi$ is an isomorphism of $k$-vector spaces.
-  It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in k[X_1, \dotsc, X_n]$ and $v = (\lambda_1, \dotsc, \lambda_n) \in k^n$
-  \begin{align*}
-       \Phi(g.p)(v)
-    &= \Phi\left( X_{g(1)}^{\alpha_1} \dotsm X_{g(n)}^{\alpha_n} \right)(v)
-     = \lambda_{g(1)}^{\alpha_1} \dotsm \lambda_{g(n)}^{\alpha_n} \\
-    &= \Phi(p)( \lambda_{g(1)}, \dotsc, \lambda_{g(n)} )
-     = \Phi(p)\left( g^{-1}.(\lambda_1, \dotsc, \lambda_n) \right) \\
-    &= (g.\Phi(p))(\lambda_1, \dotsc, \lambda_n) \,.
-  \end{align*}
+  Suppose that $k$ is a finite field.
+  \begin{enumerate}
+    \item
+      Every map $f \colon V \to k$ is polynomial:
+      For every $x = \lambda_1 v_1 + \dotsb + \lambda_n v_n \in V$ there exists a polynomial function $h_x \colon V \to k$ which vanishes everywhere except at $x$, namely
+      \[
+          h_x( \mu_1 v_1 + \dotsb + \mu_n v_n )
+        = {\prod_{\substack{\nu_1 \in K \\ \nu_1 \neq \lambda_1}} (\mu_1 - \nu_1)}
+          \,\dotsm\!
+          \prod_{\substack{\nu_n \in K \\ \nu_n \neq \lambda_n}} (\mu_n - \nu_n) \,.
+      \]
+      Then the function $\delta_x = h_x / h_x(x)$ satisfies
+      \[
+          \delta_x(y)
+        = \delta_{x,y}
+      \]
+      for every $y \in V$, so that $f$ can be expressed as $f = \sum_{x \in X} f(x) \delta_x$.
+      
+    \item
+      Lemma~\ref{lemma: polynomial vanishes everywhere} does not hold for finite fields:
+      Suppose that $K = \Finite_q$ is the field with $q$ elements.
+      Then the nonzero polynomial $f(X) = X^q - X \in K[X]$ vanished everywhere.
+      (To see this note that the group $K^\times$ has order $q-1$, so that $x^{q-1} = 1$ for every $x \in K$ with $x \neq 0$, and thus $x^q = x$ for every $x \in K$.)
+      Also note that therefore $f(X) = \prod_{\lambda \in K} (X - \lambda)$ by consideration of degrees.
+      
+    \item
+      We still have the surjective $k$-algebra homomorphism
+      \[
+                \Phi
+        \colon  k[X_1, \dotsc, X_n]
+        \to     \mc{P}(V)
+        =       \Maps(V, k)
+      \]
+      from~\ref{fluff: polynomial to polynomial function} (where the $k$-algebra structure of $\Maps(V,k)$ is defined pointwise).
+      The kernel of $\Phi$ is given by the ideal
+      \[
+                  I
+        \defined  ( f(X_1), \dotsc, f(X_n) ) \,.
+      \]
+      By the above discussion we have that $I \subseteq \ker \Phi$.
+      For the other inclusion note that in the case $n = 1$ we have that
+      \[
+          \dim_k k[X]/f(X)
+        = \deg f(X)
+        = q
+        = |V|
+        = \dim \Maps(V,k) \,,
+      \]
+      and more generally we have that
+      \begin{gather*}
+        \begin{aligned}
+                  k[X_1, \dotsc, X_n]/I
+          &=      k[X_1, \dotsc, X_n]/( f(X_1), \dotsc, f(X_n) )  \\
+          &\cong  \bigg( \Big( \big( k[X_1]/f(X_1) \big)[X_2]/f(X_2) \Big) \dotsm \bigg)[X_n]/f(X_n)
+        \end{aligned}
+      \intertext{and therefore that}
+          \dim_k k[X_1, \dotsc, X_n]/I
+        = q^n
+        = |V|
+        = \dim_k \Maps(V,k) \,.
+      \end{gather*}
+  \end{enumerate}
 \end{remark}
 
 
+\begin{remark}
+  Note that the constructed isomorphism $\Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V)$ from Corollary~\ref{corollary: isomorphism poylnomial ring and polynomial maps} depends on the choice of the basis $v_1, \dotsc, v_n$.
+  
+  More specifillay, the basis $v_1, \dotsc, v_n$ is uniquely determined by the isomorphism $\Phi$.
+  To see this note that
+  \[
+      \Phi(X_i)(\lambda_1 v_1 + \dotsb + \lambda_n v_n)
+    = \lambda_i
+  \]
+  for all $i = 1, \dotsc, n$, $\lambda_1, \dotsc, \lambda \in K$.
+  Hence the basis vector $v_j$ is the uniquely determined vector $v \in V$ with
+  \[
+      \Phi(X_i)(v)
+    = \delta_{ij}
+  \]
+  for all $i = 1, \dotsc, n$.
+  The basis $v_1, \dotsc, v_n$ is therefore uniquely determined by the images $\Phi(X_1), \dotsc, \Phi(X_n)$, which in turn are uniquely determined by $\Phi$.
+\end{remark}
+
+
+
+
+
+\subsection{Decomposition into Homogeneous Components}
+
+
+\begin{fluff}
+  \label{fluff: motivation for homogeneous functions}
+  Through the isomorphism $\Phi \colon k[X_1, \dotsc, X_n] \to \mc{P}(V)$ the $k$-algebra $\mc{P}(V)$ inherits the grading of $k[X_1, \dotsc, X_n]$, making $\Phi$ into an isomorphism of graded $k$-algebras.
+  In the following we will give an alternative construction of the resulting grading of $\mc{P}(V)$.
+  This will in particular show that this grading does not depend on the choice of the basis $v_1, \dotsc, v_n$.
+\end{fluff}
+
+
 \begin{definition}
-  $f \in \mc{P}(V)$ is \emph{homogeneous of degree $d \in \Integer$} if $f(\lambda y) = \lambda^d f(y)$ for all $\lambda \in k, y \in V$.
-  By definition the zero polynomial $f=0$ is homogeneous of degree $d$ for any $d \in \Integer$.
-  For $d \in \Integer$ we set
+  Let $d \in \Natural$.
+  A function $f \colon V \to k$ is \emph{homogeneous of degree $d$} if $f(\lambda x) = \lambda^d f(x)$ for all $\lambda \in k$, $x \in V$.
+  Let
   \[
               \mc{P}(V)_d
-    \coloneqq \{
+    \defined  \{
                 f \in \mc{P}(V)
-              \mid
-                f \text{ is homogeneous of degree } d
+              \suchthat
+                \text{$f$ is homogeneous of degree $d$}
               \} \,.
   \]
 \end{definition}
 
 
+\begin{fluff}
+  \label{fluff: homogeneous polynomial to polynomial function}
+  For every homogeneous polynomial $p \in k[X_1, \dotsc, X_n]$ of degree $d$ the corresponding polynomial function $\Phi(p) \colon V \to k$ is homogeneous of degree $d$, as can be checked on monomials.
+  This connection between homogeneous polynomials and homogeneous polynomial functions leads to the following result:
+\end{fluff}
+
+
 \begin{lemma}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \leavevmode
+  \begin{enumerate}
     \item
-      $\mc{P}(V)_d$ is a $k$-vector space for all $d \in \Integer$ (via pointwise addition and scalar multiplication).
+      For every $d \in \Natural$ the set of homogeneous polynomials maps $\mc{P}(V)_d \subseteq \mc{P}(V)$ is a $k$-linear subspace.
     \item
-      If $f \in \mc{P}(V)_i$ and $g \in \mc{P}(V)_j$ then $fg \in \mc{P}(V)_{i+j}$, where the multiplication is given by pointwise multiplication.
+      Every polynomial function $f \colon V \to k$ can be written as a sum of homogeneous polynomial functions $f_d \in \mc{P}_d(V)$.
+    \item
+      The $k$-linear subspaces $\mc{P}(V)_d$ with $d \in \Natural$ of $\mc{P}(V)$ are linearly independent (i.e.\ the sum $\sum_{d \in \Natural} \mc{P}_d(V)$ is direct).
+    \item
+      For all $i, j \in \Natural$ one has for all $f \in \mc{P}(V)_i$ and $g \in \mc{P}(V)_j$ that $fg \in \mc{P}(V)_{i+j}$.
   \end{enumerate}
 \end{lemma}
+
+
 \begin{proof}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-    \item For $f_1, f_2 \in \mc{P}(V)_d$ we have
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For all $f_1, f_2 \in \mc{P}(V)_d$ we have that
       \begin{align*}
             (f_1+f_2)(\lambda v)
         &=  f_1(\lambda v) + f_2(\lambda v)
@@ -230,18 +302,82 @@ is an isomorphism of $k$-algebras.
         &=  \lambda^d (f_1(v) + f_2(v))
          =  \lambda^d (f_1 + f_2)(v)
       \end{align*}
-      for all $\lambda \in k$, $v \in V$, so $f_1 + f_2 \in \mc{P}(V)_d$. If $f \in \mc{P}(V)$ and $\mu \in k$ then
+      for all $\lambda \in k$, $v \in V$, so that $f_1 + f_2 \in \mc{P}(V)_d$.
+      For all $f \in \mc{P}(V)$, $\mu \in k$ we have that
       \[
           (\mu f)(\lambda v)
         = \mu f(\lambda v)
         = \lambda^d \mu f(v)
-        = \lambda^d (\mu f)(v) \,,
+        = \lambda^d (\mu f)(v)
       \]
-      so $\mu f \in \mc{P}(V)_d$.
+      for all $\lambda \in k$, $v \in V$, so that $\mu f \in \mc{P}(V)_d$.
     \item
-      For all $\lambda \in k$ we have for all $v \in V$
+      There exists a polynomial $p \in k[X_1, \dotsc, X_n]$ with $f = \Phi(p)$.
+      Then $p$ can be written as a sum $p = \sum_{d \in \Natural} p_d$ where $p_d$ is homogeneous of degree $d$, with $p_d = 0$ for all but finitely many $d \in \Natural$.
+      It follows for $f_d \defined \Phi(p_d)$ from~\ref{fluff: homogeneous polynomial to polynomial function} that $f_d$ is homogeneous of degree $d$.
+      The claim follows because
       \[
-          fg(\lambda v)
+          \Phi(p)
+        = \Phi\left( \sum_{d \in \Natural} p_d \right)
+        = \sum_{d \in \Natural} \Phi(p_d)
+        = \sum_{d \in \Natural} f_d \,.
+      \]
+    \item
+      Let $m \geq 0$ and $f_0 \in \mc{P}(V)_0, \dotsc, f_m \in \mc{P}(V)_m$ with $\sum_{d=0}^m f_d = 0$.
+      We fix some $x \in V$ and show that $f_d(x) = 0$ for every $d = 0, \dotsc, m$.
+      
+      For every $\lambda \in k$ we have that
+      \[
+          0
+        = \sum_{d=0}^m f_d(\lambda x)
+        = \sum_{d=0}^m \lambda^d f_d(x) \,.
+      \]
+      It follows for pairwise different $\lambda_0, \dotsc, \lambda_m \in k$ that
+      \[
+          \begin{pmatrix}
+              1
+            & \lambda_0
+            & \lambda_0^2
+            & \cdots
+            & \lambda_0^m
+            \\
+              1
+            & \lambda_1
+            & \lambda_1^2
+            & \cdots
+            & \lambda_1^m
+            \\
+              \vdots
+            & \vdots
+            & \vdots
+            & \ddots
+            & \vdots
+            \\
+              1
+            & \lambda_m
+            & \lambda_m^1
+            & \cdots
+            & \lambda_m^m
+          \end{pmatrix}
+          \begin{pmatrix}
+            f_0(x)  \\
+            f_1(x)  \\
+            \vdots  \\
+            f_m(x)
+          \end{pmatrix}
+        = \begin{pmatrix}
+            0       \\
+            0       \\
+            \vdots  \\
+            0
+          \end{pmatrix}
+      \]
+      The matrix on the left is invertible as it is the Vandermonde matrix of the values $\lambda_1, \dotsc, \lambda_n$, and has therefore determinant $\prod_{i > j} (\lambda_i - \lambda_j)$.
+      It follows that $f_0(x) = \dotsb = f_m(x) = 0$, as desired.
+    \item
+      For all $\lambda \in k$, $v \in V$ we have that
+      \[
+          (fg)(\lambda v)
         = f(\lambda v) g(\lambda v)
         = \left( \lambda^i f(v) \right)\left( \lambda^j g(v) \right)
         = \lambda^{i+j} f(v) g(v)
@@ -252,176 +388,190 @@ is an isomorphism of $k$-algebras.
   \end{enumerate}
 \end{proof}
 
-This shows that $\mc{P}(V)$ is a graded algebra via
-\[
-      \mc{P}(V)
-    = \bigoplus_{d \in \Integer} \mc{P}(V)_d \,.
-\]
-This grading can be seen as inherted from $k[X_1, \dotsc, X_n]$ via the isomorphism $\Phi$. Since
-\[
-    (\lambda X_1)^{\alpha_1} \dotsm (\lambda X_n)^{\alpha_n}
-  = \lambda^{\sum_{i=1}^n \alpha_i} X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
-\]
-we obtain that a monomial of degree $d$ corresponds to a polynomial function $\Phi(p) \in \mc{P}(V)$ which is homogeneous of degree $d$.
+
+\begin{corollary}
+  The $k$-algebra $\mc{P}(V)$ has a grading given by $\mc{P}(V) = \bigoplus_{d \in \Natural} \mc{P}(V)_d$.
+\end{corollary}
 
 
-Given a field extension $L/k$ and an $n$-dimensional $k$-vector space $W$ we have an isomorphism of $k$-algebras
-\[
-        \mc{P}_k(W)
-  \cong k[X_1, \dotsc X_n]
-\]
-and therefore an isomorphism of $L$-algebras
-\[
-        \mc{P}_k(W)_L
-  \cong k[X_1, \dotsc, X_n]_L
-  \cong L[X_1, \dotsc, X_n] \,.
-\]
-Since $\dim_L W_L = \dim_k W = n$ we also have an isomorphism of $L$-algebras
-\[
-        \mc{P}_L(W_L)
-  \cong L[X_1, \dotsc, X_n]
-\]
-Combining this we have an isomorphism of $L$-algebras $\mc{P}_L(W)_L \cong \mc{P}(W_L)$. Since the isomorphism
-\[
-        \mc{P}_k(W)
-  \cong k[X_1, \dotsc X_n]
-\]
-depends on choosing a $k$-basis of $W$ and the isomorphism
-\[
-        \mc{P}_L(W_L)
-  \cong L[X_1, \dotsc, X_n]
-\]
-depends on choosing an $L$-basis of $W_L$ we can not expect this isomorphism $\mc{P}_k(W)_L \cong \mc{P}(W_L)$ to be independent of such choice.
-We will come back to this later.
+\begin{fluff}
+  Note that for the isomorphism $\Phi$ we have that $\Phi( k[X_1, \dotsc, X_n]_d ) \subseteq \mc{P}(V)_d$ for every $d \in \Natural$ by~\ref{fluff: homogeneous polynomial to polynomial function}.
+  Thus $\Phi$ is an isomorphism of graded $k$-algebras.
+  It follows that the constructed grading of $\mc{P}(V)$ coincides with the one inherited under $\Phi$.
+  This shows, as claimed in~\ref{fluff: motivation for homogeneous functions}, that this grading does not depend on the choice of the basis $v_1, \dotsc, v_n$.
+\end{fluff}
 
 
-We will know generalize the definition of polynomial functions on maps between arbitrary finite-dimensional $k$-vector spaces.
-For this we also stop fixing $V$.
+% TODO: Definition of P(V) without basis as S(V*)
+
+
+
+
+
+\subsection{Polynomial Maps between Vector Spaces}
+
+\begin{fluff}
+  So far we have only considered polynomial functions $V \to k$.
+  In the following we will generalize this to the notion of \emph{polynomial maps} $V \to W$ between finite-dimensional $k$-vector spaces $V$ and $W$.
+  
+  In the following $U, V, W$ will denote finite dimensional $k$-vector spaces.
+\end{fluff}
 
 
 \begin{definition}
-  Let $V$ and $W$ be finite dimensional $k$-vector spaces. A map
+  A map
   \[
             f
-    \colon  W
-    \to     V
+    \colon  V
+    \to     W
   \]
-  is called a \emph{polynomial map} if, given a basis $v_1, \dotsc, v_n$ of $V$, the coordinate functions of $f$ are polynomial, i.e.\ there exist $f_1, \dotsc, f_n \in \mc{P}(W)$ with
+  is \emph{polynomial} if the coordinate functions of $f$ with respect to a basis $w_1, \dotsc, w_m$ of $W$ are polynomial, i.e.\ if the functions $f_1, \dotsc, f_m \colon V \to k$ with
   \[
-      f(w)
-    = \sum_{i=1}^n f_i(w) v_i
+      f(v)
+    = \sum_{i=1}^m f_i(v) w_i
   \]
-  for all $w \in W$.
-  We write
+  for every $v \in V$ are polynomial.
+  The space of polynomial maps $V \to W$ is denoted by
   \[
               \Pol_k(V,W)
-    \coloneqq \{
+    \defined  \{
                         f
                 \colon  V
                 \to     W
               \mid
-                f \text{ is a polynomial map}
-              \} \,.
+                \text{$f$ is a polynomial}
+              \} \,,
   \]
+  or just by $\Pol(V,W)$.
 \end{definition}
 
 
 \begin{remark}
-  One can show (as for $\mc{P}_k(W)$) that the definition doesn’t depend on the chosen basis of $V$.
-\end{remark}
-
-
-\begin{remark}
-  In the case of $V = k$ we have $\Pol_k(W,k) = \mc{P}_k(W)$.
+  One can show as for $\mc{P}(W)$ that this definition does not depend on the choice of the basis of $W$.
 \end{remark}
 
 
 \begin{example}
-  Let $W$ be a finite dimensional $k$-vector space. Then
-  \[
-            f
-    \colon  W
-    \to     W^{\otimes r},
-    \quad   w
-    \mapsto w \otimes \dotsb \otimes w \,.
-  \]
-  is a polynomial map.
-  To see this choose a basis $w_1, \dotsc, w_n$ of $W$. Then the elements
-  \[
-      w_{\underline{i}}
-    = w_{i_1} \otimes \dotsb \otimes w_{i_r}
-    \text{ with }
-        \underline{i}
-    =   (i_1, \dotsc, i_r)
-    \in \{1, \dotsc, n\}^r
-  \]
-  form a basis of $W^{\otimes r}$.
-  For $w \in W$ with $w = \sum_{i=1}^r \lambda_i w_i$ we have
-  \[
-      f(w)
-    = w \otimes \dotsb \otimes w
-    =         \left( \sum_{i=1}^r \lambda_i w_i \right)
-      \otimes \dotsb
-      \otimes \left( \sum_{i=1}^r \lambda_i w_i \right)
-    = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} w_{\underline{i}} \,.
-  \]
-  For the polynomials
-  \[
-      p_{\underline{i}}
-    = X_{i_1} \dotsm X_{i_r}
-  \]
-  and polynomial maps $f_{\underline{i}} \colon W \to k$ with
-  \[
-      f_{\underline{i}}\left( \sum_{i=1}^r \lambda_i w_i \right)
-    = p_{\underline{i}}(\lambda_1, \dotsc, \lambda_r)
-  \]
-  we thus have
-  \[
-      f(w)
-    = \sum_{\underline{i}} f_{\underline{i}}(w) w_{\underline{i}} \,.
-  \]
+  Let $v_1, \dotsc, v_n$ be a basis of $V$, and let $w_1, \dotsc, w_m$ be a basis of $W$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that $\Pol(V,k) = \mc{P}(V)$.
+    \item
+      Every linear map $V \to W$ is polynomial:
+      For the coefficients $a_{ij} \in K$ with $f(v_j) = \sum_{i=1}^n a_{ij} w_i$ for every $j = 1, \dotsc, n$ it follows from the linearity of $f$ that
+      \begin{gather*}
+          f(v)
+        = f_1(v) w_1 + \dotsb + f_m(v) w_m
+      \shortintertext{with}
+          f_i(\lambda_1 v_1 + \dotsb + \lambda_n v_n)
+        = a_{i1} \lambda_1 + \dotsb + a_{in} \lambda_n \,.
+      \end{gather*}
+      The functions $f_i$ are polynomial because they correspond to the polynomials $p_i(X_1, \dotsc, X_n) = a_{i1} X_1 + \dotsb + a_{in} X_n$ with respect to the given basis $v_1, \dotsc, v_n$.
+    \item
+      For every $r \geq 0$ the map
+      \[
+                f
+        \colon  V
+        \to     V^{\otimes r},
+        \quad   v
+        \mapsto v \otimes \dotsb \otimes v
+      \]
+      is polynomial.
+      To see this we choose a basis $v_1, \dotsc, v_n$ of $V$.
+      Then the elements
+      \[
+          v_{\underline{i}}
+        = v_{i_1} \otimes \dotsb \otimes v_{i_r}
+        \quad\text{with}\quad
+            \underline{i}
+        =   (i_1, \dotsc, i_r)
+        \in \{1, \dotsc, n\}^r
+      \]
+      form a basis of $V^{\otimes r}$.
+      For $v \in V$ with $v = \sum_{i=1}^r \lambda_i v_i$ we have that
+      \[
+          f(v)
+        = v \otimes \dotsb \otimes v
+        =         \left( \sum_{i=1}^r \lambda_i v_i \right)
+          \otimes \dotsb
+          \otimes \left( \sum_{i=1}^r \lambda_i v_i \right)
+        = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} v_{\underline{i}} \,.
+      \]
+      For the polynomials $p_{\underline{i}} \defined  X_{i_1} \dotsm X_{i_r}$ and their corresponding polynomial maps $f_{\underline{i}} \colon V \to k$ given by
+      \[
+          f_{\underline{i}}\left( \lambda_1 v_1 + \dotsb + \lambda_n v_n \right) = p_{\underline{i}}(\lambda_1, \dotsc, \lambda_r)
+      \]
+      we thus have that $f(v) = \sum_{\underline{i}} f_{\underline{i}}(v) v_{\underline{i}}$ for every $v \in V$.
+  \end{enumerate}
 \end{example}
 
 
 \begin{lemma}
-  For a finite-dimensional $k$-vector space $V$ the map $\id_V \colon V \to V$ is a polynomial map.
-  If $U$ and $W$ are finite-dimensonial vector spaces and $f \colon W \to V$ and $g \colon V \to U$ are polynomial maps then $gf \colon W \to U$ is also a polynomial map.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The identity map $\id_V \colon V \to V$ is polynomial.
+    \item
+      For any two composable polynomial maps $f \colon U \to V$ and $g \colon V \to W$ their composition $g \circ f$ is also composable.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-  The first statement is clear.
-  To show the second let $v_1, \dotsc, v_r$ be a basis of $V$, $w_1, \dotsc, w_s$ be a basis of $W$ and $u_1, \dotsc, u_t$ be a basis of $U$.
-  Because $f$ is a polynomial map we can find polynomials $P_1, \dotsc, P_s \in k[X_1, \dotsc, X_r]$ such that
-  \[
-      f\left( \sum_{i=1}^r \lambda_i v_i \right)
-    = \sum_{j=1}^s F_j(\lambda_1, \dotsc, \lambda_r) w_j
-  \]
-  and because $g$ is a polynomial map we can find polynomials $Q_1, \dotsc, Q_t \in k[X_1, \dotsc, X_s]$ such that
-  \[
-      g\left( \sum_{j=1}^s \mu_j w_j \right)
-    = \sum_{k=1}^t G_k(\mu_1, \dotsc, \mu_s) u_k \,.
-  \]
-  Combining this we find that
-  \begin{align*}
-        gf\left( \sum_{i=1}^r \lambda_i v_i \right)
-    &=  g\left( \sum_{j=1}^s F_j(\lambda_1, \dotsc, \lambda_r) w_j \right) \\
-    &=  \sum_{k=1}^t Q_k(F_1(\lambda_1, \dotsc, \lambda_r), \dotsc, F_s(\lambda_1, \dotsc, \lambda_r)) w_k \\
-    &=  \sum_{k=1}^t R_k(\lambda_1, \dotsc, \lambda_r) w_k
-  \end{align*}
-  for the polynomials
-  \[
-              R_k
-    \coloneqq Q_k(F_1(X_1, \dotsc, X_r), \dotsc, F_s(X_1, \dotsc, X_r))
-    \in       k[X_1, \dotsc, X_r] \,.
-    \qedhere
-  \]
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The identity $\id_V$ is linear, and therefore polynomial.
+    \item
+      Let $u_1, \dotsc, u_r$ be a basis of $U$, let $v_1, \dotsc, v_s$ be a basis of $V$, and let $w_1, \dotsc, w_t$ be a basis of $W$.
+      Because the map $f \colon U \to V$ is polynomial there exist polynomials $P_1, \dotsc, P_s \in k[X_1, \dotsc, X_r]$ such that
+      \[
+          f( \lambda_1 u_1 + \dotsb + \lambda_r u_r )
+        = \sum_{i=1}^s P_i(\lambda_1, \dotsc, \lambda_r) v_i \,,
+      \]
+      and because  the $g$ polynomial we can find polynomials $Q_1, \dotsc, Q_t \in k[X_1, \dotsc, X_s]$ such that
+      \[
+          g( \mu_1 w_1 + \dotsb + \mu_s w_s )
+        = \sum_{j=1}^t Q_j(\mu_1, \dotsc, \mu_s) w_j \,.
+      \]
+      By combining these two formulas we find that
+      \begin{align*}
+            (g \circ f)( \lambda_1 u_1 + \dotsb + \lambda_r u_r)
+        &=  g
+            \left(
+              \sum_{i=1}^s P_i(\lambda_1, \dotsc, \lambda_r) v_i
+            \right) \\
+        &=  \sum_{j=1}^t
+              Q_k
+              (
+              P_1(\lambda_1, \dotsc, \lambda_r),
+              \dotsc,
+              P_s(\lambda_1, \dotsc, \lambda_r)
+              )
+              w_j \\
+        &=  \sum_{j=1}^t R_j(\lambda_1, \dotsc, \lambda_r) w_j
+      \end{align*}
+      for the polynomials
+      \[
+                  R_j
+        \coloneqq Q_j(P_1(X_1, \dotsc, X_r), \dotsc, P_s(X_1, \dotsc, X_r))
+        \in       k[X_1, \dotsc, X_r] \,.
+      \]
+      This shows that $g \circ f$ is again polynomial.
+  \qedhere
+  \end{enumerate}
 \end{proof}
 
 
-It is now easy to see that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category.
-We will denote this category by $\cpol{k}$.
-So the objects in $\cpol{k}$ are finite-dimensional $k$-vector spaces and $\Hom_{\cpol{k}}(W,V) = \Pol_k(W,V)$ for all finite-dimensional $k$-vector spaces $W$ and $V$.
-Also notice that every linear map between finite-dimensional $k$-vector spaces is a polynomial map.
-Therefore $\cvect{k}$ is a subcategory of $\cpol{k}$.
+\begin{remark}
+  It follows that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category.
+  We will denote this category by $\cpol{k}$.
+  Note that $\Hom_{\cpol{k}}(W,V) = \Pol_k(W,V)$ for all finite-dimensional $k$-vector spaces $V$ and $W$.
+  Note that $\cvect{k}$ is a subcategory of $\cpol{k}$ since every linear map between finite-dimensional vector spaces is polynomial.
+\end{remark}
+
+
+\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
+
 
 From the definition of a polynomial map it also directly follows that for any finite-dimensional $k$-vector spaces $W$ and $V$ the set $\Pol_k(W,V)$ forms a $k$-vector space via pointwise addition and scalar multiplication.
 This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
@@ -659,3 +809,71 @@ It is interesting to notice that this functor is fully faithful.
   commutes.
   Because $\Phi$ and $\Psi$ are bijections it follows that $\Omega = \Psi \Phi^{-1}$ is a bijection.
 \end{proof}
+
+% TODO: Move this to the right place.
+% \begin{remark}
+%   If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
+% \end{remark}
+% 
+% 
+% 
+% \begin{remark}
+%   For $k$ infinite we have an isomorphism of representations
+%   \[
+%             \Phi
+%     \colon  k[X_1, \dotsc, X_n]
+%     \to     \mc{P}(k^n),
+%     \quad   X_i
+%     \mapsto \varphi_i \,,
+%   \]
+%   where $S_n$ acts on $k[X_1, \dotsc, X_n]$ as usual by permuting the $X_i$ and on $\mc{P}(k^n)$ via
+%   \[
+%       (\sigma.f)(v)
+%     = f\left( \sigma^{-1}.v \right)
+%     \text{ for all }
+%     \sigma \in S_n,
+%     f \in \mc{P}(V),
+%     v \in k^n \,.
+%   \]
+%   We know that $\Phi$ is an isomorphism of $k$-vector spaces.
+%   It is $S_n$-equivariant, since for all $\sigma \in G, p = X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in k[X_1, \dotsc, X_n]$ and $v = (\lambda_1, \dotsc, \lambda_n) \in k^n$
+%   \begin{align*}
+%        \Phi(g.p)(v)
+%     &= \Phi\left( X_{g(1)}^{\alpha_1} \dotsm X_{g(n)}^{\alpha_n} \right)(v)
+%      = \lambda_{g(1)}^{\alpha_1} \dotsm \lambda_{g(n)}^{\alpha_n} \\
+%     &= \Phi(p)( \lambda_{g(1)}, \dotsc, \lambda_{g(n)} )
+%      = \Phi(p)\left( g^{-1}.(\lambda_1, \dotsc, \lambda_n) \right) \\
+%     &= (g.\Phi(p))(\lambda_1, \dotsc, \lambda_n) \,.
+%   \end{align*}
+% \end{remark}
+
+
+% TODO: Readd this later?
+% Given a field extension $L/k$ and an $n$-dimensional $k$-vector space $W$ we have an isomorphism of $k$-algebras
+% \[
+%         \mc{P}_k(W)
+%   \cong k[X_1, \dotsc X_n]
+% \]
+% and therefore an isomorphism of $L$-algebras
+% \[
+%         \mc{P}_k(W)_L
+%   \cong k[X_1, \dotsc, X_n]_L
+%   \cong L[X_1, \dotsc, X_n] \,.
+% \]
+% Since $\dim_L W_L = \dim_k W = n$ we also have an isomorphism of $L$-algebras
+% \[
+%         \mc{P}_L(W_L)
+%   \cong L[X_1, \dotsc, X_n]
+% \]
+% Combining this we have an isomorphism of $L$-algebras $\mc{P}_L(W)_L \cong \mc{P}(W_L)$. Since the isomorphism
+% \[
+%         \mc{P}_k(W)
+%   \cong k[X_1, \dotsc X_n]
+% \]
+% depends on choosing a $k$-basis of $W$ and the isomorphism
+% \[
+%         \mc{P}_L(W_L)
+%   \cong L[X_1, \dotsc, X_n]
+% \]
+% depends on choosing an $L$-basis of $W_L$ we can not expect this isomorphism $\mc{P}_k(W)_L \cong \mc{P}(W_L)$ to be independent of such choice.
+% We will come back to this later.
