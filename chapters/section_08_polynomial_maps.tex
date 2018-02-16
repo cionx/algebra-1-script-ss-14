@@ -523,37 +523,37 @@
       The identity $\id_V$ is linear, and therefore polynomial.
     \item
       Let $u_1, \dotsc, u_r$ be a basis of $U$, let $v_1, \dotsc, v_s$ be a basis of $V$, and let $w_1, \dotsc, w_t$ be a basis of $W$.
-      Because the map $f \colon U \to V$ is polynomial there exist polynomials $P_1, \dotsc, P_s \in k[X_1, \dotsc, X_r]$ such that
+      Because the map $f \colon U \to V$ is polynomial there exist polynomials $p_1, \dotsc, p_s \in k[X_1, \dotsc, X_r]$ such that
       \[
           f( \lambda_1 u_1 + \dotsb + \lambda_r u_r )
-        = \sum_{i=1}^s P_i(\lambda_1, \dotsc, \lambda_r) v_i \,,
+        = \sum_{i=1}^s p_i(\lambda_1, \dotsc, \lambda_r) v_i \,,
       \]
-      and because  the $g$ polynomial we can find polynomials $Q_1, \dotsc, Q_t \in k[X_1, \dotsc, X_s]$ such that
+      and because  the $g$ polynomial we can find polynomials $q_1, \dotsc, q_t \in k[X_1, \dotsc, X_s]$ such that
       \[
           g( \mu_1 w_1 + \dotsb + \mu_s w_s )
-        = \sum_{j=1}^t Q_j(\mu_1, \dotsc, \mu_s) w_j \,.
+        = \sum_{j=1}^t q_j(\mu_1, \dotsc, \mu_s) w_j \,.
       \]
       By combining these two formulas we find that
       \begin{align*}
-            (g \circ f)( \lambda_1 u_1 + \dotsb + \lambda_r u_r)
-        &=  g
-            \left(
-              \sum_{i=1}^s P_i(\lambda_1, \dotsc, \lambda_r) v_i
-            \right) \\
-        &=  \sum_{j=1}^t
-              Q_k
+         &\,  (g \circ f)( \lambda_1 u_1 + \dotsb + \lambda_r u_r)
+        =     g
+              \left(
+                \sum_{i=1}^s p_i(\lambda_1, \dotsc, \lambda_r) v_i
+              \right) \\
+        =&\,  \sum_{j=1}^t
+              q_j
               (
-              P_1(\lambda_1, \dotsc, \lambda_r),
+              p_1(\lambda_1, \dotsc, \lambda_r),
               \dotsc,
-              P_s(\lambda_1, \dotsc, \lambda_r)
+              p_s(\lambda_1, \dotsc, \lambda_r)
               )
-              w_j \\
-        &=  \sum_{j=1}^t R_j(\lambda_1, \dotsc, \lambda_r) w_j
+              w_j
+        =  \sum_{j=1}^t r_j(\lambda_1, \dotsc, \lambda_r) w_j
       \end{align*}
       for the polynomials
       \[
-                  R_j
-        \coloneqq Q_j(P_1(X_1, \dotsc, X_r), \dotsc, P_s(X_1, \dotsc, X_r))
+                  r_j
+        \coloneqq q_j(p_1(X_1, \dotsc, X_r), \dotsc, p_s(X_1, \dotsc, X_r))
         \in       k[X_1, \dotsc, X_r] \,.
       \]
       This shows that $g \circ f$ is again polynomial.
@@ -566,172 +566,163 @@
   It follows that the class of finite-dimensional $k$-vector spaces together with the polynomial maps between them form a category.
   We will denote this category by $\cpol{k}$.
   Note that $\Hom_{\cpol{k}}(W,V) = \Pol_k(W,V)$ for all finite-dimensional $k$-vector spaces $V$ and $W$.
-  Note that $\cvect{k}$ is a subcategory of $\cpol{k}$ since every linear map between finite-dimensional vector spaces is polynomial.
+  Note also that $\cvect{k}$ is a subcategory of $\cpol{k}$ since every linear map between finite-dimensional vector spaces is polynomial.
 \end{remark}
 
 
-\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
-
-
-From the definition of a polynomial map it also directly follows that for any finite-dimensional $k$-vector spaces $W$ and $V$ the set $\Pol_k(W,V)$ forms a $k$-vector space via pointwise addition and scalar multiplication.
-This $k$-vector space can be given the structure of a $\mc{P}(W)$-module.
-
 \begin{proposition}
-  Let $W$ and $V$ be finite-dimensional $k$-vector spaces.
-  The $k$-vector space $\Pol_k(W,V)$ is a $\mc{P}(W)$-module via
-  \[
-      (g \cdot f)(w)
-    = g(w) f(w)
-  \]
-  for all $g \in \Pol_k(W,V)$,
-  $f \in \mc{P}(W)$,
-  $w \in W$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The space $\Pol_k(V,W)$ of polynomial maps $V \to W$ carries the structure of a $k$-vector space via pointwise addition and scalar multiplication.
+    \item
+      The $k$-vector space $\Pol_k(V,W)$ carries the structur of a $\mc{P}_k(V)$-module via
+      \begin{equation}
+      \label{equation: module structure on polynomial spaces}
+          (g \cdot f)(v)
+        = g(v) f(v)
+      \end{equation}
+      for all $g \in \mc{P}_k(V)$, $f \in \Pol_k(V,W)$, $v \in V$.
+  \end{enumerate}
 \end{proposition}
 \begin{proof}
-  It is clear that $\Maps(W,V)$ becomes a $\Maps(W,k)$-module by defining the multiplication as above.
-  Since $\mc{P}(W)$ is a $k$-subalgebra of $\Maps(W,k)$ we find that $\Maps(W,V)$ is a $\mc{P}(W)$-module.
-  The proposition claims that $\Pol_k(W,V)$ is a $\mc{P}(W)$-submodule of $\Maps(W,V)$.
-  So we only need to check that $\Pol_k(W,V)$ is closed under the multiplication from $\mc{P}(W)$.
-  
-  Let $v_1, \dotsc, v_n$ be a $k$-basis of $V$.
-  For $f \in \Pol_k(W,V)$ there exists $f_1, \dotsc, f_n \in \mc{P}(W)$ such that
-  \[
-      f(w)
-    = \sum_{i=1}^n f_i(w) v_i
-    \text{ for all }
-    w \in W \,.
-  \]
-  Since for all $g \in \mc{P}(W)$
-  \begin{align*}
-        (g \cdot f)(w)
-    &=  g(w) \cdot f(w)
-     =  g(w) \cdot \sum_{i=1}^n f_i(w) v_i \\
-    &=  \sum_{i=1}^n g(w) f_i(w) v_i
-     =  \sum_{i=1}^n (g \cdot f_i)(w) v_i
-  \end{align*}
-  we find that $g \cdot f \in \Pol_k(W,V)$ for all $g \in \mc{P}(W)$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The space $\Maps(V,W)$ carries the structure of a $k$-vector space via pointwise addition und scalar multiplication.
+      Then $\Pol_k(V,W)$ is a $k$-linear subspace of $\Maps(V,W)$ as sums and scalar multiplices of polynomial maps are again polynomial.
+    \item
+      The $k$-vector space $\Maps(V,W)$ becomes a $\Maps(V,k)$-module by defining the multiplication via~\eqref{equation: module structure on polynomial spaces}.
+      Then $\mc{P}(V)$ is a $k$-subalgebra of $\Maps(V,k)$, so that $\Maps(V,W)$ becomes a $\mc{P}(V)$-module by restriction.
+      The proposition claims that $\Pol_k(V,W)$ is a $\mc{P}(V)$-submodule of $\Maps(V,W)$.
+      It now sufficies to show that $\Pol_k(V,W)$ is preserved under the action of $\mc{P}_k(V)$ on $\Maps(V,W)$.
+      
+      Let $w_1, \dotsc, w_m$ be a basis of $W$.
+      For every $f \in \Pol_k(V,W)$ there then exist $f_1, \dotsc, f_m \in \mc{P}_k(V)$ with
+      \[
+          f(v)
+        = f_1(v) w_1 + \dotsb + f_m(v) w_m
+      \]
+      for all $v \in V$.
+      Then
+      \begin{align*}
+            (g \cdot f)(v)
+        &=  g(v) \cdot f(v)                               \\
+        &=  g(v) \cdot (f_1(v) w_1 + \dotsb + f_m(v) w_m) \\
+        &=  g(v) f_1(v) w_1 + \dotsb + g(v) f_m(v) w_m    \\
+        &=  (g f_1)(v) w_1 + \dotsb + (g f_m)(v) w_m
+      \end{align*}
+      for all $v \in V$, with $g f_1, \dotsc, g f_m \in \mc{P}(V)$.
+      So $g \cdot f$ is again polynomial.
+  \qedhere
+  \end{enumerate}
 \end{proof}
 
 
-
 \begin{lemma}
-  Let $W$ and $V$ be finite-dimensional $k$-vector spaces and $f \colon W \to V$ be a polynomial map. Then
+  Let $f \colon V \to W$ be a polynomial map. Then
   \[
             f^*
-    \colon  \mc{P}(V)
-    \to     \mc{P}(W),
+    \colon  \mc{P}(W)
+    \to     \mc{P}(V),
     \quad   h
     \mapsto h \circ f
   \]
-  is an algebra homomorphism.
+  is a homomorphism of $k$-algebras.
 \end{lemma}
 \begin{proof}
-  We already know that $f^*$ is well-defined, i.e.\ that $h \circ f \in \mc{P}(W)$ for all $h \in \mc{P}(V)$.
-  So we just need to show that $f^*$ is an algebra-homomorphism.
-  For this fix a basis $v_1, \dotsc, v_n$ of $V$.
-  
-  Let $h_1, h_2\in \mc{P}(V)$, i.e.\ we have polynomials $p_1, p_2\in k[X_1, \dotsc, X_n]$ with
-  \[
-      h_j\left( \sum_{i=1}^n \lambda_i v_i \right)
-    = p_j(\lambda_1, \dotsc, \lambda_n)
-    \text{ for }
-    j = 1, 2 \,.
-  \]
-  For all $w \in W$ we have
+  The map $f^*$ is well-defined as the composition of polynomial maps is again polynomial.
+  To show that $f$ is a homomorphism of $k$-algebras let $h, h_1, h_2 \in \mc{P}(W)$.
+  For every $v \in V$ we have that
   \begin{align*}
-        f^*(h_1+h_2)(w)
-    &=  ((h_1 + h_2) \circ f)(w)
-     =  (h_1 + h_2)(f(w)) \\
-    &=  h_1(f(w)) + h_2(f(w))
-     =  (h_1 \circ f)(w) + (h_2 \circ f)(w) \\
-    &=  f^*(h_1)(w) + f^*(h_2)(w)
-     =  (f^*(h_1)+f^*(h_2))(w)
+        f^*(h_1+h_2)(v)
+    &=  (h_1 + h_2)(f(v))
+     =  h_1(f(v)) + h_2(f(v)) \\
+    &=  f^*(h_1)(v) + f^*(h_2)(v)
+     =  (f^*(h_1)+f^*(h_2))(v)
   \end{align*}
   and therefore
   \[
       f^*(h_1 + h_2)
     = f^*(h_1) + f^*(h_2) \,.
   \]
-  For all $\lambda \in k$ and $w \in W$ we have
-  \begin{align*}
-        f^*(\lambda h_1)(w)
-    &=  ((\lambda h_1) \circ f)(w)
-     =  (\lambda h_1)(f(w)) \\
-    &=  \lambda h_1(f(w))
-     =  \lambda (h_1 \circ f)(w) \\
-    &=  \lambda f^*(h_1)(w)
-     =  (\lambda f^*(h_1))(w)
-  \end{align*}
+  For all $\lambda \in k$, $v \in V$ we have that
+  \[
+      f^*(\lambda h)(v)
+    = (\lambda h)(f(v))
+    = \lambda h(f(v))
+    = \lambda f^*(h)(v)
+    = (\lambda f^*(h))(v)
+  \]
   and therefore
   \[
-      f^*(\lambda h_1)
-    = \lambda f^*(h_1) \,.
+      f^*(\lambda h)
+    = \lambda f^*(h) \,.
   \]
-  This shows that $f^*$ is $k$-linear. That it is also a ring homomorphism follows from the fact that for all $w \in W$
+  Together this shows that $f^*$ is $k$-linear.
+  For every $v \in V$ we have that
   \begin{align*}
-        f^*(h_1 h_2)(w)
-    &=  ((h_1 h_2) \circ f)(w)
-     =  (h_1 h_2)(f(w)) \\
-    &=  h_1(f(w)) h_2(f(w))
-     =  (h_1 \circ f)(w) (h_2 \circ f)(w) \\
-    &=  f^*(h_1)(w) f^*(h_2)(w)
-     =  (f^*(h_1) f^*(h_2))(w)
+        f^*(h_1 h_2)(v)
+    &=  (h_1 h_2)(f(v))
+     =  h_1(f(v)) h_2(f(v)) \\
+    &=  f^*(h_1)(v) \, f^*(h_2)(v)
+     =  (f^*(h_1) f^*(h_2))(v)
   \end{align*}
   and therefore
   \[
       f^*(h_1 h_2)
     = f^*(h_1) f^*(h_2) \,.
-    \qedhere
   \]
+  This shows that $f^*$ is multiplicative.
+  We also have that
+  \[
+      f^*\left( 1_{\mc{P}(W)} \right)
+    = 1_{\mc{P}(W)} \circ f
+    = 1_{\mc{P}(V)} \,.
+  \]
+  Alltogether this shows that $f^*$ is a homomorphism of $k$-algebras.
 \end{proof}
 
 
 \begin{definition}
-  Given finite-dimensional $k$-vector spaces $W$ and $V$ and a polynomial map $f \colon W \to V$ the algebra homomorphism $f^* \colon \mc{P}(V) \to \mc{P}(W)$ is the \emph{comorphism associated with $f$}.
+  For every polynomial map $f \colon V \to W$ the homomorphism of $k$-algebras $f^* \colon \mc{P}(W) \to \mc{P}(V)$ is the \emph{comorphism associated with $f$}.
 \end{definition}
+
+
+\begin{lemma}
+  \label{lemma: functoriality of polynomial algebra}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For the identity $\id_V$ we have that $\id_V^* = \id_{\mc{P}(V)}$.
+    \item
+      For every two composable polynomial maps $f \colon U \to V$ and $g \colon V \to W$ we have that $(g \circ f)^* = f^* \circ g^*$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{fluff}
+  We have associated to every finite-dimensional $k$-vector space $V$ a $k$-algebra $\mc{P}(V)$, and to any polynomial map $f \colon V \to W$ an associated homomorphism of $k$-algebras $f^* \colon \mc{P}(W) \to \mc{P}(V)$.
+  This association is functorial by Lemma~\ref{lemma: functoriality of polynomial algebra}.
+  We have therefore constructed a contravariant functor $\cpol{k} \to \cAlg{k}$ which is given on objects by $V \mapsto \mc{P}(V)$ and on morphisms by $f \mapsto f^*$.
   
-
-We have now associated finite-dimensional $k$-vector spaces with $k$-algebras and the polynomial maps between these vector spaces with algebra homomorphisms between the corresponding algebras.
-This gives rise to a contravariant functor from $\cpol{k}$ to $\cAlg{k}$, as the next lemma shows.
-
-
-\begin{proposition}
-  Let $U$, $V$ and $W$ be finite-dimensional $k$-vector spaces.
-  We have $\id_V^* = \id_{\mc{P}(V)}$ and for polynomial maps $f \colon W \to V$ and $g \colon V \to U$ we have
-  \[
-      (g \circ f)^*
-    = f^* \circ g^* \,.
-  \]
-\end{proposition}
-\begin{proof}
-  The first statement is clear.
-  The second holds because for all $h \in \mc{P}(U)$
-  \begin{align*}
-      ( g \circ f)^*(h)
-    &=  h \circ (g \circ f)
-     =  (h \circ g) \circ f \\
-    &=  f^* (h \circ g)
-     =  f^*(g^*(h))
-     = (f^* \circ g^*)(h) \,.
-    \qedhere
-  \end{align*}
-\end{proof}
+  This functor turns out to be fully faithful:
+\end{fluff}
 
 
-It is interesting to notice that this functor is fully faithful.
+\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
 
 
 \begin{proposition}
-  Let $W$ and $V$ be finite-dimensional $k$-vector spaces.
-  Then the map
+  The map
   \[
             \Omega
-    \colon  \Pol_k(W,V)
-    \to     \Hom_{\cAlg{k}}(\mc{P}(V), \mc{P}(W)),
+    \colon  \Pol_k(V,W)
+    \to     \Hom_{\cAlg{k}}(\mc{P}(W), \mc{P}(V)),
     \quad   f
     \mapsto f^*
   \]
-  is a bijection.
+  is bijective.
 \end{proposition}
 \begin{proof}
   Fix a basis $v_1, \dotsc, v_n$ of $V$.
