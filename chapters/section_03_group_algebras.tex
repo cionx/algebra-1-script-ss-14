@@ -144,8 +144,8 @@
 \end{corollary}
 
 
-\begin{remark}
-  Note that the group algebra $k[G]$ is a module over itself via left multiplication.
+\begin{definition}
+  The group algebra $k[G]$ is a module over itself via left multiplication.
   This $k[G]$-module structure corresponds to the linear action of $G$ on $k[G]$ via left multiplication on the basis vectors $h \in G$, i.e.
   \[
       g.\left( \sum_{h \in G} a_h h \right)
@@ -153,6 +153,37 @@
   \]
   for all $g \in G$, $\sum_{h \in G} a_h h \in k[G]$.
   This is the \emph{\textup(left\textup) regular representation} of $G$.
+\end{definition}
+
+
+\begin{remark}
+  Let $V$ and $W$ be representations of $G$ over a field $k$.
+  Then a map $f \colon V \to W$ is a homomorphism of $k[G]$-modules with respect to the corresponding $k[G]$-module structures on $V$ and $W$ if and only if $f$ is a morphism of representations:
+  
+  If $f$ is a homomorphism of $k[G]$-modules, then it is in particular $k$-linear map.
+  For every $g \in G$ we have that
+  \[
+      f(g.v)
+    = f(g \cdot v)
+    = g \cdot f(v)
+    = g.f(v)
+  \]
+  for every $v \in V$, so that $f$ is $G$-equivariant.
+  
+  If $f$ is a morphism of representations then it is also $k$-linear.
+  For every algebra element $x = \sum_{g \in G} a_g g \in k[G]$ it then follows that
+  \begin{align*}
+        f(x \cdot v)
+    &=  f\left( \sum_{g \in G} a_g g \cdot v \right)
+     =  \sum_{g \in G} a_g f(g \cdot v) \\
+    &=  \sum_{g \in G} a_g f(g.v)
+     =  \sum_{g \in G} a_g g.f(v)
+     =  \sum_{g \in G} a_g g \cdot f(v)
+     =  x \cdot f(v)
+  \end{align*}
+  for every $v \in V$, so that $f$ is a homomorphism of $k[G]$-modules.
+  
+  Alltogether we have now constructed an isomorphism of category $\cRep{k}{G}$ of representations of $G$ over $k$ and the category $\cMod{k[G]}$ of left $k[G]$-modules.
 \end{remark}
 
 
