@@ -1,44 +1,72 @@
 \section{Covariants}
 
 
-\begin{definition}
-  Let $G$ be a group and $V$ and $W$ be finite-dimensional representations of $G$.
-  A map $f \colon W \to V$ is called \emph{covariant} if $f$ is a polynomial map and $G$-equivariant.
-  We denote the space of covariant functions from $W$ to $V$ by
+\begin{fluff}
+  \label{fluff: induced action on polynomial algebra}
+  Let $G$ be a group acting on a set $X$
+  Then $G$ acts on linearly on $\Maps(X,k)$ via
   \[
-              \Cov_k(W,V)
-    \coloneqq \Pol_k(W,V)^G \,.
+              (g.f)(x)
+    \defined  f(g^{-1}.x)
   \]
-  We also write $\Cov(W,V)$ if it is clear over what field we work.
+  for all $g \in G$, $f \in \Maps(X,k)$, $x \in X$.
+  
+  If $G$ acts linearly on a finite-dimensional $k$-vector space $V$ then it follows that $G$ acts linearly on $\Maps(V,k)$ in the above way.
+  The $k$-linear subspace $\mc{P}(V) \subseteq \Maps(V,k)$ is then a subrepresentation (because the precomposition of a polynomial function by a linear function is again polynomial).
+  
+  This shows that the linear action of $G$ on $V$ induces a linear action of $G$ on $\mc{P}(V)$ given by $(g.f)(v) = f(g^{-1}.v)$.
+  Note that this is already an action by $k$-algebra homomorphisms because additionaly
+  \begin{align*}
+        (g.(f_1 f_2))(v)
+    &=  (f_1 f_2)(g^{-1}.v)
+     =  f_1(g^{-1}.v) f_2(g^{-1}.v) \\
+    &=  (g.f_1)(v) \, (g.f_2)(v)
+     =  ((g.f_1) (g.f_2))(v)
+  \end{align*}
+  for every $v \in V$, and thus $g.(f_1 f_2) = (g.f_1)(g.f_2)$, as well as
+  \[
+      \left( g.1_{\mc{P}(V)} \right)(v)
+    = 1_{\mc{P}(V)}(g^{-1}.v)
+    = 1
+  \]
+  for every $v \in V$, and thus $g.1_{\mc{P}(V)} = 1_{\mc{P}(V)}$.
+  It follows in particular that $\mc{P}(V)^G$ is a $k$-subalgebra of $\mc{P}(V)$.
+  
+  In the following $U$, $V$, $W$ will again denote finite-dimensional representations of a group $G$ over $k$.
+\end{fluff}
+
+
+\begin{definition}
+  A map $f \colon V \to W$ is \emph{covariant} if it is both polynomial and $G$-equivariant.
+  The space of covariant functions $V \to W$ is denoted by $\Cov_k(V,W)$, or just by $\Cov(V,W)$.
 \end{definition}
 
 
 \begin{example}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \leavevmode
+  \begin{enumerate}
     \item
-      Let $W$ be a finite-dimensional $k$-vector space, $d \in \Natural, d > 0$.
-      Then the map
+      For every $r \geq 0$ the map
       \[
                 \beta
-        \colon  W \to W^{\otimes d},
-        \quad   w
-        \mapsto w \otimes \dotsb \otimes w
+        \colon  V \to V^{\otimes r},
+        \quad   v
+        \mapsto v \otimes \dotsb \otimes v
       \]
-      is a polynomial map.
+      is polynomial, as seen in Example~\ref{example: polynomial maps}.
       It is also $G$-equivariant since
       \[
-          \beta(g.w)
-        = (g.w) \otimes \dotsb \otimes (g.w)
-        = g.(w \otimes \dotsb \otimes w)
-        = g.\beta(w)
+          \beta(g.v)
+        = (g.v) \otimes \dotsb \otimes (g.v)
+        = g.(v \otimes \dotsb \otimes v)
+        = g.\beta(v)
       \]
-      for all $g \in G$, $w \in W$.
+      for all $g \in G$, $v \in W$.
     \item
-      Fix a field $k$.
-      Consider the action of $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.\
+      The group $\GL_n(k)$ on $\Mat_n(k)$ via conjugation, i.e.\ via
       \[
-          g.A
-        = gAg^{-1}
+                  g.A
+        \defined  gAg^{-1}
       \]
       for all $g \in \GL_n(k)$, $A \in \Mat_n(k)$.
       Then the map
@@ -49,90 +77,76 @@
         \quad   A
         \mapsto A^i
       \]
-      is covariant for all $i \geq 1$. 
+      is covariant for every $i \geq 1$. 
   \end{enumerate}
 \end{example}
 
 
-Notice that since we have $\Hom_k(W,V) \subseteq \Pol_k(W,V)$ we also have
-\[
-            \Hom_G(W,V)
-  =         \Hom_k(W,V)^G
-  \subseteq \Pol_k(W,V)^G
-  =         \Cov(W,V) \,.
-\]
-Therefore every morphism of representations is covariant.
-
-
-For finite-dimensional representations $W$ and $V$ of a group $G$ we know that $\Pol_k(W,V)$ is a $G$-set via
-\[
-    (g.f)(w)
-  = g.f\left( g^{-1}.w \right)
-  \text{ for all }
-  g \in G,
-  w \in W \,.
-\]
-That $g.f$ is polynomial follows from the fact that $\tau_{g^{-1}} \colon W \to W$ and $\pi_g \colon V \to V$ are $k$-linear and thus polynomial, and therefore also
-\[
-    g.f
-  = \pi_g \circ f \circ \tau_{g^{-1}} \,.
-\]
-We also know that $\Pol_k(W,V)$ is a $k$-vector space via pointwise addition and multiplication.
-Since the composition above is clearly $k$-linear in $f$ we find that $\Pol_k(W,V)$ is a representation of $G$.
-As we have already seen before this implies that $\Cov(W,V) = \Pol_k(W,V)^G$ is also a $k$-vector space.
-
-
-\begin{proposition}
-  Let $G$ be a group, $W$ and $V$ finite-dimensional representations of $G$ over $k$ and $\beta \colon W \to V$ covariant.
-  Then
-  \[
-              \beta^*\left( \mc{P}(V)^G \right)
-    \subseteq \mc{P}(W)^G \,.
-  \]
-  Therefore $\beta^*$ induces an algebra-homomorphism from $\mc{P}(V)^G$ to $\mc{P}(W)^G$ by restriction.
-\end{proposition}
-\begin{proof}
-  For all $f \in \mc{P}(V)^G$ we have for all $g \in G$, $w \in W$
-  \begin{align*}
-        (g.\beta^*(f))(w)
-    &=  \beta^*(f)\left( g^{-1}.w \right)
-     =  (f \circ \beta)\left( g^{-1}.w \right) \\
-    &=  f\left( \beta\left( g^{-1}.w \right) \right)
-     =  f\left( g^{-1}.\beta(w) \right)
-     =  (g.f)(\beta(w)) \\
-    &=  f(\beta(w))
-     =  (f \circ \beta)(w)
-     =  \beta^*(f)(w) \,.
-  \end{align*}
-  Therefore
-  \[
-      g.\beta^*(f)
-    = \beta^*(f)
-    \text{ for all }
-    g \in G \,.
-    \qedhere
-  \]
-\end{proof}
-
-
-\begin{proposition}
-  Let $V$ and $W$ be finite-dimensional representations of a group $G$ over a field $k$.
-  Then the $\mc{P}(W)$-module structure of $\Pol_k(W,V)$ induces a $\mc{P}(W)^G$-module structure on $\Cov(W,V)$ by restriction.
-\end{proposition}
-\begin{proof}
-  Since $\mc{P}(W)^G$ as a $k$-subalgebra of $\mc{P}(W)$ we have a $\mc{P}(W)^G$-module structure on $\Pol_k(W,V)$ by restriction.
-  The proposition claims that $\Cov(W,V)$ is a $\mc{P}(W)^G$-submodule of $\Pol_k(W,V)$.
+\begin{fluff}
+%   Notice that since we have $\Hom_k(W,V) \subseteq \Pol_k(W,V)$ we also have
+%   \[
+%               \Hom_G(W,V)
+%     =         \Hom_k(W,V)^G
+%     \subseteq \Pol_k(W,V)^G
+%     =         \Cov(W,V) \,.
+%   \]
+%   Therefore every morphism of representations is covariant.
+% 
+% 
+  We know that $\Maps(V,W)$ is a $G$-set via
+  \begin{equation}
+    \label{equation: action on mapsVW}
+      (g.f)(v)
+    = g.f\left( g^{-1}.v \right)
+  \end{equation}
+  for all $g \in G$, $v \in V$.
+  As in~\ref{fluff: induced action on polynomial algebra} we find that $\Pol(V,W) \subseteq \Maps(V,W)$ is a subrepresentation.
+  Thus $G$ acts linearly on $\Pol(V,W)$ via~\eqref{equation: action on mapsVW}.
   
-  We already know that $\Cov(W,V)$ is a $k$-vector subspace of $\Pol_k(W,V)$.
-  For $f \in \mc{P}(W)^G$ and $\beta \in \Cov(W,V)$ we have for all $g \in G$, $w \in W$
+  Note that it follows in particular that $\Cov(V,W) = \Pol_k(V,W)^G$ is a $k$-linear subspace of $\Pol_k(V,W)$.
+  
+  Let $\beta \colon V \to W$ be a covariant map.
+  Then the induced $k$-algebra homomorphism $\beta^* \colon \mc{P}(W) \to \mc{P}(V)$ is also $G$-equivariant because
   \begin{align*}
-        (g.(f \cdot \beta))(w)
-    &=  g.(f \cdot \beta)\left( g^{-1}.w \right)
-     =  g.\left( f\left( g^{-1}.w \right) \cdot \beta\left( g^{-1}.w \right) \right) \\
-    &=  f\left( g^{-1}.w \right) \cdot g.\beta\left( g^{-1}.w \right)
-     =  (g.f)(w) \cdot (g.\beta)(w) \\
-    &=  f(w) \cdot \beta(w)
-     =  (f \cdot \beta)(w) \,.
+        (g.\beta^*(f))(v)
+    &=  \beta^*(f)(g^{-1}.v)
+     =  f(\beta(g^{-1}.v))  \\
+    &=  f(g^{-1}.\beta(v))
+     =  (g.f)(\beta(v))
+     =  \beta^*(g.f)(v)
   \end{align*}
-  This shows that $\Cov(W,V)$ is also closed under multiplication by $\mc{P}(W)^G$.
+  for all $g \in G$, $f \in \mc{P}(W)$, $v \in V$, and therefore $g.\beta^*(f) = \beta^*(g.f)$ for all $g \in G$, $f \in \mc{P}(W)$.
+  It follows that $\beta^*(\mc{P}(W)^G) \subseteq \mc{P}(V)^G$, so that $\beta^*$ restricts to a $k$-algebra homomorphism $\mc{P}(W)^G \to \mc{P}(V)^G$.
+\end{fluff}
+
+
+\begin{proposition}
+  The $\mc{P}(V)$-module structure of $\Pol(V,W)$ restrict to a $\mc{P}(V)^G$-module structure on $\Cov(V,W)$ by restriction.
+\end{proposition}
+\begin{proof}
+  The $\mc{P}(V)$-module structure of $\Pol(V,W)$ restricts to a $\mc{P}(V)^G$-module structure.
+  We thus need to show that $\Cov(V,W)$ is preserved under the action of $\mc{P}(V)^G$.
+  
+  We already know that $\Cov(W,V)$ is a $k$-linear subspace of $\Pol_k(W,V)$.
+  For all $f \in \mc{P}(W)^G$, $\beta \in \Cov(W,V)$ we have for all $g \in G$, $v \in V$ that
+  \begin{align*}
+        (g.(f \cdot \beta))(v)
+    &=  g.\left( (f \cdot \beta) \left( g^{-1}.v \right) \right)
+     =  g.\left(
+                f\left( g^{-1}.v \right)
+          \cdot \beta\left( g^{-1}.v \right)
+        \right) \\
+    &=        f\left( g^{-1}.v \right)
+        \cdot \left(
+                g.\beta\left( g^{-1}.v \right)
+              \right)
+     =  (g.f)(v) \cdot (g.\beta)(v) \\
+    &=  f(v) \cdot \beta(v)
+     =  (f \cdot \beta)(v) \,,
+  \end{align*}
+  where we used in the second to last equality that $g.f = f$ and $g.\beta = \beta$ (note that $\beta \in \Cov(V,W)$ is $G$-equivariant, und thus $G$-invariant).
+  This shows the claim.
 \end{proof}
+
+
+\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
