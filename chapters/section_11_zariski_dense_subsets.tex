@@ -1,0 +1,830 @@
+\section{Zariski Dense Subsets}
+In this section let $k$ be an infinite field.
+
+
+\begin{definition}
+  Let $W$ be a finite-dimensional $k$-vector space.
+  A subset $X \subseteq W$ is called \emph{Zariski dense (over $k$)} if for any $f \in \mc{P}_k(W)$ we have
+  \[
+                f_{|X} = 0
+    \Rightarrow f = 0 \,.
+  \]
+  If $X \subseteq Y \subseteq W$ then \emph{$X$ is Zariski dense in $Y$ (over $k$)} if for all $f \in \mc{P}_k(W)$
+  \[
+                f_{|X} = 0
+    \Rightarrow f_{|Y} = 0 \,.
+  \]
+\end{definition}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item 
+      Let $X \subseteq k$ an infinite subset.
+      Then $X$ is Zariski dense:
+      Let $f \in \mc{P}(k)$ with $f_{|X} = 0$.
+      Since $f$ is a polynomial function there exists $p \in k[X]$ with $f(\lambda) = p(\lambda)$ for all $\lambda \in k$.
+      Since $f_{|X} = 0$ and $X$ is infinite the polynomial $p$ has infinitely many zeroes.
+      Therefore $p = 0$ and $f = 0$.
+    \item
+      Let $W$ be a finite-dimensional $k$-vector space and $U \subsetneq W$ a vector subspace.
+      Then $U$ is not Zariski dense in $W$ over $k$:
+      To see this let $w_1, \dotsc, w_n$, $w_{n+1}, \dotsc, w_m$ be a $k$-basis of $W$ such that $w_1, \dotsc, w_n$ is a $k$-basis of $U$.
+      Since $U \neq W$ we have $n < m$.
+      We define $\pi \in \mc{P}_k(W)$ as the projection
+      \[
+          \pi\left( \sum_{i=1}^m \lambda_i w_i \right)
+        = \lambda_m \,.
+      \]
+      We have $\pi_{|U} = 0$ but $\pi \neq 0$, so $U$ is not Zariski dense in $W$ over $k$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{warning}
+  The notion of Zariski density depends on the underlying field.
+  From the previous examples it follows that $\Real \subseteq \Complex$ is Zariski dense over $\Complex$, but not over $\Real$.
+\end{warning}
+
+
+
+\begin{lemma}
+  $k^n \subseteq L^n$ is Zariski dense over $L$.
+\end{lemma}
+\begin{proof}
+  We show the statement by induction over $n$.
+  
+  ($n = 1$)
+  For $f \in \mc{P}(L)$ with $f_{|k} = 0$ the corresponding polynomial $p \in L[X]$ (i.e.\ $f(\lambda) = p(\lambda)$ for all $\lambda \in L$) has infintely many zeroes.
+  So $p = 0$ and therefore $f = 0$.
+  
+  ($n \geq 2$)
+  Suppose the statement holds for $n-1$.
+  Let $f \in \mc{P}\left(L^n\right)$ with $f_{|k^n} = 0$.
+  Because $f$ is a polynomial function there exists $p \in L[X_1, \dotsc, X_n]$ with $f((\lambda_1, \dotsc, \lambda_n)) = p(\lambda_1, \dotsc, \lambda_n)$ for all $(\lambda_1, \dotsc, \lambda_n) \in L^n$.
+  We can write $p$ as
+  \[
+      p(X_1, \dotsc, X_n)
+    = \sum_{i \in \Natural} p_i(X_1, \dotsc, X_{n-1}) X_n^i
+  \]
+  with $p_i \in L[X_1, \dotsc, X_{n-1}]$ for all $i \in \Natural$ and $p_i \neq 0$ for only finitely many $i \in \Natural$.
+  Let $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ be fixed but arbitrary and $\bar{p} \in L[X_n]$ be defined as
+  \[
+              \bar{p}(X_n)
+    \coloneqq p(\lambda_1, \dotsc, \lambda_{n-1}, X_n)
+    =         \sum_{i \in \Natural} p_i(\lambda_1, \dotsc, \lambda_{n-1}) X_n^i \,.
+  \]
+  Since $\bar{p}(\lambda_n) = 0$ for all $\lambda_n \in k$ we find that $\bar{p} = 0$ (since $\bar{p}$ has infinitely many zeroes).
+  Because $L$ is infinite this means that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \Natural$.
+  Since $(\lambda_1, \dotsc, \lambda_{n-1}) \in k^{n-1}$ is arbitrary we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $\lambda_1, \dotsc, \lambda_{n-1} \in k$ for every $i \in \Natural$.
+  By using the induction hypothesis we find that $p_i(\lambda_1, \dotsc, \lambda_{n-1}) = 0$ for all $i \in \Natural$ and $\lambda_1, \dotsc, \lambda_{n-1} \in L$.
+  Because $L$ is infinite it follows that $p_i = 0$ for all $i \in \Natural$.
+  Therefore $p = 0$ and $f = 0$.
+\end{proof}
+
+
+We can generalize this obeservation in the language of extension of scalars:
+
+
+\begin{lemma}\label{lemma: W Zariski dense in W_L}
+  Let $W$ be a finite-dimensional $k$-vector space.
+  Then $W$ is Zariski dense in $W_L$ over $L$.
+\end{lemma}
+\begin{proof}
+  Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
+  Then $1 \otimes w_1, \dotsc, 1 \otimes w_n$ is an $L$-basis of $W_L$.
+  Using this bases we have an isomorphism of $k$-vector spaces
+  \[
+            \phi
+    \colon  k^n \to W,
+    \quad   e_i
+    \mapsto w_i
+  \]
+  and an isomorphism of $L$-vector spaces
+  \[
+            \psi
+    \colon  L^n
+    \to     W_L,
+    \quad   e_i
+    \mapsto 1 \otimes w_i
+  \]
+  and the following commutative diagram:
+  \[
+    \begin{tikzcd}
+        W
+        \arrow[equal]{r}{\sim}
+        \arrow[hook]{d}
+      & k^n
+        \arrow[hook]{d}
+      \\
+        W_L
+        \arrow[equal]{r}{\sim}
+      & L^n
+    \end{tikzcd}
+  \]
+  The isomorphism $\psi$ of $L$-vector spaces induces the isomorphism
+  \[
+            \psi^*
+    \colon  \mc{P}_L(W_L)
+    \to     \mc{P}_L(L^n),
+    \quad   h
+    \mapsto h \circ \psi
+  \]
+  of $L$-algebras.
+  For $f \in \mc{P}_L(W_L)$ with $f_{|W} = 0$ we have $g \coloneqq \psi^*(f) \in \mc{P}_L(L^n)$ with $g_{|k^n} = 0$.
+  Since $k^n$ is Zariski dense in $L^n$ over $L$ we find that $g = 0$.
+  Since $\psi^*$ is an isomorphism of $L$-algebras it follows that $f = 0$.
+\end{proof}
+
+
+As we have seen in the last chapter we have $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ as $L$-algebras.
+The problem of the constructed isomorphism is that it depends on choosing a $k$-basis of $W$ and an $L$-basis of $W_L$.
+We will now construct an isomorphism which does not depend on such choice.
+
+
+\begin{lemma}
+  Let $W$ be a finite-dimensional $k$-vector space. Then there exists an unique map
+  \[
+            \iota
+    \colon  \mc{P}_k(W)
+    \to     \mc{P}_L(W_L)
+  \]
+  such that for every $f \in \mc{P}_k(W)$ the diagram
+  \[
+    \begin{tikzcd}[sep = large]
+        W
+        \arrow[hook]{r}{\can_W}
+        \arrow[swap]{d}{f}
+      & W_L
+        \arrow{d}{\iota(f)}
+      \\
+        k
+        \arrow[hook]{r}
+      & L
+    \end{tikzcd}
+  \]
+  commutes.
+  $\iota$ is a monomorphism of $k$-algebras.
+\end{lemma}
+\begin{proof}
+  Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$ and
+  \[
+        \varphi_1, \dotsc, \varphi_n
+    \in \mc{P}_k(W)
+  \]
+  the corresponding coordinate functions. Also let
+  \[
+        \psi_1, \dotsc, \psi_n
+    \in \mc{P}_L(W_L)
+  \]
+  be the coordinate functions of the $L$-basis $1 \otimes w_1, \dotsc, 1 \otimes w_n$ of $W_L$.
+  Then we define $\iota$ to be the unique homomorphism of $k$-algebras with
+  \[
+      \iota(\varphi_i)
+    = \psi_i
+    \text{ for all }
+    1 \leq i \leq n \,.
+  \]
+  Since $\psi_1, \dotsc, \psi_n$ are algebraically independent over $L$ we know that $\iota$ is injective.
+  We have for every $f \in k[X_1, \dotsc, X_n]$ and $w = \sum_{i=1}^n \mu_i w_i \in W$
+  \begin{align*}
+     &\,  \iota(f(\varphi_1, \dotsc, \varphi_n))(\can_W(w)) \\
+    =&\,  f(\psi_1, \dotsc, \psi_n)\left( \sum_{i=1}^n \mu_i (1 \otimes w_i) \right) \\
+    =&\,  f(\mu_1, \dotsc, \mu_n)
+     =    f(\varphi_1, \dotsc, \varphi_n)\left( \sum_{i=1}^n \mu_i w_i \right) \\
+    =&\,  f(\varphi_1, \dotsc, \varphi_n)(w) \,.
+  \end{align*}
+  Since $\varphi_1, \dotsc, \varphi_n$ generate $\mc{P}_k(W)$ as a $k$-algebra it follows that the diagram does commutes.
+  
+  All that’s left to show is the uniqueness of $\iota$.
+  For this we will use our newly acquired wisdom about Zariski density.
+  Suppose we have a map
+  \[
+            i
+    \colon  \mc{P}_k(W)
+    \to     \mc{P}_L(W_L)
+  \]
+  such that the diagram
+  \[
+    \begin{tikzcd}[sep = large]
+        W
+        \arrow[hook]{r}{\can_W}
+        \arrow[swap]{d}{f}
+      & W_L
+        \arrow{d}{\iota(f)}
+      \\
+        k
+        \arrow[hook]{r}
+      & L
+    \end{tikzcd}
+  \]
+  commutes for all $f \in \mc{P}_k(W)$.
+  For every polynomial map $f \in \mc{P}_k(W)$ we then have \mbox{$\iota(f)-i(f) \in \mc{P}_L(W_L)$} with
+  \[
+      \left(
+        \iota(f)-i(f)
+      \right)_{|W}
+    = 0 \,.
+  \]
+  Since $W$ is Zariski dense in $W_L$ over $L$ it follows that $\iota(f) - i(f) = 0$ and therefore $\iota(f) = i(f)$.
+\end{proof}
+
+
+This inclusion gives us the desired isomorphism of $L$-algebras
+\[
+        \mc{P}_k(W)_L
+  \cong \mc{P}_L(W_L)
+\]
+for free.
+
+
+\begin{proposition}
+  Let $k$ be a finite-dimensional $k$-vector space.
+  Then the map
+  \[
+            \Phi
+    \colon  \mc{P}_k(W)_L
+    \to     \mc{P}_L(W_L),
+    \quad   \lambda \otimes f
+    \mapsto \lambda \iota(f)
+  \]
+  is an isomorphism of $L$-algebras, where $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ is the inclusion as before.
+\end{proposition}
+\begin{proof}
+  Let $v_1, \dotsc, v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions.
+  Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \Natural^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$).
+  Therefore the statement follows from corollary \ref{corollary: inclusion to bijection algebras}.
+\end{proof}
+
+
+Using this isomorphism we will identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$.
+We also identify $\mc{P}_k(W)$ with its image under $\iota$.
+
+
+We can also combine all these commuting diagrams into a big one:
+Given a $k$-vector space $W$ and a $k$-basis $w_1, \dotsc, w_n$ of $W$ we have an isomorphism
+\[
+        k[X_1, \dotsc, X_n]
+  \cong \mc{P}_k(W)
+\]
+of $k$-vector spaces, and corresponding with the $L$-basis $1 \otimes w_1, \dotsc, 1 \otimes w_n$ of $W_L$ we have an isomorphism of $L$-algebras
+\[
+        L[X_1, \dotsc, X_n]
+  \cong \mc{P}_L(W_L) \,.
+\]
+This gives us the following commutative diagram.
+\[
+  \begin{tikzcd}[sep = large]
+      \mc{P}_k(W)
+      \arrow[hook]{r}{\iota}
+      \arrow[equal, swap]{d}{\wr}
+    & \mc{P}_L(W_L)
+      \arrow[equal]{d}{\wr}
+    \\
+      k[X_1, \dotsc, X_n]
+      \arrow[hook]{r}
+    & L[X_1, \dotsc, X_n]
+  \end{tikzcd}
+\]
+Given the inclusion $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ and the corresponding isomorphism of $L$-algebras $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ we also have the following commutative diagram.
+\[
+  \begin{tikzcd}[sep = large]
+      \mathcal{P}_k(W)
+      \arrow[hook]{r}
+      \arrow[hook, swap]{d}{\iota}
+    & \mathcal{P}_L(W_L)
+    \\
+      \mathcal{P}_k(W)_L
+      \arrow[equal]{ru}[rotate=30]{\sim}
+    & {}
+  \end{tikzcd}
+\]
+We get a similar diagram for polynomial rings.
+(See the appendix \ref{app: extension of scalars} for more details.)
+\[
+  \begin{tikzcd}[sep = large]
+      k[X_1, \dotsc, X_n]
+      \arrow[hook]{r}
+      \arrow[hook]{d}
+    & L[X_1, \dotsc, X_n]
+    \\
+      k[X_1, \dotsc, X_n]_L
+      \arrow[equal]{ru}[rotate=30]{\sim}
+    & {}
+  \end{tikzcd}
+\]
+The isomorphism $\mc{P}_k(W) \cong k[X_1, \dotsc, X_n]$ of $k$-algebras also induces an isomorphism $\mc{P}_k(W)_L \cong k[X_1, \dotsc, X_n]_L$ of $L$-algebras which results in the following commutative diagram.
+\[
+  \begin{tikzcd}[sep = large]
+      \mc{P}_k(W)_L
+      \arrow[equal]{d}{\wr}
+    & \mc{P}_k(W)
+      \arrow[left hook ->]{l}
+      \arrow[equal]{d}{\wr}
+    \\
+      k[X_1, \dotsc, X_n]_L
+    & k[X_1, \dotsc, X_n]
+      \arrow[left hook ->]{l}
+  \end{tikzcd}
+\]
+We also have the following commutative diagram of $L$-algebras and isomorphisms of such.
+\[
+  \begin{tikzcd}[sep = large]
+      \mc{P}_k(W)_L
+      \arrow[equal]{d}{\wr}
+      \arrow[equal]{r}{\sim}
+    & \mc{P}_L(W_L)
+      \arrow[equal]{d}{\wr}
+    \\
+      k[X_1, \dotsc, X_n]_L
+      \arrow[equal]{r}{\sim}
+    & L[X_1, \dotsc, X_n]
+  \end{tikzcd}
+\]
+By putting all of this together we get the following commutative diagram:
+\[
+  \begin{tikzcd}
+      {}
+    & \mc{P}_k(W)
+      \arrow[left hook ->]{dl}
+      \arrow[hook]{dr}
+      \arrow[equal, near start]{dd}{\wr}
+    & {}
+    \\
+      \mc{P}_k(W)_L
+      \arrow[equal, near start]{rr}{\sim}
+      \arrow[equal]{dd}{\wr}
+    & {}
+    & \mc{P}_L(W_L)
+      \arrow[equal]{dd}{\wr}
+    \\
+      {}
+    & k[X_1, \dotsc, X_n]
+      \arrow[left hook ->]{dl}
+      \arrow[hook]{dr}
+    & {}
+    \\
+      k[X_1, \dotsc, X_n]_L
+      \arrow[equal]{rr}{\sim}
+    & {}
+    & L[X_1, \dotsc, X_n]
+  \end{tikzcd}
+\]
+
+
+\begin{lemma}
+  Let $W$ be a finite-dimensional $k$-vector space.
+  Let $h \in \mc{P}(W)$ with $h \neq 0$ and
+  \[
+              W_h
+    \coloneqq \{
+                w \in W
+              \mid
+                h(w) \neq 0
+              \} \,.
+  \]
+  Then $W_h$ is Zariski dense.
+\end{lemma}
+\begin{proof}
+  Let $f \in \mc{P}(W)$ with $f_{|W_h} = 0$. Then
+  \[
+      (fh)(w)
+    = f(w)h(w)
+    = 0
+  \]
+  for all $w \in W$, so $fh = 0$.
+  Since $\mc{P}(W) \cong k[X_1, \dotsc, X_{\dim W}]$ we know that $\mc{P}(W)$ is an integral domain.
+  Since $h \neq 0$ and $fh = 0$ it follows that $f = 0$.
+\end{proof}
+
+
+\begin{corollary}
+  $\GL_n(k)$ is Zariski-dense in $\Mat_n(k)$.
+\end{corollary}
+\begin{proof}
+  We know that $\det \in \mc{P}(\Mat_n(k))$ with $\det \neq 0$.
+  Since
+  \[
+    {\Mat_n(k)}_{\det}
+    = \{
+        A \in \Mat_n(k)
+      \mid
+        \det A \neq 0
+      \}
+    = \GL_n(k)
+  \]
+  we find that $\GL_n(k)$ is Zariski-dense in $\Mat_n(k)$.
+\end{proof}
+
+
+\begin{proposition}
+  Let $W$ be a finite-dimensional $k$-vector space and $X \subseteq Y \subseteq Z \subseteq W$ such that $X$ is Zariski-dense in $Y$ and $Y$ is Zariski-dense in $Z$.
+  Then $X$ is Zariski-dense in $Z$.
+\end{proposition}
+\begin{proof}
+  Let $f \in \mc{P}(W)$ with $f_{|X} = 0$.
+  Because $X$ is Zariski dense in $Y$ it follows that $f_{|Y} = 0$.
+  Because $Y$ is Zariski dense in $Z$ it follows that $f_{|Z} = 0$.
+\end{proof}
+
+
+\begin{lemma}\label{lemma: zariski density orbits}
+  Let $W$ be a finite-dimensional representation of a group $G$ and $f \in \mc{P}(W)^G$.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Let $X \subseteq W$ such that $f_{|X} = 0$ and
+      \[
+          G.X
+        = \{
+            g.x
+          \mid
+            g \in G,
+            x \in X
+          \}
+      \]
+      is Zariski-dense in $W$.
+      Then $f = 0$.
+    \item
+      If there is a Zariski dense $G$-orbit then $f$ is constant.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Since $f$ is $G$-equivariant it follows that $f_{|G.X} = 0$, since for all $g \in G$ and $x \in X$
+      \[
+          f(g.x)
+        = \left( g^{-1}.f \right)(x)
+        = f(x)
+        = 0 \,.
+      \]
+      Because $G.X$ is Zariski dense in $W$ it further follows that $f = 0$.
+    \item
+      Let $x \in X$ such that $G.x$ is Zariski dense in $W$.
+      Since $f$ is $G$-equivariant it is constant on $G$-orbits.
+      Therefore $f - f(x)$ vanishes on the Zariski dense $G$-orbit $G.x$.
+      Therefore $f - f(x) = 0$ and $f = f(x)$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{proposition}
+  Let $k$ be an algebraically closed field and
+  \[
+              \Diag_n(k)
+    \coloneqq \{
+                A \in \Mat_n(k)
+              \mid
+                \text{$A$ is diagonalizable}
+              \} \,.
+  \]
+  Then $\Diag_n(k)$ is Zariski-dense in $\Mat_n(k)$.
+\end{proposition}
+\begin{proof}
+  Let $f \in \mc{P}(\Mat_n(k))$ with $f_{|\Diag_n(k)} = 0$ and $A \in \Mat_n(k)$.
+  Since $k$ is algebraically closed we find $S \in \GL_n(k)$ such that $SAS^{-1}$ is in Jordan normal form with eigenvalues $b_1, \dotsc, b_n$ (not necessarily pairwise distinct).
+  
+  Let $a_1, \dotsc, a_n \in k^\times$ be pairwise different (this is possible since $k$ is infinite).
+  We define
+  \[
+            D
+    \colon  k
+    \to     \Mat_n(k), 
+    \quad   z
+    \mapsto \begin{pmatrix}
+              a_1 z &       &        &       \\
+                    & a_2 z &        &       \\
+                    &       & \ddots &       \\
+                    &       &        & a_n z
+            \end{pmatrix}.
+  \]
+  We also set
+  \[
+            M
+    \colon  k
+    \to     \Mat_n(k),
+    \quad   z
+    \mapsto SAS^{-1} + D(z)
+  \]
+  and
+  \[
+            \varphi
+    \colon  k
+    \to     \Mat_n(k),
+    \quad   z
+    \mapsto S^{-1} M(z) S
+    =       S^{-1}(SAS^{-1}+D(z))S \,.
+  \]
+  Notice that $\varphi(0) = A$ and that $\varphi(z)$ has the eigenvalues $b_1 + a_1 z, \dotsc, b_n + a_n z$ for all $z \in \Complex$.
+  It is easy to see that these eigenvalues are distinct for all but finitely many $z \in \Complex$ (since for all $1 \leq i < j \leq n$ there exists exactly one $z_{ij} \in \Complex$ with $b_i + a_i z_{ij} = b_j + a_j z_{ij}$).
+  Therefore $\varphi(z)$ is diagonalizable for all but finitely many $z \in \Complex$.
+  
+  Since $f_{|\Diag_n(k)} = 0$ it follows that $(f \circ \varphi)(z) = 0$ for all but finitely many $z \in \Complex$.
+  Therefore $f \circ \varphi = 0$.
+  In particular
+  \[
+      f(A)
+    = f(\varphi(0))
+    = (f \circ \varphi)(0)
+    = 0 \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+\begin{corollary}\label{corollary: diagonal matrices dense alg closed}
+  Let $k$ be an algebraically closed field and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
+  For $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$ with $f_{|D} = 0$ we then have $f = 0$.
+  (As usual $D$ denotes the set of diagonal matrices in $\Mat_n(k)$.)
+\end{corollary}
+\begin{proof}
+  Since $\GL_n(k).D = \Diag_n(k)$ is Zariski dense in $\Mat_n(k)$ this directly follows from lemma \ref{lemma: zariski density orbits}.
+\end{proof}
+
+
+\begin{definition}
+  Let $W$ be a finite-dimensional $k$-vector space.
+  For a subset $X \subseteq W$ we define
+  \[
+    \mc{I}_k(X)
+    \coloneqq \{
+                f \in \mc{P}_k(W)
+              \mid
+                f(x) = 0
+                \text{ for all }
+                x \in X 
+              \}.
+  \]
+  $\mc{I}_k(X)$ is called the \emph{vanishing ideal of $X$}.
+  We also write $\mc{I}(X)$ instead of $\mc{I}_k(X)$ if it is clear over which field we work.
+  For every point $a \in W$ we set
+  \[
+              \mf{M}_a
+    \coloneqq \mc{I}(\{a\})
+    =         \{
+                f \in \mc{P}(W)
+              \mid
+                f(a) = 0
+              \} \,.
+  \]
+\end{definition}
+
+
+\begin{remark}
+  As the name suggests the vanishing ideal $\mc{I}(X)$ of a subset $X \subseteq W$ is a two-sided ideal in $\mc{P}(W)$.
+\end{remark}
+
+
+\begin{remark}
+  Let $W$ be a finite-dimensional $k$-vector space.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      For $X \subseteq Y \subseteq W$ we have $\mc{I}(Y) \subseteq \mc{I}(X)$.
+      Furthermore $X$ is Zariski-dense in $Y$ if and only if $\mc{I}(X) = \mc{I}(Y)$.
+    \item
+      Let $\{X_i\}_{i \in I}$ be a collection of subsets $X_i \subseteq W$. Then
+      \[
+          \mc{I}\left( \bigcup_{i \in I} X_i \right)
+        = \bigcap_{i \in I} \mc{I}(X_i) \,.
+      \]
+  \end{enumerate}
+\end{remark}
+
+
+\begin{lemma}
+  For $a = (a_1, \dotsc, a_n) \in k^n$ the ideal
+  \[
+              (X_1 - a_1, \dotsc, X_n - a_n)
+    \subseteq k[X_1, \dotsc, X_n]
+  \]
+  is maximal and
+  \[
+    \mf{M}_a = (X_1 - a_1, \dotsc, X_n - a_n) \,.
+  \]
+  (We identify $k[X_1, \dotsc, X_n]$ with $\mc{P}(k^n)$ under the isomorphism which identifies $X_i$ with the $i$-th coordinate function $\varphi_i$.)
+\end{lemma}
+\begin{proof}
+  We write $\mf{M} \coloneqq (X_1 - a_1, \dotsc, X_n - a_n)$. We define the evaluation map
+  \[
+            \varepsilon_a
+    \colon  k[X_1, \dotsc, X_n]
+    \to     k,
+    \quad   f
+    \mapsto f(a) \,.
+  \]
+  $\varepsilon_a$ is an surjective ringhomomorphism, and thus induces an isomorphism of rings
+  \[
+        k[X_1, \dotsc, X_n] / \ker \varepsilon_a
+    \to k \,.
+  \]
+  Since $k$ is a field we find that $\ker \varepsilon_a$ is a maximal ideal. We also have
+  \[
+      \ker \varepsilon_a
+    = \mf{M}_a \,.
+  \]
+  
+  It is clear that $\mf{M} \subseteq \ker \varepsilon_a$. Therefore we get a surjective ring homomorphism
+  \[
+            \varepsilon_\mf{M}
+    \colon  k[X_1, \dotsc, X_n] / \mf{M}
+    \to     k \,.
+  \]
+  $\varepsilon_\mf{M}$ is injective, since for the ring homomorphism
+  \[
+            \psi
+    \colon  k
+    \to     k[X_1, \dotsc, X_n] / \mf{M},
+    \quad   \lambda
+    \mapsto \lambda + \mf{M}
+  \]
+  we have $\varepsilon_\mf{M} \circ \psi = \id_k$. Since $\varepsilon_\mf{M}$ is injective we have
+  \[
+          0
+    =     \ker \varepsilon_\mf{M}
+    \cong \ker \varepsilon_a / \mf{M} \,.
+  \]
+  So $\mf{M} = \ker \varepsilon = \mf{M}_a$.
+\end{proof}
+
+More generally:
+If $W$ is a finite-dimensional $k$-vector space, $w_1, \dotsc, w_n$ a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n$ the corresponding coordinate functions then for every $w = \sum_{i=1}^n \lambda_i w_i \in W$
+\[
+    \mc{I}_k(\{w\})
+  = ( \varphi_1 - w_1, \dotsc, \varphi_n - w_n )_{\mc{P}_k(W)} \,.
+\]
+
+
+\begin{lemma}
+  Let $L/k$ be a field extension and $W$ a finite-dimensional $k$-vector space.
+  For a subset $X \subseteq W \subseteq W_L$ we have
+  \[
+      \mc{I}_k(X)_L
+    = \mc{I}_L(X) \,.
+  \]
+  (We identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$ via the isomorphism $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$.)
+\end{lemma}
+\begin{proof}
+  Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
+  For every point $w = \sum_{i=1}^n \lambda_i w_i$ we have
+  \begin{align*}
+        \mc{I}_L(\{w\})
+    &=  ( \varphi_1 - w_1, \dotsc, \varphi_n - w_n )_{ \mc{P}_L(\{w\}) } \\
+    &=  L \otimes_k ( \varphi_1 - w_1, \dotsc, \varphi_n - w_n )_{ \mc{P}_k(\{w\}) } \\
+    &=  L \otimes_k \mc{I}_k(\{w\})
+     =  \mc{I}_k(\{w\})_L \,.
+  \end{align*}
+  For every subset $X \subseteq W$ we therefore have
+  \begin{align*}
+        \mc{I}_k(X)_L
+    &=  L \otimes_k \mc{I}_k(X)
+     =  L \otimes_k \mc{I}_k\left( \bigcup_{x \in X} \{x\} \right) \\
+    &=  L \otimes_k \bigcap_{x \in X} \mc{I}_k(\{x\})
+     =  \bigcap_{x \in X} L \otimes_k \mc{I}_k(\{x\}) \\
+    &=  \bigcap_{x \in X} \mc{I}_k(\{x\})_L
+     =  \bigcap_{x \in X} \mc{I}_L(\{x\})
+     =  \mc{I}_L(X) \,.
+    \qedhere
+  \end{align*}
+\end{proof}
+
+
+\begin{corollary}\label{corollary: Zariski dense scalar extension}
+  Let $W$ be a finite-dimensional $k$-vector space and
+  \[
+              X
+    \subseteq Y
+    \subseteq W
+    \subseteq W_L \,.
+  \]
+  If $X$ is Zariski dense in $Y$ over $k$ then it is so over $L$.
+\end{corollary}
+\begin{proof}
+  Because $X$ is Zariski dense in $Y$ over $k$ we have
+  \[
+      \mc{I}_k(X)
+    = \mc{I}_k(Y) \,.
+  \]
+  It follows that
+  \[
+      \mc{I}_L(X)
+    = \mc{I}_k(X)_L
+    = \mc{I}_k(Y)_L
+    = \mc{I}_L(Y) \,,
+  \]
+  so $X$ is Zariski dense in $Y$ over $L$.
+\end{proof}
+
+
+\begin{proposition}
+  Let $L/k$ be a field extension.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+    \item
+      $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
+    \item
+      $\SL_n(k)$ is Zariski dense in $\SL_n(L)$ as subsets of $\Mat_n(L)$ over $L$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$.
+      By corollary \ref{corollary: Zariski dense scalar extension} we find that $\GL_n(k)$ is Zariske dense in $\Mat_n(k)$ as subsets of $\Mat_n(k)_L \cong \Mat_n(L)$ over $L$.
+      By \mbox{lemmama \ref{lemma: W Zariski dense in W_L}} $\Mat_n(k)$ is Zariski dense in $\Mat_n(L) \cong \Mat_n(k)_L$ over $L$.
+      By the transitivity of Zariski density we find that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+    \item
+      This follows directly from a).
+    \item
+      The proof given in the lecture does not work.
+      % TODO: Adding a working proof.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{proposition}
+  Let $k$ be an infinite field (not necessarily alg. closed) and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
+  If $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ with $f_{|\D_n(k)} = 0$ then $f = 0$, where $\D_n(k) \subseteq \Mat_n(k)$ denotes the subset of diagonal matrices.
+\end{proposition}
+\begin{proof}
+  Let $L \coloneqq \bar{k}$ be an algebraic closure of $k$.
+  Then $\GL_n(L)$ acts on $\Mat_n(L)$ by conjugation.
+  
+  \begin{claim}
+    If $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ then $f \in \mc{P}_L(\Mat_n(L))^{\GL_n(L)}$.
+  \end{claim}
+  
+  The proposition follows from this claim:
+  Let $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$ with $f_{|\D_n(k)} = 0$.
+  Then $f \in \mc{P}_L(\Mat_n(L))^{\GL_n(L)}$ with $f_{|\D_n(k)} = 0$.
+  Since $\D_n(k)$ is Zariski-dense in $\D_n(L) \cong \D_n(k)_L$ over $L$ we have $f_{|\D_n(L)} = 0$.
+  By corollary \ref{corollary: diagonal matrices dense alg closed} we find that $f = 0$.
+  
+  \begin{proof}[Proof of the claim]
+    We define
+    \[
+              \Phi
+      \colon  \Mat_n(L) \times \Mat_n(L)
+      \to     L,
+      \quad   (A,B)
+      \mapsto f(AB)-f(BA) \,.
+    \]
+    For every $S \in \GL_n(k)$ and $A \in \Mat_n(k)$ we have
+    \[
+        f\left( SAS^{-1} \right)
+      = f(A)
+    \]
+    because $f \in \mc{P}_k(\Mat_n(k))^{\GL_n(k)}$, and therefore
+    \[
+        f(SA)
+      = f\left (SASS^{-1} \right)
+      = f(AS) \,.
+    \]
+    Thus we have
+    \[
+        \Phi(S,A)
+      = 0
+      \text{ for every }
+      S \in \GL_n(k),
+      A \in \Mat_n(k)
+    \]
+    
+    Fix $S \in \GL_n(k)$.
+    Then the map $\Phi(S, -) \colon \Mat_n(L) \to L$ is polynomial over $L$ with $\Phi(S,-)_{|\Mat_n(k)} = 0$.
+    Since $\Mat_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$ it follows that $\Phi(S,-)_{|\Mat_n(L)} = 0$.
+    Therefore
+    \[
+        \Phi(S,A)
+      = 0
+      \text{ for all }
+      S \in \GL_n(k),
+      A \in \Mat_n(L) \,.
+    \]
+    
+    Fix $A \in \Mat_n(L)$.
+    Then the map $\Phi(-,A) \colon \Mat_n(L) \to L$ is polynomial over $L$ with $\Phi(-,A)_{|\GL_n(k)} = 0$.
+    Since $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ over $L$ it follows that $\Phi(-,A)_{|\GL_n(L)} = 0$.
+    Therefore
+    \[
+        \Phi(S,A)
+      = 0
+      \text{ for all }
+      S \in \GL_n(L),
+      A \in \Mat_n(L) \,.
+    \]
+    
+    With this we get that for every $S \in \GL_n(L)$, $A \in \Mat_n(L)$
+    \[
+        f\left( SAS^{-1} \right)
+      = f\left( S \left( AS^{-1} \right) \right)
+      = f\left( \left( AS^{-1} \right) S \right)
+      = f\left( AS^{-1}S \right)
+      = f(A) \,.
+      \qedhere
+    \]
+  \end{proof}
+  
+  This concludes the proof.
+\end{proof}

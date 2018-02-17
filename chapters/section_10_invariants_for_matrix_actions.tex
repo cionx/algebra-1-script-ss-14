@@ -1,0 +1,379 @@
+\section{Invariants for Matrix Actions}
+
+
+\begin{fluff}
+  For this section we require all fields to be infinite.
+\end{fluff}
+
+
+\begin{proposition}[Zariski density properties]
+  Let $h \colon \Mat_n(k) \to k$ be polynomial.
+  \begin{enumerate}
+    \item
+      If $h|_{\GL_n(k)} = 0$ then $h = 0$.
+    \item
+      Let $h(D) = 0$ for every diagonalizable matrix $D \in \Mat_n(k)$, then $h = 0$.
+  \end{enumerate}
+\end{proposition}
+
+
+
+\begin{theorem}
+  Let the group $\SL_n(k)$ act on the space of matrices $\Mat_n(k)$ by left multiplication.
+  Then the derminant map
+  \[
+            \det
+    \colon  \Mat_n(k)
+    \to     k
+  \]
+  generates the $k$-algebra $\mc{P}(\Mat_n(k))^{\SL_n(k)}$ and is algebraically independent, i.e.\ the map
+  \[
+            k[T]
+    \to     \mc{P}(M_n(k))^{\SL_n(k)} \,,
+    \quad   p(T)
+    \mapsto p(\det)
+  \]
+  is a well-defined isomorphism of $k$-algebras.
+\end{theorem}
+\begin{proof}
+  The determinant function is polynomial, as seen in Example~\ref{example: polynomials functions}.
+  For all $S \in \SL_n(k)$, $A \in \Mat_n(k)$ we have that
+  \[
+      (S.\det)(A)
+    = \det\left(S^{-1}.A\right)
+    = \det\left( S^{-1} \right) \det(A)
+    = \det(A) \,,
+  \]
+  which shows that $\det$ is $\SL_n(k)$-invariant.
+  
+  We show that $\det$ is algebraically independent:
+  Let $p \in k[X]$ with $p(\det) = 0$.
+  Then
+  \[
+      p(\det(A))
+    = p(\det)(A)
+    = 0
+  \]
+  for all $A \in \Mat_n(k)$ because the $k$-algebra structure of $\mc{P}(\Mat_n(k))$ is defined pointwise.
+  Since $\det$ is surjective it follows that $p(\lambda) = 0$ for every $\lambda \in k$.
+  Because $k$ is infinite it follows that $p = 0$.
+  
+  We show that $\det$ generates $\mc{P}(\Mat_n(k))^{\SL_n(k)}$ as a $k$-algebra:
+  Let $f \in \mc{P}(\Mat_n(k))^{\SL_n(k)}$.
+  Note that for $A, B \in \GL_n(k)$ with $\det A = \det B$ we have that $B A^{-1} \in \SL_n(k)$ and therefore
+  \[
+      f(A)
+    = f\left( (BA^{-1}).A \right)
+    = f(B A^{-1} A)
+    = f(B) \,.
+  \]
+  It follows for every $A \in \GL_n(k)$ that
+  \begin{equation}
+    \label{equation: reduction for GLn}
+      f(A)
+    = f\left(
+        \begin{pmatrix}
+          \det A  &   &         &   \\
+                  & 1 &         &   \\
+                  &   & \ddots  &   \\
+                  &   &         & 1
+        \end{pmatrix}
+      \right) \,.
+  \end{equation}
+  Note that the right hand side of this equation is a polynomial in $\det A$.
+  
+  More specifically, let $p \in k[X_{11}, \dotsc, X_{nn}]$ with
+  \[
+      f(A)
+    = p(A_{11}, \dotsc, A_{nn})
+  \]
+  for every $A = (A_{ij})_{i,j=1,\dotsc,n} \in \Mat_n(k)$.
+  Let $\varphi \colon k[X_{11}, \dotsc, X_{nn}] \to k[T]$ be the $k$-algebra homomorphism with
+  \[
+      \varphi(X_{ij})
+    = \begin{cases}
+        0 & \text{if $i \neq j$}      \,, \\
+        1 & \text{if $i = j \neq 1$}  \,, \\
+        T & \text{if $i = j = 1$}     \,.
+      \end{cases}
+  \]
+  for all $i,j = 1, \dotsc, n$.
+  Then for the polynomial $q \coloneqq \varphi(p) \in k[T]$ and the corresponding polynomial function $g \defined q(\det) \in \mc{P}(V)^{\SL_n(k)}$ we can reformulate~\eqref{equation: reduction for GLn} to
+ \begin{equation}
+      f(A)
+    = f\left(
+        \begin{pmatrix}
+          \det A  &   &         &   \\
+                  & 1 &         &   \\
+                  &   & \ddots  &   \\
+                  &   &         & 1
+        \end{pmatrix}
+      \right)
+    = q(\det A)
+    = q(\det)(A)
+    = g(A)
+  \end{equation}
+  for every $A \in \GL_n(k)$.
+  
+  We have constructed $g = q(\det) \in k[\det]$ with $f|_{\GL_n(k)} = g|_{\GL_n(k)}$.
+  With the first Zariski density property it follows from $(f - g)|_{\GL_n(k)} = 0$ that $f - g = 0$ and therefore that $f = g$.
+\end{proof}
+
+
+\begin{fluff}
+  Recall that the characteristic polynomial of a matrix $A \in \Mat_n(k)$ is given by
+  \[
+      \chi_A(t)
+    = \det(t E_n - A)
+  \]
+  where $E_n \in \Mat_n(k)$ is the identity matrix.
+  Then
+  \[
+      \chi_A(t)
+    = t^n - s_1(A) t^{n-1} + s_2(A) t^{n-2} + \dotsb + (-1)^n s_n(A)
+  \]
+  with $s_1, \dotsc, s_n \in \mc{P}(\Mat_n(k))$ and $s_1 = \tr$, $s_n = \det$.
+  In the case that $A$ is a diagonal matrix $A = \diag(d_1, \dotsc, d_n)$ we have that
+  \[
+      \chi_A(t)
+    = \prod_{i=1}^n (t-d_i)
+    = t^n - e_1(d_1, \dotsc, d_n) t^{n-1} + \dotsb + (-1)^n e_n(d_1, \dotsc, d_n)
+  \]
+  for the elementary symmetric polynomials $e_1, \dotsc, e_n$, and therefore
+  \[
+      s_i(\diag(d_1, \dotsc, d_n))
+    = e_i(d_1, \dotsc, d_n)
+  \]
+  for all $i = 1, \dotsc, n$.
+\end{fluff}
+
+
+\begin{theorem}
+  \label{theorem: GLn invariants}
+  Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
+  Then $s_1, \dotsc, s_n$ generate the $k$-algebra $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ and are algebraically independent, i.e.\ the map
+  \[
+            k[T_1, \dotsc, T_n]
+    \to     \mc{P}(\Mat_n(k))^{\GL_n(k)} \,,
+    \quad   p(T_1, \dotsc T_n)
+    \mapsto p(s_1, \dotsc, s_n)
+  \]
+  is a well-defined isomorphism of $k$-algebras.
+\end{theorem}
+\begin{proof}
+  The polynomial functions $s_1, \dotsc, s_n \colon \Mat_n(k) \to k$ are $\GL_n(k)$-invariant because the characteristic polynomial of a matrix is invariant under conjugation.
+  
+  Let $p \in k[X_1, \dotsc, X_n]$ with $p(s_1, \dotsc, s_n) = 0$.
+  For all $\lambda_1, \dotsc, \lambda \in k$ it follows that
+  \begin{align*}
+          0
+    =&\,  p(s_1, \dotsc, s_n)( \diag(\lambda_1, \dotsc, \lambda_n) )  \\
+    =&\,  p( s_1(\diag(\lambda_1, \dotsc, \lambda_n)), \dotsc, s_n(\diag(\lambda_1, \dotsc, \lambda_n)) ) \\
+    =&\,  p( e_1(\lambda_1, \dotsc, \lambda_n) , \dotsc, e_n(\lambda_1, \dotsc, \lambda_n) )  \\
+    =&\,  p(e_1, \dotsc, e_n)(\lambda_1, \dotsc, \lambda_n) \,,
+  \end{align*}
+  which shows that the polynomial $p(e_1, \dotsc, e_n)$ vanishes everywhere.
+  It follows that $p(e_1, \dotsc, e_n) = 0$ because $k$ is infinite, und thus $p = 0$ because $e_1, \dotsc, e_n$ are algebraically independent.
+  This shows that $s_1, \dotsc, s_n$ are algebraically independent.
+  
+  Let $f \in \mc{P}(\Mat_n(k))^{\GL_n(k)}$.
+  If $D \in \Mat_n(k)$ diagonalizable with eigenvalues $\lambda_1, \dotsc, \lambda_n$ then $D$ is conjugated to the diagonal matrix $\diag(\lambda_1, \dotsc, \lambda_n)$, so that
+  \begin{equation}
+  \label{equation: reduction to diagonalizable}
+      f(D)
+    = f(\diag(\lambda_1, \dotsc, \lambda_n)).
+  \end{equation}
+  Note that the right hand side is a polynomial in $\lambda_1, \dotsc, \lambda_n$.
+  
+  More specifically, let $p \in k[X_{11}, \dotsc, X_{nn}]$ with
+  \[
+      f(A)
+    = p(A_{11}, \dotsc, A_{nn})
+  \]
+  for every matrix $A = (A_{ij})_{i,j=1,\dotsc,n} \in \Mat_n(k)$.
+  Let $\varphi \colon k[X_{11}, \dotsc, X_{nn}] \to k[\tilde{T}_1, \dotsc, \tilde{T}_n]$ be the $k$-algebra homomorphism with
+  \[
+      \varphi(X_{ij})
+    = \begin{cases}
+        \tilde{T}_i & \text{if $i = j$} \,, \\
+                  0 & \text{otherwise}  \,,
+      \end{cases}
+  \]
+  for all $i,j = 1, \dotsc, n$.
+  For the polynomial $\tilde{q} \defined \varphi(p)$ we can then reformulate~\eqref{equation: reduction to diagonalizable} to
+  \begin{equation}
+    \label{equation: reduction to diagonalizable second}
+      f(D)
+    = f(\diag(\lambda_1, \dotsc, \lambda_n))
+    = \tilde{q}(\lambda_1, \dotsc, \lambda_n) \,.
+  \end{equation}
+  
+  \begin{claim}
+    The polynomial $\tilde{q}$ is symmetric.
+  \end{claim}
+    
+  \begin{proof}
+    We need to show that $\tilde{q} = \sigma.\tilde{q}$ for every $\sigma \in S_n$.
+%     For this it sufficies to show that $\tilde{q}(X_1, \dotsc, X_n) = \tilde{q}(X_{\sigma^{-1}(1)}, \dotsc, X_{\sigma^{-1}(n)})$ for every $\sigma \in S_n$.
+    Since $k$ is infinite is sufficies to show that
+    \[
+        \tilde{q}(\lambda_1, \dotsc, \lambda_n)
+      = (\sigma.\tilde{q})(\lambda_1, \dotsc, \lambda_n)
+    \]
+    for all $\lambda_1, \dotsc, \lambda_n \in k$.
+    Note that
+    \[
+        (\sigma.\tilde{q})(\lambda_1, \dotsc, \lambda_n)
+      = \tilde{q}(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)})
+    \]
+    because $S_n$ acts by $k$-algebra automorphisms on $k[\tilde{T}_1, \dotsc, \tilde{T}_n]$, which is generated by $\tilde{T}_1, \dotsc, \tilde{T}_n$, and
+    \[
+        (\sigma.\tilde{T}_i)(\lambda_1, \dotsc, \lambda_n)
+      = \tilde{T}_{\sigma(i)}(\lambda_1, \dotsc, \lambda_n)
+      = \lambda_{\sigma(i)}
+      = \tilde{T}_i(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)}) \,.
+    \]
+    Hence we have to show that
+    \[
+        \tilde{q}(\lambda_1, \dotsc, \lambda_n)
+      = \tilde{q}(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)})
+    \]
+    for all $\lambda_1, \dotsc, \lambda_n \in k$.
+    By construction of $\tilde{q}$ this is equivalent to
+    \begin{equation}
+    \label{equation: invariance for diagonal matrices}
+        f(\diag(\lambda_1, \dotsc, \lambda_n))
+      = f(\diag(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)}))
+    \end{equation}
+    for all $\lambda_1, \dotsc, \lambda_n \in k$.
+    Note thas the two diagonal matrices $\diag(\lambda_1, \dotsc, \lambda_n)$ and $\diag(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)})$ we have that
+    \[
+        \diag(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)})
+      = P_\sigma^{-1} \diag(\lambda_1, \dotsc, \lambda_n) P_\sigma
+    \]
+    where $P_\sigma \in \GL_n(k)$ denotes the permutation matrix of $\sigma$, i.e.\ the matrix $P_\sigma$ with $P_\sigma(e_i) = e_{\sigma(i)}$ for all $i$.
+    This holds because
+    \begin{align*}
+          P_\sigma^{-1} \diag(\lambda_1, \dotsc, \lambda_n) P_\sigma e_i
+      &=  P_\sigma^{-1} \diag(\lambda_1, \dotsc, \lambda_n) e_{\sigma(i)}  \\
+      &=  \lambda_{\sigma(i)} P_\sigma^{-1} e_{\sigma(i)}
+       =  \lambda_{\sigma(i)} e_i
+       =  \diag(\lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)}) e_i
+    \end{align*}
+    for all $i$.
+    The desired equality~\eqref{equation: invariance for diagonal matrices} thus follows from the $\GL_n(k)$-invariance of $f$.
+  \end{proof}
+  
+%   We claim that $\bar{p}$ is symmetric, i.e.\ $\bar{p} \in k[t_1, \dotsc, t_n]^{S_n}$.
+%   Since $k$ is infinite we have the usual $S_n$-equivariant algebra isomorphism
+%   \[
+%             \Phi
+%     \colon  k[t_1, \dotsc, t_n]
+%     \to     \mc{P}(k^n) \,.
+%   \]
+%   Thus it is enough to show that the corresponding polynomial function $\Phi(\bar{p})$ is $S_n$-invariant.
+%   This follows from the fact that $f$ is $\GL_n(k)$-invariant:
+%   For all $\pi \in S_n$ we define the corresponding permutation matrix $A_\pi \in \GL_n(k)$ via
+%   \[
+%       A_\pi e_i
+%     = e_{\pi(i)} \,.
+%   \]
+%   For all $\pi \in S_n$ and $d_1, \dotsc, d_n \in k$ we then have
+%   \[
+%       A_\pi \diag(d_1, \dotsc, d_n) A_\pi^{-1}
+%     = \diag\left( d_{\pi^{-1}(1)}, \dotsc, d_{\pi^{-1}(n)} \right) \,.
+%   \]
+%   Therefore we have for all $\pi \in S_n$ and $(d_1, \dotsc, d_n) \in k^n$
+%   \begin{align*}
+%      &\,  (\pi.\Phi(\bar{p}))((d_1, \dotsc, d_n)) \\
+%     =&\,  \Phi(\bar{p})\left( \pi^{-1}.(d_1, \dotsc, d_n) \right)
+%      =    \Phi(\bar{p})\left( \left(d_{\pi(1)}, \dotsc, d_{\pi(n)}\right) \right) \\
+%     =&\,  \bar{p}\left( d_{\pi(1)}, \dotsc, d_{\pi(n)} \right)
+%      =    f\left( \diag\left( d_{\pi(1)}, \dotsc, d_{\pi(n)} \right) \right) \\
+%     =&\,  f\left( A_{\pi^{-1}} \diag(d_1, \dotsc, d_n) A_\pi \right)
+%      =    f\left( A_\pi^{-1} \diag(d_1, \dotsc, d_n) A_\pi \right) \\
+%     =&\,  f\left( A_\pi^{-1}.\diag(d_1, \dotsc, d_n) \right)
+%      =    (A_\pi.f)(\diag(d_1, \dotsc, d_n)) \\
+%     =&\,  f(\diag(d_1, \dotsc, d_n))
+%      =    \bar{p}(d_1, \dotsc, d_n) \\
+%     =&\,  \Phi(\bar{p})((d_1, \dotsc, d_n)) \,.
+%   \end{align*}
+%   This shows that $\Phi(\bar{p})$ is $S_n$-equivariant.
+%   So $\bar{p}$ is symmetric.
+  
+  Since $e_1, \dotsc, e_n$ generate the $k$-algebra of symmetric functions $k[\tilde{T}_1, \dotsc, \tilde{T}_n]^{S_n}$ there exists a polynomial $q \in k[T_1, \dotsc, T_n]$ with
+  \[
+      \tilde{q}
+    = q(e_1, \dotsc, e_n) \,.
+  \]
+  For the polynomial function $g \defined q(s_1, \dotsc, s_n)$ we can then further reformulate \eqref{equation: reduction to diagonalizable second} to
+  \begin{align*}
+        f(D)
+    &=  f(\diag(\lambda_1, \dotsc, \lambda_n))
+     =  \tilde{q}(\lambda_1, \dotsc, \lambda_n) \\
+    &=  q(e_1, \dotsc, e_n)(\lambda_1, \dotsc, \lambda_n) \\
+    &=  q( e_1(\lambda_1, \dotsc, \lambda_n), \dotsc, e_n(\lambda_1, \dotsc, \lambda_n)  )  \\
+    &=  q( s_1( \diag(\lambda_1, \dotsc, \lambda_n) ), \dotsc, s_n( \diag(\lambda_1, \dotsc, \lambda_n) )  )  \\
+    &=  q(s_1, \dotsc, s_n)( \diag(\lambda_1, \dotsc, \lambda_n) )  \\
+    &=  g( \diag(\lambda_1, \dotsc, \lambda_n) )
+     =  g(D) \,.
+  \end{align*}
+  
+  We have thus constructed a polynomial function $g = q(s_1, \dotsc, s_n) \in k[s_1, \dotsc, s_n]$ with $f(D) = q(D)$ for every diagonalizable matrix $D \in \Mat_n(k)$.
+  By the second Zariski density property it follows from
+  \[
+    (f - g)(D) = 0
+    \quad
+    \text{for every diagonalizable matrix $D \in \Mat_n(k)$}
+  \]
+  that $f - g = 0$, and thus $f = g = q(s_1, \dotsc. s_n)$.
+  This shows that $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ is generated by $s_1, \dotsc, s_n$.
+\end{proof}
+
+
+\begin{fluff}
+  Another family of $\GL_n(k)$-invarant polynomial functions $\Mat_n(k) \to k$ (where $\GL_n(k)$ acts on $\Mat_n(k)$ by conjugation) are the \emph{power traces}:
+  The $m$-th \emph{power traces} is given by
+  \[
+            \tr_m
+    \colon  \Mat_n(k)
+    \to     k,
+    \quad    A
+    \mapsto \tr(A^m)  \,.
+  \]
+  for every $m \in \Natural$.
+  The $\GL_n(k)$-invariance of the trace powers $\tr_m$ follows from the $\GL_n(k)$-invariance of the trace, as we have for all $S \in \GL_n(k)$, $A \in \Mat_n(k)$ that
+    \begin{align*}
+        \left( S.\tr_m \right)(A)
+     =  \tr_m\left( S^{-1}.A \right)
+     =  \tr_m\left( S^{-1} A S \right)
+     =  \tr \left( S^{-1} A S \right)^m
+    &=  \tr \left( S^{-1} A^m S \right) \\
+    &=  \tr(A^m)
+     =  \tr_m(A) \,.
+  \end{align*}
+  
+  Note that for all $\lambda_1, \dotsc, \lambda_n \in k$ we have that
+  \[
+      \tr_m(\diag(\lambda_1, \dotsc, \lambda_n))
+    = \lambda_1^m + \dotsb + \lambda_n^m
+    = p_m(\lambda_1, \dotsc, \lambda_n)
+  \]
+  for every $m \in \Natural$, where $p_m$ denotes the $m$-th power symmetric polynomials.
+  Since $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we know that the $k$-algebra of symmetric polynomials $k[\tilde{T}_1, \dotsc, \tilde{T}_n]^{S_n}$ is generated by the polynomials $p_1, \dotsc, p_n$, and that they are algebraically independent.
+  
+  By replacing $s_i$ with $\tr_i$ and $e_i$ with $p_i$ in the proof of Theorem~\ref{theorem: GLn invariants} we thus arrive at a proof of the following theorem:
+\end{fluff}
+
+
+\begin{theorem}
+  Let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
+  If $\kchar k = 0$ or $\kchar k > n$ then the $k$-algebra $\mc{P}(\Mat_n(k))^{\GL_n(k)}$ is generated by the power traces $\tr_1, \dotsc, \tr_n$ and they are algebraically independent, i.e.\ the map
+   \[
+            k[T_1, \dotsc, T_n]
+    \to     \mc{P}(\Mat_n(k))^{\GL_n(k)} \,,
+    \quad   p(T_1, \dotsc T_n)
+    \mapsto p(\tr_1, \dotsc, \tr_n)
+  \]
+  is a well-defined isomorphism of $k$-algebras.
+\end{theorem}
