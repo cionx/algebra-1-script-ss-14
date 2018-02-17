@@ -415,7 +415,7 @@
   So far we have only considered polynomial functions $V \to k$.
   In the following we will generalize this to the notion of \emph{polynomial maps} $V \to W$ between finite-dimensional $k$-vector spaces $V$ and $W$.
   
-  In the following $U, V, W$ will denote finite dimensional $k$-vector spaces.
+  In the following $U, V, W$ will denote finite-dimensional $k$-vector spaces.
 \end{fluff}
 
 
@@ -454,6 +454,7 @@
 
 
 \begin{example}
+  \label{example: polynomial maps}
   Let $v_1, \dotsc, v_n$ be a basis of $V$, and let $w_1, \dotsc, w_m$ be a basis of $W$.
   \leavevmode
   \begin{enumerate}
@@ -747,7 +748,7 @@
       \\
         \mc{P}(V)
       & \mc{P}(W)
-        \arrow{l}[down]{f^*}
+        \arrow{l}[below]{f^*}
     \end{tikzcd}
   \]
   commute, i.e.\ $f^\vee \defined \Phi^{-1} \circ f^* \circ \Psi$.
@@ -824,16 +825,6 @@
 \end{proof}
 
 
-\noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
-
-
-% TODO: Move this to the right place.
-% \begin{remark}
-%   If a group $G$ acts linearly on $V$ then it acts linearly on $\mc{P}(V)$ by $(g.f)(v) = f\left(g^{-1}.v\right)$.
-% \end{remark}
-% 
-% 
-% 
 % \begin{remark}
 %   For $k$ infinite we have an isomorphism of representations
 %   \[
