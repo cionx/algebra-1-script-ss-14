@@ -21,82 +21,92 @@
       \lambda \cdot (l \otimes v)
     = (\lambda l) \otimes v
   \]
-  for all $\lambda \in L$ and simple tensors $l \otimes v \in L \otimes_k V$ with $l \in L$, $v \in V$.
-  That this results in a well-defined $L$-vector space structure can be seen in (at least) three ways:
-  \begin{itemize}
-    \item
-      For every $\lambda \in L$ the map
-      \[
-                m_\lambda
-        \colon  L
-        \to     L,
-        \quad   l
-        \mapsto \lambda l
-      \]
-      is $L$-linear and thus $k$-linear.
-      The multiplication with $\lambda$ on $L \otimes_k V$ is just $\pi_\lambda \otimes \id_V$, which shows that the scalar multiplication is well-defined.
-      It can be checked by hand that the vector space axioms hold for simple tensors, and by the $k$-(bi)linearity of the occuring maps (and expressions) it can then be concluded that they hold for arbitary tensors.
-    \item
-      The multiplication $m' \colon L \times L \to L$, $(\lambda, l) \mapsto \lambda l$ is $k$-bilinear (even $L$-bilinear) and thus induces a $k$-bilinear map $m \colon L \otimes_k L \to L$ which is given on simple tensors by $m(\lambda \otimes l) = \lambda l$ for all $\lambda, l \in L$.
-      We then have a trilinear $L \otimes_k L \otimes_k V \to L \otimes_k V$ given by
-      \[
-                                          L \otimes_k L \otimes_k V
-        \xrightarrow{\,m \otimes \id_V\,} L \otimes_k V
-      \]
-      which is given on simple tensors by $\lambda \otimes l \otimes v \mapsto (\lambda l) \otimes v$ for all $\lambda \in L$, $l \in L$, $v \in V$.
-      This $k$-trilinear map corresponds to a $K$-bilinear map
-      \[
-                \hat{m} 
-        \colon  L \times (L \otimes_k V)
-        \to     L \otimes_k V,
-        \quad   (\lambda, l \otimes v)
-        \mapsto (\lambda l) \otimes v \,.
-      \]
-      This shows that the scalar multiplication of $L$ on $L \otimes_k V$ is well-defined, and that it is distributive in each argument, and one can see that $1 \cdot (l \otimes v) = l \otimes v)$ for all simple tensors $l \otimes v \in L \otimes_k V$.
-      The associativity of the scalar multiplication can be checked on simple tensors or as follows via diagrams:
-      The multiplication $m'$ is associative, from which it follows that the diagram
-      \[
-        \begin{tikzcd}[sep = large]
-            L \otimes_k L \otimes_k L
-            \arrow{r}[above]{m \otimes \id_L}
-            \arrow{d}[left]{{\id_L} \otimes m}
-          & L \otimes_k L
-            \arrow{d}{m}
-          \\
-            L \otimes_k L
-            \arrow{r}{m}
-          & L
-        \end{tikzcd}
-      \]
-      commutes (since this holds on simple tensors).
-      By applying $(-) \otimes_k V$ to this diagram we get the following commutative diagram:
-      \[
-        \begin{tikzcd}[row sep = large, column sep = 6em]
-            L \otimes_k L \otimes_k L \otimes_k V
-            \arrow{r}[above]{m \otimes {\id_L} \otimes \id_V}
-            \arrow{d}[left]{{\id_L} \otimes m \otimes \id_V}
-          & L \otimes_k L \otimes_k V
-            \arrow{d}{m \otimes \id_V}
-          \\
-            L \otimes_k L \otimes_k V
-            \arrow{r}{m \otimes \id_V}
-          & L \otimes_k V
-        \end{tikzcd}
-      \]
-      By evaluating this commutative diagram at a simple tensor $\lambda \otimes \mu \otimes x$ with $\lambda, \mu \in L$, $x \in L \otimes_k V$ it follows that
-      \begin{align*}
-            (\lambda \mu) \cdot x
-        &=  ( (m \otimes \id_V) \circ (m \otimes {\id_L} \otimes \id_V) )(\lambda \otimes \mu \otimes x)  \\
-        &=  ( (m \otimes \id_V) \circ ({\id_L} \otimes m \otimes \id_V) )(\lambda \otimes \mu \otimes x)
-         =  \lambda \cdot (\mu \cdot x) \,.
-      \end{align*}
-      This shows the associativity of the $L$-scalar multiplication on $L \otimes_k V$.
-    \item
-      We can regard $L$ as a $k$-algebra.
-      The $L$-vector space structure of $L$ corresponds to the $k$-algebra homomorphism $L \to \End_L(L) \hookrightarrow \End_k(L)$, $\lambda \mapsto m_\lambda$, with $m_\lambda$ as above.
-      The map $\End_k(L) \to \End_k(L \otimes_k V)$, $f \mapsto f \otimes \id_V$ is a $k$-algebra homomorphism.
-      We thus get a $k$-algebra homomorphism $L \to \End_k(L \otimes_k V)$, $\lambda \mapsto m_\lambda \otimes \id_V$, which gives $L \otimes_k V$ the desired structure of an $L$-module, i.e.\ $L$-vector space.
-  \end{itemize}
+  for all $\lambda \in L$ and simple tensors $l \otimes v \in L \otimes_k V$ with $l \in L$, $v \in V$:
+  To see that this multipliation is well-defined let $\lambda \in L$ and consider the map
+  \[
+            m_\lambda
+    \colon  L
+    \to     L,
+    \quad   l
+    \mapsto \lambda l \,,
+  \]
+  which is $L$-linear and thus $k$-linear.
+  Then the multiplication with $\lambda$ on $L \otimes_k V$ is given by $m_\lambda \otimes \id_V$, and therefore well-defined.
+  The various vector space axioms can be checked on simple tensors.
+%   \begin{itemize}
+%     \item
+%       For every $\lambda \in L$ the map
+%       \[
+%                 m_\lambda
+%         \colon  L
+%         \to     L,
+%         \quad   l
+%         \mapsto \lambda l
+%       \]
+%       is $L$-linear and thus $k$-linear.
+%       The multiplication with $\lambda$ on $L \otimes_k V$ is just $m_\lambda \otimes \id_V$, which shows that the scalar multiplication is well-defined.
+%       It can be checked by hand that the vector space axioms hold for simple tensors, and by the $k$-(bi)linearity of the occuring maps (and expressions) it can then be concluded that they hold for arbitary tensors.
+%     \item
+%       The multiplication $m' \colon L \times L \to L$, $(\lambda, l) \mapsto \lambda l$ is $k$-bilinear (even $L$-bilinear) and thus induces a $k$-bilinear map $m \colon L \otimes_k L \to L$ which is given on simple tensors by $m(\lambda \otimes l) = \lambda l$ for all $\lambda, l \in L$.
+%       We then have a trilinear $L \otimes_k L \otimes_k V \to L \otimes_k V$ given by
+%       \[
+%                                           L \otimes_k L \otimes_k V
+%         \xrightarrow{\,m \otimes \id_V\,} L \otimes_k V
+%       \]
+%       which is given on simple tensors by $\lambda \otimes l \otimes v \mapsto (\lambda l) \otimes v$ for all $\lambda \in L$, $l \in L$, $v \in V$.
+%       This $k$-trilinear map corresponds to a $K$-bilinear map
+%       \[
+%                 \hat{m} 
+%         \colon  L \times (L \otimes_k V)
+%         \to     L \otimes_k V,
+%         \quad   (\lambda, l \otimes v)
+%         \mapsto (\lambda l) \otimes v \,.
+%       \]
+%       This shows that the scalar multiplication of $L$ on $L \otimes_k V$ is well-defined, and that it is distributive in each argument, and one can see that $1 \cdot (l \otimes v) = l \otimes v)$ for all simple tensors $l \otimes v \in L \otimes_k V$.
+%       The associativity of the scalar multiplication can be checked on simple tensors or as follows via diagrams:
+%       The multiplication $m'$ is associative, from which it follows that the diagram
+%       \[
+%         \begin{tikzcd}[sep = large]
+%             L \otimes_k L \otimes_k L
+%             \arrow{r}[above]{m \otimes \id_L}
+%             \arrow{d}[left]{{\id_L} \otimes m}
+%           & L \otimes_k L
+%             \arrow{d}{m}
+%           \\
+%             L \otimes_k L
+%             \arrow{r}{m}
+%           & L
+%         \end{tikzcd}
+%       \]
+%       commutes (since this holds on simple tensors).
+%       By applying $(-) \otimes_k V$ to this diagram we get the following commutative diagram:
+%       \[
+%         \begin{tikzcd}[row sep = large, column sep = 6em]
+%             L \otimes_k L \otimes_k L \otimes_k V
+%             \arrow{r}[above]{m \otimes {\id_L} \otimes \id_V}
+%             \arrow{d}[left]{{\id_L} \otimes m \otimes \id_V}
+%           & L \otimes_k L \otimes_k V
+%             \arrow{d}{m \otimes \id_V}
+%           \\
+%             L \otimes_k L \otimes_k V
+%             \arrow{r}{m \otimes \id_V}
+%           & L \otimes_k V
+%         \end{tikzcd}
+%       \]
+%       By evaluating this commutative diagram at a simple tensor $\lambda \otimes \mu \otimes x$ with $\lambda, \mu \in L$, $x \in L \otimes_k V$ it follows that
+%       \begin{align*}
+%             (\lambda \mu) \cdot x
+%         &=  ( (m \otimes \id_V) \circ (m \otimes {\id_L} \otimes \id_V) )(\lambda \otimes \mu \otimes x)  \\
+%         &=  ( (m \otimes \id_V) \circ ({\id_L} \otimes m \otimes \id_V) )(\lambda \otimes \mu \otimes x)
+%          =  \lambda \cdot (\mu \cdot x) \,.
+%       \end{align*}
+%       This shows the associativity of the $L$-scalar multiplication on $L \otimes_k V$.
+%     \item
+%       We can regard $L$ as a $k$-algebra.
+%       The $L$-vector space structure of $L$ corresponds to the $k$-algebra homomorphism $L \to \End_L(L) \hookrightarrow \End_k(L)$, $\lambda \mapsto m_\lambda$, with $m_\lambda$ as above.
+%       The map $\End_k(L) \to \End_k(L \otimes_k V)$, $f \mapsto f \otimes \id_V$ is a $k$-algebra homomorphism.
+%       We thus get a $k$-algebra homomorphism $L \to \End_k(L \otimes_k V)$, $\lambda \mapsto m_\lambda \otimes \id_V$, which gives $L \otimes_k V$ the desired structure of an $L$-module, i.e.\ $L$-vector space.
+%   \end{itemize}
 \end{fluff}
 
 
@@ -109,6 +119,18 @@
 \begin{example}
   \label{example: extension of scalars for kn}
   For $V = k^n$ we have that $V_L = L \otimes_k k^n \cong L^n$, and the canonical homomorphism $\can \colon k^n \to (k^n)_L$ corresponds to the inclusion $k^n \hookrightarrow L^n$.
+  \[
+    \begin{tikzcd}[sep = large]
+        (k^n)_L
+        \arrow{r}[above]{\sim}
+      & L^n
+      \\
+        k^n
+        \arrow{u}[left]{\can}
+        \arrow[hookrightarrow]{ur}
+      & {}
+    \end{tikzcd}
+  \]
 \end{example}
 
 
@@ -128,7 +150,7 @@
 
 \begin{fluff}
   As a consequence of Corollary~$\ref{corollary: canonical homomorphism is injective}$ we can regard $V$ as a $k$-linear subspace of $V_L$ by identifying $v \in V$ with $1 \otimes v \in V_L$.
-  We will not do this for this during this section, but will do so in the main text.
+  We will not do so during this section, but will at time in the main text.
 \end{fluff}
 
 
@@ -136,7 +158,7 @@
   Let $V$ be a $k$-vector space and let $W$ be an $L$-vector space.
   
   When $g \colon V_L \to W$ is an $L$-linear map, then $g$ is also $k$-linear.
-  It follows that $g^\circ \coloneqq g \circ \can \colon V \to W$ is a $k$-linear map:
+  It then follows that $g^\circ \coloneqq g \circ \can \colon V \to W$ is a $k$-linear map:
   \[
     \begin{tikzcd}[sep = large]
         V_L
@@ -150,9 +172,9 @@
     \end{tikzcd}
   \]
   On elements, $g^\circ$ is given by $g^\circ(v) = g(1 \otimes v)$ for every $v \in V$.
+  One may think about $g^\circ$ as the restriction of $g$ onto $V$.
   
   Let on the other hand $f \colon V \to W$ be a $k$-linear map.
-%   The multiplication map $m' \colon L \times W \to W$ is $k$-bilinear (even $L$-bilinear) and thus induces a $k$-linear map $m \colon L \otimes_k W \to W$ given by $m(l \otimes w) = lw$ on simple tensors $l \otimes w \in L \otimes_k W$ for $l \in L$, $w \in W$.
   Then the map
   \[
             f'
@@ -161,123 +183,132 @@
     \quad   (l,v)
     \mapsto l \cdot f(v)
   \]
-  is $k$-bilinear and thus induces a $k$-linear map $\overline{f} \colon V_L \to W$ which is given on simple tensors by
+  is $k$-bilinear and thus induces a $k$-linear map $\overline{f} \colon V_L \to W$, which is given on simple tensors by
   \[
       \overline{f}(l \otimes v)
     = l \cdot f(v)
   \]
   for all $l \in L$, $v \in V$.
-  This map is already $L$-linear, as can be seen in (at least) three ways:
-  \begin{itemize}
-    \item
-      Let $\lambda \in L$.
-      For every simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$ one has that
-      \[
-          \overline{f}(\lambda \cdot (l \otimes v))
-        = \overline{f}( (\lambda l) \otimes v )
-        = (\lambda l) \cdot f(v)
-        = \lambda \cdot (l \cdot f(v))
-        = \lambda \cdot \overline{f}(l \otimes v) \,.
-      \]
-      It then follows from the $k$-linearity of $\overline{f}$ that $\overline{f}(\lambda \cdot x) = \lambda \cdot \overline{f}(x)$ for all $\lambda \in L$, $x \in V$ because every $x \in V_L$ is a sum of simple tensors.
-    \item
-      The multiplication map $m' \colon L \times W \to W$ with $m'(l,w) = l \cdot w$ is $k$-bilinear (even $L$-bilinear) and thus induces a $k$-linear map $m \colon L \otimes_k W \to W$.
-      Then $\overline{f} = m \circ (\id_L \otimes f)$.
-      Let $\lambda \in L$ and let $m_\lambda \colon L \to L$, $l \mapsto \lambda l$, which is a $k$-linear (even $L$-linear map).
-      We then have the following commutative diagram:
-      \[
-        \begin{tikzcd}[sep = huge]
-            V_L
-            \arrow{r}[above]{x \mapsto \lambda \cdot x}
-            \arrow[equal]{d}
-          & V_L
-            \arrow[equal]{d}
-          \\
-            L \otimes_k V
-            \arrow{r}[above]{m_\lambda \otimes {\id_V}}
-            \arrow{d}[right]{\id_L \otimes f}
-            \arrow[bend right = 45]{dd}[left]{\overline{f}}
-          & L \otimes_k V
-            \arrow{d}[left]{\id_L \otimes f}
-            \arrow[bend left = 45]{dd}[right]{\overline{f}}
-          \\
-            L \otimes_k W
-            \arrow{r}[above]{m_\lambda \otimes \id_W}
-            \arrow{d}[right]{m}
-          & L \otimes_k W
-            \arrow{d}[left]{m}
-          \\
-            W
-            \arrow{r}[above]{w \mapsto \lambda \cdot w}
-          & W
-        \end{tikzcd}
-      \]
-      The commutativity of the upper square follows from the definition of the the $L$-vector space structure on $V_L$.
-      The commutativity of the middle square follows from
-      \[
-          (\id_L \otimes f) \circ (m_\lambda \otimes \id_V)
-        = m_\lambda \otimes f
-        = (m_\lambda \otimes \id_V) \circ (\id_L \otimes f) \,.
-      \]
-      The commutativity of the lower square follows from the fact that the multiplication map $m' \colon L \times W \to W$ is already $L$-bilinear.
-      By considering the outer square it follows that
-      \[
-          \overline{f}(\lambda \cdot x)
-        = \lambda \cdot \overline{f}(x) \,.
-      \]
-    \item
-      For every $L$-vector space $U$ the map $m'_U \colon L \times U \to U$, $(\lambda, u) \mapsto \lambda u$ is $k$-bilinear (even $L$-linear) and thus induce a $k$-linear map $m_U \colon L \otimes_k U \to U$ which is given on simple tensors by
-      \[
-          m_U(\lambda \otimes u)
-        = \lambda u
-      \]
-      for all $\lambda \in L$, $u \in U$.
-      We then have that $\overline{f} = m_W \circ (\id_L \otimes f)$ (as already stated in the previous approach).
-      We now have the following commutative diagram:
-      \[
-        \begin{tikzcd}[sep = huge]
-            L \otimes_k V_L
-            \arrow{r}[above]{m_{(V_L)}}
-            \arrow[equal]{d}
-          & V_L
-            \arrow[equal]{d}
-          \\
-            L \otimes_k L \otimes_k V
-            \arrow{r}[above]{m_L \otimes {\id_V}}
-            \arrow{d}[right]{{\id_L} \otimes {\id_L} \otimes f}
-            \arrow[bend right = 65]{dd}[left]{{\id_L} \otimes \overline{f}}
-          & L \otimes_k V
-            \arrow{d}[left]{{\id_L} \otimes f}
-            \arrow[bend left = 65]{dd}[right]{\overline{f}}
-          \\
-            L \otimes_k L \otimes_k W
-            \arrow{r}[above]{m_L \otimes \id_W}
-            \arrow{d}[right]{{\id_L} \otimes m_W}
-          & L \otimes_k W
-            \arrow{d}[left]{m_W}
-          \\
-            L \otimes_k W
-            \arrow{r}[above]{m_W}
-          & W
-        \end{tikzcd}
-      \]
-      The commutavity of the top square follows from the definition of the $L$-vector space structure on $V_L$.
-      The commutativity of the middle squares follows from follows
-      \[
-          ({\id_L} \otimes f) \circ (m_L \otimes \id_V)
-        = m_L \otimes f
-        = (m_L \otimes \id_W) \circ ({\id_L} \otimes {\id_L} \otimes f) \,.
-      \]
-      The commutativity of the lower square expresses the associativity of the $L$-scalar multiplication on $L$.
-      
-      By evaluating this commutative diagram at a simple tensor $\lambda \otimes x \in L \otimes_k V_L$ with $\lambda \in L$, $x \in V_L$ we find that
-      \begin{align*}
-          \overline{f}(\lambda \cdot x)
-        = \overline{f}( m_{(V_L)}(\lambda \otimes x) )
-        = m_W( ({\id_L} \otimes \overline{f})(\lambda \otimes x) )
-        = \lambda \cdot \overline{f}(x) \,.
-      \end{align*}
-  \end{itemize}
+  This map is already $L$-linear:
+  For every $\lambda \in L$ and simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$ one has that
+  \[
+      \overline{f}(\lambda \cdot (l \otimes v))
+    = \overline{f}( (\lambda l) \otimes v )
+    = (\lambda l) \cdot f(v)
+    = \lambda \cdot (l \cdot f(v))
+    = \lambda \cdot \overline{f}(l \otimes v) \,.
+  \]
+  It then follows from the $k$-linearity of $\overline{f}$ that $\overline{f}(\lambda \cdot x) = \lambda \cdot \overline{f}(x)$ for all $\lambda \in L$, $x \in V_L$ because every $x \in V_L$ is a sum of simple tensors.
+%   \begin{itemize}
+%     \item
+%       Let $\lambda \in L$.
+%       For every simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$ one has that
+%       \[
+%           \overline{f}(\lambda \cdot (l \otimes v))
+%         = \overline{f}( (\lambda l) \otimes v )
+%         = (\lambda l) \cdot f(v)
+%         = \lambda \cdot (l \cdot f(v))
+%         = \lambda \cdot \overline{f}(l \otimes v) \,.
+%       \]
+%       It then follows from the $k$-linearity of $\overline{f}$ that $\overline{f}(\lambda \cdot x) = \lambda \cdot \overline{f}(x)$ for all $\lambda \in L$, $x \in V$ because every $x \in V_L$ is a sum of simple tensors.
+%     \item
+%       The multiplication map $m' \colon L \times W \to W$ with $m'(l,w) = l \cdot w$ is $k$-bilinear (even $L$-bilinear) and thus induces a $k$-linear map $m \colon L \otimes_k W \to W$.
+%       Then $\overline{f} = m \circ (\id_L \otimes f)$.
+%       Let $\lambda \in L$ and let $m_\lambda \colon L \to L$, $l \mapsto \lambda l$, which is a $k$-linear (even $L$-linear map).
+%       We then have the following commutative diagram:
+%       \[
+%         \begin{tikzcd}[sep = huge]
+%             V_L
+%             \arrow{r}[above]{x \mapsto \lambda \cdot x}
+%             \arrow[equal]{d}
+%           & V_L
+%             \arrow[equal]{d}
+%           \\
+%             L \otimes_k V
+%             \arrow{r}[above]{m_\lambda \otimes {\id_V}}
+%             \arrow{d}[right]{\id_L \otimes f}
+%             \arrow[bend right = 45]{dd}[left]{\overline{f}}
+%           & L \otimes_k V
+%             \arrow{d}[left]{\id_L \otimes f}
+%             \arrow[bend left = 45]{dd}[right]{\overline{f}}
+%           \\
+%             L \otimes_k W
+%             \arrow{r}[above]{m_\lambda \otimes \id_W}
+%             \arrow{d}[right]{m}
+%           & L \otimes_k W
+%             \arrow{d}[left]{m}
+%           \\
+%             W
+%             \arrow{r}[above]{w \mapsto \lambda \cdot w}
+%           & W
+%         \end{tikzcd}
+%       \]
+%       The commutativity of the upper square follows from the definition of the the $L$-vector space structure on $V_L$.
+%       The commutativity of the middle square follows from
+%       \[
+%           (\id_L \otimes f) \circ (m_\lambda \otimes \id_V)
+%         = m_\lambda \otimes f
+%         = (m_\lambda \otimes \id_V) \circ (\id_L \otimes f) \,.
+%       \]
+%       The commutativity of the lower square follows from the fact that the multiplication map $m' \colon L \times W \to W$ is already $L$-bilinear.
+%       By considering the outer square it follows that
+%       \[
+%           \overline{f}(\lambda \cdot x)
+%         = \lambda \cdot \overline{f}(x) \,.
+%       \]
+%     \item
+%       For every $L$-vector space $U$ the map $m'_U \colon L \times U \to U$, $(\lambda, u) \mapsto \lambda u$ is $k$-bilinear (even $L$-linear) and thus induce a $k$-linear map $m_U \colon L \otimes_k U \to U$ which is given on simple tensors by
+%       \[
+%           m_U(\lambda \otimes u)
+%         = \lambda u
+%       \]
+%       for all $\lambda \in L$, $u \in U$.
+%       We then have that $\overline{f} = m_W \circ (\id_L \otimes f)$ (as already stated in the previous approach).
+%       We now have the following commutative diagram:
+%       \[
+%         \begin{tikzcd}[sep = huge]
+%             L \otimes_k V_L
+%             \arrow{r}[above]{m_{(V_L)}}
+%             \arrow[equal]{d}
+%           & V_L
+%             \arrow[equal]{d}
+%           \\
+%             L \otimes_k L \otimes_k V
+%             \arrow{r}[above]{m_L \otimes {\id_V}}
+%             \arrow{d}[right]{{\id_L} \otimes {\id_L} \otimes f}
+%             \arrow[bend right = 65]{dd}[left]{{\id_L} \otimes \overline{f}}
+%           & L \otimes_k V
+%             \arrow{d}[left]{{\id_L} \otimes f}
+%             \arrow[bend left = 65]{dd}[right]{\overline{f}}
+%           \\
+%             L \otimes_k L \otimes_k W
+%             \arrow{r}[above]{m_L \otimes \id_W}
+%             \arrow{d}[right]{{\id_L} \otimes m_W}
+%           & L \otimes_k W
+%             \arrow{d}[left]{m_W}
+%           \\
+%             L \otimes_k W
+%             \arrow{r}[above]{m_W}
+%           & W
+%         \end{tikzcd}
+%       \]
+%       The commutavity of the top square follows from the definition of the $L$-vector space structure on $V_L$.
+%       The commutativity of the middle squares follows from follows
+%       \[
+%           ({\id_L} \otimes f) \circ (m_L \otimes \id_V)
+%         = m_L \otimes f
+%         = (m_L \otimes \id_W) \circ ({\id_L} \otimes {\id_L} \otimes f) \,.
+%       \]
+%       The commutativity of the lower square expresses the associativity of the $L$-scalar multiplication on $L$.
+%       
+%       By evaluating this commutative diagram at a simple tensor $\lambda \otimes x \in L \otimes_k V_L$ with $\lambda \in L$, $x \in V_L$ we find that
+%       \begin{align*}
+%           \overline{f}(\lambda \cdot x)
+%         = \overline{f}( m_{(V_L)}(\lambda \otimes x) )
+%         = m_W( ({\id_L} \otimes \overline{f})(\lambda \otimes x) )
+%         = \lambda \cdot \overline{f}(x) \,.
+%       \end{align*}
+%   \end{itemize}
   The constructed $L$-linear map $\overline{f} \colon V_L \to W$ satisfies
   \[
       \overline{f}(\can_V(v))
@@ -298,8 +329,7 @@
         & {}
       \end{tikzcd}
     \]
-
-  The two constructions $(-)^\circ$ and $\overline{(-)}$ are inverse to each other:
+  One may think about $\overline{f}$ as the $L$-linear extension of $f$ onto $V_L$.
   
   If $f \colon V \to W$ is a $k$-linear map then for the corresponding $L$-linear map $\overline{f} \colon V_L \to W$ the induced $k$-linear map $(\overline{f})^\circ \colon V \to W$ is given by
   \[
@@ -319,9 +349,10 @@
     = g(l \otimes v)
   \]
   for every simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$.
-  It follows with the linearity of both $\overline{g^\circ}$ and $g$ that already $\overline{g^\circ}(x) = g(x)$ for every $x \in V_L$, and thus $\overline{g^\circ} = g$.
+  It follows from the linearity of both $\overline{g^\circ}$ and $g$ that already $\overline{g^\circ}(x) = g(x)$ for every $x \in V_L$, and thus $\overline{g^\circ} = g$.
   
-  Alltogether we have shown the \emph{universal property of the extension of scalars}:
+  This shows that the two constructions $(-)^\circ$ and $\overline{(-)}$ are inverse to each other.
+  Alltogether we have found the \emph{universal property of the extension of scalars}:
 \end{fluff}
 
 
@@ -340,23 +371,41 @@
     &\mapsfrom  g
   \end{align*}
   is a well-defined bijection.
-  In other words:
-  Every $k$-linear map $V \to W$ extends uniquely to an $L$-linear map $V_L \to W$ along $\can_V$.
 \end{theorem}
 
+
 \begin{remark}
-  As usually with universal properties, this determines $V_L$ together with the canonical homomorphism $\can_V \colon V \to V_L$ up to unique isomorphsm:
-  If $V'$ is an $L$-vector space and $\iota \colon V \to V'$ a $k$-linear map such that
+  One can think about this universal property in different ways:
+  \begin{itemize}
+    \item
+      The universal property states that every $k$-linear map $V \to W$ extends uniquely to an $L$-linear map $V_L \to W$ along $\can_V$.
+      To construct an $L$-linear map $V_L \to W$ it therefore sufficies to construct the corresponding $k$-linear map $V \to W$.
+    \item
+      The $L$-vector space $V_L$ together with the inclusion $\can_V \colon V \to V_L$ is the most general way to extend the $k$-vector space $V$ to an $L$-vector space:
+      
+      Whenever $W$ is another $L$-vector space and $f \colon V \to W$ is a $k$-linear map, then we may think of $f$ as an embedding of $V$ into $W$, except that $f$ needs not be injective.
+      Then $f$ factors trough $V_L$ by extending to an $L$-linear map $\overline{f} \colon V_L \to W$ which me may think about as an embedding of $V_L$ into $W$, except that $\overline{f}$ also does not need to be injective.
+      
+      (Note that $\overline{f}$ does not need to be injective even if $f$ is injective:
+      Consider $k = \Real$, $L = \Complex$, $V = \Real^2$ and $W = \Complex$.
+      Then the map $f \colon \Real^2 \to \Complex$, $(x,y) \mapsto x + iy$ is an isomorphism of $\Real$-vector spaces, but the induced $L$-linear map $\overline{f} \colon (\Real^2)_\Complex \to \Complex$ cannot be injective because $(\Real^2)_\Complex \cong \Complex^2$ by Example~\ref{example: extension of scalars for kn}.
+      Indeed, the map $\overline{f}$ corresponds to the map $\mathbb{C}^2 \to \mathbb{C}$, $(x,y) \mapsto x+iy$.)
+  \end{itemize}
+\end{remark}
+
+
+\begin{remark}
+  As usual with universal properties, the $L$-vector space $V_L$ together with the canonical homomorphism $\can_V \colon V \to V_L$ is uniquely determined by it up to unique isomorphism:
+  If $V'$ is another $L$-vector space and $\iota \colon V \to V'$ is a $k$-linear map such that
   \[
-            \Psi_{V,W}
-    \colon  \Hom_L(V', W)
+            \Hom_L(V', W)
     \to     \Hom_k(V,W) \,,
     \quad   f
     \mapsto f \circ \iota
   \]
-  is bijective for every $L$-vector space $W$, then there exists an unique $L$-linear map
+  is bijective for every $L$-vector space $W$, then there exists a unique $L$-linear map
   \[
-    \phi \colon V_L \to V'
+    \varphi \colon V_L \to V'
   \]
   such that the diagram
   \[
@@ -368,12 +417,12 @@
       & {}
       \\
         V_L
-        \arrow{rr}{\phi}
+        \arrow{rr}{\varphi}
       & {}
       & V'
     \end{tikzcd}
   \]
-  commutes, and $\phi$ is an isomorphism of $L$-vector spaces.
+  commutes, and $\varphi$ is an isomorphism of $L$-vector spaces.
 \end{remark}
 
 
@@ -398,9 +447,9 @@
     = L \otimes_k V
     = L \otimes_k \left( \bigoplus_{i \in I} \gen{v_i}_k \right)
     = \bigoplus_{i \in I} (L \otimes_k \gen{v_i}_k)
-    = \bigoplus_{i \in I} \gen{1 \otimes v_i}_L \,.
+    = \bigoplus_{i \in I} \gen{1 \otimes v_i}_L \,,
   \]
-  This proves the claim.
+  which proves the claim.
 \end{proof}
 
 
@@ -423,7 +472,7 @@
     \to     \{1 \otimes v_i\}_{i \in I},
     \quad   v_i
     \mapsto 1 \otimes v_i
-    =       \can_V(v_i)
+    =       \can_V(v_i) \,.
   \]
   For every $L$-vector space $W$ we therefore get a commutative diagram
   \[
@@ -457,13 +506,12 @@
   \]
   is bijective because $c$ is a bijection.
   
-  That $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ is equivalent to the restriction on the right being a bijection, and that $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$ is equivalent to the restriction on the left being a bijection.
-  By the commutativity of the diagram both conditions are equivalent.
+  It follows that the restriction on the left is a bijection if and only if the restriction on the right is a bijection, i.e.\ that $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ if and only if $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$.
 \end{remark}
 
 
 \begin{fluff}
-  So far we have constructed for every $k$-vector space $V$ a completely new $L$-vector space $V_L$ which contains $V$ as a $k$-linear subspace (via the canonical homomorphism $\can_V \colon V \hookrightarrow V_L$) and is universal with this property.
+  So far we have constructed for every $k$-vector space $V$ a new $L$-vector space $V_L$ which contains $V$ as a $k$-linear subspace (via $\can_V \colon V \hookrightarrow V_L$) and is universal with this property.
   
   In praxis we often want to realize the extension of scalars $V_L$ as an already know $L$-vector space $W$ which contains $V$ as a $k$-linear subspace $V \subseteq W$, just how we can realize $(k^n)_L$ as $L^n$ as seen in Example~\ref{example: extension of scalars for kn}.
   
@@ -474,22 +522,22 @@
 \begin{corollary}
 \label{corollary: inclusion to bijection vector spaces}
   Let $W$ be an $L$-vector space, and let $V \subseteq W$ a $k$-linear subspace.
-  Suppose that $B \subseteq V$ a $k$-basis of $V$ and an $L$-basis of $W$.
-  Then there exists a unique $L$-linear map $\varphi \colon V_L \to W$ which is given on simple tensors by
+  Suppose that $B \subseteq V$ is both a $k$-basis of $V$ and an $L$-basis of $W$.
+  Then the unique $L$-linear map $\varphi \colon V_L \to W$ given on simple tensors by
   \[
       \varphi(l \otimes v)
     = l v
   \]
-  for all $l \in L$, $v \in V$, and $\varphi$ is an isomorphism.
+  for all $l \in L$, $v \in V$ is an isomorphism.
 \end{corollary}
 
 
 \begin{proof}
   The desired map $\varphi$ is the unique $L$-linear extension of the $k$-linear inclusion $V \hookrightarrow W$, which exists by the universal property of the extension of scalars:
   \[
-    \begin{tikzcd}
+    \begin{tikzcd}[sep = large]
         V_L
-        \arrow{r}[above]{\varphi}
+        \arrow[dashed]{r}[above]{\varphi}
       & W
       \\
         V
@@ -509,18 +557,18 @@
     \item
       We have that $k^n \subseteq L^n$ is a $k$-linear subspace, and the standard basis $e_1, \dotsc, e_n$ is both a $k$-basis of $k^n$ and an $L$-basis of $L^n$.
       It follows that there exists an isomorphism of $L$-vector spaces $(k^n)_L \to L^n$ which maps $1 \otimes e_i \in (k^n)_L$ to $e_i \in L^n$ for every $i = 1, \dotsc, n$.
-      This is the same result as in Example~\ref{example: extension of scalars for kn}.
+      (We have already seen this in Example~\ref{example: extension of scalars for kn}.)
     \item
       We have that $K[X] \subseteq L[X]$ is a $k$-linear subspace, and the monomials $X^n$, $n \geq 0$ form both a $k$-basis of $K[X]$ and an $L$-basis of $L^n$.
       It follows that there exists an isomorphism of $L$-vector spaces $k[X]_L \to L[X]$ which maps $1 \otimes X^n \in k[X]_L$ to $X^n \in L[X]$ for every $n \geq 0$.
     \item
       We find in the same way that there exists an isomorphism of $L$-vector spaces $k[X_1, \dotsc, X_n]_L \to L[X_1, \dotsc, X_n]$ which maps $1 \otimes X^{\alpha_1} \dotsm X^{\alpha_n} \in k[X_1, \dotsc, X_n]_L$ to $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in L[X_1, \dotsc, X_n]$ for every multiindex $\underline{\alpha} \in \Natural^n$.
     \item
-      We have that $\Mat_n(k) \subseteq \Mat_n(L)$ is a $k$-linear subspace, and the standard matrices $E_{ij}$, $1 \leq i,j \leq n$ are both a $k$-basis of $\Mat_n(k)$ and an $L$-basis of $\Mat_n(L)$.
+      We have that $\Mat_n(k) \subseteq \Mat_n(L)$ is a $k$-linear subspace, and the matrices $E_{ij}$, $1 \leq i,j \leq n$ are both a $k$-basis of $\Mat_n(k)$ and an $L$-basis of $\Mat_n(L)$.
       It follows that there exists an isomorphism of $L$-vector spaces $\Mat_n(k)_L \to \Mat_n(L)$ which maps $1 \otimes E_{ij} \in \Mat_n(k)_L$ to $E_{ij} \in \Mat_n(L)$ for all $1 \leq i,j \leq n$.
     \item
       Let $G$ be a group.
-      Then $k[G] \subseteq L[G]$ is a $k$-linear subspace, and the group $G$ is both a $k$-basis of $k[G]$ and an $L$-basisof $L[G]$.
+      Then $k[G] \subseteq L[G]$ is a $k$-linear subspace, and the group $G$ is both a $k$-basis of $k[G]$ and an $L$-basis of $L[G]$.
       It follows that there exists an isomorphism of $L$-vector spaces $k[G]_L \to L[G]$ which maps $1 \otimes g \in k[G]$ to $g \in L[G]$ for every $g \in G$.
   \end{enumerate}
 \end{example}
@@ -599,7 +647,17 @@
     \colon    V_L
     \to       W_L
   \]
-  is already $L$-linear.
+  is already $L$-linear:
+  For all $\lambda \in L$ and simple tensors $l \otimes v \in V_L$ with $l \in L$, $v \in V$ we have that
+  \[
+      f_L( \lambda \cdot (l \otimes v) )
+    = f_L( (\lambda l) \otimes v )
+    = (\lambda l) \otimes f(v)
+    = \lambda \cdot (l \otimes f(v))
+    = \lambda f_L(l \otimes v) \,,
+  \]
+  and thus $f_L( \lambda \cdot x ) = \lambda f_L(x)$ for every $x \in V_L$ because every tensor is a sum of simple tensors.
+  
   For every $k$-vector space $V$ we have that
   \[
       (\id_V)_L
@@ -610,7 +668,7 @@
   and for all composable $k$-linear maps $f \colon U \to V$, $g \colon V \to W$ we have that
   \[
       g_L \circ f_L
-    = ({\id_L} \otimes g) \circ ({\id_L} \times f)
+    = ({\id_L} \otimes g) \circ ({\id_L} \otimes f)
     = (\id_L \circ \id_L) \otimes (g \circ f)
     = {\id_L} \otimes (g \circ f)
     = (g \circ f)_L \,.
@@ -626,7 +684,7 @@
 \begin{lemma}
   \label{lemma: abstract description of fL}
   Let $V$ and $V'$ be $k$-vector spaces.
-  For every $k$-linear map $f \colon V \to V'$
+  Then the diagram
   \[
     \begin{tikzcd}[sep = large]
         V_L
@@ -640,7 +698,7 @@
         \arrow{u}[right]{\can_{V'}}
     \end{tikzcd}
   \]
-  commutes.
+  commutes for every $k$-linear map $f \colon V \to V'$.
 \end{lemma}
 \begin{proof}
   For every $v \in V$ one has that
@@ -655,7 +713,7 @@
 
 
 \begin{remark}
-  One can also construct the action of $(-)_L$ on $k$-linear maps, i.e.\ on morphisms of $\cVect{k}$, in a more abstract way:
+  One can also construct the action of $(-)_L$ on $k$-linear maps in a more abstract way:
   
   If $f \colon V \to W$ is a $k$-linear map between $k$-vector spaces $V, W$ then the $k$-linear map $\can_W \circ f \colon V \to W_L$ induces a unique $L$-linear map $f_L \colon V_L \to W_L$ which make the diagram
   \[
@@ -671,10 +729,8 @@
         \arrow{u}[right]{\can_W}
     \end{tikzcd}
   \]
-  commutes.
-  Lemma~\ref{lemma: abstract description of fL} shows that this coincides with previous construction of $f_L$.
-  
-  That $(-)_L$ is compatible with identities and preserves the composition of linear maps can also be seen using diagrams:
+  commutes, and Lemma~\ref{lemma: abstract description of fL} shows that this abstract definition of $f_L$ coincides with the previous definition.
+  That $(-)_L$ is compatible with identities and composition can also be seen using diagrams:
   
   It follows for every $k$-vector space $V$ from the commutativity of the diagram
   \[
@@ -735,10 +791,9 @@
               g
     &\mapsto  R(g) \circ \can_V \,.
   \end{align*}
-  These bijections $\Phi_{V,W}$ result in an adjunction $(-)_L \dashv R$:
+  These bijections $\Phi_{V,W}$ result in an adjunction $\Phi \colon (-)_L \dashv R$:
   
-  Let $f \colon V \to V'$ be a $k$-linear map between $k$-vector spaces $V, V'$ and let $g \colon W \to W'$ be an $L$-linear between between $L$-vector spaces $W, W'$.
-  Then the diagramm
+  It only remains to show that the bijections $\Phi_{V,W}$ are natural in $V$ and $W$, i.e.\ that for every $k$-linear map $f \colon V \to V'$ between $k$-vector spaces $V, V'$ and every $L$-linear map $g \colon W \to W'$ between $L$-vector spaces $W, W'$ the diagram
   \[
     \begin{tikzcd}[row sep = 3em, column sep = 5em]
         \Hom_L(V'_L, W)
@@ -752,14 +807,14 @@
       & \Hom_k(V, R(W'))
     \end{tikzcd}
   \]
-  commutes because
+  commutes.
+  This holds because
   \[
       R(g \circ (-) \circ f_L) \circ \can_V
     = R(g) \circ R(-) \circ R(f_L) \circ \can_V
-    = R(g) \circ R(-) \circ \can_{V'} \circ f,
+    = R(g) \circ R(-) \circ \can_{V'} \circ f \,,
   \]
-  where used equality $R(f_L) \circ \can_V = \can_{V'} \circ f$ holds by Lemma~\ref{lemma: abstract description of fL}.
-  This shows that the bijections $\Phi_{V,W}$ are natural in $V, W$.
+  where we use the equality $R(f_L) \circ \can_V = \can_{V'} \circ f$ from Lemma~\ref{lemma: abstract description of fL}.
 \end{remark}
 
 
@@ -769,7 +824,7 @@
 \subsection{Extension of Scalars for Algebras}
 
 \begin{fluff}
-  For $k$-algebras $A$ and $B$ their tensor product $A \otimes_k B$ is again a $k$-algebra, where the multiplication is given on simple tensors by
+  For $k$-algebras $A$ and $B$ their tensor product $A \otimes_k B$ can again be endowed with the structure of a $k$-algebra, with the multiplication being given on simple tensors by
   \[
       (a_1 \otimes b_1) \cdot (a_2 \otimes b_2)
     = (a_1 a_2) \otimes (b_1 b_2).
@@ -798,6 +853,7 @@
               (a_1 \otimes b_1, a_2 \otimes b_2)
     &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,.
   \end{align*}
+  The various algebra axioms can now be checked on simple tensors.
 \end{fluff}
 
 \begin{fluff}
@@ -844,7 +900,7 @@
     =     f_L(l_1 \otimes a_1) f_L(l_2 \otimes a_2)
   \end{align*}
   for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
-  Since these simple tensors generate $L \otimes_k A_1$ as a vector space it follows that $f_L$ is multiplicative.
+  It follows that $f_L$ is multiplicative because these simple tensors generate $L \otimes_k A_1$ as a vector space i.
 \end{proof}
   
   
@@ -874,7 +930,7 @@
 
 
 \begin{remark}
-  It follows from Lemma~\ref{lemma: universal property of extension of scalars for algebras} that for $A$ a $k$-algebra and $B$ an $L$-algebra the bijection
+  It follows from Lemma~\ref{lemma: universal property of extension of scalars for algebras} that for a $k$-algebra $A$ and an $L$-algebra $B$ the bijection
   \[
             \Phi_{A,B}
     \colon  \Hom_L(A_L, B)
@@ -889,12 +945,13 @@
     \to     \Hom_{\cAlg{k}}(A, B) \,.
   \]
   This can also be formulated by giving a variation of Theorem~\ref{theorem: universal property of extension of scalars} for algebras.
+  
   It follows that the functor $(-)_L \colon \cAlg{k} \to \cAlg{L}$ is left adjoint to the forgetful functor $R \colon \cAlg{L} \to \cAlg{k}$.
 \end{remark}
 
 
 \begin{fluff}
-  We have seen in Corollary~\ref{corollary: inclusion to bijection vector spaces} that it is possible to realize the extension of scalars of a $k$-vector $V$ as an $L$-vector space $W$ with $V \subseteq W$ under suitable conditions.
+  We have seen in Corollary~\ref{corollary: inclusion to bijection vector spaces} that it is possible to realize the extension of scalars of a $k$-vector $V$ as a given $L$-vector space $W$ with $V \subseteq W$ under suitable conditions.
   This also generalizes to algebras:
 \end{fluff}
 
@@ -903,15 +960,12 @@
 \label{corollary: inclusion to bijection algebras}
   Let $B$ be an $L$-algebra and $A \subseteq B$ a $k$-subalgebra.
   Suppose that $X \subseteq A$ is both a $k$-basis of $A$ and an $L$-basis of $B$.
-  Then the isomorphism of $L$-vector spaces
+  Then the isomorphism of $L$-vector spaces $\varphi \colon A_L \to B$ from Corollary~\ref{corollary: inclusion to bijection vector spaces}, which is given on simple tensors by
   \[
-            \varphi
-    \colon  A_L
-    \to     B \,,
-    \quad   l \otimes a
-    \mapsto l a
+      \varphi(l \otimes a)
+    = l a
   \]
-  from Corollary~\ref{corollary: inclusion to bijection vector spaces} is an isomorphism of $L$-algebras.
+  for all $l \in L$, $a \in A$, is an isomorphism of $L$-algebras.
 \end{corollary}
 \begin{proof}
   The inclusion $A \hookrightarrow B$ is a homomorphism of $k$-algebras, so it follows from Lemma~\ref{lemma: universal property of extension of scalars for algebras} that the induced $L$-linear map $A_L \to B$, which is precisely the isomorphism $\varphi$, is a homomorphism of $L$-algebras.
@@ -933,10 +987,10 @@
 
 \begin{lemma}
   Let $A$ be a $k$-algebra and let $I \ideal A$ be a left-ideal (resp.\ right-ideal, resp.\ both sided ideal).
-  Then $I_L$ is an left-ideal (resp.\ right-ideal, resp.\ both sided ideal) in $A_L$.
+  Then $I_L$ is a left-ideal (resp.\ right-ideal, resp.\ both sided ideal) in $A_L$.
 \end{lemma}
 \begin{proof}
-  Since $I$ is a $k$-linear subspace of $A$ it follows that $I_L$ is an $L$-linear subspace of $A_L$.
+  It follows from $I$ being a $k$-linear subspace of $A$ that $I_L$ is an $L$-linear subspace of $A_L$.
   For all simple tensors $l \otimes a \in A_L$, $l' \otimes x \in I_L$ with $l, l' \in L$, $a \in A$, $x \in I$ we have that
   \[
         (l \otimes a) \cdot (l' \otimes x)
@@ -946,17 +1000,17 @@
   \]
   It follows that $A_L I_L \subseteq I_L$ because every tensor is a linear combination of simple tensors.
   This shows that $I_L$ is a left ideal in $A_L$.
-  The case of $I$ being a right ideal can be treated in the same way, and the case of $I$ being a two-sided ideal follows from the previous two.
+  The case of $I$ being a right ideal can be treated in the same way, and the case of $I$ being a two-sided ideal follows from the previous two cases.
 \end{proof}
 
 
 \begin{lemma}
-  Let $A$ be a $k$-algebra and $I \ideal A$ an ideal generated by elements $(b_j)_{j \in J}$.
+  Let $A$ be a $k$-algebra and let $I \ideal A$ be an ideal generated by elements $(b_j)_{j \in J}$.
   Then the ideal $I_L \ideal A_L$ is generated by the elements $(1 \otimes b_j)_{j \in J}$.
 \end{lemma}
 \begin{proof}
   Let $I_0$ be the ideal in $A_L$ generated by the elements $(1 \otimes b_j)_{j \in J}$.
-  Since $I_L$ is an ideal with $1 \otimes b_j \in I_L$ for all $j \in J$ we have that $I_0 \subseteq I_L$.
+  We have that $I_0 \subseteq I_L$ because $I_L$ is an ideal with $1 \otimes b_j \in I_L$ for every $j \in J$.
   To show that $I_L \subseteq I_0$ we consider the preimage
   \[
               I'
@@ -968,13 +1022,14 @@
     =         \can_A^{-1}(I_0) \,.
   \]
   This is an ideal in $A$ because $\can_A$ is a homomorphism of $k$-algebras.
-  We have that $b_j \in I'$ for all $j \in J$ and thus $I \subseteq I'$.
-  It follows that $1 \otimes a \in I_0$ for all $a \in I$, and since these simple tensors generate $I_L$ as an $L$-vector space it further follows that $I_L \subseteq I_0$.
+  We have that $b_j \in I'$ for every $j \in J$, and thus $I \subseteq I'$.
+  It follows that $1 \otimes a \in I_0$ for all $a \in I$, and it further follows that $I_L \subseteq I_0$ because these simple tensors generate $I_L$ as an $L$-vector space.
 \end{proof}
 
 
 \begin{warning}
   The ideal $(X^2+1)_{\Real[X]} \subseteq \Real[X]$ is a prime ideal, but the ideal \mbox{$(X^2+1)_{\Complex[X]} \subseteq \Complex[X]$} is not.
+  This shows that for a prime (resp.\ maxmial) ideal $P \ideal A$ the ideal $P_L \ideal A_L$ is not necessarily prime (resp.\ maximal).
 \end{warning}
 
 
