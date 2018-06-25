@@ -5,7 +5,7 @@
 \usepackage{extarrows}  % \xlongequal
 \usepackage{fontspec}   % for xelatex stuff
 \usepackage{hyperref}   % for internal (and external) links
-\usepackage{chngcntr}   % stop section counter from reseting
+% \usepackage{chngcntr}   % stop section counter from reseting
 \usepackage[centertableaux,boxsize=1.2em]{ytableau} % Young diagrams
 \usepackage{color}    % colors
 \usepackage{tikz-cd}  % commutative diagrams
@@ -13,6 +13,7 @@
 \usetikzlibrary{arrows}
 \usepackage{enumitem} % more control over enumerates
 \usepackage[automark, headsepline]{scrlayer-scrpage} %for headers
+\usepackage{csquotes} % for proper quotation marks
 
 % keine leere Seite zu Beginn von \mainmatter
 % \makeatletter
@@ -63,7 +64,7 @@
 \newtheorem{lemma}[everything]{Lemma}
 \newtheorem{notation}[everything]{Notation}
 \newtheorem{proposition}[everything]{Proposition}
-\newtheorem*{recall}{Recall}
+\newtheorem{recall}[everything]{Recall}
 \newtheorem{remark}[everything]{Remark}
 \newtheorem{theorem}[everything]{Theorem}
 \newtheorem{warning}[everything]{Warning}
@@ -88,6 +89,7 @@
 }
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
+\newcommand{\ideal}{\trianglelefteq}
 
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}
