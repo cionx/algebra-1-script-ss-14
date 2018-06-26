@@ -71,6 +71,8 @@
 
 % don't reset section counter
 \counterwithout{section}{chapter}
+% reset equation counters between sections
+\counterwithin*{equation}{section}
 
 % how counters are printed
 \renewcommand{\thechapter}{\Roman{chapter}}
