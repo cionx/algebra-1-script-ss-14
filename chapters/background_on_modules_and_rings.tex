@@ -1,0 +1,124 @@
+\section{Some Backgrounds on Modules and Rings}
+
+
+
+
+\subsection{Noetherian Modules and Rings}
+
+
+\begin{lemma}
+  For an $R$-module $M$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      Every submodule $N \subseteq M$ is finitely generated.
+    \item
+      Every ascending chain
+      \[
+                  N_1
+        \subseteq N_2
+        \subseteq N_3
+        \subseteq N_4
+        \subseteq \dotsb
+      \]
+      of submodules $N_i \subseteq M$ stabilizes.
+    \item
+      Every non-empty family $\mc{S}$ of submodules of $M$ has a maximal ideal, i.e.\ there exists some $N_0 \in \mc{S}$ such that there exists no $N \in \mc{S}$ with $N \supsetneq N_0$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{definition}
+  A ring $R$ is noetherian if it is noetherian as an $R$-module.
+\end{definition}
+
+
+\begin{example}
+  LEFT NOTHERIAN BUT NOT RIGHT NOETHERIAN.
+\end{example}
+
+
+
+\begin{theorem}[Hilbert’s Basis Theorem]
+  If $R$ is a noetherian ring, then the polynomial ring $R[X]$ is also noetherian.
+\end{theorem}
+
+
+\begin{example}
+  If $k$ is a field then $k[X_1, \dotsc, X_n]$ is noetherian for every $n \geq 0$.
+\end{example}
+
+
+\begin{example}
+  COUNTABLE POLYNOMIALRING NOT NOETHERIAN
+\end{example}
+
+
+
+
+
+
+\subsection{Zariski’s Lemma}
+\label{subsection: Zariskis lemma}
+
+
+\begin{lemma}
+  Let $A \subseteq B \subseteq C$ be rings.
+  Suppose that $A$ is noetherian, $C$ is finitely generated as an $A$-algebra, and thas $C$ is finitely generated as a $B$-module.
+  Then $B$ is also finitely generated as an $A$-algebra.
+\end{lemma}
+
+
+% TODO: Figure out a proof.
+
+
+\begin{lemma}[Zariski’s Lemma]
+  \label{lemma: finitely generated field extensions are algebraic}
+  Let $L/k$ be a field extension.
+  If $L$ is finitely generated as a $k$-algebra, then the field extension $L/k$ is algebraic and thus finite.
+\end{lemma}
+
+
+% TODO: Figure out a proof.
+
+
+\begin{example}
+  The field extension $k(X)/k$ is not algebraic as $X \in k(X)$ is not algebraic.
+  It follows that $k(X)$ is not finitely generated as a $k$-algebra.
+\end{example}
+
+
+\begin{remark}
+  That $k(X)$ is not finitely generated as a $k$-algebra can also be seen by hand as follows:
+  
+  Note that every $f \in k(X)$ with $f \neq 0$ can be uniquely expressed as $f = g/h$ where $g, h \in k[X]$ are coprime polynomial and $h \neq 0$ is monic.
+  Also note that whenever we have that $f = g'/h'$ for some polynomials $g', h' \in k[X]$ (which need not be coprime) with $h'$ being monic, then we may write $h' = h'' r$ and $g = g'' r$ where $r \in k[X]$ is the greatest common divisor of $g', h'$.
+  Then $f = g'/h' = g''/h''$ with $g', h'$ being coprime and $h'$ being monic, so it follows that $g = g''$ and $h = h''$.
+  It follows that every irreducible factor of $h = h''$ must occur in $h'$.
+  
+  Let $f_1, \dotsc, f_n \in k(X)$ with $f = g_i/h_i$ for polynomials $g_i, h_i \in k[X]$ with $h_i \neq 0$ monic.
+  We have that
+  \begin{align*}
+              k[f_1, \dotsc, f_n]
+    &=        k\left[ \frac{g_1}{h_1}, \dotsc, \frac{g_n}{h_n} \right]
+     =        k\left[
+                \frac{g_1 h_2 \dotsm h_n}{h_1 \dotsm h_n},
+                \dotsc,
+                \frac{h_1 \dotsm h_{n-1} g_n}{h_1 \dotsm h_n}
+              \right] \\
+    &\subseteq  \frac{1}{h_1 \dotsm h_n} k[g_1 h_2 \dotsm h_n, h_1 \dotsm h_{n-1} g_n]
+     \subseteq  \frac{1}{h_1 \dotsm h_n} k[X] \,,
+  \end{align*}
+  so every $f \in k[f_1, \dotsc, f_n]$ is of the form $f = g/(h_1 \dotsm h_n)$ for some polynomial $g \in k[X]$.
+  It follows that when we write $f = g/h$ for coprime polynomials $g, h \in k[X]$ with $h \neq 0$ monic, then every irreducible factor of $h$ occurs in $h_1 \dotsm h_n$, and is therefore an irreducible factor of some $h_i$.
+  
+  The polynomial ring $k[X]$ contains infinitely many monic irreducible polynomials, so there exists some irreducible monic polynomial $h \in k[X]$ which does not occur as an irreducible factor of any $h_i$.
+  Then $1/h \notin k[f_1, \dotsc, f_n]$ by the above argumentation.
+  
+  This shows that finitely many elements $f_1, \dotsc, f_n \in k(X)$ cannot generate $k(X)$ as an $k$-algebra.
+\end{remark}
+
+
+\begin{remark}
+  The above argumentation shows more generally that $k(X)$ is not finielty generated as an $k[X]$-algebra.
+  If $R$ is a unique factorization domain with field of fractions $k$, then the above argumentation can be used to show more even generally that $k$ is finitely generated as an $R$-algebra if and only if $R$ has only finitely many non-associated prime elements.
+\end{remark}

@@ -14,6 +14,7 @@
 \usepackage{enumitem} % more control over enumerates
 \usepackage[automark, headsepline]{scrlayer-scrpage} %for headers
 \usepackage{csquotes} % for proper quotation marks
+\usepackage{microtype}
 
 % keine leere Seite zu Beginn von \mainmatter
 % \makeatletter
@@ -49,6 +50,8 @@
 % settings for list like environments
 \setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
 \setlist[enumerate, 2]{leftmargin=*, label=\arabic*)}
+\setlist[description, 1]{leftmargin=*,font=\normalfont}
+\setlist[description, 2]{leftmargin=*,font=\normalfont}
 \setlist[itemize, 1]{leftmargin=*}
 \setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
 \setlist[itemize, 3]{leftmargin=*}
@@ -91,7 +94,8 @@
 }
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
-\newcommand{\ideal}{\trianglelefteq}
+\newcommand{\idealeq}{\trianglelefteq}
+\newcommand{\idealneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}
@@ -132,7 +136,7 @@
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\Sl}{\mathfrak{sl}}
 \DeclareMathOperator{\Par}{Par}
-\DeclareMathOperator{\rad}{rad}
+\newcommand{\rad}[1]{\sqrt{#1}}
 \DeclareMathOperator{\Irr}{Irr}
 \DeclareMathOperator{\irr}{irr}
 \DeclareMathOperator{\supp}{supp}
@@ -157,6 +161,7 @@
 
 % stuff taking arguments
 \newcommand{\class}[1]{\overline{#1}}
+\newcommand{\closure}[1]{\overline{#1}}
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\bil}[2]{\langle #1, #2 \rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
