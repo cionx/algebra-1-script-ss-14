@@ -1,0 +1,703 @@
+\subsection{The Zariski Topology}
+
+
+\begin{lemma}
+  \label{lemma: intersections and unions of Zariski closed sets}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $(I_j)_{j \in J}$ be a family of ideals $I_j \idealeq \mc{P}(V)$.
+      Then $\bigcap_{j \in J} \mc{V}(I_j) = \mc{V}( \sum_{j \in J} I_j )$.
+    \item
+      Let $I_1, I_2 \idealeq \mc{P}(V)$ be ideals.
+      Then $\mc{V}(I_1) \cup \mc{V}(I_2) = \mc{V}(I_1 \cap I_2) = \mc{V}(I_1 I_2)$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that $I_i \subseteq \sum_{j \in J} I_j$ for every $i \in J$, and therefore $\mc{V}( \sum_{j \in J} I_j ) \subseteq \mc{V}(I_i)$ for every $i \in I$, and thus $\mc{V}( \sum_{j \in J} I_j ) \subseteq \bigcap_{j \in J} \mc{V}(I_j)$.
+      
+      For $x \in \bigcap_{j \in J} \mc{V}(I_j)$ we have that $x \in \mc{V}(I_j)$ for every $j \in J$, and thus $f(x) = 0$ for every $j \in J$, $f \in I_j$.
+      It follows that $x \in \mc{V}( \bigcup_{j \in J} I_j ) = \mc{V}( (\bigcup_{j \in J} I_j) ) = \mc{V}( \sum_{j \in J} I_j )$.
+      This shows the inclusion $\bigcap_{j \in J} \mc{V}(I_j) \subseteq \mc{V}( \sum_{j \in J} I_j )$.
+    \item
+      It follows from $I_1 \cap I_2 \subseteq I_1, I_2$ that $\mc{V}(I_1), \mc{V}(I_2) \subseteq \mc{V}(I_1 \cap I_2)$ and therefore that $\mc{V}(I_1) \cup \mc{V}(I_2) \subseteq \mc{V}(I_1 \cap I_2)$.
+      
+      It follows from $I_1 I_2 \subseteq I_1 \cap I_2$ that $\mc{V}(I_1 \cap I_2) \subseteq \mc{V}(I_1 I_2)$.
+      
+      For $x \notin \mc{V}(I_1) \cup \mc{V}(I_2)$ we have that $x \notin \mc{V}(I_1), \mc{V}(I_2)$, so there exist $f_1 \in I_1$, $f_2 \in I_2$ with $f_1(x), f_2(x) \neq 0$.
+      Then $f_1 f_2 \in I_1 I_2$ with $(f_1 f_2)(x) \neq 0$, so that $x \notin \mc{V}(I_1 I_2)$.
+      This shows that $\mc{V}(I_1 I_2) \subseteq \mc{V}(I_1) \cup \mc{V}(I_2)$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  The Zariski closed subsets form a topology on $V$ (with the Zariski closed subsets being the closed subsets).
+\end{corollary}
+
+
+\begin{proof}
+  The subsets $\emptyset, V \subseteq V$ are Zariski closed by Example~\ref{example: examples of algebraic subsets}, and are closed under arbitrary intersections and finite unions by Lemma~\ref{lemma: intersections and unions of Zariski closed sets}.
+\end{proof}
+
+
+\begin{definition}
+  The \emph{Zariski topology \textup(on $V$\textup)} is the topology on $V$ whose closed subsets are the Zariski closed subsets of $V$.
+\end{definition}
+
+
+\begin{proposition}
+  \label{proposition: characterization of Zariski closed and Zariski dense}
+  Let $X, Y \subseteq V$ be subsets.
+  \begin{enumerate}
+    \item
+      We have that $\closure{X} = \mc{V}(\mc{I}(X))$.
+    \item
+      If $X \subseteq Y$ then $X$ is dense in $Y$ with respect to the Zariski topology if and only if $X$ is Zariski dense in $Y$ (in the sense of Definition~\ref{definition: Zariski density}).
+    \item
+      The closure $\closure{X}$ is the biggest subset of $V$ in which $X$ is Zariski dense.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that
+      \begin{align*}
+            \closure{X}
+        &=  \bigcap \{ C \suchthat \text{$C \subseteq V$ is Zariski closed, $X \subseteq C$} \}
+         =  \bigcap \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V), X \subseteq \mc{V}(I) \} \\
+        &=  \bigcap \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V), \mc{I}(X) \supseteq I \}
+         =  \bigcap_{\substack{I \idealeq \mc{P}(V) \\ I \subseteq \mc{I}(X)}} \mc{V}(I)
+         =  \mc{V}\left( \sum_{\substack{I \idealeq \mc{P}(V) \\ I \subseteq \mc{I}(X)}} I \right)
+         =  \mc{V}(\mc{I}(X)) \,.
+      \end{align*}
+    \item
+      We have that
+      \begin{align*}
+              \text{$X$ is dense in $Y$}
+        &\iff Y \subseteq \closure{X}
+         \iff Y \subseteq \mc{V}(\mc{I}(X)) \\
+        &\iff \mc{I}(Y) \supseteq \mc{I}(X)
+         \iff \text{$Y$ is Zariski dense in $X$} \,.
+      \end{align*}
+    \item
+      The closure $\closure{X}$ is the biggest subset of $V$ in which $X$ is dense, so the claim follows from part b) of this proposition.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  It follows from Corollary~\ref{corollary: properties of V and I} that the composition
+  \[
+              c
+    \defined  \mc{V} \circ \mc{I}
+    \colon    \{ \text{subsets $X \subseteq V$} \}
+    \to       \{ \text{subsets $X \subseteq V$} \}
+  \]
+  is idempotent and monotone with $X \subseteq c(X)$ for every subset $X \subseteq V$.
+  The map $\mc{V} \circ \mc{I}$ is therefore a closure operator.
+  We also have that
+  \[
+      c(\emptyset)
+    = \mc{V}(\mc{I}(\emptyset))
+    = \mc{V}((1))
+    = \emptyset,
+  \]
+  and for all subsets $X, Y \subseteq V$ we have that
+  \[
+      c(X \cup Y)
+    = \mc{V}(\mc{I}(X \cup Y))
+    = \mc{V}(\mc{I}(X) \cap \mc{I}(Y))
+    = \mc{V}(\mc{I}(X)) \cup \mc{V}(\mc{I}(Y))
+    = c(X) \cup c(Y) \,.
+  \]
+  This shows that $\mc{V} \circ \mc{I}$ is a Kuratowski closure operator, and thus defines a topology on $V$ whose sets are precisely those subsets $X \subseteq V$ for which $c(X) = X$.
+  By Proposition~\ref{proposition: characterization of Zariski closed and Zariski dense} this topology is precisely the Zariski topology.
+\end{remark}
+
+
+\begin{definition}
+  A topological space $X$ is \emph{irreducible} (or \emph{hyperconnected}) if it is non-empty and cannot be written as $X = C_1 \cup C_2$ for proper closed subsets $C_1, C_2 \subsetneq X$.
+  Otherwise $X$ is \emph{reducible}.
+\end{definition}
+
+
+\begin{remark}
+  Let $X$ be a topological space.
+  \begin{enumerate}
+    \item
+      By taking complements one find that the following conditions are equivalent:
+      \begin{enumerate}
+        \item
+          The space $X$ is irreducible.
+        \item
+          The space $X$ is non-empty and every two non-empty open subsets of $X$ intersect non-trivially.
+        \item
+          The space $X$ is non-empty and every non-empty open subset of $X$ is dense.
+      \end{enumerate}
+    \item
+      A non-empty subspace $C \subseteq X$ is irreducible (when endowed with the subspace topology) if and only if for all closed subsets $C_1, C_2 \subseteq X$ with $C \subseteq C_1 \cup C_2$ it follows that $C \subseteq C_1$ or $C \subseteq C_2$.
+  \end{enumerate}
+\end{remark}
+
+
+% \begin{remark}
+%   Some people use the term \emph{quasi-compact} instead of \emph{compact}, reserving term \emph{compact} for (quasi-)compact Hausdorff spaces.
+%   The above definition shows which convention the author of these notes uses.
+% \end{remark}
+% 
+% 
+% \begin{lemma}
+%   Every noetherian topological space is compact.
+% \end{lemma}
+
+
+% TODO: Partition of unity from Nullstellensatz.
+
+
+\begin{lemma}
+  \label{lemma: trivial prime avoidance}
+  Let $R$ be a commutative ring, $\mf{p} \idealneq R$ a prime ideal and let $I_1, I_2 \idealeq R$ ideals with $I_1 I_2 \subseteq \mf{p}$.
+  Then $I_1 \subseteq \mf{p}$ or $I_2 \subseteq \mf{p}$.
+\end{lemma}
+
+\begin{proof}
+  If $I_1, I_2 \subsetneq \mf{p}$ then there exist $x_1 \in I_1$, $x_2 \in I_2$ with $x_i \notin \mf{p}$.
+  Then $x_1 x_2 \notin \mf{p}$ because $\mf{p}$ is prime, but $x_1 x_2 \in I_1 I_2$, which contradicts the assumption.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: X is irreducible iff I(X) is prime}
+  Let $X \subseteq V$ be a Zariski closed subset with corresponding vanishing ideal $\mf{p} \idealeq \mc{P}(V)$, i.e.\ $X = \mc{V}(\mf{p})$ and $\mf{p} = \mc{I}(X)$.
+  Then $X$ is irreducible if and only if $\mf{p}$ is prime.
+\end{lemma}
+
+
+\begin{proof}
+  Suppose that $X$ is irreducible and let $f_1, f_2 \in \mc{P}(V)$ with $f_1 f_2 \in I = \mc{I}(X)$.
+  It follows from Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} that
+  \[
+              X
+    \subseteq \mc{V}(f_1 f_2)
+    =         \mc{V}(f_1) \cup \mc{V}(f_2) \,.
+  \]
+  It follows that $X \subseteq \mc{V}(f_j)$ for some $j = 1,2$ because $X$ is irreducible and $\mc{V}(f_1), \mc{V}(f_2)$ are closed subsets of $V$.
+  It follows from Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} that $f_j \in \mc{I}(X) = \mf{p}$ for some $j = 1,2$.
+  That $\mf{p} = \mc{I}(X)$ is a proper ideal follows from $X$ being non-empty.
+  Together this shows that the ideal $\mf{p}$ is prime.
+  
+  Suppose on the other hand that $\mf{p}$ is prime and that $X = C_1 \cup C_2$ for some closed subsets $C_1, C_2 \subseteq V$.
+  Then $C_1, C_2$ are also closed in $V$ because $X$ is a closed subset of $V$, so there exist ideals $I_1, I_2 \idealeq \mc{P}(V)$ with $C_j = \mc{V}(I_j)$.
+  It then follows from
+  \[
+      X
+    = C_1 \cup C_2
+    = \mc{V}(I_1) \cup \mc{V}(I_2)
+    = \mc{V}(I_1 I_2)
+  \]
+  and Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} that $\mf{p} = \mc{I}(X) \supseteq I_1 I_2$.
+  It follows from Lemma~\ref{lemma: trivial prime avoidance} that $I_j \subseteq \mf{p}$ for some $j = 1,2$.
+  It follows that $C_j = \mc{V}(I_j) \supseteq \mc{V}(\mf{p}) = X$ for some $j = 1,2$.
+  That $X$ is non-empty follows from $\mc{I}(X) = \mf{p}$ being a proper ideal.
+  Together this shows that $X$ is irreducible.
+\end{proof}
+
+
+\begin{theorem}
+  If $k$ is algebraically closed, then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
+  \[
+    \begin{matrix}
+        \left\{
+          \begin{tabular}{c}
+              algebraic subsets \\
+              $X \subseteq V$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\mc{I}}
+          & {}
+            \arrow[shift left]{l}{\mc{V}}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            radical ideals \\
+            $I \idealeq \mc{P}(V)$
+          \end{tabular}
+        \right\}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \rotatebox[origin=c]{90}{$\subseteq$}
+      & {}
+      & \rotatebox[origin=c]{90}{$\subseteq$}
+      \\
+        {}
+      & {}
+      & {}a
+      \\
+        \left\{
+          \begin{tabular}{c}
+              irreducible \\
+              algebraic subsets \\
+              $X \subseteq V$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\mc{I}}
+          & {}
+            \arrow[shift left]{l}{\mc{V}}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            prime ideals \\
+            $\mf{p} \idealeq \mc{P}(V)$
+          \end{tabular}
+        \right\}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \rotatebox[origin=c]{90}{$\subseteq$}
+      & {}
+      & \rotatebox[origin=c]{90}{$\subseteq$}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \left\{
+          \begin{tabular}{c}
+            points $a \in V$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\mc{I}}
+          & {}
+            \arrow[shift left]{l}{\mc{V}}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            maximal ideals \\
+            $\mf{m} \idealeq \mc{P}(V)$
+          \end{tabular}
+        \right\}
+    \end{matrix}
+%     \begin{tikzcd}[column sep = huge]
+%           \left\{
+%             \begin{tabular}{c}
+%                 algebraic subsets \\
+%                 $X \subseteq V$
+%             \end{tabular}
+%           \right\}
+%           \arrow[shift left, shorten <= 1.5pt, shorten >= 4pt]{r}[above, xshift = -1.25 pt]{\mc{I}}
+%         & \left\{
+%             \begin{tabular}{c}
+%               radical ideals \\
+%               $I \idealeq \mc{P}(V)$
+%             \end{tabular}
+%           \right\}
+%           \arrow[shift left, shorten >= 1.5pt, shorten <= 4pt]{l}[below, xshift = -1.25 pt]{\mc{V}}
+%         \\
+%           \left\{
+%             \begin{tabular}{c}
+%                 irreducible \\
+%                 algebraic subsets \\
+%                 $X \subseteq V$
+%             \end{tabular}
+%           \right\}
+%           \arrow[phantom]{u}[rotate=90]{\subseteq}
+%           \arrow[shift left, shorten >= 6.2pt]{r}[above, xshift = -3.1pt]{\mc{I}}
+%         & \left\{
+%             \begin{tabular}{c}
+%               prime ideals \\
+%               $\mf{p} \idealneq \mc{P}(V)$
+%             \end{tabular}
+%           \right\}
+%           \arrow[phantom]{u}[rotate=90]{\subseteq}
+%           \arrow[shift left, shorten <= 6.2pt]{l}[below, xshift = -3.1pt]{\mc{V}}
+%         \\
+%           \left\{
+%             \begin{tabular}{c}
+%               points $a \in V$
+%             \end{tabular}
+%           \right\}
+%           \arrow[phantom]{u}[rotate=90]{\subseteq}
+%           \arrow[shift left, shorten <= 12pt]{r}[above, xshift = 6pt]{\mc{I}}
+%         & \left\{
+%             \begin{tabular}{c}
+%               maximal ideals \\
+%               $\mf{m} \idealneq \mc{P}(V)$
+%             \end{tabular}
+%           \right\}
+%           \arrow[phantom]{u}[rotate=90]{\subseteq}
+%           \arrow[shift left,shorten >= 12pt]{l}[below, xshift = 6pt]{\mc{V}}
+%     \end{tikzcd}
+  \]
+\end{theorem}
+
+
+\begin{fluff}
+  We will now examine how a Zariski closed subset, and more generally every topological space, can be decomposed into irreducible subsets:
+\end{fluff}
+
+
+\begin{definition}
+  Let $X$ be a topological space.
+  A subset $C \subseteq X$ is an \emph{irreducible} component of $X$ if $C$ is a maximal irreducible subset of $X$, i.e.\ $C$ is irreducible, and for every irreducible subset $C' \subseteq X$ with $C \subseteq C'$ it already follows that $C = C'$.
+\end{definition}
+
+
+\begin{lemma}
+  Let $X$ be a topological space and let $Y \subseteq X$ be irreducible.
+  Then the closure $\closure{Y}$ is also irreducible.
+\end{lemma}
+
+
+\begin{proof}
+  Let $C_1, C_2 \subseteq Y$ be closed subsets with $\closure{Y} \subseteq C_1 \cup C_2$.
+  Then $Y \subseteq C_1 \cup C_2$ and it follows that $Y \subseteq C_j$ for some $j = 1,2$ because $Y$ is irreducible.
+  It then follows that $\closure{Y} \subseteq C_j$ because $C_j$ is closed.
+\end{proof}
+
+
+\begin{corollary}
+  The irreducible components of a topological space $X$ are closed.
+\end{corollary}
+
+
+\begin{proof}
+  If $C \subseteq X$ is an irreducible component then $\closure{C} \subseteq X$ is an irreducible subspace with $C \subseteq \closure{C}$ and it follows that $\mc{C} \subseteq C$ because $C$ is an irreducible component.
+  We thus have that $C = \closure{C}$, which shows that $C$ is closed.
+\end{proof}
+
+
+\begin{proposition}
+  \label{proposition: irreducible components for alls topological spaces}
+  Let $X$ be a topological space.
+  \begin{enumerate}
+    \item
+      Let $(C_i)_{i \in I}$ be non-empty family of irreducible subsets $C_i \subseteq X$ which is linearly ordered with respect to inclusion, i.e.\ for all $i, j \in I$ we have that $C_i \subseteq C_j$ or $C_j \subseteq C_i$.
+      Then $C \defined \bigcup_{i \in I} C_i$ is again irreducible.
+    \item
+      Every irreducible subset $C \subseteq X$ is contained in an irreducible component of $X$.
+    \item
+      Every $x \in X$ is contained in an irreducible component, i.e.\ $X$ is the union of its irreducible components.
+    \item
+      If $C, C' \subseteq X$ are two distinct irreducible components of $X$ then $C \nsubseteq C'$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $C'_1, C'_2 \subseteq X$ be distinct closed subsets with $C \subseteq C'_1 \cup C'_2$ and $C \nsubseteq C'_2$.
+      It follows from $C \nsubseteq C'_2$ that there exists some $j \in I$ with $C_j \nsubseteq C'_2$.
+      It follows from $C \subseteq C'_1 \cup C'_2$ that $C_i \subseteq C'_1 \cup C'_2$ for every $i \in I$.
+      For every $i \in I$ in then follows from the irreducibility of $C_i$ that $C_i \subseteq C'_1$ or $C_i \subseteq C'_2$.
+      
+      For $i = j$ we have that $C_j \subseteq C'_1$ because $C_j \nsubseteq C'_2$.
+      For every other $i \in I$ we distinguish between two cases:
+      \begin{itemize}
+        \item
+          If $C_i \subseteq C_j$ then it follows that $C_i \subseteq C'_1$.
+        \item
+          If $C_i \supseteq C_j$ then it follows that $C_i \subseteq C'_1$ because otherwise $C_j \subseteq C_i \subseteq C'_2$, which would contradicts the choice of $j$.
+      \end{itemize}
+      Alltogether this shows that $C_i \subseteq C'_1$ for every $i \in I$, and thus $C = \bigcup_{i \in I} C_i \subseteq C'_1$.
+    \item
+      We consider the set
+      \[
+          \mc{C}
+        = \{
+            C' \subseteq X
+          \suchthat
+            \text{$C'$ is irreducible with $C' \supseteq C$}
+          \} \,.
+      \]
+      This set is non-empty because it contains $C$.
+      It follows from part a) of this proposition that the partially ordered set $(\mc{C},\subseteq)$ is inductive, i.e.\ we can apply Zorn’s Lemma.
+      It follows that there exists a $\subseteq$-maximal element $C' \in \mc{C}$.
+      Then $C'$ is in particular a maximal irreducible subspace of $X$, and thus an irreducible component of $X$.
+      We have that $C \subseteq C'$ because $C' \in \mc{C}$.
+    \item
+      This follows from part c) of this proposition because $\{x\}$ is an irreducible subspace of $X$.
+    \item
+      If $C \subseteq C'$ then it follows that already $C' = C$ because $C$ is a maxmial irreducible subset of $X$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{example}
+  Consider $\Real$ with the standard (i.e.\ euclidian) topology.
+  If $C \subseteq \Real$ contains at least two distinct points $x, y \in C$ then for $z =  (x+y)/2$ we have that $C \subseteq (-\infty,z] \cup [z,\infty)$ with $(-\infty,z], [z,\infty) \subseteq \Real$ being closed but $C \nsubseteq (-\infty,z], [z,\infty)$.
+  This shows that the only irreducible subspaces of $\Real$ are the singletons $\{x\}$, $x \in \Real$.
+  These are in particular the irreducible components of $\Real$.
+\end{example}
+
+
+% TODO: Better examples with pictures
+
+
+\begin{fluff}
+  It follows from Proposition~\ref{proposition: irreducible components for alls topological spaces} that every Zariski closed subset $V \subseteq X$ is the union of its irreducible components, each of which is closed, and which are not contained in each other.
+  We will now show that a Zariski closed set has only finitely many components.
+\end{fluff}
+
+
+\begin{definition}
+  A topological space $X$ is \emph{noetherian} if every ascending sequence
+  \[
+              U_1
+    \subseteq U_2
+    \subseteq U_3
+    \subseteq \dotsb
+  \]
+  of open subsets $U_i \subseteq X$ stabilizes;
+  equivalently, every descending chain
+  \[
+              C_1
+    \supseteq C_2
+    \supseteq C_3
+    \supseteq \dotsb
+  \]
+  of closed subsets $C_i \subseteq X$ stabilizes.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: noetherian via max min elements of collections}
+  A topological space $X$ is noetherian if and only if every non-empty collection $\mc{U}$ of open subsets has a maximal element;
+  equivalently, every non-empty family of closed subsets has a minimal element.
+\end{lemma}
+
+
+\begin{proof}
+  Suppose that there exists a non-empty collection $\mc{U}$ of open subsets of $X$ which does not have a maximal element.
+  Starting with any $U_1 \in \mc{U}$ there then exists for every $n \geq 1$ some $U_{n+1} \in \mc{U}$ with $U_n \subsetneq U_{n+1}$.
+  It then follows that
+  \[
+                U_1
+    \subsetneq  U_2
+    \subsetneq  U_3
+    \subsetneq  \dotsb
+  \]
+  is an increasing sequence of open subsets of $X$ which does not stabilize.
+  This contradicts $X$ being noetherian.
+  
+  Suppose on the other hand that
+  \[
+              U_1
+    \subseteq U_2
+    \subseteq U_3
+    \subseteq \dotsb
+  \]
+  is an increasing sequence of open subsets $U_n \subseteq X$.
+  Then $\mc{U} = \{U_n \suchthat n \geq 1\}$ has a maximal element, i.e.\ there exists some $m \geq 1$ with $U_m \supseteq U_n$ for every $n \geq 1$.
+  It then follows for all $n \geq m$ that $U_n = U_m$, which shows that the above sequence stabilizes.
+  This shows that $X$ is noetherian.
+\end{proof}
+
+
+\begin{proposition}
+  \label{proposition: irreducible components of noetherian space alternative construction}
+  Let $X$ be a noetherian topological space.
+  Then there exist closed irreducible subsets $C_1, \dotsc, C_n \subseteq X$ with $X = C_1 \cup \dotsb \cup C_n$ and $C_i \nsubseteq C_j$ for all $i \neq j$, and the $C_i$ are unique up to permutation.
+\end{proposition}
+
+
+\begin{proof}
+  Suppose that $X$ is not the union of finitely many closed irreducible subsets.
+  Then the set
+  \[
+      \mc{C}
+    = \left\{
+        C \subseteq X
+      \suchthat*
+        \begin{tabular}{c}
+          $C$ is closed and not the union of \\
+          finitely many closed irreducible subsets
+        \end{tabular}
+      \right\}
+  \]
+  contains $X$ and is therefore non-empty.
+  It follows from Lemma~\ref{lemma: noetherian via max min elements of collections} that $\mc{C}$ contains a minimal element $C \in \mc{C}$ because $X$ is noetherian.
+  
+  It follows from $C \in \mc{C}$ that $C$ ist reducible, so there exist closed proper subsets $C_1, C_2 \subsetneq C$ with $C = C_1 \cup C_2$.
+  The sets $C_1, C_2$ cannot be the union of finitely many closed irreducible subspaces because otherwise the same would hold for $C = C_1 \cup C_2$, which would contradict $C \in \mc{C}$.
+  Both $C_1, C_2$ are closed in $X$ because they are closed in $C$ which is closed in $X$.
+  This shows that $C_1, C_2 \in \mc{C}$.
+  But this contradicts the minimality of $C$ because $C_1, C_2$ are proper subsets of $C$.
+  
+  It follows that $X = C_1 \cup \dotsb \cup C_{n'}$ for some closed irreducible subsets $C_i \subseteq X$.
+  If $C_i \subseteq C_j$ for some $i \neq j$ then we may elinate $C_i$ from the collection $C_1, \dotsc, C_{n'}$ without losing the property that $X = C_1 \cup \dotsb \cup C_{n'}$.
+  After finitely many eliminations we arrive at closed irreducible subsets $C_1, \dotsc, C_n \subseteq X$ with $X = C_1 \cup \dotsb \cup C_n$ and $C_i \nsubseteq C_j$ for all $i \neq j$.
+  
+  Let $C'_1, \dotsc, C'_m$ be another collection of closed irreducible subsets $C'_j \subseteq X$ with $X = C'_1 \cup \dotsb \cup C'_m$ and $C'_i \nsubseteq C'_j$ for all $i \neq j$.
+  For every $i = 1, \dotsc, n$ it follows from $C_i \subseteq X = C'_1 \cup \dotsb \cup C'_m$ and the irreducibility of $C_i$ that $C_i \subseteq C'_{\sigma(i)}$ for some $\sigma(i)$.
+  In the same way we find that for every $j = 1, \dotsc, m$ we have $C'_j \subseteq C_{\tau(j)}$ for some $\tau(j)$.
+  
+  It then follows for every $i = 1, \dotsc, n$ that
+  \[
+              C_i
+    \subseteq C'_{\sigma(i)}
+    \subseteq C_{\tau(\sigma(i))}
+  \]
+  and therefore that $i = \tau(\sigma(i))$.
+  In the same way we find that $\sigma(\tau(j)) = j$ for every $j = 1, \dotsc, m$.
+  This shows that the maps
+  \[
+            \tau \circ \sigma
+    \colon  \{1, \dotsc, n\}
+    \colon  \{1, \dotsc, m\}
+    \qquad\text{and}\quad
+            \sigma \circ \tau
+    \colon  \{1, \dotsc, m\}
+    \colon  \{1, \dotsc, n\}
+  \]
+  are mutually inverse bijections.
+  It follows in particular $n = m$.
+  For every $i = 1, \dotsc, n$ we have that
+  \[
+              C_i
+    \subseteq C'_{\sigma(i)}
+    \subseteq C_{\tau(\sigma(i))}
+    =         C_i
+  \]
+  and therefore $C_i = C'_{\sigma(i)}$.
+  This shows that the two families
+  \[
+    C_1, \dotsc, C_n
+    \quad\text{and}\quad
+    C'_1, \dotsc, C'_m = C'_n \,.
+  \]
+  are the same up to permutation.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: recognizing irreducible components}
+  Let $X$ be a topological space.
+  If $X = C_1 \cup \dotsb \cup C_n$ for closed irreducible subsets $C_1, \dotsc, C_n \subseteq X$ with $C_i \nsubseteq C_j$ for all $i \neq j$, then $C_1, \dotsc, C_n$ are the irreducible components of $X$.
+\end{lemma}
+
+
+\begin{proof}
+  Let $C'$ be an irreducible component of $X$.
+  Then $C' \subseteq X = C_1 \cup \dotsb \cup C_m$ and it follows from the irreducibilty of $C'$ that $C' \subseteq C_i$ for some $i$.
+  It then follows that $C' = C_i$ because $C'$ is a maximal irreducible subset of $X$ and $C_i$ is irreducible.
+  This shows that every irreducible component of $X$ occurs as some $C_i$.
+  
+  Fix some $i = 1, \dotsc, m$ and let $C'$ be the irreducible component which contains $C_i$.
+  Then $C' \subseteq C_j$ for some $j$ as shown above.
+  It follows that $C_i \subseteq C_j$ and thus $j = i$.
+  This shows that every $C_i$ is an irreducible component of $X$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: noetherian spaces have only finitely many irreducible components}
+  A noetherian topological space $X$ has only finitely many irreducible components.
+\end{corollary}
+
+
+\begin{corollary}
+  There exist closed irreducible subsets $C_1, \dotsc, C_n \subseteq X$ such that $X = C_1 \cup \dotsb \cup C_n$ and $C_i \nsubseteq C_j$ for all $i \neq j$ by Proposition~\ref{proposition: irreducible components of noetherian space alternative construction}, and the $C_i$ are the irreducible components of $X$ by Lemma~\ref{lemma: recognizing irreducible components}.
+\end{corollary}
+
+
+\begin{lemma}
+  \label{lemma: algebraic spaces are noetherian}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The space $V$ (together with the Zariski topology) is noetherian.
+    \item
+      If $X$ is a noetherian topological space then every subspace $Y \subseteq X$ is noetherian.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let
+      \begin{equation}
+      \label{equation: increasing chain of closed subsets}
+                  C_1
+        \supseteq C_2
+        \supseteq C_3
+        \supseteq \dotsb
+      \end{equation}
+      be a decreasing sequence of closed subsets $C_n \subseteq X$.
+      Then
+      \[
+                  \mc{I}(C_1)
+        \subseteq \mc{I}(C_2)
+        \subseteq \mc{I}(C_3)
+        \subseteq \dotsb
+      \]
+      is an increasing sequence of ideals in $\mc{P}(V) \cong k[X_1, \dotsc, X_{(\dim V)}]$, which is noetherian.
+      It follows that this chain stabilizes, so there exists some $m \geq 1$ with $\mc{I}(V_n) = \mc{I}(V_m)$ for all $n \geq m$.
+      For every $n \geq m$ it then follows that
+      \[
+          C_m
+        = \mc{V}(\mc{I}(C_m))
+        = \mc{V}(\mc{I}(C_n))
+        = C_n \,.
+      \]
+      This shows that the sequence~\eqref{equation: increasing chain of closed subsets} stabilizes.
+    \item
+      Let $\mc{U} = \{U_i \suchthat i \in I\}$ be a collection of open subsets of $Y$.
+      Then for every $i \in I$ there exists an open subset $V_i \subseteq X$ with $U_i = V_i \cap X$.
+      Then $\mc{V} = \{V_i \suchthat i \in I\}$ is a collection of open subsets of $X$.
+      Then $\mc{V}$ contains a maximal element because $X$ is noetherian, i.e.\ there exists some $j \in I$ with $V_j \supseteq V_i$ for all $i \in I$.
+      Then $U_j \supseteq U_i$ for every $i \in I$.
+      This shows that $Y$ is noetherian.
+    \qedhere
+  \end{enumerate}  
+\end{proof}
+
+
+\begin{corollary}
+  Every subspace $X \subseteq V$ has only finitely many irreducible components.
+\end{corollary}
+
+
+\begin{proof}
+  It follows from Lemma~\ref{lemma: algebraic spaces are noetherian} that $X$ is noetherian, so the statement follows from Corollary~\ref{corollary: noetherian spaces have only finitely many irreducible components}.
+\end{proof}
+
+
+
+
+
+% TODO: Every radical ideal is intersection of maximal ideals
+
+% TODO: Every prime ideal is intersection of maxmial ideals
+
+% TODO: Jacobson rings
+
+% TODO: Remark about the spectrum of a topological ring
+
+
+
+

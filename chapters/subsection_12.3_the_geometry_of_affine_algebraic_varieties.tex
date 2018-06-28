@@ -1,0 +1,67 @@
+\subsection{The Geometry of Affine Algebraic Varieties}
+
+
+\begin{fluff}
+  In this section we will see that affine algebraic varities can be regarded as geometric spaces in their own right.
+  Until further notice $V, W$ denote finite-dimensional $k$-vector spaces.
+\end{fluff}
+
+
+\begin{definition}
+  Let $X \subseteq V$, $Y \subseteq W$ be affine algebraic varietes.
+  A map $f \colon X \to Y$ is \emph{polynomial} if it is the restriction of a polynomial map $V \to W$.
+\end{definition}
+
+
+\begin{remark}
+  Let $X \subseteq V$, $Y \subseteq W$.
+  \begin{enumerate}
+    \item
+      A function $f \colon X \to k$ is polynomial if it is the restriction of a polynomial function $V \to k$.
+    \item
+      Given a basis $w_1, \dotsc, w_m$ of $W$ a map $f \colon X \to Y$ is polynomial in every coordinate, i.e.\ if and only if the functions $f_1, \dotsc, f_m \colon V \to W$ with $f(x) = (f_1(x), \dotsc, f_m(x))$ for alll $x \in X$ are polynomial.
+    \item
+      The polynomial functions $f \colon X \to k$ form a $k$-algebra with pointwise addition and multiplication.
+  \end{enumerate}
+\end{remark}
+
+
+\begin{definition}
+  For an affine algebraic variety $X \subseteq V$ the \emph{coordinate ring of $X$}, denoted by $\mc{P}(X)$, is the $k$-algebra of polynomial functions $X \to k$, with addition and multiplication being done pointwise.
+\end{definition}
+
+
+\begin{lemma}
+  For every affine algebraic variety $X \subseteq V$ the map
+  \[
+            \mc{P}(V)/\mc{I}(X)
+    \to     \mc{P}(X) \,,
+    \quad   [f]
+    \mapsto \restrict{f}{X}
+  \]
+  is an isomorphism of $k$-algebras.
+\end{lemma}
+
+
+\begin{proof}
+  The map $\mc{P}(V) \to \mc{P}(X)$, $f \mapsto \restrict{f}{X}$ is a surjective homomorphism of $k$-algebras by construction of $\mc{P}(X)$, and that $\mc{I}(X)$ is its kernel is a reformulation of the definition of $\mc{I}(X)$.
+\end{proof}
+
+
+\begin{corollary}
+  For an affine algebraic variety $X \subseteq V$ the coordinate ring $\mc{P}(X)$ is an integral domain if and only if $X$ is irreducible.
+\end{corollary}
+
+
+\begin{proof}
+  The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealeq \mc{P}(V)$ is prime, which is by Lemma~\ref{lemma: X is irreducible iff I(X) is prime} the case if and only if $X$ is irreducible.
+\end{proof}
+
+
+
+
+
+
+% TODO: Generalization of previous results to affine algebraic varieties
+
+% TODO: Duality of affinal algebraic varietes and reduced finitely generated k-algebras
