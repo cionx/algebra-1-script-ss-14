@@ -1,12 +1,6 @@
 \section{Zero Sets and Hilbert’s Nullstellensatz}
 
 
-
-
-
-\subsection{General Definitions and Ideas}
-
-
 \begin{fluff}
   In this section we require all fields to be infinite.
   Until further notice we also fix a finite-dimensional $k$-vector space $V$.
@@ -85,6 +79,12 @@
   The $k$-algebra $\mc{P}(V) \cong k[X_1, \dotsc, X_{(\dim V)}$ is notherian by Hilbert’s Basis Theorem, so there exists finitely many $f_1, \dotsc, f_n \in I$ with $I = (f_1, \dotsc, f_n)$.
   It follows from Lemma~\ref{lemma: vanishing set is the same for generated ideal} that $X = \mc{V}(\{f_1, \dotsc, f_n\})$.
 \end{proof}
+
+
+
+
+
+\subsection{The Nullstellensätze}
 
 
 \begin{fluff}
@@ -852,20 +852,26 @@
 
 
 \begin{definition}
-  A topological space $X$ is \emph{irreducible} if it is non-empty and cannot be written as $X = C_1 \cup C_2$ for proper closed subsets $C_1, C_2 \subsetneq X$.
+  A topological space $X$ is \emph{irreducible} (or \emph{hyperconnected}) if it is non-empty and cannot be written as $X = C_1 \cup C_2$ for proper closed subsets $C_1, C_2 \subsetneq X$.
   Otherwise $X$ is \emph{reducible}.
 \end{definition}
 
 
 \begin{remark}
-  By taking complements, one find that for a topological space $X$ the following conditions are equivalent:
+  Let $X$ be a topological space.
   \begin{enumerate}
     \item
-      The space $X$ is irreducible.
+      By taking complements one find that the following conditions are equivalent:
+      \begin{enumerate}
+        \item
+          The space $X$ is irreducible.
+        \item
+          Every two non-empty open subsets of $X$ intersect non-trivially.
+        \item
+          Every non-empty open subset of $X$ is dense.
+      \end{enumerate}
     \item
-      Every two non-empty open subsets of $X$ intersect non-trivially.
-    \item
-      Every non-empty open subset of $X$ is dense.
+      A non-empty subspace $C \subseteq X$ is irreducible (when endowed with the subspace topology) if and only if for all closed subsets $C_1, C_2 \subseteq X$ with $C \subseteq C_1 \cup C_2$ it follows that $C \subseteq C_1$ or $C \subseteq C_2$.
   \end{enumerate}
 \end{remark}
 
@@ -885,13 +891,55 @@
 
 
 \begin{lemma}
-  Let $k$ be an algebraically closed field, and let $X \subseteq V$ be a Zariski closed subset with corresponding radical ideal $I \idealeq \mc{P}(V)$, i.e.\ $X = \mc{V}(I)$ and $I = \mc{I}(X)$.
-  Then $X$ is irreducible if and only if $I$ is prime.
+  \label{lemma: trivial prime avoidance}
+  Let $R$ be a commutative ring, $\mf{p} \idealneq R$ a prime ideal and $I_1, I_2 \idealeq R$ ideals with $I_1 I_2 \subseteq \mf{p}$.
+  Then $I_1 \subseteq \mf{p}$ or $I_2 \subseteq \mf{p}$.
+\end{lemma}
+
+\begin{proof}
+  If $I_1, I_2 \subsetneq \mf{p}$ then there exist $x_1 \in I_1$, $x_2 \in I_2$ with $x_i \notin \mf{p}$.
+  Then $x_1 x_2 \notin \mf{p}$ because $\mf{p}$ is prime, but $x_1 x_2 \in I_1 I_2$, which contradicts the assumption.
+\end{proof}
+
+
+\begin{lemma}
+  Let $X \subseteq V$ be a Zariski closed subset with corresponding vanishing ideal $\mf{p} \idealeq \mc{P}(V)$, i.e.\ $X = \mc{V}(\mf{p})$ and $\mf{p} = \mc{I}(X)$.
+  Then $X$ is irreducible if and only if $\mf{p}$ is prime.
 \end{lemma}
 
 
+\begin{proof}
+  Suppose that $X$ is irreducible and let $f_1, f_2 \in \mc{P}(V)$ with $f_1 f_2 \in I = \mc{I}(X)$.
+  It follows from Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} that
+  \[
+              X
+    \subseteq \mc{V}(f_1 f_2)
+    =         \mc{V}(f_1) \cup \mc{V}(f_2) \,.
+  \]
+  It follows that $X \subseteq \mc{V}(f_j)$ for some $j = 1,2$ because $X$ is irreducible and $\mc{V}(f_1), \mc{V}(f_2)$ are closed subsets of $V$.
+  It follows from Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} that $f_j \in \mc{I}(X) = \mf{p}$ for some $j = 1,2$.
+  That $\mf{p} = \mc{I}(X)$ is a proper ideal follows from $X$ being non-empty.
+  Together this shows that the ideal $\mf{p}$ is prime.
+  
+  Suppose on the other hand that $\mf{p}$ is prime and that $X = C_1 \cup C_2$ for some closed subsets $C_1, C_2 \subseteq V$.
+  Then $C_1, C_2$ are also closed in $V$ because $X$ is a closed subset of $V$, so there exist ideals $I_1, I_2 \idealeq \mc{P}(V)$ with $C_j = \mc{V}(I_j)$.
+  It then follows from
+  \[
+      X
+    = C_1 \cup C_2
+    = \mc{V}(I_1) \cup \mc{V}(I_2)
+    = \mc{V}(I_1 I_2)
+  \]
+  and Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} that $\mf{p} = \mc{I}(X) \supseteq I_1 I_2$.
+  It follows from Lemma~\ref{lemma: trivial prime avoidance} that $I_j \subseteq \mf{p}$ for some $j = 1,2$.
+  It follows that $C_j = \mc{V}(I_j) \supseteq \mc{V}(\mf{p}) = X$ for some $j = 1,2$.
+  That $X$ is non-empty follows from $\mc{I}(X) = \mf{p}$ being a proper ideal.
+  Together this shows that $X$ is irreducible.
+\end{proof}
+
+
 \begin{theorem}
-  If $k$ is algebraically closed, then the maps $\mc{I}, \mc{V}$ restrict to bijections as follows:
+  If $k$ is algebraically closed, then the maps $\mc{I}, \mc{V}$ restrict to inverse bijections as follows:
   \[
     \begin{tikzcd}[column sep = huge]
           \left\{
@@ -947,6 +995,48 @@
 \end{theorem}
 
 
+\begin{fluff}
+  WANT TO EXAMINE HOW A SPACE AND IN PARTICULAR AFFINE ALGEBRAIC VARIETIES CAN BE DECOMPOSED INTO IRREDUCIBLE SUBSETS
+\end{fluff}
+
+
+\begin{definition}
+  Let $X$ be a topological space.
+  A subset $C \subseteq X$ is an \emph{irreducible} component of $X$ if $C$ is a maximal irreducible subset of $X$, i.e.\ $C$ is irreducible, and for every irreducible subset $C' \subseteq X$ with $C \subseteq C'$ it already follows that $C = C'$.
+\end{definition}
+
+
+\begin{lemma}
+  Let $X$ be a topological space and let $Y \subseteq X$ be irreducible.
+  Then the closure $\closure{Y}$ is also irreducible.
+\end{lemma}
+
+
+\begin{corollary}
+  The irreducible components of a topological space $X$ are closed.
+\end{corollary}
+
+
+\begin{proposition}
+  Let $X$ be a topological space.
+  \begin{enumerate}
+    \item
+      Every irreducible subset $C \subseteq X$ is contained in an irreducible component of $X$.
+    \item
+      Every $x \in X$ is contained in an irreducible component, i.e.\ $X$ is the union of its irreducible components.
+    \item
+      If $C, C' \subseteq X$ are two distinct irreducible components of $X$ then $C \nsubseteq C'$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{fluff}
+  WORKS FOR ALL TOPOLOGICAL SPACES, BUT A BIT UNCONSTRUCTIVE
+  IN GENERAL INFINITELY MANY IRREDUCIBLE COMPONENTS
+  FOR CERTAIN KIND OF SPACES NICER
+\end{fluff}
+
+
 \begin{definition}
   A topological space $X$ is \emph{noetherian} if every ascending sequence
   \[
@@ -967,9 +1057,61 @@
 \end{definition}
 
 
+\begin{lemma}
+  A noetherian topological space has only finitely many irreducible components.
+\end{lemma}
+
+
+\begin{fluff}
+  WILL ALSO SHOW THIS IS A MORE CONSTRUCTIVE WAY
+\end{fluff}
+
+
+\begin{lemma}
+  If $X = C_1 \cup \dotsb \cup C_m$ for closed irreducible subsets $C_1, \dotsc, C_m \subseteq X$ with $C_i \nsubseteq C_j$ for $i \neq j$, then $C_1, \dotsc, C_m$ are the irreducible components of $X$.
+\end{lemma}
+
+
+\begin{lemma}
+  A topological space $X$ is noetherian if and only if every non-empty familiy of open subsets has a maximal element;
+  equivalently, every non-empty family of closed subsets has a minimal element.
+\end{lemma}
+
+
 \begin{proposition}
-  If $X$ is a noetherian topological space then there exist unique closed irreducible subsets $C_1, \dotsc, C_m \subseteq X$ with $X = C_1 \cup \dotsb \cup C_m$ and $C_i \nsubseteq C_j$ for all $i \neq j$.
+  Let $X$ be a noetherian topological space
+  \begin{enumerate}
+    \item
+      There exist closed irreducible subsets $C_1, \dotsc, C_m \subseteq X$ with $X = C_1 \cup \dotsb \cup C_m$ and $C_i \nsubseteq C_j$ for all $i \neq j$, and the $C_i$ are unique up to permutation.
+    \item
+      The space $X$ has only finitely many connected components.
+  \end{enumerate}
 \end{proposition}
+
+
+\begin{lemma}
+  If $X$ is a noetherian topological space and $Y \subseteq X$ is any subspace, then $Y$ is again noetherian.
+\end{lemma}
+
+
+\begin{lemma}
+  The space $V$ is noetherian.
+\end{lemma}
+
+
+\begin{corollary}
+  Every subspace $X \subseteq V$ is noetherian.
+\end{corollary}
+
+
+\begin{corollary}
+  Every affine algebraic variety $X \subseteq V$ has only finitely many irreducible components.
+\end{corollary}
+
+
+
+
+
 
 
 
@@ -984,6 +1126,7 @@
 
 % TODO: Jacobson rings
 
+% TODO: Remark about the spectrum of a topological ring
 
 
 
