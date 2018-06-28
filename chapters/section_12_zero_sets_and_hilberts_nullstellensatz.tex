@@ -556,9 +556,7 @@
 
 
 \begin{remark}
-  The Rabinowitsch trick can be understood via localization\footnote{
-  The following argumentation comes from \url{https://mathoverflow.net/a/90666}.
-  }:
+  The Rabinowitsch trick can be understood via localization, as explained in \cite{MO90666}:
   
   We want to show that some power of $h$ is contained in $I$, which amounts to showing that the residue class $\overline{h}$ is nilpotent in $k[X_1, \dotsc, X_n]/I$.
   This happens only if $(k[X_1, \dotsc, X_n]/I)_{\overline{h}} = 0$.
@@ -570,6 +568,17 @@
   \end{align*}
   so we need to show that $(I, hY - 1)$ is not a proper ideal of $k[X_1, \dotsc, X_n, Y]$.
   By the Nullstellensatz this hols true if the polynomials of this ideal have no common roots, which holds because $h \in I$.
+\end{remark}
+
+
+\begin{remark}
+  The strong Nullstellensatz implies the Nullstellensatz:
+  
+  If $I \idealneq k[X_1, \dotsc, X_n]$ is a proper ideal with $\mc{V}(I) = \emptyset$ then $\rad{I} = \mc{I}(\mc{V}(I)) = \mc{I}(\emptyset) = (1)$ and thus $1 \in \rad{I}$.
+  But then $1^m \in I$ for some $m \geq 0$ and thus $1 \in I$, which contradicts $I$ being a proper ideal.
+  
+  Together with part a) of Remark~\ref{remark: (weak) nullstellensatz} this shows that all three forms of the Nullstellensatz are equivalent.
+  There are also other equivalent theorems which are commonly known as \enquote{the Nullstellensatz}, but which we will not encounter here.
 \end{remark}
 
 
@@ -842,9 +851,150 @@
 \end{remark}
 
 
+\begin{definition}
+  A topological space $X$ is \emph{irreducible} if it is non-empty and cannot be written as $X = C_1 \cup C_2$ for proper closed subsets $C_1, C_2 \subsetneq X$.
+  Otherwise $X$ is \emph{reducible}.
+\end{definition}
 
 
+\begin{remark}
+  By taking complements, one find that for a topological space $X$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The space $X$ is irreducible.
+    \item
+      Every two non-empty open subsets of $X$ intersect non-trivially.
+    \item
+      Every non-empty open subset of $X$ is dense.
+  \end{enumerate}
+\end{remark}
+
+
+% \begin{remark}
+%   Some people use the term \emph{quasi-compact} instead of \emph{compact}, reserving term \emph{compact} for (quasi-)compact Hausdorff spaces.
+%   The above definition shows which convention the author of these notes uses.
+% \end{remark}
+% 
+% 
+% \begin{lemma}
+%   Every noetherian topological space is compact.
+% \end{lemma}
 
 
 % TODO: Partition of unity from Nullstellensatz.
+
+
+\begin{lemma}
+  Let $k$ be an algebraically closed field, and let $X \subseteq V$ be a Zariski closed subset with corresponding radical ideal $I \idealeq \mc{P}(V)$, i.e.\ $X = \mc{V}(I)$ and $I = \mc{I}(X)$.
+  Then $X$ is irreducible if and only if $I$ is prime.
+\end{lemma}
+
+
+\begin{theorem}
+  If $k$ is algebraically closed, then the maps $\mc{I}, \mc{V}$ restrict to bijections as follows:
+  \[
+    \begin{tikzcd}[column sep = huge]
+          \left\{
+            \begin{tabular}{c}
+                algebraic subsets \\
+                $X \subseteq V$
+            \end{tabular}
+          \right\}
+          \arrow[shift left, shorten <= 1.5pt, shorten >= 4pt]{r}[above, xshift = -1.25 pt]{\mc{I}}
+        & \left\{
+            \begin{tabular}{c}
+              radical ideals \\
+              $I \idealeq \mc{P}(V)$
+            \end{tabular}
+          \right\}
+          \arrow[shift left, shorten >= 1.5pt, shorten <= 4pt]{l}[below, xshift = -1.25 pt]{\mc{V}}
+        \\
+          \left\{
+            \begin{tabular}{c}
+                irreducible \\
+                algebraic subsets \\
+                $X \subseteq V$
+            \end{tabular}
+          \right\}
+          \arrow[phantom]{u}[rotate=90]{\subseteq}
+          \arrow[shift left, shorten >= 6.2pt]{r}[above, xshift = -3.1pt]{\mc{I}}
+        & \left\{
+            \begin{tabular}{c}
+              prime ideals \\
+              $\mf{p} \idealneq \mc{P}(V)$
+            \end{tabular}
+          \right\}
+          \arrow[phantom]{u}[rotate=90]{\subseteq}
+          \arrow[shift left, shorten <= 6.2pt]{l}[below, xshift = -3.1pt]{\mc{V}}
+        \\
+          \left\{
+            \begin{tabular}{c}
+              points $a \in V$
+            \end{tabular}
+          \right\}
+          \arrow[phantom]{u}[rotate=90]{\subseteq}
+          \arrow[shift left, shorten <= 12pt]{r}[above, xshift = 6pt]{\mc{I}}
+        & \left\{
+            \begin{tabular}{c}
+              maximal ideals \\
+              $\mf{m} \idealneq \mc{P}(V)$
+            \end{tabular}
+          \right\}
+          \arrow[phantom]{u}[rotate=90]{\subseteq}
+          \arrow[shift left,shorten >= 12pt]{l}[below, xshift = 6pt]{\mc{V}}
+    \end{tikzcd}
+  \]
+\end{theorem}
+
+
+\begin{definition}
+  A topological space $X$ is \emph{noetherian} if every ascending sequence
+  \[
+              U_1
+    \subseteq U_2
+    \subseteq U_3
+    \subseteq \dotsb
+  \]
+  of open subsets $U_i \subseteq X$ stabilizes;
+  equivalently, every descending chain
+  \[
+              C_1
+    \supseteq C_2
+    \supseteq C_3
+    \supseteq \dotsb
+  \]
+  of closed subsets $C_i \subseteq X$ stabilizes.
+\end{definition}
+
+
+\begin{proposition}
+  If $X$ is a noetherian topological space then there exist unique closed irreducible subsets $C_1, \dotsc, C_m \subseteq X$ with $X = C_1 \cup \dotsb \cup C_m$ and $C_i \nsubseteq C_j$ for all $i \neq j$.
+\end{proposition}
+
+
+
+
+
+
+% TODO: Every X is the union of finitely many irreducible subsets
+
+% TODO: Every radical ideal is intersection of maximal ideals
+
+% TODO: Every prime ideal is intersection of maxmial ideals
+
+% TODO: Jacobson rings
+
+
+
+
+
+\subsection{The geometry of affine algebraic varieties}
+
+% TODO: Polynomial maps between affine varietes
+
+% TODO: Coordinate Rings
+
+% TODO: Generalization of previous results to affine algebraic varieties
+
+% TODO: Duality of affinal algebraic varietes and reduced finitely generated k-algebras
 

@@ -1,5 +1,6 @@
-\documentclass[a4paper, 10pt, oneside, openany]{scrbook}
-\usepackage{style} 
+\documentclass[a4paper, 10pt, oneside, openany, bibliography=totocnumbered]{scrbook}
+\usepackage{style}
+\addbibresource{references.bib}
 
 \begin{document}
 
@@ -12,7 +13,10 @@
 \frontmatter
 \maketitle
 \include{chapters/preface}
+\begingroup
+\hfuzz=1pt % ignore some strange overfull hbox warning in the toc
 \tableofcontents
+\endgroup
 
 \mainmatter
 \include{chapters/chapter_1}
@@ -21,5 +25,8 @@
 \include{chapters/chapter_4}
 \include{chapters/appendices}
 
+\backmatter
+\hfuzz=20pt % no overfull hbox warnings in the bibliography
+\printbibliography
 
 \end{document}

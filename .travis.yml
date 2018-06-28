@@ -8,10 +8,14 @@ before_install:
 - sudo ./install-tl-ubuntu
 - eval "$(sed 's/^/export /' /etc/environment)"
 - cd ..
+- sudo apt-get -qq install biber
 script:
 - mkdir github-pages
 - mkdir github-pages/chapters
 - xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- biber notes.bcf
 - xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
 - xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
 
