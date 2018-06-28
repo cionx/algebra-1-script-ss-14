@@ -11,13 +11,13 @@ before_install:
 - sudo apt-get -qq install biber
 script:
 - mkdir github-pages
-- mkdir github-pages/chapters
-- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
-- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
-- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error notes.tex
 - biber notes.bcf
-- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
-- xelatex -interaction=nonstopmode -halt-on-error -output-dir=github-pages notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error notes.tex
+- xelatex -interaction=nonstopmode -halt-on-error notes.tex
+- mv notes.pdf github-pages
 
 deploy:
   provider: pages
