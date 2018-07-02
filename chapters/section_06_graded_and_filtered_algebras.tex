@@ -7,9 +7,10 @@
 \subsection{Graded Algebras}
 
 \begin{definition}
+  \label{definition: gradings and graded algebras}
   A \emph{grading} of a $k$-algebra $A$ is a decomposition $A = \bigoplus_{d \in \Natural} A_d$ into $k$-linear subspaces $A_d \subseteq A$ such that $A_i A_j \subseteq A_{i+j}$ for all $i,j \in \Natural$.
   A \emph{graded $k$-algebra} is a $k$-algebra $A$ together with a grading $A = \bigoplus_{d \in \Natural} A_d$.
-  The summand $A_d$ is then the \emph{homogeneous part of degree $d$ of $A$} and the elements $x \in A_d$ are \emph{homogeneous of degree $d$}.
+  The direct summand $A_d$ is then the \emph{homogeneous part of degree $d$ of $A$} and the elements $x \in A_d$ are \emph{homogeneous of degree $d$}.
   
   A \emph{grading} of a ring $R$ is a decomposition $R = \bigoplus_{d \in \Natural} R_d$ into additive subgroups $R_d \subseteq R$ such that $R_i R_j \subseteq R_{i+j}$ for all $i,j \in \Natural$.
   A \emph{graded ring} is a ring $R$ together with a grading of $R$.
@@ -17,6 +18,7 @@
 \end{definition}
 
 \begin{remark}
+  \label{remark: connection between graded algebras and rings}
   \leavevmode
   \begin{enumerate}
     \item
@@ -29,24 +31,27 @@
       \[
             R_{d'}
         \ni x
-        =   x \cdot 1
-        =   x \cdot \sum_{d \in \Natural} e_d
-        =   \sum_{d \in \Natural} \underbrace{x e_d}_{\in R_{d+d'}} \,,
+        =   1 \cdot x
+        =   \sum_{d \in \Natural} \underbrace{e_d x}_{\in R_{d+d'}} \,,
       \]
-      so that $x e_d = 0$ for every $d \neq 0$ and $x e_0 = x$.
-      It follows that $x e_0 = x$ for every $x \in R$, as every such $x$ is a sum of homogeneous elements.
+      from which it follows that $e_d x = 0$ for every $d \neq 0$ and that $e_0 x = x$.
+      It follows that $e_0 x = x$ for every $x \in R$, as every such $x$ is a sum of homogeneous elements.
       Hence $e_0$ is the multiplicative neutral element of $R$, so that $1 = e_0 \in R_0$.
+    \item
+      It follows that if $R$ is a graded ring then $R_0$ is a subring of $R$.
+      Every homogeneous part $R_d$ then inherits the structure of an $R_0$-$R_0$-bimodule from the multiplication of $R$.
     \item
       If $A$ is a graded ring which is also a $k$-algebra, then $A$ is a graded algebra with respect to the given grading if and only if $A_0$ contains the linear space $\gen{1}_k$:
       If $A$ is a graded $k$-algebra then it follows from $1 \in A_0$ that $\gen{1}_k \subseteq A_0$.
-      If on the other hand $k1 = \gen{1}_k \subseteq A_0$ then
+      If on the other hand $\gen{1}_k \subseteq A_0$ then
       \[
                   k A_d
         =         k 1 A_d
+        =         \gen{1}_k A_d
         \subseteq A_0 A_d
         \subseteq A_d
       \]
-      for every $d \in \Natural$, so that the additive subgroup $A_d$ is already a $k$-linear subspace.
+      for every $d \in \Natural$, which shows that the additive subgroup $A_d$ is already a $k$-linear subspace.
   \end{enumerate}
 \end{remark}
 
@@ -55,6 +60,36 @@
   \label{remark: general definition of degree}
   If $A$ is a graded algebra with grading $A = \bigoplus_{d \in \Natural} A_d$ then can more generally define for every non-zero $x \in A$ with homogeneous decomposition $x = \sum_{d \in \Natural} x_d$ the \emph{degree of $x$} as the maximal $d \in \Natural$ with $x_d \neq 0$.
   If $x$ is homogeneous, then the degree of $x$ coincides with its homogeneous degree.
+\end{remark}
+
+
+\begin{remark}
+  Let $(M,\cdot)$ be a monoid.  
+  \begin{enumerate}
+    \item
+      In place of the natural numbers $\Natural$ one can also define gradings over $M$:
+      
+      For a monoid $M = (M,\cdot)$ an $M$-grading of a $k$-algebra $A$ is a decomposition $A = \bigoplus_{m \in M} A_m$ into $k$-linear subspaces $A_m \subseteq A$ such that $A_m A_{m'} \subseteq A_{mm'}$ for all $m, m' \in M$.
+      An $M$-graded $k$-algebra is a $k$-algebra $A$ together with an $M$-grading $A = \bigoplus_{m \in M} A_m$.
+      The notion of an $M$-graded ring can be defined in the same way.
+      
+      A grading as defined in Definition~\ref{definition: gradings and graded algebras} is precisely an $\Natural$-grading.
+    \item
+      Let $R = \bigoplus_{m \in M} R_m$ be an $M$-graded ring.
+      If the monoid $M$ is right cancellative (i.e.\ it follows for all $m_1, m_2, m \in M$ from $m_1 m = m_2 m$ that $m_1 = m_2$) then it still follows from the calculations of part~b) of Remark~\ref{remark: connection between graded algebras and rings} that $1 \in R_1$, where $1$ denotes the neutral element of $M$.
+      By using the identity $x = x \cdot 1$ instead of $x = 1 \cdot x$ in the calculation it follows that this also holds if $M$ is right cancellative.
+      
+      This holds in particular if $M$ is a group or a submonoid of a group.
+      
+      In then follows that $R_1$ is a subring of $R$ and that for every $m \in M$ the homogeneous part $R_m$ inherits the structure of an $R_0$-$R_0$-bimodule from the multiplication of $R$.
+    \item
+      Suppose that $N \subseteq M$ is a submonoid, i.e.\ we have that $1_M \in N$ and $n_1 n_2 \in N$ for all $n_1, n_2 \in N$.
+      Then every $N$-graded $k$-algebra $A = \bigoplus_{n \in N} A_n$ can be regarded as an $M$-graded $k$-algebra $A = \bigoplus_{m \in M} A_m$ by setting $A_m = 0$ for every $m \in M$ with $m \notin N$.
+      
+      As a special case of this construction every $\Natural$-grading of an $k$-algebra $A$ (resp.\ ring $R$) can be regarded as an $\Integer$-grading with $A_d = 0$ (resp.\ $R_d = 0$) for all $d < 0$.
+      Indeed, the definition of a grading given in the lecture did not use a $\Natural$-grading as we have in done in Definition~\ref{definition: gradings and graded algebras} but a $\Integer$-grading.
+      But all the examples and applications of graded $k$-algebras presented in this lecture were actually only using a $\Natural$-gradings, so we adjusted the definition accordingly.
+  \end{enumerate}
 \end{remark}
 
 
@@ -71,7 +106,7 @@
         \defined  \gen
                   {
                     X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
-                  \,\middle|\,
+                  \suchthat*
                     \sum_{i=1}^n a_i = d \,
                   }_{\!k} \,.
       \]
@@ -91,6 +126,23 @@
       
       Note that the degree of any non-zero polynomial $f \in k[X_1, \dotsc, X_n]$ with respect to this grading (as defined in Remark~\ref{remark: general definition of degree}) coincides with its total degree.
     \item
+      In a similar matter the $k$-algebra of Laurant polynomials
+      \[
+                  A
+        \defined  k[X_1, X_1^{-1}, \dotsc, X_n X_n^{-1}]
+      \]
+      has a $\Integer$-grading given by
+      \[
+                  A_d 
+        \defined  \gen
+                  {
+                    X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+                  \suchthat*
+                    \sum_{i=1}^n a_i = d \,
+                  }_{\!k} \,.
+      \]
+      for all $d \in \Integer$.
+    \item
       Let $V$ be a $k$-vector space.
       For every $d \geq 0$ we denote by $V^{\otimes d}$ the $d$-th tensor power of $V$.
       Recall that $V^{\otimes 0} = k$.
@@ -102,7 +154,19 @@
       \]
       for all $v_{i_1}, \dotsc, v_{i_p}, v_{j_1}, \dotsc, v_{j_q} \in V$.
       The \emph{tensor algebra \textup(over $V$\textup)} is given by the $k$-vector space $T(V) \defined \bigoplus_{d \in \Natural} V^{\otimes d}$ together with the unique $k$-bilinear extension $T(V) \times T(V) \to V$ of the above multiplications.
-      The decomposition $T(V) = \bigoplus_{d \in \Integer} V^{\otimes d}$ is then a grading of $T(V)$.
+      The decomposition $T(V) = \bigoplus_{d \in \Natural} V^{\otimes d}$ is then a grading of $T(V)$.
+    \item
+      Let $n \geq 1$ and let $E_{ij}$ with $i,j = 1, \dotsc, n$ be the standard basis of $\Mat_n(k)$.
+      We set $E_{ij} \defined 0$ for all $i,j \in \Integer$ with $i \notin \{1, \dotsc, m\}$ or $j \notin \{1, \dotsc, n\}$.
+      Then the $k$-algebra $\Mat_n(k)$ has a $\Integer$-grading given by
+      \[
+          \Mat_m(k)_d
+        = \gen{ E_{i,i+d} \suchthat i \in \Integer }_k
+      \]
+      for all $d \in \Integer$:
+      That $\Mat_n(k) = \bigoplus_{d \in \Integer} \Mat_n(k)_d$ follows from the choice of the $E_{ij}$.
+      To see that $\Mat_n(k)_{d} \Mat_n(k)_{d'} \subseteq \Mat_n(k)_{d + d'}$ note that $\Mat_n(k)_d$ consists of precisely those matrices who have non-zero entries only on the $d$-th diagonal.
+      The $k$-algebra $\Mat_n(k)_0$ is precisely the $k$-subalgebra of diagonal matrices.
   \end{enumerate}
 \end{example}
 
@@ -121,10 +185,6 @@
 
 
 \subsection{Filtered Algebras}
-
-\begin{remark}
-  Instead of the natural numbers $\Natural$ one can also define gradings over an arbitrary monoids $(M, \cdot)$.
-\end{remark}
 
 
 \begin{definition}
@@ -298,10 +358,9 @@
 \end{remark}
 
 
-\begin{example}
+\begin{example}[The Weyl algebra]
   % TODO: Rework this example.
-  Consider the polynomial ring $k[x]$ for some field $k$.
-  Then the multiplication with $x$ defines an element of $\End_k(k[x])$, which we will denote by $X$.
+  For the polynomial ring $k[X]$ the multiplication with $x$ defines an element of $\End_k(k[x])$, which we will denote by $X$.
   Let $\partial \defined \partial/\partial x \in \End_k(k[X])$ be the (formal) derivative with respect to $x$.
   
   Consider the subalgebra $\mc{A}_1$ of $\End_k(k[X])$ generated by the two elements $X$ and $\partial$.
@@ -310,7 +369,7 @@
           \mc{A}_1
     \cong k{\gen{X,\partial}}/ (\partial X - X \partial - 1)
   \]
-  where $k{\gen{X,\partial}}$ denotes the free algebra on the two generators $X$ and $\partial$ and $(\partial X - X \partial - 1)$ the generated two-sided ideal.
+  is the \emph{\textup(first\textup) Weyl algebra}, where $k{\gen{X,\partial}}$ denotes the free algebra on the two generators $X$ and $\partial$ and $(\partial X - X \partial - 1)$ the generated two-sided ideal.
   The images of the monomials $X^\alpha \partial^\beta$, $\alpha, \beta \in \Natural$ under this isomorphism form a $k$-basis of $\mc{A}_1$.
   We can then define
   \[

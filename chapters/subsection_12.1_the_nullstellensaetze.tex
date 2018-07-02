@@ -87,26 +87,130 @@
 \end{proof}
 
 
+\begin{definition}
+  An ideal $I \idealeq \mc{P}(V)$ is a \emph{vanishing ideal} if it is the vanishing ideal of some subset $X \subseteq V$ (see Definition~\ref{definition: vanishing ideal}).
+\end{definition}
+
+
 \begin{corollary}
   \label{corollary: bijection induced by Galois correspondence}
-  The maps $\mc{I}$ and $\mc{V}$ restrict to inverse bijections between the sets
+  The maps $\mc{I}$ and $\mc{V}$ restrict to mutually inverse bijections
   \[
-    \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V)  \}
-    \qquad\text{and}\qquad
-    \{ \mc{I}(X) \suchthat X \subseteq V \} \,,
+    \begin{matrix}
+        \left\{
+          \begin{tabular}{c}
+              algebraic subsets \\
+              $X \subseteq V$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\mc{I}}
+          & {}
+            \arrow[shift left]{l}{\mc{V}}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            vanishing ideals \\
+            $I \idealeq \mc{P}(V)$
+          \end{tabular}
+        \right\}
+    \end{matrix}
   \]
   i.e.\ for every algebraic subset $X \subseteq V$ we have that
   \[
     \mc{V}(\mc{I}(X)) = X \,,
   \]
-  and for every ideal $I \idealeq \mc{P}(V)$ which is of the form $I = \mc{I}(X)$ for some subset $X \subseteq V$ we have that
+  and for every vanishing ideal $I \idealeq \mc{P}(V)$ we have that
   \[
     \mc{I}(\mc{V}(I)) = I \,.
   \]
 \end{corollary}
 
 
+\begin{lemma}
+  \label{lemma: correspence between points and vanishing maximal ideals}
+  An ideal $\mf{m} \idealeq \mc{P}(V)$ is both a maximal ideal and a vanishing ideal if and only if it of the form $\mf{m} = \mf{m}_a$ for some $a \in V$.
+\end{lemma}
+
+
+\begin{proof}
+  The ideal $\mf{m}_a$ is maximal and a vanishing ideal because $\mf{m} = \mc{I}(\{a\})$.
+  
+  Suppose on the other hand that $\mf{m}$ is both a maximal ideal and a vanishing ideal.
+  Then $\mc{I}(\mc{V}(\mf{m})) = \mf{m}$ by Corollary~\ref{corollary: bijection induced by Galois correspondence} because $\mf{m}$ is a vanishing ideal.
+  It then follows that $\mc{V}(\mf{m}) \neq \emptyset$ because otherwise $\mf{m} = \mc{I}(\emptyset) = \mc{P}(V)$, which contradicts $\mf{m}$ being a proper ideal.
+  It follows that there exists some $a \in \mc{V}(\mf{m})$.
+  Then $\mf{m} = \mc{I}(\mc{V}(\mf{m})) \supseteq \mf{m} = \mf{m}_a$ and it follows that $\mf{m} = \mf{a}$ because both $\mf{m}$ and $\mf{m}_a$ are maximal.
+\end{proof}
+
+\begin{corollary}
+  \label{corollary: general correspondence for algebraic subsets and points}
+  Let $k$ be algebraically closed.
+  Then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
+  \[
+    \begin{matrix}
+        \left\{
+          \begin{tabular}{c}
+              algebraic subsets \\
+              $X \subseteq V$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\mc{I}}
+          & {}
+            \arrow[shift left]{l}{\mc{V}}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            vanishing ideals \\
+            $I \idealeq \mc{P}(V)$
+          \end{tabular}
+        \right\}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \rotatebox[origin=c]{90}{$\subseteq$}
+      & {}
+      & \rotatebox[origin=c]{90}{$\subseteq$}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \left\{
+          \begin{tabular}{c}
+            points $a \in V$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\mc{I}}
+          & {}
+            \arrow[shift left]{l}{\mc{V}}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            vanishing ideals \\
+            $\mf{m} \idealeq \mc{P}(V)$ \\
+            which are maximal
+          \end{tabular}
+        \right\}
+    \end{matrix}
+  \]
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: bijection induced by Galois correspondence} because vanishing ideals which correspond to points $a \in V$ are precisely the vanishing ideals which are maximal by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals}.
+\end{proof}
+
+
 \begin{remark}[Galois connections]
+  We will use this opportunity to introduce the reader to the notation of \emph{Galois connections}.
   Let $(A,\leq)$, $(B, \leq)$ be two partially ordered sets.
   \begin{itemize}
     \item
@@ -122,7 +226,8 @@
               a \leq g(b)
         \iff  b \leq f(a) \,.
       \]
-      It then follows
+      Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} state that $\mc{I}, \mc{V}$ form a Galois connection (between suitable sets).
+      Corollary~\ref{corollary: properties of V and I} then generalizes to
       \begin{enumerate}
         \item
           $a \leq g(f(a))$ for every $a \in A$,
@@ -133,7 +238,7 @@
         \item
           $g(f(g(b))) = g(b)$ for every $b \in B$,
       \end{enumerate}
-      and $f$, $g$ restrict to inverse order-reversing bijections between the subsets
+      and Corollary~\ref{corollary: bijection induced by Galois correspondence} generalizes to $f, g$ restricting to mutually inverse order-reversing bijections between the subsets
       \[
         \{ f(a) \suchthat a \in A \}
         \qquad\text{and}\qquad
@@ -184,7 +289,7 @@
             & (B,\leq)
               \arrow[bend left]{l}[below]{g}
           \end{tikzcd}
-          \iff
+          \quad\iff\quad
           \begin{tikzcd}
               (A,\leq)
               \arrow[shift left]{r}[above]{f}
@@ -200,11 +305,44 @@
     \item
       One can think about the partially ordered sets $(A, \leq)$ and $(B, \leq)$ as categories $\mc{A}, \mc{B}$ in the usual way, i.e.\ the objects of $\mc{A}$ (resp.\ $\mc{B}$) are the elements of $A$ (resp.\ of $B$) and for all $x, y \in \mc{A}$ (resp.\ $x, y \in \mc{B}$) there exists a unique morphism $x \to y$ if $x \leq y$, and no morphism $x \to y$ otherwise.
       
-      A pair of order-preserving maps $f \colon A \to B$, $g \colon B \to A$ can be regarded as a pair of (covariant) functors $F \colon \mc{A} \to \mc{B}$ and $G \colon \mc{B} \to \mc{A}$.
+      A pair of order-preserving maps $f \colon A \to B$, $g \colon B \to A$ can be regarded as a pair of (covariant) functors $F \colon \mc{A} \to \mc{B}$ and $G \colon \mc{B} \to \mc{A}$, whose action on objects are given by the maps $f, g$ and whose action on morphisms is the only possible one.
       Then $f, g$ form a monotone Galois connection with $f$ left adjoint to $g$ if and only if the functor $F$ is left adjoint to the functor $G$.
       
       A pair of order-reversing maps $f \colon A \to B$, $g \colon B \to A$ can then be regarded as a pair of contravariant functors $F \colon \mc{A} \to \mc{B}$ and $G \colon \mc{B} \to \mc{A}$.
       Then $f, g$ define an antitone Galois connection if the functors $F, G$ are adjoint on the right.
+      
+      This abstract viewpoint has some direct consequences for Galois connections:
+      \begin{itemize}
+        \item
+          Left (resp.\ right) adjoints are unique up to isomorphism.
+          The only isomorphisms in $\mc{A}, \mc{B}$ are the identies (by the anti-symmetry of $\leq$) so it follows that $F$ is uniquely determined by $G$ and vice versa.
+          It follows that in a Galois connection $f,g$ the map $f$ is uniquely determined by $g$ and vice versa.
+          
+          Let’s be more precise:
+          Suppose that $f, g$ is a monotone Galois connection with $f$ left adjoint to $g$, so that $F$ is left adjoint to $G$.
+          % TODO: Finish writing this part.
+          
+        \item
+          If $f, g$ forms a monotone adjoint Galois connection, so that $F$ is left adjoint to $G$, then $F$ preserves colimits and $G$ preserves limits.
+          It follows in particular that $F$ preserves coproducts while $G$ preserves limits.
+          Coproducts in $\mc{A}$ are just suprema in $(A, \leq)$, and products in $\mc{B}$ are just infima in $(B, \leq)$.
+          It thus follows that $f$ preserves suprema while $g$ preserves infima.
+          
+          If $f,g$ forms an antitone Galois connection than $f,g$ forms a monotone Galois connection between $(A,\leq)$ and $(B,\leq^\op)$.
+          It then follows from the above that $f$ and $g$ turn suprema into infima.
+          
+          For $\mc{I}, \mc{V}$ this means that
+          \[
+              \mc{I}\left( \bigcup_{i \in I} X_i \right)
+            = \bigcap_{i \in I} \mc{I}(X_i)
+          \]
+          for every family $(X_i)_{i \in I}$ of subsets $X_i \subseteq V$, which we have already seen in Lemma~\ref{lemma: basic properties of I}, and that
+          \[
+              \mc{V}\left( \sum_{j \in J} I_j \right)
+            = \bigcap_{i \in I} \mc{V}(I_j)
+          \]
+          for every family $(I_j)_{j \in J}$ of ideal $I_j \idealeq \mc{P}(V)$, which we will see in Lemma~\ref{lemma: intersections and unions of Zariski closed sets}.
+      \end{itemize}
   \end{itemize}
 \end{remark}
 
@@ -220,21 +358,11 @@
   \]
   such that the maps $\mc{I}, \mc{V}$ restrict to bijections $A \to B$ and $B \to A$.
   Then $A$ needs to be contained in the image of $\mc{V}$, and $B$ to be contained in the image of $\mc{I}$.
-  It then follows that the bijections $A \to B$ and $B \to A$ are just restrictions of the bijections from Corollary~\ref{corollary: bijection induced by Galois correspondence}.
-  The $1$:$1$-correspondence between such sets $A, B$ from Corollary~\ref{corollary: bijection induced by Galois correspondence} is therefore the most general one -- all others are just restrictions of this one.
+  It then follows that the bijections $A \to B$ and $B \to A$ are just restrictions of the mutually bijections from Corollary~\ref{corollary: bijection induced by Galois correspondence}.
+  The $1$:$1$-correspondence given in Corollary~\ref{corollary: bijection induced by Galois correspondence} between subsets of $V$ and ideals in $\mc{P}(V)$ via $\mc{I}, \mc{I}$ is therefore the most general one -- all others are just restrictions of this one.
   
-  To better understand the $1$:$1$-correspondence from Corollary~\ref{corollary: bijection induced by Galois correspondence} we need to determine the two sets
-  \[
-    \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V) \}
-    \qquad\text{and}\qquad
-    \{ \mc{I}(X) \suchthat X \subseteq V \}\,.
-  \]
-  While the set on the left is just
-  \[
-    \{ \text{algebraic subsets $X \subseteq V$} \} \,,
-  \]
-  it is far less clear what kind of ideals the set on the right consists of.
-  We will show in the rest of this section, that if $k$ algebraically closed, then the set on the right consists precisely of the so called radical ideals:
+  To better Corollary~\ref{corollary: bijection induced by Galois correspondence} we want to determine which kind of ideals can occur as vanishing ideals.
+  We will show in the rest of this section that the vanishing ideals are precisely the radical ideals when $k$ is algebraically closed.
 \end{fluff}
 
 
@@ -260,6 +388,22 @@
 \begin{remark}
   If $R$ is a commutative ring, then an ideal $I \idealeq R$ is radical if and only if the quotient $R/I$ is reduced, i.e.\ has no nonzero nilpotent elements.
 \end{remark}
+
+
+\begin{example}
+  Let $R$ be a commutative ring.
+  \begin{enumerate}
+    \item
+      Every prime ideal $\mf{p} \idealneq R$ is a radical ideal:
+      
+      If $x^n \in \mf{p}$ for some $x \in R$, $n \geq 0$ then $n \geq 1$ because $x^0 = 1 \notin \mf{p}$, and it then follows from $x^n \in \mf{p}$ and $\mf{p}$ being prime that $x \in \mf{p}$.
+      
+      Alternatively we can observe that $R/\mf{p}$ is an integral domain and is therefore reduced.
+    \item
+      It can be shown that radical ideals are precisely the intersections of prime ideals.
+  \end{enumerate}
+\end{example}
+
 
 
 \begin{lemma}
@@ -344,11 +488,12 @@
   We start off the weak Nullstellensatz, from which we then conclude the Nullstellensatz.
   By using the Rabinowitsch trick we then show the strong Nullstellensatz.
   
-  To show the weak Nullstellensatz we will need some results from commutative algebra, namely Zariski’s Lemma (see appendix~\ref{subsection: Zariskis lemma}).
+  To show the weak Nullstellensatz we will need a results from commutative algebra, namely Zariski’s Lemma (Corollary~\ref{corollary: finitely generated field extensions are finite}).
 \end{fluff}
 
 
 \begin{theorem}[Weak Nullstellensatz]
+  \label{theorem: weak nullstellensatz}
   Let $k$ be algebraically closed.
   For every maxmial ideal \mbox{$\mf{m} \subseteq k[X_1, \dotsc, X_n]$} we have that
   \[
@@ -363,7 +508,7 @@
 \begin{proof}
   Let $R \defined k[X_1, \dotsc, X_n]$.
   The quotient $L \defined R/\mf{m}$ is a field because the ideal $\mf{m}$ is maximal, and $L$ is finitely generated as a $k$-algebra because $R$ is a finitely generated $k$-algebra.
-  It follows from Zariski’s Lemma (Lemma~\ref{lemma: finitely generated field extensions are algebraic}) that the field extension $L/k$ is algebraic.
+  It follows from \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma} that the field extension $L/k$ is finite
   It follows that $L = k$ because $k$ is algebraically closed.
   
   Let $a_i \defined \overline{X_i} \in L$ for every $i = 1, \dotsc, n$.
@@ -373,6 +518,7 @@
 
 
 \begin{corollary}(Nullstellensatz)
+  \label{corollary: nullstellensatz}
   Let $k$ be an algebraically closed field.
   For every proper ideal $I \idealneq k[X_1, \dotsc, X_n]$ we have that $\mc{V}(I) \neq \emptyset$.
 \end{corollary}
@@ -425,6 +571,7 @@
 
 
 \begin{corollary}[Strong Nullstellensatz]
+  \label{corollary: strong nullstellensatz}
   If $k$ is algebraically closed then
   \[
       \mc{I}(\mc{V}(I))
@@ -470,7 +617,7 @@
 
 
 \begin{remark}
-  The Rabinowitsch trick can be understood via localization, as explained in \cite{MO90666}:
+  The Rabinowitsch trick can be understood an an applicaiton of localization, as explained in \cite{MO90666}:
   
   We want to show that some power of $h$ is contained in $I$, which amounts to showing that the residue class $\overline{h}$ is nilpotent in $k[X_1, \dotsc, X_n]/I$.
   This happens only if $(k[X_1, \dotsc, X_n]/I)_{\overline{h}} = 0$.
@@ -498,14 +645,15 @@
 
 \begin{corollary}
   \label{corollary: vanishing ideals are precisely radical ideals}
-  If $k$ is algebraically closed, then ideals $I \idealeq k[X_1, \dotsc, X_n]$ which are of the form $I = \mc{I}(X)$ for some subset $X \subseteq k^n$ are precisely the radical ideals.
+  If $k$ is algebraically closed then an ideal $I \idealeq k[X_1, \dotsc, X_n]$ is a vanishing ideal if and only if it is a radical ideal.
 \end{corollary}
 
 
 % TODO: Give a more geometric interpretation of the proof once the Zariski topology is established.
 
 
-\begin{proposition}
+\begin{corollary}
+  \label{corollary: algebraically closed correspondence for algebraic subsets and points}
   Let $k$ be algebraically closed.
   Then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
   \[
@@ -537,6 +685,10 @@
       & {}
       & \rotatebox[origin=c]{90}{$\subseteq$}
       \\
+        {}
+      & {}
+      & {}
+      \\
         \left\{
           \begin{tabular}{c}
             points $a \in V$
@@ -556,27 +708,16 @@
         \right\}
     \end{matrix}
   \]
-\end{proposition}
+\end{corollary}
 
 
 \begin{proof}
-  That $\mc{V}$ and $\mc{I}$ restrict to inverse bijections between algebraic subsets and radical ideals follows from Corollary~\ref{corollary: bijection induced by Galois correspondence} because
-  \[
-      \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V) \}
-    = \{ \text{algebraic subsets $X \leq V$} \}
-  \]
-  by definition of an algebraic set and Corollary~\ref{corollary: every algebric set is vanishing set of an ideal}, and
-  \[
-      \{ \mc{I}(X) \suchthat X \subseteq V \}
-    = \{ \text{radical ideals $I \idealeq \mc{P}(V)$} \}
-  \]
-  follows from Corollary~\ref{corollary: vanishing ideals are precisely radical ideals}.
-  That these bijections restrict to bijections between points and maximal ideals follows Lemma~\ref{lemma: maximal ideal correspondin to a point} and the weak Nullstellensatz.
+  In the diagram of Corollary~\ref{corollary: general correspondence for algebraic subsets and points} we can replace \enquote{vanishing ideals} by \enquote{radical ideals} by Corollary~\ref{corollary: vanishing ideals are precisely radical ideals}, and we can replace \enquote{vanishing ideals [\dots] which is maximal} first by \enquote{radical ideals [\dots] which are maximal} and then by \enquote{maximal ideal} because every maximal ideal is a radical ideal (because it is prime).
 \end{proof}
 
 
 \begin{remark}
-  It follows from Corollary~\ref{corollary: properties of V and I} that the composition
+  It follows from part d) of Corollary~\ref{corollary: properties of V and I} that the composition
   \[
             \mc{I} \circ \mc{V}
     \colon  \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
@@ -584,7 +725,7 @@
   \]
   is idempotent and monotone with $I \subseteq (\mc{I} \circ \mc{V})(I)$ for all $I \idealeq \mc{P}(V)$.
   The composition $\mc{I} \circ \mc{V}$ is therefore a closure operator.
-  If $k$ is algebraically closed then this is the radical-operator $\rad{\phantom{I}}$, as shown in this subsection.
+  If $k$ is algebraically closed then this section shows that $\mc{I} \circ \mc{V}$ is the radical-operator $\rad{\phantom{I}}$.
 \end{remark}
 
 

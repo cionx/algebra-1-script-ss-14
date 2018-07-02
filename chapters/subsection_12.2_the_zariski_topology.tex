@@ -50,6 +50,51 @@
 \end{definition}
 
 
+\begin{remark}
+  Building on the ideals of Remark~\ref{remark: (weak) nullstellensatz} one can think about the \hyperref[corollary: nullstellensatz]{Nullstellensatz} as a Partition of Unity, as explained in \cite{SBS}:
+  
+  Recall that for an open covering $(U_j)_{j \in J}$ of a topological space $X$ a partition of unity subordinate to this covering is a familiy $(\varphi_i)_{i \in I}$ of continuous maps $f_i \colon X \to \Real$ such that for every $i \in I$ there exists some $j \in J$ with $\supp(\varphi_i) \subseteq U_j$, the family $(\supp(\varphi)_i)_{i \in I}$ is a locally finite covering of $X$, and $1 = \sum_{i \in I} \varphi_i$.
+  
+  For every subset $S \subseteq \mc{P}(I)$ we write $U(S) \defined V \smallsetminus \mc{V}(S)$.
+  Then
+  \begin{itemize}
+    \item
+      for all $S \subseteq T \subseteq \mc{P}(V)$ it follows from $S \subseteq T$ that $U(S) \subseteq U(T)$,
+    \item
+      we have that $U(S) = U((S))$ for every subset $S \subseteq \mc{P}(V)$,
+    \item
+      the sets $U(S)$ with $S \subseteq \mc{P}(V)$, resp.\ $U(I)$ with $I \idealeq \mc{P}(V)$ are precisely the Zariski open subsets of $V$,
+    \item
+      for every family $(I_j)_{j \in J}$ of ideals $I_j \idealeq \mc{P}(V)$ we have that $\bigcup_{j \in J} U(I_j) = U( \sum_{j \in J} I_j )$.
+  \end{itemize}
+  
+  Suppose now that $k$ is algebraically closed and that $(U_j)_{j \in J}$ is an open covering of $V$.
+  Every set $U_j \subseteq V$ is Zariski open, and thus of the form $U_j = U(I_j)$ for some ideal $I_j \idealeq \mc{P}(V)$.
+  Then $U_j$ consists of all those $a \in V$ which are not a common zero of all $f \in I_j$.
+  The condition $V = \bigcup_{j \in J} U_j$ is therefore equivalent to the polynomial functions $f \in I \defined \sum_{j \in J} I_j$ having no common roots.
+  This can also seen by using that
+  \[
+      V
+    = \bigcup_{j \in J} U_j
+    = \bigcup_{j \in J} U(I_j)
+    = U\left( \sum_{j \in J} I_j \right)
+    = U(I) \,,
+  \]
+  from which it follows that $\mc{V}(I) = V \smallsetminus U(I) = \emptyset$.
+  
+  The \hyperref[corollary: nullstellensatz]{Nullstellensatz} states this happens if and only if $I = (1)$, which happens only if $1 = g_1 f_1 + \dotsb + g_n f_n$ for some $j_1, \dotsc, j_n \in J$, $f_{j_i} \in I_{j_i}$ and $g_j \in \mc{P}(V)$.
+  Then the polynomials functions $\varphi_i \defined g_i f_i \colon V \to k$ satisfy $1 = \varphi_1 + \dotsb + \varphi_n$, and for every $i = 1, \dotsc, n$ we have that
+  \[
+              \supp( \varphi_i )
+    =         U(\varphi_i)
+    =         U(g_i f_i)
+    \subseteq U(f_i)
+    \subseteq U(I_{i_j})
+    =         U_{j_i} \,.
+  \]
+\end{remark}
+
+
 \begin{proposition}
   \label{proposition: characterization of Zariski closed and Zariski dense}
   Let $X, Y \subseteq V$ be subsets.
@@ -213,142 +258,196 @@
 
 
 \begin{theorem}
-  If $k$ is algebraically closed, then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
-  \[
-    \begin{matrix}
-        \left\{
-          \begin{tabular}{c}
-              algebraic subsets \\
-              $X \subseteq V$
-          \end{tabular}
-        \right\}
-      & \begin{tikzcd}[column sep = large]
+  \label{theorem: big correspondence theorems}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
+      \[
+        \begin{matrix}
+            \left\{
+              \begin{tabular}{c}
+                  algebraic subsets \\
+                  $X \subseteq V$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}}
+              & {}
+                \arrow[shift left]{l}{\mc{V}}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                vanishing ideals \\
+                $I \idealeq \mc{P}(V)$
+              \end{tabular}
+            \right\}
+          \\
             {}
-            \arrow[shift left]{r}{\mc{I}}
           & {}
-            \arrow[shift left]{l}{\mc{V}}
-        \end{tikzcd}
-      & \left\{
-          \begin{tabular}{c}
-            radical ideals \\
-            $I \idealeq \mc{P}(V)$
-          \end{tabular}
-        \right\}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \rotatebox[origin=c]{90}{$\subseteq$}
-      & {}
-      & \rotatebox[origin=c]{90}{$\subseteq$}
-      \\
-        {}
-      & {}
-      & {}a
-      \\
-        \left\{
-          \begin{tabular}{c}
-              irreducible \\
-              algebraic subsets \\
-              $X \subseteq V$
-          \end{tabular}
-        \right\}
-      & \begin{tikzcd}[column sep = large]
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
             {}
-            \arrow[shift left]{r}{\mc{I}}
           & {}
-            \arrow[shift left]{l}{\mc{V}}
-        \end{tikzcd}
-      & \left\{
-          \begin{tabular}{c}
-            prime ideals \\
-            $\mf{p} \idealeq \mc{P}(V)$
-          \end{tabular}
-        \right\}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \rotatebox[origin=c]{90}{$\subseteq$}
-      & {}
-      & \rotatebox[origin=c]{90}{$\subseteq$}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \left\{
-          \begin{tabular}{c}
-            points $a \in V$
-          \end{tabular}
-        \right\}
-      & \begin{tikzcd}[column sep = large]
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                  irreducible \\
+                  algebraic subsets \\
+                  $X \subseteq V$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}}
+              & {}
+                \arrow[shift left]{l}{\mc{V}}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                vanishing ideals \\
+                $\mf{p} \idealeq \mc{P}(V)$ \\
+                which are prime
+              \end{tabular}
+            \right\}
+          \\
             {}
-            \arrow[shift left]{r}{\mc{I}}
           & {}
-            \arrow[shift left]{l}{\mc{V}}
-        \end{tikzcd}
-      & \left\{
-          \begin{tabular}{c}
-            maximal ideals \\
-            $\mf{m} \idealeq \mc{P}(V)$
-          \end{tabular}
-        \right\}
-    \end{matrix}
-%     \begin{tikzcd}[column sep = huge]
-%           \left\{
-%             \begin{tabular}{c}
-%                 algebraic subsets \\
-%                 $X \subseteq V$
-%             \end{tabular}
-%           \right\}
-%           \arrow[shift left, shorten <= 1.5pt, shorten >= 4pt]{r}[above, xshift = -1.25 pt]{\mc{I}}
-%         & \left\{
-%             \begin{tabular}{c}
-%               radical ideals \\
-%               $I \idealeq \mc{P}(V)$
-%             \end{tabular}
-%           \right\}
-%           \arrow[shift left, shorten >= 1.5pt, shorten <= 4pt]{l}[below, xshift = -1.25 pt]{\mc{V}}
-%         \\
-%           \left\{
-%             \begin{tabular}{c}
-%                 irreducible \\
-%                 algebraic subsets \\
-%                 $X \subseteq V$
-%             \end{tabular}
-%           \right\}
-%           \arrow[phantom]{u}[rotate=90]{\subseteq}
-%           \arrow[shift left, shorten >= 6.2pt]{r}[above, xshift = -3.1pt]{\mc{I}}
-%         & \left\{
-%             \begin{tabular}{c}
-%               prime ideals \\
-%               $\mf{p} \idealneq \mc{P}(V)$
-%             \end{tabular}
-%           \right\}
-%           \arrow[phantom]{u}[rotate=90]{\subseteq}
-%           \arrow[shift left, shorten <= 6.2pt]{l}[below, xshift = -3.1pt]{\mc{V}}
-%         \\
-%           \left\{
-%             \begin{tabular}{c}
-%               points $a \in V$
-%             \end{tabular}
-%           \right\}
-%           \arrow[phantom]{u}[rotate=90]{\subseteq}
-%           \arrow[shift left, shorten <= 12pt]{r}[above, xshift = 6pt]{\mc{I}}
-%         & \left\{
-%             \begin{tabular}{c}
-%               maximal ideals \\
-%               $\mf{m} \idealneq \mc{P}(V)$
-%             \end{tabular}
-%           \right\}
-%           \arrow[phantom]{u}[rotate=90]{\subseteq}
-%           \arrow[shift left,shorten >= 12pt]{l}[below, xshift = 6pt]{\mc{V}}
-%     \end{tikzcd}
-  \]
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                points $a \in V$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}}
+              & {}
+                \arrow[shift left]{l}{\mc{V}}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                vanishing ideals \\
+                $\mf{m} \idealeq \mc{P}(V)$ \\
+                which are prime
+              \end{tabular}
+            \right\}
+        \end{matrix}
+      \]
+    \item
+      If $k$ is algebraically closed then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
+      \[
+        \begin{matrix}
+            \left\{
+              \begin{tabular}{c}
+                  algebraic subsets \\
+                  $X \subseteq V$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}}
+              & {}
+                \arrow[shift left]{l}{\mc{V}}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                radical ideals \\
+                $I \idealeq \mc{P}(V)$
+              \end{tabular}
+            \right\}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                  irreducible \\
+                  algebraic subsets \\
+                  $X \subseteq V$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}}
+              & {}
+                \arrow[shift left]{l}{\mc{V}}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                prime ideals \\
+                $\mf{p} \idealeq \mc{P}(V)$
+              \end{tabular}
+            \right\}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                points $a \in V$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}}
+              & {}
+                \arrow[shift left]{l}{\mc{V}}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                maximal ideals \\
+                $\mf{m} \idealeq \mc{P}(V)$
+              \end{tabular}
+            \right\}
+        \end{matrix}
+      \]
+  \end{enumerate}
 \end{theorem}
+
+
+\begin{proof}
+  These are upgraded of Corollary~\ref{corollary: general correspondence for algebraic subsets and points} and Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points} via Lemma~\ref{lemma: X is irreducible iff I(X) is prime}.
+  For part b) we use that every prime ideal is already radical.
+\end{proof}
+
+
+\begin{corollary}
+  Let $k$ be an algebraically closed field.
+\end{corollary}
 
 
 \begin{fluff}
@@ -358,7 +457,7 @@
 
 \begin{definition}
   Let $X$ be a topological space.
-  A subset $C \subseteq X$ is an \emph{irreducible} component of $X$ if $C$ is a maximal irreducible subset of $X$, i.e.\ $C$ is irreducible, and for every irreducible subset $C' \subseteq X$ with $C \subseteq C'$ it already follows that $C = C'$.
+  A subset $C \subseteq X$ is an \emph{irreducible component} of $X$ if $C$ is a maximal irreducible subset of $X$, i.e.\ $C$ is irreducible, and for every irreducible subset $C' \subseteq X$ with $C \subseteq C'$ it already follows that $C = C'$.
 \end{definition}
 
 
@@ -678,7 +777,7 @@
 
 
 \begin{corollary}
-  Every subspace $X \subseteq V$ has only finitely many irreducible components.
+  Every $X \subseteq V$ has only finitely many irreducible components.
 \end{corollary}
 
 
@@ -688,16 +787,11 @@
 
 
 
-
-
 % TODO: Every radical ideal is intersection of maximal ideals
 
 % TODO: Every prime ideal is intersection of maxmial ideals
 
 % TODO: Jacobson rings
-
-% TODO: Remark about the spectrum of a topological ring
-
 
 
 

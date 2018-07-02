@@ -1,23 +1,32 @@
 \subsection{The Geometry of Affine Algebraic Varieties}
+\label{subsection: geometry of affine algebraic varietes}
 
 
 \begin{fluff}
   In this section we will see that affine algebraic varities can be regarded as geometric spaces in their own right.
-  Until further notice $V, W$ denote finite-dimensional $k$-vector spaces.
+  Until further notice $V, W, U$ denote finite-dimensional $k$-vector spaces.
 \end{fluff}
 
 
 \begin{definition}
   Let $X \subseteq V$, $Y \subseteq W$ be affine algebraic varietes.
   A map $f \colon X \to Y$ is \emph{polynomial} if it is the restriction of a polynomial map $V \to W$.
+  We denote by $\Pol(X,Y)$ the set of polynomial maps $X \to Y$.
 \end{definition}
 
 
 \begin{remark}
-  Let $X \subseteq V$, $Y \subseteq W$.
+  Let $X \subseteq V$, $Y \subseteq W$, $Z \subseteq U$ be affine algebraic varieties..
   \begin{enumerate}
     \item
       A function $f \colon X \to k$ is polynomial if it is the restriction of a polynomial function $V \to k$.
+    \item
+      The identity $\id_X \colon X \to X$ is polynomial, and for all polynomials maps $f \colon X \to Y$, $g \colon Y \to Z$ their composition $g \circ f \colon X \to Z$ is again polynomial.
+      
+      It follows that the class of affine algebraic varieties over $k$ together with the polynomial maps between affine algebraic varieties forms a category which we will denote by $\cAff{k}$:
+      The objects of $\cAff{k}$ are affinee algebraic varieties over $k$ and the $\Hom$-sets of $\cAff{k}$ are given by $\Hom_{\cAff{k}}(X,Y) = \Pol(X,Y)$ for all affine algebraic varieties $X, Y$ over $k$.
+      
+      Note that the category $\cpol{k}$ (see Remark~\ref{remark: category of polynomial vector spaces}) is a full subcategory of $\cAff{k}$.
     \item
       Given a basis $w_1, \dotsc, w_m$ of $W$ a map $f \colon X \to Y$ is polynomial in every coordinate, i.e.\ if and only if the functions $f_1, \dotsc, f_m \colon V \to W$ with $f(x) = (f_1(x), \dotsc, f_m(x))$ for alll $x \in X$ are polynomial.
     \item
@@ -32,6 +41,7 @@
 
 
 \begin{lemma}
+  \label{lemma: coordinate ring as quotient}
   For every affine algebraic variety $X \subseteq V$ the map
   \[
             \mc{P}(V)/\mc{I}(X)
@@ -49,14 +59,253 @@
 
 
 \begin{corollary}
-  For an affine algebraic variety $X \subseteq V$ the coordinate ring $\mc{P}(X)$ is an integral domain if and only if $X$ is irreducible.
+  Let $X \subseteq V$ be an affine algebraic variety.
+  \begin{enumerate}
+    \item
+      The coordinate ring $\mc{P}(X)$ is an integral domain if and only if $X$ is irreducible.
+    \item
+      The coordinate ring $\mc{P}(X)$ is a field if and only if $X = \{a\}$ is a singleton for some $a \in V$, in which case $\mc{P}(X) = k$.
+  \end{enumerate}
 \end{corollary}
 
 
 \begin{proof}
-  The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealeq \mc{P}(V)$ is prime, which is by Lemma~\ref{lemma: X is irreducible iff I(X) is prime} the case if and only if $X$ is irreducible.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealeq \mc{P}(V)$ is prime, which is by Lemma~\ref{lemma: X is irreducible iff I(X) is prime} the case if and only if $X$ is irreducible.
+    \item
+      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is a field if and only if the ideal $\mc{I}(X)$ is a maximal ideal, which by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals} holds if and only if $X = \{x\}$ is a singleton for some $a \in V$.
+      Then $\mc{P}(X) = \mc{P}(\{x\})$ consists of all maps $\{x\} \to k$, so that $\mc{P}(\{x\}) = k$.
+    \qedhere
+  \end{enumerate}
 \end{proof}
 
+
+\begin{lemma}
+  \label{lemma: functoriality of P for affine algebraic varieties}
+  Let $X, Y, Z$ be affine algebraic varieties.
+  \begin{enumerate}
+    \item
+      For every polynomial map $f \colon X \to Y$ the map $f^* \colon \mc{P}(Y) \to \mc{P}(X)$, $\varphi \mapsto \varphi \circ f$ is a well-defined homomorphism of $k$-algebras.
+    \item
+      We have that $\id_X^* = \id_{\mc{P}(X)}$.
+    \item
+      For all polynomial maps $f \colon X \to Y$, $g \colon Y \to Z$ we have that $(g \circ f)^* = f^* \circ g^*$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{remark}
+  Lemma~\ref{lemma: functoriality of P for affine algebraic varieties} shows that the coordinate ring $\mc{P}$ defines a contravariant functor $\mc{P} \colon \cAff{k} \to \cAlg{k}$.
+  Note that this is an extension of the previously defined functor $\mc{P}$ from Remark~\ref{fluff: functor P on polynomial vector spaces} to $\cAff{k}$.
+  As before this functor turns out to be fully faithful, generalizing Propositon~\ref{proposition: P is fully faithful for polynomial vector spaces}:
+\end{remark}
+
+
+\begin{proposition}
+  \label{proposition: P is fully faithful for affine varieties}
+  Let $X \subseteq V$, $Y \subseteq W$ be affine algebraic varieties.
+  Then the map
+  \[
+            \Pol(X, Y)
+    \to     \Hom_{\cAlg{k}}(\mc{P}(Y), \mc{P}(X)),
+    \quad   f
+    \mapsto f^*
+  \]
+  is a bijection.
+\end{proposition}
+
+
+\begin{proof}
+  For $Y = W$ the proof given for Propositon~\ref{proposition: P is fully faithful for polynomial vector spaces} still applies without any changes.
+  The general case follows from this special one:
+  The inclusion $i \colon Y \to W$ is a polynomial map which results in the following diagram:
+  \[
+    \begin{tikzcd}
+        \Pol(X,Y)
+        \arrow{r}[above]{i_*}
+        \arrow{d}[left]{\mc{P}_{X,Y}}
+      & \Pol(X,W)
+        \arrow{d}[right]{\mc{P}_{X,W}}
+      \\
+        \Hom_{\cAlg{k}}(\mc{P}(Y), \mc{P}(X))
+        \arrow{r}[above]{\mc{P}(i)^*}
+      & \Hom_{\cAlg{k}}(\mc{P}(W), \mc{P}(X))
+    \end{tikzcd}
+  \]
+  This diagram commutes because for every $f \in \Pol(X,Y)$ we have that
+  \[
+      \mc{P}(i)^*( \mc{P}(f) )
+    = \mc{P}(f) \circ \mc{P}(i)
+    = \mc{P}( i \circ f )
+    = \mc{P}( i_*(f) ) \,.
+  \]
+  Since we already know that $\mc{P}_{X,W}$ bijective it now sufficies to show that the image of $i_*$ corresponds to the image of $\mc{P}(i)^*$.
+  
+  The image of $i_*$ consists precisely of those polynomial maps $f \colon X \to W$ which restrict to a polynomial map $X \to Y$, which is the case if and only if $f(X) \subseteq Y$.
+  
+  The homomorphism $\mc{P}(i) \colon \mc{P}(W) \to \mc{P}(Y)$, $f \mapsto f \circ i = \restrict{f}{Y}$ corresponds to the canonical projection $\mc{P}(W) \to \mc{P}(W)/\mc{I}(Y)$ under the isomorphism $\mc{P}(Y) \cong \mc{P}(W)/\mc{I}(Y)$ from Lemma~\ref{lemma: coordinate ring as quotient}.
+  It follows that the image of $\mc{P}(i)^*$ consists precisely of those $k$-algebra homomorphisms $F \colon \mc{P}(W) \to \mc{P}(X)$ which can be extended to an algebra homomorphisms $\mc{P}(W)/\mc{I}(Y) \to \mc{P}(X)$.
+  This is the case if and only if $\mc{I}(Y) \subseteq \ker F$.
+  
+  We thus need to show a polynomial map $f \colon X \to W$ satisfies $f(X) \subseteq Y$ if and only if $\mc{I}(Y) \subseteq \ker f^*$.
+  This holds because
+  \[
+          f(X) \subseteq Y
+    \iff  f(X) \subseteq \mc{V}(\mc{I}(Y))
+    \iff  \mc{I}(f(X)) \supseteq \mc{I}(Y)
+    \iff  \ker f^* \supseteq \mc{I}(Y) \,,
+  \]
+  where we use that
+  \begin{align*}
+        \mc{I}(f(X))
+    &=  \{
+          g \in \mc{P}(W)
+        \suchthat
+          \restrict{g}{f(X)} = 0
+        \}
+      = \{
+          g \in \mc{P}(W)
+        \suchthat
+          \restrict{(g \circ f)}{X} = 0
+        \}
+    \\
+    &=  \{
+          g \in \mc{P}(W)
+        \suchthat
+          g \circ f = 0
+        \}
+      = \{
+          g \in \mc{P}(W)
+        \suchthat
+          f^*(g) = 0
+        \}
+      = \ker f^* \,.
+  \end{align*}
+  This finishes the proof.
+\end{proof}
+
+
+\begin{remark}
+  The functor $\mc{P} \colon \cAff{k} \to \cAlg{k}$ is a contravariant embedding by Proposition~\ref{proposition: P is fully faithful for affine varieties}.
+  It follows that $\cAff{k}$ is dual to a strictly full subcategory of $\cAlg{k}$, namely the essential image of $\mc{P}$.
+  It follows from Lemma~\ref{lemma: coordinate ring as quotient} that the corresponding strictly full subcategory has as objects precisely those $k$-algebras which are isomorphic to a $k$-algebra of the form $k[X_1, \dotsc, X_n]/I$ where $I \idealeq k[X_1, \dotsc, X_n]$ is a vanishing ideal.
+  
+  If $k$ is algebraically closed then vanishing ideals are precisely radical ideals, and we get a nice description of the category dual to $\cAff{k}$:
+\end{remark}
+
+
+\begin{theorem}
+  If $k$ is algebraically closed, then the functor $\mc{P} \colon \cAff{k} \to \cAlg{k}$ restrict to dualities between strictly full subcategories
+  \[
+    \left\{
+      \begin{tabular}{c}
+        affine algebraic \\
+        varieties over $k$
+      \end{tabular}
+    \right\}
+    \longto
+    \left\{
+      \begin{tabular}{c}
+        finitely generated \\
+        $k$-algebras which are \\
+        reduced
+      \end{tabular}
+    \right\}
+  \]
+  and
+  \[
+    \left\{
+      \begin{tabular}{c}
+        irreducible \\
+        affine algebraic \\
+        varieties over $k$
+      \end{tabular}
+    \right\}
+    \longto
+    \left\{
+      \begin{tabular}{c}
+        finitely generated \\
+        $k$-algebras which are \\
+        integral domains
+      \end{tabular}
+    \right\} \,.
+  \]
+\end{theorem}
+
+
+\begin{proof}
+  A $k$-algebra $A$ is finitely generated if and only if $A \cong k[X_1, \dotsc, X_n]/I$ for some $n \geq 0$ and some ideal $I \idealeq k[X_1, \dotsc, X_n]$, and the ideal $I$ is radical (resp.\ prime) if and only if $k[X_1, \dotsc, X_n]/I \cong A$ is reduced (resp.\ an integral domain).
+\end{proof}
+
+
+\begin{remark}
+  One could also add another duality in the style of Theorem~\ref{theorem: big correspondence theorems}, namely
+  \[
+    \left\{
+      \begin{tabular}{c}
+        one-point \\
+        affine algebraic \\
+        varieties over $k$
+      \end{tabular}
+    \right\}
+    \longto
+    \left\{
+      \begin{tabular}{c}
+        finitely generated \\
+        $k$-algebras which are \\
+        fields
+      \end{tabular}
+    \right\} \,.
+  \]
+  The image of the left hand side under $\mc{P}$ is (up to isomorphism) just $k$ itself, and we retrieve \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma} from the geometric picture of Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points}.
+  
+  With this, we have alltogether shown the following implications:
+  \[
+    \begin{tikzpicture}[commutative diagrams/every diagram]
+      \node (NS) at (-90:2.3cm) {
+        \hyperref[corollary: nullstellensatz]{Nullstellensatz}
+      };
+      \node (SNS) at (-90-72:2cm) {
+        \hyperref[corollary: strong nullstellensatz]{
+        \begin{tabular}{c}
+          strong \\
+          Nullstellensatz
+        \end{tabular}
+        }
+      } ;
+      \node (COR) at (-90-2*72:2cm) {
+        \makebox[5ex][r]{
+          Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points}
+        }
+      };
+      \node (ZL) at (-90-3*72:2cm) {
+        \makebox[5ex][l]{
+        \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma}
+        \phantom{y}
+        }
+      };
+      \node (WNS) at (-90-4*72:2cm) {
+        \hyperref[theorem: weak nullstellensatz]{
+        \begin{tabular}{c}
+          weak \\
+          Nullstellensatz
+        \end{tabular}
+        }
+      };
+      \draw[implies-implies, double equal sign distance] (NS) -- (SNS);
+      \draw[-implies, double equal sign distance] (SNS) -- (COR);
+      \draw[-implies, double equal sign distance] (COR) -- (ZL);
+      \draw[-implies, double equal sign distance] (ZL) -- (WNS);
+      \draw[implies-implies, double equal sign distance] (WNS) -- (NS);
+    \end{tikzpicture}
+  \]
+\end{remark}
+
+
+
+% TODO: Remark that Jacobson issomewhat also equivalent to the other stuff
 
 
 
@@ -64,4 +313,5 @@
 
 % TODO: Generalization of previous results to affine algebraic varieties
 
-% TODO: Duality of affinal algebraic varietes and reduced finitely generated k-algebras
+
+

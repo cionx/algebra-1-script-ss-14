@@ -1,135 +1,588 @@
-\section{Some Results on the Number of Generators of \texorpdfstring{$\mc{P}(V)^G$}{P(V)\^G}}
+\section{Finiteness Results on the Invariant Ring}
 
 
-\begin{lemma}\label{lemma: technical lemma about generating}
-  Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra which is commutative.
-  If the ideal $A^+ = \bigoplus_{d > 0} A_d$ is finitely generated over $A$ then $A$ is finitely generated as an $A_0$-algebra by homogeneous elements.
-  (By this we mean that there are finitely many homogeneous elements $a_1, \dotsc, a_n \in A^+$ such that $A = A_0[a_1, \dotsc, a_n]$.)
+\begin{fluff}
+  Throughout the previous sections we have determined the following invariant rings:
+  \begin{center}
+    \begingroup
+    \renewcommand{\arraystretch}{2}
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{|ccccc|}
+      \hline
+        \textbf{Group}
+      & \begingroup
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c}
+          \textbf{Repre-}  \\
+          \textbf{sentation}
+        \end{tabular}
+        \endgroup
+      & \textbf{Action}
+      & \begingroup
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c}
+          \textbf{Invariant Ring}  \\
+          \textbf{(up to iso.)}
+        \end{tabular}
+        \endgroup
+      & \textbf{generators}
+      \\
+      \hline
+        $S_n$
+      & $k^n$
+      & \begingroup
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c}
+          permutation \\
+          of coordinates
+        \end{tabular}
+        \endgroup
+      & $k[X_1, \dotsc, X_n]$
+      & \begingroup
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c}
+          $e_1, \dotsc, e_n$, \\
+          $h_1, \dotsc, h_n$, \\
+          $p_1, \dotsc, p_n$\phantom{,} \\
+          (for suitable $k$)
+        \end{tabular}
+        \endgroup
+      \\
+      \hline
+        $\GL_n(k)$
+      & \multirow{2}{*}{
+        $\Mat_n(k)$
+        }
+      & \multirow{2}{*}{
+        conjugation
+        }
+      & \multirow{2}{*}{
+        $k[X_1, \dotsc, X_n]$
+        }
+      & \multirow{2}{*}{
+        \begingroup
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c}
+          $s_1, \dotsc, s_n$,     \\
+          $\tr_1, \dotsc, \tr_n$  \\
+          (for suitable $k$)
+        \end{tabular}
+        \endgroup
+        }
+      \\
+        $\SL_n(k)$
+      & {}
+      & {}
+      & {}
+      & {}
+      \\
+      \hline
+        $\GL_n(k)$
+      & \multirow{2}{*}{
+        $\Mat_n(k)$
+        }
+      & \multirow{2}{*}{
+          (left) mult.\
+        }
+      & $k$
+      & $1$
+      \\
+        $\SL_n(k)$
+      & {}
+      & {}
+      & $k[X]$
+      & $\det$
+      \\
+      \hline
+    \end{tabular}
+    \endgroup
+  \end{center}
+  We finish this chapter by giving two finiteness results on the invariant ring $\mc{P}(V)^G$, one by Hilbert and one by E.\ Noether.
+  The main results of this section are taken from \cite[\S 1.6]{InvariantPrimer} and generalize some aspects of the above examples.
+  In the following $k$ denotes an arbitrary field.
+\end{fluff}
+
+
+\begin{fluff}
+  Let $V$ be finite-dimensional representation of a group $G$.
+  The main observation behind both Theorems is that the invariant ring $\mc{P}(V)^G$ inherits a grading from $\mc{P}(V)$:
+  
+  If $f \in \mc{P}(V)$ is homogenous of degree $d \geq 0$, then for every $g \in G$ the polynomial map $g.f \in \mc{P}(V)$ is again polynomial of degree $d$ because
+  \[
+      (g.f)(\lambda v)
+    = f(g^{-1}.(\lambda v))
+    = f(\lambda g^{-1}.v)
+    = \lambda^d f(g^{-1}.v)
+    = \lambda^d (g.f)(v)
+  \]
+  for all $\lambda \in k$, $v \in V$.
+  It follows for the grading $\mc{P}(V) = \bigoplus_{d \geq 0} \mc{P}(V)_d$ that $\mc{P}(V)_d$ is a subrepresentation for every $d \geq 0$.
+  From this it follows that
+  \[
+      \mc{P}(V)^G
+    = \left( \bigoplus_{d \geq 0} \mc{P}(V)_d \right)^G
+    = \bigoplus_{d \geq 0} \mc{P}(V)^G_d \,.
+  \]
+  with $\mc{P}(V)^G_d = \mc{P}(V)^G \cap \mc{P}(V)_d$.
+  That $\mc{P}(V)^G_d \mc{P}(V)^G_{d'} \subseteq \mc{P}(V)^G_{d+d'}$ is a combination of $\mc{P}(V)_d \mc{P}(V)_{d'} \subseteq \mc{P}(V)_{d+d'}$ and $\mc{P}(V)^G \mc{P}(V)^G \subseteq \mc{P}(V)^G$.
+\end{fluff}
+
+
+
+
+
+\subsection{A Theorem by Hilbert}
+
+
+\begin{theorem}[Hilbert]
+  Let $V$ be a finite-dimensional representation of a group $G$.
+  If $\mc{P}(V)$ decomposes into irreducible $G$-representations $\mc{P}(V) = \bigoplus_{i \in I} L_i$ then $\mc{P}(V)^G$ is finitely generated as a $k$-algebra.
+\end{theorem}
+
+
+\begin{definition}
+  Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra.
+  An ideal $I \idealeq A$ is \emph{homogeneous} or \emph{graded} if it is of the form $I = \bigoplus_{d \geq 0} I_d$ for linear subspaces $I_d \subseteq A_d$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: characterization of homogeneous ideals via homogeneous generators}
+  Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra and let $I \idealeq A$ be an ideal.
+  \begin{enumerate}
+    \item
+      The subset $\bigoplus_{d \geq 0} (I \cap A_d)$ is again an ideal in $A$.
+    \item
+      The ideal $I$ is homogeneous if and only if $I = \bigoplus_{d \geq 0} (I \cap A_d)$.
+    \item
+      The ideal $I$ is homogeneous if and only if for every $x \in I$ all homogeneous parts of $x$ are contained in $I$.
+    \item
+      The ideal $I$ is homogeneous if and only if $I$ is generated by homogeneous elements.
+    \item
+      If the ideal $I$ is homogenous then it is finitely generated if and only if it is already finitely generated by homogeneous elements.
+  \end{enumerate}
 \end{lemma}
 
 
-% TODO: Figure out a proof.
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have for the $k$-linear subspace $J \defined \bigoplus_{d \geq 0} (I \cap A_d) \subseteq A$ that
+      \begin{align*}
+                    A J
+        &=          \left( \sum_{d \geq 0} A_d \right)\left( \sum_{d' \geq 0} (I \cap A_{d'}) \right)
+         =          \sum_{d, d' \geq 0} [ A_d (I \cap A_{d'}) ] \\
+        &\subseteq  \sum_{d, d' \geq 0} [ A_d I \cap A_d A_{d'} ]
+         \subseteq  \sum_{d, d' \geq 0} [ I \cap A_{d+d'} ]
+         \subseteq  \sum_{d \geq 0} (I \cap A_d)
+         =          J \,.
+      \end{align*}
+    \item
+      If $I$ is homogeneous with decomposition $I = \bigoplus_{d \geq 0} I_d$ into homogeneous parts $I_d$ then $I \cap A_d = I_d$ for every $d \geq 0$ and thus $I = \bigoplus_{d \geq 0} I_d$.
+      
+      If on the ther hand $I = \bigoplus_{d \geq 0} I_d$ then we can choose $I_d = I \cap A_d$, which is a $k$-linear subspace of $A_d$.
+    \item
+      Suppose that $I$ is homogeneous and let $x \in I$ with decomposition into homogeneous parts $x = \sum_{d \geq 0} x_d$.
+      It then follows from $I = \bigoplus_{d \geq 0} (I \cap A_d)$ that there exists a decomposition $x = \sum_{d \geq 0} x'_d$ with $x'_d \in I \cap A_d$ for all $d \geq 0$.
+      It follows from the directness of the sum $A = \bigoplus_{d \geq 0} A_d$ that $x_d = x'_d$ for all $d \geq 0$ and therefore that $x_d = x'_d \in I \cap A_d \subseteq I$ for all $d \geq 0$.
+      This shows that all homogeneous parts of $x$ are again contained in $I$.
+      
+      Suppose on the other hand that for every $x \in I$ the homogeneous parts $x_d$ of $x$ are again contained in $I$.
+      It then follows that $x_d \in I \cap A_d$ for all $d \geq 0$ and therefore that $x = \sum_{d \geq 0} x_d \in \bigoplus_{d \geq 0} (I \cap A_d)$.
+      This shows that $I \subseteq \bigoplus_{d \geq 0} (I \cap A_d)$.
+      The other inclusion also holds because $I \cap A_d \subseteq I$ for all $d \geq 0$.
+    \item
+      If $I$ is homogeneous with generating set $(x_i)_{i \in I}$ then we can replace each generator $x_i$ by its homogeneous parts by part~c) of this lemma to obtain a homogeneous generating set for $I$.
+      
+      Suppose on the other hand that $I$ is generated by a family $(x_i)_{i \in I}$ of homogeneous elements.
+      Then $\bigoplus_{d \geq 0} (I \cap A_d)$ is again an ideal in $A$ by part a) of this lemma, and $\bigoplus_{d \geq 0} (I \cap A_d)$ contains all generators of $I$.
+      It follows that $I = \bigoplus_{d \geq 0} (I \cap A_d)$ which shows that $I$ is homogeneous by part~b) of this lemma.
+    \item
+      We see from the part of proof~d) of this lemma that every finite generating set of $I$ leads to a finite generating set of $I$ which consists of homogeneous elements.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
-\begin{lemma}\label{lemma: projection reynold operator}
-  Let $A$ be a commutative $k$-algebra and let $G$ be a group acting on $A$ by algebra automorphisms.
-  In particular, $A$ is a representation of $G$.
-  Assume that $A = \bigoplus_{i \in I} L_i$ where $L_i \subseteq A$ is an irreducible subrepresentation of $G$ for all $i \in I$.
+\begin{remark}
+  \label{remark: quotient by homogeneous ideals are again graded}
+  One of the nice things about graded ideals (which we will not use here) is the fact that when $A = \bigoplus_{d \geq 0} A_d$ is a graded $k$-algebra and $I \idealeq A$ is a graded ideal with homogeneous parts $I = \bigoplus_{d \geq 0} I_d$, then the quotient algebra $A/I$ inherts the grading of $A$ with $(A/I)_d = A_d/I_d$ for all $d \geq 0$.
+  The canonical projection $A \to A/I$ is then a homomorphism of graded $k$-algebras.
+\end{remark}
+
+
+\begin{proposition}
+  \label{proposition: homeneous generators for irrelevant ideal}
+  Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra which is commutative and let $A_+ \defined \bigoplus_{d \geq 1} A_d$, which is an ideal in $A$.
+  Let $(x_i)_{i \in I}$ be a family of elements $x_i \in A$ which are homogeneous of degree $\geq 1$.
+  Then the following are equivalent:
+  \begin{enumerate}
+    \item
+      The ideal $A_+$ is generated by the $(x_i)_{i \in I}$ over $A$.
+    \item
+      The family $(x_i)_{i \in I}$ generates $A$ as an $A_0$-algebra.
+    \item
+      The elements of the form $\prod_i x_i^{n_i}$ (with $n_i = 0$ for all but finitely many $i \in I$) generate $A$ is an $A_0$-module.
+    \item
+      For every degree $d \geq 0$ the $A_0$-module $A_d$ is generated by the elements of the form $\prod_i x_i^{n_i}$ which are of degree $d$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[a) $\implies$ b)]
+      Let $A' = A_0[x_i \suchthat i \in I]$ be the $A_0$-subalgebra of $A$ generated by the $x_i$.
+      We show by induction over the degree $d$ that $A_d \subseteq A'$ for all $d \geq 0$.
+      For $d = 0$ we have that $A_d = A_0 \subseteq A'$ by definition fo $A_0$.
+      
+      Suppose that $d \geq 1$ and that $A_0, \dotsc, A_{d-1} \subseteq A'$.
+      Let $x \in A_d$.
+      Then $x \in A_+$, so we may write $x = \sum_{i \in I} a_i x_i$ for some coefficients $a_i \in A$.
+      Every coefficient $a_i$ decomposes into homogeneous parts $a_i = \sum_{d' \geq 0} a_{i,d'}$, so we have that
+      \[
+          x
+        = \sum_{i \in I} a_i x_i
+        = \sum_{i \in I} \sum_{d' \geq 0} a_{i,d'} x_i
+        = \sum_{d' \geq 0} \sum_{i \in I} a_{i,d'} x_i \,.
+      \]
+      If $x_i$ is homogeneous of degree $d_i \geq 1$, then we find in degree $d' = d$ that
+      \[
+          x
+        = \sum_{i \in I} a_{i,d-d_i} x_i \,.
+      \]
+      The coefficients $a_{i,d-d_i}$ are homogeneous of degree $\leq d-1$ and therefore contained in $A'$ by induction hypothesis, and the elements $x_i$ are contained in $A'$ by definition of $A'$.
+      It follows that $x \in A'$.
+    \item[b) $\iff$ c)]
+      This holds because $A_0[x_i \suchthat i \in I]$, the $A_0$-subalgebra generated by the $x_i$, is generated by the products $\prod_{i \in I} x_i^{n_i}$ as an $A_0$-module.
+    \item[c) $\iff$ d)]
+      This follows because from the homogeneity of the elements $\prod_{i \in I} x_i^{n_i}$ and the directness of the sum $A = \bigoplus_{d \geq  } A_d$.
+    \item[d) $\implies$ a)]
+      Let $J$ be the $A$-ideal generated by the $x_i$, i.e.\ $J = \sum_{i \in I} A x_i$.
+      We have that $J \subseteq A_+$ because the element $x_i$ are homogeneous of degree $\leq 1$ and therefore contained in the $A$-ideal $A_+$.
+      
+      To see the other inclusion note that the elements of the form $\prod_{i \in i} x_i^{n_i}$ of degree $d \geq 1$ are contained in $J$:
+      Because this element has degree $\geq 1$ there exists some $j \in I$ with $n_j \geq 1$ and it follows that
+      \[
+                  \prod_{i \in i} x_i^{n_i}
+        =         \prod_{i \in i} x_i^{n_i} \cdot x_j
+        \in       A x_j
+        \subseteq J \,.
+      \]
+      It follows that $J$ contains the $A_0$-generators of $A_d$, which is why
+      \[
+                  A_d
+        \subseteq A_0 J
+        \subseteq A J
+        =         J \,.
+      \]
+      This shows that $A_d \subseteq J$ for all $d \geq 1$ and therefore that $A_+ \subseteq J$.
+    \qedhere
+  \end{description}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: finite homogeneous generatiors for irrelevant ideal}
+  Let $A = \bigoplus_{d \geq 0} A_d$ be a graded $k$-algebra which is commutative and let $A_+ \defined \bigoplus_{d \geq 1} A_d$, which is an ideal in $A$.
+  Then the ideal $A_+ \defined \bigoplus_{d \geq 1} A_d$ is finitely generated over $A$ if and only if $A$ is finitely generated by homogeneous elements as an $A_0$-algebra.
+\end{corollary}
+
+
+\begin{proof}
+  The ideal $A_+$ is homogeneous, and therfore already finitely generated by homogeneous elements $x_1, \dotsc, x_n \in A_+$ by Lemma~\ref{lemma: characterization of homogeneous ideals via homogeneous generators}.
+  If follows from Lemma~\ref{proposition: homeneous generators for irrelevant ideal} that the $x_i$ generate $A$ as an $A_0$-algebra.
+\end{proof}
+
+
+\begin{remark}
+  The ideal $A_+$ is known as the \emph{irrelevant ideal}.
+  
+  If $A_0 = k$ then $A_+$ is a maximal ideal in $A$, and it is the unique homogeneous ideal with this property.
+  This can be seen as follows:
+  \begin{enumerate}[label=\arabic*)]
+    \item
+      If $L$ is a field which is also a graded $k$-algebra $L = \bigoplus_{d \geq 0} L_d$, then $L$ is already concentrated in degree $0$:
+      Otherwise there would exist some non-zero $a \in L$ which is homogeneous of degree $d \geq 1$.
+      For $b = 1/a$ we then have the decomposition into homogeneous parts $b = \sum_{d \geq 0} b_d$.
+      We have that
+      \[
+          1
+        = b a
+        = \sum_{d' \geq 0} b_{d'} a
+      \]
+      with $1 \in L_0$ and $b_{d'} a \in L_{d' + d}$ for all $d' \geq 0$.
+      It follows that $d = 0$ and $b_{d'} = 0$ for all $d' \geq 1$.
+      
+      (We have shown more generally that for an $M$-graded algebra $A = \bigoplus_{m \in M} A_m$, where $M$ is cancellative additive monoid, the inverse of a homogeneous unit of degree $m \in M$ is again homogenous, but of degree $-d$.
+      Since we are only working with $\Natural$-graded algebras, all units must have degree $0$.)
+    \item
+      If $\mf{m} \idealeq A$ is an ideal which is both maximal and homogeneous then $\mf{m}$ is already of the form
+      \[
+          \mf{m}
+        = \mf{m}_0 \oplus A_1 \oplus A_2 \oplus \dotsb
+      \]
+      for a maximal ideal $\mf{m}_0 \idealeq A_0$:
+      
+      The quotient $A/\mf{m}$ is a field which (as mentioned in Remark~\ref{remark: quotient by homogeneous ideals are again graded}) inherits a grading from $A$ given by $(A/\mf{m})_d = A_d / \mf{m}_d$ for all $d \geq 0$.
+      It follows from the previous step that $(A/\mf{m})_d = 0$ for all $d \geq 1$ and therefore that $\mf{m}_d = A_d$ for all $d \geq 0$.
+      That $\mf{m}_0 \idealeq A_0$ is a maximal ideal then follows from $A_0/\mf{m}_0 \cong A/\mf{m}$ being a field.
+    \item
+      Since $A_0$ is a field it follows that $\mf{m}_0 = 0$, and therefore that $\mf{m} = \bigoplus_{d \geq 1} A_d = A_+$.
+  \end{enumerate}
+  The claim also holds for $\Integer$-graded algebras because the first step can still be generalized to this case.
+  A proof of this can be found in \cite[Remark 1.3.10]{GradedRings2004}.
+\end{remark}
+
+
+\begin{fluff}
+  If $V$ is a finite-dimensional representation of a group $G$ then $\mc{P}(V)^G_0 = k$, so it follows from Corollary~\ref{corollary: finite homogeneous generatiors for irrelevant ideal} that $\mc{P}(V)^G$ is finitely generated as a $k$-algebra if and only if the irrelevant ideal $\bigoplus_{d \geq 1} \mc{P}(V)^G_d$ is finitely generated over $\mc{P}(V)^G$.
+  For this we want to use that every ideal $I \idealeq \mc{P}(V)$ finitely generated becaus $\mc{P}(V)$ is noetherian.
+  To establish a connection between the ideal in $\mc{P}(V)$ and the ideals in $\mc{P}(V)^G$ we we construct now construct a projection $\mc{P}(V) \to \mc{P}(V)^G$:
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: projection reynold operator}
+  Let $A$ be a $k$-algebra and let $G$ be a group acting on $A$ by algebra automorphisms.
+  Note that $A$ is in particular a representation of $G$.
+  Suppose that $A = \bigoplus_{i \in I} L_i$ where the $L_i$ are irreducible $G$-subrepresentations of $A$.
   Let
   \[
               J
     \coloneqq \{
                 i \in I
               \mid
-                      L_i
-                \cong k
-                \text{ as representations of $G$}
-              \}.
+                \text{$L_i \cong k$ is representations of $G$}
+              \} \,.
   \]
   \begin{enumerate}
     \item
-      We have that
-      \[
-          A^G
-        = \bigoplus_{j \in J} L_j \,.
-      \]
+      We have that $A^G = \bigoplus_{j \in J} L_j$.
     \item
       We have that $A = A^G \oplus N$ where $N = \bigoplus_{i \in I \smallsetminus J} L_i$.
       For the projection $\pi \colon A \to A^G$ along this decomposition we have that
-      \[
+      \begin{equation}
+        \label{equation: reynolds operator}
           \pi(hf)
-        = h\pi(f) \,.
-      \]
+        = h\pi(f)
+        \quad\text{and}\quad
+          \pi(fh)
+        = \pi(f) h
+      \end{equation}
       for all $h \in A^G$, $f \in A$.
   \end{enumerate}
 \end{lemma}
 
 
-% TODO: Figure out a proof.
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The only irreducible trivial representation is the $1$-dimensional one.
+      For every representation $L$ of $G$ the invariants $L^G$ are a subrepresentation of $L$;
+      if $L$ is irreducible then it follows that $L^G = 0$, or that $L^G = L$ and then $L^G \cong k$.
+      It follows that $L_j^G = L_j$ for all $j \in J$ and that $L_i^G = 0$ for all $i \in I$ with $i \notin J$.
+      It follows that
+      \[
+          A^G
+        = \left( \bigoplus_{i \in I} L_j \right)^G
+        = \bigoplus_{i \in I} L_j^G
+        = \bigoplus_{j \in J} L_j \,.
+      \]
+    \item
+      We have that
+      \[
+          A
+        = \bigoplus_{i \in I} A_i
+        = \left( \bigoplus_{j \in J} A_j \right)
+          \oplus
+          \left( \bigoplus_{i \in I \smallsetminus J} A_i \right)
+        = A^G \oplus N \,.
+      \]
+      We show only the first of the equalities~\eqref{equation: reynolds operator}, the second one can then be shown in the same way.
+      
+      The invariants $A^G$ form a $k$-subalgebra of $A$ because $G$ acts by algebra automorphisms, and we need to show that $\pi$ is a homomorphism of $A^G$-modules.
+      This is the case if and only if $N$ is an $A^G$-submodule (the \enquote{only if} part follows from $N = \ker \pi$), which we will now show:
+      
+      Let $h \in A^G$ and note that the map
+      \[
+                \hat{h}
+        \colon  A
+        \to     A,
+        \quad   a
+        \mapsto ha
+      \]
+      is $G$-equivariant because
+      \[
+          g.\hat{h}(a)
+        = g.(ha)
+        = (g.h)(g.a)
+        = h(g.a)
+        = \hat{h}(g.a)
+      \]
+      for all $g \in G$, $a \in A$.
+      (The second equality holds because $G$ acts by algebra automorphisms.)
+      For every $i \in I$ let $\pi_i \colon A \to L_i$ be the projection along the decomposition $A = \bigoplus_{i \in I} L_i$.
+      The map $\pi$ is a homomorphism of representations.
+      It follows for all $i \in I \smallsetminus J$ and $j \in J$ that $\restrict{\pi_j \circ \hat{h}}{L_i} \colon L_i \to L_j$ is a homomorphism of representations, and it follows from \hyperref[corollary: Schurs Lemma]{Schur’s~Lemma} that $\restrict{\pi_j \circ \hat{h}}{L_i} = 0$ because $L_i, L_j$ are non-isomorphic irreducible representations.
+      It follows that $\restrict{\pi_j \circ \hat{h}}{N} = 0$ for every $j \in J$, which shows that the image $\hat{h}(N)$ is completely contained in $\bigoplus_{i \in I \smallsetminus J} L_i = N$.
+      This shows that $hN \subseteq N$ for every $h \in A^G$, i.e.\ that $N$ is an $A^G$-submodule of $A$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{remark}
-  REYNOLD OPERATOR
+  The above lemma and its proof makes use of two ideas:
+  \begin{enumerate}
+    \item
+      ISOTYPICAL COMPONENTS
+    \item
+      REYNOLDS OPERATOR
+  \end{enumerate}
 \end{remark}
 
 
-\begin{theorem}(Hilbert)
-  Let $G$ be a group and $W$ a finite-dimensional representation of $G$ over $k$.
-  Then $\mc{P}(W)$ is a representation of $G$ in the usual way (i.e.\ $(g.f)(w) = f\left( g^{-1}.w \right)$ for all $g \in G$, $f \in \mc{P}(W)$ and $w \in W$).
-  Suppose that
+\begin{proof}[Proof of Hilbert’s Theorem]
+  Let $A \coloneqq \mc{P}(V)$.
+  We have that $A^G_0 = k$ so by Corollary~\ref{corollary: finite homogeneous generatiors for irrelevant ideal} we need to show that the irrelevant ideal $\mf{m} \defined \bigoplus_{d \geq 1} A^G_d$  is finitely generated over $A^G$.
+  By Lemma~\ref{lemma: projection reynold operator} we have a projection $\pi \colon A \to A^G$ with
   \[
-      \mc{P}(W)
-    = \bigoplus_{i \in I} L_i
+      \pi(h)
+    = h
+    \quad\text{and}\quad
+      \pi(fh)
+    = \pi(f) h
   \]
-  where $L_i \subseteq \mc{P}(W)$ is an irreducible representation of $G$ for all $i \in I$.
-  Then $\mc{P}(W)^G$ is finitely generated as a $k$-algebra.
+  for all $h \in A^G$, $f \in A$.
+  For every ideal $I \idealeq A^G$ we denote by $A I$ the $A$-ideal generated by $I$ and note that
+  \begin{equation}\label{eqn: reynold ideal}
+      \pi(A I)
+    = \pi(A) \pi(I)
+    = A^G I
+    = I \,.
+  \end{equation}
+  We therefore have that $\mf{m} = \pi(A \mf{m})$.
+  The ideal $A \mf{m}$ is finitely generated because $A = \mc{P}(V)$ is noetherian, so there exist $f_1, \dotsc, f_n \in \mf{m}$ with $A \mf{m} = A f_1 + \dotsb + A f_n$.
+  It follows that
+  \[
+      \mf{m}
+    = \pi(A f_1 + \dotsb + A f_n)
+    = \pi(A) \pi(f_1) + \dotsb + \pi(A) \pi(f_n)
+    = A^G f_1 + \dotsb + A^G f_n \,,
+  \]
+  which shows that $\mf{m}$ is finitely generated over $A^G$.
+\end{proof}
+
+
+\begin{remark}
+  The ideal $\mc{P}(V) \cdot \mc{P}(V)^G_+$ from the proof of Hilbert’s~Theorem is known as the \emph{Hilbert ideal}.
+\end{remark}
+
+
+\begin{example}
+  \label{example: invariant ring for finite groups finitely generated}
+  Let $V$ is a finite-dimensional representation of a finite groups $G$, and suppose that $\kchar{k} \ndivides |G|$.
+  Then $\mc{P}(V)^G = \bigoplus_{d \geq 0} \mc{P}(V)^G_d$ is a decomposition into finite-dimensional subrepresentations and it follows from \hyperref[theorem: Maschkes theorem]{Maschke’s~Theorem} that $\mc{P}(V)^G$ decomposes into irreducible subrepresentations.
+  Then the invariant $\mc{P}(V)^G$ is finitely generated as a $k$-algebra by Hilbert’s Theorem.
+\end{example}
+
+
+
+
+
+\subsection{A Theorem by Noether}
+
+
+\begin{fluff}
+  While Example~\ref{example: invariant ring for finite groups finitely generated} shows that the invariant ring $\mc{P}(V)^G$ is finitely generated when $G$ is finite, we do not have any restrictions on the needed generators.
+  The following theorem by E.\ Noether (\cite{Noether1915}) gives a bound on the degree of the generators:
+\end{fluff}
+
+
+\begin{theorem}[Noether]
+  Let $V$ be a finite-dimensional representation of a finite group $G$ over a field $k$ of characteristic $\kchar{k} = 0$.
+  Then the invariant ring $\mc{P}(V)^G$ is generated as a $k$-algebra by the invariants of degree $\leq |G|$.
 \end{theorem}
 
 
 \begin{proof}
-  We write $A \coloneqq \mc{P}(W)$. By Lemma \ref{lemma: projection reynold operator} we can decompose
+  We may assume w.l.o.g.\ that $V = k^n$ and thus identify $\mc{P}(V)$ with the polynomial ring $k[X_1, \dotsc, X_n] \defines A$.
+  For every $g \in G$ and every multi-index $\mu = (\mu_1, \dotsc, \mu_n)$ let
   \[
-      A
-    = A^G \oplus N
+              m_\mu
+    \defined  \sum_{g \in G} g.(X_1^{\mu_1} \dotsm X_n^{\mu_n})
+    \in       A^G \,.
   \]
-  as representations of $G$, and the projection
-  \[
-            \pi
-    \colon  A
-    \to     A^G
-  \]
-  is $G$-equivariant with
-  \[
-     \pi(h)
-    = h
-    \text{ for all }
-    h \in A^G
-  \]
-  and
-  \[
-      \pi(hf)
-    = h\pi(f)
-    \text{ for all }
-    h \in A^G,
-    f \in A \,.
-  \]
+  The elements $m_\mu$, $\mu \in \Natural^n$ form a $k$-generating set of $A^G$.
+  This can be seen in (at least) two ways:
+  \begin{itemize}
+    \item
+      The projection onto the invariant
+      \[
+                R
+        \colon  A
+        \to     A^G,
+        \quad   f
+        \mapsto \frac{1}{|G|} \sum_{g \in G} g.f
+      \]
+      is $k$-linear and surjective.
+      The monomials $X_1^{\mu_1} \dotsm X_n^{\mu_n}$ with $\mu \in \Natural^n$ form a $k$-basis, so it follows that the images $R(X_1^{\mu_1} \dotsm X_n^{\mu_n})$ form a $k$-generating set of $A^G$.
+    \item
+      We may write $f \in A^G \subseteq A$ as $f = \sum_{\mu} f_\mu X_1^{\mu_1} \dotsm X_n^{\mu_n}$.
+      Then
+      \begin{align*}
+            f
+        &=  R(f)
+         =  \frac{1}{|G|} \sum_{g \in G} g.f
+         =  \frac{1}{|G|} \sum_{g \in G} g.\left( \sum_{\mu} f_\mu X_1^{\mu_1} \dotsm X_n^{\mu_n} \right) \\
+        &=  \frac{1}{|G|} \sum_{g \in G} \sum_{\mu} f_\mu g.\left( X_1^{\mu_1} \dotsm X_n^{\mu_n} \right)
+         =  \frac{1}{|G|} \sum_{\mu} f_\mu \sum_{g \in G} g.\left( X_1^{\mu_1} \dotsm X_n^{\mu_n} \right) \\
+        &=  \frac{1}{|G|} \sum_{\mu} f_\mu m_\mu \,.
+      \end{align*}
+  \end{itemize}
+  The elements $m_\mu$, $\mu \in \Natural^n$ are homogeneous of degree $|\mu| = \mu_1 + \dotsb + \mu_n$.
+  For $h \defined |G|$ we therefore need to show that $A^G$ is generated as a $k$-algebra by those $m_\mu$ with $|\mu| \leq h$.
   
-  It is clear that $A^G \subseteq A$ is a $k$-subalgebra.
-  Let $I \subseteq A^G$ be an ideal. Then
-  \begin{equation}\label{eqn: reynold ideal}
-      \pi(A I)
-    = \pi(I A)
-    = I \pi(A)
-    = I A^G
-    = I \,.
-  \end{equation}
-  Now consider the special case $I = \mf{m}_0 \coloneqq A^G_+$ where
+  Let $G = \{g_1, \dotsc, g_h\}$.
+  For every $j \geq 0$ let $p_j = \sum_{i=1}^h Y_i^j \in k[Y_1, \dotsc, Y_h]$ be the $j$-th power symmetric polynomial.
+  For the element
   \[
-              A^G_+
-    \coloneqq \bigoplus_{d > 0} A^G_d \,.
+              y_i
+    \defined  (g_i.X_1) Z_1 + \dotsb + (g_i.X_n) Z_n
+    \in       A[Z_1, \dotsc, Z_n]
   \]
-  To see that $A^G_+$ is an $A^G$-ideal notice that $A_+ \coloneqq \bigoplus_{i > 0} A_d$ is an $A$-ideal and that $A^G = \bigoplus_{d \geq 0} A^G_d$ and therefore
-  \[
-              A^G A^G_+
-    =         A^G \left( A^G \cap A_+ \right)
-    \subseteq A^G \cap A^G A_+
-    \subseteq A^G \cap A A_+
-    \subseteq A^G \cap A^+
-    =         A^G_+ \,.
-  \]
-  
-  Let $A \mf{m}_0$ be the ideal in $A$ generated by $\mf{m}_0$.
-  Because $A = \mc{P}(W)$ is noetherian there exists $f_1, \dotsc, f_n \in \mf{m}_0$ with
-  \[
-      A \mf{m}_0
-    = (f_1, \dotsc, f_n)_A \,.
-  \]
-  By \eqref{eqn: reynold ideal} we find that $\mf{m}_0$ is generated by $f_1, \dotsc, f_s$ as in $A^G$-module because
+  we then have that
   \begin{align*}
-      \mf{m}_0
-    = \pi(A \mf{m_0})
-    = \pi( (f_1, \dotsc, f_s)_A )
-    = \left( f_1, \dotsc, f_s \right)_{A^G} \,.
+        p_j(y_1, \dotsc, y_n)
+    &=  \sum_{i=1}^h y_i^j
+     =  \sum_{i=1}^h \left[ (g_i.X_1) Z_1 + \dotsb + (g_i.X_n) Z_n \right]^j  \\
+    &=  \sum_{i=1}^h \sum_{|\mu| = j}
+        \binom{j}{\mu_1, \dotsc, \mu_n} [(g_i.X_1) Z_1]^{\mu_1} \dotsm [(g_i.X_n) Z_n]^{\mu_n}  \\
+    &=  \sum_{i=1}^h \sum_{|\mu| = j}
+        \binom{j}{\mu_1, \dotsc, \mu_n} (g_i.X_1)^{\mu_1} \dotsm (g_i.X_n)^{\mu_n} Z_1^{\mu_1} \dotsm Z_n^{\mu_n} \\
+    &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n}
+        \left[
+          \sum_{i=1}^h (g_i.X_1)^{\mu_1} \dotsm (g_i.X_n)^{\mu_n}
+        \right]
+        Z_1^{\mu_1} \dotsm Z_n^{\mu_n}  \\
+    &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n}
+        \left[
+          \sum_{i=1}^h g_i.(X_1^{\mu_1} \dotsm X_n^{\mu_n})
+        \right]
+        Z_1^{\mu_1} \dotsm Z_n^{\mu_n}  \\
+    &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n} m_\mu Z_1^{\mu_1} \dotsm Z_n^{\mu_n} \,.
   \end{align*}
-  Since $\mf{m}_0$ is finitely generated as an $A$-module we find by by Lemma \ref{lemma: technical lemma about generating} that $A$ is finitely generated as a $A_0^G$-algebra, where $A_0^G = A_0 = k$.
+  This shows that $m_\mu$ is, up to some factor, the coefficient of $Z_1^{\mu_1} \dotsm Z_n^{\mu_n}$ in $p_j(y_1, \dotsc, y_n)$.
+  
+  We know that for $j > h$ the $j$-th power symmetric polynomial $p_j$ can be expressed as a $k$-polynomial in the power symmetric polynomials $p_1, \dotsc, p_h$.
+  It follows that the coefficients of $p_j(y_1, \dotsc, y_n)$ are $k$-polynomials in the coefficients of $p_1(y_1, \dotsc, y_n), \dotsc, p_h(y_1, \dotsc, y_n)$.
+  This shows that $\binom{j}{\mu_1, \dotsc, \mu_n} m_\mu$ can be expressed as a $k$-polynomial in the terms $\sum_{|\nu| = i} \binom{i}{\nu_1, \dotsc, \nu_n} m_\nu$ with $i \leq h$.
+  Because the factor $\binom{j}{\mu_1, \dotsc, \mu_n}$ is invertible in $k$ it follows that $m_\mu$ is a $k$-polynomial in the $m_\nu$ with $|\nu| \leq h$.
 \end{proof}
+
+
+

@@ -2,6 +2,7 @@
 
 
 \begin{fluff}
+  Parts of this section are taken from \cite[\S 1.3]{InvariantPrimer}.
   For this section let $k$ be an infinite field.
 \end{fluff}
 
@@ -84,16 +85,17 @@
 \end{proof}
 
 
-\begin{corollary}
+\begin{corollary}[First Zariski density property]
   \label{corollary: GLn is Zariski dense in Mn}
-  The group $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$.
+  The subset $\GL_n(k) \subseteq \Mat_n(k)$ is Zariski dense.
 \end{corollary}
 \begin{proof}
   The group $\GL_n(k)$ is the non-vanishing set of $\det \colon \Mat_n(k) \to k$.
 \end{proof}
 
 
-\begin{lemma}\label{lemma: zariski density orbits}
+\begin{lemma}
+  \label{lemma: zariski density orbits}
   Let $V$ be a finite-dimensional representation of a group $G$ and let $f \colon V \to k$ be a $G$-invariant polynomial function.
   \begin{enumerate}
     \item
@@ -504,6 +506,7 @@
 
 
 \begin{definition}
+  \label{definition: vanishing ideal}
   Let $V$ be a finite-dimensional $k$-vector space.
   \begin{enumerate}
     \item
@@ -533,10 +536,11 @@
 
 
 \begin{lemma}
+  \label{lemma: basic properties of I}
   Let $V$ be a finite-dimensional $k$-vector space.
   \begin{enumerate}
     \item
-      For $X \subseteq V$ the subset $\mc{I}(X) \subseteq \mc{P}(V)$ is an ideal.
+      For $X \subseteq V$ the vanishing ideal $\mc{I}(X)$ is an ideal in $\mc{P}(V)$.
     \item
       If $X \subseteq Y \subseteq V$ then $\mc{I}(Y) \subseteq \mc{I}(X)$.
       Furthermore, $X$ is Zariski-dense in $Y$ if and only if $\mc{I}(X) = \mc{I}(Y)$.
@@ -977,6 +981,7 @@
   If $X$ is Zariski dense in $Y \subseteq V$ and $f \colon Y \to k$ is rational with $\restrict{f}{X} = 0$, it thus follows that $f = 0$.
   
   Both the polynomial functions $X \to k$ and rational functions $X \to k$ form $k$-algebras via pointwise addition and scalar multiplication of functions.
+  We will come back to this generalization of polynomial functions in subsection~\ref{subsection: geometry of affine algebraic varietes}.
 \end{fluff}
 
 
@@ -1058,46 +1063,75 @@
 \end{proof}
 
 
-\begin{proposition}
+\begin{corollary}
+  \label{corollary: extension is again invariant}
+  Let $\GL_n(k), \GL_n(L), \SL_n(k), \SL_n(L)$ act on $\Mat_n(k)$, resp.\ $\Mat_n(L)$ by conjugation.
+  Let $f \colon \Mat_n(k) \to k$ be a polynomial function and let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-polynomial extension of $f$ (as described in Proposition~\ref{proposition: consistent choice of identification for polynomial functions}).
+  \begin{enumerate}
+    \item
+      If $f$ is $\GL_n(k)$-invariant then $\overline{f}$ is $\GL_n(L)$-invariant.
+    \item
+      If $f$ is $\SL_n(k)$-invariant then $\overline{f}$ is $\SL_n(L)$-invariant.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  We consider the map $\Phi \colon \Mat_n(L) \times \Mat_n(L) \to L$ given by
+  \[
+      \Phi(A,B)
+    = \overline{f}(AB) - \overline{f}(BA)
+  \]
+  for all $A, B \in \Mat_n(L)$.
+  
+  The map $f$ is $\GL_n(k)$-invariant if and only if $\restrict{\Phi}{\GL_n(k) \times \Mat_n(k)} = 0$ and the map $\overline{f}$ is $\GL_n(L)$-invariant if and only if $\restrict{\Phi}{\GL_n(L) \times \Mat_n(L)} = 0$.
+  Both $\GL_n(k) \subseteq \GL_n(L)$ and $\Mat_n(k) \subseteq \Mat_n(L)$ are Zariski dense over $L$, so it follows from Lemma~\ref{lemma: product of Zariski dense is again Zariski dense} that $\GL_n(k) \times \Mat_n(k) \subseteq \GL_n(L) \times \Mat_n(L)$ is Zariski dense over $L$.
+  It therefore follows from $\restrict{\Phi}{\GL_n(k) \times \Mat_n(k)} = 0$ that $\restrict{\Phi}{\GL_n(L) \times \Mat_n(L)} = 0$ showing part~a).
+  
+  By replacing $\GL_n$ by $\SL_n$ in the above argumentation we find that part~b) holds.
+\end{proof}
+
+
+\begin{proposition}[Second Zariski density property]
   Let $k$ be an infinite field and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
   Let $f \colon \Mat_n(k) \to k$ be a $\GL_n(k)$-invariant polynomial function and let $D \subseteq \Mat_n(k)$ be the subset of diagonal matrices.
   If $\restrict{f}{D} = 0$ then $f = 0$.
 \end{proposition}
 \begin{proof}
   Let $L$ be an algebraic closure of $k$ and let $\GL_n(L)$ acts on $\Mat_n(L)$ by conjugation.
-  Let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-polynomial extension of $f$ (as described in Proposition~\ref{proposition: consistent choice of identification for polynomial functions}).
+  Let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-polynomial extension of $f$ .
+  Then $\overline{f}$ is $\GL_n(L)$-invariant by Corollary~\ref{corollary: extension is again invariant}.
   
-  The map $\overline{f}$ is $\GL_n(L)$-invariant:
-  We have for all $S \in \GL_n(k)$, $A \in \Mat_n(k)$ that
-  \[
-      \overline{f}(SA)
-    = f(SA)
-    = f\left( SASS^{-1} \right)
-    = f(S.(AS))
-    = f(AS)
-    = \overline{f}(AS)  \,,
-  \]
-  and therefore $\Phi(S,A) = 0$ for the map $\Phi \colon \Mat_n(L) \times \Mat_n(L) \to L$ given by
-  \[
-      \Phi(A,B)
-    = \overline{f}(AB) - \overline{f}(BA)
-  \]
-  for all $A, B \in \Mat_n(L)$.
-  Both $\GL_n(k) \subseteq \GL_n(L)$ and $\Mat_n(k) \subseteq \Mat_n(L)$ are Zariski dense over $L$, so it follows from Lemma~\ref{lemma: product of Zariski dense is again Zariski dense} that $\GL_n(k) \times \Mat_n(k) \subseteq \GL_n(L) \times \Mat_n(L)$ is Zariski dense over $L$.
-  It thus follows from $\Phi_{\GL_n(k) \times \Mat_n(k)} = 0$ that $\Phi_{\GL_n(L) \times \Mat_n(L)} = 0$.
-  For all $S \in \GL_n(L)$, $A \in \Mat_n(L)$ we thus have that
-  \[
-      \overline{f}(S.A)
-    = \overline{f}(SAS^{-1})
-    = \overline{f}(A S^{-1} S)
-    = \overline{f}(A).
-  \]
-  This shows that $\overline{f}$ is $\GL_n(L)$-invariant.
-    
   Let $D_k \subseteq \Mat_n(k)$ and $D_L \subseteq \Mat_n(L)$ be the subsets of diagonal matrices.
   It follows from $\restrict{f}{D_k} = 0$ that $\restrict{\overline{f}}{D_k} = 0$, from which it further follows that $\restrict{\overline{f}}{D_L} = 0$ because $D_k$ is Zariski-dense in $D_L$ over $L$ by Corollary~\ref{corollary: kn is Zariski dense in Ln}.
   It follows by Corollary~\ref{corollary: diagonal matrices dense alg closed} that $\overline{f} = 0$ and therefore that $f = 0$.
 \end{proof}
+
+
+\begin{proposition}
+  Let $\GL_n(k), \SL_n(k)$ act on $\Mat_n(k)$ by conjugation.
+  Then
+  \[
+      \mc{P}(\Mat_n(k))^{\GL_n(k)}
+    = \mc{P}(\Mat_n(k))^{\SL_n(k)} \,.
+  \]
+\end{proposition}
+
+
+\begin{proof}
+  Suppose that $k$ is algebraically closed.
+  If $A, B$ are $\GL_n(k)$-conjugated then they are already $\SL_n(k)$-conjugated because for $S \in \GL_n(k)$ with $S A S^{-1} = B$ there exists some $\omega \in k$ with $\omega^n = 1/\det(S)$, and for $T \defined S/\omega \in \SL_n(k)$ we then have that $T A T^{-1}$.
+  It follows that the actions of $\GL_n(k)$ and $\SL_n(k)$ on $\Mat_n(k)$ have the same orbits, which proves the claim in this case.
+  
+  Let $k$ be any infinite field.
+  We need to show that every $\SL_n(k)$-invariant polynomial map $f \colon \Mat_n(k) \to k$ is already $\GL_n(k)$-invariant.
+  Let $L$ be an algebraic closure of $k$ and let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-linear extension of $f$.
+  Then $\overline{f}$ is $\SL_n(L)$-invariant by Corollary~\ref{corollary: extension is again invariant}.
+  Then $\overline{f}$ is already $\GL_n(L)$-invariant by the above argumentation.
+  It then follows that the restriction of $f$ to $\Mat_n(k)$, which is precisely $f$, is $\GL_n(k)$-invariant.
+\end{proof}
+
+
 
 
 \noindent\hrulefill \, Current progress of reworking these notes. \hrulefill
