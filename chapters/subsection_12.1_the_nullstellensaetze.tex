@@ -2,7 +2,7 @@
 
 
 \begin{fluff}
-  We can associate to every subset $X \subseteq V$ its vanishing ideal $\mc{I}(X) \idealeq \mc{P}(V)$, and to every ideal $I \idealeq \mc{P}(V)$ its vanishing set $\mc{V}(I) \subseteq V$, resulting in maps $\mc{I}, \mc{V}$.
+  We can associate to every subset $X \subseteq V$ its vanishing ideal $\mc{I}(X) \idealeq \mc{P}(V)$, and to every ideal $I \idealeq \mc{P}(V)$ its vanishing set $\mc{V}(I) \subseteq V$, resulting in maps $\mc{I}, \mc{V}$ as follows:
   \[
     \begin{tikzcd}
         \{ \text{subsets $X \subseteq V$} \}
@@ -11,8 +11,8 @@
         \arrow[shift left]{l}[below]{\mc{V}}
     \end{tikzcd}
   \]
-  In general the maps $\mc{I}, \mc{V}$ will be neither injective nor surjective.
-  But we will see in this section that when we restrict our attention to suitable classes of subsets $X \subseteq V$ and ideals $I \idealeq \mc{P}(V)$ the maps $\mc{V}$ and $\mc{I}$ not only restrict to bijections, but that they become inverse to each other.
+  In general the maps $\mc{I}, \mc{V}$ will neither be injective nor surjective.
+  But we will see in this subsection that when we restrict our attention to suitable classes (or rather sets) of subsets $X \subseteq V$ and ideals $I \idealeq \mc{P}(V)$ the maps $\mc{V}$ and $\mc{I}$ not only restrict to bijections, but that they become inverse to each other.
 \end{fluff}
 
 
@@ -31,18 +31,22 @@
 \end{proof}
 
 
-\begin{corollary}
-  \label{corollary: properties of V and I}
-  Let $X \subseteq V$ be a subset and $I \idealeq \mc{P}(V)$ an ideal.
+\begin{lemma}
+  \label{lemma: properties of V and I}
+  Let $X \subseteq V$ be a subset and let $I \idealeq \mc{P}(V)$ be an ideal.
   Then
   \begin{enumerate}
     \item
+      \label{enumerate: VI is monotone}
       $X \subseteq \mc{V}(\mc{I}(X))$,
     \item
+      \label{enumerate: IV is monotone}
       $I \subseteq \mc{I}(\mc{V}(I))$,
     \item
+      \label{enumerate: IVI = I}
       $\mc{I}(\mc{V}(\mc{I}(X))) = \mc{I}(X)$,
     \item
+      \label{enumerate: VIV = V}
       $\mc{V}(\mc{I}(\mc{V}(I))) = \mc{V}(I)$.
   \end{enumerate}
 %   and the two compositions
@@ -56,27 +60,27 @@
 %     \to     \{ \text{ideals $X \subseteq \mc{P}(V)$} \}
 %   \end{gather*}
 %   are idempotent.
-\end{corollary}
+\end{lemma}
 
 
 \begin{proof}
   \leavevmode
   \begin{enumerate}
     \item
-      This follows from $\mc{I}(X) \supseteq \mc{I}(X)$ by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets}.
+      This is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $\mc{I}(X) \supseteq \mc{I}(X)$ .
     \item
-      This follows from $\mc{V}(I) \subseteq \mc{V}(I)$ by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets}.
+      This is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $\mc{V}(I) \subseteq \mc{V}(I)$.
     \item
-      We have that $\mc{I}(X) \subseteq \mc{I}(\mc{V}(\mc{I}(X)))$ by part b) of this corollary.
-      The inclusion $\mc{I}(X) \supseteq \mc{I}(\mc{V}(\mc{I}(X)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $X \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X))))$, which follows from part a) of this corollary because
+      That $\mc{I}(X) \subseteq \mc{I}(\mc{V}(\mc{I}(X)))$ follows from part~\ref*{enumerate: IV is monotone}.
+      The inclusion $\mc{I}(X) \supseteq \mc{I}(\mc{V}(\mc{I}(X)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $X \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X))))$, which follows from part~\ref*{enumerate: VI is monotone} because
       \[
                   X
         \subseteq \mc{V}(\mc{I}(X))
         \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X)))) \,.
       \]
     \item
-      We have that $\mc{V}(I) \subseteq \mc{V}(\mc{I}(\mc{V}(I)))$ by part a) of this corollary.
-      The inlusion $\mc{V}(I) \supseteq \mc{V}(\mc{I}(\mc{V}(I)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $I \subseteq \mc{I}(\mc{V}(\mc{I}(\mc{V}(I))))$, which follows from part b) of this corollary because
+      That $\mc{V}(I) \subseteq \mc{V}(\mc{I}(\mc{V}(I)))$ follows from part~\ref*{enumerate: VI is monotone}.
+      The inlusion $\mc{V}(I) \supseteq \mc{V}(\mc{I}(\mc{V}(I)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $I \subseteq \mc{I}(\mc{V}(\mc{I}(\mc{V}(I))))$, which follows from part~\ref*{enumerate: IV is monotone} because
       \[
                   I
         \subseteq \mc{I}(\mc{V}(I))
@@ -88,13 +92,13 @@
 
 
 \begin{definition}
-  An ideal $I \idealeq \mc{P}(V)$ is a \emph{vanishing ideal} if it is the vanishing ideal of some subset $X \subseteq V$ (see Definition~\ref{definition: vanishing ideal}).
+  An ideal $I \idealeq \mc{P}(V)$ is a \emph{vanishing ideal} if it is the vanishing ideal of some subset $X \subseteq V$.
 \end{definition}
 
 
 \begin{corollary}
   \label{corollary: bijection induced by Galois correspondence}
-  The maps $\mc{I}$ and $\mc{V}$ restrict to mutually inverse bijections
+  The maps $\mc{I}$, $\mc{V}$ restrict to the following mutually inverse bijections:
   \[
     \begin{matrix}
         \left\{
@@ -128,26 +132,37 @@
 \end{corollary}
 
 
+\begin{proof}
+  The two identities are just reformulations of parts \ref*{enumerate: IVI = I}, \ref*{enumerate: VIV = V} of Lemma~\ref{lemma: properties of V and I}.
+\end{proof}
+
+
 \begin{lemma}
   \label{lemma: correspence between points and vanishing maximal ideals}
-  An ideal $\mf{m} \idealeq \mc{P}(V)$ is both a maximal ideal and a vanishing ideal if and only if it of the form $\mf{m} = \mf{m}_a$ for some $a \in V$.
+  An ideal $\mf{m} \idealeq \mc{P}(V)$ is of the form $\mf{m} = \mf{m}_a$ for some $a \in V$ if and only if it is both a maximal ideal and a vanishing ideal.
 \end{lemma}
 
 
 \begin{proof}
-  The ideal $\mf{m}_a$ is maximal and a vanishing ideal because $\mf{m} = \mc{I}(\{a\})$.
+  The ideal $\mf{m}_a$ is maximal and it is a vanishing ideal because $\mf{m} = \mc{I}(a)$.
   
   Suppose on the other hand that $\mf{m}$ is both a maximal ideal and a vanishing ideal.
   Then $\mc{I}(\mc{V}(\mf{m})) = \mf{m}$ by Corollary~\ref{corollary: bijection induced by Galois correspondence} because $\mf{m}$ is a vanishing ideal.
   It then follows that $\mc{V}(\mf{m}) \neq \emptyset$ because otherwise $\mf{m} = \mc{I}(\emptyset) = \mc{P}(V)$, which contradicts $\mf{m}$ being a proper ideal.
   It follows that there exists some $a \in \mc{V}(\mf{m})$.
-  Then $\mf{m} = \mc{I}(\mc{V}(\mf{m})) \supseteq \mf{m} = \mf{m}_a$ and it follows that $\mf{m} = \mf{a}$ because both $\mf{m}$ and $\mf{m}_a$ are maximal.
+  Then
+  \[
+              \mf{m}
+    =         \mc{I}(\mc{V}(\mf{m}))
+    \subseteq \mc{I}(a)
+    =         \mf{m}_a
+  \]
+  and it follows that $\mf{m} = \mf{m}_a$ because both $\mf{m}$ and $\mf{m}_a$ are maximal.
 \end{proof}
 
 \begin{corollary}
   \label{corollary: general correspondence for algebraic subsets and points}
-  Let $k$ be algebraically closed.
-  Then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
+  The maps $\mc{I}, \mc{V}$ restrict to the following mutually inverse bijections:
   \[
     \begin{matrix}
         \left\{
@@ -205,14 +220,14 @@
 
 
 \begin{proof}
-  This follows from Corollary~\ref{corollary: bijection induced by Galois correspondence} because vanishing ideals which correspond to points $a \in V$ are precisely the vanishing ideals which are maximal by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals}.
+  This follows from Corollary~\ref{corollary: bijection induced by Galois correspondence} because by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals} the vanishing ideals which correspond to points $a \in V$ are precisely the vanishing ideals which are also maximal.
 \end{proof}
 
 
 \begin{remark}[Galois connections]
-  We will use this opportunity to introduce the reader to the notation of \emph{Galois connections}.
+  We will use this opportunity to introduce the notion of a \emph{Galois connections}, although we will not use it in the rest of the text.
   Let $(A,\leq)$, $(B, \leq)$ be two partially ordered sets.
-  \begin{itemize}
+  \begin{enumerate}
     \item
       An \emph{antitone Galois connection} consists of two functions $f \colon A \to B$, $g \colon B \to A$ which are order-reversing, i.e.\ $f(a) \geq f(a')$ for all $a \leq a'$ and $g(b) \geq g(b')$ for all $b \leq b'$, such that
       \begin{equation}
@@ -226,19 +241,23 @@
               a \leq g(b)
         \iff  b \leq f(a) \,.
       \]
-      Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} state that $\mc{I}, \mc{V}$ form a Galois connection (between suitable sets).
-      Corollary~\ref{corollary: properties of V and I} then generalizes to
-      \begin{enumerate}
+      Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} states that $\mc{I}, \mc{V}$ form a Galois connection (between suitable sets).
+      Lemma~\ref{lemma: properties of V and I} generalizes for an arbitrary Galois connection to
+      \begin{enumerate}[label = \alph*')]
         \item
+          \label{enumerate: gf is monotone}
           $a \leq g(f(a))$ for every $a \in A$,
         \item
+          \label{enumerate: fg is monotone}
           $b \leq f(g(b))$ for every $b \in B$,
         \item
+          \label{enumerate: fgf = f}
           $f(g(f(a))) = f(a)$ for every $a \in A$,
         \item
+          \label{enumerate: gfg = g}
           $g(f(g(b))) = g(b)$ for every $b \in B$,
       \end{enumerate}
-      and Corollary~\ref{corollary: bijection induced by Galois correspondence} generalizes to $f, g$ restricting to mutually inverse order-reversing bijections between the subsets
+      and Corollary~\ref{corollary: bijection induced by Galois correspondence} generalizes to $f, g$ restricting to mutually inverse order-re\-ver\-sing bijections between the sets
       \[
         \{ f(a) \suchthat a \in A \}
         \qquad\text{and}\qquad
@@ -255,7 +274,7 @@
         \end{tikzcd}
       \]
     \item
-      Instead of \emph{antitone} Galois connections, one can also consider \emph{monotone} Galois connection.
+      Instead of \emph{antitone} Galois connections, one can also consider \emph{monotone} Galois connections.
       The conditition of $f, g$ being order-reversing is then replaced by the requirement of $f, g$ being order-preserving, i.e.\ monotone, and the conditition~\eqref{equation: antitone galois connection} is adjusted to
       \[
               a \leq g(b)
@@ -263,12 +282,12 @@
       \]
       Note that this requirement is not symmetric in $f$ and $g$:
       If $((A, \leq), (B, \leq), f, g)$ is a monotone Galois connection then $((B, \leq), (A, \leq), g, f)$ is not necessarily a monotone Galois connection.
-      This non-symmetry is reflected in the fact that $f$ is referred to as the \emph{left adjoint} and $g$ is referred to as the \emph{right adjoint} of the (monotone) Galois connection.
-      The consequences a), c), d) still hold, but b) has to be replaced by
+      This non-symmetry is reflected in the fact that $f$ is referred to as the \emph{left adjoint} and $g$ is referred to as the \emph{right adjoint} of this (monotone) Galois connection.
+      The consequences \ref*{enumerate: gf is monotone}, \ref*{enumerate: fgf = f}, \ref*{enumerate: gfg = g} still hold, but \ref*{enumerate: fg is monotone} has to be replaced by
       \[
         f(g(b)) \leq b \,.
       \]
-      The maps $f, g$ still restrict to bijections as above.
+      The maps $f, g$ still restrict to mutually inverse bijections as above.
       One may visualize a monotone Galois connection with left adjoint $f$ and right adjoint $g$ as follows:
       \[
         \begin{tikzcd}
@@ -318,20 +337,16 @@
           The only isomorphisms in $\mc{A}, \mc{B}$ are the identies (by the anti-symmetry of $\leq$) so it follows that $F$ is uniquely determined by $G$ and vice versa.
           It follows that in a Galois connection $f,g$ the map $f$ is uniquely determined by $g$ and vice versa.
           
-          Let’s be more precise:
-          Suppose that $f, g$ is a monotone Galois connection with $f$ left adjoint to $g$, so that $F$ is left adjoint to $G$.
-          % TODO: Finish writing this part.
-          
         \item
-          If $f, g$ forms a monotone adjoint Galois connection, so that $F$ is left adjoint to $G$, then $F$ preserves colimits and $G$ preserves limits.
-          It follows in particular that $F$ preserves coproducts while $G$ preserves limits.
+          If $f, g$ form a monotone adjoint Galois connection with $f$ left adjoint to $g$ then $F$ is left adjoint to $G$ and it follows that $F$ preserves colimits and $G$ preserves limits.
+          It follows in particular that $F$ preserves coproducts while $G$ preserves products.
           Coproducts in $\mc{A}$ are just suprema in $(A, \leq)$, and products in $\mc{B}$ are just infima in $(B, \leq)$.
           It thus follows that $f$ preserves suprema while $g$ preserves infima.
           
-          If $f,g$ forms an antitone Galois connection than $f,g$ forms a monotone Galois connection between $(A,\leq)$ and $(B,\leq^\op)$.
-          It then follows from the above that $f$ and $g$ turn suprema into infima.
+          If $f,g$ form an antitone Galois connection between $(A, \leq)$ and $(B, \leq)$ then $f,g$ form a monotone Galois connection between $(A,\leq)$ and $(B,\leq^\op)$.
+          It then follows from the above that both $f$ and $g$ turn suprema into infima.
           
-          For $\mc{I}, \mc{V}$ this means that
+          For the maps $\mc{I}, \mc{V}$ this means that
           \[
               \mc{I}\left( \bigcup_{i \in I} X_i \right)
             = \bigcap_{i \in I} \mc{I}(X_i)
@@ -343,7 +358,7 @@
           \]
           for every family $(I_j)_{j \in J}$ of ideal $I_j \idealeq \mc{P}(V)$, which we will see in Lemma~\ref{lemma: intersections and unions of Zariski closed sets}.
       \end{itemize}
-  \end{itemize}
+  \end{enumerate}
 \end{remark}
 
 
@@ -357,9 +372,11 @@
     \subseteq \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
   \]
   such that the maps $\mc{I}, \mc{V}$ restrict to bijections $A \to B$ and $B \to A$.
-  Then $A$ needs to be contained in the image of $\mc{V}$, and $B$ to be contained in the image of $\mc{I}$.
+  Then $A$ needs to be contained in the image of $\mc{V}$ while $B$ needs to be contained in the image of $\mc{I}$.
   It then follows that the bijections $A \to B$ and $B \to A$ are just restrictions of the mutually bijections from Corollary~\ref{corollary: bijection induced by Galois correspondence}.
-  The $1$:$1$-correspondence given in Corollary~\ref{corollary: bijection induced by Galois correspondence} between subsets of $V$ and ideals in $\mc{P}(V)$ via $\mc{I}, \mc{I}$ is therefore the most general one -- all others are just restrictions of this one.
+  
+  The $1$:$1$-correspondence given by Corollary~\ref{corollary: bijection induced by Galois correspondence} is therefore the most general $1$:$1$-correspondence which can be constructed between subsets of $V$ and ideal in $\mc{P}(V)$ by using the maps $\mc{V}, \mc{I}$.
+  All other such correspondences must be restrictions of the one given by Corollary~\ref{corollary: bijection induced by Galois correspondence}.
   
   To better Corollary~\ref{corollary: bijection induced by Galois correspondence} we want to determine which kind of ideals can occur as vanishing ideals.
   We will show in the rest of this section that the vanishing ideals are precisely the radical ideals when $k$ is algebraically closed.
@@ -370,7 +387,7 @@
   Let $R$ be a commutative ring.
   \begin{enumerate}
     \item
-      An ideal $I \idealeq R$ is a \emph{radical ideal} of for all $x \in R$, $n \geq 0$ it follows from $x^n \in I$ that $x \in I$.
+      An ideal $I \idealeq R$ is a \emph{radical ideal} if for all $x \in R$, $n \geq 0$ it follows from $x^n \in I$ that $x \in I$.
     \item
       The \emph{radical} of an ideal $I \idealeq R$ is
       \[
@@ -385,14 +402,32 @@
 \end{definition}
 
 
-\begin{remark}
-  If $R$ is a commutative ring, then an ideal $I \idealeq R$ is radical if and only if the quotient $R/I$ is reduced, i.e.\ has no nonzero nilpotent elements.
-\end{remark}
+\begin{lemma}
+  Let $R$ be a commutative ring and let $I \idealeq R$ be an ideal.
+  Then $I$ is radical if and only if the ring $R/I$ is reduced, i.e.\ has no non-zero commutative elements.
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+        &\, \text{$R/I$ is reduced} \\
+    \iff&\, \forall x \in R/I : (\text{$x^n = 0$ for some $n \geq 0$} \implies x = 0) \\
+    \iff&\, \forall x \in R   : (\text{$\overline{x}^n = 0$ for some $n \geq 0$} \implies \overline{x} = 0) \\
+    \iff&\, \forall x \in R   : (\text{$x^n \in I$ for some $n \geq 0$} \implies x \in I) \\
+    \iff&\, \text{the ideal $I$ is radical} \,.
+  \end{align*}
+  This proves the claim.
+\end{proof}
 
 
 \begin{example}
   Let $R$ be a commutative ring.
   \begin{enumerate}
+    \item
+      The unit ideal $(1) = R$ is always radical.
+    \item
+      The zero ideal $0$ is radical if and only if $R = R/0$ is reduced.
     \item
       Every prime ideal $\mf{p} \idealneq R$ is a radical ideal:
       
@@ -400,16 +435,17 @@
       
       Alternatively we can observe that $R/\mf{p}$ is an integral domain and is therefore reduced.
     \item
-      It can be shown that radical ideals are precisely the intersections of prime ideals.
+      It can conversely be shown that every radical ideal is an intersection of prime ideals.
   \end{enumerate}
 \end{example}
-
+% TODO: More examples.
 
 
 \begin{lemma}
   Let $R$ be a commutative ring and let $I \idealeq R$ be an ideal. 
   \begin{enumerate}
     \item
+      \label{enumerate: radicals are radical}
       The radical $\rad{I}$ is a radical ideal in $R$.
     \item
       The radical $\rad{I}$ is the smallest radical ideal which contains $I$.
@@ -417,10 +453,13 @@
       For an ideal $J \idealeq R$ the following conditions are equivalent:
       \begin{enumerate}
         \item
+          \label{enumerate: J is radical}
           The ideal $J$ is radical.
         \item
+          \label{enumerate: J is some radical}
           There exists some ideal $I \idealeq R$ with $J = \rad{I}$.
         \item
+          \label{enumerate: J is its own radical}
           The ideal $J$ satisfies $J = \rad{J}$.
       \end{enumerate}
   \end{enumerate}
@@ -431,14 +470,14 @@
     \item
       We have that $0 \in \rad{I}$ because $0^1 = 0 \in I$.
       
-      For $f, g \in \rad{I}$ there exist $n, m \geq 0$ with $f^n, g^m \in I$ and thus $f^r, g^s \in I$ for all $r \geq n$ and $s \geq m$.
+      For $f, g \in \rad{I}$ there exist $n, m \geq 0$ with $f^n, g^m \in I$ and thus $f^s, g^t \in I$ for all $s \geq n, t \geq m$.
       It follows that
       \[
             (f + g)^{n+m}
-        =   \sum_{k=0}^{n+m} \binom{n+m}{k} f^k g^{n+m-k}
+        =   \sum_{\ell=0}^{n+m} \binom{n+m}{\ell} f^\ell g^{n+m-\ell}
         \in I
       \]
-      because for all $i = 0, \dotsc, n+m$ we have that $n+m-k \geq s$ or $k \geq r$.
+      because for all $i = 0, \dotsc, n+m$ we have that $\ell \geq n$ or $n+m-\ell \geq m$.
       This shows that also $f + g \in \rad{I}$.
       
       For $f \in \rad{I}$ there exists some $n \geq 0$ such that $f^n \in I$.
@@ -451,17 +490,18 @@
       and thus $rf \in \rad I$.
       
       For $x \in R$ with $x^n \in \rad{I}$ for some $n \geq 0$ there exists some $m \geq 0$ with $r^{mn} = (r^n)^m \in I$.
-      Then $x \in \rad{I}$, showing that the ideal $\rad{I}$ is radical.
+      It then follows that $x \in \rad{I}$.
+      This shows that the ideal $\rad{I}$ is radical.
     \item
-      We have that $I \subseteq \rad{I}$ because $x = x^1 \in I$ for every $x \in I$, and every radical ideal $J \idealeq R$ which contains $I$ must also contain $\rad{I}$.
+      We have that $I \subseteq \rad{I}$ because $x = x^1 \in I$ for every $x \in I$, and every radical ideal $J \idealeq R$ which contains $I$ must also contain the elements of $\rad{I}$.
     \item
       \begin{description}
-        \item[1) $\implies$ 3):]
-          Then the smallest radical ideal containing $J$ is just $J$ itself, so $J = \rad{J}$.
-        \item[3) $\implies$ 2):]
+        \item[\ref*{enumerate: J is radical} $\implies$ \ref*{enumerate: J is its own radical}:]
+          The smallest radical ideal containing $J$ is just $J$ itself, so $J = \rad{J}$.
+        \item[\ref*{enumerate: J is its own radical} $\implies$ \ref*{enumerate: J is some radical}:]
           Choose $I = J$.
-        \item[2) $\implies$ 1):]
-          This follows from part a) of this lemma.
+        \item[\ref*{enumerate: J is some radical} $\implies$ \ref*{enumerate: J is radical}:]
+          This follows from part~\ref*{enumerate: radicals are radical}.
         \qedhere
       \end{description}
   \end{enumerate}
@@ -482,20 +522,21 @@
 
 \begin{fluff}
   We will now show that the converse of Lemma~\ref{lemma: vanishing ideals are radical} holds if $k$ is algebraically closed.
-  This will then answer our question which ideals $I \idealeq \mc{P}(V)$ can occur as $I(X)$ for some subset $X \subseteq V$.
+  This will then answer our question which ideals $I \idealeq \mc{P}(V)$ are vanishing ideals:
+  It is precisely the radical ideals.
   
   We proceed in three steps, each of which resulting in some kind of Nullstellensatz:
   We start off the weak Nullstellensatz, from which we then conclude the Nullstellensatz.
   By using the Rabinowitsch trick we then show the strong Nullstellensatz.
   
-  To show the weak Nullstellensatz we will need a results from commutative algebra, namely Zariski’s Lemma (Corollary~\ref{corollary: finitely generated field extensions are finite}).
+  To show the weak Nullstellensatz we will need a results from commutative algebra, namely Zariski’s lemma (Corollary~\ref{corollary: finitely generated field extensions are finite}).
 \end{fluff}
 
 
 \begin{theorem}[Weak Nullstellensatz]
   \label{theorem: weak nullstellensatz}
   Let $k$ be algebraically closed.
-  For every maxmial ideal \mbox{$\mf{m} \subseteq k[X_1, \dotsc, X_n]$} we have that
+  Then every maximal ideal $\mf{m} \subseteq k[X_1, \dotsc, X_n]$ is of the form
   \[
       \mf{m}
     = ( (X_1 - a_1), \dotsc, (X_n - a_n) )
@@ -507,8 +548,8 @@
 
 \begin{proof}
   Let $R \defined k[X_1, \dotsc, X_n]$.
-  The quotient $L \defined R/\mf{m}$ is a field because the ideal $\mf{m}$ is maximal, and $L$ is finitely generated as a $k$-algebra because $R$ is a finitely generated $k$-algebra.
-  It follows from \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma} that the field extension $L/k$ is finite
+  The quotient $L \defined R/\mf{m}$ is a field because the ideal $\mf{m}$ is maximal and $L$ is finitely generated as a $k$-algebra because $R$ is a finitely generated $k$-algebra.
+  It follows from \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s lemma} that the field extension $L/k$ is finite
   It follows that $L = k$ because $k$ is algebraically closed.
   
   Let $a_i \defined \overline{X_i} \in L$ for every $i = 1, \dotsc, n$.
@@ -517,17 +558,17 @@
 \end{proof}
 
 
-\begin{corollary}(Nullstellensatz)
-  \label{corollary: nullstellensatz}
+\begin{theorem}(Nullstellensatz)
+  \label{theorem: nullstellensatz}
   Let $k$ be an algebraically closed field.
   For every proper ideal $I \idealneq k[X_1, \dotsc, X_n]$ we have that $\mc{V}(I) \neq \emptyset$.
-\end{corollary}
+\end{theorem}
 
 
 \begin{proof}
   There exists a maximal ideal $\mf{m} \idealneq k[X_1, \dotsc, X_n]$ with $I \subseteq \mf{m}$ because $I$ is a proper ideal.
   By the weak Nullstellensatz we have that $\mf{m} = \mf{m}_a$ for some $a \in k^n$.
-  For every $f \in I \subseteq \mf{m}_a$ we therefore have that $f(a) = 0$, and thus $a \in \mc{V}(I)$.
+  We then have that $\{a\} = \mc{V}(\mf{m}_a) \subseteq \mc{V}(I)$.
 \end{proof}
 
 
@@ -536,29 +577,36 @@
   \leavevmode
   \begin{enumerate}
     \item
+      \label{enumerate: WNS follows from NS}
       The weak Nullstellensatz follows from the Nullstellensatz:
-      
       If $\mf{m} \idealneq k[X_1, \dotsc, X_n]$ is a maximal ideal then $\mf{m}$ is in particular a proper ideal, so by the Nullstellensatz there exists some $a \in k^n$ with $a \in \mc{V}(\mf{m})$.
-      Then $f(a) = 0$ for every $f \in \mf{m}$ and thus $\mf{m} \subseteq \mf{m}_a$.
-      Since both $\mf{m}$ and $\mf{m}_a$ are maximal ideals it follows that $\mf{m} = \mf{m}_a$.
+      It follows that
+      \[
+                  \mf{m}
+        \subseteq \mc{I}(\mc{V}(\mf{m}))
+        \subseteq \mc{I}(a)
+        =         \mf{m}_a
+      \]
+      and thus $\mf{m} = \mf{m}_a$ because both $\mf{m}, \mf{m}_a$ are maximal.
       
       The weak Nullstellensatz and Nullstellensatz are therefore equivalent.
     \item
       For the case $n = 1$ both the weak Nullstellensatz and the Nullstellensatz become a well-known characterization of algebraically closed fields:
       \begin{itemize}
         \item
-          The maximal ideals of $k[X]$ are precisely the ideals of the form $(f)$ with $f \in k[X]$ irreducible, because $k[X]$ is a principal ideal domain;
-          the irreducible polynomial is unique if we require it to be monic.
+          The maximal ideals of $k[X]$ are precisely the ideals of the form $(f)$ with $f \in k[X]$ irreducible because $k[X]$ is a principal ideal domain;
+          the irreducible polynomial $f$ is unique if we require it to be monic.
           The weak Nullstellensatz therefore states for $n = 1$ that the irreducible monic polynomials in $k[X]$ are precisely the polynomials $X - a$ with $a \in k$.
         \item
-          The proper ideal in $k[X]$ are precisely the ideals of the form $(f)$ with $f \in k[X]$ being eithor non-constant or $f = 0$.
-          The Nullstellensatz therefore states for $n = 1$ that every non-constant non-zero polynomial $f \in k[x]$ has a root.
+          The proper ideal in $k[X]$ are precisely the ideals of the form $(f)$ with $f \in k[X]$ with $f = 0$ or $f$ being non-constant.
+          The Nullstellensatz therefore states for $n = 1$ that the only polynomials $f \in k[x]$ with no roots are the non-zero constant ones.
       \end{itemize}
-      This also shows that the (weak) Nullstellensatz holds only if $k$ is algebraically closed.
+      This also shows that both Nullstellensätze hold only if $k$ is algebraically closed.
       
       Consider for example the case $k = \Real$ and $n = 1$.
       Then the ideal $(X^2 + 1) \idealeq \Real[X]$ is maximal but not of the form $X - a$ for some $a \in \Real$, and $\mc{V}((X^2 + 1)) = \emptyset$.
     \item
+      \label{enumerate: partition of unity formulation of NS}
       The Nullstellensatz states that for all polynomials $f_1, \dotsc, f_s \in k[X_1, \dotsc, X_n]$ precisely one the following two things occurs:
       \begin{itemize}
         \item
@@ -570,36 +618,35 @@
 \end{remark}
 
 
-\begin{corollary}[Strong Nullstellensatz]
-  \label{corollary: strong nullstellensatz}
+\begin{theorem}[Strong Nullstellensatz]
+  \label{theorem: strong nullstellensatz}
   If $k$ is algebraically closed then
   \[
       \mc{I}(\mc{V}(I))
     = \rad{I}
   \]
   for every ideal $I \idealeq k[X_1, \dotsc, X_n]$.
-\end{corollary}
+\end{theorem}
 \begin{proof}
-  The ideal $\mc{I}(\mc{V}(I))$ is radical by Lemma~\ref{lemma: vanishing ideals are radical}, and contains $I$ by Corollary~\ref{corollary: properties of V and I}, so it follows that $\rad{I} \subseteq \mc{I}(\mc{V}(I))$.
+  The ideal $\mc{I}(\mc{V}(I))$ is radical by Lemma~\ref{lemma: vanishing ideals are radical} and contains $I$ by Lemma~\ref{lemma: properties of V and I} so it follows that $\rad{I} \subseteq \mc{I}(\mc{V}(I))$.
   
   To show the other inclusion let $h \in \mc{I}(\mc{V}(I))$.
   We need to show that $h^m \in I$ for some $m \geq 0$.
   For $h = 0$ this is clear, so we assume that $h \neq 0$.
-  
   Let $f_1, \dotsc, f_s \in I$ with $I = (f_1, \dotsc, f_s)$;
   such $f_i$ exist because  $k[X_1, \dotsc, X_n]$ is noetherian.
   
   We use the \emph{Rabinowitsch trick}:
-  We adjoint a new variable $Y$ to $k[X_1, \dotsc, X_n]$ and get $k[X_1, \dotsc, X_n, Y]$.
-  We may regard $k[X_1, \dotsc, X_n]$ as a subring of $k[X_1, \dotsc, X_n, Y]$, and therefore evaluate the polynomials $f \in k[X_1, \dotsc, X_n]$ at points $x \in k^{n+1}$.
-  If $f_i(x) = 0$ for every $1 \leq i \leq s$ then $h(x) = 0$, so it follows that the polynomials $f_1, \dotsc, f_s, 1 - h Y$ have no common zeros.
+  We adjoin a new variable $Y$ to $k[X_1, \dotsc, X_n]$ and get $k[X_1, \dotsc, X_n, Y]$.
+  Then $k[X_1, \dotsc, X_n]$ as a subring of $k[X_1, \dotsc, X_n, Y]$ so we can evaluate the polynomials $f \in k[X_1, \dotsc, X_n]$ at points $x \in k^{n+1}$.
+  If $f_i(x) = 0$ for every $1 \leq i \leq s$ then $h(x) = 0$ which shows that the polynomials $f_1, \dotsc, f_s, 1 - h Y$ have no common zeros.
   
   It follows from the Nullstellensatz (see Remark~\ref{remark: (weak) nullstellensatz}) that there exist coefficients $p_1 \ldots, p_s, q \in k[X_1, \dotsc, X_n, Y]$ with
   \[
       1
-    = p_0 (1 - X_0 h) + p_1 f_1 + \dotsb + p_s f_s \,.
+    = p_0 (1 - Y h) + p_1 f_1 + \dotsb + p_s f_s \,.
   \]
-  We can consider this as an identity in $k(X_1, \dotsc, X_n, Y)$ and replace $X_0$ by $1/h$, resulting in the equality
+  We can consider this as an identity in $k(X_1, \dotsc, X_n, Y)$ and replace $Y$ by $1/h$, resulting in the equality
   \[
       1
     =   p_1 \left(X_1, \dotsc, X_n, \frac{1}{h} \right) f_1
@@ -612,7 +659,7 @@
     =   q_1 f_1 + \dotsb + q_s f_s
     \in I
   \]
-  for some polynomials $q_1, \dotsc, q_s \in k[X_1, \dotsc, X_n]$.
+  for some $m \geq 0$ and polynomials $q_1, \dotsc, q_s \in k[X_1, \dotsc, X_n]$.
 \end{proof}
 
 
@@ -638,9 +685,12 @@
   If $I \idealneq k[X_1, \dotsc, X_n]$ is a proper ideal with $\mc{V}(I) = \emptyset$ then $\rad{I} = \mc{I}(\mc{V}(I)) = \mc{I}(\emptyset) = (1)$ and thus $1 \in \rad{I}$.
   But then $1^m \in I$ for some $m \geq 0$ and thus $1 \in I$, which contradicts $I$ being a proper ideal.
   
-  Together with part a) of Remark~\ref{remark: (weak) nullstellensatz} this shows that all three forms of the Nullstellensatz are equivalent.
-  There are also other equivalent theorems which are commonly known as \enquote{the Nullstellensatz}, but which we will not encounter here.
+  Together with part~\ref*{enumerate: WNS follows from NS} of Remark~\ref{remark: (weak) nullstellensatz} this shows that all three forms of the Nullstellensatz are equivalent.
+  There are also other equivalent theorems which are commonly known as \enquote{the Nullstellensatz}, but we will not encounter them here.
 \end{remark}
+
+
+% TODO: Give a more geometric interpretation of the proof once I know how.
 
 
 \begin{corollary}
@@ -649,13 +699,15 @@
 \end{corollary}
 
 
-% TODO: Give a more geometric interpretation of the proof once the Zariski topology is established.
+\begin{proof}
+  Every vanishing ideal is a radical ideal by Lemma~\ref{lemma: vanishing ideals are radical}, and every radical ideal is a vanishing ideal by the \hyperref[theorem: strong nullstellensatz]{strong Nullstellensatz}.
+\end{proof}
 
 
 \begin{corollary}
   \label{corollary: algebraically closed correspondence for algebraic subsets and points}
   Let $k$ be algebraically closed.
-  Then the maps $\mc{I}, \mc{V}$ restrict to mutually inverse bijections as follows:
+  Then the maps $\mc{I}, \mc{V}$ restrict to the following mutually inverse bijections:
   \[
     \begin{matrix}
         \left\{
@@ -712,12 +764,12 @@
 
 
 \begin{proof}
-  In the diagram of Corollary~\ref{corollary: general correspondence for algebraic subsets and points} we can replace \enquote{vanishing ideals} by \enquote{radical ideals} by Corollary~\ref{corollary: vanishing ideals are precisely radical ideals}, and we can replace \enquote{vanishing ideals [\dots] which is maximal} first by \enquote{radical ideals [\dots] which are maximal} and then by \enquote{maximal ideal} because every maximal ideal is a radical ideal (because it is prime).
+  In the diagram of Corollary~\ref{corollary: general correspondence for algebraic subsets and points} we can replace \enquote{vanishing ideals} by \enquote{radical ideals} by Corollary~\ref{corollary: vanishing ideals are precisely radical ideals}, and we can replace \enquote{vanishing ideals [\dots] which are maximal} first by \enquote{radical ideals [\dots] which are maximal} and then by \enquote{maximal ideal} because every maximal ideal is already a radical ideal (because it is prime).
 \end{proof}
 
 
 \begin{remark}
-  It follows from part d) of Corollary~\ref{corollary: properties of V and I} that the composition
+  It follows from part~\ref*{enumerate: VIV = V} of Lemma~\ref{lemma: properties of V and I} that the composition
   \[
             \mc{I} \circ \mc{V}
     \colon  \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
@@ -725,7 +777,7 @@
   \]
   is idempotent and monotone with $I \subseteq (\mc{I} \circ \mc{V})(I)$ for all $I \idealeq \mc{P}(V)$.
   The composition $\mc{I} \circ \mc{V}$ is therefore a closure operator.
-  If $k$ is algebraically closed then this section shows that $\mc{I} \circ \mc{V}$ is the radical-operator $\rad{\phantom{I}}$.
+  If $k$ is algebraically closed then we have shown in this section that $\mc{I} \circ \mc{V}$ is the radical-operator $\rad{\phantom{I}}$.
 \end{remark}
 
 

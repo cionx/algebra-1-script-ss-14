@@ -1,0 +1,314 @@
+\subsection{A Theorem by Noether}
+
+
+\begin{fluff}
+  Example~\ref{example: invariant ring for finite groups finitely generated} shows that the invariant ring $\mc{P}(V)^G$ is finitely generated whenever $G$ is finite with $\kchar{k} \ndivides |G|$, but we do not have any restrictions on the needed generators.
+  The following theorem by E.\ Noether (\cite{Noether1915}) gives a bound on the degree of the generators:
+\end{fluff}
+
+
+\begin{theorem}[Noether]
+  Let $V$ be a finite-dimensional representation of a finite group $G$ over a field $k$ of characteristic $\kchar{k} = 0$.
+  Then the invariant ring $\mc{P}(V)^G$ is generated as a $k$-algebra by the invariants of degree $\leq |G|$.
+\end{theorem}
+
+
+\begin{proof}
+  We may assume w.l.o.g.\ that $V = k^n$ and thus identify $\mc{P}(V)$ with the polynomial ring $k[X_1, \dotsc, X_n] \defines A$.
+  For every $g \in G$ and every multi-index $\mu = (\mu_1, \dotsc, \mu_n)$ let
+  \[
+              m_\mu
+    \defined  \sum_{g \in G} g.(X_1^{\mu_1} \dotsm X_n^{\mu_n})
+    \in       A^G \,.
+  \]
+  The elements $m_\mu$, $\mu \in \Natural^n$ form a $k$-generating set of $A^G$.
+  This can be seen in (at least) two ways:
+  \begin{itemize}
+    \item
+      The Reynolds operator
+      \[
+                R
+        \colon  A
+        \to     A^G,
+        \quad   f
+        \mapsto \frac{1}{|G|} \sum_{g \in G} g.f
+      \]
+      is $k$-linear and surjective.
+      The monomials $X_1^{\mu_1} \dotsm X_n^{\mu_n}$ with $\mu \in \Natural^n$ form a $k$-basis, so it follows that the images $R(X_1^{\mu_1} \dotsm X_n^{\mu_n})$ form a $k$-generating set of $A^G$.
+    \item
+      We may write $f \in A^G \subseteq A$ as $f = \sum_{\mu} f_\mu X_1^{\mu_1} \dotsm X_n^{\mu_n}$.
+      Then
+      \begin{align*}
+            f
+        &=  R(f)
+         =  \frac{1}{|G|} \sum_{g \in G} g.f
+         =  \frac{1}{|G|} \sum_{g \in G} g.\left( \sum_{\mu} f_\mu X_1^{\mu_1} \dotsm X_n^{\mu_n} \right) \\
+        &=  \frac{1}{|G|} \sum_{g \in G} \sum_{\mu} f_\mu g.\left( X_1^{\mu_1} \dotsm X_n^{\mu_n} \right)
+         =  \frac{1}{|G|} \sum_{\mu} f_\mu \sum_{g \in G} g.\left( X_1^{\mu_1} \dotsm X_n^{\mu_n} \right) \\
+        &=  \frac{1}{|G|} \sum_{\mu} f_\mu m_\mu \,.
+      \end{align*}
+  \end{itemize}
+  The elements $m_\mu$, $\mu \in \Natural^n$ are homogeneous of degree $|\mu| = \mu_1 + \dotsb + \mu_n$.
+  For $h \defined |G|$ we therefore need to show that $A^G$ is generated as a $k$-algebra by those $m_\mu$ with $|\mu| \leq h$.
+  
+  Let $G = \{g_1, \dotsc, g_h\}$.
+  For every $j \geq 0$ let $p_j = \sum_{i=1}^h Y_i^j \in k[Y_1, \dotsc, Y_h]$ be the $j$-th power symmetric polynomial.
+  For the element
+  \[
+              y_i
+    \defined  (g_i.X_1) Z_1 + \dotsb + (g_i.X_n) Z_n
+    \in       A[Z_1, \dotsc, Z_n]
+  \]
+  we then have that
+  \begin{align*}
+        p_j(y_1, \dotsc, y_n)
+    &=  \sum_{i=1}^h y_i^j
+     =  \sum_{i=1}^h \left[ (g_i.X_1) Z_1 + \dotsb + (g_i.X_n) Z_n \right]^j  \\
+    &=  \sum_{i=1}^h \sum_{|\mu| = j}
+        \binom{j}{\mu_1, \dotsc, \mu_n} [(g_i.X_1) Z_1]^{\mu_1} \dotsm [(g_i.X_n) Z_n]^{\mu_n}  \\
+    &=  \sum_{i=1}^h \sum_{|\mu| = j}
+        \binom{j}{\mu_1, \dotsc, \mu_n} (g_i.X_1)^{\mu_1} \dotsm (g_i.X_n)^{\mu_n} Z_1^{\mu_1} \dotsm Z_n^{\mu_n} \\
+    &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n}
+        \left[
+          \sum_{i=1}^h (g_i.X_1)^{\mu_1} \dotsm (g_i.X_n)^{\mu_n}
+        \right]
+        Z_1^{\mu_1} \dotsm Z_n^{\mu_n}  \\
+    &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n}
+        \left[
+          \sum_{i=1}^h g_i.(X_1^{\mu_1} \dotsm X_n^{\mu_n})
+        \right]
+        Z_1^{\mu_1} \dotsm Z_n^{\mu_n}  \\
+    &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n} m_\mu Z_1^{\mu_1} \dotsm Z_n^{\mu_n} \,.
+  \end{align*}
+  This shows that $m_\mu$ is, up to some factor, the coefficient of $Z_1^{\mu_1} \dotsm Z_n^{\mu_n}$ in $p_j(y_1, \dotsc, y_n)$.
+  
+  We know that for $j > h$ the $j$-th power symmetric polynomial $p_j$ can be expressed as a $k$-polynomial in the power symmetric polynomials $p_1, \dotsc, p_h$.
+  It follows that the coefficients of $p_j(y_1, \dotsc, y_n)$ are $k$-polynomials in the coefficients of $p_1(y_1, \dotsc, y_n), \dotsc, p_h(y_1, \dotsc, y_n)$.
+  This shows that $\binom{j}{\mu_1, \dotsc, \mu_n} m_\mu$ can be expressed as a $k$-polynomial in the terms $\binom{|\nu|}{\nu_1, \dotsc, \nu_n} m_\nu$ with $|\nu| \leq h$.
+  Because the factor $\binom{j}{\mu_1, \dotsc, \mu_n}$ is invertible in $k$ it follows that $m_\mu$ is a $k$-polynomial in the $m_\nu$ with $|\nu| \leq h$.
+\end{proof}
+
+
+\begin{remark}
+  \label{remark: Noether bound}
+  Let $V$ be a finite-dimensional representation of a finite group $G$.
+  The \emph{Noether number} $\beta(V,G)$ is the minimal degree $d \geq 0$ such that the invariant ring $\mc{P}(V)^G$ is generated as a $k$-algebra by the elements of degree $\leq d$.
+  We also set
+  \[
+              \beta(G)
+    \defined  \max \{ \beta(V,G) \suchthat \text{$V$ is a finite dimensional representation of $G$ over $k$} \} \,.
+  \]
+  Noether’s theorem shows that $\beta(G) \leq |G|$ if $\kchar k = 0$, which is known as the \emph{Noether bound}.
+  This result can be strengthened in various ways:
+  \begin{itemize}
+    \item
+      It has since then been proven by Fogarty~\cite{Fogarty2001} that Noether’s theorem holds under the weaker assumption that $|G|$ is invertible in $k$.
+    \item
+      Fleischmann~\cite{Fleischmann2000} showeed the more general result that if $H \normalsubgroup G$ is a normal subgroup whose index $[G : H]$ is invertible in $k$, then $\beta(V,G) \leq \beta(V,H) \cdot [G : H]$.
+      (For $G = H$ we get the above result.)
+    \item
+      In the case of $\kchar{k} = 0$ it was proven by Schmid~\cite{Schmid1991} that $\beta(G) \leq \beta(H)[G : H]$ for every subgroup $H \subgroup G$, and that $\beta(G) \leq \beta(H)\beta(G/H)$ if $H \normalsubgroup G$ is normal.
+    \item
+      Schmid also showed for $\kchar k = 0$ that $\beta(G) = |G|$ if and only if $G$ is cyclic.
+    \item
+      According to \cite[Remark 3.6]{Wehlau2006} and \cite[Remark 3.2.5]{Derksen2015} it is not know if $\beta(G) \leq \beta(H)[G : H]$ holds for every subgroup $H \subgroup G$ if $\kchar k \ndivides [G : H]$. 
+  \end{itemize}
+\end{remark}
+
+
+
+\subsubsection*{Another Proof}
+
+
+\begin{fluff}
+  Nother herself gives in~\cite{Noether1915} two proofs of her theorem.
+  The proof presented above is the second one.
+  We also give an overview of the first proof, simply because the author spend some time on trying to understand it and does not want his effort go to waste.
+  
+  The main tool in this proof is the following result, which \cite{Fleischmann2000} attributes to Weyl and seem to be contained in \cite[II.3]{Weyl1946};
+  we will not prove this result here and use the formulation from \cite{Fleischmann2000}
+\end{fluff}
+
+
+\begin{theorem}[Fundamental theorem of vector invariants for the symmetric group]
+  \label{theorem: fundamental theorem of vector invariants for the symmetric group}
+  Let $k$ be a field with $\kchar k = 0$.
+  Let $n, m \geq 1$ and let $S_n$ act on
+  \[
+              V
+    \defined  \underbrace{k^m \times \dotsb \times k^m}_n
+  \]
+  by permutation of the entries, so that the action is given by
+  \[
+      \sigma.(y^{(1)}, \dotsc, y^{(n)})
+    = (y^{(\sigma^{-1}(1))}, \dotsc, y^{(\sigma^{-1}(n))}) \,.
+  \]
+  for all $\sigma \in S_n$, $y^{(1)}, \dotsc, y^{(n)} \in k^m$.
+  
+  We identify $\mc{P}(V)$ with $k[X_{ij} \suchthat i = 1, \dotsc, m, j = 1, \dotsc, n]$ such that $X_{ij}$ gives the $i$-th coordinates of the $j$-th vector, i.e.\
+  \[
+      X_{ij}(y^{(1)}, \dotsc, y^{(n)})
+    = y^{(j)}_i
+  \]
+  for all $i,j$.
+  Then the invariant ring $\mc{P}(V)^G$ is generated by the coefficients of the monomials $Y_1^{\alpha_1} \dotsb Y_n^{\alpha_n}$ in the expression
+  \[
+    \prod_{j=1}^n \left( 1 + \sum_{i=1}^m X_{ij} Y_i \right) \,,
+  \]
+  and this generators are homogeneous of degree $\leq n$.
+\end{theorem}
+
+
+\begin{example}
+  We examine the statement of Theorem~\ref{theorem: fundamental theorem of vector invariants for the symmetric group} for some special cases:
+  \begin{enumerate}
+    \item
+      Consider the case $m = 1$.
+      Then $V = k^n$ (consisting of row vectors), the action of $S_n$ on $k^n$ is the usual permutation action via $\sigma.e_i = e_{\sigma(i)}$ and the invariant ring $\mc{P}(k^n)^{S_n} = k[X_1, \dotsc, X_n]^{S_n}$ is the ring of symmetric polynomials.
+      We have that
+      \[
+          \prod_{j=1}^n ( 1 + X_i Y )
+        = 1 + e_1(X_1, \dotsc, X_n) Y + \dotsb + e_n(X_1, \dotsc, X_n) Y^n \,,
+      \]
+      so the theorem states that $k[X_1, \dotsc, X_n]^{S_n}$ is generated by the elementary symmetric polynomials.
+      This is precisely the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions}.
+    \item
+      Consider the case $n = 1$.
+      Then $V = k^m$ (cosisting of column vectors) and the action of $S_n = S_1$ on $k^m$ is just the trivial one.
+      Then $\mc{P}(k^m)^{S_1} = k[X_1, \dotsc, X_m]$.
+      We have that
+      \[
+          1 + \sum_{i=1}^m X_i Y_i
+        = 1 + X_1 Y_1 + \dotsb + X_m Y_m \,,
+      \]
+      so the theorem states that $k[X_1, \dotsc, X_m]$ is generated by $X_1, \dotsc, X_m$.
+    \item
+      Consider the case $n = m = 2$.
+      Then $\mc{P}(k^2 \times k^2) = k[X_{11}, X_{12}, X_{21}, X_{22}]$.
+      We have that
+      \begin{align*}
+         &\,  \prod_{j=1}^2 \left( 1 + \sum_{i=1}^2 X_{ij} Y_i \right)  \\
+        =&\,  (1 + X_{11} Y_1 + X_{21} Y_1)(1 + X_{12} Y_1 + X_{22} Y_1)  \\
+        =&\,  1
+              + (X_{11} + X_{12}) Y_1 + (X_{21} + X_{22}) Y_2 \\
+         &\,  + X_{11} X_{12} Y_1^2 + (X_{11} X_{22} + X_{12} X_{21}) Y_1 Y_2 + X_{21} X_{22} Y_2^2 \,,
+      \end{align*}
+      so the theorem states that $k[X_{11}, X_{12}, X_{21}, X_{22}]^{S_2}$ is generated by
+      \[
+        X_{11} + X_{12} \,,
+        \quad
+        X_{21} + X_{22} \,,
+        \quad
+        X_{11} X_{12} \,,
+        \quad
+        X_{21} X_{22} \,,
+        \quad
+        X_{11} X_{22} + X_{12} X_{21} \,.
+      \]
+      Here $X_{11} + X_{12}$ and $X_{21} + X_{22}$ are the first elementary symmetric polynomials in the upper and lower entries, $X_{11} X_{12}$ and $X_{21} X_{22}$ are the second elementary symmetric polynomials in the upper and lower entries, and $X_{11} X_{22} + X_{12} X_{21}$ is a new kind of invariant.
+      (If one identifies $k^2 \times k^2$ with $\Mat(2 \times 2, k)$ then $X_{11} X_{22} + X_{12} X_{21}$ is the permanent.)
+  \end{enumerate}
+\end{example}
+
+
+\begin{proof}[Noether’s first proof of her theorem]
+  We assume w.l.o.g.\ that $V = k^n$.
+  Let $h \defined |G|$ and $G = \{g_1, \dotsc, g_h\}$.
+  For every $x \in k^n$ let $x^{(i)} \defined g_i.x$ for every $i = 1, \dotsc, h$.
+  For $f \in \mc{P}(k^n)$ we then have that $f(x) = f(x^{(i)})$ for every $i = 1, \dotsc, h$ and therefore
+  \[
+      f(x)
+    = \frac{1}{h} \sum_{i=1}^h f(x^{(i)}) \,.
+  \]
+  Note that the right hand side of this equation is a symmetric polynomial in the vectors $x^{(1)}, \dotsc, x^{(h)}$.
+  We therefore define the maps
+  \begin{gather*}
+            F
+    \colon  \underbrace{k^n \times \dotsb \times k^n}_{h}
+    \to     k \,,
+    \quad   (y^{(1)}, \dotsc, y^{(n)})
+    \mapsto \frac{1}{h} \sum_{i=1}^h f(y^{(i)})
+  \shortintertext{and}
+            A
+    \colon  k^n
+    \to     k^n \times \dotsb \times k^n \,,
+    \quad   x
+    \mapsto (x^{(1)}, \dotsc, x^{(n)}) \,.
+  \end{gather*}
+  Both maps are polynomial with $F$ being symmetric, $A$ being homogeneous of degree $1$, and $f = F \circ A$.
+  
+  We can now apply the \hyperref[theorem: fundamental theorem of vector invariants for the symmetric group]{fundamental theorem of vector invariants of the symmetric group} to $F$:
+  We identify $\mc{P}((k^n)^{\times h})$ with $R \defined k[Y_{ij} \suchthat i = 1, \dotsc, n, j = 1, \dotsc, h]$.
+  In $R[Z_1, \dotsc, Z_n]$ we then have the identity
+  \[
+      \prod_{j=1}^h \left( 1 + \sum_{i=1}^n Y_{ij} Z_i \right)
+    = 1 +
+      \sum_{\substack{
+        \alpha, \alpha_1, \dotsc, \alpha_n \geq 0 \\
+        \alpha + \alpha_1 + \dotsb + \alpha_n = h \\
+        \alpha \neq h
+      }}
+      G_{\alpha, \alpha_1, \dotsc, \alpha_n}
+      Z_1^{\alpha_1} \dotsm Z_n^{\alpha_n}
+  \]
+  with the coefficients $G_{\alpha, \alpha_1, \dotsc, \alpha_n} \in R$ being generators of the invariant ring $R^{S_h}$ and homogeneous of degree $\leq h$.
+  We can now express $F$ as a polynomial in the $G_{\alpha, \alpha_1, \dotsc, \alpha_n}$.
+  
+  This then expresses $f = F \circ A$ as a polynomial in the invariants $G_{\alpha, \alpha_1, \dotsc, \alpha_n} \circ A$, each of which is a homogeneous invariant of degree $\leq h$ (because $G_{\alpha, \alpha_1, \dotsc, \alpha_n}$ and $A$ are homogeneous of degree $d$ and $1$).
+\end{proof}
+
+
+\begin{fluff}
+  We use the notation of Remark~\ref{remark: Noether bound}.
+  
+  If $V$ is a finite-dimensional $k$-vector space $S_n$ acts on $V^{\times n}$ by permutation of the entries, then Theorem~\ref{theorem: fundamental theorem of vector invariants for the symmetric group} shows that the
+  \[
+          \beta(V^{\times n}, S_n)
+    \leq  n \,.
+  \]
+  The above proof of Nother’s theorem that this is, in some sense, this is the most general case to consider:
+  
+  If $V$ is a finite-dimensional representation of $G$ then for $h \defined |G|$ we can embedd the group $G = \{g_1, \dotsc, g_h\}$ into the symmetric group $S_h$ by Cayley’s theorem;
+  this embedding $\varphi \colon G \to S_h$ in given in such a way that
+  \[
+    g_i \cdot g
+    = g_{\varphi(g)^{-1}(i)}
+  \]
+  for all $g \in G$ and $i = 1, \dotsc, n$ (corresponding to the regular right action of $G$ on itself).
+  Then $S_h$ acts on $V^{\times h}$ by permutation of the entries via
+  \[
+      \sigma.(v_1, \dotsc, v_h)
+    = (v_{\sigma^{-1}(1)}, \dotsc v_{\sigma^{-1}(h)})
+  \]
+  for all $\sigma \in S_h$, $i = 1, \dotsc, n$.
+  We also have an embedding
+  \[
+            \Phi
+    \colon  V
+    \to     V^{\times h} \,,
+    \quad   v
+    \mapsto \left( g_1.v, \dotsc, g_h.v \right) \,.
+  \]
+  These embeddings are compatible in the sense that
+  \begin{align*}
+        \varphi(g).\Phi(v)
+    &=  \varphi(g).(g_1.v, \dotsc, g_h.v)
+     =  \left( g_{\varphi(g)^{-1}(1)}.v, \dotsc, g_{\varphi(g)^{-1}(h)}.v \right) \\
+    &=  ( (g_1 \cdot g).v, \dotsc, (g_h \cdot g).v )
+     =  ( g_1.(g.v), \dotsc, g_h.(g.v) )
+     =  \Phi(g.v) \,.
+  \end{align*}
+  So the action of $G$ on $V$ factors through the action of $S_h$ on $V^{\times h}$.
+  
+  In the case of $\kchar{k} = 0$ we see via the formula
+  \[
+      f(x)
+    = \frac{1}{|G|} \sum_{g \in G} f(g.x)
+  \]
+  that every $G$-invariant polnomial function $f \colon V \to k$ extends to an $S_h$-invariant polynomial function $V^{\times h} \to k$.
+  So by understanding these $S_h$-invariant polynomial functions we can gain a better understanding of the $G$-invariant polynomial function for $G$.
+\end{fluff}
+
+
+
+

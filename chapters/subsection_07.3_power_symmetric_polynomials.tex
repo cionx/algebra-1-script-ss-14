@@ -1,0 +1,251 @@
+\subsection{Power Symmetric Polynomials}
+
+
+\begin{definition}
+  For all $n, r \in \Natural$ the \emph{$r$-th power symmetric polynomial}, or \emph{$r$-th power sum} in $n$-variables is
+  \[
+              p_r
+    \coloneqq X_1^r + \dotsb + X_n^r \,.
+  \]
+\end{definition}
+
+
+\begin{definition}
+  For all $n \in \Natural$ the power series $P(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(p_r)_{r \geq 1}$, that is
+  \[
+            P(t)
+  \defined  \sum_{r=0}^\infty p_{r+1} t^r \,.
+  \]
+  (Note the shift compared to $E$ and $H$.)
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: explicit formula for P}
+  One has the equality of power series
+  \[
+      P(t)
+    = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \,.
+  \]
+  More generally, one has that for every $s \geq 0$ that
+  \[
+      \sum_{r=0}^\infty p_{r+s} t^r
+    = \sum_{i=1}^n \frac{X_i^s}{1 - X_i t} \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+        \sum_{i=1}^n \frac{X_i^s}{1-X_i t}
+    &=  \sum_{i=1}^n X_i^s (1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb) \\
+    &=  \sum_{i=1}^n (X_i^s + X_i^{s+1} t + X_i^{s+2} t^2 + X_i^{s+3} t^3 + \dotsb) \\
+    &=  p_s + p_{s+1} t + p_{s+2} t^2 + p_{s+3} t^3 + \dotsb
+    \qedhere
+  \end{align*}
+\end{proof}
+
+
+\begin{fluff}
+  \label{fluff: connection between E and P}
+  From the explicit formulas for $E(t)$ and $P(t)$ from Lemma~\ref{lemma: explicit formula for E} and Lemma~\ref{lemma: explicit formula for P} it follows that
+  \[
+      E'(t)
+    = \sum_{i=1}^n X_i \prod_{j \neq i} (1 + X_j t)
+    = \sum_{i=1}^n \frac{X_i}{1 + X_i t} \prod_{j=1}^n (1 + X_j t)
+    = P(-t)E(t) \,.
+  \]
+  The power series $E'(t)$ is given by
+  \[
+      E'(t)
+    = \sum_{r=1}^\infty r e_r t^{r-1}
+    = \sum_{r=0}^\infty (r+1) e_{r+1} t^r \,,
+  \]
+  so by comparing the $(r-1)$-th coefficient we arrive at the \emph{Newton’s identities}.
+\end{fluff}
+
+
+\begin{corollary}[Newton’s identities]
+  \label{corollary: Newtons identities}
+  For every $r \geq 1$ one has that
+  \[
+      r e_r
+    =   p_1 e_{r-1}
+      - p_2 e_{r-2}
+      + \dotsb
+      + (-1)^{r-2}  p_{r-1} e_1
+      + (-1)^{r-1}  p_r \,,
+  \]
+  and equivalently
+  \[
+        p_r
+      - e_1 p_{r-1}
+      + \dotsb
+      + (-1)^{r-1} e_{r-1} p_1
+      + (-1)^r r e_r
+    = 0 \,.
+  \]
+\end{corollary}
+
+
+\begin{fluff}
+  We can proceed similiar as in \ref{fluff: connection between E and P} for the genarating functions $H(t)$ and $P(t)$:
+  It follows from the explicit formulas for $H(t)$ and $P(t)$ from Lemma~\ref{lemma: explicit formula for H} and Lemma~\ref{lemma: explicit formula for P} that
+  \[
+      H'(t)
+    = \sum_{i=1}^n \frac{X_i}{(1-X_i t)^2} \prod_{j \neq i} \frac{1}{1 - X_j t} \\
+    = \sum_{i=1}^n \frac{X_i}{1 - X_i t} \prod_{j=1}^n \frac{1}{1 - X_j t}
+    = P(t) H(t) \,.
+  \]
+  Since the power series $H'(t)$ is given by
+  \[
+      H'(t)
+    = \sum_{k \geq 1} k h_k t^{k-1}
+  \]
+  we get the following result by comparing the $r$-th coefficient:
+\end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: relation between h and p}
+  For all $r \geq 1$ we have that
+  \[
+      r h_r
+    =   p_1 h_{r-1}
+      + p_2 h_{r-2}
+      + \dotsb
+      + p_{r-1} h_1
+      + p_r.
+  \]
+\end{corollary}
+
+
+\begin{fluff}
+  We have seen that the symmetric polynomials $e_1, \dotsc, e_n$ and $h_1, \dotsc, h_n$ each generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
+  It is now only natural to ask if this also holds true for the power sums $p_1, \dotsc, p_n$.
+  The next theorem shows that this holds under additional assumptions.
+\end{fluff}
+
+
+\begin{theorem}
+  Let $k$ be a field with either $\kchar k = 0$ or $\kchar k > n$.
+  Then $p_1, \dotsc, p_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
+\end{theorem}
+\begin{proof}
+  Since $2, \dotsc, n$ are invertible in $k$ one can use the Newton identities (Corollary~\ref{corollary: Newtons identities}) to recursively express the elementary symmetric polynomials $e_1, \dotsc, e_n$ in terms of the power sums $p_1, \dotsc, p_n$, starting off with $e_1 = p_1$.
+  It follows that $p_1, \dotsc, p_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra.
+  
+  To show that $p_1, \dotsc, p_n$ are algebraically independent we need to show that the monomials in $p_1, \dotsc, p_n$, i.e.\ the polynomials
+  \[
+      p^{\,\underline{\alpha}}
+    = p_1^{\alpha_1} \dotsm p_n^{\alpha_n}
+    \quad\text{with}\quad
+        \underline{\alpha}
+    =   (\alpha_1, \dotsc, \alpha_n)
+    \in \Natural^n
+  \]
+  are linearly independent.
+  For this it sufficies to show for every $N \geq 1$ that the monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ form a $k$-basis of the $k$-linear space of symmetric polynomials of degree $\leq N$, which we will denote by $V_N$.
+  
+  We also denote the number of (not necessarily distinct) monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ by $P_N$, i.e.\ $P_N$ is the number of multi-indices $\underline{\alpha} \in \Natural^n$ with $\deg p^{\,\underline{\alpha}} \leq N$.
+  
+  Note that for every $\underline{\alpha} \in \Natural^n$ we have that
+  \begin{align*}
+        \deg p^{\,\underline{\alpha}}
+    &=  \deg
+        p_1^{\alpha_1}
+        \dotsm 
+        p_n^{\alpha_n} \\
+    &=    \alpha_1 \deg p_1
+        + \dotsb 
+        + \alpha_n \deg p_n \\
+    &=    \alpha_1 \cdot 1
+        + \alpha_2 \cdot 2
+        + \dotsb
+        + \alpha_n \cdot n  \\
+    &=    \alpha_1 \deg e_1
+        + \dotsb 
+        + \alpha_n \deg e_n \\
+    &=  \deg
+        e_1^{\alpha_1}
+        \dotsm 
+        e_n^{\alpha_n}
+     =  e^{\,\underline{\alpha}} \,,
+  \end{align*}
+  so that $P_N$ is also the number of monomials in $e_1, \dotsc, e_n$ of degree $\leq N$.
+  Note that these monomials in the $e_i$ are pairwise distinct because the $e_i$ are algebraically independent.
+  Hence $P_N$ is also the number of monomials in $e_1, \dotsc, e_n$ of degree $\leq N$.
+  With the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions} it follows that $\dim V_N = P_N$.
+  
+  Because $k[X_1, \dotsc, X_n]^{S_n}$ is generated as a $k$-algebra by the homogeneous elements $p_1, \dotsc, p_n$ it we find that $V_N$ is spanned as a $k$-linear subspace of $K[X_1, \dotsc, X_n]^{S_n}$ by the monomials in $p{(n)}_1, \dotsc, p_n$ of degree $\leq N$, of which they are $\leq P_N$ many distinct ones.
+  It therefore follows from $\dim V_N = P_N$ that $V_N$ is a $k$-basis von $V_N$.
+\end{proof}
+
+
+\begin{remark}
+  Note that the above theorem cannot hold for $k = \Integer$:
+  To see this, note that in $\Rational[X_1, X_2]^{S_2}$ we have that
+  \[
+      e_2
+    = \frac{1}{2}  p_1^2 - \frac{1}{2} p_2 \,.
+  \]
+  If $\Integer[X_1, X_2]^{S_2}$ would be generated by $p_1, p_2$ as a $\Integer$-algebra (i.e.\ ring) then there would exists some polynomial $F \in \Integer[Y_1, Y_2]$ with $e_2 = F( p_1, p_2)$.
+  But this would then contradict the algebraic independence of $p_1, p_2$ in $\Rational[X_1, X_2]^{S_2}$, since $F(X_1, X_2) \neq \frac{1}{2} X_1^2 - \frac{1}{2} X_2$.
+\end{remark}
+
+
+% Using the same argumentation we find that for a symmetric polynomial $f \in \Rational[X_1, \dotsc, X_n]^{S_n}$ with integer coefficients and $F,G \in \Rational[X_1, \dotsc, X_n]^{S_n}$ with
+% \[
+%     f
+%   = F(e_1, \dotsc, e_n)
+%   = G(h_1, \dotsc, h_n)
+% \]
+% both $F$ and $G$ must have integer coefficients.
+% 
+
+
+\begin{fluff}
+  We have seen that the elementary symmetric polynomials $e_1, \dotsc, e_n$ and the complete homogeneous symmetric polynomials $h_1, \dotsc, h_n$ are dual to each other in the sense that there exists a involutive algebra automorphism $\Phi$ of $k[X_1, \dotsc, X_n]^{S_n}$ which swaps $e_i$ and $h_i$ for every $i = 1, \dotsc, n$.
+  We can determine the action of $\Phi$ on the power sums $p_1, \dotsc, p_n$.
+  
+  Applying $\Phi$ to Newton’s identities (Corollary~\ref{corollary: Newtons identities}) and comparing the result with Corollary~\ref{corollary: relation between h and p} seems to suggest that
+  \[
+      \Phi(p_r)
+    = (-1)^{r-1} p_r
+  \]
+  for all $r = 1, \dotsc, n$.
+  We can show this by induction on $r$:
+  
+  For $r = 1$ we have that
+  \[
+      \Phi(p_1)
+    = \Phi(e_1)
+    = h_1
+    = p_1 \,.
+    = (-1)^{r-1} p_1
+  \]
+  For $r > 1$ we apply $\Phi$ to the Newton identity
+  \[
+      r e_r
+    =   p_1 e_{r-1}
+      - p_2 e_{r-2}
+      + \dotsb
+      + (-1)^{r-2}  p_{r-1} e_1
+      + (-1)^{r-1}  p_r \,,
+  \]
+  which by induction results in the identity
+  \[
+      r h_r
+    =   p_1 h_{r-1}
+      + p_2 h_{r-2}
+      + \dotsb
+      + p_{r-1} h_1
+      + (-1)^{r-1} \Phi(p_r) \,.
+  \]
+  By comparing this to Corollary~\ref{corollary: relation between h and p} it follows that $\Phi( p_r ) = (-1)^{r-1} p_r$.
+\end{fluff}
+
+
+
+

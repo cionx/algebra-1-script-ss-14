@@ -1,0 +1,75 @@
+\subsection{Other Symmetric Polynomials Associated to Partitions}
+
+
+\begin{definition}
+  For a partition $\lambda = (\lambda_1, \dotsc, \lambda_r)$ the corresponding \emph{elementary symmetric polynomial} is given by
+  \[
+              e_\lambda
+    \defined  e_{\lambda_1} \dotsm e_{\lambda_r} \,,
+  \]
+  the corresponding \emph{complete symmetric polynomial} is given by
+  \[
+              h_\lambda
+    \defined  h_{\lambda_1} \dotsm h_{\lambda_r} \,,
+  \]
+  the corresponding \emph{power symmetric polynomial} is given by
+  \[
+              p_\lambda
+    \defined  p_{\lambda_1} \dotsm p_{\lambda_r} \,.
+  \]
+\end{definition}
+
+
+\begin{fluff}
+  We know from the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions} that the elementary symmetric polynomials $e_1, \dotsc, e_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent. This is equivalent to saying that the monomials in $e_1, \dotsc, e_n$, i.e.\
+  \[
+      e^{\,\underline{\alpha}}
+    = e_1^{\alpha_1} \dotsm e_n^{\alpha_n}
+    \quad\text{with}\quad
+      \underline{\alpha}
+    = (\alpha_1, \dotsc, \alpha_n)
+  \]
+  form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
+  Note that $e^{\,\underline{\alpha}}$ coincides with $e_\lambda$ for the partition
+  \[
+    \lambda
+  = (
+      \underbrace{n, \dotsc, n}_{\alpha_n},
+      \underbrace{n-1, \dotsc, n-1}_{\alpha_{n-1}},
+      \dotsc,
+      \underbrace{1, \dotsc, 1}_{\alpha_1}
+    ) \,.
+  \]
+  Also note that the above formula gives a bijection
+  \[
+    \{ \text{multi-indices $\underline{\alpha} \in \Natural^n$} \}
+    \longleftrightarrow
+    \{ \text{partitions $\lambda \in \Par$ with $\lambda_1 \leq n$} \} \,.
+  \]
+  With this we arrive at the following reformulation of the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions}:
+\end{fluff}
+
+
+\begin{corollary}
+  The symmetric polynomials
+  \[
+      e_\lambda
+    \quad\text{with}\quad
+      \lambda \in \Par \,,
+      \lambda_1 \leq n
+  \]
+  form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
+\end{corollary}
+
+
+\begin{remark}
+  We can show the same statements for the polynomials $h_\lambda$ since $h_1, \dotsc, h_n$ generate $k[X_1, \dotsc, X_n]^{S_n}$ as a $k$-algebra and are algebraically independent.
+  If $k$ is a field with $\kchar k = 0$ or $\kchar k > n$ we can also show the same for the polynomials $p_\lambda$.
+\end{remark}
+
+
+% TODO: Adding the basis of schur polynomials.
+
+
+
+

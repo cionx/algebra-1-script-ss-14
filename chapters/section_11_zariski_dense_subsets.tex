@@ -3,8 +3,12 @@
 
 \begin{fluff}
   Parts of this section are taken from \cite[\S 1.3]{InvariantPrimer}.
-  For this section let $k$ be an infinite field.
 \end{fluff}
+
+
+\begin{conventions}
+  For this section let $k$ be an infinite field.
+\end{conventions}
 
 
 \begin{definition}
@@ -80,7 +84,7 @@
     = 0
   \]
   for all $v \in V$, and thus $fh = 0$.
-  Note that $\mc{P}(V) \cong k[X_1, \dotsc, X_{(\dim V)}]$ is an integral domain.
+  The $k$-algebra $\mc{P}(V) \cong k[X_1, \dotsc, X_{(\dim V)}]$ is an integral domain.
   It therefore follows from $fh = 0$ and $h \neq 0$ that $f = 0$.
 \end{proof}
 
@@ -89,6 +93,8 @@
   \label{corollary: GLn is Zariski dense in Mn}
   The subset $\GL_n(k) \subseteq \Mat_n(k)$ is Zariski dense.
 \end{corollary}
+
+
 \begin{proof}
   The group $\GL_n(k)$ is the non-vanishing set of $\det \colon \Mat_n(k) \to k$.
 \end{proof}
@@ -97,42 +103,31 @@
 \begin{lemma}
   \label{lemma: zariski density orbits}
   Let $V$ be a finite-dimensional representation of a group $G$ and let $f \colon V \to k$ be a $G$-invariant polynomial function.
-  \begin{enumerate}
-    \item
-      Suppose that $X \subseteq V$ is a subset such that that the orbit
-      \[
-          G.X
-        = \{
-            g.x
-          \mid
-            g \in G,
-            x \in X
-          \}
-      \]
-      is Zariski-dense in $V$.
-      If $\restrict{f}{X} = 0$ then $ f= 0$.
-    \item
-      If there exists a Zariski dense $G$-orbit for $V$ then $f$ is constant.
-  \end{enumerate}
+  Suppose that $X \subseteq V$ is a subset such that that the orbit
+  \[
+      G.X
+    = \{
+        g.x
+      \mid
+        g \in G,
+        x \in X
+      \}
+  \]
+  is Zariski-dense in $V$.
+  If $\restrict{f}{X} = 0$ then $f = 0$.
 \end{lemma}
+
+
 \begin{proof}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      It follows from the $G$-invariance of $f$ that $\restrict{f}{G.X} = 0$ because
-      \[
-          f(g.x)
-        = \left( g^{-1}.f \right)(x)
-        = f(x)
-        = 0
-      \]
-      for all $g \in G$, $x \in X$.
-      It follows that $f = 0$ because $G.X$ is Zariski dense in $V$.
-    \item
-      Suppose that the orbit of $x \in V$ is Zariski dense in $V$.
-      We can then apply the previous part of this lemma to $X = \{x\}$ and the $G$-invariant polynomial function $f - f(x) \colon V \to k$, which shows that $f - f(x) = 0$ and thus $f = f(x)$.
-    \qedhere
-  \end{enumerate}
+  It follows from the $G$-invariance of $f$ that $\restrict{f}{G.X} = 0$ because
+  \[
+      f(g.x)
+    = \left( g^{-1}.f \right)(x)
+    = f(x)
+    = 0
+  \]
+  for all $g \in G$, $x \in X$.
+  It follows that $f = 0$ because $G.X$ is Zariski dense in $V$.
 \end{proof}
 
 
@@ -149,6 +144,8 @@
   \]
   is Zariski-dense in $\Mat_n(k)$.
 \end{proposition}
+
+
 \begin{proof}
   Let $f \colon \Mat_n(k) \to k$ with $\restrict{f}{\Diag_n(k)} = 0$ and let $A \in \Mat_n(k)$.
   The matrix $A$ is triangularizable over $k$ because $k$ is algebraically closed, so there exists some $S \in \GL_n(k)$ such that $S A S^{-1}$ is an upper triangular matrix with diagonal entries $b_1, \dotsc, b_n \in k$ (not necessarily pairwise distinct).
@@ -219,12 +216,17 @@
 \end{remark}
 
 
-\begin{corollary}
-  \label{corollary: diagonal matrices dense alg closed}
+% TODO: Give an alternative proof via symmetric polynomials.
+
+
+\begin{corollary}[Second Zariski density property for algebraically closed fields]
+  \label{corollary: second Zariski density property for algebraically closed fields}
   Let $k$ be an algebraically closed field and let $\GL_n(k)$ act on $\Mat_n(k)$ by conjugation.
   Let $f \in \Mat_n(k) \to k$ be a $\GL_n(k)$-invariant polynomial function and let $D \subseteq \Mat_n(k)$ be the subset of diagonal matrices.
   If $\restrict{f}{D} = 0$ then $f = 0$.
 \end{corollary}
+
+
 \begin{proof}
   This follows from Lemma~\ref{lemma: zariski density orbits} because the orbit $\GL_n(k).D = \Diag_n(k)$ is Zariski dense in $\Mat_n(k)$ by Proposition~\ref{proposition: diagonalizable matrices are dense for algebraically closed}.
 \end{proof}
@@ -237,14 +239,17 @@
 
 
 \begin{fluff}
-  The first of the Zariski density properties stated in Proposition~\ref{proposition: zariski density properties} has been proven by Corollary~\ref{corollary: GLn is Zariski dense in Mn}, and the second Zariski density property has been proven by Corollary~\ref{corollary: diagonal matrices dense alg closed} for algebraically closed fields.
+  The first of the Zariski density properties stated in Proposition~\ref{proposition: zariski density properties} has been proven by Corollary~\ref{corollary: GLn is Zariski dense in Mn}, but we have only shown the \hyperref[corollary: second Zariski density property for algebraically closed fields]{second Zariski density property for algebraically closed fields}.
   
   To show that the second Zariski density property holds for arbitrary infinite fields we now examine how Zariski density changes under extension of scalars.
-  
+\end{fluff}
+
+
+\begin{conventions}
   In the following let $L/k$ be a field extension.
   For every $k$-vector space $V$ we denote by $V_L = L \otimes_k V$ the extension of scalars of $V$, and regard $V$ as a $k$-linear subspace of $V_L$ (see Appendix~\ref{appendix: extension of scalars} for a short introduction to extension of scalars).
   If $V$ is finite dimensional then we abbreviate $\mc{P}(V) = \mc{P}_k(V)$ and $\mc{P}(V_L) = \mc{P}_L(V_L)$.
-\end{fluff}
+\end{conventions}
 
 
 \begin{lemma}
@@ -264,7 +269,7 @@
     \text{for all $x \in X$, $y \in Y$} \,.
   \]
   For fixed $x \in X$ the map $f(x,-) \colon W \to k$ is polynomial with $\restrict{f(x,-)}{Y} = 0$, so it follows that $f(x,-) = 0$ because $Y$ is Zariski dense in $W$.
-  It follows that
+  This shows that
   \[
       f(x,w)
     = 0
@@ -272,19 +277,19 @@
     \text{for all $x \in X$, $w \in W$}.
   \]
   For fixed $w \in W$ the map $f(-,w) \colon V \to k$ is polynomial with $\restrict{f(-,w)}{X} = 0$, so it follows that $f(-,w) = 0$ because $X$ is Zariski dense in $V$.
-  It follows that
+  This shows that
   \[
       f(v,w)
     = 0
     \qquad
-    \text{for all $v \in V$, $w \in W$} \,.
+    \text{for all $v \in V$, $w \in W$} \,,
   \]
-  This shows that $f = 0$.
+  and therefore that $f = 0$.
 \end{proof}
 
 
 \begin{corollary}
-\label{corollary: kn is Zariski dense in Ln}
+  \label{corollary: kn is Zariski dense in Ln}
   The subset $k^n \subseteq L^n$ is Zariski dense over $L$.
 \end{corollary}
 
@@ -540,7 +545,7 @@
   Let $V$ be a finite-dimensional $k$-vector space.
   \begin{enumerate}
     \item
-      For $X \subseteq V$ the vanishing ideal $\mc{I}(X)$ is an ideal in $\mc{P}(V)$.
+      For every subset $X \subseteq V$ the vanishing ideal $\mc{I}(X)$ is an ideal in $\mc{P}(V)$.
     \item
       If $X \subseteq Y \subseteq V$ then $\mc{I}(Y) \subseteq \mc{I}(X)$.
       Furthermore, $X$ is Zariski-dense in $Y$ if and only if $\mc{I}(X) = \mc{I}(Y)$.
@@ -560,7 +565,7 @@
   \[
     \mf{m}_a = (X_1 - a_1, \dotsc, X_n - a_n) \,,
   \]
-  where we identify $\mc{P}(k^n)$ with $k[X_1, \dotsc, X_n]$ with  as explained in~\ref{fluff: identify polynomials with polynomial maps for kn}.
+  where we identify $\mc{P}(k^n)$ with $k[X_1, \dotsc, X_n]$ as explained in~\ref{fluff: identify polynomials with polynomial maps for kn}.
 \end{lemma}
 
 
@@ -585,9 +590,9 @@
   Then $\mf{m}$ is maximal because $k$ is a field.
   
   For general $a \in k^n$ we observe that there exists an automorphism of $k$-algebras $\Phi \colon k[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]$ with $\Phi(X_i) =  X_i + a_i$ for all $i = 1, \dotsc, n$.
-  Then $\Phi(\mf{m}) = (X_1, \dotsc, X_n)$ is maximal by the above argumentation, so $\mf{m}$ itself is also maximal.
+  Then $\Phi(\mf{m}) = (X_1, \dotsc, X_n)$ is maximal as shown above so $\mf{m}$ itself is also maximal.
   
-  It follows that $\mf{m}_a = \mf{m}$ because both ideals are maximal and $\mf{m} \subseteq \mf{m}_a$.
+  It follows that $\mf{m}_a = \mf{m}$ because both ideals are maximal with $\mf{m} \subseteq \mf{m}_a$.
 \end{proof}
 
 
@@ -600,6 +605,8 @@
   \]
   where we identify $\mc{P}(V)_L$ with $\mc{P}(V_L)$ as explained in Proposition~\ref{proposition: consistent choice of identification for polynomial functions}.
 \end{corollary}
+
+
 \begin{proof}
   By choosing a basis of $V$ we may identify in a consistent way
   \begin{itemize}
@@ -636,17 +643,6 @@
 \end{proof}
 
 
-\begin{lemma}[Transitivity of Zariski density]
-  Let $V$ be a finite-dimensional $k$-vector space and let $X \subseteq Y \subseteq Z \subseteq V$.
-  If $X$ is Zariski-dense in $Y$ and $Y$ is Zariski-dense in $Z$, then $X$ is Zariski-dense in $Z$.
-\end{lemma}
-
-
-\begin{proof}
-  It follows for every polynomial function $f \colon V \to k$ from $\restrict{f}{X} = 0$ that $\restrict{f}{Y} = 0$ and thus $\restrict{f}{Z} = 0$.
-\end{proof}
-
-
 \begin{corollary}
   \label{corollary: Zariski dense scalar extension}
   Let $V$ be a finite-dimensional $k$-vector space and let
@@ -673,300 +669,21 @@
 \end{proof}
 
 
+\begin{lemma}[Transitivity of Zariski density]
+  \label{lemma: transitivity of Zariski density}
+  Let $V$ be a finite-dimensional $k$-vector space and let $X \subseteq Y \subseteq Z \subseteq V$.
+  If $X$ is Zariski-dense in $Y$ and $Y$ is Zariski-dense in $Z$, then $X$ is Zariski-dense in $Z$.
+\end{lemma}
 
 
+\begin{proof}
+  It follows for every polynomial function $f \colon V \to k$ from $\restrict{f}{X} = 0$ that $\restrict{f}{Y} = 0$ and thus $\restrict{f}{Z} = 0$.
+\end{proof}
 
-% We can generalize this obeservation in the language of extension of scalars:
-% 
-% 
-% \begin{lemma}\label{lemma: W Zariski dense in W_L}
-%   Let $V$ be a finite-dimensional $k$-vector space and let $L/k$ be a field extension.
-%   Then $V$ is Zariski dense in $V_L$ over $L$.
-% \end{lemma}
-% \begin{proof}
-%   Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$.
-%   Then $1 \otimes w_1, \dotsc, 1 \otimes w_n$ is an $L$-basis of $W_L$.
-%   Using this bases we have an isomorphism of $k$-vector spaces
-%   \[
-%             \phi
-%     \colon  k^n \to W,
-%     \quad   e_i
-%     \mapsto w_i
-%   \]
-%   and an isomorphism of $L$-vector spaces
-%   \[
-%             \psi
-%     \colon  L^n
-%     \to     W_L,
-%     \quad   e_i
-%     \mapsto 1 \otimes w_i
-%   \]
-%   and the following commutative diagram:
-%   \[
-%     \begin{tikzcd}
-%         W
-%         \arrow[equal]{r}{\sim}
-%         \arrow[hook]{d}
-%       & k^n
-%         \arrow[hook]{d}
-%       \\
-%         W_L
-%         \arrow[equal]{r}{\sim}
-%       & L^n
-%     \end{tikzcd}
-%   \]
-%   The isomorphism $\psi$ of $L$-vector spaces induces the isomorphism
-%   \[
-%             \psi^*
-%     \colon  \mc{P}_L(W_L)
-%     \to     \mc{P}_L(L^n),
-%     \quad   h
-%     \mapsto h \circ \psi
-%   \]
-%   of $L$-algebras.
-%   For $f \in \mc{P}_L(W_L)$ with $f_{|W} = 0$ we have $g \coloneqq \psi^*(f) \in \mc{P}_L(L^n)$ with $g_{|k^n} = 0$.
-%   Since $k^n$ is Zariski dense in $L^n$ over $L$ we find that $g = 0$.
-%   Since $\psi^*$ is an isomorphism of $L$-algebras it follows that $f = 0$.
-% \end{proof}
-% 
-% 
-% As we have seen in the last chapter we have $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ as $L$-algebras.
-% The problem of the constructed isomorphism is that it depends on choosing a $k$-basis of $W$ and an $L$-basis of $W_L$.
-% We will now construct an isomorphism which does not depend on such choice.
-% 
-% 
-% \begin{lemma}
-%   Let $W$ be a finite-dimensional $k$-vector space. Then there exists an unique map
-%   \[
-%             \iota
-%     \colon  \mc{P}_k(W)
-%     \to     \mc{P}_L(W_L)
-%   \]
-%   such that for every $f \in \mc{P}_k(W)$ the diagram
-%   \[
-%     \begin{tikzcd}[sep = large]
-%         W
-%         \arrow[hook]{r}{\can_W}
-%         \arrow[swap]{d}{f}
-%       & W_L
-%         \arrow{d}{\iota(f)}
-%       \\
-%         k
-%         \arrow[hook]{r}
-%       & L
-%     \end{tikzcd}
-%   \]
-%   commutes.
-%   $\iota$ is a monomorphism of $k$-algebras.
-% \end{lemma}
-% \begin{proof}
-%   Let $w_1, \dotsc, w_n$ be a $k$-basis of $W$ and
-%   \[
-%         \varphi_1, \dotsc, \varphi_n
-%     \in \mc{P}_k(W)
-%   \]
-%   the corresponding coordinate functions. Also let
-%   \[
-%         \psi_1, \dotsc, \psi_n
-%     \in \mc{P}_L(W_L)
-%   \]
-%   be the coordinate functions of the $L$-basis $1 \otimes w_1, \dotsc, 1 \otimes w_n$ of $W_L$.
-%   Then we define $\iota$ to be the unique homomorphism of $k$-algebras with
-%   \[
-%       \iota(\varphi_i)
-%     = \psi_i
-%     \text{ for all }
-%     1 \leq i \leq n \,.
-%   \]
-%   Since $\psi_1, \dotsc, \psi_n$ are algebraically independent over $L$ we know that $\iota$ is injective.
-%   We have for every $f \in k[X_1, \dotsc, X_n]$ and $w = \sum_{i=1}^n \mu_i w_i \in W$
-%   \begin{align*}
-%      &\,  \iota(f(\varphi_1, \dotsc, \varphi_n))(\can_W(w)) \\
-%     =&\,  f(\psi_1, \dotsc, \psi_n)\left( \sum_{i=1}^n \mu_i (1 \otimes w_i) \right) \\
-%     =&\,  f(\mu_1, \dotsc, \mu_n)
-%      =    f(\varphi_1, \dotsc, \varphi_n)\left( \sum_{i=1}^n \mu_i w_i \right) \\
-%     =&\,  f(\varphi_1, \dotsc, \varphi_n)(w) \,.
-%   \end{align*}
-%   Since $\varphi_1, \dotsc, \varphi_n$ generate $\mc{P}_k(W)$ as a $k$-algebra it follows that the diagram does commutes.
-%   
-%   All that’s left to show is the uniqueness of $\iota$.
-%   For this we will use our newly acquired wisdom about Zariski density.
-%   Suppose we have a map
-%   \[
-%             i
-%     \colon  \mc{P}_k(W)
-%     \to     \mc{P}_L(W_L)
-%   \]
-%   such that the diagram
-%   \[
-%     \begin{tikzcd}[sep = large]
-%         W
-%         \arrow[hook]{r}{\can_W}
-%         \arrow[swap]{d}{f}
-%       & W_L
-%         \arrow{d}{\iota(f)}
-%       \\
-%         k
-%         \arrow[hook]{r}
-%       & L
-%     \end{tikzcd}
-%   \]
-%   commutes for all $f \in \mc{P}_k(W)$.
-%   For every polynomial map $f \in \mc{P}_k(W)$ we then have \mbox{$\iota(f)-i(f) \in \mc{P}_L(W_L)$} with
-%   \[
-%       \left(
-%         \iota(f)-i(f)
-%       \right)_{|W}
-%     = 0 \,.
-%   \]
-%   Since $W$ is Zariski dense in $W_L$ over $L$ it follows that $\iota(f) - i(f) = 0$ and therefore $\iota(f) = i(f)$.
-% \end{proof}
-% 
-% 
-% This inclusion gives us the desired isomorphism of $L$-algebras
-% \[
-%         \mc{P}_k(W)_L
-%   \cong \mc{P}_L(W_L)
-% \]
-% for free.
-% 
-% 
-% \begin{proposition}
-%   Let $k$ be a finite-dimensional $k$-vector space.
-%   Then the map
-%   \[
-%             \Phi
-%     \colon  \mc{P}_k(W)_L
-%     \to     \mc{P}_L(W_L),
-%     \quad   \lambda \otimes f
-%     \mapsto \lambda \iota(f)
-%   \]
-%   is an isomorphism of $L$-algebras, where $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ is the inclusion as before.
-% \end{proposition}
-% \begin{proof}
-%   Let $v_1, \dotsc, v_n$ be a $k$-basis of $W$ and $\varphi_1, \dotsc, \varphi_n \in \mc{P}_k(W)$ the corresponding coordinate functions.
-%   Then $\varphi^\alpha = \varphi_1^{\alpha_1} \dotsm \varphi_n^{\alpha_n}$ with $\alpha \in \Natural^n$ are a $k$-basis of $\mc{P}_k(W)$ and an $L$-basis of $\mc{P}_L(W_L)$ (where we identify $W$ with the corresponding $k$-vector subspace of $W_L$ and $\mc{P}_k(W)$ with the corresponding $k$-subalgebra of $\mc{P}_L(W_L)$ under $\iota$).
-%   Therefore the statement follows from corollary \ref{corollary: inclusion to bijection algebras}.
-% \end{proof}
-% 
-% 
-% Using this isomorphism we will identify $\mc{P}_k(W)_L$ with $\mc{P}_L(W_L)$.
-% We also identify $\mc{P}_k(W)$ with its image under $\iota$.
-% 
-% 
-% We can also combine all these commuting diagrams into a big one:
-% Given a $k$-vector space $W$ and a $k$-basis $w_1, \dotsc, w_n$ of $W$ we have an isomorphism
-% \[
-%         k[X_1, \dotsc, X_n]
-%   \cong \mc{P}_k(W)
-% \]
-% of $k$-vector spaces, and corresponding with the $L$-basis $1 \otimes w_1, \dotsc, 1 \otimes w_n$ of $W_L$ we have an isomorphism of $L$-algebras
-% \[
-%         L[X_1, \dotsc, X_n]
-%   \cong \mc{P}_L(W_L) \,.
-% \]
-% This gives us the following commutative diagram.
-% \[
-%   \begin{tikzcd}[sep = large]
-%       \mc{P}_k(W)
-%       \arrow[hook]{r}{\iota}
-%       \arrow[equal, swap]{d}{\wr}
-%     & \mc{P}_L(W_L)
-%       \arrow[equal]{d}{\wr}
-%     \\
-%       k[X_1, \dotsc, X_n]
-%       \arrow[hook]{r}
-%     & L[X_1, \dotsc, X_n]
-%   \end{tikzcd}
-% \]
-% Given the inclusion $\iota \colon \mc{P}_k(W) \to \mc{P}_L(W_L)$ and the corresponding isomorphism of $L$-algebras $\mc{P}_k(W)_L \cong \mc{P}_L(W_L)$ we also have the following commutative diagram.
-% \[
-%   \begin{tikzcd}[sep = large]
-%       \mathcal{P}_k(W)
-%       \arrow[hook]{r}
-%       \arrow[hook, swap]{d}{\iota}
-%     & \mathcal{P}_L(W_L)
-%     \\
-%       \mathcal{P}_k(W)_L
-%       \arrow[equal]{ru}[rotate=30]{\sim}
-%     & {}
-%   \end{tikzcd}
-% \]
-% We get a similar diagram for polynomial rings.
-% (See the appendix \ref{app: extension of scalars} for more details.)
-% \[
-%   \begin{tikzcd}[sep = large]
-%       k[X_1, \dotsc, X_n]
-%       \arrow[hook]{r}
-%       \arrow[hook]{d}
-%     & L[X_1, \dotsc, X_n]
-%     \\
-%       k[X_1, \dotsc, X_n]_L
-%       \arrow[equal]{ru}[rotate=30]{\sim}
-%     & {}
-%   \end{tikzcd}
-% \]
-% The isomorphism $\mc{P}_k(W) \cong k[X_1, \dotsc, X_n]$ of $k$-algebras also induces an isomorphism $\mc{P}_k(W)_L \cong k[X_1, \dotsc, X_n]_L$ of $L$-algebras which results in the following commutative diagram.
-% \[
-%   \begin{tikzcd}[sep = large]
-%       \mc{P}_k(W)_L
-%       \arrow[equal]{d}{\wr}
-%     & \mc{P}_k(W)
-%       \arrow[left hook ->]{l}
-%       \arrow[equal]{d}{\wr}
-%     \\
-%       k[X_1, \dotsc, X_n]_L
-%     & k[X_1, \dotsc, X_n]
-%       \arrow[left hook ->]{l}
-%   \end{tikzcd}
-% \]
-% We also have the following commutative diagram of $L$-algebras and isomorphisms of such.
-% \[
-%   \begin{tikzcd}[sep = large]
-%       \mc{P}_k(W)_L
-%       \arrow[equal]{d}{\wr}
-%       \arrow[equal]{r}{\sim}
-%     & \mc{P}_L(W_L)
-%       \arrow[equal]{d}{\wr}
-%     \\
-%       k[X_1, \dotsc, X_n]_L
-%       \arrow[equal]{r}{\sim}
-%     & L[X_1, \dotsc, X_n]
-%   \end{tikzcd}
-% \]
-% By putting all of this together we get the following commutative diagram:
-% \[
-%   \begin{tikzcd}
-%       {}
-%     & \mc{P}_k(W)
-%       \arrow[left hook ->]{dl}
-%       \arrow[hook]{dr}
-%       \arrow[equal, near start]{dd}{\wr}
-%     & {}
-%     \\
-%       \mc{P}_k(W)_L
-%       \arrow[equal, near start]{rr}{\sim}
-%       \arrow[equal]{dd}{\wr}
-%     & {}
-%     & \mc{P}_L(W_L)
-%       \arrow[equal]{dd}{\wr}
-%     \\
-%       {}
-%     & k[X_1, \dotsc, X_n]
-%       \arrow[left hook ->]{dl}
-%       \arrow[hook]{dr}
-%     & {}
-%     \\
-%       k[X_1, \dotsc, X_n]_L
-%       \arrow[equal]{rr}{\sim}
-%     & {}
-%     & L[X_1, \dotsc, X_n]
-%   \end{tikzcd}
-% \]
 
 \begin{fluff}
   Let $V$ be a finite-dimensional $k$-vector space.
-  To prove the last part of the following proposition we need to slightly generalize our notion of Zariski density:
+  To prove the last part of the upcoming proposition we need to slightly generalize our notion of polynomial maps:
   
   For a subset $X \subseteq V$ a function $X \to k$ is \emph{polynomial} if it is the restriction of a polynomial function $V \to k$.
   If $X$ is Zariski dense in $Y \subseteq V$ and $f \colon Y \to k$ is a polynomial function with $\restrict{f}{X} = 0$ it then follows that $f = 0$.
@@ -986,25 +703,27 @@
 
 
 \begin{warning}
-  While every polynomial function $f \colon X \to k$ can be extended to a polynomial function $V \to k$, the same does not hold for rational functions.
-  Consider for example $\GL_n(k) \subseteq \Mat_n(k)$ and the rational function $f \colon \GL_n(k) \to k$ given by
+  While every polynomial function $f \colon X \to k$ can be extended to a polynomial function $V \to k$ the same does not hold for rational functions.
+  Consider for example the subset $\GL_n(k) \subseteq \Mat_n(k)$ and the rational function $f \colon \GL_n(k) \to k$ given by
   \[
               f(A)
     \defined  \frac{1}{\det(A)} \,.
   \]
   Suppose that $f$ could be extended to a rational function $\hat{f} \colon \Mat_n(k) \to k$.
-  Then the function $g \colon \Mat_n(k) \to k$ given by $g(A) = \hat{f}(A) \det(A) - 1$ is also rational, and $\restrict{g}{\GL_n(k)} = 0$.
-  It follows that $g = 0$ because $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$, and therefore that $\hat{f}(A) \det(A) = 1$ for all $A \in \Mat_n(K)$.
+  Then the function $g \colon \Mat_n(k) \to k$ given by $g(A) = \hat{f}(A) \det(A) - 1$ is also rational and satisfies $\restrict{g}{\GL_n(k)} = 0$.
+  It then follows that $g = 0$ because $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$, and therefore that $\hat{f}(A) \det(A) = 1$ for all $A \in \Mat_n(k)$.
   But this is not possible.
-  (This shows more generally that $f$ cannot be extended to any subset $X \subseteq \Mat_n(k)$ with $\GL_n(k) \subsetneq X$ as a rational function.)
+  
+  (This shows more generally that $f$ cannot be extended to a rational function $X \to k$ for any subset $X \subseteq \Mat_n(k)$ with $\GL_n(k) \subsetneq X$.)
 \end{warning}
 
 
 \begin{proposition}
   \leavevmode
-  If we consider the groups $\GL_n(k), \GL_n(L), \SL_n(k), \SL_n(L)$ as subsets of $\Mat_n(L)$ then
+  For the subsets $\GL_n(k), \GL_n(L), \SL_n(k), \SL_n(L)$ of $\Mat_n(L)$ we have that
   \begin{enumerate}
     \item
+      \label{enumerate: GLnk Zariski dense in MnL}
       $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$,
     \item
       $\GL_n(k)$ is Zariski dense in $\GL_n(L)$ over $L$,
@@ -1018,9 +737,9 @@
     \item
       We have already seen that $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $k$.
       It follows that $\GL_n(k)$ is Zariski dense in $\Mat_n(k)$ over $L$ by Corollary~\ref{corollary: Zariski dense scalar extension}, with $\Mat_n(k)$ being Zariski dense in $\Mat_n(L)$ over $L$ by Corollary~\ref{corollary: kn is Zariski dense in Ln}.
-      It follows from the transitivity of Zariski density that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
+      It follows from the \hyperref[lemma: transitivity of Zariski density]{transitivity of Zariski density} that $\GL_n(k)$ is Zariski dense in $\Mat_n(L)$ over $L$.
     \item
-      This follows from a).
+      This follows from part~\ref*{enumerate: GLnk Zariski dense in MnL} of this proposition.
     \item
       Let $f \colon \Mat_n(L) \to L$ be a polynomial function with $\restrict{f}{\SL_n(k)} = 0$.
       Consider the map
@@ -1052,10 +771,10 @@
       It follows that $(\restrict{f}{\SL_n(L)} \circ p)(A) = 0$ for every $A \in \GL_n(L)$ because $\GL_n(k)$ is Zariski-dense in $\GL_n(L)$ over $L$.
       It then follows for every $A \in \SL_n(L)$ that
       \[
-          0
-        = (\restrict{f}{\SL_n(L)} \circ p)(A)
+          f(A)
         = f(p(A))
-        = f(A) \,.
+        = (\restrict{f}{\SL_n(L)} \circ p)(A)
+        = 0 \,.
       \]
       This shows that $\restrict{f}{\SL_n(L)} = 0$.
     \qedhere
@@ -1066,11 +785,13 @@
 \begin{corollary}
   \label{corollary: extension is again invariant}
   Let $\GL_n(k), \GL_n(L), \SL_n(k), \SL_n(L)$ act on $\Mat_n(k)$, resp.\ $\Mat_n(L)$ by conjugation.
-  Let $f \colon \Mat_n(k) \to k$ be a polynomial function and let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-polynomial extension of $f$ (as described in Proposition~\ref{proposition: consistent choice of identification for polynomial functions}).
+  Let $f \colon \Mat_n(k) \to k$ be a $k$-polynomial function and let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-polynomial extension of $f$ (as described in Proposition~\ref{proposition: consistent choice of identification for polynomial functions}).
   \begin{enumerate}
     \item
+      \label{enumerate: extension is again GLn invariant}
       If $f$ is $\GL_n(k)$-invariant then $\overline{f}$ is $\GL_n(L)$-invariant.
     \item
+      \label{enumerate: extension is again SLn invariant}
       If $f$ is $\SL_n(k)$-invariant then $\overline{f}$ is $\SL_n(L)$-invariant.
   \end{enumerate}
 \end{corollary}
@@ -1083,12 +804,23 @@
     = \overline{f}(AB) - \overline{f}(BA)
   \]
   for all $A, B \in \Mat_n(L)$.
-  
-  The map $f$ is $\GL_n(k)$-invariant if and only if $\restrict{\Phi}{\GL_n(k) \times \Mat_n(k)} = 0$ and the map $\overline{f}$ is $\GL_n(L)$-invariant if and only if $\restrict{\Phi}{\GL_n(L) \times \Mat_n(L)} = 0$.
+  We then have that
+  \begin{align*}
+          \text{$f$ is $\GL_n(k)$-invariant}
+    &\iff \restrict{\Phi}{\GL_n(k) \times \Mat_n(k)} = 0
+  \shortintertext{and similarly that}
+          \text{$\overline{f}$ is $\GL_n(L)$-invariant}
+    &\iff \restrict{\Phi}{\GL_n(L) \times \Mat_n(L)} = 0
+  \end{align*}
   Both $\GL_n(k) \subseteq \GL_n(L)$ and $\Mat_n(k) \subseteq \Mat_n(L)$ are Zariski dense over $L$, so it follows from Lemma~\ref{lemma: product of Zariski dense is again Zariski dense} that $\GL_n(k) \times \Mat_n(k) \subseteq \GL_n(L) \times \Mat_n(L)$ is Zariski dense over $L$.
-  It therefore follows from $\restrict{\Phi}{\GL_n(k) \times \Mat_n(k)} = 0$ that $\restrict{\Phi}{\GL_n(L) \times \Mat_n(L)} = 0$ showing part~a).
+  It therefore follows that
+  \[
+              \restrict{\Phi}{\GL_n(k) \times \Mat_n(k)} = 0
+    \implies  \restrict{\Phi}{\GL_n(L) \times \Mat_n(L)} = 0 \,.
+  \]
+  This shows part~\ref*{enumerate: extension is again GLn invariant}.
   
-  By replacing $\GL_n$ by $\SL_n$ in the above argumentation we find that part~b) holds.
+  By replacing $\GL_n$ by $\SL_n$ in the above argumentation we find that part~\ref*{enumerate: extension is again SLn invariant} holds.
 \end{proof}
 
 
@@ -1104,12 +836,12 @@
   
   Let $D_k \subseteq \Mat_n(k)$ and $D_L \subseteq \Mat_n(L)$ be the subsets of diagonal matrices.
   It follows from $\restrict{f}{D_k} = 0$ that $\restrict{\overline{f}}{D_k} = 0$, from which it further follows that $\restrict{\overline{f}}{D_L} = 0$ because $D_k$ is Zariski-dense in $D_L$ over $L$ by Corollary~\ref{corollary: kn is Zariski dense in Ln}.
-  It follows by Corollary~\ref{corollary: diagonal matrices dense alg closed} that $\overline{f} = 0$ and therefore that $f = 0$.
+  It follows from the \hyperref[corollary: second Zariski density property for algebraically closed fields]{second Zariski density property for algebraically closed fields} that $\overline{f} = 0$ and therefore that $f = 0$.
 \end{proof}
 
 
 \begin{proposition}
-  Let $\GL_n(k), \SL_n(k)$ act on $\Mat_n(k)$ by conjugation.
+  Let $\GL_n(k)$ and $\SL_n(k)$ act on $\Mat_n(k)$ by conjugation.
   Then
   \[
       \mc{P}(\Mat_n(k))^{\GL_n(k)}
@@ -1119,16 +851,17 @@
 
 
 \begin{proof}
-  Suppose that $k$ is algebraically closed.
-  If $A, B$ are $\GL_n(k)$-conjugated then they are already $\SL_n(k)$-conjugated because for $S \in \GL_n(k)$ with $S A S^{-1} = B$ there exists some $\omega \in k$ with $\omega^n = 1/\det(S)$, and for $T \defined S/\omega \in \SL_n(k)$ we then have that $T A T^{-1}$.
-  It follows that the actions of $\GL_n(k)$ and $\SL_n(k)$ on $\Mat_n(k)$ have the same orbits, which proves the claim in this case.
+  Suppose first that $k$ is algebraically closed.
+  If $A, B$ are $\GL_n(k)$-conjugated then they are already $\SL_n(k)$-conjugated because for $S \in \GL_n(k)$ with $S A S^{-1} = B$ there exists some $\alpha \in k$ with $\alpha^n = 1/\det(S)$, and for $T \defined S/\alpha \in \SL_n(k)$ we then have that $T A T^{-1}$.
+  It follows that the actions of $\GL_n(k)$ and $\SL_n(k)$ on $\Mat_n(k)$ have the same orbits.
+  This proves the proposition for $k$ algebraically closed.
   
   Let $k$ be any infinite field.
   We need to show that every $\SL_n(k)$-invariant polynomial map $f \colon \Mat_n(k) \to k$ is already $\GL_n(k)$-invariant.
   Let $L$ be an algebraic closure of $k$ and let $\overline{f} \colon \Mat_n(L) \to L$ be the unique $L$-linear extension of $f$.
   Then $\overline{f}$ is $\SL_n(L)$-invariant by Corollary~\ref{corollary: extension is again invariant}.
-  Then $\overline{f}$ is already $\GL_n(L)$-invariant by the above argumentation.
-  It then follows that the restriction of $f$ to $\Mat_n(k)$, which is precisely $f$, is $\GL_n(k)$-invariant.
+  The map $\overline{f}$ is therefore already $\GL_n(L)$-invariant as shown above.
+  Then $f$, which is now the restriction of $\overline{f}$ to $\Mat_n(k)$, is $\GL_n(k)$-invariant.
 \end{proof}
 
 

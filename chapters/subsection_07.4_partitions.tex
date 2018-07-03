@@ -1,0 +1,202 @@
+\subsection{Partitions}
+
+\begin{definition}
+  Let $n \in \Natural$.
+  A partition of $n$ is a tupel $\lambda = (\lambda_1, \dotsc, \lambda_s)$ of natural numbers $\lambda_i \in \Natural$ with $n = \sum_{i=1}^s \lambda_i$ and
+  \[
+          \lambda_1
+    \geq  \lambda_2
+    \geq  \dotsb
+    \geq  \lambda_s
+    >  0 \,.
+  \]
+  Then $|\lambda| \defined \sum_{i=1}^n \lambda_i$, the $\lambda_i$ are the \emph{parts of $\lambda$} and $\ell(\lambda) \defined s$ is the \emph{length of $\lambda$}.
+\end{definition}
+
+
+\begin{example}
+  The partitions of $4$ are $(4)$, $(3,1)$, $(2,2)$, $(2,1,1)$, $(1,1,1,1)$.
+\end{example}
+
+
+\begin{fluff}
+  Partitions are often displayed in terms of \emph{Young diagrams}.
+  The Young diagram corresponding to a partition $\lambda$ is an array of boxes, left adjusted, such that the $i$-th row consists of $\lambda_i$ boxes.
+\end{fluff}
+
+
+\begin{example}
+  The Young diagrams of the partitions of $4$ are as follows:
+  \[
+    \renewcommand{\arraystretch}{2}
+    \begin{matrix}
+        \ydiagram{4}
+      & \quad
+      & \ydiagram{3,1}
+      & \quad
+      & \ydiagram{2,2}
+      & \quad
+      & \ydiagram{2,1,1}
+      & \quad
+      & \ydiagram{1,1,1,1}
+      \\
+        (4)
+      & {}
+      & (3,1)
+      & {}
+      & (2,2)
+      & {}
+      & (2,1,1)
+      & {}
+      & (1,1,1,1)
+    \end{matrix}
+  \]
+\end{example}
+
+
+\begin{fluff}
+  Note that transposing the Young diagram of a partition $\lambda$ of $n$ gives again the Young-diagram of a partition $\lambda'$ of $n$.
+  If $\lambda = (\lambda_1, \dotsc, \lambda_s)$ then $\lambda' = (\lambda'_1, \dotsc, \lambda'_t)$ for $t = \lambda_1$ with $\lambda'_i = |\{j \mid \lambda_j \geq i\}|$.
+\end{fluff}
+
+\begin{definition}
+  The partition $\lambda'$ is the \emph{transposed} of the partition $\lambda$.
+\end{definition}
+
+
+\begin{definition}
+  An \emph{infinite partition} is a decreasing sequence $\lambda_1, \lambda_2, \dotsc \in \Natural$ with $\lambda_i = 0$ for all but finitely many $i$.
+  For a partition $(\lambda_1, \dotsc, \lambda_s)$ the \emph{infinite partition associated to $\lambda$} is given by
+  \[
+      \hat{\lambda}
+    = (\lambda_1, \dotsc, \lambda_s, 0, 0, \dotsc) \,.
+  \]
+\end{definition}
+
+
+\begin{example}
+  The partitions $\lambda = (4,2,2)$ and $\lambda' = (3,3,1,1)$ are transposed to each other.
+  \[
+    \renewcommand{\arraystretch}{2}
+    \begin{matrix}
+        \ydiagram{4,2,2}
+      & \quad
+      & \ydiagram{3,3,1,1}
+      \\
+        (4,2,2)
+      & {}
+      & (3,3,1,1)
+    \end{matrix}
+  \]
+\end{example}
+
+
+\begin{definition}
+  For $n \in \Natural$ we write
+  \[
+              \Par(n)
+    \coloneqq \{\text{partitions of $n$}\}
+  \]
+  and we set
+  \[
+              \Par
+    \coloneqq \bigcup_{n \in \Natural} \Par(n) \,.
+  \]
+\end{definition}
+
+
+\begin{definition}
+  If $\lambda, \mu \in P(n)$ then $\lambda \geq \mu$ if $\sum_{i=1}^r \hat{\lambda}_i \geq \sum_{i=1}^r \hat{\mu}_i$ for all $r$.
+\end{definition}
+
+
+\begin{example}
+  The following are partitions of $6$:
+  \[
+      \ydiagram{6}
+    > \ydiagram{4,2}
+    > \ydiagram{3,3}
+    > \ydiagram{3,2,1}
+    > \ydiagram{1,1,1,1,1,1}
+  \]
+  The partitions
+  \[
+    \ydiagram{2,2}
+    \quad\text{and}\quad
+    \ydiagram{1,1}
+  \]
+  are not comparable because the first is a partition of $4$ while the second is a partititon of $2$.
+  The partitions
+  \[
+    \ydiagram{4,2,1,1,1}
+    \quad \text{and} \quad
+    \ydiagram{3,3,2,1}
+  \]
+  are also not comparable because $4 > 3$ but $4+2+1 = 7 < 8 = 3+3+2$.
+\end{example}
+
+
+\begin{lemma}
+  For every $n \in \Natural$, $\leq$ defines a partial ordering on $\Par(n)$.
+\end{lemma}
+\begin{proof}
+  The relation $\leq$ is reflexive.
+  
+  Let $\lambda, \mu \in \Par(n)$ with $\lambda \geq \mu$ and $\lambda \leq \mu$.
+  Because $\lambda \geq \mu$ we have $\hat{\lambda}_1 \geq \hat{\mu}_1$ and because $\lambda \leq \mu$ we have $\hat{\lambda}_1 \leq \hat{\mu}_1$.
+  Thus we have $\hat{\lambda}_1 = \hat{\mu}_1$.
+  In the same way we find that $\hat{\lambda}_1 + \hat{\lambda}_2 = \hat{\mu}_1 + \hat{\mu}_2$, and with $\hat{\lambda}_1 = \hat{\mu}_1$ we get that $\hat{\lambda}_2 = \hat{\mu}_2$.
+  It follows inductively that $\hat{\lambda}_i = \hat{\mu}_i$ for every $i$.
+  We then have that $\hat{\lambda} = \hat{\mu}$, and therefore that $\lambda = \mu$.
+  This shows that $\leq$ is antisymmetric.
+  
+  Let $\lambda, \mu, \nu \in \Par(n)$ with $\lambda \geq \mu$ and $\mu \geq \nu$.
+  For all $r \geq 1$ we then have
+  \[
+          \sum_{i=1}^r \hat{\lambda}_i
+    \geq  \sum_{i=1}^r \hat{\mu}_i
+    \quad\text{and}\quad
+          \sum_{i=1}^r \hat{\mu}_i
+    \geq  \sum_{i=1}^r \hat{\nu}_i
+  \]
+  and therefore
+  \[
+          \sum_{i=1}^r \hat{\lambda}_i
+    \geq  \sum_{i=1}^r \hat{\nu}_i \,,
+  \]
+  so that $\lambda \geq \nu$.
+  This shows that $\leq$ is transitive.
+\end{proof}
+
+\begin{definition}
+  For any two infinite partitions $\lambda, \mu$ their \emph{sum} $\lambda + \mu$ is given by
+  \[
+      (\lambda + \mu)_i
+    = \lambda_i + \mu_i
+  \]
+  for all $i$.
+  For any two partitions $\lambda, \mu \in \Par$ their \emph{sum} $\lambda + \mu$ is the partition with $\widehat{\lambda + \mu} = \hat{\lambda} + \hat{\mu}$, i.e.\ the partitition with $\ell(\lambda + \mu) = \max( \ell(\lambda), \ell(\mu) )$ and
+  \[
+      (\lambda+\mu)_i
+    = \begin{cases}
+        \lambda_i + \mu_i & \text{if $i \leq \ell(\lambda), \ell(\mu)$}       \,, \\
+        \lambda_i         & \text{if $i \leq \ell(\lambda)$, $i > \ell(\mu)$} \,, \\
+        \mu_i             & \text{if $i \leq \ell(\mu)$, $i > \ell(\lambda)$} \,.
+      \end{cases}
+  \]
+\end{definition}
+
+
+\begin{example}
+  For $\lambda = (4,3,2,2)$ and $\mu = (3,2,2)$ we have $\lambda + \mu = (7,5,4,2)$.
+  The addition of two partitions can also be visualized “putting together” their Young diagrams row-wise:
+  \[
+                \ydiagram[*(gray)]{4,3,2,2}
+          \;+\; \ydiagram[*(light-gray)]{3,2,2,0}
+    \;=\; \ydiagram[*(light-gray)]{4+3,3+2,2+2} * [*(gray)]{7,5,4,2}
+  \]
+\end{example}
+
+
+
+

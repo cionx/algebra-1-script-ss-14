@@ -2,13 +2,26 @@
 
 
 \begin{fluff}
-  In this section we require all fields to be infinite.
-  Until further notice we also fix a finite-dimensional $k$-vector space $V$.
+  In this section we will give an introduction to the Zariski topology and affine algebraic varieties.
+  
+  In the first subsection we will prove \emph{Hilbert’s Nullstellensatz} (or rather \emph{Nullstellensätze}), which will give us some understanding of the vanishing sets of polynomials in multiple variables.
+  
+  In the second subsection we will introduce the \emph{Zariski topology} of a finite-dimensional vector space $V$.
+  We will show some basic properties of this topology and together with Hilbert’s Nullstellensätze we will see how topological properties of $V$ correspond to algebraic properties of the coordinate ring $\mc{P}(V)$.
+  
+  Lastly we show that the Zariski closed subsets of $V$ can be regarded as (geometric) spaces in their own right, so called \emph{affine algebraic varieties}.
+  We show how many of the notions and statements which have previuosly only been considered for finite-dimensional vector spaces generalize to affine algebraic varieties.
 \end{fluff}
 
 
+\begin{conventions}
+  In this section we require all fields to be infinite.
+  We also fix a finite-dimesional $k$-vector space $V$.
+\end{conventions}
+
+
 \begin{definition}
-  For $S \subseteq \mc{P}(V)$ the set
+  For every subset $S \subseteq \mc{P}(V)$ the set
   \[
               \mc{V}(S)
     \coloneqq \{
@@ -17,7 +30,7 @@
                 \text{$f(x) = 0$ for all $x \in S$}
               \}
   \]
-  is the \emph{zero set} or \emph{vanishing set} or \emph{algebraic set} or \emph{Zariski closed subset} or \emph{affine \textup(algebraic\textup) variety} associated with $S$.
+  is the \emph{zero set} or \emph{vanishing set} or \emph{algebraic set} or \emph{Zariski closed subset} or \emph{affine algebraic variety} associated to $S$.
 \end{definition}
 
 
@@ -25,6 +38,10 @@
   \label{example: examples of algebraic subsets}
   \leavevmode
   \begin{enumerate}
+    \item
+      For $X^2 + Y^2 - 1 \in \Real[X,Y]$ the vanishing set $\mc{V}(X^2 + Y^2 - 1)$ is the unit circle.
+    \item
+      For $XY \in k[X,Y]$ the vanishing set $\mc{V}(XY)$ union of the two coordinate axis.
     \item
       We have that $\mc{V}(\emptyset) = \mc{V}(0) = V$.
     \item
@@ -52,8 +69,8 @@
   It follows from $S \subseteq I$ that $\mc{V}(I) \subseteq \mc{V}(S)$.
   To show the other inclusion let $x \in \mc{V}(S)$.
   Then $g(x) = 0$ for every $g \in S$.
-  Every $f \in I$ is of the form $f = \sum_{i=1}^n h_i g_i$ for some $h_i \in \mc{P}(V)$, $g_i \in S$, so it follows from $g_i(x) = 0$ that $f(x) = 0$.
-  We thus have that $x \in \mc{V}(I)$, showing that $\mc{V}(S) \subseteq \mc{V}(I)$.
+  Every $f \in I$ is of the form $f = \sum_{i=1}^n h_i g_i$ for some $h_i \in \mc{P}(V)$, $g_i \in S$ and it follows that $f(x) = 0$.
+  This shows that $x \in \mc{V}(I)$ and therefore that $\mc{V}(S) \subseteq \mc{V}(I)$.
 \end{proof}
 
 
@@ -64,19 +81,19 @@
 
 
 \begin{proof}
-  By definition of an algebraic set, there exist a subset $S \subseteq \mc{P}(V)$ with $X = \mc{V}(S)$, and for the ideal $I \defined (S)$ we have that $X = \mc{V}(I)$ by Lemma~\ref{lemma: vanishing set is the same for generated ideal}.
+  By definition of an algebraic set there exist a subset $S \subseteq \mc{P}(V)$ with $X = \mc{V}(S)$ and for the ideal $I \defined (S)$ we have that $X = \mc{V}(I)$ by Lemma~\ref{lemma: vanishing set is the same for generated ideal}.
 \end{proof}
 
 
 \begin{corollary}
-  If $X \subseteq V$ is an algebraic subset then there exists finitely many $f_1, \dotsc, f_n \in \mc{P}(V)$ with $X = \mc{V}(f_1, \dotsc, f_n)$.
+  Every algebraic subset $X \subseteq V$ can be described by finitely many polynomial equations, i.e.\ there exist $f_1, \dotsc, f_n \in \mc{P}(V)$ with $X = \mc{V}(f_1, \dotsc, f_n)$.
 \end{corollary}
 
 
 \begin{proof}
   There exists an ideal $I \idealeq \mc{P}(V)$ with $X = \mc{V}(I)$ by Corollary~\ref{corollary: every algebric set is vanishing set of an ideal}.
-  The $k$-algebra $\mc{P}(V) \cong k[X_1, \dotsc, X_{(\dim V)}$ is notherian by Hilbert’s Basis Theorem, so there exists finitely many $f_1, \dotsc, f_n \in I$ with $I = (f_1, \dotsc, f_n)$.
-  It follows from Lemma~\ref{lemma: vanishing set is the same for generated ideal} that $X = \mc{V}(\{f_1, \dotsc, f_n\})$.
+  The $k$-algebra $\mc{P}(V) \cong k[X_1, \dotsc, X_{(\dim V)}]$ is notherian by \hyperref[theorem: Hilberts basis theorem]{Hilbert’s basis theorem} so there exist finitely many $f_1, \dotsc, f_n \in I$ with $I = (f_1, \dotsc, f_n)$.
+  It follows from Lemma~\ref{lemma: vanishing set is the same for generated ideal} that $X = \mc{V}(f_1, \dotsc, f_n)$.
 \end{proof}
 
 

@@ -25,6 +25,9 @@
 % no subsections in the toc
 \setcounter{tocdepth}{2}
 
+% no unplaned surprises with \cite
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
 
 % colours
 \definecolor{light-gray}{gray}{0.9}
@@ -55,6 +58,7 @@
 \newcounter{everything}[section]
 \newtheorem{example}[everything]{Example}
 \newtheorem*{claim}{Claim}
+\newtheorem{conventions}[everything]{Conventions}
 \newtheorem{corollary}[everything]{Corollary}
 \newtheorem{definition}[everything]{Definition}
 \newtheorem{fluff}[everything]{}      % to be replaced with something better
@@ -93,6 +97,8 @@
 \newcommand{\idealeq}{\trianglelefteq}
 \newcommand{\idealneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand{\longto}{\longrightarrow}
+\newcommand{\normalsubgroup}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
 
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}

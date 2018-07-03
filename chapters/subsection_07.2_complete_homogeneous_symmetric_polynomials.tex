@@ -1,0 +1,156 @@
+\subsection{Complete Homogeneous Symmetric Polynomials}
+
+
+\begin{definition}
+  For all $r \in \Natural$ the \emph{$r$-th complete homogeneous symmetric polynomial} (in $n$-variables) is the sum of all monomials of $k[X_1, \dotsc, X_n]$ of degree $r$, that is
+  \[
+              h_r
+    \defined  \sum_{\substack{\underline{\alpha} \in \Natural^n \\ |\underline{\alpha}| = r}}
+              X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+  \]
+\end{definition}
+
+
+\begin{definition}
+  For every $n \in \Natural$ the power series $H(t) \in k[X_1, \dotsc, X_n]\!\dblbrack{t}$ is the generating series of the sequence $(h_r)_{r \in \Natural}$, that is
+  \[
+              H(t)
+    \defined  \sum_{r=0}^\infty h_r t^r \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: explicit formula for H}
+  One has the equality of power series
+  \[
+      H(t)
+    = \prod_{i=1}^n \frac{1}{1 - X_i t}
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  Note that the inverse of $1 - X_i t$ is for every $i$ given by the geometric series
+  \[
+              Q_i
+    \defined  1 + X_i t + X_i^2 t^2 + X_i^3 t^3 + \dotsb
+    \in       k[X_1, \dotsc, X_n]\!\dblbrack{t} \,,
+  \]
+  so that
+  \[
+      \prod_{i=1}^n \frac{1}{1 - X_i t}
+    = \prod_{i=1}^n Q_i
+    = Q_1 \dotsb Q_n \,.
+  \]
+  The coefficient of $t^r$ in $Q_1 \dotsm Q_n$ is given by $\sum_{|\underline{\alpha}| = r}  X_1^{\alpha_1} \dotsm X_n^{\alpha_n} = h_r$.
+\end{proof}
+
+
+\begin{fluff}
+  By comparing the closed expressions of the power series $E(t)$ and $H(t)$ from from Lemma~\ref{lemma: explicit formula for E} and Lemma~\ref{lemma: explicit formula for H} we find that
+  \[
+      E(-t)H(t)
+    = 1
+    = H(-t)E(t) \,.
+  \]
+  By comparing the $s$-th coefficients of these power series we arrive at the following relation between the elementary symmetric polynomials $e_r$ and the complete homogeneous symmetric polynomials $h_r$:
+\end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: combinatorical formula for e and h}
+  For all $s \geq 1$ we have that
+  \begin{align*}
+          h_s
+        - e_1 h_{s-1}
+        + e_2 h_{s-2}
+        - \dotsb
+        + (-1)^{s-1} e_{s-1} h_1
+        + (-1)^s     e_s
+    &=  0
+  \intertext{as well as}
+          e_s
+        - h_1 e_{s-1}
+        + h_2 e_{s-2}
+        - \dotsb
+        + (-1)^{s-1} h_{s-1} e_1
+        + (-1)^s     h_s
+    &=  0 \,.
+  \end{align*}
+\end{corollary}
+
+
+\begin{fluff}
+  From the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions} we know that the complete homogeneous symmetric polynomials $h_i$ can be expressed uniquely as polynomials in the elementary symmetric polynomials $e_i$, so that there exist unique polynomials $P_1, \dotsc, P_n \in k[Y_1, \dotsc, Y_n]$ with
+  \[
+      h_i
+    = P_i(e_1, \dotsc, e_n)
+  \]
+  for all $i = 1, \dotsc, n$.
+  
+  By rearranging the first formula of Corollary~\ref{corollary: combinatorical formula for e and h} to the equality
+  \[
+      h_s
+    =   e_1 h_{s-1}
+      - e_2 h_{s-2}
+      + \dotsb
+      - (-1)^{s-1} e_{s-1} h_1
+      - (-1)^s e_s
+  \]
+  we can recursively express the $h_i$ in terms of the $e_i$, starting off with $e_1 = h_1$ for $s = 1$, and thus inductively determine the polynomials $P_1, \dotsc, P_n$.
+  
+  Note that the second formula of Corollary~\ref{corollary: combinatorical formula for e and h} results from the first by swapping $h_i$ and $e_i$.
+  We can therefore swap the $h_i$ and $e_i$ in the previous paragraph to find that the $e_i$ can be expressed in terms of the $h_i$, and that this can be done in exactly the same way as the $h_i$ are expressed in terms of the $e_i$.
+  In other words, we have that
+  \[
+      e_i
+    = P_i(h_1, \dotsc, h_n)
+  \]
+  for all $i = 1, \dotsc, n$.
+  
+  This seems to suggest that the elementary symmetric polynomials $e_1, \dotsc, e_n$ and the homomogeneous symmetric polynomials $h_1, \dotsc, h_n$ are somehow dual to each other.
+  To make this notion of duality more precise note that by the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions} there exists a unique $k$-algebra homomorphism
+  \[
+            \Phi
+    \colon  k[X_1, \dotsc, X_n]^{S_n}
+    \to     k[X_1, \dotsc, X_n]^{S_n}∀
+  \]
+  with $\Phi(e_i) = h_i$ for every $i = 1, \dotsc, n$.
+  (This follows from combining the universal property of the polynomial ring $k[Y_1, \dotsc, Y_n]$ with the $k$-algebra isomorphism $k[Y_1, \dotsc, Y_n] \to k[X_1, \dotsc, X_n]^{S_n}$, $Y_i \mapsto e_i$.)
+  We then have that
+  \[
+      \Phi(h_i)
+    = \Phi( P_i(e_1, \dotsc, e_n) )
+    = P_i( \Phi(e_1), \dotsc, \Phi(e_n) )
+    = P_i( h_1, \dotsc, h_n )
+    = e_n \,.
+  \]
+  Hence the homomorphism $\Phi$ swaps $e_i$ with $h_i$ for every $i = 1, \dotsc, n$.
+  It follows that $\Phi^2(e_i) = e_i$ for every $i = 1, \dotsc, n$, and therefore that $\Phi^2 = \id$ because $k[X_1, \dotsc, X_n]^{S_n}$ is generated by $e_1, \dotsc, e_n$.
+  Thus we find the following:
+\end{fluff}
+
+\begin{corollary}
+  There exists an unique $k$-algebra homomorphism
+  \[
+            \Phi
+    \colon  k[X_1, \dotsc, X_n]^{S_n}
+    \to     k[X_1, \dotsc, X_n]^{S_n}
+  \]
+  with $\Phi(e_i) = h_i$ for every $i = 1, \dotsc, n$, and $\Phi$ is an involutive automorphism.
+\end{corollary}
+
+
+\begin{corollary}
+  The homogeneous symmetric polynomials $h_1, \dotsc, h_n$ generate the $k$-algebra $k[X_1, \dotsc, X_n]^{S_n}$ and are algebraically independent.
+\end{corollary}
+
+
+\begin{remark}
+  As for the \hyperref[theorem: fundamental theorem of symmetric functions]{fundamental theorem of symmetric functions} these results remain valid we replace $k$ with any non-zero commutative ring.
+\end{remark}
+
+
+
+

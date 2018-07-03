@@ -1,0 +1,482 @@
+\subsection{Monomial Symmetric Polynomials}
+
+\begin{definition}
+  For a partition $\lambda = (\lambda_1, \dotsc, \lambda_r)$ the corresponding \emph{monomial symmetric polynomial} is given by
+  \[
+              m_\lambda
+    \coloneqq   X_1^{\lambda_1} \dotsm X_r^{\lambda_r}
+              + \text{ all distinct permutations of this monomial} \,.
+  \]
+\end{definition}
+
+
+\begin{remark}
+  The monomial symmetric polynomial $m_\lambda$ can also be defined in a more formal way:
+  
+  Instead of adding up all distinct permutations of the monomial $X_1^{\lambda_1} \dotsm X_r^{\lambda_r}$ we can also take all distinct permutations of the tupel $\lambda$ and add up the corresponding monomials.
+  To formalize this we let $S_r$ act on $\Natural^r$ by permuting the entries, i.e.\
+  \[
+      \pi.(a_1, \dotsc, a_r)
+    = ( a_{\pi^{-1}(1)}, \dotsc, a_{\pi^{-1}(r)} )
+  \]
+  for all $\pi \in S_r$, $(a_1, \dotsc, a_r) \in \Natural^r$.
+  The set of all distinct permutations of $\lambda$ is precisely the orbit of $\lambda$ under this action.
+  For the stabilizer subgroup $U \subseteq S_n$ there exists an isomorphism of $G$-sets
+  \[
+            S_r / U
+    \to     S_r \lambda,
+    \quad   \class{\pi}
+    \mapsto \pi.\lambda
+  \]
+  where $S_r.\lambda$ denotes the orbit of $\lambda$.
+  Thus we can write
+  \[
+      m_\lambda
+    = \sum_{\class{\pi} \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \dotsm X_r^{\lambda_{\pi^{-1}(r)}}
+    = \sum_{\class{\pi} \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r} \,.
+  \]
+%   Also notice that
+%   \[
+%           U
+%     \cong S_{\nu_0} \times \dotsb \times S_{\nu_m}
+%   \]
+%   where
+%   \[
+%               \nu_n
+%     \coloneqq \left|
+%                 \left\{
+%                   1 \leq i \leq r
+%                 \mid
+%                     \lambda_i
+%                   = n
+%                 \right\}
+%               \right|
+%   \]
+%   and $m \coloneqq \max_{i=1,\dotsc,r} \lambda_i$.
+\end{remark}
+
+
+\begin{fluff}
+  Note that every multi-index $\underline{\alpha} \in \Natural^n$ can be reordered uniquely to a partition $\lambda$ of length $\ell(\lambda) = n$.
+  Then $m_\lambda$ is the “smallest” symmetric polynomial containing the monomial $X^{\,\underline{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$.
+  The following result should therefore not be too surprising:
+\end{fluff}
+
+
+\begin{proposition}
+  \label{proposition: m_lambda give a basis}
+  The monomial symmetric polynomials
+  \[
+      m_\lambda
+    \quad\text{with}\quad
+      \lambda \in \Par, \,
+      \ell(\lambda) = n
+  \]
+  form a $k$-basis of $k[X_1, \dotsc, X_n]^{S_n}$.
+\end{proposition}
+
+
+% TODO: Find better notation for multi-indices than underline.
+
+
+\begin{notation}
+  Every multi-index $\underline{\alpha} \in \Natural^n$ can be permuted to a unique partition $\lambda \in \Par$ of length $n$.
+  We will refer to $\lambda$ as the \emph{partition associated to $\underline{\alpha}$}.
+  
+  We will sometimes want to consider a partition $\lambda = (\lambda_1, \dotsc, \lambda_n)$ as a multi-index.
+  When doing so, we will write $\underline{\lambda}$ instead of just $\lambda$.
+  (So technically speaking both $\underline{\lambda}$ and $\lambda$ are the same thing.)
+  Note that $\lambda$ is then the partition associated to $\underline{\lambda}$.
+\end{notation}
+
+
+\begin{proof}
+  Note that for every monomial $X_1^{\alpha_1} \dotsm X_n^{\alpha}$ the polynomial
+  \[
+      X_1^{\alpha_1} \dotsm X_n^{\alpha}
+    + \text{all distinct permutations of this monomial}
+  \]
+  is precisely the monomial symmetric polynomial $m_\lambda$  of the partition $\lambda$ associated to $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
+  
+  Let $f \in k[X_1, \dotsc, X_n]^{S_n}$ be a symmetric polynomial.
+  Then for every monomial $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $f$, all of its permutations must also occur in $f$, all of them with the same coefficient $c$.
+  By the above observation all of these monomials can be grouped together to the symmetric polynomial $c m_{\lambda}$, where $\lambda$ is the partition associated to $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
+  
+  Since $f - c m_\lambda$ is again symmetric one can then inductively continue this process of grouping together permutated monomials to ultimately express $f$ as a linear combination of monomial symmetric polynomials.
+  (Note that no new monomials are introduced during this process, so that it eventually terminates.)
+  
+  The beginning observation also shows that a partition $\lambda$ is uniquely determined by any of the monomials $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$.
+  It follows that for any two distinct partitions $\lambda \neq \mu$ their monomial symmetric polynomials $m_\lambda$, $m_\mu$ have no common monomonials.
+  As the collection of all monomials $X^{\,\underline{\alpha}}$, $\underline{\alpha} \in \Natural^n$ is linearly independent, it follows that the collection of monomial symmetric polynomials $m_\lambda$, $\lambda \in \Par$ is also linearly independent.
+\end{proof}
+
+
+
+% \begin{proof}
+%   The polynomial ring $k[X_1, \dotsc, X_n]$ has the usual monomial basis
+%   \[
+%               B
+%     \defined  \{
+%                   X^{\,\underline{\alpha}}
+%                 = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+%               \mid
+%                     \underline{\alpha}
+%                 =   (\alpha_1, \dotsc, \alpha_n)
+%                 \in \Natural^n
+%               \} \,.
+%   \]
+%   The action of $S_n$ on $k[X_1, \dotsc, X_n]$ restrict to an action of $S_n$ on the basis $B$.
+%   It follows that a polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if its coefficients are constant on the $S_n$-orbits of $B$.
+%   Hence a basis of $k[X_1, \dotsc, X_n]^{S_n}$ is given by the polynomials $f_{\mc{O}}$ whose coefficents are $1$ on an orbit $\mc{O} \in B/S_n$ and $0$ otherwise.
+%   
+%   The action of $S_n$ on $B$ is given by
+%   \[
+%       \sigma.X^{\,\underline{\alpha}}
+%     = \sigma.X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
+%     = X_{\sigma(1)}^{\alpha_1} \dotsm X_{\sigma(n)}^{\alpha_n}
+%     = X_1^{\alpha_{\sigma^{-1}(1)}} \dotsm X_n^{\alpha_{\sigma^{-1}(n)}}
+%     = X^{\sigma.\underline{\alpha}} \,,
+%   \]
+%   and thus corresponds to the permutation action of $S_n$ on $\Natural^n$.
+%   The bijection $\Natural^n \to B$, $\underline{\alpha} \mapsto X^{\,\underline{\alpha}}$ therefore induces a bijection
+%   \[
+%           \Natural^n / S_n
+%     \to   B / S_n \,,
+%     \quad [\underline{\alpha}]
+%     \to   [X^{\,\underline{\alpha}}]
+%   \]
+%   With this we can reparametrize the basis
+%   \begin{align*}
+%     f_{\mc{O}}
+%     \quad&\text{with}\quad
+%     \mc{O} \in B/S_n
+%   \shortintertext{as}
+%               g_{[\underline{\alpha}]}
+%     \defined  f_{[X^{\,\underline{\alpha}}]}
+%     \quad&\text{with}\quad
+%     [\underline{\alpha}] \in \Natural^n/S_n \,.
+%   \intertext{
+%   The $S_n$-orbits of $\Natural^n$ have the partitions of length $n$ as a representative system.
+%   Thus a basis of $k[X_1, \dotsc, X_n]^{S_n}$ is given by the polynomials
+%   }
+%     g_{[\lambda]}
+%     \quad&\text{with}\quad
+%     \lambda \in \Par \,,
+%     \ell(\lambda) = n
+%   \intertext{
+%   For every partition $\lambda$ of length $\ell(\lambda) = n$ the polynomial $g_{[\lambda]}$ has coefficient $1$ for the monomial $X_1^{\lambda_1} \dotsm X_n^{\lambda_n}$ and its permutations, and $0$ otherwise.
+%   Thus $g_{[\lambda]}$ is precisely the monomial symmetric polynomial $m_\lambda$.
+%   We thus arrive at the basis
+%   }
+%     m_\lambda
+%     \quad&\text{with}\quad
+%     \lambda \in \Par \,,
+%     \ell(\lambda) = n
+%   \qedhere
+%   \end{align*}
+% \end{proof}
+
+
+% Previous Proof:
+% \begin{proof}
+%   Is is clear that
+%   \[
+%             \vspan_k \{
+%                         m_\lambda
+%                       \mid
+%                         \lambda \in \Par,
+%                         l(\lambda) = n,
+%                         |\lambda| = d
+%                       \}
+%   \subseteq k[X_1, \dotsc, X_n]^{S_n}_d \,.
+%   \]
+%   On the other side let $f \in k[X_1, \dotsc, X_n]^{S_n}_d$. By induction on the number of monomials of which $f$ consists we show that
+%   \[
+%         f
+%     \in \vspan_k  \{
+%                     m_\lambda
+%                   \mid
+%                     \lambda \in \Par,
+%                     l(\lambda) = n,
+%                     |\lambda| = d
+%                   \} \,.
+%   \]
+%   For $f = 0$ this is clear.
+%   Suppose that $f \neq 0$ and that the statement is true for every polynomial in $k[X_1, \dotsc, X_n]^{S_n}_d$ which consists of fewer monomials than $f$.
+%   Because $\{X^\alpha \mid \alpha \in \Natural^n, |\alpha| = d \}$ is a $k$-basis of $k[X_1, \dotsc, X_n]_d$ we can write
+%   \[
+%       f
+%     = \sum_{\substack{\alpha \in \Natural^n \\ |\alpha| = d}} c_\alpha X^\alpha \,.
+%   \]
+%   with unique $c_\alpha \in k$ such that $c_\alpha \neq 0$ for only finitely many $\alpha$.
+%   Because $f$ is symmetric we find that
+%   \[
+%       c_\alpha
+%     = c_{\pi.\alpha}
+%     \text{ for all }
+%     \alpha \in \Natural^n,
+%     \pi \in S_n
+%   \]
+%   (where the action of $S_n$ on $\Natural^n$ is defined as above).
+%   Let $X^\beta$ be a monomial of $f$.
+%   Because $f \in k[X_1, \dotsc, X_n]^{S_n}_d$ we have $X^\beta \in k[X_1, \dotsc, X_n]_d$ and thus $c_\beta m_\beta \in k[X_1, \dotsc, X_n]^{S_n}_d$.
+%   Because $c_\beta \neq 0$ and $c_\beta = c_{\pi.\beta}$ for every $\pi \in S_n$ we find that $f - c_{\beta} m_\beta$ consists of fewer monomials than $f$.
+%   Because $f-c_{\beta} m_\beta$ is symmetric we find by induction hypothesis that
+%   \[
+%         f - c_{\beta} m_\beta
+%     \in \vspan_k  \{
+%                     m_\lambda
+%                   \mid
+%                     \lambda \in \Par,
+%                     l(\lambda) = n,
+%                     |\lambda| = d
+%                   \} \,.
+%   \]
+%   The statement for $f$ follows directly.
+%   
+%   To show that
+%   \[
+%     \{
+%       m_\lambda
+%     \mid
+%       \lambda \in \Par,
+%       l(\lambda) = n
+%     \}
+%   \]
+%   is linear independent we notice that for $\lambda, \mu \in \Par$ with $\lambda \neq \mu$ the polynomials $m_\lambda$ and $m_\mu$ have no monomials in common. Because
+%   \[
+%     \{
+%       X^\alpha
+%     \mid
+%       \alpha \in \Natural^n
+%     \}
+%   \]
+%   is linear independent it then follows that
+%   \[
+%     \{
+%       m_\lambda
+%     \mid
+%       \lambda \in \Par,
+%       l(\lambda) = n
+%     \}
+%   \]
+%   is linear independent.
+% \end{proof}
+
+
+\begin{fluff}
+  Note that the proof of Proposition~\ref{proposition: m_lambda give a basis} gives an easy way to express a symmetric polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ in terms of the monomial symmetric polynomials:
+  Simply group together all monomial which are permutated to each other.
+  
+  We will use this to describe the product $m_\lambda m_\mu$ for two partitions $\lambda, \mu \in \Par$ of length $n$ as a linear combination of the basis $m_\nu$, $\nu \in \Par$:
+  
+  The monomials $X^{\,\underline{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$ are those for the multi-indices $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$ with associated partition $\lambda$, and the monomials $X^{\,\underline{\beta}}$ occuring in $m_\mu$ are those for the multi-indices $\underline{\beta}$ with associated partition $\mu$.
+  
+  In follows that all monomials $X^{\,\underline{\gamma}}$ occuring in $m_\lambda m_\mu$ are of the form $\underline{\gamma} = \underline{\alpha} + \underline{\beta}$ for some $\underline{\alpha}$, $\underline{\beta}$ as above.
+  Given such a $\underline{\gamma}$ and corresponding $\underline{\alpha}, \underline{\beta}$, let $\nu \in \Par$ be the partition associated to $\underline{\gamma}$.
+  
+  \begin{claim}
+    The partition $\nu$ satisfies $\nu \leq \lambda + \mu$.
+  \end{claim}
+  
+  \begin{proof}
+    Let $\lambda = (\lambda_1, \dotsc, \lambda_n)$,  $\mu = (\mu_1, \dotsc, \mu_n)$ and $\nu = (\nu_1, \dotsc, \nu_n)$.
+    By definition of $\underline{\alpha}$ and $\underline{\beta}$ there exist permutations $\sigma, \tau \in S_n$ with
+    \[
+        \underline{\alpha}
+      = ( \lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)} )
+      \quad\text{and}\quad
+        \underline{\beta}
+      = ( \mu_{\tau(1)}, \dotsc, \mu_{\tau(n)} )
+    \]
+    and by definition of $\nu$ there exists some permutation $\omega \in S_n$ with
+    \[
+        \nu
+      = (\nu_1, \dotsc, \nu_n)
+      = (\alpha_{\omega(1)} + \beta_{\omega(1)},
+         \dotsc,
+         \alpha_{\omega(n)} + \beta_{\omega(n)})
+    \]
+    For every $r = 1, \dotsc, n$ we therefore have that
+    \begin{align*}
+          \sum_{i=1}^r \nu_r
+       =  \sum_{i=1}^r ( \alpha_{\omega(i)} + \beta_{\omega(i)} )
+       =    \sum_{i=1}^r \alpha_{\omega(i)}
+          + \sum_{i=1}^r \beta_{\omega(i)}
+      &=    \sum_{i=1}^r \lambda_{\sigma(\omega(i))}
+          + \sum_{i=1}^r \mu_{\tau(\omega(i))}  \\
+      &=    \sum_{i=1}^r \lambda_{\sigma'(i)}
+          + \sum_{i=1}^r \mu_{\tau'(i)}
+    \end{align*}
+    for the permutations $\sigma' \defined \sigma \omega$ and $\tau' \defined \tau \omega$.
+    Because the entries of the partitions $\lambda$ and $\mu$ are decreasing we have that $\sum_{i=1}^r \lambda_{\sigma'(i)} \leq \sum_{i=1}^r \lambda_i$ and $\sum_{i=0}^r \mu_{\tau'(i)} \leq \sum_{i=1}^r \mu_i$, so that
+    \[
+            \sum_{i=1}^r \nu_i
+      \leq    \sum_{i=1}^r \lambda_i
+            + \sum_{i=1}^r \mu_i
+      =     \sum_{i=1}^r (\lambda_i + \mu_i)
+      =     \sum_{i=1}^r (\lambda + \mu)_i \,.
+    \]
+    As this holds for every $r = 1, \dotsc, n$, this shows that $\nu \leq \mu + \lambda$.
+  \end{proof}
+  
+  We have shown that for every monomial $X^{\,\underline{\gamma}}$ in $m_\lambda m_\mu$ the partition $\nu$ associated to $\underline{\gamma}$ satisfies $\nu \leq \lambda + \mu$.
+  Thus we find that $m_\lambda m_\mu$ is already a linear combination of those $m_\nu$ for which $\nu \leq \mu + \lambda$, i.e. that
+  \[
+      m_\lambda m_\mu
+    = \sum_{\nu \leq \lambda + \mu} a_\nu m_\nu \,.
+  \]
+  for suitable coecffients $a_\nu \in k$.
+  
+  We can also determine the coefficients $a_{\lambda + \mu}$:
+  As in the \hyperref[label: first proof of fundamental theorem]{first proof of the fundamental theorem of symmetric functions} we introduce an ordering on the set of monomials in $k[X_1, \dotsc, X_n]$ by $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} > X_1^{\beta_1} \dotsm X_n^{\beta_n}$ if they exists some $i$ with $\alpha_1 = \beta_1, \dotsc, \alpha_n = \beta_n$ and $\alpha_i > \beta_i$.
+  For every polynomial non-zero $f \in k[X_1, \dotsc, X_n]$ we then denote by $\init f$ the inital term of $f$, that is the biggest monomial occuring in $f$ together with its coefficient.
+  Then
+  \begin{itemize}
+    \item
+      $\init(f \cdot g) = (\init f) \cdot (\init g)$ for all $f, g \in k[X_1, \dotsc, X_n]$ with $f, g \neq 0$, and
+    \item
+      $\init m_\nu = X^{\,\underline{\nu}}$ for every partition $\nu \in \Par$ of length $n$.
+  \end{itemize}
+  With this we find that
+  \[
+      \init(m_\lambda m_\mu)
+    = (\init m_\lambda) (\init m_\mu)
+    = X^{\,\underline{\lambda}} X^{\,\underline{\mu}}
+    = X^{\,\underline{\lambda} + \underline{\mu}}
+    = X^{\,\underline{\lambda + \mu}} \,.
+  \]
+  Hence the monomial $X^{\,\underline{\lambda + \mu}}$ occurs in $m_\lambda m_\mu$ with coefficient $1$.
+  The partition associated to $\underline{\lambda + \mu}$ is $\lambda + \mu$, so the coefficient of $m_{\lambda + \mu}$ in $m_\lambda m_\mu$ is $1$, i.e.\ $a_{\lambda + \mu} = 1$.
+  
+  Alltogether we have proven the following result:
+\end{fluff}
+
+
+\begin{lemma}
+  Let $\lambda, \mu \in \Par$ be partitions of length $\ell(\lambda), \ell(\mu) = n$.
+  Then
+  \[
+        m_{\lambda} m_{\mu}
+    =   m_{\lambda + \mu}
+      + \sum_{\nu < \lambda + \mu} a^\nu_{\lambda,\mu} m_\nu
+  \]
+  for suitable $a^\nu_{\lambda,\mu} \in k$.
+\end{lemma}
+
+
+\begin{remark}
+  Note that the above results about monomial symmetric polynomials also hold when the field $k$ is replaced by an arbitrary non-zero commutative ring.
+\end{remark}
+
+% TODO: Reread and rework this section some time in the future.
+
+
+
+
+
+% TODO: Finding out how Schur polynomials work.
+%
+% \subsection{Schur Polynomials}
+% 
+% \begin{example}
+%   Let $k$ be a field with $\kchar k \neq 2$.
+%   Let $\lambda = (\lambda_1, \dotsc, \lambda_n) \in \Par$ be a partition.
+%   The \emph{Schur polynomial corresponding to $\lambda$} is the symmetric polynomial $s_\lambda \in k[X_1, \dotsc, X_n]^{S_n}$ of homogenous degree $|\lambda|$ defined as
+%   \[
+%               s_\lambda
+%     \coloneqq \frac
+%               {
+%                 \sum_{\sigma \in S_n} \sgn(\sigma)          X_{\sigma(1)}^{\lambda_1}
+%                                                             X_{\sigma(2)}^{\lambda_2 + 1}
+%                                                     \dotsm  X_{\sigma(n)}^{\lambda_n + n-1}
+%                }{
+%                 \prod_{1 \leq i < j \leq n} (X_i - X_j)
+%                }
+%   \]
+%   (In the lecture the same statements were made for the ring of integers $\Integer$ and arbitrary fields, but the following argumentation does not work in these cases.)
+%   
+%   To show that $s_\lambda$ is well-defined we first notice the numerator
+%   \[
+%               N
+%     \coloneqq \sum_{\sigma \in S_n} \sgn(\sigma)          X_{\sigma(1)}^{\lambda_1}
+%                                                           X_{\sigma(2)}^{\lambda_2 + 1}
+%                                                   \dotsm  X_{\sigma(n)}^{\lambda_n + n-1}
+%   \]
+%   and the denumerator
+%   \[
+%               D
+%     \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
+%   \]
+%   are alternating polynomials, i.e.\ $\sigma.N = \sgn(\sigma) N$ and $\sigma.D = \sgn(\sigma) D$ for every $\sigma \in S_n$, because
+%   \begin{gather*}
+%     N = \det
+%     \begin{pmatrix}
+%       X_1^{\lambda_1}       & X_2^{\lambda_1}       & \cdots & X_n^{\lambda_1}       \\
+%       X_1^{\lambda_2 + 1}   & X_2^{\lambda_2 + 1}   & \cdots & X_n^{\lambda_2 + 1}   \\
+%       \vdots                & \vdots                & \ddots & \vdots                \\
+%       X_1^{\lambda_n + n-1} & X_2^{\lambda_n + n-1} & \cdots & X_n^{\lambda_n + n-1}
+%     \end{pmatrix}
+%   \shortintertext{and}
+%     D = \det
+%     \begin{pmatrix}
+%       1      & X_1    & X_1^2  & \cdots & X_1^{n-1} \\
+%       1      & X_2    & X_2^2  & \cdots & X_2^{n-1} \\
+%       \vdots & \vdots & \vdots & \ddots & \vdots    \\
+%       1      & X_n    & X_n^2  & \cdots & X_n^{n-1}
+%     \end{pmatrix}.
+%   \end{gather*}
+%   That $D$ divides $N$ follows from the following claim:
+%   \begin{claim}
+%     Let $f \in k[X_1, \dotsc, X_n]$ be an alternating polynomial and
+%     \[
+%                 V
+%       \coloneqq \prod_{1 \leq i < j \leq n} (X_i - X_j)
+%       \in       k[X_1, \dotsc, X_n] \,.
+%     \]
+%     Then $V$ divides $f$.
+%   \end{claim}
+%   \begin{proof}
+%     Since the polynomials $X_i - X_j$ with $1 \leq i < j \leq n$ are pairwise non-equivalent primes it sufficies to show that $X_i-X_j$ divides $f$ for all $1 \leq i < j \leq n$.
+%     Because $f$ is alternating it is enough to show that $X_1 - X_2$ divides $f$.
+%     
+%     For $R \coloneqq k[X_3, \dotsc, X_n]$, $u = X_1 + X_2$ and $x = X_1 - X_2$ we have
+%     \[
+%         k[X_1, \dotsc, X_n]
+%       = R[X_1, X_2]
+%       = R[u,v] \,,
+%     \]
+%     so we can write $f = \sum_{i \in \Natural} f_i v^i$ with $f_i \in R[u]$ for every $i \in \Natural$.
+%     Because $f$ is alternating we have
+%     \begin{align*}
+%            \sum_{i \in \Natural} f_i v^i
+%       &=   f(X_1, X_2, \dotsc, X_n)
+%        =  -f(X_2, X_1, \dotsc, X_n) \\
+%       &=  -\sum_{i \in \Natural} (-1)^i f_i v^i
+%        =   \sum_{i \in \Natural} (-1)^{i+1} f_i v^i \,.
+%     \end{align*}
+%     So $f_i = 0$ if $i$ is even.
+%     Therefore $v$ divides $f$ .
+%   \end{proof}
+%   Since $D$ and $N$ are both alternating it is also clear that $s_\lambda = N/D$ is symmetric.
+%   To see that $s_\lambda$ is homogeneous of degree $|\lambda|$ notice that $N$ is homogeneous of degree
+%   \[
+%       \lambda_1 + (\lambda_2 + 1) + \dotsb + (\lambda_n + n-1)
+%     = |\lambda| + \binom{n}{2}
+%   \]
+%   and that $D$ is homogeneous of degree $\binom{n}{2}$.
+%   \begin{claim}
+%     Let $f, g \in k[X_1, \dotsc, X_n]$ be polynomials such that $f$ is homogenous of degree $d_1$ and $g$ homogeneous of degree $d_2$.
+%     If $g$ divides $f$ then $f/g$ is homogenous of degree $d_1 - d_2$.
+%   \end{claim}
+%   \begin{proof}
+%     We can write $f/g = \sum_{d \in \Natural} h_d$ where $h_d \in k[X_1, \dotsc, X_n]$ is homogenous of degree $d$.
+%     Then $f = (f/g)g = \sum_{d \in \Natural} h_d g$ where $h_d g$ is homogeneous of degree $d + d_2$.
+%     Because $f$ is homogenous of degree $d_1$ we find that $h_d = 0$ for $d \neq d_1 - d_2$.
+%     Thus $f/g = h_d$ is homogeneous of degree $d_1 - d_2$.
+%   \end{proof}
+% \end{example}
+
+
+
+

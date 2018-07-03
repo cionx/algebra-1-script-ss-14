@@ -24,6 +24,7 @@
     \item
       Every graded $k$-algebra is also a graded ring, as every $k$-linear subspace $A_d \subseteq A$ is in particular an additive subgroup.
     \item
+      \label{enumerate: unit is in degree 0}
       If $R$ is graded ring then $1 \in R_0$:
       
       There exists a decomposition $1 = \sum_{d \in \Natural} e_d$ with $e_d \in R_d$ for every $d \in \Natural$.
@@ -67,28 +68,30 @@
   Let $(M,\cdot)$ be a monoid.  
   \begin{enumerate}
     \item
-      In place of the natural numbers $\Natural$ one can also define gradings over $M$:
+      Instead of using the natural numbers $\Natural$ one can also define gradings over $M$:
       
-      For a monoid $M = (M,\cdot)$ an $M$-grading of a $k$-algebra $A$ is a decomposition $A = \bigoplus_{m \in M} A_m$ into $k$-linear subspaces $A_m \subseteq A$ such that $A_m A_{m'} \subseteq A_{mm'}$ for all $m, m' \in M$.
-      An $M$-graded $k$-algebra is a $k$-algebra $A$ together with an $M$-grading $A = \bigoplus_{m \in M} A_m$.
+      For a monoid $M = (M,\cdot)$ an \emph{$M$-grading} of a $k$-algebra $A$ is a decomposition $A = \bigoplus_{m \in M} A_m$ into $k$-linear subspaces $A_m \subseteq A$ such that $A_m A_{m'} \subseteq A_{mm'}$ for all $m, m' \in M$.
+      An \emph{$M$-graded $k$-algebra} is a $k$-algebra $A$ together with an $M$-grading $A = \bigoplus_{m \in M} A_m$.
       The notion of an $M$-graded ring can be defined in the same way.
       
       A grading as defined in Definition~\ref{definition: gradings and graded algebras} is precisely an $\Natural$-grading.
     \item
       Let $R = \bigoplus_{m \in M} R_m$ be an $M$-graded ring.
-      If the monoid $M$ is right cancellative (i.e.\ it follows for all $m_1, m_2, m \in M$ from $m_1 m = m_2 m$ that $m_1 = m_2$) then it still follows from the calculations of part~b) of Remark~\ref{remark: connection between graded algebras and rings} that $1 \in R_1$, where $1$ denotes the neutral element of $M$.
-      By using the identity $x = x \cdot 1$ instead of $x = 1 \cdot x$ in the calculation it follows that this also holds if $M$ is right cancellative.
+      If the monoid $M$ is right cancellative (i.e.\ it follows for all $m_1, m_2, m \in M$ from $m_1 m = m_2 m$ that $m_1 = m_2$) then it still follows from the calculations of part~\ref{enumerate: unit is in degree 0} of Remark~\ref{remark: connection between graded algebras and rings} that $1 \in R_e$, where $e$ denotes the neutral element of $M$.
+      By using the identity $x = x \cdot 1$ instead of $x = 1 \cdot x$ in this calculation it follows that this also holds if $M$ is left cancellative.
       
       This holds in particular if $M$ is a group or a submonoid of a group.
       
-      In then follows that $R_1$ is a subring of $R$ and that for every $m \in M$ the homogeneous part $R_m$ inherits the structure of an $R_0$-$R_0$-bimodule from the multiplication of $R$.
+      In then follows that $R_e$ is a subring of $R$ and that for every $m \in M$ the homogeneous part $R_m$ inherits the structure of an $R_e$-$R_e$-bimodule from the multiplication of $R$.
     \item
-      Suppose that $N \subseteq M$ is a submonoid, i.e.\ we have that $1_M \in N$ and $n_1 n_2 \in N$ for all $n_1, n_2 \in N$.
+      Suppose that $N \subseteq M$ is a submonoid, i.e.\ we have that $e_M \in N$ and $n_1 n_2 \in N$ for all $n_1, n_2 \in N$.
       Then every $N$-graded $k$-algebra $A = \bigoplus_{n \in N} A_n$ can be regarded as an $M$-graded $k$-algebra $A = \bigoplus_{m \in M} A_m$ by setting $A_m = 0$ for every $m \in M$ with $m \notin N$.
+      The same holds for graded rings.
       
-      As a special case of this construction every $\Natural$-grading of an $k$-algebra $A$ (resp.\ ring $R$) can be regarded as an $\Integer$-grading with $A_d = 0$ (resp.\ $R_d = 0$) for all $d < 0$.
-      Indeed, the definition of a grading given in the lecture did not use a $\Natural$-grading as we have in done in Definition~\ref{definition: gradings and graded algebras} but a $\Integer$-grading.
-      But all the examples and applications of graded $k$-algebras presented in this lecture were actually only using a $\Natural$-gradings, so we adjusted the definition accordingly.
+      As a special case of this construction every $\Natural$-grading of a $k$-algebra $A$ (resp.\ ring $R$) can be regarded as a $\Integer$-grading with $A_d = 0$ (resp.\ $R_d = 0$) for all $d < 0$.
+      
+      Indeed, the definition of a grading given in the lecture did not use an $\Natural$-grading as we have in done in Definition~\ref{definition: gradings and graded algebras} but a $\Integer$-grading.
+      But all the examples and applications of graded $k$-algebras presented in this lecture were actually only using an $\Natural$-gradings, so we adjusted the definition accordingly.
   \end{enumerate}
 \end{remark}
 
@@ -98,6 +101,7 @@
   \begin{enumerate}
     \item
       Every $k$-algebra $A$ can be given a grading $(A_d)_{d \in \Natural}$ with $A_0 = A$ and $A_d = 0$ otherwise.
+      We then say that $A$ is \emph{concentrated in degree $0$}.
     \item
       Let $k$ be a field (resp.\ ring) and let $A \defined k[X_1, \dotsc, X_n]$.
       For every $d \in \Natural$ let $A_d \subseteq A$ be given by
@@ -160,10 +164,10 @@
       We set $E_{ij} \defined 0$ for all $i,j \in \Integer$ with $i \notin \{1, \dotsc, m\}$ or $j \notin \{1, \dotsc, n\}$.
       Then the $k$-algebra $\Mat_n(k)$ has a $\Integer$-grading given by
       \[
-          \Mat_m(k)_d
+          \Mat_n(k)_d
         = \gen{ E_{i,i+d} \suchthat i \in \Integer }_k
       \]
-      for all $d \in \Integer$:
+      for all $d \in \Integer$.
       That $\Mat_n(k) = \bigoplus_{d \in \Integer} \Mat_n(k)_d$ follows from the choice of the $E_{ij}$.
       To see that $\Mat_n(k)_{d} \Mat_n(k)_{d'} \subseteq \Mat_n(k)_{d + d'}$ note that $\Mat_n(k)_d$ consists of precisely those matrices who have non-zero entries only on the $d$-th diagonal.
       The $k$-algebra $\Mat_n(k)_0$ is precisely the $k$-subalgebra of diagonal matrices.
@@ -377,6 +381,6 @@
     \defined \gen{ \text{images of $X^\alpha \partial^\beta$ where $\alpha+\beta \leq i$} \, }_k \,,
   \]
   which gives us a filtration of $\mc{A}_1$.
-  (We leave the proof of this claims as an exercise to the reader.
-   Some of them will appear on the exercise sheets.)
+  (Aproof of this claims as an exercise to the reader.
+   Some of them appear on the exercise sheets.)
 \end{example}

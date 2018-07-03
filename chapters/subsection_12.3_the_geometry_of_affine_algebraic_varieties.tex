@@ -1,11 +1,15 @@
-\subsection{The Geometry of Affine Algebraic Varieties}
+\subsection{Affine Algebraic Varieties as Spaces}
 \label{subsection: geometry of affine algebraic varietes}
 
 
 \begin{fluff}
   In this section we will see that affine algebraic varities can be regarded as geometric spaces in their own right.
-  Until further notice $V, W, U$ denote finite-dimensional $k$-vector spaces.
 \end{fluff}
+
+
+\begin{conventions}
+  In the following, $U, V, W$ are finite-dimensional $k$-vector spaces.
+\end{conventions}
 
 
 \begin{definition}
@@ -23,12 +27,12 @@
     \item
       The identity $\id_X \colon X \to X$ is polynomial, and for all polynomials maps $f \colon X \to Y$, $g \colon Y \to Z$ their composition $g \circ f \colon X \to Z$ is again polynomial.
       
-      It follows that the class of affine algebraic varieties over $k$ together with the polynomial maps between affine algebraic varieties forms a category which we will denote by $\cAff{k}$:
+      It follows that the class of affine algebraic varieties over $k$ together with the polynomial maps between them form a category, which we will denote by $\cAff{k}$:
       The objects of $\cAff{k}$ are affinee algebraic varieties over $k$ and the $\Hom$-sets of $\cAff{k}$ are given by $\Hom_{\cAff{k}}(X,Y) = \Pol(X,Y)$ for all affine algebraic varieties $X, Y$ over $k$.
       
       Note that the category $\cpol{k}$ (see Remark~\ref{remark: category of polynomial vector spaces}) is a full subcategory of $\cAff{k}$.
     \item
-      Given a basis $w_1, \dotsc, w_m$ of $W$ a map $f \colon X \to Y$ is polynomial in every coordinate, i.e.\ if and only if the functions $f_1, \dotsc, f_m \colon V \to W$ with $f(x) = (f_1(x), \dotsc, f_m(x))$ for alll $x \in X$ are polynomial.
+      Given a basis $w_1, \dotsc, w_m$ of $W$, a map $f \colon X \to Y$ is polynomial if and only if it is polynomial in each coordinate, i.e.\ if and only if the functions $f_1, \dotsc, f_m \colon V \to k$ with $f(x) = f_1(x) w_1 + \dotsb + f_m(x) w_m$ are polynomial.
     \item
       The polynomial functions $f \colon X \to k$ form a $k$-algebra with pointwise addition and multiplication.
   \end{enumerate}
@@ -38,6 +42,11 @@
 \begin{definition}
   For an affine algebraic variety $X \subseteq V$ the \emph{coordinate ring of $X$}, denoted by $\mc{P}(X)$, is the $k$-algebra of polynomial functions $X \to k$, with addition and multiplication being done pointwise.
 \end{definition}
+
+
+\begin{remark}
+  Other popular notations for the coordinate ring $\mc{P}(X)$ of an affine algebraic variety $X$ are $A(X)$, $\mc{O}(X)$ and $k[X]$.
+\end{remark}
 
 
 \begin{lemma}
@@ -73,9 +82,9 @@
   \leavevmode
   \begin{enumerate}
     \item
-      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealeq \mc{P}(V)$ is prime, which is by Lemma~\ref{lemma: X is irreducible iff I(X) is prime} the case if and only if $X$ is irreducible.
+      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealeq \mc{P}(V)$ is prime, which, Lemma~\ref{lemma: X is irreducible iff I(X) is prime}, is the case if and only if $X$ is irreducible by .
     \item
-      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is a field if and only if the ideal $\mc{I}(X)$ is a maximal ideal, which by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals} holds if and only if $X = \{x\}$ is a singleton for some $a \in V$.
+      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is a field if and only if the ideal $\mc{I}(X)$ is a maximal ideal, which, by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals}, holds if and only if $X = \{a\}$ is a singleton for some $a \in V$.
       Then $\mc{P}(X) = \mc{P}(\{x\})$ consists of all maps $\{x\} \to k$, so that $\mc{P}(\{x\}) = k$.
     \qedhere
   \end{enumerate}
@@ -98,8 +107,8 @@
 
 \begin{remark}
   Lemma~\ref{lemma: functoriality of P for affine algebraic varieties} shows that the coordinate ring $\mc{P}$ defines a contravariant functor $\mc{P} \colon \cAff{k} \to \cAlg{k}$.
-  Note that this is an extension of the previously defined functor $\mc{P}$ from Remark~\ref{fluff: functor P on polynomial vector spaces} to $\cAff{k}$.
-  As before this functor turns out to be fully faithful, generalizing Propositon~\ref{proposition: P is fully faithful for polynomial vector spaces}:
+  Note that this is an extension of the previously defined functor $\mc{P}$ from Remark~\ref{fluff: functor P on polynomial vector spaces}.
+  This functor turns out to be fully faithful, generalizing Propositon~\ref{proposition: P is fully faithful for polynomial vector spaces} to affine algebraic varieties:
 \end{remark}
 
 
@@ -118,7 +127,7 @@
 
 
 \begin{proof}
-  For $Y = W$ the proof given for Propositon~\ref{proposition: P is fully faithful for polynomial vector spaces} still applies without any changes.
+  For $Y = W$ the proof given for Propositon~\ref{proposition: P is fully faithful for polynomial vector spaces} still applies without any changes, simply replace $V$ by $X$.
   The general case follows from this special one:
   The inclusion $i \colon Y \to W$ is a polynomial map which results in the following diagram:
   \[
@@ -145,7 +154,7 @@
   
   The image of $i_*$ consists precisely of those polynomial maps $f \colon X \to W$ which restrict to a polynomial map $X \to Y$, which is the case if and only if $f(X) \subseteq Y$.
   
-  The homomorphism $\mc{P}(i) \colon \mc{P}(W) \to \mc{P}(Y)$, $f \mapsto f \circ i = \restrict{f}{Y}$ corresponds to the canonical projection $\mc{P}(W) \to \mc{P}(W)/\mc{I}(Y)$ under the isomorphism $\mc{P}(Y) \cong \mc{P}(W)/\mc{I}(Y)$ from Lemma~\ref{lemma: coordinate ring as quotient}.
+  When we identify the coordinate ring $\mc{P}(Y)$ with the quotient $\mc{P}(W)/\mc{I}(Y)$ as explained in Lemma~\ref{lemma: coordinate ring as quotient}, the homomorphism $\mc{P}(i) \colon \mc{P}(W) \to \mc{P}(Y)$, $f \mapsto f \circ i = \restrict{f}{Y}$ corresponds to the canonical projection $\mc{P}(W) \to \mc{P}(W)/\mc{I}(Y)$.
   It follows that the image of $\mc{P}(i)^*$ consists precisely of those $k$-algebra homomorphisms $F \colon \mc{P}(W) \to \mc{P}(X)$ which can be extended to an algebra homomorphisms $\mc{P}(W)/\mc{I}(Y) \to \mc{P}(X)$.
   This is the case if and only if $\mc{I}(Y) \subseteq \ker F$.
   
@@ -189,8 +198,8 @@
 
 \begin{remark}
   The functor $\mc{P} \colon \cAff{k} \to \cAlg{k}$ is a contravariant embedding by Proposition~\ref{proposition: P is fully faithful for affine varieties}.
-  It follows that $\cAff{k}$ is dual to a strictly full subcategory of $\cAlg{k}$, namely the essential image of $\mc{P}$.
-  It follows from Lemma~\ref{lemma: coordinate ring as quotient} that the corresponding strictly full subcategory has as objects precisely those $k$-algebras which are isomorphic to a $k$-algebra of the form $k[X_1, \dotsc, X_n]/I$ where $I \idealeq k[X_1, \dotsc, X_n]$ is a vanishing ideal.
+  It follows that $\cAff{k}$ is dual to a strictly full subcategory of $\cAlg{k}$.
+  It follows from Lemma~\ref{lemma: coordinate ring as quotient} that this strictly full subcategory has as objects precisely those $k$-algebras which are isomorphic to a $k$-algebra of the form $k[X_1, \dotsc, X_n]/I$ where $I \idealeq k[X_1, \dotsc, X_n]$ is a vanishing ideal.
   
   If $k$ is algebraically closed then vanishing ideals are precisely radical ideals, and we get a nice description of the category dual to $\cAff{k}$:
 \end{remark}
@@ -241,7 +250,23 @@
 
 
 \begin{remark}
-  One could also add another duality in the style of Theorem~\ref{theorem: big correspondence theorems}, namely
+  Let $k$ be algebraically closed.
+  If $A$ is a finitely generated $k$-algebra then $A \cong k[X_1, \dotsc, X_n]/I$ for some $n \geq 1$ and ideal $I \idealeq k[X_1, \dotsc, X_n]$.
+  If $A$ is reduced then the ideal $I$ is radical and it follows that $X \defined \mc{V}(I) \subseteq k^n$ is an affine variety with $\mc{I}(X) = I$.
+  It then follows that
+  \[
+          \mc{P}(X)
+    \cong k[X_1, \dotsc, X_n]/\mc{I}(X)
+    =     k[X_1, \dotsc, X_n]/I
+    \cong A \,.
+  \]
+  This construction can now be used to constructed an inverse of the duality $\mathcal{P}$.
+\end{remark}
+
+
+\begin{remark}
+  \label{remark: five forms of Nullstellen}
+  If $k$ is algebraically closed the one could also add another duality in the style of Theorem~\ref{theorem: big correspondence theorems}, namely
   \[
     \left\{
       \begin{tabular}{c}
@@ -259,16 +284,15 @@
       \end{tabular}
     \right\} \,.
   \]
-  The image of the left hand side under $\mc{P}$ is (up to isomorphism) just $k$ itself, and we retrieve \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma} from the geometric picture of Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points}.
-  
+  The image of the left hand side under $\mc{P}$ is (up to isomorphism) just $k$ itself, and we retrieve \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s lemma} from the geometric picture of Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points}.
   With this, we have alltogether shown the following implications:
   \[
     \begin{tikzpicture}[commutative diagrams/every diagram]
       \node (NS) at (-90:2.3cm) {
-        \hyperref[corollary: nullstellensatz]{Nullstellensatz}
+        \hyperref[theorem: nullstellensatz]{Nullstellensatz}
       };
       \node (SNS) at (-90-72:2cm) {
-        \hyperref[corollary: strong nullstellensatz]{
+        \hyperref[theorem: strong nullstellensatz]{
         \begin{tabular}{c}
           strong \\
           Nullstellensatz
@@ -282,7 +306,10 @@
       };
       \node (ZL) at (-90-3*72:2cm) {
         \makebox[5ex][l]{
-        \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma}
+        \begin{tabular}{c}
+          \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma} \\
+          for alg.\ closed fields
+        \end{tabular}
         \phantom{y}
         }
       };
@@ -304,14 +331,240 @@
 \end{remark}
 
 
+\begin{definition}
+  Let $X$ be an affine algebraic variety and let $Y \subseteq X$, $I \idealeq \mc{P}(V)$.
+  \begin{enumerate}
+    \item
+      The set
+      \[
+          \mc{I}_X(Y)
+        = \{
+            f \in \mc{P}(X)
+          \suchthat
+            \text{$f(y) = 0$ for every $y \in Y$}
+          \}
+      \]
+      is the \emph{vanishing ideal} of $Y$ in $\mc{P}(X)$.
+    \item
+      The ideal $I$ is a \emph{vanishing ideal} if $I$ is the vanishing ideal of some subset $Y \subseteq X$.
+    \item
+      The set
+      \[
+          \mc{V}_X(I)
+        = \{
+            x \in X
+          \suchthat
+            \text{$f(x) = 0$ for every $f \in I$}
+          \}
+      \]
+      is the \emph{vanishing set} of $I$ in $X$.
+  \end{enumerate}
+\end{definition}
 
-% TODO: Remark that Jacobson issomewhat also equivalent to the other stuff
+
+\begin{fluff}
+  Let $V \subseteq X$ be an affine variety.
+  We identify $\mc{P}(X)$ with $\mc{P}(V)/\mc{I}(X)$ as explained in Lemma~\ref{lemma: coordinate ring as quotient}.
+  
+  For every subset $Y \subseteq X$ the vanishing ideal $\mc{I}_X(Y)$ is then given by $\mc{I}(Y)/\mc{I}(X)$.
+  (This shows in particular that $\mc{I}_X(Y)$ is indeed an ideal in $\mc{P}(X)$.)
+  The subset $Y$ is closed in $X$ if and only if it is closed in $V$ because $X$ is closed in $V$.
+  Whether $Y$ is irreducible, or just a singleton $Y = \{y\}$ also does not depend on whether we view $Y$ as a subspace of $X$ or of $V$.
+  
+  Every ideal $I \idealeq \mc{P}(X)$ is of the form $I = I'/\mc{I}(X)$ for a unique ideal $I' \idealeq \mc{P}(V)$ with $I' \supseteq \mc{I}(X)$, and we have that $\mc{V}_X(I) = \mc{V}(I')$.
+  The ideal $I$ is reduced (resp.\ prime, resp.\ maximal) if and only if $I'$ is reduced (resp.\ prime, resp.\ maximal) because
+  \[
+          \mc{P}(X)/I
+    =     ( \mc{P}(V)/\mc{I}(X) ) / ( I'/\mc{I}(X) )
+    \cong \mc{P}(V)/I' \,.
+  \]
+  Moreover, $I$ is a vanishing ideal (in $\mc{P}(X)$) if and only if $I'$ is a vanishing ideal (in $\mc{P}(V)$).
+  
+  With this we find alltogether that the bijections from Theorem~\ref{theorem: big correspondence theorems} generalize to affine algebraic varieties:
+\end{fluff}
+
+
+\begin{theorem}
+  \label{theorem: big correspondence theorems for affine variets}
+  Let $X$ be an affine variety.
+  \begin{enumerate}
+    \item
+      The maps $\mc{I}_X, \mc{V}_X$ restrict to the following mutually inverse bijections:
+      \[
+        \begin{matrix}
+            \left\{
+              \begin{tabular}{c}
+                  algebraic subsets \\
+                  $Y \subseteq X$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}_X}
+              & {}
+                \arrow[shift left]{l}{\mc{V}_X}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                vanishing ideals \\
+                $I \idealeq \mc{P}(X)$
+              \end{tabular}
+            \right\}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                  irreducible \\
+                  algebraic subsets \\
+                  $Y \subseteq X$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}_X}
+              & {}
+                \arrow[shift left]{l}{\mc{V}_X}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                vanishing ideals \\
+                $\mf{p} \idealeq \mc{P}(X)$ \\
+                which are prime
+              \end{tabular}
+            \right\}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                points $x \in X$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}_X}
+              & {}
+                \arrow[shift left]{l}{\mc{V}_X}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                vanishing ideals \\
+                $\mf{m} \idealeq \mc{P}(X)$ \\
+                which are maximal
+              \end{tabular}
+            \right\}
+        \end{matrix}
+      \]
+    \item
+      If $k$ is algebraically closed then the maps $\mc{I}_X, \mc{V}_X$ restrict to the following mutually inverse bijections:
+      \[
+        \begin{matrix}
+            \left\{
+              \begin{tabular}{c}
+                  algebraic subsets \\
+                  $Y \subseteq X$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}_X}
+              & {}
+                \arrow[shift left]{l}{\mc{V}_X}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                radical ideals \\
+                $I \idealeq \mc{P}(X)$
+              \end{tabular}
+            \right\}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                  irreducible \\
+                  algebraic subsets \\
+                  $Y \subseteq X$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}_X}
+              & {}
+                \arrow[shift left]{l}{\mc{V}_X}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                prime ideals \\
+                $\mf{p} \idealeq \mc{P}X)$
+              \end{tabular}
+            \right\}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \rotatebox[origin=c]{90}{$\subseteq$}
+          & {}
+          & \rotatebox[origin=c]{90}{$\subseteq$}
+          \\
+            {}
+          & {}
+          & {}
+          \\
+            \left\{
+              \begin{tabular}{c}
+                points $x \in X$
+              \end{tabular}
+            \right\}
+          & \begin{tikzcd}[column sep = large]
+                {}
+                \arrow[shift left]{r}{\mc{I}_X}
+              & {}
+                \arrow[shift left]{l}{\mc{V}_X}
+            \end{tikzcd}
+          & \left\{
+              \begin{tabular}{c}
+                maximal ideals \\
+                $\mf{m} \idealeq \mc{P}(X)$
+              \end{tabular}
+            \right\}
+        \end{matrix}
+      \]
+  \end{enumerate}
+\end{theorem}
 
 
 
-
-
-% TODO: Generalization of previous results to affine algebraic varieties
-
-
-
+% TODO: Jacobson Rings
