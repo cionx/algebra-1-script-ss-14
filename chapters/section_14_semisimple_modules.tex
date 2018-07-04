@@ -1,0 +1,537 @@
+\section{Semisimple Modules}
+
+
+\begin{proposition}\label{proposition: characterisation semisimple modules}
+  Let $R$ be a ring and $M$ an $R$-module. Then the following are equivalent:
+  \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+    \item \label{enum: sum of simple}
+      $M$ is the sum ob simple submodules.
+    \item \label{enum: direct sum of simple}
+      $M$ is the direct sum of simple submodules. 
+    \item \label{enum: direct complements}
+      Every submodule of $M$ has a direct complement.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{definition}
+  Let $R$ be a ring and $M$ an $R$-module.
+  $M$ is called \emph{semisimple (over $R$)} if it satisfies one (and thus all) of the above conditions.
+\end{definition}
+
+
+\begin{proof}
+  \ref{enum: sum of simple} $\implies$ \ref{enum: direct complements}:
+  Suppose that $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$ and let $U \subseteq M$ be a submodule.
+  For all $J \subseteq I$ let
+  \[
+              M_J
+    \coloneqq \sum_{j \in J} L_j \,.
+  \]
+  Using Zorn’s Lemma let $J_0 \subseteq I$ be maximal with \mbox{$U \cap M_{J_0} = 0$}.
+  We claim that $M = U \oplus M_{J_0}$.
+  
+  Suppose this is not the case.
+  Then there exists some $i_0 \in I$ such that
+  \[
+                L_{i_0}
+    \nsubseteq  U \oplus M_{J_0}
+  \]
+  In particular $i_0 \notin J_0$.
+  Since $L_{i_0}$ is simple we find that
+  \[
+      L_{i_0} \cap (U \oplus M_{J_0})
+    = 0 \,.
+  \]
+  Therefore the sum
+  \[
+    L_{i_0} + (U \oplus M_{J_0})
+  \]
+  is direct. Since
+  \[
+      L_{i_0} \oplus (U \oplus M_{J_0})
+    = U \oplus (L_{i_0} \oplus M_{J_0})
+  \]
+  we find for $J_1 \coloneqq J_0 \cup \{i_0\} \supsetneq J_0$
+  \[
+      U \cap M_{J_1}
+    = 0 \,.
+  \]
+  This contradicts the maximality of $J_0$.
+  
+  \ref{enum: direct complements} $\implies$ \ref{enum: direct sum of simple}:
+  We first notice the following:
+  
+  \begin{claim}
+    If $U \subseteq N \subseteq M$ are submodules then $U$ has a direct complement in $N$.
+  \end{claim}
+  \begin{proof}
+    Let $V \subseteq M$ be a direct complement of $U$ in $M$, i.e.\ $M = U \oplus V$.
+    Then
+    \[
+      N = U \oplus (V \cap N) \,.
+    \]
+    To see this fix $n \in N$.
+    Let $u \in U$ and $v \in V$ with $n = u + v$.
+    Then $v = n - u \in N$ since $u \in U \subseteq N$.
+    Therefore $v \in V \cap N$ and thus $n = u + v \in U \oplus (V \cap N)$.
+  \end{proof}
+  
+  Using Zorn’s Lemma let $(L_i)_{i \in I}$ be a maximal family of simple submodules of $M$ such that the sum $\sum_{i \in I} L_i$ is direct.
+  Let $D \subseteq M$ be a direct complement of
+  \[
+              S
+    \coloneqq \bigoplus_{i \in I} L_i \,,
+  \]
+  i.e.\ $M = S \oplus D$.
+  By construction $D$ contains no simple submodules.
+  Let $d \in D$ with $d \neq 0$.
+  Then $0 \subsetneq Rd \subseteq D$.
+  By Zorn’s Lemma let $K \subseteq Rd$ be a maximal submodule.
+  (Too see that this is possible notice that $Rd \cong R / \ker \phi$ for
+  \[
+            \phi
+    \colon  R
+    \to     Rd,
+    \quad   r
+    \mapsto rd \,.
+  \]
+  So the existence of a maximal submodule of $Rd$ is equivalent to the existance of a maximal ideal $I \subseteq R$ with $\ker \phi \subseteq I$.)
+  By the claim there exists a direct complement $F$ of $K$ in $Rd$, i.e.\ $Rd = K \oplus F$.
+  Because $K \subset Rd$ is maximal we find that $F \subseteq Rd$ is simple.
+  Therefore $D$ contains a simple submodule.
+  
+  \ref{enum: direct sum of simple} $\implies$ \ref{enum: sum of simple}:
+  This is clear.
+\end{proof}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Let $k$ be a field.
+      Since simple $k$-modules are the same as $1$-dimensional vector spaces every $k$-module is semisimple (this is equivalent to saying that every $k$-vector space has a basis).
+    \item
+      For a field $k$ let
+      \[
+                  R
+        \coloneqq \left\{
+                    \begin{pmatrix}
+                      a & b \\
+                      0 & c
+                    \end{pmatrix}
+                    \,\middle|\,
+                    a, b, c \in k
+                  \right\}
+        \subseteq \Mat_2(k) \,.
+      \]
+      Then $k^2$ is not semisimple as an $R$-module since the only non-trivial submodule of $k^2$ is
+      \[
+        \{
+          (x,0)
+        \mid
+          x \in k
+        \} \,.
+      \]
+      To see this notice that
+      \[
+          \begin{pmatrix}
+            a & b \\
+            0 & c
+          \end{pmatrix}
+          \vect{x \\ y}
+        = \vect{ax + by \\ cy},
+      \]
+      so if a submodule $M \subseteq k^2$ contains an element $(x,y) \in k^2$ with $y \neq 0$ then it contains both
+      \begin{align*}
+            \begin{pmatrix}
+              0 & y^{-1} \\
+              0 & 0
+            \end{pmatrix}
+            \vect{x \\ y}
+        &=  \vect{1 \\ 0}
+      \shortintertext{and}
+            \begin{pmatrix}
+              0 & 0 \\
+              0 & y^{-1}
+            \end{pmatrix}
+            \vect{x \\ y}
+        &=  \vect{0 \\ 1}
+      \end{align*}
+      and therefore $M = k^2$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{lemma}\label{lemma: inherit semisimple}
+  Let $R$ be a ring.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
+    \item
+      If $M$ is a semisimple $R$-module and $N \subseteq M$ a submodule then both $N$ and $M/N$ are also semisimple.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      We can write each $M_i$ as $M_i = \bigoplus_{j \in J_i} L^j_i$ where $L^j_i \subseteq M_i$ is a simple submodule for all $j \in J_i$.
+      Then
+      \[
+          \bigoplus_{i \in I} M_i
+        = \bigoplus_{i \in I} \bigoplus_{j \in J_i} L^j_i
+      \]
+      is the direct sum of submodules and therefore semisimple.
+    \item
+      That $M/N$ is semisimple have we already shown in the claim of the proof of Proposition \ref{proposition: characterisation semisimple modules}.
+      
+      Since $M$ is semisimple we can write $M = \sum_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$.
+      Given the canonical projection
+      \[
+                \pi
+        \colon  M
+        \to     M / N
+      \]
+      we have that $\pi(L_i) \cong L_i$ or $\pi(L_i) = 0$ for all $i \in I$.
+      For
+      \[
+                  J
+        \coloneqq \{
+                    i \in I
+                  \mid
+                    \pi(L_i) \neq 0
+                  \}
+      \]
+      we therefore have
+      \[
+              M/N
+        =     \pi(M)
+        =     \pi\left( \sum_{i \in I} L_i \right)
+        =     \sum_{j \in J} \pi(L_j)
+        \cong \sum_{j \in J} L_j \,.
+        \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
+
+
+\begin{definition}
+  Let $R$ be a ring and $M$ an $R$-module.
+  For a simple $R$-module $E$ the submodule
+  \[
+              M_E
+    \coloneqq \sum_{\substack{L \subseteq M \\ L \cong E}} L
+  \]
+  is the \emph{$E$-isotypical compotent of $M$}.
+\end{definition}
+
+
+The isotypical components of a semisimple module can also be described by using a decomposition into simple modules.
+
+
+\begin{lemma}\label{lemma: isotypical component as direct sum}
+  Let $R$ be a ring and $M$ and $R$-module with $M = \bigoplus_{i \in I} L_i$ where $L_i \subseteq M$ is a simple submodule for all $i \in I$.
+  For every simple $R$-module $E$ we have
+  \[
+      M_E
+    = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \,.
+  \]
+\end{lemma}
+\begin{proof}
+  Let $E$ be a simple $R$-module and
+  \[
+              J
+    \coloneqq \{
+                i \in I
+              \mid
+                L_i \cong E
+              \} \,.
+  \]
+  It is clear that $\bigoplus_{j \in J} L_j \subseteq M_E$.
+  To show the other inclusion it suffices to show that $F \subseteq \bigoplus_{j \in J} L_j$ for every simple submodule $F \subseteq M$ with $F \cong E$.
+  Let $F$ be such a submodule.
+  For over $i \in I$ we have the projection
+  \[
+                        f_i
+    \colon              F
+    \hookrightarrow     M
+    \twoheadrightarrow  L_i
+  \]
+  with $x = \sum_{i \in I} f_i(x)$ for all $x \in F$ (where $f_i(x) = 0$ for all but finitely many $i \in I$).
+  Since $f_i$ is always a homomorphism between simple modules it is either zero or an isomorphism.
+  In particular we find that $f_i = 0$ for all $i \in I$ with $i \neq J$.
+  Therefore $x = \sum_{j \in J} f_j(x) \subseteq \bigoplus_{j \in J} L_j$ for all $x \in F$.
+\end{proof}
+
+
+\begin{corollary}
+  Let $R$ be a ring and $M$ a semisimple $R$-module.
+  Given a decomposition $M = \bigoplus_{i \in I} L_i$ into simple submodules and a simple submodule $E \subseteq M$ there exists $i \in I$ with $L_i \cong E$.
+\end{corollary}
+\begin{proof}
+  We have
+  \begin{gather*}
+              E
+    \subseteq \sum_{\substack{L \subseteq M \\ L \cong E}} L
+    =         M_E
+    =         \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i \,,
+  \shortintertext{so}
+          \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i
+    \neq  0 \,.
+  \end{gather*}
+  Therefore we have some $i \in I$ with $L_i \cong E$.
+\end{proof}
+
+
+\begin{definition}
+  Let $R$ be a ring.
+  Then
+  \[
+              \Irr(R)
+    \coloneqq \{\text{isomorphism classes of simple $R$-modules}\} \,.
+  \]
+\end{definition}
+
+
+Notice that $\Irr(R)$ is a set because for every simple $R$-module $E$ we have
+\[
+        E
+  \cong R/I
+\]
+for some maximal ideal $I \subseteq R$.
+
+
+\begin{corollary}\label{corollary: canonical decomposition semisimple module}
+  Let $R$ be a ring and $M$ be a semisimple $R$-module.
+  Then we have a canonical decomposition
+  \[
+      M
+    = \bigoplus_{[E] \in \Irr(R)} M_E \,.
+  \]
+\end{corollary}
+
+
+\begin{remark}
+    Let $R$ be a ring, $M$ an $R$-module and $E$ a simple $R$-module.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      $M_E$ does only depend on the isomorphism class of $E$.
+    \item
+      $M_E$ is a semisimple $R$-module (because it is the sum of simple modules).
+    \item
+      If $F \subseteq M_E$ is a simple $R$-module then $F \cong E$.
+      To see this let $M_E = \sum_{i \in I} L_i$ where $L_i \subseteq M_E$ is a simple submodule with $L_i \cong E$ for all $i \in I$.
+      Because $M_E$ is semisimple $F$ has a direct complement $C$ in $M_E$, so for every $i \in I$ we have a module homomorphism
+      \[
+                            f_i
+        \colon              L_i
+        \hookrightarrow     \sum_{i \in I} L_i
+        =                   M_E
+        =                   F \oplus C
+        \twoheadrightarrow  F \,.
+      \]
+      Since the projection $F \oplus C \twoheadrightarrow F$ is non-zero we have $f_j \neq 0$ for some $j \in I$.
+      Since $L_j$ and $F$ are simple the homomorphism $f_j \colon L_j \to F$ is an isomorphism.
+      Therefore $F \cong L_j \cong E$.
+    \item
+      Let $F$ be a simple $R$-module.
+      Then
+      \[
+          (M_E)_F
+        = \begin{cases}
+            M_E & \text{if } E \cong F \,,  \\
+              0 & \text{otherwise} \,.
+          \end{cases}
+      \]
+    \item
+      Every homomorphism of $R$-modules $\varphi \colon M \to N$ induces a homomorphism
+      \[
+                \varphi_E
+        \colon  M_E
+        \to     N_E
+      \]
+      by restriction.
+      Too see this simply notice that for every simple submodule $L \subseteq M$ the restriction
+      \[
+                \varphi_{|L}
+        \colon  L
+        \to     \varphi(L)
+      \]
+      is either zero (if $L \cap \ker \varphi \neq 0$ and consequently $L \subseteq \ker \varphi$) or an isomorphism (if $L \cap \ker \varphi = 0)$.
+    \item
+      If $U \subseteq M$ is a submodule then
+      \[
+          U_E
+        = M_E \cap U \,.
+      \]
+      It is clear that
+      \[
+                  U_E
+        =         \sum_{\substack{L \subseteq U \\ L \cong E}} L
+        \subseteq \sum_{\substack{L \subseteq M \\ L \cong E}} L
+        =         M_E \,.
+      \]
+      Because we have also $U_E \subseteq U$ we have $U_E \subseteq U \cap M_E$.
+      On the other hand $M_E \cap U$ is a submodule of $M_E$ and thus $M_E \cap U \cong \bigoplus_{i \in I} E$ for some index set $I$.
+      Since $M_E \cap U$ is also a submodule of $U$ we have $M_E \cap U \subseteq U_E$.
+  \end{enumerate}
+\end{remark}
+
+
+\begin{definition}
+  A ring $R$ is called \emph{semisimple} if it is semisimple as a (left) $R$-module, i.e.\ if $\prescript{}{R}{R}$ is semisimple.
+\end{definition}
+
+
+If $R$ is a semisimple ring then we have
+\[
+    R
+  = \bigoplus_{[E] \in \Irr(R)} R_E
+\]
+as a (left) $R$-module by Corollary \ref{corollary: canonical decomposition semisimple module}.
+
+
+\begin{definition}
+  A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
+  In particular $R$ is semisimple.
+\end{definition}
+
+
+\begin{definition}
+  A $k$-algebra $A$ is called \emph{semisimple} (resp.\ \emph{simple}) if it is \emph{semisimple} (resp.\ \emph{simple}) as a ring.
+\end{definition}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Fields are simple.
+    \item
+      For every finite group $G$ the group algebra $\Complex G$ is semisimple by \hyperref[theorem: Maschkes theorem]{Maschke’s theorem}.
+    \item
+      For a skew field $D$ the matrix ring $\Mat_n(D)$ is simple for all $n > 0$.
+      To see this let
+      \[
+        C_i
+        \coloneqq \{
+                    A \in \Mat_n(D)
+                  \mid
+                    \text{ all except the $i$-th column are zero}
+                  \} \,.
+      \]
+      Then
+      \[
+          \Mat_n(D)
+        = \bigoplus_{i=1}^n C_i
+      \]
+      as a left $\Mat_n(D)$-modules with
+      \[
+        C_i \cong D^n
+      \]
+      as left $\Mat_n(D)$-modules for all $1 \leq i \leq n$.
+      Since $D^n$ is simple as an left $\Mat_n(D)$-module the statement follows.
+  \end{enumerate}
+\end{example}
+
+
+\begin{proposition}
+  Let $R$ be a semisimple ring (with $1$) and $M$ an $R$-module.
+  Then $M$ is semisimple.
+\end{proposition}
+\begin{proof}
+  Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lemma: inherit semisimple} that $M$ is semisimple.
+\end{proof}
+
+
+\begin{lemma}\label{lemma: simple module of semisimple ring is direct summand}
+  Let $R$ be a semisimple ring and $E$ a simple $R$-module.
+  Then $F \cong E$ for some simple submodule $F \subseteq R$.
+  More precisely:
+  If $R = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules then $E \cong L_i$ for some $i \in I$.
+\end{lemma}
+\begin{proof}
+  Because $E$ is cyclic there exists a surjective module homomorphism
+  \[
+                        \psi
+    \colon              R
+    \twoheadrightarrow  E
+  \]
+  For every $i \in I$ we have the module homomorphism
+  \[
+                        \phi_i
+    \colon              L_i
+    \hookrightarrow     \bigoplus_{i \in I} L_i
+    =                   R
+    \twoheadrightarrow  E \,.
+  \]
+  with $\psi = \bigoplus_{i \in I} \phi_i$.
+  Since $\psi \neq 0$ we have $\phi_j \neq 0$ for some $j \in I$.
+  Since $L_j$ and $E$ are both simple $\phi_j$ is already an isomorphism.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: simple rings one simple module}
+  Let $R$ be a simple ring.
+  Then there is exactly one simple $R$-module up to isomorphism.
+\end{corollary}
+\begin{proof}
+  Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
+  For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
+  Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: D^n only simple M_n(D)-module}
+  Let $D$ be a skew field.
+  Then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
+\end{corollary}
+\begin{proof}
+  We know that $\Mat_n(D)$ is simple and $D^n$ a simple $\Mat_n(D)$-module.
+  So the statement follows from Corollary \ref{corollary: simple rings one simple module}.
+  (Notice that we have already seen that $\Mat_n(D) \cong \bigoplus_{i=1}^n C_i$ with $C_i \cong D^n$ for every $1 \leq i \leq n$ as $\Mat_n(D)$-modules.)
+\end{proof}
+
+
+\begin{lemma}\label{lemma: ring with 1 finite sum of submodules}
+  Let $R$ be a semisimple ring (with $1$) and $R = \sum_{i \in I} M_i$ where $M_i \subseteq R$ is an $R$-submodule for every $i \in I$.
+  Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
+\end{lemma}
+\begin{proof}
+  We can write
+  \[
+      1
+    = \sum_{i \in I} e_i
+  \]
+  with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$. Let
+  \[
+              J
+    \coloneqq \{i \in I \mid e_i \neq 0\} \,.
+  \]
+  Then
+  \[
+              \mc{I}
+    \coloneqq \sum_{j \in J} M_i
+  \]
+  is an $R$-submodule of $R$, i.e.\ an left-ideal of $R$, with $1 \in \mc{I}$.
+  Therefore $\mc{I} = R$.
+\end{proof}
+
+
+\begin{corollary}\label{lemma: semisimple ring with 1 only finitely many summands}
+  Let $R$ be a semisimple ring (with $1$).
+  Then $R$ is the direct sum of finitely many simple submodules.
+\end{corollary}
+\begin{proof}
+  Because $R$ is semisimple we have $R = \bigoplus_{i \in I} L_i$ where $L_i \subseteq R$ is a simple $R$-submodule for every $i \in I$.
+  By Lemma \ref{lemma: ring with 1 finite sum of submodules} there exists a finite subset $J \subseteq I$ with
+  \[
+      R
+    = \sum_{j \in J} L_j
+    = \bigoplus_{j \in J} L_j \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+
+

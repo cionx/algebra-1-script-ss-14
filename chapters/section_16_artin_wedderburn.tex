@@ -1,0 +1,480 @@
+\section{Theorem of Artin--Wedderburn}
+
+
+\begin{definition}
+  Let $R$ be a ring. Then the ring $R^\op$ is defined by taking the underlying additive group of $R$ and reversing the multiplication order, i.e.\ if for the multiplication $\cdot$ in $R$ and the multiplication $*$ in $R^\op$ we have
+  \[
+      a * b
+    = b \cdot a
+    \text{ for all }
+    a, b \in R^\op \,.
+  \]
+\end{definition}
+
+
+\begin{remark}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      For every ring $R$ we have $\left( R^\op \right)^\op = R$.
+    \item
+      A ring $R$ is commutative if and only if $R = R^\op$.
+    \item
+      A ring $R$ is unitary if and only if $R^\op$ is unitary.
+    \item
+      If $D$ is a skew field then $D^\op$ is also a skew field.
+    \item
+      For a collectios of rings $R_i$, $i \in I$ we have
+      \[
+          \left( \prod_{i \in I} R_i \right)^\op
+        = \prod_{i \in I} R_i^\op
+      \]
+      and
+      \[
+          \left( \bigoplus_{i \in I} R_i \right)^\op
+        = \bigoplus_{i \in I} R_i^\op \,.
+      \]
+  \end{enumerate}
+\end{remark}
+
+
+\begin{example}
+  Let $D$ be a skew field and $n \geq 1$.
+  Then we have an isomorphism of rings
+  \[
+            \Mat_n(D)
+    \cong   \Mat_n\left( D^\op \right)^\op,
+    \quad   A
+    \mapsto A^T \,.
+  \]
+  For a field $k$ this gives us an isomorphism
+  \[
+            \Mat_n(k)
+    \cong   \Mat_n(k)^\op,
+    \quad   A
+    \mapsto A^T \,.
+  \]
+\end{example}
+
+
+For a ring $R$ there is a strong connection between left $R$-modules and right $R^\op$-modules.
+
+
+\begin{proposition}\label{proposition: opposite modules}
+  Let $R$ be a ring.
+  We have a 1:1-correspondence between the left $R$-modules and $R^\op$-modules, where for a left $R$-module $M$ the corresponding right $R^\op$-module $M^\op$ is defined as
+  \[
+              m \bullet r
+    \coloneqq r \cdot m
+    \text{ for every }
+    m \in M^\op \,,\,
+    r \in R^\op \,,
+  \]
+  where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
+\end{proposition}
+\begin{proof}
+  <Insert obvious calculations here>.
+\end{proof}
+
+
+\begin{lemma}\label{lemma: End_R(R) = Rop}
+  Let $R$ be a ring (with $1$).
+  Let $\cdot$ denote the multiplication in $R$ and $*$ the multiplication in $R^\op$.
+  Then we have an isomorphism of rings
+  \[
+              \End_R(R)
+    \cong     R^\op,
+    \quad     (s \mapsto s \cdot r)
+    \mapsfrom r \,.
+  \]
+\end{lemma}
+
+
+The Lemma basically states that the $\Integer$-homomorphisms of $R$ which are compatible with the left multiplication are given by right multiplication.
+
+
+\begin{proof}
+  Let
+  \[
+            \varphi
+    \colon  R^\op
+    \to     \End_R(R),
+    \quad   r
+    \mapsto (s \mapsto s \cdot r) \,.
+  \]
+  We first show that $\varphi$ is well-defined:
+  Notice that $(s \mapsto s \cdot r)$ is $\Integer$-linear for every $r \in R^\op$ by the distributivity of $\cdot$ and $R$-linear by the associativity of $\cdot$.
+  
+  To see that $\varphi$ is a ring-homomorphism notice that $\varphi(1) = \id_R$ and for all $r, r' \in R^\op$ and $s \in R$
+  \begin{align*}
+        \varphi(r+r')(s)
+    &=  s \cdot (r + r')
+     =  s \cdot r + s \cdot r' \\
+    &=  \varphi(r)(s) + \varphi(r')(s)
+     =  (\varphi(r)+\varphi(r'))(s)
+  \end{align*}
+  and
+  \begin{align*}
+        \varphi(r * r')(s)
+    &=  s \cdot (r * r')
+     =  s \cdot (r' \cdot r) \\
+    &=  (s \cdot r') \cdot r
+     =  \left(\varphi(r) \circ \varphi(r')\right)(s) \,.
+  \end{align*}
+  
+  That $\varphi$ is injective is clear, since for every $r \in \ker \varphi$
+  \[
+      0
+    = \varphi(r)(1)
+    = 1 \cdot r
+    = r \,.
+  \]
+  To see that it is surjective let $f \in \End_R(R)$ and set $r \coloneqq f(1)$.
+  For every $s \in R$ we then have
+  \[
+      f(s)
+    = f(s \cdot 1)
+    = s \cdot f(1)
+    = s \cdot r
+    = \varphi(r)(s) \,,
+  \]
+  and thus $f = \varphi(r)$.
+\end{proof}
+
+
+Let $D$ be a skew field.
+Becaus $D^n$ is a simple $\Mat_n(D)$-module we know from Schur’s Lemma that $\End_{\Mat_n(D)}(D^n)$ is a skew field.
+We would like to know how $D$ and $\End_{\Mat_n(D)}(D^n)$ are related.
+We know from linear algebra that for every field $k$ we have
+\[
+        \End_{\Mat_n(k)}(k^n)
+  \cong k.
+\]
+From Lemma \ref{lemma: End_R(R) = Rop} we also know that in the case $n = 1$. 
+\[
+  \End_D(D) \cong D^\op
+\]
+These observations lead to the following Lemma:
+
+
+\begin{lemma}
+  Let $D$ be a skew field and $n \geq 1$. Then
+  \[
+              \End_{\Mat_n(D)}\left(D^n\right)
+    \cong     D^\op,
+    \quad     \left(
+                        \vect{x_1 \\ \vdots \\ x_n}
+                \mapsto \vect{x_1 d \\ \vdots \\ x_n d}
+              \right)
+    \mapsfrom d
+  \]
+  as rings.
+\end{lemma}
+\begin{proof}
+  By $\cdot$ we denote the multiplication in $D$ and by $*$ the multiplication in $D^\op$.
+  For all $d \in D$, $d' \in D^\op$ and $x = (x_1, \dotsc, x_n) \in D^n$ we write
+  \[
+              d x
+    \coloneqq (d x_1, \dotsc, d x_n)
+    \qquad \text{ and } \qquad
+              x d'
+    \coloneqq (x_1 d', \dotsc, x_n d'). 
+  \]
+  We also define
+  \[
+    \pi_i \colon D^n \to D
+  \]
+  as the canonical projection for every $1 \leq i \leq n$.
+  It is clear that $\pi_i$ is $D$-linear for every $1 \leq i \leq n$ where we see $D^n$ and $D$ as left $D$-modules in the usual way.
+  By $e_1, \dotsc, e_n$ we denote the standard basis of $D^n$ (as a left $D$-module).
+  
+  We define
+  \[
+            \varphi
+    \colon  D^\op
+    \to     \End_{\Mat_n(D)}\left( D^n \right),
+    \quad   d
+    \mapsto (x \mapsto x d) \,.
+  \]
+  It is clear that $\varphi$ is well-defined.
+  It is clear that $\varphi$ is additive.
+  That it is also multiplicative (and thus a ring homomorphism) follow from simple calculation:
+  For all $d, d' \in D^\op$ and $x \in D^n$ we have
+  \[
+      \varphi(d * d')(x)
+    = x (d * d')
+    = x (d' \cdot d)
+    = (x d') d
+    = \left( \varphi(d) \circ \varphi(d') \right)(x) \,.
+  \]
+  
+  It is also easy to see that $\varphi$ is injective:
+  For $d, d' \in D^\op$ with $\varphi(d) = \varphi(d')$ we have
+  \[
+      d
+    = \pi_1(e_1 d)
+    = \pi_1(\varphi(d)(e_1))
+    = \pi_1(\varphi(d')(e_1))
+    = \pi_1(e_1 d')
+    = d' \,.
+  \]
+  
+  All that’s left to show is that $\varphi$ is surjective.
+  For this let $f \in \End_{\Mat_n(D)}(D^n)$.
+  $f$ is $D$-linear, because for all $d \in D$ and $x = (x_1, \dotsc, x_n) \in D^n$
+  \[
+      f(dx)
+    = f( \diag(d, \dotsc, d) x)
+    = \diag(d, \dotsc, d) f(x)
+    = d f(x) \,.
+  \]
+  For every $1 \leq i \leq n$ we set $d_i \coloneqq \pi_i(f(e_i))$.
+  We then have for every $1 \leq i \leq n$
+  \[
+      f(e_i)
+    = f(E_{ii} e_i)
+    = E_{ii} f(e_i)
+    = (0, \dotsc, d_i, \dotsc, 0)
+    = e_i d_i 
+  \]
+  and therefore for every $x = (x_1, \dotsc, x_n) \in D^n$
+  \begin{align*}
+        f(x)
+    &=  f(x_1 e_1 + \dotsb + x_n e_n)       \\
+    &=  f(x_1 e_1) + \dotsb + f(x_n e_n)    \\
+    &=  x_1 f(e_1) + \dotsb + x_n f(e_n)    \\
+    &=  x_1 e_1 d_1 + \dotsb + x_n e_n d_n  \\
+    &=  (x_1 d_1, \dotsc, x_n d_n)
+  \end{align*}
+  For every $1 \leq i,j \leq n$ we have
+  \begin{align*}
+        d_i
+    &=  \pi_i(e_i d_i)
+     =  \pi_i(f(e_i))
+     =  \pi_i(f(E_{ij} e_j)) \\
+    &=  \pi_i(E_{ij} f(e_j))
+     =  \pi_i(E_{ij} e_j d_j)
+     =  \pi_i(e_i d_j)
+     =  d_j \,.
+  \end{align*}   
+  This shows that $f = \varphi(d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
+\end{proof}
+
+
+\begin{theorem}[Artin--Wedderburn]
+  Let $R$ be a semisimple ring (with $1$). Then
+  \[
+    R \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+  \]
+  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  Moreover $r$ is unique, $(n_1,D_1), \dotsc, (n_r,D_r)$ are unique up to permutation and isomorphism of the $D_i$.
+  
+  More precisely:
+  If $R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r$ as $R$-modules for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$ then
+  \[
+    R \cong \Mat_{n_1}(\End_R(V_1)^\op) \times \dotsb \times \Mat_{n_r}(\End_R(V_r)^\op) \,.
+  \]
+\end{theorem}
+
+
+Notice that by Corollary \ref{corollary: simple modules over product of matrix algebras} it follows that a ring of the above form has exactly $r$ simple modules up to isomorphism, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$.
+
+
+\begin{corollary}
+  Let $R$ be a semisimple ring (with $1$) and $M$ a faithful $R$-module, i.e.\ $rm = 0$ for every $r \in R$ implies $m = 0$.
+  Then the isotypical components of $M$ are all nonzero.
+  In particular $M$ contains every simple $R$-module up to isomorphism.
+\end{corollary}
+\begin{proof}
+  By Artin--Wedderburn we have
+  \[
+    R \cong M_{n_1}(D_1) \times \dotsb \times M_{n_s}(D_s)
+  \]
+  for $s \geq 1$, $n_1, \dotsc, n_s \geq 1$ and skew field $D_1, \dotsc, D_s$.
+  Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ are a complete set of representatives of $\Irr(R)$, where $(A_1, \dotsc, A_s) \in R$ acts on $x \in D_i^{n_i}$ by $(A_1, \dotsc, A_n) \cdot x = A_i x$.
+  Since $R$ is semisimple so is $M$ and thus we have a decomposition $M \cong \bigoplus_{i=1}^s M_{D_i^{n_i}}$ into isotypical components.
+  Suppose that $M_{D_i^{n_i}} = 0$ for some $1 \leq i \leq s$.
+  Then every element $A \in M_{n_i}(D_i) \subseteq R$ acts by multiplication with zero on $M$, which contradicts the faithfulness of $M$.
+  Thus the isotypical components $M_{D_i^{n_i}}$ are all nonzero.
+\end{proof}
+
+
+
+
+\begin{corollary}
+  Let $R$ be a semisimple ring (with $1$).
+  Then $R^\op$ is also semisimple.
+\end{corollary}
+\begin{proof}
+  By Artin--Wedderburn we have
+  \[
+    R \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+  \]
+  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  Therefore
+  \begin{align*}
+            R^\op
+    &\cong  \left( \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \right)^\op \\
+    &=      \Mat_{n_1}(D_1)^\op \times \dotsm \times \Mat_{n_r}(D_r)^\op \\
+    &=      \Mat_{n_1}\left( D_1^\op \right) \times \dotsm \times \Mat_{n_r}\left( D_r^\op \right).
+  \end{align*}
+  Since $D_1^\op, \dotsc, D_r^\op$ are skew fields we find that $R^\op$ is semisimple by Artin--Wedderburn.
+\end{proof}
+
+
+\begin{corollary}
+  Let $A$ be a finite-dimensional semisimple $k$-algebra.
+  Then $A$ has finitely many nonzero minimal left ideals (i.e.\ simple $A$-submodules) $I_1, \dotsc, I_r$ (up to isomorphism of left ideal) and
+  \[
+    A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+  \]
+  where $D_i = \End_A(I_i)^\op$.
+\end{corollary}
+\begin{proof}
+  We will prove this later.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: semisimple algebra product of matrix algebras over field}
+  Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra.
+  Then
+  \[
+    A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
+  \]
+  as $k$-algebras for some $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$.
+\end{corollary}
+\begin{proof}
+  Using Artin--Wedderburn we find that we have an isomorphism of rings
+  \[
+    A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+  \]
+  for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$ where
+  \[
+    D_i = \End_A(S_i)^\op
+  \]
+  for a simple $A$-module $S_i$ for every $1 \leq i \leq r$.
+  By Proposition \ref{proposition: simple modules over finite-dimensional algebras} $\dim_k S_i < \infty$ and thus by Schur’s Lemma $D_i = k$ for every $1 \leq i \leq r$.
+\end{proof}
+
+
+\begin{proof}[Proof of Artin--Wedderburn]
+  We start by showing the existance:
+  By Lemma \ref{lemma: semisimple ring with 1 only finitely many summands} we have $R = \bigoplus_{i = 1}^n L_i$ as $R$-modules for some $n \geq 1$ and simple submodules $L_i \subseteq R$.
+  By sorting these submoduls by isomorphism classes we get
+  \[
+    R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r
+  \]
+  for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$.
+  Since it is enough to prove the theorem for $n_1 V_1 \oplus \dotsb \oplus n_r V_r$ we will assume that $R = n_1 V_1 \oplus \dotsb \oplus n_r V_r$.
+  
+  By Schur’s Lemma we find for every $1 \leq i \leq r$
+  \[
+          \End_R(n_i V_i)
+    \cong \Mat_{n_i}(\End_R(V_i))
+  \]
+  where $\End_R(V_i)$ is a skew field, and
+  \[
+          \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r)
+    \cong \End_R(n_1 V_1) \oplus \dotsb \oplus \End_R(n_r V_r)
+  \]
+  because the $V_i$ are pairwise non-isomorpic.
+  Using Lemma \ref{lemma: End_R(R) = Rop} we find that
+  \begin{align*}
+            R^\op
+    &\cong  \End_R(R) \\
+    &\cong  \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r) \\
+    &\cong  \End_R(n_1 V_1) \times \dotsb \times \End_R(n_r V_r) \\
+    &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+  \end{align*}
+  as rings for the skew field $D_i \coloneqq \End_R(V_i)$.
+  Therefore
+  \begin{align*}
+            R
+    &\cong  \left( R^\op \right)^\op \\
+    &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
+    &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op \\
+    &\cong  \Mat_{n_1}\left( D_1^\op \right) \times \dotsb \times \Mat_{n_r}\left( D_r^\op \right)
+  \end{align*}
+  as rings where $D_i^\op$ is a skew field for every $1 \leq i \leq r$.
+  
+  To see the uniquness let
+  \begin{align}
+            R
+    &\cong  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \,,
+    \label{eqn: artin wedderburn isomorphisms 1}
+  \shortintertext{and}
+            R
+    &\cong \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_s}(D'_s)
+    \label{eqn: artin wedderburn isomorphisms 2} 
+  \end{align}
+  for $r, s \geq 1$, $n_1, \dotsc, n_r, n'_1, \dotsc, n'_s \geq 1$ and skew fields $D_1, \dotsc, D_r$, $D'_1, \dotsc, D'_s$.
+  We start by noticing that
+  \[
+      r
+    = |\Irr(R)|
+    = s \,,
+  \]
+  so $r$ is unique.
+  Using the isomorphisms \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} of rings we can make $\Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)$ and $\Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)$ into $R$-modules, such that \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} are also isomorphisms of $R$-modules.
+  By decomposing $\Mat_{n_i}(D_i)$ into simple $R$-submodules (which are the same as simple $\Mat_{n_i}(D_i)$ submodules) $\Mat_{n_i}(D_i) = C^i_1 \oplus \dotsb \oplus C^i_{n_i}$ in the usual way (so $C^i_j$ are the matrices in $\Mat_{n_i}(D_i)$ for which all but the $j$-the column are zero and $C^i_j \cong D_i^{n_i}$) we get a decomposition
+  \[
+      \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+    = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n_i} C^i_j
+  \]
+  into simple $R$-submodules.
+  In the same way we get a decomposition
+  \[
+      \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)
+    = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n'_i} C'^i_j
+  \]
+  into simple $R$-submodules.
+  We know that $C^{i_1}_{j_1} \cong C^{i_2}_{j_2}$ as $R$-modules if and only if $i_1 = i_2$, the same goes for the $C'^i_j$.
+  In particular both $C^1_1, \dotsc, C^r_1$ and $C'^1_1, \dotsc, C'^r_1$ are a complete collection of representatives of $\Irr(R)$.
+  Since the $R$-endomorphism rings of the $C^i_j$ and $C'^i_j$ are skew fields by Schur’s Lemma we find by the theorem of Krull-Remak-Schmidt (which we will not prove in this lecture) that there exists a bijection
+  \[
+            \pi
+    \colon  \left\{
+              C^i_j
+            \,\middle|\,
+              1 \leq i \leq r, 
+              1 \leq j \leq n_i
+            \right\}
+    \to     \left\{
+              C'^i_j
+            \,\middle|\,
+              1 \leq i \leq r,
+              1 \leq j \leq n'_i
+            \right\}
+  \]
+  such that $\pi(C^i_j) \cong C^i_j$ for every $C^i_j$.
+  Since $\pi$ restricts to bijections between the isomorphism classes of the $C^i_j$ and $C'^i_j$ we find a bijection
+  \[
+            \tau
+    \colon  \{1, \dotsc, r\}
+    \to     \{1, \dotsc, r\}
+  \]
+  such that $\pi$ restricts to a bijection
+  \[
+            \pi_i
+    \colon  \{ C^i_1, \dotsc, C^i_{n_i} \}
+    \to     \{ C^{\tau(i)}_1, \dotsc, C^{\tau(i)}_{n'_i} \}
+  \]
+  for every $1 \leq i \leq r$.
+  Thus we find that $n_i = n'_i$.
+  Because we have $C^i_1 \cong C^{\tau(i)}_1$ for every $1 \leq i \leq r$ and
+  \[
+          \End_R(C^i_1)
+    \cong \End_{\Mat_{n_i}(D_i)}(C^i_1)
+    \cong \End_{\Mat_{n_i}(D_i)}(D^n)
+    \cong D_i^\op
+  \]
+  as well as $\End_R(C^{\tau(i)}_1) \cong D_{\tau(i)}'^\op$ we also find that
+  \[
+          D_i^\op
+    \cong D_{\tau(i)}'^\op
+  \]
+  and thus $D_i \cong D'_{\tau(i)}$.
+\end{proof}
+
+
+
+
