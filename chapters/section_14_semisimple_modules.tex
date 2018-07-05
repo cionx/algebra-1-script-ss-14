@@ -26,6 +26,7 @@
 
 
 \begin{definition}
+  \label{definition: simple and maximal modules}
   Let $M$ be an $R$-module.
   \begin{enumerate}
     \item
@@ -182,6 +183,9 @@
   \]
   This proves the claim.
 \end{proof}
+
+
+% TODO: Alternative proof via idempotent endomorphism as projection P.
 
 
 \begin{proposition}
@@ -501,21 +505,23 @@
 \end{fluff}
 
 
+\begin{conventions}
+  In this subsection $R$ denotes a ring, $M, N$ denote $R$-modules and $E, F$ denote simple $R$-modules.
+\end{conventions}
+
+
 \begin{definition}
-  Let $M$ be an $R$-module and let $E$ be a simple $R$-module.
-  Then
+  The $E$-isotypical component of $M$ is
   \[
               M_E
-    \defined  \sum_{L \moduleeq M, L \cong E} L
+    \defined  \sum_{L \moduleeq M, L \cong E} L \,.
   \]
-  is the \emph{$E$-isotypical component of $M$}.
   The module $M$ is $E$-isotypical if $M = M_E$.
 \end{definition}
 
 
 \begin{lemma}
-  Let $M$ be an $R$-module and let $E$ be a simple $R$-module.
-  Then the $E$-isotypical component $M_E$ is $E$-isotypical.
+  The $E$-isotypical component $M_E$ is $E$-isotypical.
 \end{lemma}
 
 
@@ -532,8 +538,8 @@
 
 
 \begin{remark}
-  If $M$ is a module and $E$ is a simple $R$-module then the $E$-isotypical component $M_E$ is semisimple because it is a sum of simple $R$-modules.
-  It follows in particular that every $E$-isotypical module is semisimple.
+  The $E$-isotypical component $M_E$ is semisimple because it is a sum of simple $R$-modules.
+  It follows that every $E$-isotypical module is semisimple.
 \end{remark}
 
 
@@ -543,13 +549,13 @@
 
 
 \begin{remark}
-  The isotypical component $M_E$ of an $R$-module $M$ with respect to a simple $R$-module $E$ does only depend on the isomorphism class $[E] \in \Irr(R)$.
+  The isotypical component $M_E$ does only depend on the isomorphism class $[E] \in \Irr(R)$.
 \end{remark}
 
 
 \begin{theorem}[Decomposition into isotypical components]
-  \label{corollary: canonical decomposition semisimple module}
-  For every semisimple $R$-module $M$ there exists a canonical decomposition
+  \label{theorem: isotypical decomposition}
+  If $M$ is semisimple then
   \[
       M
     = \bigoplus_{[E] \in \Irr(R)} M_E \,,
@@ -601,8 +607,7 @@
 
 
 \begin{corollary}
-  Let $E$ be a simple $R$-module and let $M$ be an $E$-isotypical $R$-module.
-  Then $M_F = 0$ for every simple $R$-module $F$ with $F \ncong E$.
+  If $M$ is $E$-isotypical and $F \ncong E$ then $M_F = 0$.
 \end{corollary}
 
 
@@ -613,8 +618,7 @@
 
 
 \begin{lemma}
-  Let $M$ be an $R$-module and $N \moduleeq M$ a submodule.
-  Then $N_E = N \cap M_E$ for every simple $R$-module $E$.
+  If $N \moduleeq M$ is a submodule then $N_E = N \cap M_E$.
 \end{lemma}
 
 
@@ -644,7 +648,7 @@
 
 
 \begin{corollary}
-  If $E$ is a simple $R$-module and $M$ an $E$-isotypical $R$-module then every submodule $N \moduleeq M$ is again $E$-isotypical.
+  If $M$ is $E$-isotypical then every submodule $N \moduleeq M$ is again $E$-isotypical.
 \end{corollary}
 
 
@@ -654,8 +658,7 @@
 
 
 \begin{lemma}
-  Let $M$ be a semisimple $R$-module with decomposition $M = \bigoplus_{i \in I} L_i$ into simple submodules $L_i \subseteq M$.
-  For every simple submodule $E \moduleeq M$ there then exists some $i \in I$ with $E \cong L_i$.
+  If $M$ is semisimple and $M = \bigoplus_{i \in I} L_i$ a decomposition into simple submodules $L_i \moduleeq M$, then for every simple submodule $E \moduleeq M$ there then exists some $i \in I$ with $E \cong L_i$.
 \end{lemma}
 
 
@@ -665,8 +668,7 @@
 
 
 \begin{lemma}
-  Let $M, N$ be $R$-modules and let $E$ be a simple $R$-module.
-  Then every homomorphism of $R$-modules $f \colon M \to N$ restrict to a homomorphism $f_E \colon M_E \to N_E$.
+  Every homomorphism of $R$-modules $f \colon M \to N$ restrict to a homomorphism $f_E \colon M_E \to N_E$.
 \end{lemma}
 
 

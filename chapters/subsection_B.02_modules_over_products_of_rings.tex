@@ -1,0 +1,287 @@
+\subsection{Modules over Products of Rings}
+
+
+\begin{conventions}
+  In this subsection $R_1, R_2$ denote two rings.
+  We denote by $e_1, e_2 \in (R_1 \times R_2)$ the elements $e_1 = (1,0)$, $e_2 = (0,1)$.
+\end{conventions}
+
+
+\begin{fluff}
+  In this subsection we give a brief explanition how modules over $R_1 \times R_2$ can be understood componentswise.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: outer sum of modules}
+  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  Then $M_1 \oplus M_2$ carries the structure of an $(R_1 \times R_2)$-module via
+  \[
+      (r_1, r_2) \cdot (m_1, m_2)
+    = (r_1 m_1, r_2 m_2)
+  \]
+  for all $(r_1, r_2) \in R_1 \times R_2$, $(m_1, m_2) \in M_1 \oplus M_2$.
+\end{lemma}
+
+
+\begin{definition}
+  For an $R_1$-module $M_1$ and an $R_2$-module $M_2$ we denote the resulting $(R_1 \times R_2)$-module described in Lemma~\ref{lemma: outer sum of modules} by
+  \[
+    M_1 \boxplus M_2 \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  \label{label: outer sum of homomorphisms}
+  Let $f_i \colon M_i \to N_i$ be a homomorphism of $R_i$-modules for $i = 1, 2$.
+  Then the map
+  \[
+            M_1 \boxplus M_2
+    \to     N_1 \boxplus N_2,
+    \quad   (m_1, m_2)
+    \mapsto (f_1(m_1), f_2(m_2))
+  \]
+  is a homomorphism of $(R_1 \times R_2)$-modules.
+\end{lemma}
+
+
+\begin{definition}
+  In the situation of Lemma~\ref{label: outer sum of homomorphisms} we denote the induced homomorphism of $(R_1 \times R_2)$-modules by $f_1 \boxplus f_2$.
+\end{definition}
+
+
+\begin{lemma}
+  Let $M_i, N_i, P_i$ be $R_i$ modules for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      We have that
+      \[
+          \id_{M_1} \boxplus \id_{M_2}
+        = \id_{M_1 \boxplus M_2} \,.
+      \]
+    \item
+      Let $f_i \colon M_i \to N_i$ and $g_i \colon N_i \to P_i$ be homomorphisms of $R_i$-modules for $i = 1, 2$.
+      Then
+      \[
+          (g_1 \boxplus g_2) \circ (f_1 \boxplus f_2)
+        = (g_1 \circ f_1) \boxplus (g_2 \circ f_2) \,.
+      \]
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{remark}
+  \label{remark: functor out of product}
+  Alltogether we have shows that $(-) \boxplus (-)$ defines a functor
+  \[
+        (\cMod{R_1}) \times (\cMod{R_2})
+    \to \cMod{(R_1 \times R_2)} \,.
+  \]
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: restriction of modules}
+  Let $M$ be an $(R_1 \times R_2)$-module.
+  Then the subgroup $M_1 \defined e_1 M$ carries the structure of an $R_1$-module via
+  \[
+      r_1 \cdot m_1
+    = (r_1, 0) \cdot m_1
+  \]
+  for all $r_1 \in R_1$, $m_1 \in M_1$.
+  Similarly, the subgroup $M_2 \defined e_2 M$ carries the structure of an $R_2$-module via
+  \[
+      r_2 \cdot m_2
+    = (0, r_1) \cdot m_2
+  \]
+  for all $r_2 \in R_2$, $m_2 \in M_2$.
+\end{lemma}
+
+
+\begin{definition}
+  For an $(R_1 \times R_2)$-module $M$ we denote for $i = 1, 2$ the resulting $R_i$-module as described in Lemma~\ref{lemma: restriction of modules} by $[M]_i$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: restrictions of homomorphisms}
+  Let $f \colon M \to N$ be a homomorphism of $(R_1 \times R_2)$-modules.
+  Then $f$ restricts for $i = 1, 2$ to a homomorphism of $R_i$-modules
+  \[
+            [M]_i
+    \to     [N]_i
+    \quad   m_i
+    \mapsto f(m_i) \,.
+  \]
+\end{lemma}
+
+
+\begin{definition}
+  In the situation of Lemma~\ref{lemma: restrictions of homomorphisms} we denote for $i = 1, 2$ the induced homomorphisms of $R_i$-modules by $[f]_i$.
+\end{definition}
+
+
+\begin{lemma}
+  Let $M, N, P$ be $(R_1 \times R_2)$-modules.
+  \begin{enumerate}
+    \item
+      We have for $i = 1, 2$ that
+      \[
+          [\id_M]_i
+        = \id_{[M]_i} \,.
+      \]
+    \item
+      If $f \colon M \to N$ and $g \colon N \to P$ are homomorphisms of $(R_1 \times R_2)$-modules then for $i = 1, 2$ we have that
+      \[
+          [g \circ f]_i
+        = [g]_i \circ [f]_i \,.
+      \]
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{remark}
+  \label{remark: functor into product}
+  Alltogether we have for $i = 1, 2$ constructed a functor
+  \[
+            [-]_i
+    \colon  \cMod{(R_1 \times R_2)}
+    \to     \cMod{R_i} \,.
+  \]
+  Together these results in a functor
+  \[
+            ([-]_1, [-]_2)
+    \colon  \cMod{(R_1 \times R_2)}
+    \to     (\cMod{R_1}) \times (\cMod{R_2}) \,.
+  \]
+\end{remark}
+
+
+\begin{theorem}
+  \label{theorem: equivalence of modules for objects}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $M$ be an $(R_1 \times R_2)$-module.
+      Then the map
+      \[
+                \alpha_M
+        \colon  M
+        \to     [M]_1 \boxplus [M]_2
+        \quad   m
+        \mapsto (e_1 m, e_2 m)
+      \]
+      is an isomorphism of $(R_1 \times R_2)$-modules, whose inverse is given by
+      \[
+                (m_1, m_2)
+        \mapsto m_1 + m_2 \,.
+      \]
+    \item
+      Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+      Then the map
+      \[
+                \beta_{1, M_1}
+        \colon  M_2
+        \to     [M_1 \boxplus M_2]_1,
+        \quad   m_1
+        \mapsto (m_1, 0)
+      \]
+      is an isomorphism of $R_1$-modules and the map
+      \[
+                \beta_{2, M_2}
+        \colon  M_2
+        \to     [M_1 \boxplus M_2]_2,
+        \quad   m_2
+        \mapsto (0, m_2)
+      \]
+      is an isomorphism of $R_2$-modules.
+  \end{enumerate}
+  These isomorphisms are in the following sense comptible with homomorphisms in the following sense:
+  \begin{enumerate}[resume]
+    \item
+      If $f \colon M \to N$ is a homomorphisms of $(R_1 \times R_2)$-modules then the diagram
+      \[
+        \begin{tikzcd}[sep = huge]
+            M
+            \arrow{r}[above]{f}
+            \arrow{d}[left]{\alpha_M}
+          & N
+            \arrow{d}[right]{\alpha_N}
+          \\
+            {[M]_1} \boxplus {[M]_2}
+            \arrow{r}[above]{{[f]_1} \boxplus {[f]_2}}
+          & {[N]_1} \boxplus {[N]_2}
+        \end{tikzcd}
+      \]
+      commutes.
+    \item
+      If $f_i \colon M_i \to N_i$ is a homomorphisms of $R_i$-modules then the diagrams
+      \[
+        \begin{tikzcd}[sep = huge]
+            M_1
+            \arrow{r}[above]{f_1}
+            \arrow{d}[left]{\beta_{1, M_1}}
+          & N_1
+            \arrow{d}[right]{\beta_{1, N_2}}
+          \\
+            {[M_1 \boxplus M_2]_1}
+            \arrow{r}[above]{{[f_1 \boxplus f_2]_1}}
+          & {[N_1 \boxplus N_2]_1}
+        \end{tikzcd}
+      \]
+      and
+      \[
+        \begin{tikzcd}[sep = huge]
+            M_2
+            \arrow{r}[above]{f_2}
+            \arrow{d}[left]{\beta_{2, M_2}}
+          & N_2
+            \arrow{d}[right]{\beta_{2, N_2}}
+          \\
+            {[M_1 \boxplus M_2]_2}
+            \arrow{r}[above]{{[f_1 \boxplus f_2]_2}}
+          & {[N_1 \boxplus N_2]_2}
+        \end{tikzcd}
+      \]
+      commute.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{remark}
+  This shows that the functors constructed in Remark~\ref{remark: functor out of product} and Remark~\ref{remark: functor into product} are form an equivalence of categories, so that
+  \[
+            \cMod{(R_1 \times R_2)}
+    \simeq  (\cMod{R_1}) \times (\cMod{R_2}) \,.
+  \]
+\end{remark}
+
+
+\begin{lemma}
+  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      If $N_i \moduleeq M_i$ is an $R_i$-submodule for $i = 1, 2$ then $N_1 \boxplus N_2$ is an $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$.
+    \item
+      Every $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$ is of the form $N_1 \boxplus N_2$ for unique $R_i$ submodules $N_i \moduleeq M_i$.
+  \end{enumerate}
+  We thus have a bijection
+  \begin{align*}
+    \{ (N_1, N_2) \suchthat \text{$R_i$-submodules $N_i \moduleeq M_i$} \}
+    &\longleftrightarrow
+    \{ \text{$(R_1 \times R_2)$-submodules of $M_1 \boxplus M_2$} \} \,,
+    \\
+    (N_1, N_2)
+    &\longmapsto
+    N_1 \boxplus N_2 \,.
+  \end{align*}
+\end{lemma}
+
+
+\begin{corollary}
+  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  Then $M_1 \boxtimes M_2$ is simple as an $(R_1 \times R_2)$-module (see Definition~\ref{definition: simple and maximal modules}) if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
+\end{corollary}
+
+

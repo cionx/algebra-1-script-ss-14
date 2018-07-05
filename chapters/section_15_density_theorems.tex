@@ -1,8 +1,14 @@
 \section{Density Theorems}
 
 
+\begin{conventions}
+  In this section $R$ denotes a ring.
+\end{conventions}
+
+
+
 \begin{theorem}[1.\ Jacobson density theorem]
-  Let $R$ be a ring (with $1$) and $M$ a semisimple $R$-module.
+  Let $M$ be a semisimple $R$-module.
   Then $M$ is an $\End_R(M)$-module in the usual way, i.e.\
   \[
       f \cdot m
@@ -202,31 +208,31 @@
 \end{proof}
 
 
-\begin{lemma}
-  \label{lemma: k alg. closed and D/k f.d. division algebra then D=k}
-  Let $k$ be an algebraically closed field and $D$ a finite-dimensional division algebra over $k$.
-  Then $D = k$.
-\end{lemma}
-\begin{proof}
-  Let $a \in D$ with $a \neq 0$.
-  Because $\dim_k D < \infty$ we know that the elements $1$, $a$, $a^2$, $a^3$, \dots\ are linearly dependent.
-  So there exists $p \in k[X]$ with $p(a) = 0$.
-  Since $k$ is algebraically closed we have $p = \prod_{i=1}^n (X-a_i)$ for some $n \in \Natural$ and $a_1, \dotsc, a_n \in k$.
-  Since
-  \[
-      0
-    = p(a)
-    = \prod_{i=1}^n (a-a_i)
-  \]
-  we find that $a = a_i$ for some $1 \leq i \leq n$ and thus $a \in k$.
-\end{proof}
-
-
-\begin{remark}
-  That $k$ is algebraically closed is not only sufficient but also necessary.
-  To see this let $k$ be a field which is not algebraically closed and $f \in k[X]$ such that $\deg f > 1$ and $f$ has no zeroes (in $k$).
-  Then $L \coloneqq k[X]/(f)$ is a finite field extension $L/k$ with $L \supsetneq k$.
-\end{remark}
+% \begin{lemma}
+%   \label{lemma: k alg. closed and D/k f.d. division algebra then D=k}
+%   Let $k$ be an algebraically closed field and $D$ a finite-dimensional division algebra over $k$.
+%   Then $D = k$.
+% \end{lemma}
+% \begin{proof}
+%   Let $a \in D$ with $a \neq 0$.
+%   Because $\dim_k D < \infty$ we know that the elements $1$, $a$, $a^2$, $a^3$, \dots\ are linearly dependent.
+%   So there exists $p \in k[X]$ with $p(a) = 0$.
+%   Since $k$ is algebraically closed we have $p = \prod_{i=1}^n (X-a_i)$ for some $n \in \Natural$ and $a_1, \dotsc, a_n \in k$.
+%   Since
+%   \[
+%       0
+%     = p(a)
+%     = \prod_{i=1}^n (a-a_i)
+%   \]
+%   we find that $a = a_i$ for some $1 \leq i \leq n$ and thus $a \in k$.
+% \end{proof}
+% 
+% 
+% \begin{remark}
+%   That $k$ is algebraically closed is not only sufficient but also necessary.
+%   To see this let $k$ be a field which is not algebraically closed and $f \in k[X]$ such that $\deg f > 1$ and $f$ has no zeroes (in $k$).
+%   Then $L \coloneqq k[X]/(f)$ is a finite field extension $L/k$ with $L \supsetneq k$.
+% \end{remark}
 
 
 \begin{corollary}[Burnside’s Theorem on matrix algebras (coordinate free version)]
