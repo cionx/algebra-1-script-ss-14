@@ -1,0 +1,214 @@
+\subsection{Extension of Scalars for Algebras}
+
+\begin{fluff}
+  For $k$-algebras $A$ and $B$ their tensor product $A \otimes_k B$ can again be endowed with the structure of a $k$-algebra, with the multiplication being given on simple tensors by
+  \[
+      (a_1 \otimes b_1) \cdot (a_2 \otimes b_2)
+    = (a_1 a_2) \otimes (b_1 b_2).
+  \]
+  for all $a_1, a_2 \in A$, $b_1, b_2 \in B$.
+  If both $A, B$ are unital then $A \otimes_k B$ is again unital with $1_{A \otimes B} = 1_A \otimes 1_B$.
+  
+  To see that this multiplication is well-defined note that the map
+  \begin{align*}
+              A \times B \times A \times B
+    &\to      A \otimes_k B \,, \\
+              (a_1, b_1, a_2, b_2)
+    &\mapsto  (a_1 a_2) \otimes (b_1 b_2)
+  \end{align*}
+  is well-defined and $k$-multilinear, and thus induces a well-defined $k$-linear map
+  \begin{align*}
+              A \otimes_k B \otimes_k A \otimes_k B
+    &\to      A \otimes_k B \,, \\
+              a_1 \otimes b_1 \otimes a_2 \otimes b_2
+    &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,,
+  \end{align*}
+  which in turn corresponds to a $k$-bilinear map
+  \begin{align*}
+              (A \otimes_k B) \times (A \otimes_k B)
+    &\to      A \otimes_k B \,, \\
+              (a_1 \otimes b_1, a_2 \otimes b_2)
+    &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,.
+  \end{align*}
+  The various algebra axioms can now be checked on simple tensors.
+\end{fluff}
+
+\begin{fluff}
+  Let $A$ be a $k$-algebra.
+  By considering $L$ as a $k$-algebra it now follows that $A_L = L \otimes_k A$ carries the structure of a $k$-algebra, with the multiplication being given on simple tensors by
+  \[
+      (l_1 \otimes a_1) \cdot (l_2 \otimes a_2)
+    = (l_1 l_2) \otimes (a_1 a_2)
+  \]
+  for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
+  The $k$-bilinear map
+  \begin{align*}
+              (L\otimes_k A) \times (L \otimes_k A)
+    &\to      L \otimes_k A \,, \\
+              (l_1 \otimes a_1, l_2 \otimes a_2)
+    &\mapsto  (l_1 l_2) \otimes (a_1 a_2)
+  \end{align*}
+  is already $L$-bilinear, so the $L$-vector space structure of $A_L$ makes the $k$-algebra $A_L$ into an $L$-algebra.
+\end{fluff}
+
+
+\begin{remark}
+  Let $A$ be a $k$-algebra.
+  \begin{enumerate}
+    \item
+    If $A$ is unital then so is $A_L$ with $1_{A_L} = 1 \otimes 1_A$.
+    \item
+    The canonical homomorphism $\can_A \colon A \to A_L$ is already a homomorphism of $k$-algebras.
+  \end{enumerate}
+\end{remark}
+
+
+\begin{lemma}
+  If $f \colon A \to B$ is a homomorphism of $k$-algebras, then the induced $L$-linear map $f_L \colon A_L \to B_L$ is a homomorphism of $L$-algebras.
+\end{lemma}
+\begin{proof}
+  The map $f_L$ is multiplicative on simple tensors because
+  \begin{align*}
+     &\,  f_L((l_1 \otimes a_1)(l_2 \otimes a_2))
+    =     f_L((l_1 l_2) \otimes (a_1 a_2))
+    =     (l_1 l_2) \otimes f(a_1 a_2) \\
+    =&\,  (l_1 l_2) \otimes (f(a_1)f(a_2))
+    =     (l_1 \otimes f(a_1)) (l_2 \otimes f(a_2))
+    =     f_L(l_1 \otimes a_1) f_L(l_2 \otimes a_2)
+  \end{align*}
+  for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
+  It follows that $f_L$ is multiplicative because these simple tensors generate $L \otimes_k A_1$ as a vector space i.
+\end{proof}
+  
+  
+\begin{remark}
+  With this we have seen that the extension of scalars defines a functor $(-)_L \colon \cAlg{k} \to \cAlg{L}$.
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: universal property of extension of scalars for algebras}
+  Let $A$ be a $k$-algebra, $B$ an $L$-algebra and $f \colon A \to B$ a homomorphism of $k$-algebras.
+  Then the corresponding $L$-linear map $\overline{f} \colon A_L \to B$ is a homomorphism of $L$-algebras.
+  \begin{proof}
+  The map $\overline{f}$ is multiplicative on simple tensors because
+    \begin{align*}
+          \overline{f}((l_1 \otimes a_1)(l_2 \otimes a_2))
+      &=  \overline{f}((l_1 l_2) \otimes (a_1 a_2))
+       =  l_1 l_2 f(a_1 a_2)    \\
+      &=  l_1 l_2 f(a_1) f(a_2)
+       =  l_1 f(a_1) l_2 f(a_2)
+       =  \overline{f}(l_1 \otimes a_1) \overline{f}(l_2 \otimes a_2)
+    \end{align*}
+    for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
+    It follows that $\overline{f}$ is multiplicative because the simple tensors generate $A_L$ as a vector space.
+  \end{proof}
+\end{lemma}
+
+
+\begin{remark}
+  It follows from Lemma~\ref{lemma: universal property of extension of scalars for algebras} that for a $k$-algebra $A$ and an $L$-algebra $B$ the bijection
+  \[
+            \Phi_{A,B}
+    \colon  \Hom_L(A_L, B)
+    \to     \Hom_k(A, B),
+    \quad   f
+    \mapsto f \circ \can_A
+  \]
+  restricts to a bijection
+  \[
+            \Psi_{A,B}
+    \colon  \Hom_{\cAlg{L}}(A_L, B)
+    \to     \Hom_{\cAlg{k}}(A, B) \,.
+  \]
+  This can also be formulated by giving a variation of Theorem~\ref{theorem: universal property of extension of scalars} for algebras.
+  
+  It follows that the functor $(-)_L \colon \cAlg{k} \to \cAlg{L}$ is left adjoint to the forgetful functor $R \colon \cAlg{L} \to \cAlg{k}$.
+\end{remark}
+
+
+\begin{fluff}
+  We have seen in Corollary~\ref{corollary: inclusion to bijection vector spaces} that it is possible to realize the extension of scalars of a $k$-vector $V$ as a given $L$-vector space $W$ with $V \subseteq W$ under suitable conditions.
+  This also generalizes to algebras:
+\end{fluff}
+
+
+\begin{corollary}
+\label{corollary: inclusion to bijection algebras}
+  Let $B$ be an $L$-algebra and $A \subseteq B$ a $k$-subalgebra.
+  Suppose that $X \subseteq A$ is both a $k$-basis of $A$ and an $L$-basis of $B$.
+  Then the isomorphism of $L$-vector spaces $\varphi \colon A_L \to B$ from Corollary~\ref{corollary: inclusion to bijection vector spaces}, which is given on simple tensors by
+  \[
+      \varphi(l \otimes a)
+    = l a
+  \]
+  for all $l \in L$, $a \in A$, is an isomorphism of $L$-algebras.
+\end{corollary}
+\begin{proof}
+  The inclusion $A \hookrightarrow B$ is a homomorphism of $k$-algebras, so it follows from Lemma~\ref{lemma: universal property of extension of scalars for algebras} that the induced $L$-linear map $A_L \to B$, which is precisely the isomorphism $\varphi$, is a homomorphism of $L$-algebras.
+\end{proof}
+
+
+\begin{example}
+  The isomorphisms of $L$-vector spaces
+  \begin{gather*}
+    k[X_1, \dotsc, X_n]_L \to L[X_1, \dotsc, X_n] \,,
+    \quad
+    \Mat_n(k)_L \to \Mat_n(L) \,,
+    \quad
+    k[G]_L \to L[G]
+  \end{gather*}
+  from Example~\ref{example: recognizing extension of scalar} are all isomorphisms of $L$-algebras.
+\end{example}
+
+
+\begin{lemma}
+  Let $A$ be a $k$-algebra and let $I \idealeq A$ be a left-ideal (resp.\ right-ideal, resp.\ both sided ideal).
+  Then $I_L$ is a left-ideal (resp.\ right-ideal, resp.\ both sided ideal) in $A_L$.
+\end{lemma}
+\begin{proof}
+  It follows from $I$ being a $k$-linear subspace of $A$ that $I_L$ is an $L$-linear subspace of $A_L$.
+  For all simple tensors $l \otimes a \in A_L$, $l' \otimes x \in I_L$ with $l, l' \in L$, $a \in A$, $x \in I$ we have that
+  \[
+        (l \otimes a) \cdot (l' \otimes x)
+    =   (l l') \otimes (a x)
+    \in L \otimes_k I
+    =   I_L \,.
+  \]
+  It follows that $A_L I_L \subseteq I_L$ because every tensor is a linear combination of simple tensors.
+  This shows that $I_L$ is a left ideal in $A_L$.
+  The case of $I$ being a right ideal can be treated in the same way, and the case of $I$ being a two-sided ideal follows from the previous two cases.
+\end{proof}
+
+
+\begin{lemma}
+  Let $A$ be a $k$-algebra and let $I \idealeq A$ be an ideal generated by elements $(b_j)_{j \in J}$.
+  Then the ideal $I_L \idealeq A_L$ is generated by the elements $(1 \otimes b_j)_{j \in J}$.
+\end{lemma}
+\begin{proof}
+  Let $I_0$ be the ideal in $A_L$ generated by the elements $(1 \otimes b_j)_{j \in J}$.
+  We have that $I_0 \subseteq I_L$ because $I_L$ is an ideal with $1 \otimes b_j \in I_L$ for every $j \in J$.
+  To show that $I_L \subseteq I_0$ we consider the preimage
+  \[
+              I'
+    \coloneqq \{
+                a \in A
+              \mid
+                1 \otimes a \in I_0
+              \}
+    =         \can_A^{-1}(I_0) \,.
+  \]
+  This is an ideal in $A$ because $\can_A$ is a homomorphism of $k$-algebras.
+  We have that $b_j \in I'$ for every $j \in J$, and thus $I \subseteq I'$.
+  It follows that $1 \otimes a \in I_0$ for all $a \in I$, and it further follows that $I_L \subseteq I_0$ because these simple tensors generate $I_L$ as an $L$-vector space.
+\end{proof}
+
+
+\begin{warning}
+  The ideal $(X^2+1)_{\Real[X]} \subseteq \Real[X]$ is a prime ideal, but the ideal \mbox{$(X^2+1)_{\Complex[X]} \subseteq \Complex[X]$} is not.
+  This shows that for a prime (resp.\ maxmial) ideal $P \idealeq A$ the ideal $P_L \idealeq A_L$ is not necessarily prime (resp.\ maximal).
+\end{warning}
+
+
+
+

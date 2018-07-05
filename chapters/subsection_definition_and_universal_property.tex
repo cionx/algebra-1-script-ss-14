@@ -1,0 +1,437 @@
+\subsection{Definition and Universal Property}
+
+
+\begin{fluff}
+  let $V$ be a $k$-vector space.
+  Then the $k$-vector space strucure of $L \otimes_k V$ extends to an $L$-vector space structure on $L \otimes_k V$ which is given by
+  \[
+      \lambda \cdot (l \otimes v)
+    = (\lambda l) \otimes v
+  \]
+  for all $\lambda \in L$ and simple tensors $l \otimes v \in L \otimes_k V$ with $l \in L$, $v \in V$:
+  To see that this multipliation is well-defined let $\lambda \in L$ and consider the map
+  \[
+            m_\lambda
+    \colon  L
+    \to     L,
+    \quad   l
+    \mapsto \lambda l \,,
+  \]
+  which is $L$-linear and thus $k$-linear.
+  Then the multiplication with $\lambda$ on $L \otimes_k V$ is given by $m_\lambda \otimes \id_V$, and therefore well-defined.
+  The various vector space axioms can be checked on simple tensors.
+\end{fluff}
+
+
+\begin{definition}
+  For every $k$-vector space $V$ let $V_L$ be the $L$-vector space $V_L \defined L \otimes_k V$.
+  The $k$-linear map $\can_V \colon V \to V_L$, $v \mapsto 1 \otimes v$ is the \emph{canonical homomorphism}.
+\end{definition}
+
+
+\begin{example}
+  \label{example: extension of scalars for kn}
+  For $V = k^n$ we have that $V_L = L \otimes_k k^n \cong L^n$, and the canonical homomorphism $\can \colon k^n \to (k^n)_L$ corresponds to the inclusion $k^n \hookrightarrow L^n$.
+  \[
+    \begin{tikzcd}[sep = large]
+        (k^n)_L
+        \arrow{r}[above]{\sim}
+      & L^n
+      \\
+        k^n
+        \arrow{u}[left]{\can}
+        \arrow[hookrightarrow]{ur}
+      & {}
+    \end{tikzcd}
+  \]
+\end{example}
+
+
+\begin{recall}
+  Recall from linear algebra that for $k$-vector spaces $U, V$ and $u \in U$, $v \in V$ one has that $u \otimes v = 0$ if and only if $u = 0$ or $v = 0$:
+  
+  If $u \neq 0$ and $v \neq 0$, then $u$ can be extended to a $k$-basis $(u_i)_{i \in I}$ of $U$ with $u = u_{i_0}$ for some $i_0 \in I$, and $v$ can be extended to a $k$-basis $(v_j)_{j \in J}$ of $V$ with $v = v_{j_0}$ for some $j_0 \in J$.
+  Then $(u_i \otimes v_j)_{i \in I, j \in J}$ is a $k$-basis of $U \otimes_k V$, and it follows that the basis element $u_{i_0} \otimes v_{j_0}$ is nonzero.
+\end{recall}
+
+
+\begin{corollary}
+  \label{corollary: canonical homomorphism is injective}
+  The canonical homomorphism $\can_V \colon V \to V_L$, $v \mapsto 1 \otimes v$ is injective for every $k$-vector space $V$.
+\end{corollary}
+
+
+\begin{fluff}
+  As a consequence of Corollary~$\ref{corollary: canonical homomorphism is injective}$ we can regard $V$ as a $k$-linear subspace of $V_L$ by identifying $v \in V$ with $1 \otimes v \in V_L$.
+  We will not do so during this section, but will at time in the main text.
+\end{fluff}
+
+
+\begin{fluff}
+  Let $V$ be a $k$-vector space and let $W$ be an $L$-vector space.
+  
+  When $g \colon V_L \to W$ is an $L$-linear map, then $g$ is also $k$-linear.
+  It then follows that $g^\circ \coloneqq g \circ \can \colon V \to W$ is a $k$-linear map:
+  \[
+    \begin{tikzcd}[sep = large]
+        V_L
+        \arrow{r}[above]{g}
+      & W
+      \\
+        V
+        \arrow{u}[left]{\can}
+        \arrow[dashed]{ru}[below right]{g^\circ}
+      & {}
+    \end{tikzcd}
+  \]
+  On elements, $g^\circ$ is given by $g^\circ(v) = g(1 \otimes v)$ for every $v \in V$.
+  One may think about $g^\circ$ as the restriction of $g$ onto $V$.
+  
+  Let on the other hand $f \colon V \to W$ be a $k$-linear map.
+  Then the map
+  \[
+            f'
+    \colon  L \times V
+    \to     W,
+    \quad   (l,v)
+    \mapsto l \cdot f(v)
+  \]
+  is $k$-bilinear and thus induces a $k$-linear map $\overline{f} \colon V_L \to W$, which is given on simple tensors by
+  \[
+      \overline{f}(l \otimes v)
+    = l \cdot f(v)
+  \]
+  for all $l \in L$, $v \in V$.
+  This map is already $L$-linear:
+  For every $\lambda \in L$ and simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$ one has that
+  \[
+      \overline{f}(\lambda \cdot (l \otimes v))
+    = \overline{f}( (\lambda l) \otimes v )
+    = (\lambda l) \cdot f(v)
+    = \lambda \cdot (l \cdot f(v))
+    = \lambda \cdot \overline{f}(l \otimes v) \,.
+  \]
+  It then follows from the $k$-linearity of $\overline{f}$ that $\overline{f}(\lambda \cdot x) = \lambda \cdot \overline{f}(x)$ for all $\lambda \in L$, $x \in V_L$ because every $x \in V_L$ is a sum of simple tensors.
+  The constructed $L$-linear map $\overline{f} \colon V_L \to W$ satisfies
+  \[
+      \overline{f}(\can_V(v))
+    = \overline{f}(1 \otimes v)
+    = 1 \cdot f(v)
+    = f(v)
+  \]
+  for all $v \in V$, and therefore makes the following diagram commute:
+    \[
+      \begin{tikzcd}[sep = large]
+          V_L
+          \arrow[dashed]{r}[above]{\overline{f}}
+        & W
+        \\
+          V
+          \arrow{u}[left]{\can}
+          \arrow{ru}[below right]{f}
+        & {}
+      \end{tikzcd}
+    \]
+  One may think about $\overline{f}$ as the $L$-linear extension of $f$ onto $V_L$.
+  
+  If $f \colon V \to W$ is a $k$-linear map then for the corresponding $L$-linear map $\overline{f} \colon V_L \to W$ the induced $k$-linear map $(\overline{f})^\circ \colon V \to W$ is given by
+  \[
+      (\overline{f})^\circ(v)
+    = \overline{f}(1 \otimes v)
+    = 1 \cdot f(v)
+    = f(v)
+  \]
+  for all $v \in V$, which shows that $(\overline{f})^\circ = f$.
+  
+  If $g \colon V_L \to W$ is an $L$-linear map and $g^\circ \colon V \to W$ is the corresponding $k$-linear map, then for the induced $L$-linear map $\overline{g^\circ} \colon V_L \to k$ we have that
+  \[
+      \overline{g^\circ}(l \otimes v)
+    = l \cdot g^\circ(v)
+    = l \cdot g(1 \otimes v)
+    = g(l \cdot (1 \otimes v))
+    = g(l \otimes v)
+  \]
+  for every simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$.
+  It follows from the linearity of both $\overline{g^\circ}$ and $g$ that already $\overline{g^\circ}(x) = g(x)$ for every $x \in V_L$, and thus $\overline{g^\circ} = g$.
+  
+  This shows that the two constructions $(-)^\circ$ and $\overline{(-)}$ are inverse to each other.
+  Alltogether we have found the \emph{universal property of the extension of scalars}:
+\end{fluff}
+
+
+\begin{theorem}[Universal property of the extension of scalars]
+  \label{theorem: universal property of extension of scalars}
+  Let $V$ be a $k$-vector space and let $W$ be an $L$-vector space.
+  Then the map
+  \begin{align*}
+                \Phi_{V,W}
+    \colon      \Hom_L(V_L, W)
+    &\to        \Hom_k(V,W) \,, \\
+                f
+    &\mapsto    g^\circ
+     =          g \circ \can_V \,,  \\
+                \overline{g}
+    &\mapsfrom  g
+  \end{align*}
+  is a well-defined bijection.
+\end{theorem}
+
+
+\begin{remark}
+  One can think about this universal property in different ways:
+  \begin{itemize}
+    \item
+      The universal property states that every $k$-linear map $V \to W$ extends uniquely to an $L$-linear map $V_L \to W$ along $\can_V$.
+      To construct an $L$-linear map $V_L \to W$ it therefore sufficies to construct the corresponding $k$-linear map $V \to W$.
+    \item
+      The $L$-vector space $V_L$ together with the inclusion $\can_V \colon V \to V_L$ is the most general way to extend the $k$-vector space $V$ to an $L$-vector space:
+      
+      Whenever $W$ is another $L$-vector space and $f \colon V \to W$ is a $k$-linear map, then we may think of $f$ as an embedding of $V$ into $W$, except that $f$ needs not be injective.
+      Then $f$ factors trough $V_L$ by extending to an $L$-linear map $\overline{f} \colon V_L \to W$ which me may think about as an embedding of $V_L$ into $W$, except that $\overline{f}$ also does not need to be injective.
+      
+      (Note that $\overline{f}$ does not need to be injective even if $f$ is injective:
+      Consider $k = \Real$, $L = \Complex$, $V = \Real^2$ and $W = \Complex$.
+      Then the map $f \colon \Real^2 \to \Complex$, $(x,y) \mapsto x + iy$ is an isomorphism of $\Real$-vector spaces, but the induced $L$-linear map $\overline{f} \colon (\Real^2)_\Complex \to \Complex$ cannot be injective because $(\Real^2)_\Complex \cong \Complex^2$ by Example~\ref{example: extension of scalars for kn}.
+      Indeed, the map $\overline{f}$ corresponds to the map $\mathbb{C}^2 \to \mathbb{C}$, $(x,y) \mapsto x+iy$.)
+  \end{itemize}
+\end{remark}
+
+
+\begin{remark}
+  As usual with universal properties, the $L$-vector space $V_L$ together with the canonical homomorphism $\can_V \colon V \to V_L$ is uniquely determined by it up to unique isomorphism:
+  If $V'$ is another $L$-vector space and $\iota \colon V \to V'$ is a $k$-linear map such that
+  \[
+            \Hom_L(V', W)
+    \to     \Hom_k(V,W) \,,
+    \quad   f
+    \mapsto f \circ \iota
+  \]
+  is bijective for every $L$-vector space $W$, then there exists a unique $L$-linear map
+  \[
+    \varphi \colon V_L \to V'
+  \]
+  such that the diagram
+  \[
+    \begin{tikzcd}
+        {}
+      & V
+        \arrow[swap]{dl}{\can_V}
+        \arrow{dr}{\iota}
+      & {}
+      \\
+        V_L
+        \arrow{rr}{\varphi}
+      & {}
+      & V'
+    \end{tikzcd}
+  \]
+  commutes, and $\varphi$ is an isomorphism of $L$-vector spaces.
+\end{remark}
+
+
+\begin{remark}
+  The bijections $\Phi_{V,W}$ from Theorem~\ref{theorem: universal property of extension of scalars} are actually isomorphisms of $k$-vector spaces, which are \enquote{natural} in $V$ and $W$ in the sense of category theory.
+  (To make this naturality precise one needs to expand $(-)_L$ to a functor, which we will do in the next subsection.)
+  This gives a rise to an adjunction, see Remark~\ref{remark: adjointness of extension and restriction}.
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: bases under extension of scalars}
+  Let $V$ be a $k$-vector space.
+  If a family $(v_i)_{i \in I}$ of vectors $v_i \in V$ is a $k$-basis of $V$, then $(1 \otimes v_i)_{i \in I}$ is an $L$-basis of $V_L$.
+\end{lemma}
+
+
+\begin{proof}
+  We have that $V = \bigoplus_{i \in I} \gen{v_i}_k$ and therefore
+  \[
+      V_L
+    = L \otimes_k V
+    = L \otimes_k \left( \bigoplus_{i \in I} \gen{v_i}_k \right)
+    = \bigoplus_{i \in I} (L \otimes_k \gen{v_i}_k)
+    = \bigoplus_{i \in I} \gen{1 \otimes v_i}_L \,,
+  \]
+  which proves the claim.
+\end{proof}
+
+
+\begin{remark}
+  Recall from linear algebra that $B \subseteq V$ is a $k$-basis of $V$ if and only if for every $k$-vector space $W$ the restriction
+  \[
+            \Hom_k(V,W)
+    \to     \Maps(B,W),
+    \quad   f
+    \mapsto \restrict{f}{B}
+  \]
+  is a bijection.
+  This can be used to given an alternative proof of Lemma~\ref{lemma: bases under extension of scalars}:
+  
+  Let $\{v_i\}_{i \in I}$ be a $k$-basis of $V$.
+  The canonical homomorphism $\can_V \colon V \to V_L$ is injective, and thus induces a bijection
+  \[
+            c
+    \colon  \{v_i\}_{i \in I}
+    \to     \{1 \otimes v_i\}_{i \in I},
+    \quad   v_i
+    \mapsto 1 \otimes v_i
+    =       \can_V(v_i) \,.
+  \]
+  For every $L$-vector space $W$ we therefore get a commutative diagram
+  \[
+    \begin{tikzcd}[sep = large]
+        \Hom_L(V_L, W)
+        \arrow{r}[above]{\can_V^*}
+        \arrow{d}[left]{\text{restriction}}
+      & \Hom_k(V,W)
+        \arrow{d}[right]{\text{restriction}}
+      \\
+        \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
+        \arrow{r}[above]{c^*}
+      & \Maps\left( \{v_i\}_{i \in I}, W \right)
+    \end{tikzcd}
+  \]
+  where the map
+  \[
+            \can_V^*
+    \colon  \Hom_L(V_L, W)
+    \to     \Hom_k(V, W),
+    \quad   h
+    \mapsto h \circ \can_V
+  \]
+  is bijective by Theorem~\ref{theorem: universal property of extension of scalars}, and the map
+  \[
+            c_*
+    \colon  \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
+    \to     \Maps\left( \{v_i\}_{i \in I}, W \right),
+    \quad   h
+    \mapsto h \circ c
+  \]
+  is bijective because $c$ is a bijection.
+  
+  It follows that the restriction on the left is a bijection if and only if the restriction on the right is a bijection, i.e.\ that $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ if and only if $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$.
+\end{remark}
+
+
+\begin{fluff}
+  So far we have constructed for every $k$-vector space $V$ a new $L$-vector space $V_L$ which contains $V$ as a $k$-linear subspace (via $\can_V \colon V \hookrightarrow V_L$) and is universal with this property.
+  
+  In praxis we often want to realize the extension of scalars $V_L$ as an already know $L$-vector space $W$ which contains $V$ as a $k$-linear subspace $V \subseteq W$, just how we can realize $(k^n)_L$ as $L^n$ as seen in Example~\ref{example: extension of scalars for kn}.
+  
+  A general criterion for this is given by the following corollary of Lemma~\ref{lemma: bases under extension of scalars}.
+\end{fluff}
+
+
+\begin{corollary}
+\label{corollary: inclusion to bijection vector spaces}
+  Let $W$ be an $L$-vector space, and let $V \subseteq W$ a $k$-linear subspace.
+  Suppose that $B \subseteq V$ is both a $k$-basis of $V$ and an $L$-basis of $W$.
+  Then the unique $L$-linear map $\varphi \colon V_L \to W$ given on simple tensors by
+  \[
+      \varphi(l \otimes v)
+    = l v
+  \]
+  for all $l \in L$, $v \in V$ is an isomorphism.
+\end{corollary}
+
+
+\begin{proof}
+  The desired map $\varphi$ is the unique $L$-linear extension of the $k$-linear inclusion $V \hookrightarrow W$, which exists by the universal property of the extension of scalars:
+  \[
+    \begin{tikzcd}[sep = large]
+        V_L
+        \arrow[dashed]{r}[above]{\varphi}
+      & W
+      \\
+        V
+        \arrow{u}[left]{\can_V}
+        \arrow[hookrightarrow]{ru}
+      & {}
+    \end{tikzcd}
+  \]
+  Then $\varphi$ maps the $L$-basis $(1 \otimes b)_{b \in B}$ of $V_L$ bijectively onto the $L$-basis $B$ of $W$, and is therefore an isomorphism.
+\end{proof}
+
+
+\begin{example}
+  \label{example: recognizing extension of scalar}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that $k^n \subseteq L^n$ is a $k$-linear subspace, and the standard basis $e_1, \dotsc, e_n$ is both a $k$-basis of $k^n$ and an $L$-basis of $L^n$.
+      It follows that there exists an isomorphism of $L$-vector spaces $(k^n)_L \to L^n$ which maps $1 \otimes e_i \in (k^n)_L$ to $e_i \in L^n$ for every $i = 1, \dotsc, n$.
+      (We have already seen this in Example~\ref{example: extension of scalars for kn}.)
+    \item
+      We have that $K[X] \subseteq L[X]$ is a $k$-linear subspace, and the monomials $X^n$, $n \geq 0$ form both a $k$-basis of $K[X]$ and an $L$-basis of $L^n$.
+      It follows that there exists an isomorphism of $L$-vector spaces $k[X]_L \to L[X]$ which maps $1 \otimes X^n \in k[X]_L$ to $X^n \in L[X]$ for every $n \geq 0$.
+    \item
+      We find in the same way that there exists an isomorphism of $L$-vector spaces $k[X_1, \dotsc, X_n]_L \to L[X_1, \dotsc, X_n]$ which maps $1 \otimes X^{\alpha_1} \dotsm X^{\alpha_n} \in k[X_1, \dotsc, X_n]_L$ to $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in L[X_1, \dotsc, X_n]$ for every multiindex $\underline{\alpha} \in \Natural^n$.
+    \item
+      We have that $\Mat_n(k) \subseteq \Mat_n(L)$ is a $k$-linear subspace, and the matrices $E_{ij}$, $1 \leq i,j \leq n$ are both a $k$-basis of $\Mat_n(k)$ and an $L$-basis of $\Mat_n(L)$.
+      It follows that there exists an isomorphism of $L$-vector spaces $\Mat_n(k)_L \to \Mat_n(L)$ which maps $1 \otimes E_{ij} \in \Mat_n(k)_L$ to $E_{ij} \in \Mat_n(L)$ for all $1 \leq i,j \leq n$.
+    \item
+      Let $G$ be a group.
+      Then $k[G] \subseteq L[G]$ is a $k$-linear subspace, and the group $G$ is both a $k$-basis of $k[G]$ and an $L$-basis of $L[G]$.
+      It follows that there exists an isomorphism of $L$-vector spaces $k[G]_L \to L[G]$ which maps $1 \otimes g \in k[G]$ to $g \in L[G]$ for every $g \in G$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{recall}
+  Let $W, V$ be $k$-vector spaces and let $(w_j)_{j \in J}$ be a $k$-basis of $W$.
+  Then every $x \in W \otimes_k V$ can be written as $x = \sum_{j \in J} w_j \otimes v_j$ for unique elements $v_j \in V$ (with $v_j = 0$ for all but finitely many $j \in J$):
+  We have that $W = \bigoplus_{j \in J} \gen{w_j}_k$ and therefore
+  \[
+          W \otimes_k V
+    =     \left( \bigoplus_{j \in J} \gen{w_j}_k \right) \otimes_k V
+    =     \bigoplus_{j \in J} ( \gen{w_j}_k \otimes_k V )
+    =     \bigoplus_{j \in J} (w_j \otimes V)
+    \cong \bigoplus_{j \in J} V \,.
+  \]
+\end{recall}
+
+
+\begin{corollary}
+  Let $V$ be a $k$-vector space and $\{U_i\}_{i \in I}$ a collection of $k$-vector subspaces $U_i \subseteq V$.
+  Then
+  \[
+      L \otimes_k \left( \bigcap_{i \in I} U_i \right)
+    = \bigcap_{i \in I} \left( L \otimes_k U_i \right) \,.
+  \]
+\end{corollary}
+
+
+\begin{proof}
+  For every $j \in I$ we have that $\bigcap_{i \in I} U_i \subseteq U_j$, therefore
+  \[
+              L \otimes_k \left( \bigcap_{i \in I} U_i \right)
+    \subseteq L \otimes_k U_j \,,
+  \]
+  and thus alltogether
+  \[
+              L \otimes_k \left( \bigcap_{i \in I} U_i \right)
+    \subseteq \bigcap_{j \in I} (L \otimes_k U_j) \,.
+  \]
+  
+  For the other inclusion let $x \in \bigcap_{i \in I} (L \otimes U_i)$, and let $(b_j)_{j \in J}$ be a $k$-basis of $L$.
+  By using that $x \in L \otimes_k V$ we may write
+  \[
+      x
+    = \sum_{j \in J} b_j \otimes v_j
+  \]
+  for unique elements $v_j \in V$.
+  For every $i \in I$ it similarly follows from $x \in L \otimes_k U_i$ that
+  \[
+      x
+    = \sum_{j \in J} b_j \otimes u^i_j
+  \]
+  for unique elements $u^i_j \in U_i$.
+  For every $j \in J$ it follows from the uniqueness of these decompositions that $v_j = u^i_j \in U_i$ for every $i \in I$, and therefore that $v_j \in \bigcap_{i \in I} U_i$.
+  It thus follows that
+  \[
+        x
+    =   \sum_{j \in J} b_j \otimes v_j
+    \in L \otimes_k \left( \bigcap_{i \in I} U_i \right).
+  \]
+  This proves the other inclusion.
+\end{proof}
