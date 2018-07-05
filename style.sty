@@ -1,22 +1,21 @@
 % all the packages
 \usepackage{appendix}
-\usepackage{amsmath, amssymb, amsthm, mathtools}  % general math stuff
+\usepackage{amsmath, amssymb, amsthm, mathtools}      % general math stuff
 \usepackage{stmaryrd}   % \mapsfrom
 \usepackage{extarrows}  % \xlongequal
 \usepackage{fontspec}   % for xelatex stuff
 \usepackage{hyperref}   % for internal (and external) links
-% \usepackage{chngcntr}   % stop section counter from reseting
-\usepackage[centertableaux,boxsize=1.2em]{ytableau} % Young diagrams
-\usepackage{color}    % colors
-\usepackage{tikz-cd}  % commutative diagrams
+\usepackage[centertableaux,boxsize=1.2em]{ytableau}   % Young diagrams
+\usepackage{color}      % colors
+\usepackage{tikz-cd}    % commutative diagrams
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
-\usepackage{enumitem} % more control over enumerates
-\usepackage[automark, headsepline]{scrlayer-scrpage} %for headers
-\usepackage{csquotes} % for proper quotation marks
-\usepackage{microtype}
+\usepackage{enumitem}   % more control over enumerates
+\usepackage[automark, headsepline]{scrlayer-scrpage}  %for headers
+\usepackage{csquotes}   % for proper quotation marks
+\usepackage{microtype}  % for typography
 \usepackage[backend=biber,style=alphabetic]{biblatex} %for bibliography
-\usepackage{multirow} % for multicolumn
+\usepackage{multirow}   % for multicolumn
 
 % settings for scrlayer-scrpage
 \pagestyle{scrheadings}
@@ -94,11 +93,18 @@
 \newcommand{\defines}{\eqqcolon}
 \newcommand{\divides}{\mid}
 \newcommand{\ndivides}{\nmid}
+\newcommand{\groupeq}{\leq}
+\newcommand{\groupneq}{\lneq}
+\newcommand{\ngroupeq}{\trianglelefteq}
+\newcommand{\ngroupneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand{\idealeq}{\trianglelefteq}
 \newcommand{\idealneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+\newcommand{\moduleeq}{\leq}
+\newcommand{\moduleneq}{\lneq}
+\newcommand{\nmoduleeq}{\nleq}
 \newcommand{\longto}{\longrightarrow}
-\newcommand{\normalsubgroup}{\trianglelefteq}
-\newcommand{\subgroup}{\leq}
+\newcommand{\inclusion}{\hookrightarrow}
+\newcommand{\projection}{\twoheadrightarrow}
 
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}
@@ -128,6 +134,7 @@
 \newcommand{\mf}{\mathfrak}
 
 % spaces
+\DeclareMathOperator{\Ann}{Ann}
 \DeclareMathOperator{\Maps}{Maps}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Pol}{Pol}
@@ -143,6 +150,7 @@
 \newcommand{\rad}[1]{\sqrt{#1}}
 \DeclareMathOperator{\Irr}{Irr}
 \DeclareMathOperator{\irr}{irr}
+\DeclareMathOperator{\soc}{soc}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\vspan}{span}

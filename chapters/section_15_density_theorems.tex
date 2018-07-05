@@ -1,4 +1,4 @@
-\section{(Jacobson) Density Theorems}
+\section{Density Theorems}
 
 
 \begin{theorem}[1.\ Jacobson density theorem]
@@ -32,6 +32,8 @@
     1 \leq i \leq s \,.
   \]
 \end{theorem}
+
+
 \begin{proof}
   It is clear that $\Phi$ is well defined.
   
@@ -134,6 +136,8 @@
   \]
   is surjective.
 \end{corollary}
+
+
 \begin{proof}
   Because we have $k \subseteq \End_A(M)$ we also have
   \[
@@ -198,7 +202,8 @@
 \end{proof}
 
 
-\begin{lemma}\label{lemma: k alg. closed and D/k f.d. division algebra then D=k}
+\begin{lemma}
+  \label{lemma: k alg. closed and D/k f.d. division algebra then D=k}
   Let $k$ be an algebraically closed field and $D$ a finite-dimensional division algebra over $k$.
   Then $D = k$.
 \end{lemma}
@@ -221,32 +226,6 @@
   That $k$ is algebraically closed is not only sufficient but also necessary.
   To see this let $k$ be a field which is not algebraically closed and $f \in k[X]$ such that $\deg f > 1$ and $f$ has no zeroes (in $k$).
   Then $L \coloneqq k[X]/(f)$ is a finite field extension $L/k$ with $L \supsetneq k$.
-\end{remark}
-
-
-\begin{lemma}[Schur’s Lemma for rings and algebras]
-  Let $R$ be a ring and $M$ a simple $R$-module.
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-    \item
-      If $N$ is another simple $R$-module then every homomorphism of $R$-modules $f \colon M \to N$ is either zero or an isomorphism.
-    \item
-      $\End_R(M)$ is a skew field.
-  \end{enumerate}
-  If $R$ has the additional structure of a $k$-algebra we also have the following:
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*,resume]
-    \item
-      $\End_R(M)$ is a division algebra over $k$.
-    \item
-      If $k$ is algebraically closed and $\dim_k M < \infty$ then $\End_R(M) = k$.
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  The first three statements are clear, the third follows directly from Lemma \ref{lemma: k alg. closed and D/k f.d. division algebra then D=k}.
-\end{proof}
-
-
-\begin{remark}
-  Schur’s Lemma for representation of groups can be derived from the one for algebras by the usual correspondence between representations of a group and modules over the group algebra.
 \end{remark}
 
 

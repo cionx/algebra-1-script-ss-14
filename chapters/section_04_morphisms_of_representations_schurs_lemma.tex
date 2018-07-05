@@ -171,16 +171,38 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 \end{proof}
 
 
-\begin{lemma}
-  \label{lemma: inj und surj for morphisms between irreducible}
-  Let $V$, $W$ be representations of a group $G$ over the same field $k$.
+\begin{proposition}[Schur’s lemma]
+  \label{proposition: Schurs lemma representations}
+  Let $V, W$ be representations of a group $G$ over the same field $k$.
   \begin{enumerate}
     \item
+      \label{enumerate: nonzero injective irreducible}
       If $V$ is irreducible then every nonzero morphism $V \to W$ is injective.
     \item
+      \label{enumerate: nonzero surjective irreducible}
       If $W$ is irreducible then every nonzero morphism $V \to W$ is surjective.
   \end{enumerate}
-\end{lemma}
+  Let $V, W$ both be irreducible.
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: nonzero morphism is already an iso}
+      Every nonzero morphism $f \colon V \to W$ is an isomorphism.
+    \item
+      If $V \ncong W$ then $\Hom_G(V,W) = 0$, and if $V \cong W$ then $\Hom_G(V,W) \neq 0$.
+    \item
+      The endomorphism ring $\End_G(V) = \Hom_G(V,V)$ is a divison algebra over $k$.
+    \item
+      \label{enumerate: morphism space is one-dimensional}
+      If $k$ is algebraically closed (e.g.\ $k = \Complex$) and both $V$ and $W$ are finite-dimensional then
+      \[
+              \Hom_G(V,W)
+        \cong \begin{cases}
+                k & \text{if $V \cong W$}   \,, \\
+                0 & \text{if $V \ncong W$}  \,.
+              \end{cases}
+      \]
+  \end{enumerate}
+\end{proposition}
 
 
 \begin{proof}
@@ -190,47 +212,15 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
       The kernel $\ker f$ is a proper subrepresentation of $V$, so that $\ker f = 0$.
     \item
       The image $\im f$ is a non-zero subreprentation of $W$, so that $\im f = W$.
-  \qedhere
-  \end{enumerate}
-\end{proof}
-
-
-\begin{corollary}[Schur’s Lemma]
-  \label{corollary: Schurs Lemma}
-  Let $V$, $W$ be irreducible representations of a group $G$ over the same field $k$.
-  \begin{enumerate}
-    \item
-      \label{enumerate: nonzero morphism is already an iso}
-      Every nonzero morphism $f \colon V \to W$ is an isomorphism.
-    \item
-      If $V \ncong W$ then $\Hom_G(V,W) = 0$, and if $V \cong W$ then $\Hom_G(V,W) \neq 0$.
-    \item
-      The endomorphism ring $\End_G(V) = \Hom_G(V,V)$ is a divison ring, or skew field.
-    \item
-      \label{enumerate: morphism space is one-dimensional}
-      If $k$ is algebraically closed (e.g.\ $k = \Complex$) and both $V$ and $W$ are finite-dimensional then
-      \[
-              \Hom_G(V,W)
-        \cong \begin{cases}
-                k & \text{if $V \cong W$}     \,, \\
-                0 & \text{if $V \ncong W$} \,.
-              \end{cases}
-      \]
-  \end{enumerate}
-\end{corollary}
-
-
-\begin{proof}
-  \leavevmode
-  \begin{enumerate}
     \item 
-      This follows directly from Lemma~\ref{lemma: inj und surj for morphisms between irreducible}.
+      This follows from parts~\ref*{enumerate: nonzero injective irreducible}, \ref*{enumerate: nonzero surjective irreducible}
     \item
-      By \ref{enumerate: nonzero morphism is already an iso} there exists a non-zero isomorphism $V \to W$ if and only if $V \cong W$.
+      By \ref*{enumerate: nonzero morphism is already an iso} there exists a non-zero isomorphism $V \to W$ if and only if $V \cong W$.
     \item
-      This follows directly from~\ref{enumerate: nonzero morphism is already an iso}.
+      This follows from~\ref*{enumerate: nonzero morphism is already an iso};
+      that $0 \neq \id_V$ follows from $V \neq 0$.
     \item
-      For $V \ncong W$ this follows from \ref{enumerate: nonzero morphism is already an iso}, so it sufficies to consider the case $V \cong W$.
+      For $V \ncong W$ this follows from \ref*{enumerate: nonzero morphism is already an iso}, so it sufficies to consider the case $V \cong W$.
       Every isomorphism $\alpha \colon W \to V$ induces an isomorphism of vector spaces
       \[
                 \alpha_*
@@ -270,9 +260,9 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
       \dim \Hom_G(V_i, V_j)
     = \delta_{ij}
   \]
-  for all $i,j = 1, \dotsc, n$ by Schur’s Lemma.
+  for all $i,j = 1, \dotsc, n$ by Schur’s lemma.
   Hence the representations $V_1, \dotsc, V_n$ can be thought of as “orthonormal” with respect to $\dim \Hom_G(-,-)$.
-  We will come back to this idea when we encouter characters of representations.
+  We will come back to this idea when we encounter characters of representations.
   % TODO: Add a link.
 \end{remark}
 
@@ -297,67 +287,6 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 
 
 \begin{remark}
-  Part~\ref{enumerate: morphism space is one-dimensional} of Schur’s Lemma holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $V$, i.e.\ as long as $\card k > \dim_k V$.
-  As every algebraically closed field is infinite this generalizes \ref{enumerate: morphism space is one-dimensional} as stated above.
-  
-  To prove this generalization we may assume (as before) that $V = W$.
-  We then need to show that every morphism of representations $f \colon V \to V$ is a scalar multiple of the identity $\id_V$.
-  We proceed in two steps:
-  We first show that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$.
-  We then show that $f = \lambda \id_V$ where $\lambda \in k$ is a root of $p(t)$.
-  \begin{enumerate}[label=\arabic*)]
-    \item
-      Suppose that $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$.
-      Then $p(f) \colon V \to V$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_G(V)$ is a skew field.
-      It follows that the $k$-vector space structure of $V$ can be extended to a $k(t)$-vector space structure given by
-      \[
-                  \frac{p(t)}{q(t)} \cdot v
-        \defined  \left( p(f) q(f)^{-1} \right)(v)
-      \]
-      for all $p(t)/q(t) \in k(t)$, $v \in V$.
-      
-      Note that this is just the universal property of the localization:
-      The ring homomorphism $\varphi \colon k[t] \to \End_G(V)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
-      \[
-                \Phi
-        \colon  k(t)
-        =       S^{-1} k[t]
-        \to     \End_G(V) \,,
-        \quad   p(t)/q(t)
-        \mapsto p(f) q(f)^{-1} \,.
-      \]
-      By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(V)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $V$.
-      This is precisely the $k(t)$-vector space structure from above.
-      
-      Because $V$ is a non-zero $k(t)$-vector space it follows that
-      \[
-              \dim_k V
-        =     \dim_k k(t) \cdot \dim_{k(t)} V
-        \geq  \card k \cdot 1
-        =     \card k \,,
-      \]
-      which contradicts $\card k > \dim_k V$.
-      For the (in)equalities we used the following facts from linear algebra:
-      \begin{itemize}
-        \item
-          For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $V$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(c_j b_i)_{i \in I, j \in J}$ is a $k$-basis of $V$.
-        \item
-          For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
-        \item
-          That $\dim_{k(t)} V \geq 1$ follows from $V$ being nonzero.
-      \end{itemize}
-      This contradiction shows that $p(f) \neq 0$ for some non-zero $p(t) \in k[t]$.
-      We may assume w.l.o.g.\ that $p(t)$ is monic.
-      
-    \item
-      Because $k$ is algebraically closed it follows that $p(t) = (t - \lambda_1) \dotsm (t - \lambda_n)$ for some $\lambda_i \in k$.
-      In the skew field $\End_G(V)$ we then have the equality
-      \[
-          0
-        = p(f)
-        = (f - \lambda_1 \id_V) \dotsm (f - \lambda_n \id_V) \,,
-      \]
-      so that $f - \lambda_i = 0$ for some $i$, i.e.\ $f = \lambda_i \id_V$.
-  \end{enumerate}
-  The idea of the above proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
+  Part~\ref{enumerate: morphism space is one-dimensional} of Schur’s lemma holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $V$, i.e.\ as long as $\card k > \dim_k V$.
+  We will prove this in Remark~\ref{remark: Schur for cardinality big enough} (but the interested reader can check this out right away).
 \end{remark}

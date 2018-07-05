@@ -2,6 +2,162 @@
 
 
 \begin{definition}
+  A ring $R$ is \emph{semisimple} if it is semisimple as an $R$-module, i.e.\ if ${}_R R$ is semisimple.
+\end{definition}
+
+
+If $R$ is semisimple then
+\[
+    R
+  = \bigoplus_{[E] \in \Irr(R)} R_E
+\]
+is a decomposition into (left) $R$-module by Corollary \ref{corollary: canonical decomposition semisimple module}.
+
+
+\begin{definition}
+  A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
+  In particular $R$ is semisimple.
+\end{definition}
+
+
+\begin{definition}
+  A $k$-algebra $A$ is called \emph{semisimple} (resp.\ \emph{simple}) if it is \emph{semisimple} (resp.\ \emph{simple}) as a ring.
+\end{definition}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Fields are simple.
+    \item
+      For every finite group $G$ the group algebra $\Complex G$ is semisimple by \hyperref[theorem: Maschkes theorem]{Maschke’s theorem}.
+    \item
+      For a skew field $D$ the matrix ring $\Mat_n(D)$ is simple for all $n > 0$.
+      To see this let
+      \[
+        C_i
+        \coloneqq \{
+                    A \in \Mat_n(D)
+                  \mid
+                    \text{ all except the $i$-th column are zero}
+                  \} \,.
+      \]
+      Then
+      \[
+          \Mat_n(D)
+        = \bigoplus_{i=1}^n C_i
+      \]
+      as a left $\Mat_n(D)$-modules with
+      \[
+        C_i \cong D^n
+      \]
+      as left $\Mat_n(D)$-modules for all $1 \leq i \leq n$.
+      Since $D^n$ is simple as an left $\Mat_n(D)$-module the statement follows.
+  \end{enumerate}
+\end{example}
+
+
+\begin{proposition}
+  Let $R$ be a semisimple ring (with $1$) and $M$ an $R$-module.
+  Then $M$ is semisimple.
+\end{proposition}
+\begin{proof}
+  Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lemma: inherit semisimple} that $M$ is semisimple.
+\end{proof}
+
+
+\begin{lemma}\label{lemma: simple module of semisimple ring is direct summand}
+  Let $R$ be a semisimple ring and $E$ a simple $R$-module.
+  Then $F \cong E$ for some simple submodule $F \subseteq R$.
+  More precisely:
+  If $R = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules then $E \cong L_i$ for some $i \in I$.
+\end{lemma}
+\begin{proof}
+  Because $E$ is cyclic there exists a surjective module homomorphism
+  \[
+                        \psi
+    \colon              R
+    \twoheadrightarrow  E
+  \]
+  For every $i \in I$ we have the module homomorphism
+  \[
+                        \phi_i
+    \colon              L_i
+    \hookrightarrow     \bigoplus_{i \in I} L_i
+    =                   R
+    \twoheadrightarrow  E \,.
+  \]
+  with $\psi = \bigoplus_{i \in I} \phi_i$.
+  Since $\psi \neq 0$ we have $\phi_j \neq 0$ for some $j \in I$.
+  Since $L_j$ and $E$ are both simple $\phi_j$ is already an isomorphism.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: simple rings one simple module}
+  Let $R$ be a simple ring.
+  Then there is exactly one simple $R$-module up to isomorphism.
+\end{corollary}
+\begin{proof}
+  Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
+  For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
+  Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: D^n only simple M_n(D)-module}
+  Let $D$ be a skew field.
+  Then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
+\end{corollary}
+\begin{proof}
+  We know that $\Mat_n(D)$ is simple and $D^n$ a simple $\Mat_n(D)$-module.
+  So the statement follows from Corollary \ref{corollary: simple rings one simple module}.
+  (Notice that we have already seen that $\Mat_n(D) \cong \bigoplus_{i=1}^n C_i$ with $C_i \cong D^n$ for every $1 \leq i \leq n$ as $\Mat_n(D)$-modules.)
+\end{proof}
+
+
+\begin{lemma}\label{lemma: ring with 1 finite sum of submodules}
+  Let $R$ be a semisimple ring (with $1$) and $R = \sum_{i \in I} M_i$ where $M_i \subseteq R$ is an $R$-submodule for every $i \in I$.
+  Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
+\end{lemma}
+\begin{proof}
+  We can write
+  \[
+      1
+    = \sum_{i \in I} e_i
+  \]
+  with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$. Let
+  \[
+              J
+    \coloneqq \{i \in I \mid e_i \neq 0\} \,.
+  \]
+  Then
+  \[
+              \mc{I}
+    \coloneqq \sum_{j \in J} M_i
+  \]
+  is an $R$-submodule of $R$, i.e.\ an left-ideal of $R$, with $1 \in \mc{I}$.
+  Therefore $\mc{I} = R$.
+\end{proof}
+
+
+\begin{corollary}\label{lemma: semisimple ring with 1 only finitely many summands}
+  Let $R$ be a semisimple ring (with $1$).
+  Then $R$ is the direct sum of finitely many simple submodules.
+\end{corollary}
+\begin{proof}
+  Because $R$ is semisimple we have $R = \bigoplus_{i \in I} L_i$ where $L_i \subseteq R$ is a simple $R$-submodule for every $i \in I$.
+  By Lemma \ref{lemma: ring with 1 finite sum of submodules} there exists a finite subset $J \subseteq I$ with
+  \[
+      R
+    = \sum_{j \in J} L_j
+    = \bigoplus_{j \in J} L_j \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+
+\begin{definition}
   Let $R$ be a ring. Then the ring $R^\op$ is defined by taking the underlying additive group of $R$ and reversing the multiplication order, i.e.\ if for the multiplication $\cdot$ in $R$ and the multiplication $*$ in $R^\op$ we have
   \[
       a * b
