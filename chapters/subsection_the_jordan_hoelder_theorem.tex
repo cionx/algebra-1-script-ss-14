@@ -10,42 +10,6 @@
   \label{definition: filtration}
   A \emph{filtration} of $M$ is an increasing chain
   \[
-              0
-    =         M_0
-    \moduleeq M_1
-    \moduleeq M_2
-    \moduleeq M_3
-    \moduleeq \dotsb
-    \moduleeq M_n
-    =         M
-  \]
-  of submodules $M_i \moduleeq M$.
-  The quotients $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are the \emph{factors} of this filtration.
-  The \emph{length} of this filtration is the number of its non-trivial factors, i.e.\ the number of indices $i = 1, \dotsc, n$ with $M_{i-1} \moduleneq M_i$.
-\end{definition}
-
-
-\begin{warning}
-  The length of a filtration $(M_i)_{i=0, \dotsc, n}$ of $M$ is not the number $n$ of inclusions $M_{i-1} \subseteq M_i$ but only the number of those inclusions for which the quotient $M_i/M_{i-1}$ is non-trivial.
-\end{warning}
-
-
-\begin{definition}
-  A filtration $(M_i)_{i = 0, \dotsc, n}$ is an \emph{refinement} of a filtration $(M'_j)_{j = 0, \dotsc, n'}$ if
-  \[
-              \{ M_i \suchthat i = 0, \dotsc, n \}
-    \subseteq \{ M_j \suchthat j = 0, \dotsc, n' \} \,.
-  \]
-
-\end{definition}
-
-
-% TODO: Add (counterintuitive) example.
-
-
-\begin{remark}
-  One could also define a filtration of $M$ as a strictly increasing sequence
-  \[
                 0
     =           M_0
     \moduleneq  M_1
@@ -56,29 +20,17 @@
     =           M
   \]
   of submodules $M_i \moduleeq M$.
-  This convention has the advantage that the length of this filtration can simply be defined as $n$;
-  this then agrees with our definition of the length of this filtration because the quotients $M_i/M_{i-1}$ are non-trivial for all $i = 1, \dotsc, n$.
-  But this alternative convention is disadvantangeous when construct refinements because the requirements of having strict inclusions is easily lost.
-  We will see in the upcoming proof of \hyperref[theorem: Schreiers theorem]{Schreier’s~Theorem} that our convention makes the necessary construction of refinements relatively painless.
-\end{remark}
-
-
-% \begin{lemma}
-%   Let $(M_i)_{i = 0, \dotsc, n}$ be a filtration of length $\ell$ with refinement $(M'_j)_{j = 0, \dotsc, n'}$ of length $\ell'$.
-%   \begin{enumerate}
-%     \item
-%       Then $\ell \leq \ell'$.
-%     \item
-%       If $\ell = \ell'$ then both filtrations have the same non-trivial factors up to isomorphism.
-%   \end{enumerate}
-% \end{lemma}
-% 
-% 
-% % TODO: Add a proof.
+  The number $n$ is the \emph{length} of this filtration, and the quotients $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are its \emph{factors}.
+\end{definition}
 
 
 \begin{definition}
-  Two filtrations $(M_i)_{i=0, \dotsc, n}$ and $(M'_j)_{j=0, \dotsc, n'}$ are equivalent if they have the same factors up to permutation and isomorphism, i.e.\ if $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ such that
+  A filtration $(M'_j)_{j=0}^{n'}$ is an \emph{refinement} of a filtration $(M_i)_{i=0}^n$ if $(M_i)_{i=0}^n$ is a subsequence of $(M'_j)_{j=0}^{n'}$.
+\end{definition}
+
+
+\begin{definition}
+  Two filtrations $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^{n'}$ are equivalent if they have the same factors up to permutation and isomorphism, i.e.\ if $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ such that
   \[
           M'_{\pi(i)} / M_{\pi(i)-1}
     \cong M_i / M_{i-1}
@@ -88,11 +40,17 @@
 
 
 \begin{remark}
-  Two filtrations $(M_i)_{i=0, \dotsc, n}$ and $(M'_j)_{j=0, \dotsc, n'}$ are equivalent if and only if the familes $(M_i/M_{i-1})_{i=1, \dotsc, n}$ and $(M'_j/M_{j-1})_{j=1, \dotsc, n'}$ are the same up to reordering and isomorphism.
+  Two filtrations $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^{n'}$ are equivalent if and only if the familes $(M_i/M_{i-1})_{i=1}^n$ and $(M'_j/M_{j-1})_{j=1}^{n'}$ are the same up to reordering and isomorphism.
 \end{remark}
 
 
 % TODO: Add Examples.
+
+
+
+
+
+\subsubsection{Schreiers Theorem}
 
 
 \begin{lemma}
@@ -120,7 +78,6 @@
 \begin{remark}
   Lemma~\ref{lemma: modularity of submodule lattice} states that the lattice of submodules of $M$ is \emph{modular}.
 \end{remark}
-
 
 
 \begin{lemma}[Butterfly lemma]
@@ -229,7 +186,7 @@
 
 \begin{theorem}[Schreier]
   \label{theorem: Schreiers theorem}
-  Any two filtration of $M$ have equivalent refinements.
+  Every two filtration of $M$ have equivalent refinements.
 \end{theorem}
 
 
@@ -237,29 +194,29 @@
   Let
   \begin{equation}
     \label{equation: Schreier starting filtration one}
-              0
-    =         M_0
-    \moduleeq M_1
-    \moduleeq M_2
-    \moduleeq M_3
-    \moduleeq \dotsb
-    \moduleeq M_n
-    =         M
+                0
+    =           M_0
+    \moduleneq  M_1
+    \moduleneq  M_2
+    \moduleneq  M_3
+    \moduleneq  \dotsb
+    \moduleneq  M_n
+    =           M
   \end{equation}
   and
   \begin{equation}
     \label{equation: Schreier starting filtration two}
-              0
-    =         M'_0
-    \moduleeq M'_1
-    \moduleeq M'_2
-    \moduleeq M'_3
-    \moduleeq \dotsb
-    \moduleeq M'_{n'}
-    =         M
+                0
+    =           M'_0
+    \moduleneq  M'_1
+    \moduleneq  M'_2
+    \moduleneq  M'_3
+    \moduleneq  \dotsb
+    \moduleneq  M'_{n'}
+    =           M
   \end{equation}
   be two filtrations of $M$.
-  The first filtration has a refinement given as follows:
+  We refine the filtration~\eqref{equation: Schreier starting filtration one} to an increasing sequence of submodules
   \[
     \begingroup
       \renewcommand{\arraycolsep}{1pt}
@@ -299,7 +256,7 @@
       \end{array}
     \endgroup
   \]
-  and the second filtration has a refinement given by
+  and we can similarly refine the filtration~\eqref{equation: Schreier starting filtration two} to an increasing sequence of submodules
   \[
     \begingroup
       \renewcommand{\arraycolsep}{1pt}
@@ -339,40 +296,36 @@
       \end{array}
     \endgroup
   \]
-  Note that the first refinements contains $n(n' + 1) = nn' + n$ modules, while the second refinements contains $n'(n+1) = nn' + n'$ modules.
-  Therefore these two refinements cannot be equivalent unless $n \neq n'$.
-  But we will now show that the only difference between the two refinements is the number of trivial factors, which can then be fixed:
-  
-  The modules in the first refined filtration are given by
+  The modules in the first sequence are given by
   \[
               N_{ij}
     \defined  M_{i-1} + M'_j \cap M_i
   \]
-  with $i = 1, \dotsc, n$ and $j = 0, \dotsc, n'$, and the modules in the second refined filtration are similarly given by
+  with $i = 1, \dotsc, n$, $j = 0, \dotsc, n'$, and the modules in the second sequence are given by
   \[
               N'_{ji}
     \defined  M'_{j-1} + M_i \cap M'_j \,,
   \]
   with $j = 1, \dotsc, n'$, $i = 0, \dotsc, n$.
-  The factors of the first refinement are therefore given by
+  
+  The factors of the first sequence are therefore given by
   \[
               F_{ij}
     \defined  N_{ij}/N_{i,j-1}
   \]
-  for $i = 1, \dotsc, n$, $j = 1, \dotsc, n'$, as well as the trivial factors
+  for $i = 1, \dotsc, n$, $j = 1, \dotsc, n'$ together with the trivial factors
   \[
       N_{i0}/N_{i-1,n'}
     = M_{i-1}/M_{i-1}
     = 0
   \]
   for every $i = 2, \dotsc, n$.
-  
-  The factors of the second refinement are given by
+  The factors of the second sequence are given by
   \[
               F'_{ji}
     \defined  N'_{ji}/N_{j,i-1}
   \]
-  for $j = 1, \dotsc, n'$, $i = 1, \dotsc, n$, as well as the trivial factors
+  for $j = 1, \dotsc, n'$, $i = 1, \dotsc, n$ together with the trivial factors
   \[
       N'_{j0}/N'_{j-1,n}
     = M'_{j-1}/M'_{j-1}
@@ -388,28 +341,37 @@
     &=      N_{ji}/N_{j,i-1}
      =      F'_{ji} \,.
   \end{align*}
-  This shows that both refinements have the same non-trivial factors.
-  
-  We can now further refine the shorter of the two refinements by simple adding $\dotsb = M = M$ at the end.
-  We then arrive at refinements of the original filtrations \eqref{equation: Schreier starting filtration one} and \eqref{equation: Schreier starting filtration two} which have the same non-trivial factors as well as the same number of non-trivial factors (and therfore in particular the same length).
-  We have thus constructed to equivalent refinements of \eqref{equation: Schreier starting filtration one} and \eqref{equation: Schreier starting filtration two}.
+  This shows that both sequences have the same non-trivial factors up to permutation and isomorphism.
+  By removing all repetition from this sequences we thus arrive at two equivalent filtrations of $M$.
+  These resulting filtrations are refinements of \eqref{equation: Schreier starting filtration one}, resp.\ \eqref{equation: Schreier starting filtration two} because the $M_i$ appear in the first sequence in the $M'_j$ appear in the second sequence.
 \end{proof}
 
 
+
+
+
+\subsubsection{The Jordan-Hölder Theorem}
+
+
+\begin{fluff}
+  We will now require the notion of a simple module, as introduced in Definition~\ref{definition: simple and maximal modules}.
+\end{fluff}
+
+
 \begin{definition}
-  A filtration $(M_i)_{i = 0, \dotsc, n}$ is a \emph{composition series} if all of its factors $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are simple.
-  These factors are then the \emph{composition factors} of this filtration.
+  A filtration $(M_i)_{i=0}^n$ is a \emph{composition series} if all of its factors $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are simple.
+  The factors of a composition series are its \emph{composition factors}.
 \end{definition}
 
 
 \begin{lemma}
   \label{lemma: preparation for Jordan Hoelder}
-  Let $(M_i)_{i = 0, \dotsc, n}$ be a composition series for $M$.
+  Let $(M_i)_{i=0}^n$ be a composition series for $M$.
   \begin{enumerate}
     \item
-      Every filtration which is equivalent to $(M_i)_{i = 0, \dotsc, n}$ is again a composition series.
+      Every filtration which is equivalent to $(M_i)_{i=0}^n$ is again a composition series.
     \item
-      Every refinement of $(M_i)_{i = 0, \dotsc, n}$ has the same non-trivial factors as $(M_i)_{i = 0, \dotsc, n}$ up to somorphism.
+      The only refinement of $(M_i)_{i=0}^n$ is $(M_i)_{i=0}^n$ itself.
   \end{enumerate}
 \end{lemma}
 
@@ -418,16 +380,22 @@
   \leavevmode
   \begin{enumerate}
     \item
-      Every filtration of $M$ which is equivalent to $(M_i)_{i = 0, \dotsc, n}$ has the same factors as $(M_i)_{i = 0, \dotsc, n}$, which are then all simple.
+      Every filtration of $M$ which is equivalent to $(M_i)_{i=0}^n$ has the same factors as $(M_i)_{i=0}^n$, which are then all simple.
     \item
-      We may assume
+      Let $(M_j)_{j=0}^{n'}$ be a refinement of $(M_i)_{i=0}^n$.
+      For every $j = 0, \dotsc, n'$ there then exists some some $i = 1, \dotsc, n$ with $M_{i-1} \leq M'_j \leq M_i$.
+      Then $M'_j/M_{i-1}$ is a submodule of the simple module $M_i/M_{i-1}$, and it follows that $M'_j/M_{i-1} = 0$ or $M'_j/M_{i-1} = M_i/M_{i-1}$.
+      In the first case we have that $M'_j = M_{i-1}$ and in the second case we have that $M'_j = M_i$.
+      
+      This shows that every term of $(M_j)_{j=0}^{n'}$ already appers in $(M_i)_{i=0}^n$, which shows that $(M_j)_{j=0}^{n'} = (M_i)_{i=0}^n$.
+    \qedhere
   \end{enumerate}
 \end{proof}
 
 
-
 \begin{theorem}[Jordan-Hölder]
-  Let $(M_i)_{i = 0, \dotsc, n}$ be a composition series for $M$.
+  \label{theorem: Jordan Hölder theorem}
+  Suppose that $M$ admits a composition series.
   \begin{enumerate}
     \item
       Every filtration of $M$ has a refinements which is a composition series.
@@ -438,33 +406,66 @@
 
 
 \begin{proof}
-  \leavevmode
+  Let $(M_i)_{i=0}^n$ be a composition series for $M$.
   \begin{enumerate}
     \item
-      Let $(M'_j)_{j = 0, \dotsc, n'}$ be another filtration of $M$.
-      Then $(M'_j)_{j = 0, \dotsc, n'}$ and $(M_i)_{i = 0, \dotsc, n}$ have equivalent refinements $(\tilde{M}'_j)_{j = 0, \dotsc, \tilde{n}'}$ and $(\tilde{M}_i)_{i = 0, \dotsc, \tilde{n}}$ by \hyperref[theorem: Schreiers theorem]{Schreier’s theorem}.
-      By Lemma~\ref{lemma: preparation for Jordan Hoelder} all factors of the filtration $(\tilde{M}_i)_{i = 0, \dotsc, \tilde{n}}$ are either trivial or simple, and the same holds for $(\tilde{M}'_j)_{j = 0, \dotsc, \tilde{n}'}$.
-      By eleminating all equalities occuring in the filtration $(\tilde{M}'_j)_{j = 0, \dotsc, \tilde{n}'}$ we thus arrive at a refinements of $(M'_j)_{j = 0, \dotsc, n'}$ with only simple factors, i.e.\ a composition series.
+      Let $(M'_j)_{j=0}^{n'}$ be another filtration of $M$.
+      Then $(M'_j)_{j=0}^{n'}$ and $(M_i)_{i=0}^n$ have equivalent refinements by \hyperref[theorem: Schreiers theorem]{Schreier’s theorem}.
+      It follows from Lemma~\ref{lemma: preparation for Jordan Hoelder} that $(M'_j)_{j=0}^{n'}$ admits a refinements that is equivalent to $(M_i)_{i=0}^n$, and is therefore itself a composition serie.
     \item
-      Let $(M'_j)_{j = 0, \dotsc, n'}$ be another composition series of $M$.
-      The above argument shows that $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ have equivalent refinements.
-      These refinements have the same non-trivial factors as $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ up to isomorphim.
-      It therefore follows that $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ have the same non-trivial factors up to permutation and isomorphism.
-      Because all factors of  $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ are non-trivial (since they are simple) it follows that both composition series have the same factors up to permutation and isomorphism.
+      Let $(M'_j)_{j=0}^{n'}$ be another composition series of $M$.
+      The above argument shows that $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^{n'}$ have equivalent refinements, which by Lemma~\ref{lemma: preparation for Jordan Hoelder} are just the compositions series themselves.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
 \begin{corollary}
+  \label{corollary: consequences of Jordan Hoelder}
   \leavevmode
   \begin{enumerate}
     \item
+      \label{enumerate: composition series have same length and factors}
       Every two composition series of $M$ have the same length, and up to permutation and isomorphism the same composition factors.
     \item
       If $M$ admits a composition series of length $n$ then every filtration of $M$ has at most length $n$.
+    \item
+      A filtration is a composition series if and only if it has maximal length among all filtrations.
   \end{enumerate}
 \end{corollary}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      This follows from the \hyperref[theorem: Jordan Hölder theorem]{Jordan Hölder theorem}.
+    \item
+      This follows from the \hyperref[theorem: Jordan Hölder theorem]{Jordan Hölder theorem}.
+    \item
+      If $(M_i)_{i=0}^n$ is a composition series of $M$ then every filtration $(M'_j)_{j=0}^{n'}$ of $M$ has a refinements $(M''_k)_{k=0}^{n''}$ which is equivalent to $M$.
+      It follows with part~\ref*{enumerate: composition series have same length and factors} that $n = n'' \geq n'$.
+      This shows that composition series have maximal length among all filtrations.
+      
+      If $M_i/M_{i-1}$ were not simple for some $i = 1, \dotsc, n$ then $M_i/M_{i-1}$ would have a nonzero proper submodule, which would then correspond to a proper submodule $N \moduleeq M_i$ with $M_{i-1} \moduleeq M_i$.
+      Then
+      \[
+                    0
+        =           M_0
+        \moduleneq  M_1
+        \moduleneq  \dotsb
+        \moduleneq  M_{i-1}
+        \moduleneq  N
+        \moduleneq  M_i
+        \moduleneq  \dotsb
+        \moduleneq  M_n
+        =           M
+      \]
+      is a refinement of $(M_i)_{i=0}^n$ of length $n+1$.
+      Thus $(M_i)_{i=0}^n$ would not be a filtration of maximal length.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{definition}
@@ -485,5 +486,17 @@
   The module $M$ has finite length if and only if it admits a composition series.
   The length of $M$ is then coincides with the length of this (and such every) composition series.
 \end{lemma}
+
+
+\begin{proof}
+  The module $M$ has finite length if and only if admits a filtration $(M_i)_{i=0}^n$ of maximal length.
+  Then $(M_i)_{i=0}^n$ is a composition series of $M$ by Corollary~\ref{corollary: consequences of Jordan Hoelder}, and $\ell(M) = n$.
+\end{proof}
+
+
+\begin{definition}
+  If $M$ is a module of finite length, then the \emph{composition factors} of $M$ are the composition factors of its composition series.
+\end{definition}
+
 
 
