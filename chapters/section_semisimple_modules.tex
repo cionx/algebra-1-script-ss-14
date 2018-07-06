@@ -131,31 +131,15 @@
 \end{proof}
 
 
-\begin{lemma}
-  \label{lemma: modularity of submodule lattice}
-  Let $M$ be an $R$-module and let $P \moduleeq N \moduleeq M$ be submodules.
-  Then
+\begin{fluff}
+  Recall that if $M$ is an $R$-module and $P \moduleeq N \moduleeq M$ are submodules, then
   \[
       (P + C) \cap N
     = P + (C \cap N)
   \]
   for every submodule $C \moduleeq N$.
-  
-  For $n \in (P + C) \cap N$ we have that $n \in N$ and there exist $p \in P$, $c \in C$ with $n = p + c$.
-  It then follows from $n - c = p \in P \moduleeq N$ that also $c = n - p \in N$.
-  We therefore have that $c \in C \cap N$ and thus $n = p + c \in P + (C \cap N)$.
-\end{lemma}
-
-
-\begin{proof}
-  It follows from $P \moduleeq P + C$ and $P \moduleeq N$ that $P \moduleeq (P + C) \cap N$, and it similarly follows from $C \cap N \moduleeq C \moduleeq P + C$ and $C \cap N \moduleeq N$ that $C \cap N \moduleeq N$.
-  Together this shows that $P + (C \cap N) \moduleeq (P + C) \cap N$.
-\end{proof}
-
-
-\begin{remark}
-  Lemma~\ref{lemma: modularity of submodule lattice} states that the lattice of submodules of $M$ is \emph{modular}.
-\end{remark}
+  (See Lemma~\ref{lemma: modularity of submodule lattice} for a proof.)
+\end{fluff}
 
 
 \begin{corollary}
@@ -174,7 +158,7 @@
     = 0 \cap N
     = 0
   \]
-  and it follows from Lemma~\ref{lemma: modularity of submodule lattice} that
+  as well as
   \[
       P + (C \cap N)
     = (P + C) \cap N

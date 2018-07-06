@@ -1,0 +1,489 @@
+\subsection{The Jordan-Hölder Theorem}
+
+
+\begin{conventions}
+  We denote by $R$ a ring (with unit, not necessarily commutative) and by $M$ an $R$-module.
+\end{conventions}
+
+
+\begin{definition}
+  \label{definition: filtration}
+  A \emph{filtration} of $M$ is an increasing chain
+  \[
+              0
+    =         M_0
+    \moduleeq M_1
+    \moduleeq M_2
+    \moduleeq M_3
+    \moduleeq \dotsb
+    \moduleeq M_n
+    =         M
+  \]
+  of submodules $M_i \moduleeq M$.
+  The quotients $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are the \emph{factors} of this filtration.
+  The \emph{length} of this filtration is the number of its non-trivial factors, i.e.\ the number of indices $i = 1, \dotsc, n$ with $M_{i-1} \moduleneq M_i$.
+\end{definition}
+
+
+\begin{warning}
+  The length of a filtration $(M_i)_{i=0, \dotsc, n}$ of $M$ is not the number $n$ of inclusions $M_{i-1} \subseteq M_i$ but only the number of those inclusions for which the quotient $M_i/M_{i-1}$ is non-trivial.
+\end{warning}
+
+
+\begin{definition}
+  A filtration $(M_i)_{i = 0, \dotsc, n}$ is an \emph{refinement} of a filtration $(M'_j)_{j = 0, \dotsc, n'}$ if
+  \[
+              \{ M_i \suchthat i = 0, \dotsc, n \}
+    \subseteq \{ M_j \suchthat j = 0, \dotsc, n' \} \,.
+  \]
+
+\end{definition}
+
+
+% TODO: Add (counterintuitive) example.
+
+
+\begin{remark}
+  One could also define a filtration of $M$ as a strictly increasing sequence
+  \[
+                0
+    =           M_0
+    \moduleneq  M_1
+    \moduleneq  M_2
+    \moduleneq  M_3
+    \moduleneq  \dotsb
+    \moduleneq  M_n
+    =           M
+  \]
+  of submodules $M_i \moduleeq M$.
+  This convention has the advantage that the length of this filtration can simply be defined as $n$;
+  this then agrees with our definition of the length of this filtration because the quotients $M_i/M_{i-1}$ are non-trivial for all $i = 1, \dotsc, n$.
+  But this alternative convention is disadvantangeous when construct refinements because the requirements of having strict inclusions is easily lost.
+  We will see in the upcoming proof of \hyperref[theorem: Schreiers theorem]{Schreier’s~Theorem} that our convention makes the necessary construction of refinements relatively painless.
+\end{remark}
+
+
+% \begin{lemma}
+%   Let $(M_i)_{i = 0, \dotsc, n}$ be a filtration of length $\ell$ with refinement $(M'_j)_{j = 0, \dotsc, n'}$ of length $\ell'$.
+%   \begin{enumerate}
+%     \item
+%       Then $\ell \leq \ell'$.
+%     \item
+%       If $\ell = \ell'$ then both filtrations have the same non-trivial factors up to isomorphism.
+%   \end{enumerate}
+% \end{lemma}
+% 
+% 
+% % TODO: Add a proof.
+
+
+\begin{definition}
+  Two filtrations $(M_i)_{i=0, \dotsc, n}$ and $(M'_j)_{j=0, \dotsc, n'}$ are equivalent if they have the same factors up to permutation and isomorphism, i.e.\ if $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ such that
+  \[
+          M'_{\pi(i)} / M_{\pi(i)-1}
+    \cong M_i / M_{i-1}
+  \]
+  for all $i = 1, \dotsc, n$.
+\end{definition}
+
+
+\begin{remark}
+  Two filtrations $(M_i)_{i=0, \dotsc, n}$ and $(M'_j)_{j=0, \dotsc, n'}$ are equivalent if and only if the familes $(M_i/M_{i-1})_{i=1, \dotsc, n}$ and $(M'_j/M_{j-1})_{j=1, \dotsc, n'}$ are the same up to reordering and isomorphism.
+\end{remark}
+
+
+% TODO: Add Examples.
+
+
+\begin{lemma}
+  \label{lemma: modularity of submodule lattice}
+  Let $P \moduleeq N \moduleeq M$ be submodules.
+  Then
+  \[
+      (P + C) \cap N
+    = P + (C \cap N)
+  \]
+  for every submodule $C \moduleeq N$.
+\end{lemma}
+
+
+\begin{proof}
+  For $n \in (P + C) \cap N$ we have that $n \in N$ and there exist $p \in P$, $c \in C$ with $n = p + c$.
+  It then follows from $n - c = p \in P \moduleeq N$ that also $c = n - p \in N$.
+  We therefore have that $c \in C \cap N$ and thus $n = p + c \in P + (C \cap N)$.
+  
+  It follows from $P \moduleeq P + C$ and $P \moduleeq N$ that $P \moduleeq (P + C) \cap N$, and it similarly follows from $C \cap N \moduleeq C \moduleeq P + C$ and $C \cap N \moduleeq N$ that $C \cap N \moduleeq N$.
+  Together this shows that $P + (C \cap N) \moduleeq (P + C) \cap N$.
+\end{proof}
+
+
+\begin{remark}
+  Lemma~\ref{lemma: modularity of submodule lattice} states that the lattice of submodules of $M$ is \emph{modular}.
+\end{remark}
+
+
+
+\begin{lemma}[Butterfly lemma]
+  \label{lemma: butterfly lemma}
+  Let $M$ be an $R$-module and let $N_1 \moduleeq N_2 \moduleeq M$ and $P_1 \moduleeq P_2 \moduleeq M$ be submodules.
+  Then
+  \begin{align*}
+         &\,  (N_1 + P_2 \cap N_2)/(N_1 + P_1 \cap N_2)         \\
+    \cong&\,  (N_2 \cap P_2)/((N_1 \cap P_2) + (N_2 \cap P_1))  \\
+    \cong&\,  (P_1 + N_2 \cap P_2)/(P_1 + N_1 \cap P_2) \,.
+  \end{align*}
+\end{lemma}
+
+
+\begin{fluff}
+  The understand the name \enquote{butterfly~lemma} we can consider the Hasse diagramm of the various modules involved:
+  \[
+    \begin{tikzcd}[row sep = large]
+        N_1 + P_2 \cap N_2
+      & {}
+      & P_1 + N_2 \cap P_2
+      \\
+        N_1 + P_1 \cap N_2
+        \arrow[-, very thick]{u}
+      & N_2 \cap P_2
+        \arrow[-]{lu}
+        \arrow[-]{ru}
+      & P_1 + N_1 \cap P_2
+        \arrow[-, very thick]{u}
+      \\
+        {}
+      & (N_1 \cap P_2) + (N_2 \cap P_1)
+        \arrow[-]{lu}
+        \arrow[-, very thick]{u}
+        \arrow[-]{ru}
+      & {}
+    \end{tikzcd}
+  \]
+  The two parallelograms form the wings of a butterfly.
+  The butterfly~lemma states that the quotients associated to the three vertical edges are isomorphic.
+  
+  This image also explains how to prove the butterfly~lemma:
+  Recall that the third isomorphism theory states that for all submodule $N', P' \moduleeq M$ we have that
+  \[
+          (N' + P')/P'
+    \cong N'/(N' \cap P') \,,
+  \]
+  i.e.\ that in the Hasse diagram
+  \[
+    \begin{tikzcd}
+        {}
+      & N' + P'
+      & {}
+      \\
+        N'
+        \arrow[-,very thick]{ru}
+      & {}
+      & P'
+        \arrow[-]{lu}
+      \\
+        {}
+      & N' \cap P'
+        \arrow[-]{lu}
+        \arrow[-,very thick]{ru}
+      & {}
+    \end{tikzcd}
+  \]
+  the quotients associated to two parallel egdes are isomorphic.
+\end{fluff}
+
+
+\begin{proof}[Proof of the butterfly lemma]
+  By the second isomorphism theorem it sufficies to show that 
+  \begin{enumerate}
+    \item
+      \label{enumerate: butterfly left top}
+      $(N_1 + P_1 \cap N_2) + (N_2 \cap P_2) = N_1 + P_2 \cap N_2$,
+    \item
+      \label{enumerate: butterfly left bottom}
+      $(N_1 + P_1 \cap N_2) \cap (N_2 \cap P_2) = (N_1 \cap P_2) + (N_2 \cap P_1)$,
+    \item
+      \label{enumerate: butterfly right top}
+      $(N_2 \cap P_2) + (P_1 + N_1 \cap P_2) = P_1 + N_2 \cap P_2$,
+    \item
+      \label{enumerate: butterfly right bottom}
+      $(N_2 \cap P_2) \cap (P_1 + N_1 \cap P_2) = (N_1 \cap P_2) + (N_2 \cap P_2)$.
+  \end{enumerate}
+  It sufficies to show \ref*{enumerate: butterfly left top} and \ref*{enumerate: butterfly left bottom} because then \ref*{enumerate: butterfly right top} and \ref*{enumerate: butterfly right bottom} follows by switching the roles of the $N_i$ and $P_i$.
+  The equality~\ref*{enumerate: butterfly left top} holds because
+  \begin{align*}
+     &\,  (N_1 + P_1 \cap N_2) + (N_2 \cap P_2) \\
+    =&\,  N_1 + (P_1 \cap N_2) + (N_2 \cap P_2) \\
+    =&\,  N_1 + (P_2 \cap N_2)                  \\
+    =&\,  N_1 + P_2 \cap N_2 \,,
+  \end{align*}
+  and the equality~\ref*{enumerate: butterfly left top} holds because
+  \begin{align*}
+     &\,  (N_1 + P_1 \cap N_2) \cap (N_2 \cap P_2)    \\
+    =&\,  ((N_2 \cap P_1) + N_1) \cap (N_2 \cap P_2)  \\
+    =&\,  (N_2 \cap P_1) + (N_1 \cap (N_2 \cap P_2))  \\
+    =&\,  (N_2 \cap P_1) + (N_1 \cap P_2) \,,
+  \end{align*}
+  where we used for the second equality that $N_2 \cap P_1 \moduleeq N_2 \cap P_2$ to apply Lemma~\ref{lemma: modularity of submodule lattice}.
+\end{proof}
+
+
+\begin{theorem}[Schreier]
+  \label{theorem: Schreiers theorem}
+  Any two filtration of $M$ have equivalent refinements.
+\end{theorem}
+
+
+\begin{proof}
+  Let
+  \begin{equation}
+    \label{equation: Schreier starting filtration one}
+              0
+    =         M_0
+    \moduleeq M_1
+    \moduleeq M_2
+    \moduleeq M_3
+    \moduleeq \dotsb
+    \moduleeq M_n
+    =         M
+  \end{equation}
+  and
+  \begin{equation}
+    \label{equation: Schreier starting filtration two}
+              0
+    =         M'_0
+    \moduleeq M'_1
+    \moduleeq M'_2
+    \moduleeq M'_3
+    \moduleeq \dotsb
+    \moduleeq M'_{n'}
+    =         M
+  \end{equation}
+  be two filtrations of $M$.
+  The first filtration has a refinement given as follows:
+  \[
+    \begingroup
+      \renewcommand{\arraycolsep}{1pt}
+      \renewcommand{\arraystretch}{1.5}
+      \begin{array}{ccccccccccccc}
+                    0
+        &=&         M_0 + M'_0    \cap M_1
+        &\moduleeq& M_0 + M'_1    \cap M_1
+        &\moduleeq& \dotsb
+        &\moduleeq& M_0 + M'_{n'} \cap M_1
+        &(=&        M_1)
+        &  &        {}
+        \\
+                    {}
+        &=&         M_1 + M'_0    \cap M_2
+        &\moduleeq& M_1 + M'_1    \cap M_2
+        &\moduleeq& \dotsb
+        &\moduleeq& M_1 + M'_{n'} \cap M_2
+        &(=&        M_2)
+        &  &        {}
+        \\
+                    {}
+        &\vdots&    {}
+        & &         {}
+        & &         {}
+        & &         {}
+        & &         {}
+        & &         {}
+        \\
+                    {}
+        &=&         M_{n-1} + M'_0    \cap M_n
+        &\moduleeq& M_{n-1} + M'_1    \cap M_n
+        &\moduleeq& \dotsb
+        &\moduleeq& M_{n-1} + M'_{n'} \cap M_n
+        &(=&        M_n)
+        &=&         M \,,
+      \end{array}
+    \endgroup
+  \]
+  and the second filtration has a refinement given by
+  \[
+    \begingroup
+      \renewcommand{\arraycolsep}{1pt}
+      \renewcommand{\arraystretch}{1.5}
+      \begin{array}{ccccccccccccc}
+                    0
+        &=&         M'_0 + M_0  \cap M'_1
+        &\moduleeq& M'_0 + M_1  \cap M'_1
+        &\moduleeq& \dotsb
+        &\moduleeq& M'_0 + M_n  \cap M'_1
+        &(=&        M'_1)
+        &  &        {}
+        \\
+                    {}
+        &=&         M'_1 + M_0  \cap M'_2
+        &\moduleeq& M'_1 + M_1  \cap M'_2
+        &\moduleeq& \dotsb
+        &\moduleeq& M'_1 + M_n  \cap M'_2
+        &(=&        M'_2)
+        &  &        {}
+        \\
+                    {}
+        &\vdots&    {}
+        & &         {}
+        & &         {}
+        & &         {}
+        & &         {}
+        & &         {}
+        \\
+                    {}
+        &=&         M'_{n-1} + M_0  \cap M'_n
+        &\moduleeq& M'_{n-1} + M_1  \cap M'_n
+        &\moduleeq& \dotsb
+        &\moduleeq& M'_{n-1} + M_n  \cap M'_n
+        &(=&        M'_{n'})
+        &=&         M \,.
+      \end{array}
+    \endgroup
+  \]
+  Note that the first refinements contains $n(n' + 1) = nn' + n$ modules, while the second refinements contains $n'(n+1) = nn' + n'$ modules.
+  Therefore these two refinements cannot be equivalent unless $n \neq n'$.
+  But we will now show that the only difference between the two refinements is the number of trivial factors, which can then be fixed:
+  
+  The modules in the first refined filtration are given by
+  \[
+              N_{ij}
+    \defined  M_{i-1} + M'_j \cap M_i
+  \]
+  with $i = 1, \dotsc, n$ and $j = 0, \dotsc, n'$, and the modules in the second refined filtration are similarly given by
+  \[
+              N'_{ji}
+    \defined  M'_{j-1} + M_i \cap M'_j \,,
+  \]
+  with $j = 1, \dotsc, n'$, $i = 0, \dotsc, n$.
+  The factors of the first refinement are therefore given by
+  \[
+              F_{ij}
+    \defined  N_{ij}/N_{i,j-1}
+  \]
+  for $i = 1, \dotsc, n$, $j = 1, \dotsc, n'$, as well as the trivial factors
+  \[
+      N_{i0}/N_{i-1,n'}
+    = M_{i-1}/M_{i-1}
+    = 0
+  \]
+  for every $i = 2, \dotsc, n$.
+  
+  The factors of the second refinement are given by
+  \[
+              F'_{ji}
+    \defined  N'_{ji}/N_{j,i-1}
+  \]
+  for $j = 1, \dotsc, n'$, $i = 1, \dotsc, n$, as well as the trivial factors
+  \[
+      N'_{j0}/N'_{j-1,n}
+    = M'_{j-1}/M'_{j-1}
+    = 0
+  \]
+  for every $j = 2, \dotsc, n'$.
+  It follows for all $i = 1, \dotsc, n$ and $j = 1, \dotsc, n'$ from the \hyperref[lemma: butterfly lemma]{butterfly~lemma} that
+  \begin{align*}
+            F_{ij}
+    &=      N_{ij}/N_{i,j-1}  \\
+    &=      (M_{i-1} + M'_j \cap M_i)/(M_{i-1} + M'_{j-1} \cap M_i)   \\
+    &\cong  (M'_{j-1} + M_i \cap M'_j)/(M'_{j-1} + M_{i-1} \cap M'_j) \\
+    &=      N_{ji}/N_{j,i-1}
+     =      F'_{ji} \,.
+  \end{align*}
+  This shows that both refinements have the same non-trivial factors.
+  
+  We can now further refine the shorter of the two refinements by simple adding $\dotsb = M = M$ at the end.
+  We then arrive at refinements of the original filtrations \eqref{equation: Schreier starting filtration one} and \eqref{equation: Schreier starting filtration two} which have the same non-trivial factors as well as the same number of non-trivial factors (and therfore in particular the same length).
+  We have thus constructed to equivalent refinements of \eqref{equation: Schreier starting filtration one} and \eqref{equation: Schreier starting filtration two}.
+\end{proof}
+
+
+\begin{definition}
+  A filtration $(M_i)_{i = 0, \dotsc, n}$ is a \emph{composition series} if all of its factors $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are simple.
+  These factors are then the \emph{composition factors} of this filtration.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: preparation for Jordan Hoelder}
+  Let $(M_i)_{i = 0, \dotsc, n}$ be a composition series for $M$.
+  \begin{enumerate}
+    \item
+      Every filtration which is equivalent to $(M_i)_{i = 0, \dotsc, n}$ is again a composition series.
+    \item
+      Every refinement of $(M_i)_{i = 0, \dotsc, n}$ has the same non-trivial factors as $(M_i)_{i = 0, \dotsc, n}$ up to somorphism.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Every filtration of $M$ which is equivalent to $(M_i)_{i = 0, \dotsc, n}$ has the same factors as $(M_i)_{i = 0, \dotsc, n}$, which are then all simple.
+    \item
+      We may assume
+  \end{enumerate}
+\end{proof}
+
+
+
+\begin{theorem}[Jordan-Hölder]
+  Let $(M_i)_{i = 0, \dotsc, n}$ be a composition series for $M$.
+  \begin{enumerate}
+    \item
+      Every filtration of $M$ has a refinements which is a composition series.
+    \item
+      Every two composition series of $M$ are equivalent.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $(M'_j)_{j = 0, \dotsc, n'}$ be another filtration of $M$.
+      Then $(M'_j)_{j = 0, \dotsc, n'}$ and $(M_i)_{i = 0, \dotsc, n}$ have equivalent refinements $(\tilde{M}'_j)_{j = 0, \dotsc, \tilde{n}'}$ and $(\tilde{M}_i)_{i = 0, \dotsc, \tilde{n}}$ by \hyperref[theorem: Schreiers theorem]{Schreier’s theorem}.
+      By Lemma~\ref{lemma: preparation for Jordan Hoelder} all factors of the filtration $(\tilde{M}_i)_{i = 0, \dotsc, \tilde{n}}$ are either trivial or simple, and the same holds for $(\tilde{M}'_j)_{j = 0, \dotsc, \tilde{n}'}$.
+      By eleminating all equalities occuring in the filtration $(\tilde{M}'_j)_{j = 0, \dotsc, \tilde{n}'}$ we thus arrive at a refinements of $(M'_j)_{j = 0, \dotsc, n'}$ with only simple factors, i.e.\ a composition series.
+    \item
+      Let $(M'_j)_{j = 0, \dotsc, n'}$ be another composition series of $M$.
+      The above argument shows that $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ have equivalent refinements.
+      These refinements have the same non-trivial factors as $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ up to isomorphim.
+      It therefore follows that $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ have the same non-trivial factors up to permutation and isomorphism.
+      Because all factors of  $(M_i)_{i = 0, \dotsc, n}$ and $(M_j)_{i = 0, \dotsc, n'}$ are non-trivial (since they are simple) it follows that both composition series have the same factors up to permutation and isomorphism.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Every two composition series of $M$ have the same length, and up to permutation and isomorphism the same composition factors.
+    \item
+      If $M$ admits a composition series of length $n$ then every filtration of $M$ has at most length $n$.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{definition}
+  The \emph{length} of $M$ is
+  \[
+              \ell(M)
+    \defined  \sup  \{
+                n \geq 0
+              \suchthat
+                \text{$M$ admits a filtration of length $n$}
+              \} \,.
+  \]
+  If $\ell(M) < \infty$ then $M$ has \emph{finite length}.
+\end{definition}
+
+
+\begin{lemma}
+  The module $M$ has finite length if and only if it admits a composition series.
+  The length of $M$ is then coincides with the length of this (and such every) composition series.
+\end{lemma}
+
+
