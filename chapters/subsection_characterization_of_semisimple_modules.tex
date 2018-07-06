@@ -1,0 +1,475 @@
+\subsection{Characterizations of Semisimple Modules}
+
+
+\begin{conventions}
+  We require all occuring rings to be unitary, but we do not require them to be commutative.
+  We require all occuring modules to be unitary, i.e.\ if $R$ is a ring and $M$ is an $R$-module then
+  \[
+      1 \cdot m
+    = m
+  \]
+  for every $m \in M$.
+  We also require all $k$-algebras to be unitary.
+  All modules over $k$-algebras are therefore in particular $k$-vector spaces and module homomorphisms are always $k$-linear.
+\end{conventions}
+
+
+\begin{conventions}
+  In this section $R$ denotes a ring.
+\end{conventions}
+
+
+\begin{definition}
+  \label{definition: simple and maximal modules}
+  Let $M$ be an $R$-module.
+  \begin{enumerate}
+    \item
+      The module $M$ is \emph{simple} if $M$ is nonzero and $0, M$ are the only submodules of $M$.
+    \item
+      A submodule $N \moduleeq M$ is \emph{maximal} if it is a maximal proper submodule, i.e.\ $N$ is a proper submodule and for every submodule $N' \moduleeq M$ with $N \moduleeq N'$ we have that $N' = N$ or $N' = M$.
+  \end{enumerate}
+\end{definition}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $V$ be a representation of a group $G$ over a field $k$.
+      Then $V$ is simple as a $k[G]$-module if and only if $V$ is irreducible as representation of $G$.
+    \item
+      If $k$ be a field.
+      Then a $k$-vector space $V$ is simple (as a $k$-module) if and only if $V$ is one-dimensional.
+    \item
+      If $D$ is a skew field then $D^n$ is simple as an $\Mat_n(D)$-module:
+      Let $U \moduleeq D^n$ be a nonzero submodule and let $x \in U$ with $x \neq 0$.
+      It then follows that $x_i \neq 0$ for some $i = 1, \dotsc, n$ and therefore that
+      \[
+            e_i
+        =   x^{-1} I x
+        \in U \,.
+      \]
+      For every $j = 1, \dotsc, n$ it follows by using a suitable permutation matrix $P \in \Mat_n(K)$ that
+      \[
+            e_j
+        =   P e_i
+        \in U \,.
+      \]
+      This shows that $e_1, \dotsc, e_n \in U$ and therefore that $U = D^n$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{remark}
+  \label{remark: alternative formulation of simple and maximal}
+  One can also reformulate the definitions of an simple module and maximal submodule:
+  An $R$-module $M$ is simple if and only if $M$ contains precisely two submodules, and a submodule $N \moduleeq M$ is maximal if and only if there exists precisely two submodules $N' \moduleeq M$ with $N \moduleeq N'$.
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: simple iff every cyclic generator}
+  A nonzero $R$-module $M$ is simple if and only if every nonzero $x \in M$ is a cyclic generator of $M$. 
+\end{lemma}
+
+
+\begin{proof}
+  If $M$ is simple then for every nonzero $x \in M$ the cyclic submodule $Rx$ of $M$ is nonzero, from which it follows that $Rx = M$.
+  
+  Suppose that every nonzero $x \in M$ is a cyclic generator of $M$.
+  Every nonzero submodule $N \moduleeq M$ contains some nonzero $x \in N$, for which it then follows that $M = Rx \moduleeq N$ and therefore $M = N$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: maximal iff quotient is simple}
+  Let $M$ be an $R$-module and let $N \moduleeq M$ be a submodule.
+  Then $N$ is a maximal submodule if and only if $M/N$ is simple.
+\end{lemma}
+
+
+\begin{proof}
+  This follows from the $1$:$1$-correspondence
+  \begin{align*}
+    \{ \text{submodules $N' \moduleeq M$ with $N \moduleeq N'$} \}
+    &\longleftrightarrow
+    \{ \text{submodules $P \moduleeq M/N$} \}
+    \\
+                  N'
+    &\longmapsto  N'/N
+  \end{align*}
+  and the characterization of simplicity and maximality from Remark~\ref{remark: alternative formulation of simple and maximal}.
+\end{proof}
+
+
+\begin{corollary}
+  Let $M$ be an $R$-module and let $N, P \moduleeq M$ be submodule with $M = N \oplus P$.
+  Then $S$ is simple if and only if $P$ is maximal.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Lemma~\ref{lemma: maximal iff quotient is simple} because $M/P \cong S$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: fg modules contain max submodules}
+  Every nonzero finitely generated $R$-module $M$ admits a maximal submodule.
+\end{lemma}
+
+
+\begin{proof}
+  Let $m_1, \dotsc, m_t$ be generators of $M$.
+  A submodule $N \moduleeq M$ is proper if and only if $N$ does not contain all $m_i$, and by Zorn’s~lemma there exists a submodule which is maxmial with this property.
+\end{proof}
+
+
+\begin{fluff}
+  Recall that if $M$ is an $R$-module and $P \moduleeq N \moduleeq M$ are submodules, then
+  \[
+      (P + C) \cap N
+    = P + (C \cap N)
+  \]
+  for every submodule $C \moduleeq N$.
+  (See Lemma~\ref{lemma: modularity of submodule lattice} for a proof.)
+\end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: direct complements in submodules}
+  Let $M$ be an $R$-module and let $P \moduleeq N \moduleeq M$ be submodules.
+  Let $C$ be a direct complement of $P$ in $M$.
+  Then $C \cap N$ is a direct complement of $P$ in $N$.
+\end{corollary}
+
+
+\begin{proof}
+  We have that
+  \[
+      P \cap (C \cap N)
+    = P \cap C \cap N
+    = 0 \cap N
+    = 0
+  \]
+  as well as
+  \[
+      P + (C \cap N)
+    = (P + C) \cap N
+    = M \cap N
+    = N \,.
+  \]
+  This proves the claim.
+\end{proof}
+
+
+% TODO: Alternative proof via idempotent endomorphism as projection P.
+
+
+\begin{proposition}
+  \label{proposition: characterisation semisimple modules}
+  For every $R$-module $M$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      \label{enumerate: direct sum of simple}
+      The module $M$ is a direct sum of simple submodules. 
+    \item
+      \label{enumerate: sum of simple}
+      The module $M$ is the sum of simple submodules.
+    \item
+      \label{enumerate: direct complements}
+      Every submodule of $M$ has a direct complement.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\ref*{enumerate: direct sum of simple} $\implies$ \ref*{enumerate: sum of simple}:]
+      Every direct sum is a sum.
+    \item[\ref*{enumerate: sum of simple} $\implies$ \ref*{enumerate: direct complements}:]
+      Suppose that $M = \sum_{i \in I} L_i$ where every $L_i$ is a simple submodule of $M$, and let $N \moduleeq M$ be any submodule.
+      For every $J \subseteq I$ let
+      \[
+                  M_J
+        \defined  \sum_{j \in J} L_j \,.
+      \]
+      It follows from Zorn’s lemma that there exists a maximal subset $J \subseteq I$ for which $N \cap M_J = 0$.
+      Then $P \defined M_J$ is a direct complement of $N$:
+      
+      Otherwise there would exist some $i \in I$ with $L_i \nmoduleeq N \oplus P$.
+      Then the intersection $L_i \cap (N \oplus P)$ is a proper submodule of the simple module $L_i$ and it follows that $L_i \cap (N \oplus P) = 0$.
+      It then follows that the sum $(N \oplus P) + L_i$ is direct, so that
+      \[
+          (N \oplus P) + L_i
+        = N \oplus P \oplus L_i
+        = N \oplus P'
+      \]
+      and thus $N \cap P' = 0$ for $P' \defined P + L_i = M_{J'}$ with $J' = J \cup \{i\}$.
+      It follows from $L_i \nmoduleeq N \oplus M_J$ that $i \notin J$ and thus $J \subsetneq J'$.
+      This contradicts the maximality of $J$.
+    \item[\ref*{enumerate: direct complements} $\implies$ \ref*{enumerate: direct sum of simple}:]
+      It follows from Corollary~\ref{corollary: direct complements in submodules} that for all submodules $N \moduleeq C \moduleeq M$ the module $N$ also has a direct complement in $C$.
+      
+      Let $S \moduleeq M$ be the sum of all simple submodules of $M$ and suppose that $S \neq M$.
+      Let $P \neq 0$ be a direct complement of $S$ so that $M = S \oplus P$.
+      Then $P$ does not contain any simple submodule.
+      
+      For $x \in P$ with $x \neq 0$ the cyclic submodule $C \defined Rx \moduleeq P$ contains a maximal submodule $N \moduleneq C$ by Lemma~\ref{lemma: fg modules contain max submodules}.
+      As noted above there exists a submodule $S' \moduleeq C$ with $C = N \oplus S'$.
+      Then $S'$ is simple by Lemma~\ref{lemma: maximal iff quotient is simple}.
+      This shows that $P$ contains a simple submodule $S'$, a contradiction.
+    \qedhere
+  \end{description}
+\end{proof}
+
+
+\begin{definition}
+  An $R$-module $M$ is \emph{semisimple} if it satisfies one (and thus all) of the conditions from Proposition~\ref{proposition: characterisation semisimple modules}.
+\end{definition}
+
+
+\begin{example}
+  \label{example: semisimple modules}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      \label{enumerate: vector spaces are semisimple}
+      If $k$ is a field then every $k$-module is a sum of one-dimensional, und thus simple, submodules.
+      This shows that every $k$-module is semisimple.
+      Note however that a decomposition of a $k$-vector space into a direct sum one-dimensional subspaces is far from unique.
+    \item
+      Let $k$ be a field and let
+      \[
+                  R
+        \defined  \left\{
+                    \begin{pmatrix}
+                      a & b \\
+                      0 & c
+                    \end{pmatrix}
+                    \suchthat*
+                    a, b, c \in k
+                  \right\}
+        \subseteq \Mat_2(k) \,.
+      \]
+      The only submodules of 
+      Then $M \defined k^2$ is not semisimple as an $R$-module because the only nonzero submodule of $k^2$ is
+      \[
+                  N
+        \defined  \left\{
+                    \vect{x \\ 0}
+                  \suchthat*
+                    x \in k
+                  \right\} \,.
+      \]
+      Indeed, we have that
+      \[
+          \begin{pmatrix}
+            a & b \\
+            0 & c
+          \end{pmatrix}
+          \vect{x \\ y}
+        = \vect{ax + by \\ cy},
+      \]
+      so if a submodule $N' \moduleeq k^2$ contains an element $(x,y)^T \in k^2$ with $y \neq 0$ then it contains both
+      \begin{align*}
+            \begin{pmatrix}
+              0 & y^{-1} \\
+              0 & 0
+            \end{pmatrix}
+            \vect{x \\ y}
+        &=  \vect{1 \\ 0}
+      \shortintertext{and}
+            \begin{pmatrix}
+              0 & 0 \\
+              0 & y^{-1}
+            \end{pmatrix}
+            \vect{x \\ y}
+        &=  \vect{0 \\ 1}
+      \end{align*}
+      and therefore $M = k^2$.
+    \item
+      If $G$ is a finite group and $k$ is a field with $\kchar k \ndivides |G|$ then every finite-dimensional representation of $G$ over $k$ is semisimple by \hyperref[theorem: Maschkes theorem]{Maschke’s theorem}, and therefore semisimple as a $k[G]$-module.
+      This shows in particular that the regular $k[G]$-module, i.e.\ $k[G]$ itself, is semisimple.
+  \end{enumerate}
+\end{example}
+
+
+\begin{lemma}
+  \label{lemma: inherit semisimple}
+  Let $R$ be a ring.
+  \begin{enumerate}
+    \item
+      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
+    \item
+      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-submodules $M_i \moduleeq M$ then $\sum_{i \in I} M_i$ is semisimple.
+    \item
+      If $M$ is a semisimple $R$-module and $N \moduleeq M$ a submodule then $N$ is semisimple.
+    \item
+      \label{enumerate: quotient is again semisimple}
+      If $M$ is a semisimple $R$-module and $N \moduleeq M$ a submodule then $M/N$ is semisimple.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We can write each $M_i$ as a direct sum $M_i = \bigoplus_{j \in J_i} L^i_j$ where $L^i_j \moduleeq M_i$ is a simple submodule for every $j \in J_i$.
+      Then
+      \[
+          \bigoplus_{i \in I} M_i
+        = \bigoplus_{i \in I} \bigoplus_{j \in J_i} L^i_j
+      \]
+      is the direct sum of submodules and therefore semisimple.
+    \item
+      Every $M_i$ is a sum $M_i = \sum_{j \in J_i} L^i_j$ of simple $R$-modulse $L^i_j$.
+      It follows that $\sum_{i \in I} M_i = \sum_{i \in I} \sum_{j \in J_i} L^i_j$ is sum of simple modules.
+    \item
+      This follows from Corollary~\ref{corollary: direct complements in submodules}.
+    \item
+      There exists a direct complement $P \moduleeq M$ of $N$.
+      It follows from part~\ref*{enumerate: quotient is again semisimple} that $M/N \cong P$ is again semisimple.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{definition}
+  The \emph{socle} of an $R$-module $M$ is
+  \[
+              \soc(M)
+    \defined  \sum_{\substack{L \moduleeq M \\ \text{simple}}} L \,.
+  \]
+\end{definition}
+
+
+\begin{remark}
+  If $M$ is an $R$-module then $\soc(V)$ is the biggest semisimple submodule of $M$, and $M$ is semisimple if and only if $M = \soc(M)$.
+  We have already encountered the socle in the proof of Proposition~\ref{proposition: characterisation semisimple modules} where $S = \soc(M)$.
+\end{remark}
+
+
+\begin{proposition}[Schur’s lemma]
+  \label{proposition: Schurs lemma for modules}
+  Let be a $M, N$ be $R$-modules and let $f \colon M \to N$ be a nonzero homomorphism of $R$-modules.
+  \begin{enumerate}
+    \item
+      \label{enumerate: Schur injective}
+      If $M$ is simple then $f$ is injective.
+    \item
+      \label{enumerate: Schur surjective}
+      If $N$ is simple then $f$ is surjective.
+  \end{enumerate}
+  Let $M, N$ be simple.
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: Schur bijective}
+      The homomorphism $f$ is bijective.
+    \item
+      \label{enumerate: Schur endomorphism ring}
+      The endomorphism ring $\End_R(M)$ is a skew field.
+  \end{enumerate}
+  If $R$ has the additional structure of a $k$-algebra we also have the following:
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: Schur divison algebra}
+      The endomorphism ring $\End_R(M)$ is a division algebra over $k$.
+    \item
+      \label{enumerate: Schur scalar for fd}
+      If $k$ is algebraically closed and $M$ is finite dimensional over $k$ then $\End_R(M) = k$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The kernel $\ker(f)$ is a proper submodule of $M$, so $\ker(f) = 0$.
+    \item
+      The image $\im(f)$ is a nonzero submodule of $N$, so $\im(f) = 0$.
+    \item
+      This follows from parts~\ref*{enumerate: Schur injective}, \ref*{enumerate: Schur surjective}.
+    \item
+      It follows from $M \neq 0$ that $\id_M \neq 0$.
+      The claim is therefore a reformulation of part~\ref*{enumerate: Schur endomorphism ring}.
+    \item
+      This is a combination of part~\ref*{enumerate: Schur divison algebra} and the $k$-algebra structure of $\End_R(M)$.
+    \item
+      It follows that $\End_R(M)$ is a finite-dimensional divison algebra over $k$ by part~\ref*{enumerate: Schur scalar for fd}.
+      It follows that $\End_R(M) = k$ because the algebraically closed field $k$ admits no non-trivially skew field extension.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  \hyperref[proposition: Schurs lemma representations]{Schur’s~lemma for representation of groups} can be derived from the one for algebras by the usual correspondence between representations of a group and modules over the group algebra.
+\end{remark}
+
+
+\begin{remark}
+  \label{remark: Schur for cardinality big enough}
+  Part~\ref{enumerate: Schur scalar for fd} of Schur’s lemma holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $M$, i.e.\ as long as $\card k > \dim_k M$.
+  This generalizes \ref{enumerate: morphism space is one-dimensional} because every algebraically closed field is infinite.
+
+  We prove this in two steps:
+  We first show that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$.
+  We then show that $f = \lambda \id_M$ where $\lambda \in k$ is a root of $p(t)$.
+  \begin{enumerate}[label=\arabic*)]
+    \item
+      If $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$ then $p(f) \colon M \to M$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_R(M)$ is a skew field.
+      It follows that the $k$-vector space structure of $M$ can be extended to a $k(t)$-vector space structure given by
+      \[
+                  \frac{p(t)}{q(t)} \cdot m
+        \defined  \left( p(f) q(f)^{-1} \right)(m)
+      \]
+      for all $p(t)/q(t) \in k(t)$, $m \in M$.
+      
+      Note that this is just the universal property of the localization:
+      The ring homomorphism $\varphi \colon k[t] \to \End_R(M)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
+      \[
+                \Phi
+        \colon  k(t)
+        =       S^{-1} k[t]
+        \to     \End_R(M) \,,
+        \quad   p(t)/q(t)
+        \mapsto p(f) q(f)^{-1} \,.
+      \]
+      By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(M)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $M$.
+      This is precisely the $k(t)$-vector space structure from above.
+      
+      Because $M$ is a nonzero $k(t)$-vector space it follows that
+      \[
+              \dim_k M
+        =     \dim_k k(t) \cdot \dim_{k(t)} M
+        \geq  \card k \cdot 1
+        =     \card k \,,
+      \]
+      which contradicts $\card k > \dim_k M$.
+      For the (in)equalities we used the following facts from linear algebra:
+      \begin{itemize}
+        \item
+          For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $M$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(c_j b_i)_{i \in I, j \in J}$ is a $k$-basis of $M$.
+        \item
+          For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
+        \item
+          That $\dim_{k(t)} M \geq 1$ follows from $M$ being nonzero.
+      \end{itemize}
+      This contradiction shows that $p(f) \neq 0$ for some nonzero $p(t) \in k[t]$.
+      We may assume w.l.o.g.\ that $p(t)$ is monic.
+      
+    \item
+      We have seen that $\End_R(M)$ is an algebraic skew field extension of $k$.
+      It thus follows from $k$ being algebraically closed that $\End_R(M) = k$ since $k$ admits no non-trivial algebraic skew field extensions
+      .
+  \end{enumerate}
+  The idea of the above proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
+\end{remark}
+
+
+
+

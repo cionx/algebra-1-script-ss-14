@@ -1,0 +1,217 @@
+\subsection{Isotypical Components}
+
+
+\begin{fluff}
+  While every semisimple $R$-module $M$ can be decomposed into a direct sum of simple $R$-modules, this decomposition is generally not unique as seen in Example~\ref{example: semisimple modules}, part~\ref*{enumerate: vector spaces are semisimple}.
+  We will now show that every semisimple module has a canonical decomposition into isotypical components.
+\end{fluff}
+
+
+\begin{conventions}
+  In this subsection $R$ denotes a ring, $M, N$ denote $R$-modules and $E, F$ denote simple $R$-modules.
+\end{conventions}
+
+
+\begin{definition}
+  The $E$-isotypical component of $M$ is
+  \[
+              M_E
+    \defined  \sum_{L \moduleeq M, L \cong E} L \,.
+  \]
+  The module $M$ is $E$-isotypical if $M = M_E$.
+\end{definition}
+
+
+\begin{lemma}
+  The $E$-isotypical component $M_E$ is $E$-isotypical.
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \[
+      (M_E)_E
+    = \sum_{L \moduleeq M_E, L \cong E} L
+    = \sum_{L \moduleeq M, L \cong E} L
+    = M_E
+  \]
+  because every submodule $L \moduleeq M$ isomorphic to $E$ is already contained in $M_E$.
+\end{proof}
+
+
+\begin{remark}
+  The $E$-isotypical component $M_E$ is semisimple because it is a sum of simple $R$-modules.
+  It follows that every $E$-isotypical module is semisimple.
+\end{remark}
+
+
+\begin{definition}
+  The set of isomorphism classes of simple $R$-modules is $\Irr(R)$.
+\end{definition}
+
+
+\begin{remark}
+  The isotypical component $M_E$ does only depend on the isomorphism class $[E] \in \Irr(R)$.
+\end{remark}
+
+
+\begin{theorem}[Decomposition into isotypical components]
+  \label{theorem: isotypical decomposition}
+  If $M$ is semisimple then
+  \[
+      M
+    = \bigoplus_{[E] \in \Irr(R)} M_E \,,
+  \]
+  and if $M = \bigoplus_{i \in I} L_i$ is any decomposition into simple submodules $L_i \moduleeq M$ then
+  \[
+      M_E
+    = \bigoplus_{i \in I, L_i \cong E} L_i
+  \]
+  for every $[E] \in \Irr(R)$.
+\end{theorem}
+
+
+\begin{proof}
+  For every $i \in I$ let $\pi_i \colon M \to L_i$ be the canonical projection with respect to the given decomposition.
+  Let $[E] \in \Irr(R)$ and let
+  \[
+              J
+    \defined  \{
+                i \in I
+              \suchthat
+                L_i \cong E
+              \} \,.
+  \]
+  we have that $\bigoplus_{j \in J} L_j \moduleeq M_E$.
+  If $L \moduleeq M$ is a simple submodule with $L \cong E$ then for the inclusion $\iota \colon L \to M$ the compositions $\pi_i \circ \iota \colon L \to E_i$ vanishe for every $i \in I$ with $i \notin J$ by \hyperref[proposition: Schurs lemma for modules]{Schur’s~lemma}.
+  It follows that $L = \im(\iota)$ is contained in $\bigoplus_{j \in J} L_j$.
+  This shows that
+  \[
+              M_E
+    =         \sum_{L \moduleeq M, L \cong E} L
+    \moduleeq \bigoplus_{j \in J} L_j \,.
+  \]
+  Together this shows that $M_E = \bigoplus_{j \in J} L_j$.
+  It follows that
+  \[
+      M
+    = \bigoplus_{i \in I} L_i
+    = \bigoplus_{[E] \in \Irr(R)} \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i
+    = \bigoplus_{[E] \in \Irr(R)} M_E
+  \]
+  where we use for the first equality the disjointness of the union
+  \[
+                                I
+    = \bigcup_{[E] \in \Irr(R)} \{ i \in I \suchthat L_i \cong E \} \,.
+  \]
+  This finishes the proof.
+\end{proof}
+
+
+\begin{corollary}
+  If $M$ is $E$-isotypical and $F \ncong E$ then $M_F = 0$.
+\end{corollary}
+
+
+\begin{proof}
+  The module $M$ is semisimple and the isotypical decomposition of $M$ is given by $M = M_E$.
+  It follows that $M_F = 0$ for every $[F] \in \Irr(R)$ with $[F] \neq [E]$.
+\end{proof}
+
+
+\begin{lemma}
+  If $N \moduleeq M$ is a submodule then $N_E = N \cap M_E$.
+\end{lemma}
+
+
+\begin{proof}
+  It follows from $N \moduleeq M$ that $N_E \moduleeq M_E$.
+  
+  We first consider the case that $M$, and therefore also $N$, is semisimple.
+  We then have the isotypical decompositions $N = \bigoplus_{[E] \in \Irr(R)} N_E$ and $M = \bigoplus_{[E] \in \Irr(R)} M_E$ with $N_E \moduleeq M_E$ for every $[E] \in \Irr(R)$, and it follows that $N_E = N \cap M_E$ for every $[E] \in \Irr(R)$.
+  
+  For the general case we note that the module $N \cap M_E$ is semisimple because it is a submodule of $M_E$ which is semisimple.
+  It follows that $N \cap M_E$ is contained in $\soc(N)$, and therefore that
+  \[
+      N \cap M_E
+    = \soc(N) \cap N \cap M_E
+    = \soc(N) \cap M_E \,.
+  \]
+  We also have that $M_E = \soc(M)_E$ and that $NvE = \soc(N)_E$.
+  Because $\soc(N), \soc(M)$ are semisimple it follows from the above case that
+  \[
+      N \cap M_E
+    = \soc(N) \cap \soc(M)_E
+    = \soc(M)_E
+    = M_E \,.
+  \]
+  This finishes the proof.
+\end{proof}
+
+
+\begin{corollary}
+  If $M$ is $E$-isotypical then every submodule $N \moduleeq M$ is again $E$-isotypical.
+\end{corollary}
+
+
+\begin{proof}
+  We have that $N_E = N \cap M_E = N \cap M = N$.
+\end{proof}
+
+
+\begin{lemma}
+  If $M$ is semisimple and $M = \bigoplus_{i \in I} L_i$ a decomposition into simple submodules $L_i \moduleeq M$, then for every simple submodule $E \moduleeq M$ there then exists some $i \in I$ with $E \cong L_i$.
+\end{lemma}
+
+
+\begin{proof}
+  This follows from $0 \neq E \moduleeq M_E \moduleeq \bigoplus_{i \in I, L_i \cong E} L_i$.
+\end{proof}
+
+
+\begin{lemma}
+  Every homomorphism of $R$-modules $f \colon M \to N$ restrict to a homomorphism $f_E \colon M_E \to N_E$.
+\end{lemma}
+
+
+\begin{proof}
+  For every simple submodule $L \moduleeq M$ the restriction $\restrict{f}{L}$ is either zero or injective, so that either $f(L) = 0$ or $f(L) \cong L$.
+  It follows that
+  \[
+              f(M_E)
+    \moduleeq f\left(\sum_{L \moduleeq M, L \cong E} L \right)
+    =         \sum_{L \moduleeq M, L \cong E} f(L)
+    \moduleeq \sum_{L' \moduleeq N, L' \cong E} L'
+    =         N_E \,,
+  \]
+  which proves the claim.
+\end{proof}
+
+
+% TODO: Have seen this before for Reynolds Operator
+
+
+\begin{remark}
+  To see that $\Irr(R)$ is indeed a set, and not a proper class, we construct a $1$:$1$-correspondence between simple $R$-modules and maximal left ideals in $R$.
+  Recall that the annihilator of an $R$-module $M$ is $\Ann(M) = \{r \in R \suchthat rm = 0\}$, which is a left ideal in $R$.
+  
+  If $I \idealeq R$ is a maximal left ideal then the $R$-module $R/I$ is simple with $\Ann(R/I) = I$.
+  
+  If $M$ is a simple $R$-module and $x \in M$ is nonzero then $x$ is a cyclic generator of $M$ by Lemma~\ref{lemma: simple iff every cyclic generator}.
+  It follows that the map $R \to M$, $r \mapsto rm$ is a surjective homomorphism of $R$-modules with kernel $\Ann(M) \defines I$, and thus induces an isomorphism of $R$-modules $R/I \cong M$.
+  
+  We have thus constructed a $1$:$1$-correspondence
+  \begin{align*}
+    \{ \text{maximal ideals $I \idealeq R$} \}
+    &\longleftrightarrow
+    \Irr(R) \,, 
+    \\
+    I
+    &\longmapsto
+    R/I \,,
+    \\
+    \Ann(M)
+    &\longmapsfrom
+    M \,.
+  \end{align*}
+\end{remark}
