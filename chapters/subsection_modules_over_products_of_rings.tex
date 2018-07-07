@@ -84,13 +84,13 @@
 \begin{lemma}
   \label{lemma: restriction of modules}
   Let $M$ be an $(R_1 \times R_2)$-module.
-  Then the subgroup $M_1 \defined e_1 M$ carries the structure of an $R_1$-module via
+  Then the additive subgroup $M_1 \defined e_1 M$ carries the structure of an $R_1$-module via
   \[
       r_1 \cdot m_1
     = (r_1, 0) \cdot m_1
   \]
   for all $r_1 \in R_1$, $m_1 \in M_1$.
-  Similarly, the subgroup $M_2 \defined e_2 M$ carries the structure of an $R_2$-module via
+  Similarly, the additive subgroup $M_2 \defined e_2 M$ carries the structure of an $R_2$-module via
   \[
       r_2 \cdot m_2
     = (0, r_1) \cdot m_2
@@ -197,7 +197,7 @@
       \]
       is an isomorphism of $R_2$-modules.
   \end{enumerate}
-  These isomorphisms are in the following sense comptible with homomorphisms in the following sense:
+  These isomorphisms are compatible with homomorphisms in the following sense:
   \begin{enumerate}[resume]
     \item
       If $f \colon M \to N$ is a homomorphisms of $(R_1 \times R_2)$-modules then the diagram
@@ -250,12 +250,18 @@
 
 
 \begin{remark}
-  This shows that the functors constructed in Remark~\ref{remark: functor out of product} and Remark~\ref{remark: functor into product} are form an equivalence of categories, so that
+  This shows that the functors constructed in Remark~\ref{remark: functor out of product} and Remark~\ref{remark: functor into product} (together with $\alpha$ and $\beta$) form an equivalence of categories, which shows that
   \[
             \cMod{(R_1 \times R_2)}
     \simeq  (\cMod{R_1}) \times (\cMod{R_2}) \,.
   \]
 \end{remark}
+
+
+\begin{corollary}
+  Let $M_i, N_i$ be $R_i$-modules for $i = 1, 2$.
+  Then every $(R_1 \times R_2)$-module homomorphism $f \colon M_1 \boxplus M_2 \to N_1 \boxplus N_2$ is of the form $f = f_1 \boxplus f_2$ for unique $R_i$-module homomorphisms $f_i \colon M_i \to N_i$.
+\end{corollary}
 
 
 \begin{lemma}
@@ -283,5 +289,12 @@
   Let $M_i$ be an $R_i$-module for $i = 1, 2$.
   Then $M_1 \boxtimes M_2$ is simple as an $(R_1 \times R_2)$-module (see Definition~\ref{definition: simple and maximal modules}) if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
 \end{corollary}
+
+
+\begin{remark}
+  All the results of this section can be generalized to finite products of rings $R_1 \times \dotsb \times R_n$.
+  This can be done directly or by induction over $n$.
+  Instead of using rings, i.e.\ $\Integer$-algebras, we could also as a field (or commutative ring) $k$ and $k$-algebras $A_1, \dotsc, A_n$.
+\end{remark}
 
 
