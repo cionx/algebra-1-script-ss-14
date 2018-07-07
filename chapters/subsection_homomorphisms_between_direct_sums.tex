@@ -2,12 +2,479 @@
 
 
 \begin{conventions}
-  We denote by $R$ a ring.
+  We denote by $R$ a ring and abbreviate $\Hom_R$ as $\Hom$.
 \end{conventions}
 
 
 \begin{fluff}
   In this section we will explain how $R$-module homomorphisms between finite direct sums can be represented  by matrices.
   We keep our treatment elementary and will not (explicitely) use the categorical notions of coproducts, products or biproducts.
-  We introduce the reader who is familiar with these notions to generalize the following content to an arbtiray abelian category.
+  We encourage the reader who is familiar with these notions to generalize the contents of this subsection to additive categorie
 \end{fluff}
+
+
+\begin{fluff}
+  Let $M_1, \dotsc, M_t$ and $N_1, \dotsc, N_s$ be $R$-modules.
+  Let
+  \[
+          \pi_i
+  \colon  N_1 \oplus \dotsb \oplus N_t
+  \to     N_i
+  \]
+  denotes the projection onto the $i$-th summand for $i = 1, \dotsc, s$, and let
+  \[
+            \iota_j
+    \colon  M_j
+    \to     M_1 \oplus \dotsb \oplus M_t
+  \]
+  denote the inclusion of the $j$-th summand for every $j = 1, \dotsc t$.
+\end{fluff}
+
+
+\begin{definition}
+  For every homomorphism of $R$-modules
+  \[
+            f
+    \colon  M_1 \oplus \dotsb \oplus M_s
+    \to     N_1 \oplus \dotsb \oplus N_t
+  \]
+  its \emph{$(ij)$-th component} is given by
+  \[
+              [f]_{ij}
+    \defined  \pi_i \circ f \circ \iota_j
+  \]
+  for all $i = 1, \dotsc, s$, $j = 1, \dotsc, t$, and we set
+  \[
+              [f]
+    \defined  \begin{bmatrix}
+                [f]_{11}  & \cdots  & [f]_{1t}  \\
+                \vdots    & \ddots  & \vdots    \\
+                [f]_{s1}  & \cdots  & [f]_{st}
+              \end{bmatrix}
+    \in       \begin{bmatrix}
+                \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
+                \vdots          & \ddots  & \vdots          \\
+                \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
+              \end{bmatrix}.
+  \]
+\end{definition}
+
+
+\begin{theorem}
+  \label{theorem: bijection homomorphisms matrices}
+  The map
+  \begin{align*}
+    \Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)
+    &\longto
+    \begin{bmatrix}
+      \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
+      \vdots          & \ddots  & \vdots          \\
+      \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
+    \end{bmatrix},
+    \\
+    f
+    &\longmapsto
+    [f]
+  \end{align*}
+  is an isomorphism of abelian groups.
+\end{theorem}
+
+
+\begin{proof}
+  A homomorphisn $f \colon M_1 \oplus \dotsb \oplus M_t \to N_1 \oplus \dotsb \oplus N_s$ is uniquely determined by the colllection of its restrictions $f \circ \iota_j \colon M_j \to N_1 \oplus \dotsb \oplus N_s$, which is turns it uniquely determined by the collections of its components $\pi_i \circ f \circ \iota_j \colon M_j \to N_i$.
+  This shows that $[\,\cdot\,]$ is injective.
+  
+  For all $j = 1, \dotsc, t$, $i = 1, \dotsc, s$ we have that
+  \begin{align*}
+        [f+g]_{ij}
+    &=  \pi_i \circ (f+g) \circ \iota_j
+     =  \pi_i \circ ((f \circ \iota_j) + (g \circ \iota_j)) \\
+    &=  (\pi_i \circ f \circ \iota_j) + (\pi_i \circ g \circ \iota_j)
+     =  [f]_{ij} + [g]_{ij} \,,
+  \end{align*}
+  which shows that $[\,\cdot\,]_{ij}$ is additive.
+  It follows that $[\,\cdot\,]$ additive.
+  
+  To show that $[\,\cdot\,]$ is surjective let $\pi'_j \colon M_1 \oplus \dotsb \oplus M_t \to M_j$ be the projection onto the $j$-th summand for every $j = 1, \dotsc, t$, and let $\iota_i \colon N_i \to N_1 \oplus \dotsb \oplus N_s$ be the inclusion of the $i$-th summand.
+  For a collection $(f_{ij})^{j = 1, \dotsc, t}_{i = 1, \dotsc, s}$ of homomorphisms $f_{ij} \colon M_j \to N_i$ we then have the homomorphism $f \colon M \to N$ given by
+  \[
+      f
+    = \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}} (\iota_{i'} \circ f_{i'j'} \circ \pi'_{j'}) \,,
+  \]
+  whose $(ij)$-th component is given by
+  \begin{align*}
+        [f]_{ij}
+     =  \pi_i \circ f \circ \iota_j
+    &=  \pi_i
+        \circ
+        \left(
+          \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}} (\iota_{i'} \circ f_{i'j'} \circ \pi'_{j'})
+        \right)
+        \circ
+        \iota_j \\
+    &=  \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}}
+        \big(
+        \pi_i \circ \iota_{i'} \circ f_{i'j'} \circ \pi'_{j'} \circ \iota_j
+        \big) \\
+    &=  \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}}
+        \big(
+        (\delta_{i,i'} \id) \circ f_{i'j'} \circ (\delta_{j,j'} \id)
+        \big)
+     =  f_{ij} \,.
+  \end{align*}
+  This shows that $[\,\cdot\,]$ is surjective.
+\end{proof}
+
+
+\begin{fluff}
+  As a consequence of Theorem~\ref{theorem: bijection homomorphisms matrices} we can represent every homomorphism between finite direct sums of $R$-modules as a matrix.
+\end{fluff}
+
+\begin{fluff}
+  We may write the elements of $M_1 \oplus \dotsb \oplus M_t$ as column vectors
+  \[
+    \vect{m_1 \\ \vdots \\ m_t}
+  \]
+  with $m_j \in M_j$ for every $j = 1, \dotsc, t$;
+  the elements of $N_1 \oplus \dotsb \oplus N_s$ can be represented as column vectors in the same way.
+  For every $R$-module homomorphism $f \colon M \to N$ with
+  \[
+      f
+    = \begin{bmatrix}
+        f_{11}  & \cdots  & f_{1t}  \\
+        \vdots  & \ddots  & \vdots  \\
+        f_{s1}  & \cdots  & f_{st}
+      \end{bmatrix}
+  \]
+  we then have that
+  \begin{align*}
+        f(m)
+     =  \vect{ \pi_1(f(m)) \\ \vdots \\ \pi_s(f(m)) }
+    &=  \vect{
+          \pi_1( f( \iota_1(m_1) + \dotsb + \iota_t(m_t) ) )
+          \\
+          \vdots
+          \\
+          \pi_s( f( \iota_1(m_1) + \dotsb + \iota_t(m_t) ) )
+        }
+    \\
+    &=  \vect{
+          \pi_1(f(\iota_1(m_1))) + \dotsb + \pi_1(f(\iota_t(m_t)))
+          \\
+          \vdots
+          \\
+          \pi_s(f(\iota_1(m_1))) + \dotsb + \pi_s(f(\iota_t(m_t)))
+        }
+    \\
+    &=  \vect{
+          f_{11}(m_1) + \dotsb + f_{1t}(m_t)
+          \\
+          \vdots
+          \\
+          f_{s1}(m_1) + \dotsb + f_{st}(m_t)
+        }
+    = \begin{bmatrix}
+        f_{11}  & \cdots  & f_{1t}  \\
+        \vdots  & \ddots  & \vdots  \\
+        f_{s1}  & \cdots  & f_{st}
+      \end{bmatrix}
+      \vect{m_1 \\ \vdots \\ m_t} \,,
+  \end{align*}
+  % TODO: Fix the spacing of the vertical dots in the vectors.
+  where the matrix-vector product in the last step is taken in the naive sense.
+  
+  This shows that when representing a homomorphism by a matrix, we can represent application of this homomorphism by matrix-vector multiplication.
+\end{fluff}
+
+
+\begin{example}
+  Let $k$ be a field and let $V, W$ be finite-dimensional $k$-vector spaces.
+  A choice of a basis $b_1, \dotsc, b_t$ of $V$ is then the same as an isomorphism $\varphi \colon V \to k^t$, and a choice of a basis $c_1, \dotsc, c_s$ of $W$ is the same as an isomorphism $\psi \colon W \to k^s$.
+  We also have that $k \xrightarrow{\sim} \Hom(k,k)$ where for $\lambda \in k$ the linear map $k \to k$ is given by $x \mapsto \lambda x$.
+  Alltogether this results in an isomorphism
+  \begin{align*}
+      \Hom(V,W)
+    \xlongrightarrow{\sim}
+      \Hom(k^s, k^t)
+    \to
+      \begin{bmatrix}
+        \Hom(k,k) & \cdots  & \Hom(k,k) \\
+        \vdots    & \ddots  & \vdots    \\
+        \Hom(k,k) & \cdots  & \Hom(k,k)
+      \end{bmatrix}
+    \xlongrightarrow{\sim}&
+      \begin{bmatrix}
+        k       & \cdots  & k       \\
+        \vdots  & \ddots  & \vdots  \\
+        k       & \cdots  & k
+      \end{bmatrix}
+    \\
+    =&\,
+      \Mat(t \times s, k)
+  \end{align*}
+  which associates to $f \in \Hom(V, W)$ its representing matrix with respect to the bases $b_1, \dotsc, b_t$ and $c_1, \dotsc, c_s$ in the usual way.
+\end{example}
+
+
+\begin{theorem}
+  Let
+  \[
+    M_1 \oplus \dotsb \oplus M_t
+    \xlongrightarrow{f}
+    N_1 \oplus \dotsb \oplus N_s
+    \xlongrightarrow{g}
+    P_1 \oplus \dotsb \oplus P_r
+  \]
+  be $R$-module homomorphisms.
+  Then
+  \[
+      [g \circ f]
+    = [g] \cdot [f]
+  \]
+  where the matrix multiplication on the right hand side is taken in the naive sense.
+\end{theorem}
+
+
+\begin{proof}
+  We denote the various projections and inclusions by
+  \begin{align*}
+                              M_j
+    \xlongrightarrow{\iota_j} M_1 \oplus &\dotsb \oplus M_t \,,
+    \\
+                                N_i
+    \xlongrightarrow{\iota'_i}  N_1 \oplus &\dotsb \oplus N_s
+    \xlongrightarrow{\pi'_i}    N_i \,,
+    \\
+                              P_1 \oplus &\dotsb \oplus P_r
+    \xlongrightarrow{\pi''_r} P_r \,.
+  \end{align*}
+  For all $j = 1, \dotsc, t$, $k = 1, \dotsc, r$ we then have that
+  \begin{align*}
+        (g \circ f)_{kj}
+    &=  \pi_k \circ g \circ f \circ \iota_j
+     =  \pi_k \circ g \circ \id_N \circ f \circ \iota_j
+     =  \pi_k \circ g \circ \left( \sum_{i=1}^s \iota'_i \circ \pi'_i \right) \circ f \circ \iota_j \\
+    &=  \sum_{i=1}^s ( \pi_k \circ g \circ \iota'_i \circ \pi'_i \circ f \circ \iota_j )
+     =  \sum_{i=1}^s ( g_{ki} \circ f_{ij} ) \,,
+  \end{align*}
+  which is precisely the $(kj)$-th entry of $[g] \cdot [f]$.
+%   We have that
+%   \begingroup
+%   \allowdisplaybreaks
+%   \begin{align*}
+%      &  (g \circ f)(m)
+%     =   g(f(m))
+%     \\
+%     =&  \begin{bmatrix}
+%           g_{11}  & \cdots  & g_{1s}  \\
+%           \vdots  & \ddots  & \vdots  \\
+%           g_{r1}  & \cdots  & g_{rs}
+%         \end{bmatrix}
+%         \left(
+%         \begin{bmatrix}
+%           f_{11}  & \cdots  & f_{1t}  \\
+%           \vdots  & \ddots  & \vdots  \\
+%           f_{s1}  & \cdots  & f_{st}
+%         \end{bmatrix}
+%         \vect{m_1 \\ \vdots \\ m_t}
+%         \right)
+%     \\
+%     =&  \begin{bmatrix}
+%           g_{11}  & \cdots  & g_{1s}  \\
+%           \vdots  & \ddots  & \vdots  \\
+%           g_{r1}  & \cdots  & g_{rs}
+%         \end{bmatrix}
+%         \vect{
+%           \sum_{j=1}^t f_{1j}(m_j)
+%           \\
+%           \vdots
+%           \\
+%           \sum_{j=1}^t f_{sj}(m_j)
+%         }
+%      =  \vect{
+%           \sum_{i=1}^s g_{1i} \left( \sum_{j=1}^t f_{ij}(m_j) \right)
+%           \\
+%           \vdots
+%           \\
+%           \sum_{i=1}^s g_{ri} \left( \sum_{j=1}^t f_{ij}(m_j) \right)
+%         }
+%     \\
+%     =&  \vect{
+%           \sum_{j=1}^t \sum_{i=1}^s (g_{1i} \circ f_{ij})(m_j)
+%           \\
+%           \vdots
+%           \\
+%           \sum_{j=1}^t \sum_{i=1}^s (g_{ri} \circ f_{ij})(m_j)
+%         }
+%     \\
+%     =&  \begin{bmatrix}
+%             \sum_{i=1}^s g_{1i} \circ f_{i1}
+%           & \cdots
+%           & \sum_{i=1}^s g_{1i} \circ f_{it}
+%           \\
+%             \vdots
+%           & \ddots
+%           & \vdots
+%           \\
+%             \sum_{i=1}^s g_{ri} \circ f_{i1}
+%           & \cdots
+%           & \sum_{i=1}^s g_{ri} \circ f_{it}
+%         \end{bmatrix}
+%         \vect{m_1 \\ \vdots \\ v_t}
+%     \\
+%     =&  \left(
+%           \begin{bmatrix}
+%               g_{11}
+%             & \cdots
+%             & g_{1s}
+%             \\
+%               \vdots
+%             & \ddots
+%             & \vdots
+%             \\
+%               g_{r1}
+%             & \cdots
+%             & g_{rs}
+%           \end{bmatrix}
+%           \cdot
+%           \begin{bmatrix}
+%               f_{11}
+%             & \cdots
+%             & f_{1t}
+%             \\
+%               \vdots
+%             & \ddots
+%             & \vdots
+%             \\
+%               f_{s1}
+%             & \cdots
+%             & f_{st}
+%           \end{bmatrix}
+%         \right)
+%         \vect{m_1 \\ \vdots \\ v_t}.
+%   \end{align*}
+%   \endgroup
+%   This shows that $[g] \cdot [f]$ is the matrix associated to $g \circ f$.
+\end{proof}
+
+
+\begin{corollary}
+  The map
+  \begin{align*}
+              \End_R(M_1 \oplus \dotsb \oplus M_t)
+    &\longto  \begin{bmatrix}
+                \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
+                \vdots          & \ddots  & \vdots          \\
+                \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
+              \end{bmatrix}
+    \\
+                  f
+    &\longmapsto  [f]
+  \end{align*}
+  is an isomorphism of rings.
+\end{corollary}
+
+
+\begin{example}
+  We determine the automorphisms of the $\Integer$-module $\Integer \oplus (\Integer/3)$:
+  If $f \colon \Integer \oplus (\Integer/3) \to \Integer \oplus (\Integer/3)$ is an endomorphism then
+  \[
+      f
+    = \begin{bmatrix}
+        f_{11}  & f_{12}  \\
+        f_{21}  & f_{22}
+      \end{bmatrix}
+  \]
+  for homomorphisms
+  \[
+    \begin{array}{ll}
+      f_{11}  \colon  \Integer    \to \Integer \,,
+      &
+      f_{12}  \colon  \Integer/3  \to \Integer \,,
+      \\
+      f_{21}  \colon  \Integer    \to \Integer/3 \,,
+      &
+      f_{22}  \colon  \Integer/3  \to \Integer/3 \,.
+    \end{array}
+  \]
+  There exists no nonzero homomorphism $\Integer/3 \to \Integer$ so we have that
+  \[
+      f
+    = \begin{bmatrix}
+        f_{11}  & 0       \\
+        f_{21}  & f_{22}
+      \end{bmatrix}.
+  \]
+  For $f, g \colon \Integer \oplus (\Integer/3) \to \Integer \oplus (\Integer/3)$ we have that
+  \[
+      fg
+    = \begin{bmatrix}
+        f_{11}  & 0       \\
+        f_{21}  & f_{22}
+      \end{bmatrix}
+      \begin{bmatrix}
+        g_{11}  & 0       \\
+        g_{21}  & g_{22}
+      \end{bmatrix}
+    = \begin{bmatrix}
+        f_{11} g_{11}                 & 0             \\
+        f_{21} g_{11} + f_{22} g_{21} & f_{22} g_{22}
+      \end{bmatrix}.
+  \]
+  It follows that $f$ is an automorphism (with inverse $g$) if and only if both $f_{11}, f_{22}$ are automorphisms (with inverses $g_{11}, g_{22}$).
+  There exist two automorphisms $\Integer \to \Integer$, two automorphisms $\Integer/3 \to \Integer/3$, and three homomorphisms $\Integer \to \Integer/3$.
+  It follows that $\Integer \oplus (\Integer/3)$ has
+  \[
+      2 \cdot 2 \cdot 3
+    = 12
+  \]
+  automorphisms, as described above.
+\end{example}
+
+
+\begin{corollary}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      If $M$ is an $R$-module and $n \geq 0$ then the map
+      \begin{align*}
+                  \End(M^{\oplus n})
+        &\longto  \begin{bmatrix}
+                    \End(M) & \cdots  & \End(M) \\
+                    \vdots  & \ddots  & \vdots  \\
+                    \End(M) & \cdots  & \End(M)
+                  \end{bmatrix}
+        =        \Mat_n( \End(M) )
+        \\
+                      f
+        &\longmapsto  [f]
+      \end{align*}
+      is an isomorphism of rings.
+    \item
+      If more generally $M_1, \dotsc, M_t$ are $R$-modules such that for all $i \neq j$ there exist no nonzero homomorphism $M_i \to M_j$ then for $n_1, \dotsc, n_t \geq 0$ the map
+      \begin{align*}
+                  \End(M_1^{\oplus n_1} \dotsb \oplus M_t^{\oplus n_t})
+        &\longto  \begin{pmatrix}
+                      \Mat_{n_1}( \End(M_1) )
+                    & {}
+                    & {}
+                    \\
+                      {}
+                    & \ddots
+                    & {}
+                    \\
+                      {}
+                    & {}
+                    & \Mat_{n_t}( \End(M_t) )
+                  \end{pmatrix} \,,
+        \\
+                      f
+        &\longmapsto  [f]
+      \end{align*}
+      is a well-defined isomorphism of rings.
+  \end{enumerate}
+\end{corollary}
+
+
+
+
