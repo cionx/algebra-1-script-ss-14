@@ -290,3 +290,13 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
   Part~\ref{enumerate: morphism space is one-dimensional} of Schur’s lemma holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $V$, i.e.\ as long as $\card k > \dim_k V$.
   We will prove this in Remark~\ref{remark: Schur for cardinality big enough} (but the interested reader can check this out right away).
 \end{remark}
+
+
+\begin{remark}
+  We can regard a group $G$ as a category $\mc{G}$ in the usual way, i.e.\ $\mc{G}$ consists of only a sinlge object $\ast$ with $\Hom_{\mc{G}}(\ast, \ast) = G$, and the composition of morphisms is just the multiplication of $G$.
+  Then a representation $V$ of $G$ over a field $k$ with corresponding group homomorphism $\rho \colon G \to \GL(V)$ is \enquote{the same} as a functor $R \colon \mc{G} \to \cVect{k}$ with $R(\ast) = V$ and $R(g) = \rho(g)$ for every $g \in G = \Hom_{\mc{G}}(\ast, \ast)$.
+  The category $\cRep{k}{G}$ is then isomorphic (!) to the functor category $[\mc{G}, \cVect{k}]$.
+  
+  It follows from this abstract point of view how morphism in $\cRep{k}{G}$ should be defined and that $\cRep{k}{G}$ inherts a lot of structure from $\cVect{k}$ which can be computed pointswise:
+  Thus $\cRep{k}{G}$ is again a $k$-linear abelian category, it is complete and cocomplete, it has a closed monoidal structure, we have the usual isomorphims known from vector spaces, etc.
+\end{remark}

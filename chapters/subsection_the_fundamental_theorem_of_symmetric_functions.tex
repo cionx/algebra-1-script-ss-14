@@ -357,16 +357,16 @@
 \end{remark}
 
 
-% TODO: Rework this example
 \begin{example}
-  Let $p(t) = t^n + a_{n-1} t^{n-1} + \dotsb + a_1 t + a_0 \in k[t]$ be a polynomial, and let $\lambda_1, \dotsc, \lambda_n$ be the roots of $p(t)$ is an algebraic closure $\overline{k}$ of $k$.
+  \label{example: multiple roots via symmetric polynomials}
+  Let $p(t) = t^n + a_{n-1} t^{n-1} + \dotsb + a_1 t + a_0 \in k[t]$ be a polynomial, and let $\lambda_1, \dotsc, \lambda_n$ be the roots of $p(t)$ is an algebraic closure $\closure{k}$ of $k$.
   Then
   \[
       a_i
     = (-1)^{n-i} e_{n-i}(\lambda_1, \dotsc, \lambda_n)
   \]
   for all $i$ by Lemma~\ref{lemma: natural occurence of elementary symmetric polynomials}.
-  It follows from the fundamental theorem that every symmetric polynomial in the roots $\lambda_1, \dotsc, \lambda_n$ can already be expressed as a polynomial in the coefficients $a_0, \dotsc, a_{n-1}$.
+  It follows from the fundamental theorem that every symmetric polynomial in the roots $\lambda_1, \dotsc, \lambda_n$ can already be expressed as a polynomial in the coefficients $a_0, \dotsc, a_{n-1}$:
   
   Consider for example the \emph{discriminant}
   \[
@@ -384,8 +384,8 @@
   \]
   This shows that $\Delta(p)$ can be expressed as a polynomial in the coefficients of $p$.
   
-  Note that $\Delta(p) = \prod_{i < j} (\lambda_i - \lambda_j)^2$ vanishes if and only if $f$ has some multiple root.
-  Alltogether we have found that there exists a polynomial expression in the coefficients of $p$, namely $f(a_{n-1}, \dotsc, a_0)$, by which we can describe if $f$ has multiple roots (in an algebraic closure $\overline{k}$ of $k$).
+  Note that $\Delta(p) = \prod_{i < j} (\lambda_i - \lambda_j)^2$ vanishes if and only if $f$ a multiple root in $\closure{k}$.
+  Alltogether we have thus found that there exists a polynomial expression in the coefficients of $p$, namely $f(a_{n-1}, \dotsc, a_0)$, by which we can describe if $f$ has multiple roots in an algebraic closure $\closure{k}$ of $k$.
   
   Consider for example the case $n = 2$.
   Then
@@ -395,20 +395,23 @@
      =  (X_1 + X_2)^2 - 4 X_1 X_2
      =  e_1^2 - 4 e_2 \,,
   \end{align*}
-  so that $f(Y_1, Y_2) = Y_1^2 - 4 Y_2$.
-  Thus for $p(t) = t^2 + a t + b$ one has that
+  and therefore $f(Y_1, Y_2) = Y_1^2 - 4 Y_2$.
+  For $p(t) = t^2 + a t + b$ we therefore have that
   \[
       \Delta(p)
     = f(a,b)
     = a^2 - 4 b \,.
   \]
+  Our above discussion shows that $\Delta(p) = 0$ if and only if $p$ has a multiple root in $\closure{k}$.
   Note that by the usual solution formula for quadratic equations, the roots $\lambda_1$, $\lambda_2 \in \overline{k}$ of $p(t)$ are given by
-  \[
-      \frac{-a \pm \sqrt{a^2 - 4b}}{2}
+  \[  
+      \lambda_{1,2}
+    = \frac{-a \pm \sqrt{a^2 - 4b}}{2}
     = \frac{-a \pm \Delta(p)}{2}
     = -\frac{1}{2} a \pm \frac{\sqrt{\Delta(p)}}{2} \,.
   \]
-  We can see explicitly that the roots $\lambda_1$, $\lambda_2$ differ by $\sqrt{\Delta(p)}$, so that they are distinct if and only if $\Delta(p) \neq 0$.
+  We can see explicitly that the roots $\lambda_1 - \lambda_2 = \pm \sqrt{\Delta(p)}$, and that $\lambda_1, \lambda_2$ are therefore distinct if and only if $\lambda_1 \neq \lambda_2$.
+  The previous discussion shows that $\Delta(p)$ can be generalized to polynomials of arbitrary degree.
 \end{example}
 
 

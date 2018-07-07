@@ -86,6 +86,25 @@
       \]
       for all $\sigma \in S_n$, $(a_1, \dotsc, a_n) \in k^n$.
     \item
+      Suppose that more generally a group $G$ acts on a set $X$ and that $V$ is a vector space.
+      Then $G$ acts linearly on $V^X = \prod_{x \in X} V$ via
+      \[
+          g.(v_x)_{x \in X}
+        = (v_{g^{-1}.x})_{x \in X}
+      \]
+      for all $g \in G$, $(v_x)_{x \in X} \in V^X$.
+      For the permutation action of $G = S_n$ on $X = \{1, \dotsc, n\}$ and $V = k$ we get the above permutation action of $S_n$ on $k^n$.
+      
+      This example can not only be understood as a generalization, but also as a special case of the previous example:
+      The symmetry group $S(X)$ acts on $V^X$ by
+      \[
+          \sigma . (v_x)_{x \in X}
+        = (v_{\sigma^{-1}(x)})_{x \in X}
+      \]
+      for all $\sigma \in S(X)$, $(v_x)_{x \in X} \in S(X)$, and this linear action corresponds to a group homomorphism $\rho \colon S(X) \to \GL(V^X)$.
+      The action of $G$ on $G$ corresponds to a group homomorphism $\varphi \colon G \to \GL(V^X)$ given by $\varphi(g)(x) = g.x$ for all $g \in G$, $x \in X$.
+      The composition $\rho \circ \varphi \colon S(X) \to \GL(V^X)$ is again a group homomorphism, and the corresponding linear action of $G$ on $V^X$ is the one described above.
+    \item
       For every $k$-vector space $V$ the symmetric group $S_n$ also acts linearly on $V^{\otimes n}$ via
       \[
           \sigma.(v_1 \otimes \dotsb \otimes v_n)
@@ -355,6 +374,23 @@
         = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d
       \]
       is a decomposition into finite-dimensional subrepresentations.
+    \item
+      If $V$ is a representation of $G$ and $U \subseteq V$ is a subrepresentation, then the quotient $V/U$ is again a representation of $G$ via
+      \[
+          g.\class{v}
+        = \class{g.v}
+      \]
+      for all $g \in G$, $v \in V$.
+      To see that this action is well-defined note for the given linear action $\pi \colon G \times V \to V$ we have for every $g \in G$ that $\pi_g \colon V \to V$ with $\pi_g(U) \subseteq U$.
+      It thus follows from linear algebra that $\pi_g$ descends to a well-defined linear map
+      \[
+                \overline{\pi_g}
+        \colon  V/U
+        \to     V/U \,,
+        \quad   \class{v}
+        \mapsto \class{\pi_g(v)}
+        =       \class{g.v}
+      \]
   \end{enumerate}
 \end{example}
 
@@ -480,6 +516,106 @@
   \qedhere
   \end{enumerate}
 \end{proof}
+
+
+\begin{remark}
+  Given representations $V, W$ of a group $G$ we have that
+  \[
+              V^G \otimes W^G
+    \subseteq (V \otimes W)^G
+  \]
+  because for all simple tensors $v \otimes w \in V^G \otimes W^G$ with $v \in V^G$, $w \in W^G$ we have that
+  \[
+      g.(v \otimes w)
+    = (g.v) \otimes (g.w)
+    = v \otimes w
+  \]
+  and thus $v \otimes w \in (V \otimes W)^G$.
+  
+  But the other inclusion does not necessarily hold:
+  Consider for example the action of $G = S_2 = \{1, s\}$ on $V = W = k^2$ given by swapping the coordinates, i.e.\
+  \[
+      s.(v \otimes w)
+    = w \otimes v
+  \]
+  for all simple tensors $v \otimes w \in V \otimes W$ with $v \in V$, $w \in W$.
+  Then $V^G = W^G = \gen{ e_1 + e_2 }_k$ and thus
+  \begin{align*}
+        V^G \otimes W^G
+    &=  \gen{ e_1 + e_2 }_k \otimes \gen{ e_1 + e_2 }_k \\
+    &=  \gen{ (e_1 + e_2) \otimes (e_1 + e_2) }_k       \\
+    &=  \gen{ e_1 \otimes e_1 + e_1 \otimes e_2 + e_2 \otimes e_1 + e_2 \otimes e_2 }_k \,.
+  \end{align*}
+  Then $e_1 \otimes e_2 + e_2 \otimes e_1 \in (V \otimes W)^G$ is not contained in $V^G \otimes W^G$.
+  
+  We can look at the case $G = S_2 = \{1, s\}$ with $\kchar k \neq 2$ in a bit more detail:
+  Then the linear map
+  \[
+            f
+    \colon  V
+    \to     V,
+    \quad   v
+    \mapsto s.v
+  \]
+  satisfies $f^2 = \id_V$ and thus satisfies the polynomial $X^2 - 1 = (X-1)(X+1) \in k[X]$.
+  It follows from $\kchar k \neq 2$ that this polynomial decomposes into pairwise different linear factors, and therefore that $f$ is diagonalizable with possible eigenvalues $1, -1$.
+  We therefore have that
+  \[
+      V
+    = V_+ \oplus V_-
+  \]
+  where $s$ acts on $V_+, V_-$ by their respective sign changes.
+  This is in particular a decomposition into subrepresentations with
+  \[
+      V^G
+    = (V_+ \oplus V_-)^G
+    = V_+^G \oplus V_-^G
+    = V_+ \,.
+  \]
+  We similary have that $W = W_+ \oplus W_-$ with $W^G = W_+$.
+  
+  We then have that
+  \begin{align*}
+        V \otimes W
+    &=  (V_+ \oplus V_-) \otimes (W_+ \oplus W_-) \\
+    &=  (V_+ \otimes W_+) \oplus (V_- \otimes W_-) \oplus (V_+ \otimes W_-) \oplus (V_- \otimes W_+)
+  \end{align*}
+  where $s$ acts trivially on the summands $V_+ \otimes W_+$ and $V_- \otimes W_-$ and by a sign change on the summands $V_+ \otimes W_-$ and $V_- \otimes W_+$.
+  It thus follows that
+  \begin{align*}
+        (V \otimes W)^G
+    &=  \left(
+                  (V_+ \otimes W_+)
+          \oplus  (V_- \otimes W_-)
+          \oplus  (V_+ \otimes W_-)
+          \oplus  (V_- \otimes W_+)
+        \right)^G \\
+    &=  (V_+ \otimes W_+)^G \oplus (V_- \otimes W_-)^G \oplus (V_+ \otimes W_-)^G \oplus (V_- \otimes W_+)^G  \\
+    &=  (V_+ \otimes W_+) \oplus (V_- \otimes W_-) \,.
+  \end{align*}
+  We that that compared to $V^G \otimes W^G = V_+ \otimes W_+$ we gain the additional summand $V_- \otimes W_-$, which is invariant because the actions of $s$ on the factors cancels out.
+  
+  In the previous example we have for $\kchar k \neq 2$ that
+  \[
+    V_+ = W_+ = \gen{ e_1 + e_2 }_k \,,
+    \qquad
+    V_- = W_- = \gen{ e_1 - e_2 }_k \,.
+  \]
+  By the above discussion we find that
+  \begin{align*}
+     &\,  (V \otimes W)^G
+    =     (V_+ \otimes W_+) \oplus (V_- \otimes W_-)  \\
+    =&\,  (\gen{e_1 + e_2}_k \otimes \gen{e_1 + e_2}_k) \oplus (\gen{e_1 - e_2}_k \otimes \gen{e_1 - e_2}_k)  \\
+    =&\,          \gen{e_1 \otimes e_1 + e_1 \otimes e_2 + e_2 \otimes e_1 + e_2 \otimes e_2}_k
+          \oplus  \gen{e_1 \otimes e_1 - e_1 \otimes e_2 - e_2 \otimes e_1 + e_2 \otimes e_2}_k \\
+    =&\,  \gen{
+            e_1 \otimes e_1 + e_1 \otimes e_2 + e_2 \otimes e_1 + e_2 \otimes e_2,
+            e_1 \otimes e_1 - e_1 \otimes e_2 - e_2 \otimes e_1 + e_2 \otimes e_2
+          } \\
+    =&\,  \gen{e_1 \otimes e_1 + e_2 \otimes e_2, e_1 \otimes e_2 + e_2 \otimes e_1} \,.
+  \end{align*}
+\end{remark}
+
 
 
 
