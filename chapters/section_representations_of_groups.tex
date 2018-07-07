@@ -230,17 +230,17 @@
 %       \]
       If $v_1, \dotsc, v_n$ is a basis of $V$ with respect to which $\pi_g$ is given by a matrix $A$, and $w_1, \dotsc, w_m$ a basis of $W$ with respect to which $\tau_g$ is given by a matrix $B$, then $(\pi \oplus \tau)_g$ and $(\pi \otimes \tau)_g$ are therefore given by the matrices
       \[
-        \begin{pmatrix}
+        \begin{bmatrix}
           A & 0 \\
           0 & B
-        \end{pmatrix}
+        \end{bmatrix}
         \quad\text{and}\quad
-        \begin{pmatrix}
+        \begin{bmatrix}
           a_{11} B & a_{12} B & \cdots & a_{1m} B \\
           a_{21} B & a_{22} B & \cdots & a_{2m} B \\
             \vdots  &  \vdots  & \ddots &  \vdots  \\
           a_{n1} B & a_{n2} B & \cdots & a_{nm} B
-        \end{pmatrix}
+        \end{bmatrix}
       \]
       with respect to the basis $(v_1,0), \dotsc, (v_n,0), (0,w_1), \dotsc, (0,w_m)$ of $V \oplus W$ and the basis $v_1 \otimes w_1, v_1 \otimes w_2, \dotsc, v_n \otimes w_m$ of $V \otimes W$.
     \item
@@ -341,10 +341,10 @@
       The group $G \defined \Integer/n$, $n \geq 1$ acts on the plane $V \defined \Real^2$ by rotation, i.e.
       \[
                   \overline{n}.\vect{x \\ y}
-        \defined  \begin{pmatrix*}[r]
+        \defined  \begin{bmatrix*}[r]
                     \cos(2\pi/n)  & -\sin(2\pi/n) \\
                     \sin(2\pi/n)  &  \cos(2\pi/n)
-                  \end{pmatrix*}
+                  \end{bmatrix*}
                   \vect{x \\ y}.
       \]
       Then $V$ is irreducible if and only if $n \geq 3$:
@@ -405,10 +405,10 @@
   \[
               G
     \coloneqq \left\{
-                \begin{pmatrix}
+                \begin{bmatrix}
                   a & b \\
                   0 & c
-                \end{pmatrix}
+                \end{bmatrix}
               \,\middle|\,
                 a, b, c \in \Complex
                 \text{ and }
@@ -436,10 +436,10 @@
     \]
     Because $W$ is a subrepresentation of $V$ it follows that
     \[
-          \begin{pmatrix}
+          \begin{bmatrix}
             1 & 1 \\
             0 & 1
-          \end{pmatrix}
+          \end{bmatrix}
           \vect{\alpha \\ \beta}
       =   \vect{\alpha + \beta \\ \beta}
       \in W \,.

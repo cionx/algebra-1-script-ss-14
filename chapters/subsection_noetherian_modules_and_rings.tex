@@ -202,15 +202,15 @@
       The ring
       \[
           R
-        = \begin{pmatrix}
+        = \begin{bmatrix}
             \Rational & \Rational \\
                       & \Integer
-          \end{pmatrix}
+          \end{bmatrix}
         = \left\{
-            \begin{pmatrix}
+            \begin{bmatrix}
               x & y \\
                 & n 
-            \end{pmatrix}
+            \end{bmatrix}
           \suchthat*
             x, y \in \Rational,
             n \in \Integer
@@ -221,10 +221,10 @@
       To see that $R$ is left noetherian note that
       \[
           I
-        = \begin{pmatrix}
+        = \begin{bmatrix}
             \Rational & 0 \\
                       & 0
-          \end{pmatrix}
+          \end{bmatrix}
       \]
       is a left ideal in $R$.
       For every $x \in \Rational$ with $x \neq 0$ we have that $\Rational x = \Rational$, so it follows for every $x \in I$ with $x \neq 0$ that $Rx = I$.
@@ -232,20 +232,20 @@
       By Corollary~\ref{corollary: short exact sequence of noetherian} it thus sufficies to show that the $R$-module
       \[
                 R/I
-        \cong   \begin{pmatrix}
+        \cong   \begin{bmatrix}
                   0 & \Rational \\
                     & \Integer
-                \end{pmatrix}
+                \end{bmatrix}
         \defines M
       \]
       is noetherian.
       Note that
       \[
                   N
-        \defined  \begin{pmatrix}
+        \defined  \begin{bmatrix}
                     0 & \Rational \\
                       & 0
-                  \end{pmatrix}
+                  \end{bmatrix}
       \]
       is a submodule of $M$, which is noetherian by the same argumentation as for $I$.
       By Corollary~\ref{corollary: short exact sequence of noetherian} it thus sufficies to show that $M/N$ is noetherian.
@@ -255,10 +255,10 @@
       The ring $R$ is not right noetherian because
       \[
                   J_n
-        \defined  \begin{pmatrix}
+        \defined  \begin{bmatrix}
                     0 & \Integer[1/2^n] \\
                       & 0
-                  \end{pmatrix}
+                  \end{bmatrix}
       \]
       is a right ideal in $R$ for every $n \geq 1$ such that the sequence
       \[

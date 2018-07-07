@@ -160,11 +160,11 @@
               \left(
               S A S^{-1}
               + z
-              \begin{pmatrix}
+              \begin{bmatrix}
                 a_1 &         &     \\
                     & \ddots  &     \\
                     &         & a_n
-              \end{pmatrix}
+              \end{bmatrix}
               \right)
               S
   \]
@@ -175,27 +175,27 @@
       S M(z) S^{-1}
     =     S A S^{-1}
         + z
-        \begin{pmatrix}
+        \begin{bmatrix}
           a_1 &         &     \\
               & \ddots  &     \\
               &         & a_n
-        \end{pmatrix}
-    &=  \begin{pmatrix}
+        \end{bmatrix}
+    &=  \begin{bmatrix}
           b_1 & \cdots  & *       \\
               & \ddots  & \vdots  \\
               &         & b_n
-        \end{pmatrix}
+        \end{bmatrix}
         + z
-        \begin{pmatrix}
+        \begin{bmatrix}
           a_1 &         &     \\
               & \ddots  &     \\
               &         & a_n
-        \end{pmatrix} \\
-    &=  \begin{pmatrix}
+        \end{bmatrix} \\
+    &=  \begin{bmatrix}
           b_1 + z a_1 & \cdots  & *           \\
                       & \ddots  & \vdots      \\
                       &         & b_n + z a_n
-        \end{pmatrix}.
+        \end{bmatrix}.
   \end{align*}
   Any two eigenvalues $b_i + a_i z$ and $b_j + a_j z$ of $M(z)$ coincide for only one value of $z$, namely for $z = (b_j - b_i)/(a_i - a_j)$.
   It follows that $M(z)$ has pairwise different eigenvalues, and is therefore digonalizable, for all but finitely many $z \in k$.
@@ -256,7 +256,7 @@
       If for example $f = a_4 X^4 + a_3 X^3 + a_2 X^2 + a_1 X + a_0$ and $g = b_3 X^3 + b_2 X^2 + b_1 X + b_0$ then the Sylvester Matrix $S(f,g)$ is the $(7 \times 7)$-matrix given by
       \[
           S(f,g)
-        = \begin{pmatrix}
+        = \begin{bmatrix}
             a_4 &     &     & b_3 &     &     &     \\
             a_3 & a_4 &     & b_2 & b_3 &     &     \\
             a_2 & a_3 & a_4 & b_1 & b_2 & b_3 &     \\
@@ -264,7 +264,7 @@
             a_0 & a_1 & a_2 &     & b_0 & b_1 & b_2 \\
                 & a_0 & a_1 &     &     & b_0 & b_1 \\
                 &     & a_0 &     &     &     & b_0
-          \end{pmatrix}.
+          \end{bmatrix}.
       \]
       For $y = (y_{n-1}, y_{n-2}, \dotsc, y_0) \in k^n$ we denote by $y(X) \in k[X]$ the polynomial
       \[
@@ -302,11 +302,11 @@
       \Delta(f)
     = \det S(f,f')
     = \det
-      \begin{pmatrix}
+      \begin{bmatrix}
         1 & 2 &   \\
         a & a & 2 \\
         b &   & a
-      \end{pmatrix}
+      \end{bmatrix}
     = a^2 + 4b - 2a^2
     = 4b - a^2 \,,
   \]
@@ -315,13 +315,13 @@
         \Delta(f)
      =  \det S(f,f')
     &=  \det
-        \begin{pmatrix}
+        \begin{bmatrix}
           1 &   & 3   &     &     \\
           a & 1 & 2a  & 3   &     \\
           b & a & b   & 2a  & 3   \\
           c & b &     & b   & 2a  \\
             & c &     &     & b
-        \end{pmatrix} \\
+        \end{bmatrix} \\
     &=  4 a^3 c - a^2 b^2 - 18 a b c + 4 b^3 + 27 c^2 \,.
   \end{align*}
 \end{remark}
@@ -856,12 +856,12 @@
         \colon  \GL_n(L)
         \to     \SL_n(L) \,,
         \quad   A
-        \mapsto \begin{pmatrix}
+        \mapsto \begin{bmatrix}
                   \det(A)^{-1}  &   &         &     \\
                                 & 1 &         &     \\
                                 &   & \ddots  &     \\
                                 &   &         & 1
-                \end{pmatrix}
+                \end{bmatrix}
                 \cdot
                 A \,,
       \]
