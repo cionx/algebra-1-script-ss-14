@@ -268,19 +268,19 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 
 
 \begin{remark}
-  %TODO: Craft a better explanation.
+  % TODO: Craft a better explanation.
+  % TODO: Add a reference to the chapter about Artin-Wedderburn
   Assume $k$ is an algebraically closed field and $V$ a finite-dimensional irreducible representation of some group $G$.
   Then $\End_G(V \oplus \dotsb \oplus V)$ and $\Mat(n \times n, k)$ are isomorpic as $k$-algebras by part~\ref{enumerate: morphism space is one-dimensional} of Schur’s Lemma.
+  (See appendix~\ref{appendix: homomorphisms between direct sums}.)
   
-  More generally:
-  If $V_1, \dotsc, V_r$ are pairwise non-isomorphic irreducible finite dimensional $k$-representations of some group $G$ and $W_i \coloneqq V_i^{\oplus n_i}$, then
+  If more generally $V_1, \dotsc, V_r$ are pairwise non-isomorphic irreducible finite dimensional $k$-representations of some group $G$ and $W_i \coloneqq V_i^{\oplus n_i}$, then
   \begin{align*}
             \End_G(W_1 \oplus \dotsb \oplus W_r)
     &=      \End(V_1^{n_1} \oplus \dotsb \oplus V_n^{n_r})
     \\
-    &\cong  \End(V_1^{n_1}) \oplus \dotsb \oplus \End(V_r^{n_r})
-    \\
-    &\cong  \Mat(n_1 \times n_1, k) \oplus \dotsb \oplus \Mat(n_r \times n_r, k)
+    &\cong  \End(V_1^{n_1}) \times \dotsb \times \End(V_r^{n_r})
+     \cong  \Mat_{n_1}(k) \times \dotsb \oplus \Mat_{n_r}(k)
   \end{align*}
   as $k$-algebras.
 \end{remark}
