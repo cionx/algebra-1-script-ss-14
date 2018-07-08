@@ -5,6 +5,7 @@ Notes for _Algebra I_, SS 14
 This repository contains my personal notes for the lecture course _Algebra I_, which was held at the University of Bonn in the summer semester of 2014 by Prof. Dr. Catharina Stroppel.
 
 These notes are currently being reworked.
+Especially some of the later parts are currently a mess.
 An up to date compiled version can be found [here][2].
 
 ---
