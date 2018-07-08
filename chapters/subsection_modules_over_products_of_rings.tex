@@ -1,9 +1,112 @@
-\subsection{Modules over Products of Rings}
+\subsection{Products of Rings}
+
+
+\begin{fluff}
+  For a family $(R_i)_{i \in I}$ of rings their product $\prod_{i \in I} R_i$ carries the structure of a ring via componentwise addition and multiplication.
+\end{fluff}
+
+
+
+
+
+% \subsubsection{Recognizing Products}
+% 
+% 
+% \begin{conventions}
+%   In the following $R$ denotes a ring.
+% \end{conventions}
+% 
+% 
+% \begin{fluff}
+%   We give a brief explanation under what conditions a ring $R$ can be decomposed into a product $R \cong R_1 \times \dotsb \times R_n$ of rings $R_1, \dotsc, R_n$.
+% \end{fluff}
+% 
+% 
+% \begin{fluff}
+%   Let $R_1, \dotsc, R_n$ be rings, and for every $j = 1, \dotsc, n$ let
+%   \[
+%               I_j
+%     \defined  0 \times \dotsb \times 0 \times R_j \times 0 \times \dotsb \times 0
+%   \]
+%   with $R_j$ in the $j$-th position.
+%   Then the $I_j$ are not subrings of $R \defined R_1 \times \dotsb \times R_n$ (unless $R_i = 0$ for all $i \neq j$), but they are two sided ideals in $R$.
+% \end{fluff}
+
+
+
+
+% \begin{proposition}
+%   Let $M$ be an $R$-module.
+%   \begin{enumerate}
+%     \item
+%       If $M = M_1 \oplus M_2$ is a decomposition into submodules $M_1, M_2 \moduleeq M$ then there exists a unique $R$-linear endomorphism $e_{M_1, M_2} \colon M \to M$ with $e_{M_1, M_2}(x + y) = x$ for all $x \in M_1$, $y \in M_2$, and $e_{M_1, M_2}$ is idempotent.
+%     \item
+%       Let $e \colon M \to M$ an idempotent endomorphism.
+%       Then $M = \im(e) \oplus \ker(e)$ and $e(x + y) = x$ for all $x \in \im(e)$, $y \in \ker(e)$.
+%     \item
+%       The above constructions give a $1$:$1$-correspondence
+%       \begin{align*}
+%         \left\{
+%           (M_1, M_2)
+%         \suchthat*
+%           \begin{tabular}{c}
+%             $M_1, M_2 \moduleeq M$ \\
+%             $M = M_1 \oplus M_2$
+%           \end{tabular}
+%         \right\}
+%         &\longleftrightarrow
+%         \left\{
+%           \begin{tabular}{c}
+%             idempotent endo- \\
+%             morphisms $e \colon M \to M$
+%           \end{tabular}
+%         \right\},
+%         \\
+%         (M_1, M_2)
+%         &\longmapsto
+%         e_{M_1, M_2} \,,
+%         \\
+%         (\im(e), \ker(e))
+%         &\longmapsfrom
+%         e \,.
+%       \end{align*}
+%   \end{enumerate}
+% 
+%     
+%  
+% \end{proposition}
+% 
+% 
+% \begin{definition}
+%   An element $e \in R$ is \emph{idempotent} if $e^2 = e$.
+% \end{definition}
+% 
+% 
+% \begin{definition}
+%   An element $z \in R$ is \emph{central} if $rz = zr$ for every $r \in R$.
+% \end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Modules over Products of Rings}
 
 
 \begin{conventions}
-  In this subsection $R_1, R_2$ denote two rings.
-  We denote by $e_1, e_2 \in (R_1 \times R_2)$ the elements $e_1 = (1,0)$, $e_2 = (0,1)$.
+  In the following $R_1, R_2$ denote two rings.
+  We denote by $e_1, e_2$ the central idemponent elements $e_1 = (1,0)$, $e_2 = (0,1)$ of $R_1 \times R_2$.
 \end{conventions}
 
 
@@ -294,7 +397,7 @@
 \begin{remark}
   All the results of this section can be generalized to finite products of rings $R_1 \times \dotsb \times R_n$.
   This can be done directly or by induction over $n$.
-  Instead of using rings, i.e.\ $\Integer$-algebras, we could also as a field (or commutative ring) $k$ and $k$-algebras $A_1, \dotsc, A_n$.
+  Instead of using rings, i.e.\ $\Integer$-algebras, we could also use a ground field (or commutative ring) $k$ and consider $k$-algebras $A_1, \dotsc, A_n$.
 \end{remark}
 
 

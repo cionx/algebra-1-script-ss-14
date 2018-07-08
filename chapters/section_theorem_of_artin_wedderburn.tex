@@ -1,4 +1,4 @@
-\section{Theorem of Artin--Wedderburn}
+\section{Semisimple and Simple Rings}
 
 
 \begin{conventions}
@@ -6,435 +6,458 @@
 \end{conventions}
 
 
-\begin{definition}
-  The ring $R$ is \emph{semisimple} if it is semisimple as an $R$-module, i.e.\ if ${}_R R$ is semisimple.
-\end{definition}
 
 
-If $R$ is semisimple then
-\[
-    R
-  = \bigoplus_{[E] \in \Irr(R)} R_E
-\]
-is a decomposition into (left) $R$-module by Corollary \ref{theorem: isotypical decomposition}.
+
+\subsection{Semisimple Rings}
 
 
 \begin{definition}
-  A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
-  In particular $R$ is semisimple.
+  The ring $R$ is \emph{semisimple} if it is semisimple as an $R$-module.
 \end{definition}
 
 
-\begin{definition}
-  A $k$-algebra $A$ is called \emph{semisimple} (resp.\ \emph{simple}) if it is \emph{semisimple} (resp.\ \emph{simple}) as a ring.
-\end{definition}
+% If $R$ is semisimple then
+% \[
+%     R
+%   = \bigoplus_{[E] \in \Irr(R)} R_E
+% \]
+% is a decomposition into (left) $R$-module by Corollary \ref{theorem: isotypical decomposition}.
+
+
+% \begin{definition}
+%   A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
+%   In particular $R$ is semisimple.
+% \end{definition}
 
 
 \begin{example}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \label{example: semisimple rings}
+  \leavevmode
+  \begin{enumerate}
     \item
-      Fields are simple.
+      Fields are semisimple.
     \item
-      For every finite group $G$ the group algebra $\Complex G$ is semisimple by \hyperref[theorem: Maschkes theorem]{Maschke’s theorem}.
+      If $G$ is a finite group and $k$ a field with $\kchar(k) \ndivides |G|$ then the group algebra $k[G]$ is semisimple as seen in Example~\ref{example: semisimple modules}.
     \item
-      For a skew field $D$ the matrix ring $\Mat_n(D)$ is simple for all $n > 0$.
-      To see this let
-      \[
-        C_i
-        \coloneqq \{
-                    A \in \Mat_n(D)
-                  \mid
-                    \text{ all except the $i$-th column are zero}
-                  \} \,.
-      \]
-      Then
+      For a skew field $D$ the matrix ring $\Mat_n(D)$ is semisimple for all $n > 0$:
+      We have seen in Example~\ref{example: simple modules} that $D^n$ is simple as an $\Mat_n(D)$-module.
+      We now have that
       \[
           \Mat_n(D)
-        = \bigoplus_{i=1}^n C_i
+        = C_1 \oplus \dotsb \oplus C_n
       \]
-      as a left $\Mat_n(D)$-modules with
+      for the submodules $C_i \moduleeq \Mat_n(D)$ given by 
       \[
-        C_i \cong D^n
+                  C_i
+        \defined  \{
+                    A \in \Mat_n(D)
+                  \suchthat
+                    \text{$A$ has nonzero entries only in the $i$-th column}
+                  \} \,,
       \]
-      as left $\Mat_n(D)$-modules for all $1 \leq i \leq n$.
-      Since $D^n$ is simple as an left $\Mat_n(D)$-module the statement follows.
+      and we have that $C_i \cong D^n$ for every $i = 1, \dotsc, n$.
   \end{enumerate}
 \end{example}
 
 
 \begin{proposition}
-  Let $R$ be a semisimple ring (with $1$) and $M$ an $R$-module.
-  Then $M$ is semisimple.
+  If $R$ is semisimple then every $R$-module is semisimple.
 \end{proposition}
+
+
 \begin{proof}
-  Since $\prescript{}{R}{R}$ is semisimple and $M$ is the quotient of a free $R$-module (since $R$ is unitary) it follows directly from Lemma \ref{lemma: inherit semisimple} that $M$ is semisimple.
+  Every $R$-module is isomorphic to a quotient of a free $R$-moudule, so the claim follows from Lemma~\ref{lemma: inherit semisimple}.
 \end{proof}
 
 
-\begin{lemma}\label{lemma: simple module of semisimple ring is direct summand}
-  Let $R$ be a semisimple ring and $E$ a simple $R$-module.
-  Then $F \cong E$ for some simple submodule $F \subseteq R$.
-  More precisely:
-  If $R = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules then $E \cong L_i$ for some $i \in I$.
+\begin{lemma}
+  \label{lemma: simple module of semisimple ring is direct summand}
+  Let $R$ be semisimple with $R = \bigoplus_{i \in I} L_i$ for simple submodules then $L_i \moduleeq R$.
+  Then every simple $R$-module is isomorphic to some $L_i$.
 \end{lemma}
+
+
 \begin{proof}
-  Because $E$ is cyclic there exists a surjective module homomorphism
-  \[
-                        \psi
-    \colon              R
-    \twoheadrightarrow  E
-  \]
-  For every $i \in I$ we have the module homomorphism
-  \[
-                        \phi_i
-    \colon              L_i
-    \hookrightarrow     \bigoplus_{i \in I} L_i
-    =                   R
-    \twoheadrightarrow  E \,.
-  \]
-  with $\psi = \bigoplus_{i \in I} \phi_i$.
-  Since $\psi \neq 0$ we have $\phi_j \neq 0$ for some $j \in I$.
-  Since $L_j$ and $E$ are both simple $\phi_j$ is already an isomorphism.
+  Let $E$ be a simple $R$-module and let $x \in E$ with $x \neq 0$.
+  Then the map $R \to E$, $r \mapsto rx$ is a nonzero homomorphism of $R$-modules and the claim follows from Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules}.
 \end{proof}
 
 
-\begin{corollary}\label{corollary: simple rings one simple module}
-  Let $R$ be a simple ring.
-  Then there is exactly one simple $R$-module up to isomorphism.
+% \begin{corollary}
+% \label{corollary: simple rings one simple module}
+%   Let $R$ be a simple ring.
+%   Then there is exactly one simple $R$-module up to isomorphism.
+% \end{corollary}
+% \begin{proof}
+%   Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
+%   For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
+%   Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
+% \end{proof}
+
+
+\begin{corollary}
+  \label{corollary: D^n is the only simple M_n(D)-module}
+  If $D$ is a skew field then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
 \end{corollary}
+
+
 \begin{proof}
-  Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
-  For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
-  Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
+  This follows from Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and the decompositon of $\Mat_n(D)$ into simple submodules from Example~\ref{example: semisimple rings}.
 \end{proof}
 
 
-\begin{corollary}\label{corollary: D^n only simple M_n(D)-module}
-  Let $D$ be a skew field.
-  Then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
-\end{corollary}
-\begin{proof}
-  We know that $\Mat_n(D)$ is simple and $D^n$ a simple $\Mat_n(D)$-module.
-  So the statement follows from Corollary \ref{corollary: simple rings one simple module}.
-  (Notice that we have already seen that $\Mat_n(D) \cong \bigoplus_{i=1}^n C_i$ with $C_i \cong D^n$ for every $1 \leq i \leq n$ as $\Mat_n(D)$-modules.)
-\end{proof}
-
-
-\begin{lemma}\label{lemma: ring with 1 finite sum of submodules}
-  Let $R$ be a semisimple ring (with $1$) and $R = \sum_{i \in I} M_i$ where $M_i \subseteq R$ is an $R$-submodule for every $i \in I$.
+\begin{lemma}
+  \label{lemma: ring is already finite sum of submodules}
+  Let $R$ be semisimple with $R = \sum_{i \in I} M_i$ for submodules $M_i \moduleeq R$.
   Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
 \end{lemma}
+
+
 \begin{proof}
-  We can write
-  \[
-      1
-    = \sum_{i \in I} e_i
-  \]
-  with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$. Let
+  We can decompose $1 \in R$ as $1 = \sum_{i \in I} e_i$ with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$.
+  For
   \[
               J
-    \coloneqq \{i \in I \mid e_i \neq 0\} \,.
+    \defined  \{ i \in I \mid e_i \neq 0 \} \,.
   \]
-  Then
-  \[
-              \mc{I}
-    \coloneqq \sum_{j \in J} M_i
-  \]
-  is an $R$-submodule of $R$, i.e.\ an left-ideal of $R$, with $1 \in \mc{I}$.
-  Therefore $\mc{I} = R$.
+  the sum $\sum_{j \in J} M_i$ is a submodule of $R$, i.e.\ an ideal in $R$, which therefore contains $1$.
+  Thus $\sum_{j \in J} M_i = R$.
 \end{proof}
 
 
-\begin{corollary}\label{lemma: semisimple ring with 1 only finitely many summands}
-  Let $R$ be a semisimple ring (with $1$).
-  Then $R$ is the direct sum of finitely many simple submodules.
+\begin{corollary}
+  \label{corollary: semisimple ring is already a finite sum}
+  If $R$ is semisimple then $R$ is a finite direct of simple submodules.
 \end{corollary}
+
+
 \begin{proof}
-  Because $R$ is semisimple we have $R = \bigoplus_{i \in I} L_i$ where $L_i \subseteq R$ is a simple $R$-submodule for every $i \in I$.
-  By Lemma \ref{lemma: ring with 1 finite sum of submodules} there exists a finite subset $J \subseteq I$ with
-  \[
-      R
-    = \sum_{j \in J} L_j
-    = \bigoplus_{j \in J} L_j \,.
-    \qedhere
-  \]
+ The claim follows by applying Lemma~\ref{lemma: ring is already finite sum of submodules} to a decomposition into simple submodules.
 \end{proof}
 
+
+\begin{corollary}
+  If $R$ is a semisimple then there exist only finitely many simple $R$ modules up to isomorphism.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: semisimple ring is already a finite sum} and Lemma~\ref{lemma: simple module of semisimple ring is direct summand}.
+\end{proof}
+
+
+
+
+
+\subsection{The Theorem of Artin-Wedderburn}
+
+
+\begin{fluff}
+  We now state and proof the theorem of Artin-Weddeburn, which classifies semisimple rings up to isomorphism.
+\end{fluff}
 
 
 \begin{definition}
-  Let $R$ be a ring. Then the ring $R^\op$ is defined by taking the underlying additive group of $R$ and reversing the multiplication order, i.e.\ if for the multiplication $\cdot$ in $R$ and the multiplication $*$ in $R^\op$ we have
+  The \emph{opposite ring} $R^\op$ has the same underlying additive group as $R$, and the multiplication is given by
   \[
-      a * b
-    = b \cdot a
-    \text{ for all }
-    a, b \in R^\op \,.
+              a * b
+    \defined  b \cdot a
+    =         ba
   \]
+  for all $a, b \in R^\op$, where $\cdot$ denotes the multiplication of $R$.
 \end{definition}
 
 
 \begin{remark}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+  \label{remark: basic properties of op}
+  \leavevmode
+  \begin{enumerate}
     \item
-      For every ring $R$ we have $\left( R^\op \right)^\op = R$.
+      We have that $( R^\op )^\op = R$.
     \item
-      A ring $R$ is commutative if and only if $R = R^\op$.
-    \item
-      A ring $R$ is unitary if and only if $R^\op$ is unitary.
+      The ring $R$ is commutative if and only if $R = R^\op$.
     \item
       If $D$ is a skew field then $D^\op$ is also a skew field.
     \item
-      For a collectios of rings $R_i$, $i \in I$ we have
-      \[
-          \left( \prod_{i \in I} R_i \right)^\op
-        = \prod_{i \in I} R_i^\op
-      \]
-      and
-      \[
-          \left( \bigoplus_{i \in I} R_i \right)^\op
-        = \bigoplus_{i \in I} R_i^\op \,.
-      \]
+      For every family of rings $(R_i)_{i \in I}$ we have that $( \prod_{i \in I} R_i )^\op = \prod_{i \in I} R_i^\op$.
   \end{enumerate}
 \end{remark}
 
 
-\begin{example}
-  Let $D$ be a skew field and $n \geq 1$.
-  Then we have an isomorphism of rings
+\begin{lemma}
+  \label{lemma: op of matrix rings}
+  The map
   \[
-            \Mat_n(D)
-    \cong   \Mat_n\left( D^\op \right)^\op,
+            \Mat_n(R)^\op
+    \to     \Mat_n(R^\op)
     \quad   A
-    \mapsto A^T \,.
+    \mapsto A^T
   \]
-  For a field $k$ this gives us an isomorphism
-  \[
-            \Mat_n(k)
-    \cong   \Mat_n(k)^\op,
-    \quad   A
-    \mapsto A^T \,.
-  \]
-\end{example}
-
-
-For a ring $R$ there is a strong connection between left $R$-modules and right $R^\op$-modules.
-
-
-\begin{proposition}\label{proposition: opposite modules}
-  Let $R$ be a ring.
-  We have a 1:1-correspondence between the left $R$-modules and $R^\op$-modules, where for a left $R$-module $M$ the corresponding right $R^\op$-module $M^\op$ is defined as
-  \[
-              m \bullet r
-    \coloneqq r \cdot m
-    \text{ for every }
-    m \in M^\op \,,\,
-    r \in R^\op \,,
-  \]
-  where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
-\end{proposition}
-\begin{proof}
-  <Insert obvious calculations here>.
-\end{proof}
-
-
-\begin{lemma}\label{lemma: End_R(R) = Rop}
-  Let $R$ be a ring (with $1$).
-  Let $\cdot$ denote the multiplication in $R$ and $*$ the multiplication in $R^\op$.
-  Then we have an isomorphism of rings
-  \[
-              \End_R(R)
-    \cong     R^\op,
-    \quad     (s \mapsto s \cdot r)
-    \mapsfrom r \,.
-  \]
+  is an isomorphism of rings.
 \end{lemma}
 
 
-The Lemma basically states that the $\Integer$-homomorphisms of $R$ which are compatible with the left multiplication are given by right multiplication.
-
-
 \begin{proof}
-  Let
-  \[
-            \varphi
-    \colon  R^\op
-    \to     \End_R(R),
-    \quad   r
-    \mapsto (s \mapsto s \cdot r) \,.
-  \]
-  We first show that $\varphi$ is well-defined:
-  Notice that $(s \mapsto s \cdot r)$ is $\Integer$-linear for every $r \in R^\op$ by the distributivity of $\cdot$ and $R$-linear by the associativity of $\cdot$.
-  
-  To see that $\varphi$ is a ring-homomorphism notice that $\varphi(1) = \id_R$ and for all $r, r' \in R^\op$ and $s \in R$
+  We denote the multiplications on $R$ and $\Mat_n(R)$ by $\cdot$, the multiplication of $R^\op$ by $*$ and the multiplication on $\Mat_n(R)^\op$ by $\bullet$.
+  The given map is additive and bijective, and for all $A, B \in \Mat_n(R)^\op$ we have that
   \begin{align*}
-        \varphi(r+r')(s)
-    &=  s \cdot (r + r')
-     =  s \cdot r + s \cdot r' \\
-    &=  \varphi(r)(s) + \varphi(r')(s)
-     =  (\varphi(r)+\varphi(r'))(s)
+        \left( (A \bullet B)^T \right)_{ij}
+    &=  (A \bullet B)_{ji}
+     =  (B \cdot A)_{ji}
+     =  \sum_{k=1}^n B_{jk} \cdot A_{ki}  \\
+    &=  \sum_{k=1}^n A_{ki} * B_{jk}
+     =  \sum_{k=1}^n (A^T)_{ik} * (B^T)_{kj}
+     =  \left( (A^T) \bullet (B^T) \right)_{ij}
   \end{align*}
-  and
-  \begin{align*}
-        \varphi(r * r')(s)
-    &=  s \cdot (r * r')
-     =  s \cdot (r' \cdot r) \\
-    &=  (s \cdot r') \cdot r
-     =  \left(\varphi(r) \circ \varphi(r')\right)(s) \,.
-  \end{align*}
-  
-  That $\varphi$ is injective is clear, since for every $r \in \ker \varphi$
-  \[
-      0
-    = \varphi(r)(1)
-    = 1 \cdot r
-    = r \,.
-  \]
-  To see that it is surjective let $f \in \End_R(R)$ and set $r \coloneqq f(1)$.
-  For every $s \in R$ we then have
-  \[
-      f(s)
-    = f(s \cdot 1)
-    = s \cdot f(1)
-    = s \cdot r
-    = \varphi(r)(s) \,,
-  \]
-  and thus $f = \varphi(r)$.
+  for all $i, j = 1, \dotsc, n$, and therefore $(A \bullet B)^T = A^T \bullet B^T$.
 \end{proof}
 
 
-Let $D$ be a skew field.
-Becaus $D^n$ is a simple $\Mat_n(D)$-module we know from Schur’s Lemma that $\End_{\Mat_n(D)}(D^n)$ is a skew field.
-We would like to know how $D$ and $\End_{\Mat_n(D)}(D^n)$ are related.
-We know from linear algebra that for every field $k$ we have
-\[
-        \End_{\Mat_n(k)}(k^n)
-  \cong k.
-\]
-From Lemma \ref{lemma: End_R(R) = Rop} we also know that in the case $n = 1$. 
-\[
-  \End_D(D) \cong D^\op
-\]
-These observations lead to the following Lemma:
+% \begin{proposition}
+%   \label{proposition: opposite modules}
+%   Let $R$ be a ring.
+%   We have a $1$:$1$-correspondence between the left $R$-modules and $R^\op$-modules, where for a left $R$-module $M$ the corresponding right $R^\op$-module $M^\op$ is defined as
+%   \[
+%               m \bullet r
+%     \coloneqq r \cdot m
+%     \text{ for every }
+%     m \in M^\op \,,\,
+%     r \in R^\op \,,
+%   \]
+%   where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
+% \end{proposition}
+
+
+% \begin{proof}
+%   <Insert obvious calculations here>.
+% \end{proof}
 
 
 \begin{lemma}
-  Let $D$ be a skew field and $n \geq 1$. Then
+  \label{lemma: End_R(R) = Rop}
+  The map
   \[
-              \End_{\Mat_n(D)}\left(D^n\right)
-    \cong     D^\op,
-    \quad     \left(
-                        \vect{x_1 \\ \vdots \\ x_n}
-                \mapsto \vect{x_1 d \\ \vdots \\ x_n d}
-              \right)
-    \mapsfrom d
+              R^\op
+    \to       \End_R(R),
+    \quad     r
+    \mapsto   (x \mapsto xr)
   \]
-  as rings.
+  is an isomorphism of rings.
 \end{lemma}
+
+
 \begin{proof}
-  By $\cdot$ we denote the multiplication in $D$ and by $*$ the multiplication in $D^\op$.
-  For all $d \in D$, $d' \in D^\op$ and $x = (x_1, \dotsc, x_n) \in D^n$ we write
+  We denote the given map by $\Phi$ and the multiplication of $R^\op$ by $*$.
+  For every $r \in R^\op$ we have that
   \[
-              d x
-    \coloneqq (d x_1, \dotsc, d x_n)
-    \qquad \text{ and } \qquad
-              x d'
-    \coloneqq (x_1 d', \dotsc, x_n d'). 
+      \Phi(r'x)
+    = r' x r
+    = r' \Phi(x)
   \]
-  We also define
-  \[
-    \pi_i \colon D^n \to D
-  \]
-  as the canonical projection for every $1 \leq i \leq n$.
-  It is clear that $\pi_i$ is $D$-linear for every $1 \leq i \leq n$ where we see $D^n$ and $D$ as left $D$-modules in the usual way.
-  By $e_1, \dotsc, e_n$ we denote the standard basis of $D^n$ (as a left $D$-module).
+  for all $r' \in R$, $x \in R$, which shows that $\Phi(r)$ is $R$-linear for every $r \in R$.
+  The additivity of $\Phi(r)$ for every $r \in R$ follows from the distributivity of $R$.
+  This shows that $\Phi$ is well-defined.
   
-  We define
+  The additivity of $\Phi$ also follows from the distributivity of $R$, and we have that $\Phi(1_{R^\op}) = \Phi(1_R) = \id_R$.
+  For all $r_1, r_2 \in R^\op$ we have that
   \[
-            \varphi
-    \colon  D^\op
-    \to     \End_{\Mat_n(D)}\left( D^n \right),
-    \quad   d
-    \mapsto (x \mapsto x d) \,.
+      \Phi(r_1 * r_2)(x)
+    = x (r_1 * r_2)
+    = x r_2 r_1
+    = \Phi(r_2)(x) r_1
+    = \Phi(r_1)(\Phi(r_2)(x))
+    = (\Phi(r_1) \circ \Phi(r_2))(x)
   \]
-  It is clear that $\varphi$ is well-defined.
-  It is clear that $\varphi$ is additive.
-  That it is also multiplicative (and thus a ring homomorphism) follow from simple calculation:
-  For all $d, d' \in D^\op$ and $x \in D^n$ we have
-  \[
-      \varphi(d * d')(x)
-    = x (d * d')
-    = x (d' \cdot d)
-    = (x d') d
-    = \left( \varphi(d) \circ \varphi(d') \right)(x) \,.
-  \]
+  for every $x \in R$ and thus $\Phi(r_1 * r_2) = \Phi(r_1) \circ \Phi(r_2)$.
+  This shows that $\Phi$ is multiplicative.
+  Alltogether this shows that $\Phi$ is a ring homomorphism.
   
-  It is also easy to see that $\varphi$ is injective:
-  For $d, d' \in D^\op$ with $\varphi(d) = \varphi(d')$ we have
+  For every $r \in R^\op$ we have that $\Phi(r)(1) = r$, which shows that $\Phi$ is injective.
+  For every $\varphi \in \End_R(R)$ we have for $r \defined \varphi(1)$ that
   \[
-      d
-    = \pi_1(e_1 d)
-    = \pi_1(\varphi(d)(e_1))
-    = \pi_1(\varphi(d')(e_1))
-    = \pi_1(e_1 d')
-    = d' \,.
+      \varphi(x)
+    = \varphi(x \cdot 1)
+    = x \cdot \varphi(1)
+    = x r
+    = \Phi(r)(x)
   \]
-  
-  All that’s left to show is that $\varphi$ is surjective.
-  For this let $f \in \End_{\Mat_n(D)}(D^n)$.
-  $f$ is $D$-linear, because for all $d \in D$ and $x = (x_1, \dotsc, x_n) \in D^n$
-  \[
-      f(dx)
-    = f( \diag(d, \dotsc, d) x)
-    = \diag(d, \dotsc, d) f(x)
-    = d f(x) \,.
-  \]
-  For every $1 \leq i \leq n$ we set $d_i \coloneqq \pi_i(f(e_i))$.
-  We then have for every $1 \leq i \leq n$
-  \[
-      f(e_i)
-    = f(E_{ii} e_i)
-    = E_{ii} f(e_i)
-    = (0, \dotsc, d_i, \dotsc, 0)
-    = e_i d_i 
-  \]
-  and therefore for every $x = (x_1, \dotsc, x_n) \in D^n$
-  \begin{align*}
-        f(x)
-    &=  f(x_1 e_1 + \dotsb + x_n e_n)       \\
-    &=  f(x_1 e_1) + \dotsb + f(x_n e_n)    \\
-    &=  x_1 f(e_1) + \dotsb + x_n f(e_n)    \\
-    &=  x_1 e_1 d_1 + \dotsb + x_n e_n d_n  \\
-    &=  (x_1 d_1, \dotsc, x_n d_n)
-  \end{align*}
-  For every $1 \leq i,j \leq n$ we have
-  \begin{align*}
-        d_i
-    &=  \pi_i(e_i d_i)
-     =  \pi_i(f(e_i))
-     =  \pi_i(f(E_{ij} e_j)) \\
-    &=  \pi_i(E_{ij} f(e_j))
-     =  \pi_i(E_{ij} e_j d_j)
-     =  \pi_i(e_i d_j)
-     =  d_j \,.
-  \end{align*}   
-  This shows that $f = \varphi(d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
+  and thus $\Phi(r) = \varphi$.
+  This shows that $\Phi$ is surjective.
 \end{proof}
 
 
+% Let $D$ be a skew field.
+% Becaus $D^n$ is a simple $\Mat_n(D)$-module we know from Schur’s Lemma that $\End_{\Mat_n(D)}(D^n)$ is a skew field.
+% We would like to know how $D$ and $\End_{\Mat_n(D)}(D^n)$ are related.
+% We know from linear algebra that for every field $k$ we have
+% \[
+%         \End_{\Mat_n(k)}(k^n)
+%   \cong k.
+% \]
+% From Lemma \ref{lemma: End_R(R) = Rop} we also know that in the case $n = 1$. 
+% \[
+%   \End_D(D) \cong D^\op
+% \]
+% These observations lead to the following Lemma:
+% 
+% 
+% \begin{lemma}
+%   Let $D$ be a skew field and $n \geq 1$. Then
+%   \[
+%               \End_{\Mat_n(D)}\left(D^n\right)
+%     \cong     D^\op,
+%     \quad     \left(
+%                         \vect{x_1 \\ \vdots \\ x_n}
+%                 \mapsto \vect{x_1 d \\ \vdots \\ x_n d}
+%               \right)
+%     \mapsfrom d
+%   \]
+%   as rings.
+% \end{lemma}
+% \begin{proof}
+%   By $\cdot$ we denote the multiplication in $D$ and by $*$ the multiplication in $D^\op$.
+%   For all $d \in D$, $d' \in D^\op$ and $x = (x_1, \dotsc, x_n) \in D^n$ we write
+%   \[
+%               d x
+%     \coloneqq (d x_1, \dotsc, d x_n)
+%     \qquad \text{ and } \qquad
+%               x d'
+%     \coloneqq (x_1 d', \dotsc, x_n d'). 
+%   \]
+%   We also define
+%   \[
+%     \pi_i \colon D^n \to D
+%   \]
+%   as the canonical projection for every $1 \leq i \leq n$.
+%   It is clear that $\pi_i$ is $D$-linear for every $1 \leq i \leq n$ where we see $D^n$ and $D$ as left $D$-modules in the usual way.
+%   By $e_1, \dotsc, e_n$ we denote the standard basis of $D^n$ (as a left $D$-module).
+%   
+%   We define
+%   \[
+%             \varphi
+%     \colon  D^\op
+%     \to     \End_{\Mat_n(D)}\left( D^n \right),
+%     \quad   d
+%     \mapsto (x \mapsto x d) \,.
+%   \]
+%   It is clear that $\varphi$ is well-defined.
+%   It is clear that $\varphi$ is additive.
+%   That it is also multiplicative (and thus a ring homomorphism) follow from simple calculation:
+%   For all $d, d' \in D^\op$ and $x \in D^n$ we have
+%   \[
+%       \varphi(d * d')(x)
+%     = x (d * d')
+%     = x (d' \cdot d)
+%     = (x d') d
+%     = \left( \varphi(d) \circ \varphi(d') \right)(x) \,.
+%   \]
+%   
+%   It is also easy to see that $\varphi$ is injective:
+%   For $d, d' \in D^\op$ with $\varphi(d) = \varphi(d')$ we have
+%   \[
+%       d
+%     = \pi_1(e_1 d)
+%     = \pi_1(\varphi(d)(e_1))
+%     = \pi_1(\varphi(d')(e_1))
+%     = \pi_1(e_1 d')
+%     = d' \,.
+%   \]
+%   
+%   All that’s left to show is that $\varphi$ is surjective.
+%   For this let $f \in \End_{\Mat_n(D)}(D^n)$.
+%   $f$ is $D$-linear, because for all $d \in D$ and $x = (x_1, \dotsc, x_n) \in D^n$
+%   \[
+%       f(dx)
+%     = f( \diag(d, \dotsc, d) x)
+%     = \diag(d, \dotsc, d) f(x)
+%     = d f(x) \,.
+%   \]
+%   For every $1 \leq i \leq n$ we set $d_i \coloneqq \pi_i(f(e_i))$.
+%   We then have for every $1 \leq i \leq n$
+%   \[
+%       f(e_i)
+%     = f(E_{ii} e_i)
+%     = E_{ii} f(e_i)
+%     = (0, \dotsc, d_i, \dotsc, 0)
+%     = e_i d_i 
+%   \]
+%   and therefore for every $x = (x_1, \dotsc, x_n) \in D^n$
+%   \begin{align*}
+%         f(x)
+%     &=  f(x_1 e_1 + \dotsb + x_n e_n)       \\
+%     &=  f(x_1 e_1) + \dotsb + f(x_n e_n)    \\
+%     &=  x_1 f(e_1) + \dotsb + x_n f(e_n)    \\
+%     &=  x_1 e_1 d_1 + \dotsb + x_n e_n d_n  \\
+%     &=  (x_1 d_1, \dotsc, x_n d_n)
+%   \end{align*}
+%   For every $1 \leq i,j \leq n$ we have
+%   \begin{align*}
+%         d_i
+%     &=  \pi_i(e_i d_i)
+%      =  \pi_i(f(e_i))
+%      =  \pi_i(f(E_{ij} e_j)) \\
+%     &=  \pi_i(E_{ij} f(e_j))
+%      =  \pi_i(E_{ij} e_j d_j)
+%      =  \pi_i(e_i d_j)
+%      =  d_j \,.
+%   \end{align*}   
+%   This shows that $f = \varphi(d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
+% \end{proof}
+
+
 \begin{theorem}[Artin--Wedderburn]
-  Let $R$ be a semisimple ring (with $1$). Then
-  \[
-    R \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
-  \]
-  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
-  Moreover $r$ is unique, $(n_1,D_1), \dotsc, (n_r,D_r)$ are unique up to permutation and isomorphism of the $D_i$.
-  
-  More precisely:
-  If $R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r$ as $R$-modules for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$ then
-  \[
-    R \cong \Mat_{n_1}(\End_R(V_1)^\op) \times \dotsb \times \Mat_{n_r}(\End_R(V_r)^\op) \,.
-  \]
+  Let $R$ be semisimple.
+  \begin{enumerate}
+    \item
+      If
+      \[
+              R
+        \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}
+      \]
+      for $r \geq 0$, pairwise non-isomorphic simple $R$-modules $M_1, \dotsc, M_r$ and $n_1, \dotsc, n_r \geq 1$, then
+      \[
+              R
+        \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+      \]
+      as rings with $D_i = \End(M_i)^\op$ for every $i = 1, \dotsc, r$.
+      \item
+      This decomposition is unique in the following sense:
+      If
+      \[
+              R
+        \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+      \]
+      for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$, then the number $r$ is as above and the pairs $(n_1,D_1), \dotsc, (n_r,D_r)$ are as above up to permutation and isomorphism of the $D_i$.
+  \end{enumerate}
 \end{theorem}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      It follows from Lemma~\ref{lemma: End_R(R) = Rop} and Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} that
+      \[
+                R^\op
+        \cong   \End_R(R)
+        \cong   \End_R(M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r})
+        \cong   \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \,.
+      \]
+      It further follows from Remark~\ref{remark: basic properties of op} and Lemma~\ref{lemma: op of matrix rings} that
+      \begin{align*}
+                R
+        =      (R^\op)^\op
+        &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
+        &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op  \\
+        &\cong  \Mat_{n_1}(D_1^\op) \times \dotsb \times \Mat_{n_r}(D_r^\op) \,.
+      \end{align*}
+    \item
+      Let $\varphi \colon R \to \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ be such an isomorphism.
+      
+  \end{enumerate}
+\end{proof}
+
 
 
 Notice that by Corollary \ref{corollary: simple modules over product of matrix algebras} it follows that a ring of the above form has exactly $r$ simple modules up to isomorphism, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$.
@@ -638,4 +661,345 @@ Notice that by Corollary \ref{corollary: simple modules over product of matrix a
 
 
 
+\begin{definition}
+  A ring $R$ is called \emph{simple} if it’s only two-sided ideals are $R$ and $0$.
+\end{definition}
 
+
+\begin{warning}
+  This definition of a simple ring is no equivalent to the last one:
+  Earlier we defined a ring $R$ to be simple if it is semisimple and has precisely one simple module up to isomorphism.
+  We will refer to these rings as \emph{simple according to definition 1}.
+  Rings which are simple according to the new definition above will be referred to as just \emph{simple}.
+\end{warning}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Let $D$ be a division ring and $n \geq 1$.
+      We have already seen that $\Mat_n(D)$ is a simple according to definition 1.
+      It is also simple:
+      Let $I \subseteq \Mat_n(D)$ be a two-sided ideal with $I \neq 0$.
+      Let $A = (a_{ij})_{1 \leq i,j \leq n} \in I$ with $A \neq 0$.
+      Then $a_{ij} \neq 0$ for some $1 \leq i,j \leq n$.
+      Therefore
+      \[
+          \diag\left( a_{ij}^{-1}, \dotsc, a_{ij}^{-1} \right) E_{ii} A E_{jj}
+        = E_{ij} \in I
+      \]
+      and thus for every $1 \leq k,l \leq n$
+      \[
+            E_{kl}
+        =   E_{ki} E_{ij} E_{jl}
+        \in I \,.
+      \]
+      Since $I$ is a $D$-submodule of $\Mat_n(D)$ we find that $I = \Mat_n(D)$.
+    \item
+      The Weyl-algebra
+      \[
+          \mc{A}_2
+        = k \gen{X,\partial} / (X \partial - \partial X - 1)
+      \]
+      is simple, but not simple according to definition 1.
+  \end{enumerate}
+\end{example}
+
+
+\begin{warning}
+  A simple ring $R$ is not necessarily simple as an $R$-module.
+  A counterexample is $\Mat_n(D)$ for a skew field $D$ and $n \geq 2$.
+\end{warning}
+
+
+\begin{lemma}
+  Let $R$ be a ring (with $1$).
+  If $R$ is simple according to definition 1 it is also simple.
+\end{lemma}
+\begin{proof}
+  Since $R$ is semisimple we have
+  \[
+    R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+  \]
+  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$ by Artin--Wedderburn.
+  Since $r = |\Irr(R)| = 1$ we have
+  \[
+    R \cong \Mat_n(D)
+  \]
+  for $n \geq 1$ and a skew field $D$.
+\end{proof}
+
+
+We can also ask ourselves under what conditions a simple ring $R$ is semisimple (and thus semisimple as an $R$-module). The following theorem by Wedderburn answers that question:
+
+
+\begin{theorem}[Wedderburn]
+  Let $R$ be a simple ring (with $1$). Then the following are equivalent:
+  \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+    \item \label{enum: semisimple}
+      $R$ is semisimple.
+    \item \label{enum: left artian}
+      $R$ is (left) artian.
+    \item \label{enum: minimal left ideal}
+      $R$ has a minimal left ideal $I \neq 0$.
+    \item \label{enum: matrix ring over skew field}
+      $R \cong \Mat_n(D)$ for some $n \in \Natural$ and skew field $D$.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  The equivalence of \ref{enum: semisimple} and \ref{enum: matrix ring over skew field} follows directly from Artin--Wedderburn.
+  
+  To show that \ref{enum: semisimple} implies \ref{enum: left artian} suppose that \ref{enum: semisimple} holds.
+  Then $R = \bigoplus_{i=1}^s V_i$ where $V_i \subseteq R$ is a simple $R$-module for every $1 \leq i \leq s$.
+  Then
+  \[
+              0
+    \subseteq V_1
+    \subseteq V_1 \oplus V_2
+    \subseteq \dotsb
+    \subseteq V_1 \oplus \dotsb \oplus V_s
+    =         R
+  \]
+  is a composition series of $R$, so by the Jordan-Hölder theorem (which we will not prove in this lecture) every strictly decreasing chain of left ideals in $R$ stabilizes (after at most $s$ ideal).
+  
+  To see that \ref{enum: left artian} implies \ref{enum: minimal left ideal} notice that if \ref{enum: minimal left ideal} does not hold we have an infinite chain
+  \[
+                A
+    \supsetneq  I_1
+    \supsetneq  I_2
+    \supsetneq  I_3
+    \supsetneq  \dotso
+  \]
+  of strictly decreasing nonzero left ideals, which contradicts \ref{enum: left artian}.
+  
+  Last we show that \ref{enum: minimal left ideal} implies \ref{enum: semisimple}.
+  Suppose that $I \neq 0$ is a minimal left ideal.
+  Then for every $r \in R$ the left ideal $Ir$ is either zero or minimal (i.e.\ simple as an $R$-submodule), since the map
+  \[
+            \varphi
+    \colon  I
+    \to     Ir,
+    \quad   x
+    \mapsto xr
+  \]
+  is an epimorphism of $R$-modules and thus either zero or an isomorphism (since $I$ is a simple $R$ module).
+  Now
+  \[
+              J
+    \coloneqq \sum_{r \in R} Ir
+    =         IR
+  \]
+  is a two-sided ideal in $R$ which is nonzero (because $0 \subsetneq I = I1 \subseteq J$), so $J = R$.
+  This show that $R$ is the sum of simple submodules.
+\end{proof}
+
+
+\begin{corollary}
+  Let $A$ be finite-dimensional simple $k$-algebra.
+  Then $A$ is semisimple and $A \cong \Mat_n(D)$ for some skew field $D$ and $n \in \Natural$.
+\end{corollary}
+\begin{proof}
+  Because $A$ is finite-dimenisonal it contains a minimal ideal $I \neq 0$.
+  The rest follows from Wedderburn’s theorem.
+\end{proof}
+
+
+\begin{lemma}
+  Let $D$ be a skew field and $n \geq 1$.
+  Then $Z(D)$ is a field and
+  \[
+    Z(\Mat_n(D)) \cong Z(D)
+  \]
+  as rings.
+\end{lemma}
+\begin{proof}
+  We start by showing that $Z(D)$ is a field.
+  We know that $Z(D) \subseteq D$ is a commutative subring (with $1$).
+  Since $0 \neq 1$ in $D$ we also have $0 \neq 1$ in $Z(D)$.
+  $Z(D)$ is also an integral domain, since $D$ is.
+  All that we need to show is that for every $x \in Z(D)$ we also have $x^{-1} \in Z(D)$.
+  This is clear, because for every $y \in D$
+  \[
+      x^{-1} y
+    = x^{-1} y x x^{-1}
+    = x^{-1} x y x^{-1}
+    = y x^{-1} \,.
+  \]
+  
+  Next we show that $Z(\Mat_n(D)) \cong Z(D)$.
+  For this let $A \in Z(\Mat_n(D))$.
+  We first show that $A$ is a diagonal matrix.
+  To see this let $\pi_{ij} \colon \Mat_n(D) \to D$ be the canonical projection of the $(i,j)$-th coordinate for all $1 \leq i,j \leq n$.
+  For all $1 \leq i,j \leq n$ we have
+  \[
+      a_{ij}
+    = \pi_{ij}(E_{ii} A_{ij} E_{jj})
+    = \pi_{ij}(E_{ii} E_{jj} A)
+    = \delta_{ij} a_{ij} \,,
+  \]
+  so $a_{ij} = 0$ for $i \neq j$.
+  Let $d_1, \dotsc, d_n \in D$ with $A = \diag(d_1, \dotsc, d_n)$.
+  For every $1 \leq i,j \leq n$ we have
+  \begin{align*}
+        d_i
+    &=  \pi_{ii}(A E_{ii})
+     =  \pi_{ii}(A E_{ij} E_{jj} E_{ji})
+     =  \pi_{ii}(E_{ij} A E_{jj} E_{ji}) \\
+    &=  \pi_{ii}(E_{ij} d_j E_{jj} E_{ji})
+     =  \pi_{ii}(d_j E_{ij} E_{jj} E_{ji})
+     =  \pi_{ii}(d_j E_{ii})
+     =  d_j \,,
+  \end{align*}
+  so $A = \diag(d, \dotsc, d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
+  Since $A$ commutes with all diagonal matrices we have $d \in Z(D)$.
+\end{proof}
+
+
+\begin{definition}
+  Let $k$ be a field.
+  A $k$-algebra $A$ is called a \emph{central simple algebra (over $k$)} if $A$ is finite-dimensional, simple and $Z(A) = k$.
+\end{definition}
+
+
+\begin{lemma}\label{lemma: Z(A o B) = Z(A) o Z(B)}
+  Let $A$ and $B$ be $k$-algebras.
+  Then
+  \[
+      Z(A \otimes_k B)
+    = Z(A) \otimes_k Z(B) \,.
+  \]
+\end{lemma}
+
+
+\begin{recall}
+  Let $k$ be a field $V$ and $W$ be $k$-vector spaces.
+  We know from linear algebra that every element $x \in V \otimes_k W$ can be written as a finite sum of simple tensors $x = \sum_{i=1}^n v_i \otimes w_i$.
+  Furthermore $v_1, \dotsc, v_n$ are unique if $w_1, \dotsc, w_n \in W$ are linearly independent.
+  \begin{proof}
+    We can assume w.l.o.g.\ that $W = \vspan_k \{w_1, \dotsc, w_n\}$.
+    We have for every $1 \leq i \leq n$ a $k$-bilinear map
+    \[
+              s_i
+      \colon  V \times W \to V,
+      \quad   \left(v, \sum_{i=1}^n \lambda_i w_i\right)
+      \mapsto \lambda_i v \,.
+    \]
+    and thus a $k$-linear map
+    \[
+              f_i
+      \colon  V \otimes_k W
+      \to     V,
+      \quad   v \otimes w_j
+      \mapsto \delta_{ij} v \,.
+    \]
+    For $x \in V \otimes_k W$ with $x = \sum_{j=1}^n v_j \otimes w_j = \sum_{j=1}^n v'_j \otimes w_j$ we have
+    \[
+        0
+      =   \left( \sum_{j=1}^n v_j \otimes w_j \right)
+        - \left( \sum_{j=1}^n v'_j \otimes w_j \right)
+      = \sum_{j=1}^n (v_j - v'_j) \otimes w_j
+    \]
+    and therefore for every $1 \leq i \leq n$
+    \[
+        v_i - v'_i
+      = f_i\left( \sum_{j=1}^n (v_j - v'_j) \otimes w_j\right)
+      = f_i(0)
+      = 0 \,.
+      \qedhere
+    \]
+  \end{proof}
+\end{recall}
+
+
+\begin{proof}[Proof of the Lemma]
+  It is clear that $Z(A) \otimes_k Z(B) \subseteq Z(A \otimes_k B)$.
+  To show the other inclusion let $x \in Z(A \otimes_k B)$.
+  We can write $x = \sum_{i=1}^n a_i \otimes b_i$.
+  We can assume w.l.o.g.\ that both $a_1, \dotsc, a_n$ and $b_1, \dotsc, b_n$ are linearly independent.
+  For every $a \in A$ we have
+  \[
+      \sum_{i=1}^n (a a_i) \otimes b_i
+    = (a \otimes 1) x
+    = x (a \otimes 1)
+    = \sum_{i=1}^n (a_i a) \otimes b_i
+  \]
+  and thus $a_i a = a a_i$ (because $b_1, \dotsc, b_n$ are linearly independent).
+  So $a_i \in Z(A)$ for every $1 \leq i \leq n$.
+  In the same way we find that $b_1, \dotsc, b_n \in Z(B)$.
+  This shows that $x \in Z(A) \otimes_k Z(B)$.
+\end{proof}
+
+
+\begin{proposition}
+  Let $A$ and $B$ be central simple algebras over the same field $k$.
+  Then $A \otimes_k B$ is a central simple algebra.
+\end{proposition}
+\begin{proof}
+  Since both $A$ and $B$ are finite-dimensional the same holds for $A \otimes_k B$.
+  By Lemma \ref{lemma: Z(A o B) = Z(A) o Z(B)} we have
+  \[
+      Z(A \otimes_k B)
+    = Z(A) \otimes_k Z(B
+    = k \otimes_k k
+    = k \,.
+  \]
+  So we only need to show that $A \otimes_k B$ only contains $0$ and $A \otimes_k B$ as two-sided ideals.
+  To show this let $I \subseteq A \otimes_k B$ be a two-sided ideal with $I \neq 0$.
+  We can write every $u \in I$ as $u = \sum_{i=1}^n a_i \otimes b_i$ where $b_1, \dotsc, b_n$ are linearly independent.
+  Let $u \in I$ with $u \neq 0$ such that $u$ can be written as above so that the number of summands is minimal with respect to all nonzero elements in $I$.
+  Let
+  \begin{equation}\label{eqn: u as a sum}
+    u = \sum_{i=1}^n a_i \otimes b_i
+  \end{equation}
+  be such a sum.
+  Since $n$ is minimal we have $a_1 \neq 0$.
+  Therefore the two-sided ideal $A a_1 A \subseteq A$ is non-zero, so $A a_1 A = A$ because $A$ is simple.
+  In particular there exists $c, c' \in A$ with $1 = c a_1 c'$.
+  By multiplying \eqref{eqn: u as a sum} from the left with $(c \otimes 1)$ and from the right with $(c' \otimes 1)$ we see that the element
+  \[
+              x
+    \coloneqq (c \otimes 1) u (c' \otimes 1)
+    \in       I
+  \]
+  can be written as
+  \begin{equation}\label{eqn: x as a sum}
+        x
+    =   1 \otimes b_1
+      + a'_2 \otimes b_2
+      + \dotsb
+      + a'_n \otimes b_n
+  \end{equation}
+  where $b_1, \dotsc, b_n$ are linearly independent.
+  In particular $x \neq 0$.
+  For every $a \in A$ we have
+  \[
+        (a \otimes 1) x - x (a \otimes 1)
+    =   (a a'_2 - a'_2 a) \otimes b_2
+      + \dotsb
+      + (a a'_n - a'_n a) \otimes b_2 \in I \,.
+  \]
+  By the minimality of $u$ we find that
+  \[
+      (a \otimes 1) x - x (a \otimes 1)
+    = 0
+  \]
+  for every $a \in A$.
+  Because $b_2, \dotsc, b_n$ are linearly independent it follows that $a a'_i - a'_i a = 0$ for all $a \in A$ and $2 \leq i \leq n$.
+  So $a'_2, \dotsc, a'_n \in Z(A) = k$.
+  Using \eqref{eqn: x as a sum} we find that $x = 1 \otimes b$ for some $b \in B$.
+  Since $x \neq 0$ we also have $b \neq 0$.
+  Because $B$ is simple we find that $BbB = B$ and therefore
+  \[
+              I
+    \supseteq (1 \otimes B) x (1 \otimes B)
+    =         1 \otimes (BbB)
+    =         1 \otimes B \,.
+  \]
+  Using this we find that
+  \[
+              I
+    \supseteq (A \otimes 1) (1 \otimes B)
+    =         A \otimes_k B \,.
+  \]
+  So $0$ and $A \otimes_k B$ are the only two-sided ideals in $A \otimes_k B$.
+\end{proof}

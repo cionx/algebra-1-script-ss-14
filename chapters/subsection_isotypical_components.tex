@@ -45,6 +45,20 @@
 \end{remark}
 
 
+\begin{lemma}
+  \label{lemma: intersection of semisimple sums}
+  Let $N, N' \moduleeq M$ be semisimple submodules with $N = \sum_{i \in I} L_i$, $N' = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleeq N$, $L'_j \moduleeq N'$.
+  If $N \cap N' \neq 0$ then $L_i \cong L'_j$ for some $i, j$.
+\end{lemma}
+
+
+\begin{proof}
+  The module $N \cap N'$ is again semisimple because it is a submodule of $N, N'$.
+  It follows from $N \cap N' \neq 0$ that $N \cap N'$ contains a simple module $L$.
+  By applying Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusions $L \inclusion N$ and $L \inclusion N'$ it follows that $L \cong L_i$ and $L \cong L'_j$ for some $i, j$.
+\end{proof}
+
+
 \begin{definition}
   The set of isomorphism classes of simple $R$-modules is $\Irr(R)$.
 \end{definition}
@@ -62,54 +76,37 @@
       M
     = \bigoplus_{[E] \in \Irr(R)} M_E \,,
   \]
-  and if $M = \bigoplus_{i \in I} L_i$ is any decomposition into simple submodules $L_i \moduleeq M$ then
+  and if $M = \sum_{i \in I} L_i$ for simple submodules $L_i \moduleeq M$ then
   \[
       M_E
-    = \bigoplus_{i \in I, L_i \cong E} L_i
+    = \sum_{i \in I, L_i \cong E} L_i
   \]
   for every $[E] \in \Irr(R)$.
 \end{theorem}
 
 
 \begin{proof}
-  For every $i \in I$ let $\pi_i \colon M \to L_i$ be the canonical projection with respect to the given decomposition.
-  Let $[E] \in \Irr(R)$ and let
+  We have that
   \[
-              J
-    \defined  \{
-                i \in I
-              \suchthat
-                L_i \cong E
-              \} \,.
+              M
+    =         \sum_{i \in I} L_i
+    =         \sum_{[E] \in \Irr(R)} \sum_{i \in I, L_i \cong E} L_i
+    \moduleeq \sum_{[E] \in \Irr(R)} M_E \,.
   \]
-  we have that $\bigoplus_{j \in J} L_j \moduleeq M_E$.
-  If $L \moduleeq M$ is a simple submodule with $L \cong E$ then for the inclusion $\iota \colon L \to M$ the compositions $\pi_i \circ \iota \colon L \to E_i$ vanishe for every $i \in I$ with $i \notin J$ by \hyperref[proposition: Schurs lemma for modules]{Schur’s~lemma}.
-  It follows that $L = \im(\iota)$ is contained in $\bigoplus_{j \in J} L_j$.
-  This shows that
+  with $\sum_{i \in I, L_i \cong E} L_i \moduleeq M_E$ for every $E \in \Irr(R)$.
+  It thus sufficies to show that the sum $M  = \sum_{[E] \in \Irr(R)} M_E$ is direct, i.e. that
   \[
-              M_E
-    =         \sum_{L \moduleeq M, L \cong E} L
-    \moduleeq \bigoplus_{j \in J} L_j \,.
+          M_E \cap \left( \sum_{[F] \in \Irr(R), [F] \neq [E]} M_F \right)
+    \neq  0
   \]
-  Together this shows that $M_E = \bigoplus_{j \in J} L_j$.
-  It follows that
-  \[
-      M
-    = \bigoplus_{i \in I} L_i
-    = \bigoplus_{[E] \in \Irr(R)} \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i
-    = \bigoplus_{[E] \in \Irr(R)} M_E
-  \]
-  where we use for the first equality the disjointness of the union
-  \[
-                                I
-    = \bigcup_{[E] \in \Irr(R)} \{ i \in I \suchthat L_i \cong E \} \,.
-  \]
-  This finishes the proof.
+  for every $[E] \in \Irr(R)$.
+  This follows from Lemma~\ref{lemma: intersection of semisimple sums}.
 \end{proof}
 
 
 \begin{corollary}
-  If $M$ is $E$-isotypical and $F \ncong E$ then $M_F = 0$.
+  \label{corollary: isotypical components of isotypicial modules}
+  If $M$ is $E$-isotypical and $F \ncong E$ then $M_F = 0$, i.e.\ if $L \moduleeq M$ is simple then $F \cong E$.
 \end{corollary}
 
 
@@ -125,27 +122,10 @@
 
 
 \begin{proof}
-  It follows from $N \moduleeq M$ that $N_E \moduleeq M_E$.
-  
-  We first consider the case that $M$, and therefore also $N$, is semisimple.
-  We then have the isotypical decompositions $N = \bigoplus_{[E] \in \Irr(R)} N_E$ and $M = \bigoplus_{[E] \in \Irr(R)} M_E$ with $N_E \moduleeq M_E$ for every $[E] \in \Irr(R)$, and it follows that $N_E = N \cap M_E$ for every $[E] \in \Irr(R)$.
-  
-  For the general case we note that the module $N \cap M_E$ is semisimple because it is a submodule of $M_E$ which is semisimple.
-  It follows that $N \cap M_E$ is contained in $\soc(N)$, and therefore that
-  \[
-      N \cap M_E
-    = \soc(N) \cap N \cap M_E
-    = \soc(N) \cap M_E \,.
-  \]
-  We also have that $M_E = \soc(M)_E$ and that $NvE = \soc(N)_E$.
-  Because $\soc(N), \soc(M)$ are semisimple it follows from the above case that
-  \[
-      N \cap M_E
-    = \soc(N) \cap \soc(M)_E
-    = \soc(M)_E
-    = M_E \,.
-  \]
-  This finishes the proof.
+  It follows from $N \moduleeq M$ that $N_E \moduleeq M_E$ and therefore that $N_E \moduleeq N \cap M_E$.
+  The module $N \cap M_E$ is a submodule of $M_E$ and therefore semisimple.
+  For every simple submodule $L \moduleeq N \cap M_E \moduleeq M_E$ we have that $L \cong E$ by Corollary~\ref{corollary: isotypical components of isotypicial modules} and therefore $L \moduleeq N_E$.
+  It follows that $N \cap M_E \moduleeq N_E$.
 \end{proof}
 
 
@@ -166,6 +146,7 @@
 
 \begin{proof}
   This follows from $0 \neq E \moduleeq M_E \moduleeq \bigoplus_{i \in I, L_i \cong E} L_i$.
+  Alternatively, apply Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusion $E \hookrightarrow M = \sum_{i \in I} L_i$.
 \end{proof}
 
 
@@ -215,3 +196,4 @@
     M \,.
   \end{align*}
 \end{remark}
+

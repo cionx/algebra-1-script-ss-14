@@ -1,0 +1,166 @@
+\subsection{Schur’s Lemma}
+
+
+\begin{proposition}[Schur’s lemma]
+  \label{proposition: Schurs lemma for modules}
+  Let be a $M, N$ be $R$-modules and let $f \colon M \to N$ be a nonzero homomorphism of $R$-modules.
+  \begin{enumerate}
+    \item
+      \label{enumerate: Schur injective}
+      If $M$ is simple then $f$ is injective.
+    \item
+      \label{enumerate: Schur surjective}
+      If $N$ is simple then $f$ is surjective.
+  \end{enumerate}
+  Let $M, N$ be simple.
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: Schur bijective}
+      The homomorphism $f$ is bijective.
+    \item
+      \label{enumerate: Schur endomorphism ring}
+      The endomorphism ring $\End_R(M)$ is a skew field.
+  \end{enumerate}
+  If $R$ has the additional structure of a $k$-algebra we also have the following:
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: Schur divison algebra}
+      The endomorphism ring $\End_R(M)$ is a division algebra over $k$.
+    \item
+      \label{enumerate: Schur scalar for fd}
+      If $k$ is algebraically closed and $M$ is finite dimensional over $k$ then $\End_R(M) = k$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The kernel $\ker(f)$ is a proper submodule of $M$, so $\ker(f) = 0$.
+    \item
+      The image $\im(f)$ is a nonzero submodule of $N$, so $\im(f) = 0$.
+    \item
+      This follows from parts~\ref*{enumerate: Schur injective}, \ref*{enumerate: Schur surjective}.
+    \item
+      It follows from $M \neq 0$ that $\id_M \neq 0$.
+      The claim is therefore a reformulation of part~\ref*{enumerate: Schur endomorphism ring}.
+    \item
+      This is a combination of part~\ref*{enumerate: Schur divison algebra} and the $k$-algebra structure of $\End_R(M)$.
+    \item
+      It follows that $\End_R(M)$ is a finite-dimensional divison algebra over $k$ by part~\ref*{enumerate: Schur scalar for fd}.
+      It follows that $\End_R(M) = k$ because the algebraically closed field $k$ admits no non-trivially skew field extension.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  \hyperref[proposition: Schurs lemma representations]{Schur’s~lemma for representation of groups} can be derived from the one for algebras by the usual correspondence between representations of a group and modules over the group algebra.
+\end{remark}
+
+
+\begin{corollary}
+  \label{corollary: no nonzero homomorphisms between disjoint semisimple modules}
+  Let $M, M'$ be semisimple $R$-modules with $M = \sum_{i \in I} L_i$ and $N = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleeq M$, $L'_j \moduleeq M'$.
+  If there exists a nonzero homomorphism of $R$-modules $f \colon M \to M'$ then $L_i \cong L'_j$ for some $i, j$.
+\end{corollary}
+
+
+\begin{proof}
+  It follows that $\restrict{f}{L_i} \neq 0$ for some $i \in I$.
+  There then exists some $x \in L_i$ with $f(x) \neq 0$, where $f(x) = \sum_{j \in J} y_j$ with $y_j \in L'_j$ for every $j \in J$.
+  It follows that $y_j \neq 0$ for some $j \in J$.
+  There then exists a direct complement $C \moduleeq M'$ of $L_j$, and the composition
+  \[
+                        L_i
+    \inclusion          M
+    \xlongrightarrow{f} M'
+    =                   C \oplus L_j
+    \projection         L_j
+  \]
+  is nonzero because it maps $x$ to $y_j$.
+  It follows from Schur’s Lemma that this composition is an isomorphism, so that $L_i \cong L'_j$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: End is isomorphic to product of matrix rings Schur style}
+  Suppose that $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ where $M_1, \dotsc, M_r$ are pairwise non-isomorphic simple $R$-modules and $n_1, \dotsc, n_r \geq 1$.
+  Then
+  \[
+          \End_R(M)
+    \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+  \]
+  where $D_i \defined \End_R(M_i)$ for every $i = 1, \dotsc, r$.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: decomposition of endomorphisms for orthogonal modules} because $\Hom_R(M_i, M_j) = 0$ for all $i \neq j$ by \hyperref[proposition: Schurs lemma for modules]{Schur’s lemma}.
+\end{proof}
+
+
+
+\begin{remark}
+  \label{remark: Schur for cardinality big enough}
+  Part~\ref{enumerate: Schur scalar for fd} of Schur’s lemma holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $M$, i.e.\ as long as $\card k > \dim_k M$.
+  This generalizes \ref{enumerate: morphism space is one-dimensional} because every algebraically closed field is infinite.
+
+  We prove this in two steps:
+  We first show that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$.
+  We then show that $f = \lambda \id_M$ where $\lambda \in k$ is a root of $p(t)$.
+  \begin{enumerate}[label=\arabic*)]
+    \item
+      If $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$ then $p(f) \colon M \to M$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_R(M)$ is a skew field.
+      It follows that the $k$-vector space structure of $M$ can be extended to a $k(t)$-vector space structure given by
+      \[
+                  \frac{p(t)}{q(t)} \cdot m
+        \defined  \left( p(f) q(f)^{-1} \right)(m)
+      \]
+      for all $p(t)/q(t) \in k(t)$, $m \in M$.
+      
+      Note that this is just the universal property of the localization:
+      The ring homomorphism $\varphi \colon k[t] \to \End_R(M)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
+      \[
+                \Phi
+        \colon  k(t)
+        =       S^{-1} k[t]
+        \to     \End_R(M) \,,
+        \quad   p(t)/q(t)
+        \mapsto p(f) q(f)^{-1} \,.
+      \]
+      By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(M)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $M$.
+      This is precisely the $k(t)$-vector space structure from above.
+      
+      Because $M$ is a nonzero $k(t)$-vector space it follows that
+      \[
+              \dim_k M
+        =     \dim_k k(t) \cdot \dim_{k(t)} M
+        \geq  \card k \cdot 1
+        =     \card k \,,
+      \]
+      which contradicts $\card k > \dim_k M$.
+      For the (in)equalities we used the following facts from linear algebra:
+      \begin{itemize}
+        \item
+          For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $M$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(c_j b_i)_{i \in I, j \in J}$ is a $k$-basis of $M$.
+        \item
+          For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
+        \item
+          That $\dim_{k(t)} M \geq 1$ follows from $M$ being nonzero.
+      \end{itemize}
+      This contradiction shows that $p(f) \neq 0$ for some nonzero $p(t) \in k[t]$.
+      We may assume w.l.o.g.\ that $p(t)$ is monic.
+      
+    \item
+      We have seen that $\End_R(M)$ is an algebraic skew field extension of $k$.
+      It thus follows from $k$ being algebraically closed that $\End_R(M) = k$ since $k$ admits no non-trivial algebraic skew field extensions
+      .
+  \end{enumerate}
+  The idea of the above proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
+\end{remark}
+
+
+
+
