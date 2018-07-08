@@ -25,12 +25,6 @@
 % is a decomposition into (left) $R$-module by Corollary \ref{theorem: isotypical decomposition}.
 
 
-% \begin{definition}
-%   A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
-%   In particular $R$ is semisimple.
-% \end{definition}
-
-
 \begin{example}
   \label{example: semisimple rings}
   \leavevmode
@@ -82,18 +76,6 @@
   Let $E$ be a simple $R$-module and let $x \in E$ with $x \neq 0$.
   Then the map $R \to E$, $r \mapsto rx$ is a nonzero homomorphism of $R$-modules and the claim follows from Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules}.
 \end{proof}
-
-
-% \begin{corollary}
-% \label{corollary: simple rings one simple module}
-%   Let $R$ be a simple ring.
-%   Then there is exactly one simple $R$-module up to isomorphism.
-% \end{corollary}
-% \begin{proof}
-%   Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
-%   For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
-%   Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
-% \end{proof}
 
 
 \begin{corollary}
@@ -407,6 +389,7 @@
 
 
 \begin{theorem}[Artin--Wedderburn]
+  \label{theorem: artin wedderburn theorem}
   Let $R$ be semisimple.
   \begin{enumerate}
     \item
@@ -453,7 +436,7 @@
         &\cong  \Mat_{n_1}(D_1^\op) \times \dotsb \times \Mat_{n_r}(D_r^\op) \,.
       \end{align*}
     \item
-      Let $\varphi \colon R \to \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ be such an isomorphism.
+      Let $\varphi \colon R \to \Mat_{n'_1}(D'_1) \times \dotsb \times \Mat_{n'_{r'}}(D'_{r'})$ be such an isomorphism.
       
   \end{enumerate}
 \end{proof}
@@ -540,125 +523,148 @@ Notice that by Corollary \ref{corollary: simple modules over product of matrix a
 \end{proof}
 
 
-\begin{proof}[Proof of Artin--Wedderburn]
-  We start by showing the existance:
-  By Lemma \ref{lemma: semisimple ring with 1 only finitely many summands} we have $R = \bigoplus_{i = 1}^n L_i$ as $R$-modules for some $n \geq 1$ and simple submodules $L_i \subseteq R$.
-  By sorting these submoduls by isomorphism classes we get
-  \[
-    R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r
-  \]
-  for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$.
-  Since it is enough to prove the theorem for $n_1 V_1 \oplus \dotsb \oplus n_r V_r$ we will assume that $R = n_1 V_1 \oplus \dotsb \oplus n_r V_r$.
-  
-  By Schur’s Lemma we find for every $1 \leq i \leq r$
-  \[
-          \End_R(n_i V_i)
-    \cong \Mat_{n_i}(\End_R(V_i))
-  \]
-  where $\End_R(V_i)$ is a skew field, and
-  \[
-          \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r)
-    \cong \End_R(n_1 V_1) \oplus \dotsb \oplus \End_R(n_r V_r)
-  \]
-  because the $V_i$ are pairwise non-isomorpic.
-  Using Lemma \ref{lemma: End_R(R) = Rop} we find that
-  \begin{align*}
-            R^\op
-    &\cong  \End_R(R) \\
-    &\cong  \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r) \\
-    &\cong  \End_R(n_1 V_1) \times \dotsb \times \End_R(n_r V_r) \\
-    &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
-  \end{align*}
-  as rings for the skew field $D_i \coloneqq \End_R(V_i)$.
-  Therefore
-  \begin{align*}
-            R
-    &\cong  \left( R^\op \right)^\op \\
-    &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
-    &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op \\
-    &\cong  \Mat_{n_1}\left( D_1^\op \right) \times \dotsb \times \Mat_{n_r}\left( D_r^\op \right)
-  \end{align*}
-  as rings where $D_i^\op$ is a skew field for every $1 \leq i \leq r$.
-  
-  To see the uniquness let
-  \begin{align}
-            R
-    &\cong  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \,,
-    \label{eqn: artin wedderburn isomorphisms 1}
-  \shortintertext{and}
-            R
-    &\cong \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_s}(D'_s)
-    \label{eqn: artin wedderburn isomorphisms 2} 
-  \end{align}
-  for $r, s \geq 1$, $n_1, \dotsc, n_r, n'_1, \dotsc, n'_s \geq 1$ and skew fields $D_1, \dotsc, D_r$, $D'_1, \dotsc, D'_s$.
-  We start by noticing that
-  \[
-      r
-    = |\Irr(R)|
-    = s \,,
-  \]
-  so $r$ is unique.
-  Using the isomorphisms \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} of rings we can make $\Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)$ and $\Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)$ into $R$-modules, such that \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} are also isomorphisms of $R$-modules.
-  By decomposing $\Mat_{n_i}(D_i)$ into simple $R$-submodules (which are the same as simple $\Mat_{n_i}(D_i)$ submodules) $\Mat_{n_i}(D_i) = C^i_1 \oplus \dotsb \oplus C^i_{n_i}$ in the usual way (so $C^i_j$ are the matrices in $\Mat_{n_i}(D_i)$ for which all but the $j$-the column are zero and $C^i_j \cong D_i^{n_i}$) we get a decomposition
-  \[
-      \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
-    = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n_i} C^i_j
-  \]
-  into simple $R$-submodules.
-  In the same way we get a decomposition
-  \[
-      \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)
-    = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n'_i} C'^i_j
-  \]
-  into simple $R$-submodules.
-  We know that $C^{i_1}_{j_1} \cong C^{i_2}_{j_2}$ as $R$-modules if and only if $i_1 = i_2$, the same goes for the $C'^i_j$.
-  In particular both $C^1_1, \dotsc, C^r_1$ and $C'^1_1, \dotsc, C'^r_1$ are a complete collection of representatives of $\Irr(R)$.
-  Since the $R$-endomorphism rings of the $C^i_j$ and $C'^i_j$ are skew fields by Schur’s Lemma we find by the theorem of Krull-Remak-Schmidt (which we will not prove in this lecture) that there exists a bijection
-  \[
-            \pi
-    \colon  \left\{
-              C^i_j
-            \,\middle|\,
-              1 \leq i \leq r, 
-              1 \leq j \leq n_i
-            \right\}
-    \to     \left\{
-              C'^i_j
-            \,\middle|\,
-              1 \leq i \leq r,
-              1 \leq j \leq n'_i
-            \right\}
-  \]
-  such that $\pi(C^i_j) \cong C^i_j$ for every $C^i_j$.
-  Since $\pi$ restricts to bijections between the isomorphism classes of the $C^i_j$ and $C'^i_j$ we find a bijection
-  \[
-            \tau
-    \colon  \{1, \dotsc, r\}
-    \to     \{1, \dotsc, r\}
-  \]
-  such that $\pi$ restricts to a bijection
-  \[
-            \pi_i
-    \colon  \{ C^i_1, \dotsc, C^i_{n_i} \}
-    \to     \{ C^{\tau(i)}_1, \dotsc, C^{\tau(i)}_{n'_i} \}
-  \]
-  for every $1 \leq i \leq r$.
-  Thus we find that $n_i = n'_i$.
-  Because we have $C^i_1 \cong C^{\tau(i)}_1$ for every $1 \leq i \leq r$ and
-  \[
-          \End_R(C^i_1)
-    \cong \End_{\Mat_{n_i}(D_i)}(C^i_1)
-    \cong \End_{\Mat_{n_i}(D_i)}(D^n)
-    \cong D_i^\op
-  \]
-  as well as $\End_R(C^{\tau(i)}_1) \cong D_{\tau(i)}'^\op$ we also find that
-  \[
-          D_i^\op
-    \cong D_{\tau(i)}'^\op
-  \]
-  and thus $D_i \cong D'_{\tau(i)}$.
-\end{proof}
+% \begin{proof}[Proof of Artin--Wedderburn]
+%   We start by showing the existance:
+%   By Lemma \ref{lemma: semisimple ring with 1 only finitely many summands} we have $R = \bigoplus_{i = 1}^n L_i$ as $R$-modules for some $n \geq 1$ and simple submodules $L_i \subseteq R$.
+%   By sorting these submoduls by isomorphism classes we get
+%   \[
+%     R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r
+%   \]
+%   for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$.
+%   Since it is enough to prove the theorem for $n_1 V_1 \oplus \dotsb \oplus n_r V_r$ we will assume that $R = n_1 V_1 \oplus \dotsb \oplus n_r V_r$.
+%   
+%   By Schur’s Lemma we find for every $1 \leq i \leq r$
+%   \[
+%           \End_R(n_i V_i)
+%     \cong \Mat_{n_i}(\End_R(V_i))
+%   \]
+%   where $\End_R(V_i)$ is a skew field, and
+%   \[
+%           \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r)
+%     \cong \End_R(n_1 V_1) \oplus \dotsb \oplus \End_R(n_r V_r)
+%   \]
+%   because the $V_i$ are pairwise non-isomorpic.
+%   Using Lemma \ref{lemma: End_R(R) = Rop} we find that
+%   \begin{align*}
+%             R^\op
+%     &\cong  \End_R(R) \\
+%     &\cong  \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r) \\
+%     &\cong  \End_R(n_1 V_1) \times \dotsb \times \End_R(n_r V_r) \\
+%     &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+%   \end{align*}
+%   as rings for the skew field $D_i \coloneqq \End_R(V_i)$.
+%   Therefore
+%   \begin{align*}
+%             R
+%     &\cong  \left( R^\op \right)^\op \\
+%     &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
+%     &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op \\
+%     &\cong  \Mat_{n_1}\left( D_1^\op \right) \times \dotsb \times \Mat_{n_r}\left( D_r^\op \right)
+%   \end{align*}
+%   as rings where $D_i^\op$ is a skew field for every $1 \leq i \leq r$.
+%   
+%   To see the uniquness let
+%   \begin{align}
+%             R
+%     &\cong  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \,,
+%     \label{eqn: artin wedderburn isomorphisms 1}
+%   \shortintertext{and}
+%             R
+%     &\cong \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_s}(D'_s)
+%     \label{eqn: artin wedderburn isomorphisms 2} 
+%   \end{align}
+%   for $r, s \geq 1$, $n_1, \dotsc, n_r, n'_1, \dotsc, n'_s \geq 1$ and skew fields $D_1, \dotsc, D_r$, $D'_1, \dotsc, D'_s$.
+%   We start by noticing that
+%   \[
+%       r
+%     = |\Irr(R)|
+%     = s \,,
+%   \]
+%   so $r$ is unique.
+%   Using the isomorphisms \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} of rings we can make $\Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)$ and $\Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)$ into $R$-modules, such that \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} are also isomorphisms of $R$-modules.
+%   By decomposing $\Mat_{n_i}(D_i)$ into simple $R$-submodules (which are the same as simple $\Mat_{n_i}(D_i)$ submodules) $\Mat_{n_i}(D_i) = C^i_1 \oplus \dotsb \oplus C^i_{n_i}$ in the usual way (so $C^i_j$ are the matrices in $\Mat_{n_i}(D_i)$ for which all but the $j$-the column are zero and $C^i_j \cong D_i^{n_i}$) we get a decomposition
+%   \[
+%       \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+%     = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n_i} C^i_j
+%   \]
+%   into simple $R$-submodules.
+%   In the same way we get a decomposition
+%   \[
+%       \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)
+%     = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n'_i} C'^i_j
+%   \]
+%   into simple $R$-submodules.
+%   We know that $C^{i_1}_{j_1} \cong C^{i_2}_{j_2}$ as $R$-modules if and only if $i_1 = i_2$, the same goes for the $C'^i_j$.
+%   In particular both $C^1_1, \dotsc, C^r_1$ and $C'^1_1, \dotsc, C'^r_1$ are a complete collection of representatives of $\Irr(R)$.
+%   Since the $R$-endomorphism rings of the $C^i_j$ and $C'^i_j$ are skew fields by Schur’s Lemma we find by the theorem of Krull-Remak-Schmidt (which we will not prove in this lecture) that there exists a bijection
+%   \[
+%             \pi
+%     \colon  \left\{
+%               C^i_j
+%             \,\middle|\,
+%               1 \leq i \leq r, 
+%               1 \leq j \leq n_i
+%             \right\}
+%     \to     \left\{
+%               C'^i_j
+%             \,\middle|\,
+%               1 \leq i \leq r,
+%               1 \leq j \leq n'_i
+%             \right\}
+%   \]
+%   such that $\pi(C^i_j) \cong C^i_j$ for every $C^i_j$.
+%   Since $\pi$ restricts to bijections between the isomorphism classes of the $C^i_j$ and $C'^i_j$ we find a bijection
+%   \[
+%             \tau
+%     \colon  \{1, \dotsc, r\}
+%     \to     \{1, \dotsc, r\}
+%   \]
+%   such that $\pi$ restricts to a bijection
+%   \[
+%             \pi_i
+%     \colon  \{ C^i_1, \dotsc, C^i_{n_i} \}
+%     \to     \{ C^{\tau(i)}_1, \dotsc, C^{\tau(i)}_{n'_i} \}
+%   \]
+%   for every $1 \leq i \leq r$.
+%   Thus we find that $n_i = n'_i$.
+%   Because we have $C^i_1 \cong C^{\tau(i)}_1$ for every $1 \leq i \leq r$ and
+%   \[
+%           \End_R(C^i_1)
+%     \cong \End_{\Mat_{n_i}(D_i)}(C^i_1)
+%     \cong \End_{\Mat_{n_i}(D_i)}(D^n)
+%     \cong D_i^\op
+%   \]
+%   as well as $\End_R(C^{\tau(i)}_1) \cong D_{\tau(i)}'^\op$ we also find that
+%   \[
+%           D_i^\op
+%     \cong D_{\tau(i)}'^\op
+%   \]
+%   and thus $D_i \cong D'_{\tau(i)}$.
+% \end{proof}
 
+
+
+
+
+\subsection{Simple Rings}
+
+
+\begin{definition}
+  A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
+  In particular $R$ is semisimple.
+\end{definition}
+
+
+\begin{corollary}
+\label{corollary: simple rings one simple module}
+  Let $R$ be a simple ring.
+  Then there is exactly one simple $R$-module up to isomorphism.
+\end{corollary}
+\begin{proof}
+  Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
+  For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
+  Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
+\end{proof}
 
 
 \begin{definition}
@@ -853,6 +859,12 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
   so $A = \diag(d, \dotsc, d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
   Since $A$ commutes with all diagonal matrices we have $d \in Z(D)$.
 \end{proof}
+
+
+
+
+
+\subsection{Central Simple \texorpdfstring{$k$}{k}-algebras}
 
 
 \begin{definition}

@@ -65,6 +65,8 @@
     \in       A[Z_1, \dotsc, Z_n]
   \]
   with $i = 1, \dotsc, h$ we then have that
+  \begingroup
+  \allowdisplaybreaks
   \begin{align*}
         p_j(y_1, \dotsc, y_n)
     &=  \sum_{i=1}^h y_i^j
@@ -85,6 +87,7 @@
         Z_1^{\mu_1} \dotsm Z_n^{\mu_n}  \\
     &=  \sum_{|\mu| = j} \binom{j}{\mu_1, \dotsc, \mu_n} m_\mu Z_1^{\mu_1} \dotsm Z_n^{\mu_n} \,.
   \end{align*}
+  \endgroup
   This shows that $m_\mu$ is, up to the factor
   \[
               C_\mu
@@ -109,7 +112,7 @@
     \defined  \max  \{
                       \beta(V,G)
                     \suchthat
-                      \text{$V$ is a finite dimensional representation of $G$ over $k$}
+                      \text{$V$ is a finite-dimensional representation of $G$ over $k$}
                     \} \,.
   \]
   Noether’s theorem shows that $\beta(G) \leq |G|$ if $\kchar k = 0$, which is known as the \emph{Noether bound}.

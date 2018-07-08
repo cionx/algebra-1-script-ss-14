@@ -1,0 +1,209 @@
+\subsection{Multiplicities of Simple Summands}
+\label{subsection: multiplicity of simple summands}
+
+
+\begin{fluff}
+  We know from linear algebra that for a $k$-vector space $V$ with $V \cong k^{\oplus I}$ the cardinality $|I|$ is unique.
+  We will now show how this generalizes to semisimple modules.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: multiplicities for finite length}
+  Let $M$ be a semisimple $R$-module and let
+  \[
+      M
+    = L_1 \oplus \dotsb \oplus L_n
+    = L'_1 \oplus \dotsb \oplus L'_{n'}
+  \]
+  be two decompositions into finitely many simple submodules $L_i, L'_j \moduleeq M$.
+  Then this decomposition is unique up to permutation of isomorphism, i.e.\ it follows that $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ with $L'_{\pi(i)} \cong L_i$ for every $i = 1, \dotsc, n$.
+\end{lemma}
+
+
+\begin{proof}
+  We use the language of composition series (see Appendix~\ref{appendix: jordan hoelder}):
+  Both decompositions give rise to composition series
+  \[
+                0
+    \moduleneq  L_1
+    \moduleneq  L_1 \oplus L_2
+    \moduleneq  \dotsb
+    \moduleneq  L_1 \oplus \dotsb \oplus L_n
+    =           M
+  \]
+  and
+  \[
+                0
+    \moduleneq  L'_1
+    \moduleneq  L'_1 \oplus L'_2
+    \moduleneq  \dotsb
+    \moduleneq  L'_1 \oplus \dotsb \oplus L'_{n'}
+    =           M
+  \]
+  with composition factors $L_i, L'_j$.
+  The claim therefore follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan--Hölder Theorem}.
+\end{proof}
+
+
+\begin{proof}[Alternative proof]
+  Suppose that
+  \[
+          M
+    \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}
+    \cong E_1^{n'_r} \oplus \dotsb \oplus E_r^{n'_r}
+  \]
+  for simple, pairwise non-isomorphic $R$-modules $E_1, \dotsc, E_r$ and $n_i, n'_i \geq 0$ for every $i = 1, \dotsc, r$.
+  We need to show that $n_i = n'_i$ for every $i = 1, \dotsc, r$.
+  
+  For every $i = 1, \dotsc, r$ we have that $M_{E_i} \cong E_i^{n_i} \cong E_i^{n'_i}$ by Theorem~\ref{theorem: isotypical decomposition}.
+  It therefore sufficies to show that for every simple $R$-module $E$ and all $n, n' \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus n'}$ that $n = n'$.
+  
+  Let $f \colon E^{\oplus n} \to E^{\oplus n'}$ be an isomorphism of $R$-modules.
+  Then for $D \defined \End_R(M)$ we may represent $f$ as a matrix $A \in \Mat(n' \times n, D)$ (see Appendix~\ref{appendix: homomorphisms between direct sums}) and $f^{-1} \colon E^{\oplus n'} \to E^{\oplus n}$ as a matrix $B \in \Mat(n \times n', D)$.
+  It then follows from $f \circ f^{-1} = \id_{E^{\oplus n'}}$ and $f^{-1} \circ f = \id_{E^{\oplus n}}$ that $AB = I_n$ and $BA = I_m$.
+  
+  The matrix is $A$ is therefore invertible with $A^{-1} = B$.
+  It follows that $A$ defines an isomorphism of right $D$-vector spaces $D^n \to D^{n'}$ by left multiplication.
+  It follows that $n = n'$ because the dimension of a vector space over a skew field is well-defined.
+\end{proof}
+
+
+% \begin{proof}[Alternative proof]
+%   The following proof is taken from \cite[XVII, \S 1, Proposition 1.2]{LangAlgebra2005}):
+%   Suppose that
+%   \[
+%           M
+%     \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}
+%     \cong E_1^{n'_r} \oplus \dotsb \oplus E_r^{n'_r}
+%   \]
+%   for simple, pairwise non-isomorphic $R$-modules $E_1, \dotsc, E_r$ and $n_i, n'_i \geq 0$ for all $i = 1, \dotsc, r$.
+%   We need to show that $n_i = n'_i$ for all $i = 1, \dotsc, r$.
+%   
+%   For every $i = 1, \dotsc, r$ we have that $M_{E_i} \cong E_i^{n_i} \cong E_i^{n'_i}$ by Theorem~\ref{theorem: isotypical decomposition}.
+%   It therefore sufficies to show that for every simple $R$-module $E$ and all $n, n' \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus n'}$ that $n \cong n'$.
+%   
+%   The endomorphism ring $D \defined \End_R(E)$ is a skew field by \hyperref[proposition: Schurs lemma]{Schur’s lemma} and it follows from Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} that
+%   \[
+%           \Mat_n(D)
+%     \cong \End_R(E^{\oplus n})
+%     \cong \End_R(E^{\oplus n'})
+%     \cong \Mat_{n'}(D)
+%   \]
+%   as rings.
+% \end{proof}
+
+
+\begin{fluff}
+  An important special case of Lemma~\ref{lemma: multiplicities for finite length} with its own popular proof is the following result:
+\end{fluff}
+
+
+\begin{lemma}
+  Let $A$ be a $k$-algebra and let $M$ be a semisimple $A$-module with $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ for pairwise non-isomorphic finite-dimensional simple $A$-modules $M_1, \dotsc, M_r$.
+  Then the numbers $n_1, \dotsc, n_r$ are uniquely determined as
+  \begin{align*}
+        n_i
+    &=  \frac{\dim_k \Hom_A(M_i, M)}{\dim_k \End_A(M_i)} \,.
+  \intertext{If $k$ is algebraically closed then}
+        n_i
+    &=  \dim_k \Hom_A(M_i, M) \,.
+  \end{align*}
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+            \Hom_A(M_i, M)
+    &=      \Hom_A(M_i, M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}) \\
+    &\cong  \Hom_A(M_i, M_1)^{n_1} \times \dotsb \times \Hom_A(M_i, M_r)^{n_r}
+  \end{align*}
+  as $k$-vector spaces (see Corollary~\ref{corollary: Hom on direct sums}).
+  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and the simplicity of the $M_i$ that $\Hom(M_i, M_j) = 0$ for all $i \neq j$, and therefore that
+  \[
+          \Hom_A(M_i, M)
+    \cong \Hom_A(M_i, M_i)^{n_i}
+    =     \End_A(M_i)^{n_i}
+  \]
+  as $k$-vector spaces.
+  It follows that
+  \[
+      \dim_k \Hom_A(M_i, M)
+    = \dim_k \End_A(M_i)^{n_i}
+    = n_i \dim_k \End_A(M_i) \,,
+  \]
+  and it follows from the finite-dimensionality of $M_i$ that $\End_A(M_i)$ is finite-dimensional.
+  This shows the first equality.
+  
+  If $k$ is algebraically closed then $\End_A(M_i) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and therefore $\dim_k \End_A(M_i) = 1$.
+  The second equality thus follows from the first one.
+\end{proof}
+
+
+\begin{theorem}
+  \label{theorem: multiplicity well-defined}
+  Let $M$ be a semisimple $R$-module and let $M = \bigoplus_{i \in I} L_i = \bigoplus_{j \in J} L'_j$ be two decompositions into simple submodules $L_i, L'_j \moduleeq M$.
+  Then for every simple $R$-module $E$ the sets
+  \[
+    \{ i \in I \suchthat L_i \cong E \}
+    \quad\text{and}\quad
+    \{ j \in J \suchthat L'_j \cong E \}
+  \]
+  have the same cardinality.
+\end{theorem}
+
+
+\begin{proof}
+  We know from Theorem~\ref{theorem: isotypical decomposition} that
+  \[
+      M_E
+    = \bigoplus_{i \in I, L_i \cong E} L_i
+    = \bigoplus_{j \in J, L_j \cong E} L_j \,.
+  \]
+  We may therefore replace $M$ by $M_E$ and thus assume that $M$ is $E$-isotypical.
+  We then have that $L_i, L'_j \cong E$ for all $i, j$, and we need to show that $\card{I} = \card{J}$.
+  We make the following observation:
+  
+  \begin{claim}
+    For every $j \in J$ there exists a finite subset $I' \subseteq I$ with $L'_j \moduleeq \bigoplus_{i \in I'} L_i$.
+  \end{claim}
+  
+  \begin{proof}
+    Let $y \in L'_j$ be nonzero.
+    Then $y = \sum_{i \in I} x_i$ with $x_i \in L_i$ for every $i \in I$ and $x_i = 0$ for all but finitely many $i \in I$.
+    It follows that there exists a finite subset $I' \subseteq I$ with $x \in \bigoplus_{i \in I'} L_i$.
+    It follows from the simplicity of $L'_j$ that $x$ is a cylic generator of $L'_j$, and therefore that $L'_j \moduleeq \bigoplus_{i \in I'} L_i$.
+  \end{proof}
+  
+  We now distinguish between four cases:
+  \begin{itemize}
+    \item 
+      If $I$ and $J$ are both finite then the theorem follows from Lemma~\ref{lemma: multiplicities for finite length}.
+    \item
+      If $J$ is finite then by the above claim that there exists a finite subset $I' \subseteq I$ with $L'_j \moduleeq \bigoplus_{i \in I} L_i$ for every $j \in J$.
+      It then follows that $M = \bigoplus_{i \in I} L_i$ and therefore that $I = I'$ is already finite.
+      The theorem then follows from the first case.
+    \item
+      If $I$ is finite then we find in the same way as above that $J$ is finite and the theorem follows from the first case.
+    \item
+      Suppose now that both $I$ and $J$ are infine.
+      It follows from the above claim that there exists for every $j \in J$ some finite subset $I_j \subseteq I$ with $L'_j \moduleeq \bigoplus_{i \in I} L_i$.
+      For $I' \defined \bigcup_{j \in J} I_j$ we then have that $L'_j \moduleeq \bigoplus_{i \in I'} L_i$ for every $j \in J$.
+      It follows that $M = \bigoplus_{i \in I'} L_i$ and therefore that $I = I'$.
+      Note that $I = I' = \bigcup_{j \in J} I_j$ has at most the cardinality of $J$ because $J$ is infinite and every $I_j$ is finite.
+      
+      This shows that $\card{I} \leq \card{J}$.
+      It follows in the same way that $\card{J} \leq \card{I}$.
+      Together this shows that $\card{I} = \card{J}$ by the theorem of Cantor--Schröder--Bernstein.
+    \qedhere
+  \end{itemize}
+\end{proof}
+
+
+\begin{definition}
+  Let $M$ be a semisimple $R$-module and let $E$ be a simple $R$-module.
+  If $M = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules $L_i \moduleeq M$ then the cardinality of the set $\{i \in I \suchthat L_i \cong E\}$ is the \emph{multiplicity of $E$ in $M$}.
+  (Theorem~\ref{theorem: multiplicity well-defined} shows that this multiplicity is well-defined.)
+\end{definition}
+

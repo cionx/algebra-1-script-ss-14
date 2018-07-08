@@ -2,7 +2,7 @@
 
 
 \begin{proposition}[Schur’s lemma]
-  \label{proposition: Schurs lemma for modules}
+  \label{proposition: schurs lemma for modules}
   Let be a $M, N$ be $R$-modules and let $f \colon M \to N$ be a nonzero homomorphism of $R$-modules.
   \begin{enumerate}
     \item
@@ -28,7 +28,7 @@
       The endomorphism ring $\End_R(M)$ is a division algebra over $k$.
     \item
       \label{enumerate: Schur scalar for fd}
-      If $k$ is algebraically closed and $M$ is finite dimensional over $k$ then $\End_R(M) = k$.
+      If $k$ is algebraically closed and $M$ is finite-dimensional over $k$ then $\End_R(M) = k$.
   \end{enumerate}
 \end{proposition}
 
@@ -80,7 +80,7 @@
     \projection         L_j
   \]
   is nonzero because it maps $x$ to $y_j$.
-  It follows from Schur’s Lemma that this composition is an isomorphism, so that $L_i \cong L'_j$.
+  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that this composition is an isomorphism, so that $L_i \cong L'_j$.
 \end{proof}
 
 
@@ -92,12 +92,13 @@
           \End_R(M)
     \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
   \]
-  where $D_i \defined \End_R(M_i)$ for every $i = 1, \dotsc, r$.
+  as rings where $D_i \defined \End_R(M_i)$ for every $i = 1, \dotsc, r$.
+  If $R$ is a $k$-algebra, then this is an isomorphism of $k$-algebras.
 \end{corollary}
 
 
 \begin{proof}
-  This follows from Corollary~\ref{corollary: decomposition of endomorphisms for orthogonal modules} because $\Hom_R(M_i, M_j) = 0$ for all $i \neq j$ by \hyperref[proposition: Schurs lemma for modules]{Schur’s lemma}.
+  This follows from Corollary~\ref{corollary: decomposition of endomorphisms for orthogonal modules} because $\Hom_R(M_i, M_j) = 0$ for all $i \neq j$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma}.
 \end{proof}
 
 
@@ -155,8 +156,7 @@
       
     \item
       We have seen that $\End_R(M)$ is an algebraic skew field extension of $k$.
-      It thus follows from $k$ being algebraically closed that $\End_R(M) = k$ since $k$ admits no non-trivial algebraic skew field extensions
-      .
+      It thus follows from $k$ being algebraically closed that $\End_R(M) = k$ since $k$ admits no non-trivial algebraic skew field extensions.
   \end{enumerate}
   The idea of the above proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
 \end{remark}

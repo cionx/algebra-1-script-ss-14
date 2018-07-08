@@ -4,6 +4,7 @@
 
 \begin{conventions}
   We denote by $R$ a ring and abbreviate $\Hom_R$ as $\Hom$.
+  In the following, $M_1, \dotsc, M_t, M, N_1, \dotsc, N_t, N$ are $R$-modules.
 \end{conventions}
 
 
@@ -15,7 +16,6 @@
 
 
 \begin{fluff}
-  Let $M_1, \dotsc, M_t$ and $N_1, \dotsc, N_s$ be $R$-modules.
   Let
   \[
           \pi_i
@@ -77,7 +77,7 @@
     &\longmapsto
     [f]
   \end{align*}
-  is an isomorphism of abelian groups.
+  is an isomorphism of abelian groups, and an isomorphism of $k$-vector spaces if $R$ is a $k$-algebra.
 \end{theorem}
 
 
@@ -95,6 +95,7 @@
   \end{align*}
   which shows that $[\,\cdot\,]_{ij}$ is additive.
   It follows that $[\,\cdot\,]$ additive.
+  If $R$ is a $k$-algebra then the components $[\,\cdot\,]_{ij} = \pi_i \circ (\,\cdot\,) \circ \iota_j$ are already $k$-linear for all $i, j$, and it follows that $[\,\cdot\,]$ is $k$-linear.
   
   To show that $[\,\cdot\,]$ is surjective let $\pi'_j \colon M_1 \oplus \dotsb \oplus M_t \to M_j$ be the projection onto the $j$-th summand for every $j = 1, \dotsc, t$, and let $\iota_i \colon N_i \to N_1 \oplus \dotsb \oplus N_s$ be the inclusion of the $i$-th summand.
   For a collection $(f_{ij})^{j = 1, \dotsc, t}_{i = 1, \dotsc, s}$ of homomorphisms $f_{ij} \colon M_j \to N_i$ we then have the homomorphism $f \colon M \to N$ given by
@@ -129,7 +130,33 @@
 
 \begin{fluff}
   As a consequence of Theorem~\ref{theorem: bijection homomorphisms matrices} we can represent every homomorphism between finite direct sums of $R$-modules as a matrix.
+  We want to highlight the following special cases:
 \end{fluff}
+
+
+\begin{corollary}
+  \label{corollary: Hom on direct sums}
+  The maps
+  \begin{align*}
+              \Hom(M, N_1 \oplus \dotsb \oplus N_s)
+    &\longto  \Hom(M, N_1) \times \dotsb \times \Hom(M, N_s), \\
+    \quad         f
+    &\longmapsto  (\pi_1 \circ f, \dotsc, \pi_s \circ f)
+  \intertext{and}
+              \Hom(M_1 \oplus \dotsb \oplus M_t, N)
+    &\longto  \Hom(M_1, N) \times \dotsb \times \Hom(M_t, N), \\
+    \quad         f
+    &\longmapsto  (f \circ \iota_1, \dotsc, f \circ \iota_t)
+  \end{align*}
+  are isomorphism of abelian groups, and isomorphism of $k$-vector spaces if $R$ is a $k$-algebra.
+\end{corollary}
+
+
+\begin{remark}
+  The second isomorphism of Corollary~\ref{corollary: Hom on direct sums} holds for arbitrary direct sums, while the first isomorphism holds for arbitrary \emph{products} instead of finite direct sums.
+\end{remark}
+
+
 
 \begin{fluff}
   We may write the elements of $M_1 \oplus \dotsb \oplus M_t$ as column vectors
@@ -197,7 +224,7 @@
       \Hom(V,W)
     \xlongrightarrow{\sim}
       \Hom(k^s, k^t)
-    \to
+    \longto
       \begin{bmatrix}
         \Hom(k,k) & \cdots  & \Hom(k,k) \\
         \vdots    & \ddots  & \vdots    \\
@@ -217,7 +244,8 @@
 \end{example}
 
 
-\begin{theorem}
+\begin{proposition}
+  \label{proposition: representing matrix is multiplicative}
   Let
   \[
     M_1 \oplus \dotsb \oplus M_t
@@ -233,7 +261,7 @@
     = [g] \cdot [f]
   \]
   where the matrix multiplication on the right hand side is taken in the naive sense.
-\end{theorem}
+\end{proposition}
 
 
 \begin{proof}
@@ -259,107 +287,11 @@
      =  \sum_{i=1}^s ( g_{ki} \circ f_{ij} ) \,,
   \end{align*}
   which is precisely the $(kj)$-th entry of $[g] \cdot [f]$.
-%   We have that
-%   \begingroup
-%   \allowdisplaybreaks
-%   \begin{align*}
-%      &  (g \circ f)(m)
-%     =   g(f(m))
-%     \\
-%     =&  \begin{bmatrix}
-%           g_{11}  & \cdots  & g_{1s}  \\
-%           \vdots  & \ddots  & \vdots  \\
-%           g_{r1}  & \cdots  & g_{rs}
-%         \end{bmatrix}
-%         \left(
-%         \begin{bmatrix}
-%           f_{11}  & \cdots  & f_{1t}  \\
-%           \vdots  & \ddots  & \vdots  \\
-%           f_{s1}  & \cdots  & f_{st}
-%         \end{bmatrix}
-%         \vect{m_1 \\ \vdots \\ m_t}
-%         \right)
-%     \\
-%     =&  \begin{bmatrix}
-%           g_{11}  & \cdots  & g_{1s}  \\
-%           \vdots  & \ddots  & \vdots  \\
-%           g_{r1}  & \cdots  & g_{rs}
-%         \end{bmatrix}
-%         \vect{
-%           \sum_{j=1}^t f_{1j}(m_j)
-%           \\
-%           \vdots
-%           \\
-%           \sum_{j=1}^t f_{sj}(m_j)
-%         }
-%      =  \vect{
-%           \sum_{i=1}^s g_{1i} \left( \sum_{j=1}^t f_{ij}(m_j) \right)
-%           \\
-%           \vdots
-%           \\
-%           \sum_{i=1}^s g_{ri} \left( \sum_{j=1}^t f_{ij}(m_j) \right)
-%         }
-%     \\
-%     =&  \vect{
-%           \sum_{j=1}^t \sum_{i=1}^s (g_{1i} \circ f_{ij})(m_j)
-%           \\
-%           \vdots
-%           \\
-%           \sum_{j=1}^t \sum_{i=1}^s (g_{ri} \circ f_{ij})(m_j)
-%         }
-%     \\
-%     =&  \begin{bmatrix}
-%             \sum_{i=1}^s g_{1i} \circ f_{i1}
-%           & \cdots
-%           & \sum_{i=1}^s g_{1i} \circ f_{it}
-%           \\
-%             \vdots
-%           & \ddots
-%           & \vdots
-%           \\
-%             \sum_{i=1}^s g_{ri} \circ f_{i1}
-%           & \cdots
-%           & \sum_{i=1}^s g_{ri} \circ f_{it}
-%         \end{bmatrix}
-%         \vect{m_1 \\ \vdots \\ v_t}
-%     \\
-%     =&  \left(
-%           \begin{bmatrix}
-%               g_{11}
-%             & \cdots
-%             & g_{1s}
-%             \\
-%               \vdots
-%             & \ddots
-%             & \vdots
-%             \\
-%               g_{r1}
-%             & \cdots
-%             & g_{rs}
-%           \end{bmatrix}
-%           \cdot
-%           \begin{bmatrix}
-%               f_{11}
-%             & \cdots
-%             & f_{1t}
-%             \\
-%               \vdots
-%             & \ddots
-%             & \vdots
-%             \\
-%               f_{s1}
-%             & \cdots
-%             & f_{st}
-%           \end{bmatrix}
-%         \right)
-%         \vect{m_1 \\ \vdots \\ v_t}.
-%   \end{align*}
-%   \endgroup
-%   This shows that $[g] \cdot [f]$ is the matrix associated to $g \circ f$.
 \end{proof}
 
 
 \begin{corollary}
+  \label{corollary: endomorphisms of direct sum}
   The map
   \begin{align*}
               \End_R(M_1 \oplus \dotsb \oplus M_t)
@@ -372,7 +304,7 @@
                   f
     &\longmapsto  [f]
   \end{align*}
-  is an isomorphism of rings.
+  is an isomorphism of rings, and an isomorphism of $k$-algebras if $R$ is a $k$-algebra.
 \end{corollary}
 
 
@@ -438,7 +370,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      If $M$ is an $R$-module and $n \geq 0$ then the map
+      For $n \geq 0$ the map
       \begin{align*}
                   \End(M^{\oplus n})
         &\longto  \begin{bmatrix}
@@ -451,9 +383,9 @@
                       f
         &\longmapsto  [f]
       \end{align*}
-      is an isomorphism of rings.
+      is an isomorphism of rings, and an isomorphism of $k$-algebras if $R$ is a $k$-algebra.
     \item
-      If more generally $M_1, \dotsc, M_t$ are $R$-modules such that for all $i \neq j$ there exist no nonzero homomorphism $M_i \to M_j$ then for $n_1, \dotsc, n_t \geq 0$ the map
+      If more generally $M_1, \dotsc, M_t$ there exist no nonzero homomorphism $M_i \to M_j$ for all $i, j$ then for $n_1, \dotsc, n_t \geq 0$ the map
       \begin{align*}
                   \End(M_1^{\oplus n_1} \dotsb \oplus M_t^{\oplus n_t})
         &\longto  \begin{bmatrix}
@@ -473,9 +405,88 @@
                       f
         &\longmapsto  [f]
       \end{align*}
-      is a well-defined isomorphism of rings.
+      is a well-defined isomorphism of rings, and an isomorphism of $k$-algebras if $R$ is a $k$-algebra.
   \end{enumerate}
 \end{corollary}
+
+
+
+
+
+\subsubsection{Compatibility with Module Structures}
+
+
+\begin{fluff}
+  The abelian group $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ carries the structure of a left $\End(N_1 \oplus \dotsb \oplus N_s)$-module via postcomposition
+  \[
+      g \cdot f
+    = g \circ f
+  \]
+  for all $g \in \End(N_1 \oplus \dotsb \oplus N_s)$, $f \in \Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$.
+  Similarly, the abelian group
+  \begin{equation}
+    \label{equation: homomorphism matrices}
+    \begin{bmatrix}
+      \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
+      \vdots          & \ddots  & \vdots          \\
+      \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
+    \end{bmatrix}
+  \end{equation}
+  carries the structure of a left $E$-module for
+  \[
+              E
+    \defined  \begin{bmatrix}
+                \Hom(N_1, N_1)  & \cdots  & \Hom(N_s, N_1)  \\
+                \vdots          & \ddots  & \vdots          \\
+                \Hom(N_1, N_s)  & \cdots  & \Hom(N_s, N_s)
+              \end{bmatrix}
+  \]
+  via  matrix multiplication.
+  It follows from Proposition~\ref{proposition: representing matrix is multiplicative} that the isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and the isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with this module structures.
+  
+  In the same way we can consider the right $\End(M_1 \oplus \dotsb \oplus M_t)$-module structure on $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ given by precomposition, and the $E'$-module structure on \eqref{equation: homomorphism matrices} for
+  \[
+              E'
+    \defined  \begin{bmatrix}
+                \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
+                \vdots          & \ddots  & \vdots          \\
+                \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
+              \end{bmatrix}
+  \]
+  given by matrix multiplication, and find by Proposition~\ref{proposition: representing matrix is multiplicative} that the isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and the isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with this right module structures.
+  
+  Each left module structure is also compatible with the corresponding right module structure, resulting in compatibilities of bimodule structures.
+  We thus arrive at the following results:
+\end{fluff}
+
+
+\begin{proposition}
+  The isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with the $\End(N_1 \oplus \dotsb \oplus N_s)$-$\End(M_1 \oplus \dotsb \oplus M_t)$-bimodule structure of $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ which is given by postcomposition-precomposition and the $E$-$E'$-bimodule structure of
+  \[
+    \begin{bmatrix}
+      \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
+      \vdots          & \ddots  & \vdots          \\
+      \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
+    \end{bmatrix}
+  \]
+  for the rings
+  \begin{align*}
+              E
+    &\defined \begin{bmatrix}
+                \Hom(N_1, N_1)  & \cdots  & \Hom(N_s, N_1)  \\
+                \vdots          & \ddots  & \vdots          \\
+                \Hom(N_1, N_s)  & \cdots  & \Hom(N_s, N_s)
+              \end{bmatrix},
+    \\
+              E'
+    &\defined \begin{bmatrix}
+                \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
+                \vdots          & \ddots  & \vdots          \\
+                \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
+              \end{bmatrix}
+  \end{align*}
+  which is given by left-right matrix multiplication.
+\end{proposition}
 
 
 
