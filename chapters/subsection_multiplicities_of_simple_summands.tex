@@ -60,7 +60,7 @@
   It therefore sufficies to show that for every simple $R$-module $E$ and all $n, n' \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus n'}$ that $n = n'$.
   
   Let $f \colon E^{\oplus n} \to E^{\oplus n'}$ be an isomorphism of $R$-modules.
-  Then for $D \defined \End_R(M)$ we may represent $f$ as a matrix $A \in \Mat(n' \times n, D)$ (see Appendix~\ref{appendix: homomorphisms between direct sums}) and $f^{-1} \colon E^{\oplus n'} \to E^{\oplus n}$ as a matrix $B \in \Mat(n \times n', D)$.
+  Then for $D \defined \End_R(M)$ we may represent $f$ as a matrix $A \in \Mat(n' \times n, D)$ and $f^{-1} \colon E^{\oplus n'} \to E^{\oplus n}$ as a matrix $B \in \Mat(n \times n', D)$ (see Appendix~\ref{appendix: homomorphisms between direct sums} for a more detailed explanation on this).
   It then follows from $f \circ f^{-1} = \id_{E^{\oplus n'}}$ and $f^{-1} \circ f = \id_{E^{\oplus n}}$ that $AB = I_n$ and $BA = I_m$.
   
   The matrix is $A$ is therefore invertible with $A^{-1} = B$.
@@ -199,6 +199,12 @@
     \qedhere
   \end{itemize}
 \end{proof}
+
+
+\begin{remark}
+  \label{remark: uniqueness of multiplicities alternative formulation}
+  Theorem~\ref{theorem: multiplicity well-defined} states that there exists a bijection $\pi \colon I \to J$ with $L'_{\pi(i)} \cong L_i$ for every $i \in I$.
+\end{remark}
 
 
 \begin{definition}

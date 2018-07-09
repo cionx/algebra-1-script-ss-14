@@ -1,107 +1,5 @@
-\subsection{Products of Rings}
-
-
-\begin{fluff}
-  For a family $(R_i)_{i \in I}$ of rings their product $\prod_{i \in I} R_i$ carries the structure of a ring via componentwise addition and multiplication.
-\end{fluff}
-
-
-
-
-
-% \subsubsection{Recognizing Products}
-% 
-% 
-% \begin{conventions}
-%   In the following $R$ denotes a ring.
-% \end{conventions}
-% 
-% 
-% \begin{fluff}
-%   We give a brief explanation under what conditions a ring $R$ can be decomposed into a product $R \cong R_1 \times \dotsb \times R_n$ of rings $R_1, \dotsc, R_n$.
-% \end{fluff}
-% 
-% 
-% \begin{fluff}
-%   Let $R_1, \dotsc, R_n$ be rings, and for every $j = 1, \dotsc, n$ let
-%   \[
-%               I_j
-%     \defined  0 \times \dotsb \times 0 \times R_j \times 0 \times \dotsb \times 0
-%   \]
-%   with $R_j$ in the $j$-th position.
-%   Then the $I_j$ are not subrings of $R \defined R_1 \times \dotsb \times R_n$ (unless $R_i = 0$ for all $i \neq j$), but they are two sided ideals in $R$.
-% \end{fluff}
-
-
-
-
-% \begin{proposition}
-%   Let $M$ be an $R$-module.
-%   \begin{enumerate}
-%     \item
-%       If $M = M_1 \oplus M_2$ is a decomposition into submodules $M_1, M_2 \moduleeq M$ then there exists a unique $R$-linear endomorphism $e_{M_1, M_2} \colon M \to M$ with $e_{M_1, M_2}(x + y) = x$ for all $x \in M_1$, $y \in M_2$, and $e_{M_1, M_2}$ is idempotent.
-%     \item
-%       Let $e \colon M \to M$ an idempotent endomorphism.
-%       Then $M = \im(e) \oplus \ker(e)$ and $e(x + y) = x$ for all $x \in \im(e)$, $y \in \ker(e)$.
-%     \item
-%       The above constructions give a $1$:$1$-correspondence
-%       \begin{align*}
-%         \left\{
-%           (M_1, M_2)
-%         \suchthat*
-%           \begin{tabular}{c}
-%             $M_1, M_2 \moduleeq M$ \\
-%             $M = M_1 \oplus M_2$
-%           \end{tabular}
-%         \right\}
-%         &\longleftrightarrow
-%         \left\{
-%           \begin{tabular}{c}
-%             idempotent endo- \\
-%             morphisms $e \colon M \to M$
-%           \end{tabular}
-%         \right\},
-%         \\
-%         (M_1, M_2)
-%         &\longmapsto
-%         e_{M_1, M_2} \,,
-%         \\
-%         (\im(e), \ker(e))
-%         &\longmapsfrom
-%         e \,.
-%       \end{align*}
-%   \end{enumerate}
-% 
-%     
-%  
-% \end{proposition}
-% 
-% 
-% \begin{definition}
-%   An element $e \in R$ is \emph{idempotent} if $e^2 = e$.
-% \end{definition}
-% 
-% 
-% \begin{definition}
-%   An element $z \in R$ is \emph{central} if $rz = zr$ for every $r \in R$.
-% \end{definition}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Modules over Products of Rings}
+\subsection{Modules over Products of Rings}
+\label{appendix: modules over products of rings}
 
 
 \begin{conventions}
@@ -113,6 +11,12 @@
 \begin{fluff}
   In this subsection we give a brief explanition how modules over $R_1 \times R_2$ can be understood componentswise.
 \end{fluff}
+
+
+
+
+
+\subsubsection{Modules over Products}
 
 
 \begin{lemma}
@@ -133,6 +37,76 @@
     M_1 \boxplus M_2 \,.
   \]
 \end{definition}
+
+
+\begin{lemma}
+  \label{lemma: restriction of modules}
+  Let $M$ be an $(R_1 \times R_2)$-module.
+  Then $M_1 \defined e_1 M$ carries the structure of an $R_1$-module via
+  \[
+      r_1 \cdot m_1
+    = (r_1, 0) \cdot m_1
+  \]
+  for all $r_1 \in R_1$, $m_1 \in M_1$.
+  Similarly, $M_2 \defined e_2 M$ carries the structure of an $R_2$-module via
+  \[
+      r_2 \cdot m_2
+    = (0, r_1) \cdot m_2
+  \]
+  for all $r_2 \in R_2$, $m_2 \in M_2$.
+\end{lemma}
+
+
+\begin{definition}
+  For an $(R_1 \times R_2)$-module $M$ we denote for $i = 1, 2$ the resulting $R_i$-module as described in Lemma~\ref{lemma: restriction of modules} by $[M]_i$.
+\end{definition}
+
+
+\begin{theorem}
+  \label{theorem: equivalence of modules for objects}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $M$ be an $(R_1 \times R_2)$-module.
+      Then the map
+      \[
+                \alpha_M
+        \colon  M
+        \to     [M]_1 \boxplus [M]_2
+        \quad   m
+        \mapsto (e_1 m, e_2 m)
+      \]
+      is an isomorphism of $(R_1 \times R_2)$-modules, whose inverse is given by
+      \[
+                (m_1, m_2)
+        \mapsto m_1 + m_2 \,.
+      \]
+    \item
+      Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+      Then the map
+      \[
+                \beta_{1, M_1}
+        \colon  M_2
+        \to     [M_1 \boxplus M_2]_1,
+        \quad   m_1
+        \mapsto (m_1, 0)
+      \]
+      is an isomorphism of $R_1$-modules and the map
+      \[
+                \beta_{2, M_2}
+        \colon  M_2
+        \to     [M_1 \boxplus M_2]_2,
+        \quad   m_2
+        \mapsto (0, m_2)
+      \]
+      is an isomorphism of $R_2$-modules.
+  \end{enumerate}
+\end{theorem}
+
+
+
+
+\subsubsection{Module Homomorphisms over Products}
 
 
 \begin{lemma}
@@ -182,29 +156,6 @@
     \to \cMod{(R_1 \times R_2)} \,.
   \]
 \end{remark}
-
-
-\begin{lemma}
-  \label{lemma: restriction of modules}
-  Let $M$ be an $(R_1 \times R_2)$-module.
-  Then the additive subgroup $M_1 \defined e_1 M$ carries the structure of an $R_1$-module via
-  \[
-      r_1 \cdot m_1
-    = (r_1, 0) \cdot m_1
-  \]
-  for all $r_1 \in R_1$, $m_1 \in M_1$.
-  Similarly, the additive subgroup $M_2 \defined e_2 M$ carries the structure of an $R_2$-module via
-  \[
-      r_2 \cdot m_2
-    = (0, r_1) \cdot m_2
-  \]
-  for all $r_2 \in R_2$, $m_2 \in M_2$.
-\end{lemma}
-
-
-\begin{definition}
-  For an $(R_1 \times R_2)$-module $M$ we denote for $i = 1, 2$ the resulting $R_i$-module as described in Lemma~\ref{lemma: restriction of modules} by $[M]_i$.
-\end{definition}
 
 
 \begin{lemma}
@@ -262,46 +213,9 @@
 
 
 \begin{theorem}
-  \label{theorem: equivalence of modules for objects}
-  \leavevmode
+  \label{theorem: equivalence of modules for morphisms}
+  These isomorphisms from Theorem~\ref{theorem: equivalence of modules for objects} are compatible with homomorphisms in the following sense:
   \begin{enumerate}
-    \item
-      Let $M$ be an $(R_1 \times R_2)$-module.
-      Then the map
-      \[
-                \alpha_M
-        \colon  M
-        \to     [M]_1 \boxplus [M]_2
-        \quad   m
-        \mapsto (e_1 m, e_2 m)
-      \]
-      is an isomorphism of $(R_1 \times R_2)$-modules, whose inverse is given by
-      \[
-                (m_1, m_2)
-        \mapsto m_1 + m_2 \,.
-      \]
-    \item
-      Let $M_i$ be an $R_i$-module for $i = 1, 2$.
-      Then the map
-      \[
-                \beta_{1, M_1}
-        \colon  M_2
-        \to     [M_1 \boxplus M_2]_1,
-        \quad   m_1
-        \mapsto (m_1, 0)
-      \]
-      is an isomorphism of $R_1$-modules and the map
-      \[
-                \beta_{2, M_2}
-        \colon  M_2
-        \to     [M_1 \boxplus M_2]_2,
-        \quad   m_2
-        \mapsto (0, m_2)
-      \]
-      is an isomorphism of $R_2$-modules.
-  \end{enumerate}
-  These isomorphisms are compatible with homomorphisms in the following sense:
-  \begin{enumerate}[resume]
     \item
       If $f \colon M \to N$ is a homomorphisms of $(R_1 \times R_2)$-modules then the diagram
       \[
@@ -362,9 +276,35 @@
 
 
 \begin{corollary}
+  \label{label: endomorphism ring of boxsum}
   Let $M_i, N_i$ be $R_i$-modules for $i = 1, 2$.
-  Then every $(R_1 \times R_2)$-module homomorphism $f \colon M_1 \boxplus M_2 \to N_1 \boxplus N_2$ is of the form $f = f_1 \boxplus f_2$ for unique $R_i$-module homomorphisms $f_i \colon M_i \to N_i$.
+  \begin{enumerate}
+    \item
+      Then every $(R_1 \times R_2)$-module homomorphism $f \colon M_1 \boxplus M_2 \to N_1 \boxplus N_2$ is of the form $f = f_1 \boxplus f_2$ for unique $R_i$-module homomorphisms $f_i \colon M_i \to N_i$.
+    \item
+      The map
+      \begin{align*}
+                  \End_{R_1}(M_1) \times \End_{R_2}(M_2)
+        &\longto  \End_{R_1 \times R_2}(M_1 \boxplus M_2),
+        \\
+                      (f_1, f_2)
+        &\longmapsto  f_1 \boxplus f_2 \,.
+      \end{align*}
+      is an isomorphism of rings
+  \end{enumerate}
 \end{corollary}
+
+
+\begin{corollary}
+  Let $M_i, N_i$ be $R_i$-modules for $i = 1, 2$.
+  Then $M_1 \boxplus N_1 \cong M_2 \boxplus N_2$ as $(R_1 \times R_2)$-modules if and only if $M_i \cong N_i$ as $R_i$-modules for $i = 1, 2$.
+\end{corollary}
+
+
+
+
+
+\subsubsection{Submodules over Products}
 
 
 \begin{lemma}
@@ -388,16 +328,39 @@
 \end{lemma}
 
 
+\begin{lemma}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $(M^j_i)_{j \in J}$ be a family of $R_i$-modules for $i = 1, 2$.
+      Then
+      \[
+            \left( \bigoplus_{j \in J} M^j_1 \right) \boxplus \left( \bigoplus_{j \in J} M^j_2 \right)
+          = \bigoplus_{j \in J} (M^j_1 \boxplus M^j_2) \,.
+      \]
+    \item
+      Let $M_i$ be an $R_i$-module and $(N^j_i)_{j \in J}$ a family of submodules $N^j_i \moduleeq M_i$ for $i = 1, 2$.
+      Then
+      \[
+              M_1 \boxplus M_2 = \bigoplus_{j \in J} \left( N^j_1 \boxplus N^j_2 \right)
+        \iff  \left(
+                \text{$M_1  = \bigoplus_{j \in J} N^j_1$ and $M_2  = \bigoplus_{j \in J} N^j_2$}
+              \right).
+      \]
+  \end{enumerate}
+\end{lemma}
+
+
 \begin{corollary}
-  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
-  Then $M_1 \boxtimes M_2$ is simple as an $(R_1 \times R_2)$-module (see Definition~\ref{definition: simple and maximal modules}) if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
+  Let $M_i$ be an $R_i$-module and $N_i \moduleeq M_i$ an $R_i$-submodule for $i = 1, 2$.
+  Then the submodule $N_1 \boxplus N_2 \moduleeq M_1 \boxplus M_2$ is a direct summand if and only if both $N_1 \moduleeq M_1$ and $N_2 \moduleeq M_2$ are direct summands.
 \end{corollary}
 
 
 \begin{remark}
   All the results of this section can be generalized to finite products of rings $R_1 \times \dotsb \times R_n$.
   This can be done directly or by induction over $n$.
-  Instead of using rings, i.e.\ $\Integer$-algebras, we could also use a ground field (or commutative ring) $k$ and consider $k$-algebras $A_1, \dotsc, A_n$.
+  Instead of using rings $R_1, \dotsc, R_n$, we could also use a ground field $k$ and consider $k$-algebras $A_1, \dotsc, A_n$.
 \end{remark}
 
 

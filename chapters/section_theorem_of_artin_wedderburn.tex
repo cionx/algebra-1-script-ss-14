@@ -9,20 +9,12 @@
 
 
 
-\subsection{Semisimple Rings}
+\subsection{Semisimple Rings \& The Theorem of Artin--Wedderburn}
 
 
 \begin{definition}
   The ring $R$ is \emph{semisimple} if it is semisimple as an $R$-module.
 \end{definition}
-
-
-% If $R$ is semisimple then
-% \[
-%     R
-%   = \bigoplus_{[E] \in \Irr(R)} R_E
-% \]
-% is a decomposition into (left) $R$-module by Corollary \ref{theorem: isotypical decomposition}.
 
 
 \begin{example}
@@ -55,13 +47,20 @@
 \end{example}
 
 
+
+
+
+\subsubsection{General Properties of Semisimple Rings}
+
+
 \begin{proposition}
-  If $R$ is semisimple then every $R$-module is semisimple.
+  The $R$ is semisimple if and only if every $R$-module is semisimple.
 \end{proposition}
 
 
 \begin{proof}
-  Every $R$-module is isomorphic to a quotient of a free $R$-moudule, so the claim follows from Lemma~\ref{lemma: inherit semisimple}.
+  If every $R$-module $M$ is semisimple then this holds in particular for $M = R$.
+  Every $R$-module is isomorphic to a quotient of a free $R$-moudule, so if $R$ is semisimple then every $R$-module is semisimple by Lemma~\ref{lemma: inherit semisimple}.
 \end{proof}
 
 
@@ -78,15 +77,10 @@
 \end{proof}
 
 
-\begin{corollary}
-  \label{corollary: D^n is the only simple M_n(D)-module}
-  If $D$ is a skew field then $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism.
-\end{corollary}
-
-
-\begin{proof}
-  This follows from Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and the decompositon of $\Mat_n(D)$ into simple submodules from Example~\ref{example: semisimple rings}.
-\end{proof}
+\begin{example}
+  \label{example: D^n is the only simple M_n(D)-module}
+  It follows from Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and the decompositon of $\Mat_n(D)$ into simple submodules from Example~\ref{example: semisimple rings} that $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism
+\end{example}
 
 
 \begin{lemma}
@@ -129,15 +123,122 @@
 \end{proof}
 
 
+\begin{fluff}
+   The main goal of this subsection is to state and prove the theorem of Artin--Wedderburn, which classifies semisimple rings up to isomorphism.
+\end{fluff}
 
 
 
-\subsection{The Theorem of Artin-Wedderburn}
+
+
+\subsubsection{Products of Matrix Rings over Skew Fields}
 
 
 \begin{fluff}
-  We now state and proof the theorem of Artin-Weddeburn, which classifies semisimple rings up to isomorphism.
+  We start by taking a closer look at matrix rings over skew fields, and how products of those kind of rings behave.
+  For this we will need some understanding of how modules over a products of rings $R_1 \times \dotsb \times R_n$ look like.
+  An explanation of this can be found in appendix~\ref{appendix: modules over products of rings}.
+  We will also use some of the notation introduced in this appendix.
 \end{fluff}
+
+
+\begin{lemma}
+  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  Then $M_1 \boxplus M_2$ is simple as an $(R_1 \times R_2)$-module (see Definition~\ref{definition: simple and maximal modules}) if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
+\end{lemma}
+
+
+\begin{proposition}
+  Let $R_1, R_2$ be rings and let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if either ($M_1$ is simple and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is simple).
+    \item
+      The map
+      \begin{align*}
+                  \Irr(R_1) \amalg \Irr(R_2)
+        &\longto  \Irr(R_1 \times R_2) \,,
+        \\
+                  [E]
+        &\mapsto  \begin{cases}
+                    E \boxplus 0  & \text{if $[E] \in \Irr(R_1)$} \,, \\
+                    0 \boxplus E  & \text{if $[E] \in \Irr(R_2)$}
+                  \end{cases}
+      \end{align*}
+      is a well-defined bijection.
+    \item
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is semisimple if and only if $M_i$ is semisimple as an $R_i$-module for $i = 1, 2$.
+    \item
+      The ring $R_1 \times R_2$ is semisimple if and only if both $R_1$ and $R_2$ are semisimple.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{corollary}
+  \label{corollary: artin wedderburn rings are semisimple}
+  Let $D_1, \dotsc, D_r$ be skew fields and let $n_1, \dotsc, n_r \geq 1$.
+  \begin{enumerate}
+    \item
+      The ring $R \defined  \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)$ is semisimple.
+    \item
+      The $R$-modules $S_1, \dotsc, S_r$ with
+      \[
+                  S_i
+        \defined  0 \boxplus \dotsb \boxplus 0 \boxplus D_i^{n_i} \boxplus 0 \boxplus \dotsb \boxplus 0
+      \]
+      where $D_i^{n_i}$ is in the $i$-th position form a set of representatives of the isomorphism classes of simple $R$-modules.
+    \item
+      We have that $R \cong \bigoplus_{i=1}^r S_i^{\oplus n_i}$ as $R$-modules.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{fluff}
+  We will also need the endomorphisms rings of the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple}.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: matrix vector space correspondence for skew fields}
+  Let $D$ be a skew-field.
+  Then the map
+  \[
+            D^\op
+    \longto \End_{\Mat_n(D)}(D^n) \,,
+            d
+    \mapsto \left(
+                      \vect{x_1 \\ \vdots \\ x_n}
+              \mapsto \vect{x_1 \\ \vdots \\ x_n} d
+              =       \vect{x_1 d \\ \vdots \\ x_n d}
+            \right)
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{corollary}
+  \label{corollary: endomorphism ring of Si}
+  In the situation and notation of Corollary~\ref{corollary: artin wedderburn rings are semisimple} we have that $\End_R(S_i) \cong D_i^\op$ for every $i = 1, \dotsc, r$.
+\end{corollary}
+
+
+\begin{notation}
+  \label{notation: simple modules over products of matrix rings}
+  By abuse of notation we will often denote the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple} instead by $D_1^{n_1}, \dotsc, D_r^{n_r}$.
+  Note that we then have that
+  \[
+          \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(D_i^{n_i})
+    \cong D_i^\op
+  \]
+  by Corollary~\ref{corollary: endomorphism ring of Si}.
+\end{notation}
+
+
+
+
+
+
+\subsubsection{The Opposite Ring}
 
 
 \begin{definition}
@@ -163,6 +264,8 @@
       If $D$ is a skew field then $D^\op$ is also a skew field.
     \item
       For every family of rings $(R_i)_{i \in I}$ we have that $( \prod_{i \in I} R_i )^\op = \prod_{i \in I} R_i^\op$.
+    \item
+      If $G$ is a group and $k$ a field then $k[G]^\op \cong k[G^\op] \cong k[G]$ because the map $G \to G^\op$, $g \mapsto g^{-1}$ is an isomorphism of groups.
   \end{enumerate}
 \end{remark}
 
@@ -194,26 +297,6 @@
   \end{align*}
   for all $i, j = 1, \dotsc, n$, and therefore $(A \bullet B)^T = A^T \bullet B^T$.
 \end{proof}
-
-
-% \begin{proposition}
-%   \label{proposition: opposite modules}
-%   Let $R$ be a ring.
-%   We have a $1$:$1$-correspondence between the left $R$-modules and $R^\op$-modules, where for a left $R$-module $M$ the corresponding right $R^\op$-module $M^\op$ is defined as
-%   \[
-%               m \bullet r
-%     \coloneqq r \cdot m
-%     \text{ for every }
-%     m \in M^\op \,,\,
-%     r \in R^\op \,,
-%   \]
-%   where $\bullet$ denotes the multiplication of $R^\op$ on $M^\op$ and $\cdot$ the multiplication of $R$ on $M$.
-% \end{proposition}
-
-
-% \begin{proof}
-%   <Insert obvious calculations here>.
-% \end{proof}
 
 
 \begin{lemma}
@@ -269,123 +352,10 @@
 \end{proof}
 
 
-% Let $D$ be a skew field.
-% Becaus $D^n$ is a simple $\Mat_n(D)$-module we know from Schur’s Lemma that $\End_{\Mat_n(D)}(D^n)$ is a skew field.
-% We would like to know how $D$ and $\End_{\Mat_n(D)}(D^n)$ are related.
-% We know from linear algebra that for every field $k$ we have
-% \[
-%         \End_{\Mat_n(k)}(k^n)
-%   \cong k.
-% \]
-% From Lemma \ref{lemma: End_R(R) = Rop} we also know that in the case $n = 1$. 
-% \[
-%   \End_D(D) \cong D^\op
-% \]
-% These observations lead to the following Lemma:
-% 
-% 
-% \begin{lemma}
-%   Let $D$ be a skew field and $n \geq 1$. Then
-%   \[
-%               \End_{\Mat_n(D)}\left(D^n\right)
-%     \cong     D^\op,
-%     \quad     \left(
-%                         \vect{x_1 \\ \vdots \\ x_n}
-%                 \mapsto \vect{x_1 d \\ \vdots \\ x_n d}
-%               \right)
-%     \mapsfrom d
-%   \]
-%   as rings.
-% \end{lemma}
-% \begin{proof}
-%   By $\cdot$ we denote the multiplication in $D$ and by $*$ the multiplication in $D^\op$.
-%   For all $d \in D$, $d' \in D^\op$ and $x = (x_1, \dotsc, x_n) \in D^n$ we write
-%   \[
-%               d x
-%     \coloneqq (d x_1, \dotsc, d x_n)
-%     \qquad \text{ and } \qquad
-%               x d'
-%     \coloneqq (x_1 d', \dotsc, x_n d'). 
-%   \]
-%   We also define
-%   \[
-%     \pi_i \colon D^n \to D
-%   \]
-%   as the canonical projection for every $1 \leq i \leq n$.
-%   It is clear that $\pi_i$ is $D$-linear for every $1 \leq i \leq n$ where we see $D^n$ and $D$ as left $D$-modules in the usual way.
-%   By $e_1, \dotsc, e_n$ we denote the standard basis of $D^n$ (as a left $D$-module).
-%   
-%   We define
-%   \[
-%             \varphi
-%     \colon  D^\op
-%     \to     \End_{\Mat_n(D)}\left( D^n \right),
-%     \quad   d
-%     \mapsto (x \mapsto x d) \,.
-%   \]
-%   It is clear that $\varphi$ is well-defined.
-%   It is clear that $\varphi$ is additive.
-%   That it is also multiplicative (and thus a ring homomorphism) follow from simple calculation:
-%   For all $d, d' \in D^\op$ and $x \in D^n$ we have
-%   \[
-%       \varphi(d * d')(x)
-%     = x (d * d')
-%     = x (d' \cdot d)
-%     = (x d') d
-%     = \left( \varphi(d) \circ \varphi(d') \right)(x) \,.
-%   \]
-%   
-%   It is also easy to see that $\varphi$ is injective:
-%   For $d, d' \in D^\op$ with $\varphi(d) = \varphi(d')$ we have
-%   \[
-%       d
-%     = \pi_1(e_1 d)
-%     = \pi_1(\varphi(d)(e_1))
-%     = \pi_1(\varphi(d')(e_1))
-%     = \pi_1(e_1 d')
-%     = d' \,.
-%   \]
-%   
-%   All that’s left to show is that $\varphi$ is surjective.
-%   For this let $f \in \End_{\Mat_n(D)}(D^n)$.
-%   $f$ is $D$-linear, because for all $d \in D$ and $x = (x_1, \dotsc, x_n) \in D^n$
-%   \[
-%       f(dx)
-%     = f( \diag(d, \dotsc, d) x)
-%     = \diag(d, \dotsc, d) f(x)
-%     = d f(x) \,.
-%   \]
-%   For every $1 \leq i \leq n$ we set $d_i \coloneqq \pi_i(f(e_i))$.
-%   We then have for every $1 \leq i \leq n$
-%   \[
-%       f(e_i)
-%     = f(E_{ii} e_i)
-%     = E_{ii} f(e_i)
-%     = (0, \dotsc, d_i, \dotsc, 0)
-%     = e_i d_i 
-%   \]
-%   and therefore for every $x = (x_1, \dotsc, x_n) \in D^n$
-%   \begin{align*}
-%         f(x)
-%     &=  f(x_1 e_1 + \dotsb + x_n e_n)       \\
-%     &=  f(x_1 e_1) + \dotsb + f(x_n e_n)    \\
-%     &=  x_1 f(e_1) + \dotsb + x_n f(e_n)    \\
-%     &=  x_1 e_1 d_1 + \dotsb + x_n e_n d_n  \\
-%     &=  (x_1 d_1, \dotsc, x_n d_n)
-%   \end{align*}
-%   For every $1 \leq i,j \leq n$ we have
-%   \begin{align*}
-%         d_i
-%     &=  \pi_i(e_i d_i)
-%      =  \pi_i(f(e_i))
-%      =  \pi_i(f(E_{ij} e_j)) \\
-%     &=  \pi_i(E_{ij} f(e_j))
-%      =  \pi_i(E_{ij} e_j d_j)
-%      =  \pi_i(e_i d_j)
-%      =  d_j \,.
-%   \end{align*}   
-%   This shows that $f = \varphi(d)$ for $d \coloneqq d_1 = \dotsb = d_n$.
-% \end{proof}
+
+
+
+\subsubsection{The Theorem of Artin--Wedderburn}
 
 
 \begin{theorem}[Artin--Wedderburn]
@@ -398,20 +368,21 @@
               R
         \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}
       \]
-      for $r \geq 0$, pairwise non-isomorphic simple $R$-modules $M_1, \dotsc, M_r$ and $n_1, \dotsc, n_r \geq 1$, then
+      for some $r \geq 0$, pairwise non-isomorphic simple $R$-modules $M_1, \dotsc, M_r$ and suitable $n_1, \dotsc, n_r \geq 1$, then
       \[
               R
         \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
       \]
       as rings with $D_i = \End(M_i)^\op$ for every $i = 1, \dotsc, r$.
-      \item
+      If $R$ is a $k$-algebra then this is an isomorphism of $k$-algebras.
+    \item
       This decomposition is unique in the following sense:
       If
       \[
               R
-        \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+        \cong \Mat_{m_1}(D'_1) \times \dotsb \times \Mat_{m_s}(D'_s)
       \]
-      for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$, then the number $r$ is as above and the pairs $(n_1,D_1), \dotsc, (n_r,D_r)$ are as above up to permutation and isomorphism of the $D_i$.
+      for any $s \geq 0$, $m_1, \dotsc, m_s \geq 1$ and skew fields $D'_1, \dotsc, D'_s$ then $r = s$ and the pairs $(D_1, n_1), \dotsc, (D_r, n_r)$ coincide with the pairs $(D'_1, m_1), \dotsc, (D'_s, m_s)$ up to permutation and isomorphism, i.e.\ there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ and $D'_{\pi(i)} \cong D_i$ for every $i = 1, \dotsc, r$.
   \end{enumerate}
 \end{theorem}
 
@@ -436,56 +407,138 @@
         &\cong  \Mat_{n_1}(D_1^\op) \times \dotsb \times \Mat_{n_r}(D_r^\op) \,.
       \end{align*}
     \item
-      Let $\varphi \colon R \to \Mat_{n'_1}(D'_1) \times \dotsb \times \Mat_{n'_{r'}}(D'_{r'})$ be such an isomorphism.
+      Let $\varphi \colon R \to \Mat_{m_1}(D'_1) \times \dotsb \times \Mat_{m_s}(D'_s) \defined R'$ be an isomorphism of rings.
+      By using Corollary~\ref{corollary: artin wedderburn rings are semisimple} (and the Notation of \ref{notation: simple modules over products of matrix rings}) we have that
+      \[
+              R'
+        \cong {D'_1}^{\oplus m_1} \oplus \dotsb \oplus {D'_s}^{\oplus m_s}
+      \]
+      as $R'$-modules.
+      For every $i = 1, \dotsc, r$ we can pull back the $R'$-module structure of ${D'_i}^{\oplus m_i}$ to an $R$-module structure.
+      The ${D'_i}^{\oplus m_i}$ thus become simple pairwise non-isomorpic $R$-modules with
+      \[
+              R
+        \cong {D'_i}^{\oplus m_i} \oplus \dotsb \oplus {D'_i}^{\oplus m_i}
+      \]
+      as $R$-modules.
       
+      By using the uniqueness of multiplicities of simple summands (see Theorem~\ref{theorem: multiplicity well-defined} and Remark~\ref{remark: uniqueness of multiplicities alternative formulation}) it follows that the two decompositions
+      \[
+              R
+        =     M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}
+        \cong {D'_1}^{\oplus m_1} \oplus \dotsb \oplus {D'_1}^{\oplus m_1}
+      \]
+      into simple submodules coincide up to permutation and isomorphism:
+      We have that $r = s$ and there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ for every $i = 1, \dotsc, r$ and $D'_{\pi(i)} \cong M_i$ for every $i = 1, \dotsc, r$.
+      By again using Corollary~\ref{corollary: artin wedderburn rings are semisimple} we find that
+      \[
+              D_i
+        =     \End_R(M_i)^\op
+        \cong \End_R({D'_i}^{\oplus m_i})^\op
+        =     \End_{R'}({D'_i}^{\oplus m_i})^\op
+        \cong ((D'_i)^\op)^\op
+        =     D'_i
+      \]
+      as rings.
+      This finishes the proof.
+    \qedhere
   \end{enumerate}
 \end{proof}
 
 
-
-Notice that by Corollary \ref{corollary: simple modules over product of matrix algebras} it follows that a ring of the above form has exactly $r$ simple modules up to isomorphism, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$.
-
-
-\begin{corollary}
-  Let $R$ be a semisimple ring (with $1$) and $M$ a faithful $R$-module, i.e.\ $rm = 0$ for every $r \in R$ implies $m = 0$.
-  Then the isotypical components of $M$ are all nonzero.
-  In particular $M$ contains every simple $R$-module up to isomorphism.
-\end{corollary}
-\begin{proof}
-  By Artin--Wedderburn we have
-  \[
-    R \cong M_{n_1}(D_1) \times \dotsb \times M_{n_s}(D_s)
-  \]
-  for $s \geq 1$, $n_1, \dotsc, n_s \geq 1$ and skew field $D_1, \dotsc, D_s$.
-  Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ are a complete set of representatives of $\Irr(R)$, where $(A_1, \dotsc, A_s) \in R$ acts on $x \in D_i^{n_i}$ by $(A_1, \dotsc, A_n) \cdot x = A_i x$.
-  Since $R$ is semisimple so is $M$ and thus we have a decomposition $M \cong \bigoplus_{i=1}^s M_{D_i^{n_i}}$ into isotypical components.
-  Suppose that $M_{D_i^{n_i}} = 0$ for some $1 \leq i \leq s$.
-  Then every element $A \in M_{n_i}(D_i) \subseteq R$ acts by multiplication with zero on $M$, which contradicts the faithfulness of $M$.
-  Thus the isotypical components $M_{D_i^{n_i}}$ are all nonzero.
-\end{proof}
+\begin{remark}
+  Corollary~\ref{corollary: artin wedderburn rings are semisimple} and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} together give a classification of semisimple rings up to isomorphism:
+  Semisimple rings are precisely the products of matrix rings over skew fields.
+\end{remark}
 
 
+
+
+
+\subsubsection{Applications of Artin--Wedderburn}
 
 
 \begin{corollary}
-  Let $R$ be a semisimple ring (with $1$).
-  Then $R^\op$ is also semisimple.
+  If $R$ is semisimple then $R^\op$ is also semisimple.
 \end{corollary}
+
+
 \begin{proof}
-  By Artin--Wedderburn we have
+  By the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have an isomorphism of rings
   \[
-    R \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+          R
+    \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
   \]
-  for $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
-  Therefore
+  for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  It then follows that
   \begin{align*}
             R^\op
     &\cong  \left( \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \right)^\op \\
     &=      \Mat_{n_1}(D_1)^\op \times \dotsm \times \Mat_{n_r}(D_r)^\op \\
     &=      \Mat_{n_1}\left( D_1^\op \right) \times \dotsm \times \Mat_{n_r}\left( D_r^\op \right).
   \end{align*}
-  Since $D_1^\op, \dotsc, D_r^\op$ are skew fields we find that $R^\op$ is semisimple by Artin--Wedderburn.
+  The rings $D_i^\op$ are skew fields because the $D_i$ are skew fields.
+  It follows from Corollary~\ref{corollary: artin wedderburn rings are semisimple} that $R^\op$ is semisimple.
 \end{proof}
+
+
+\begin{corollary}\label{corollary: semisimple algebra product of matrix algebras over field}
+  Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra.
+  Then
+  \[
+          A
+    \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
+  \]
+  as $k$-algebras for some $r \geq 0$ and $n_1, \dotsc, n_r \geq 1$.
+\end{corollary}
+
+
+\begin{proof}
+  It follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that
+  \[
+    A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+  \]
+  as $k$-algebras for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and division algebras $D_1, \dotsc, D_r$ over $k$, and every $D_i$ is of the form
+  \[
+    D_i = \End_A(S_i)^\op
+  \]
+  for a simple $A$-module $S_i$.
+  It follows from Corollary~\ref{corollary: simple modules over fd algebras are fd} that each $S_i$ is finite-dimensional, and it thus further then follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $D_i = k$.
+\end{proof}
+
+
+\begin{corollary}
+  If $R$ is semisimple and $M$ a faithful $R$-module then the isotypical components of $M$ are all nonzero, i.e.\ $M$ contains every simple $R$-module up to isomorphism.
+\end{corollary}
+
+
+\begin{proof}
+  By the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we may assume w.l.o.g.\ that
+  \[
+    R = M_{n_1}(D_1) \times \dotsb \times M_{n_r}(D_r)
+  \]
+  for $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew field $D_1, \dotsc, D_r$.
+  Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ form a complete set of representatives of $\Irr(R)$.
+  
+  The module $M$ is semisimple because $R$ is semisimpe, so there exists a decomposition into isotypical components $M \cong \bigoplus_{i=1}^s M_{D_i^{n_i}}$.
+  If $M_{D_i^{n_i}} = 0$ for some $1 \leq i \leq s$ then every element $A \in M_{n_i}(D_i) \subseteq R$ would act by multiplication with zero on $M$, which would contradicts the faithfulness of $M$.
+  The isotypical components $M_{D_i^{n_i}}$ are therefore all nonzero.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\hrulefill\, Everything down here is a mess \,\hrulefill
+
 
 
 \begin{corollary}
@@ -501,146 +554,7 @@ Notice that by Corollary \ref{corollary: simple modules over product of matrix a
 \end{proof}
 
 
-\begin{corollary}\label{corollary: semisimple algebra product of matrix algebras over field}
-  Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra.
-  Then
-  \[
-    A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
-  \]
-  as $k$-algebras for some $r \geq 1$ and $n_1, \dotsc, n_r \geq 1$.
-\end{corollary}
-\begin{proof}
-  Using Artin--Wedderburn we find that we have an isomorphism of rings
-  \[
-    A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
-  \]
-  for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$ where
-  \[
-    D_i = \End_A(S_i)^\op
-  \]
-  for a simple $A$-module $S_i$ for every $1 \leq i \leq r$.
-  By Proposition \ref{proposition: simple modules over finite-dimensional algebras} $\dim_k S_i < \infty$ and thus by Schur’s Lemma $D_i = k$ for every $1 \leq i \leq r$.
-\end{proof}
 
-
-% \begin{proof}[Proof of Artin--Wedderburn]
-%   We start by showing the existance:
-%   By Lemma \ref{lemma: semisimple ring with 1 only finitely many summands} we have $R = \bigoplus_{i = 1}^n L_i$ as $R$-modules for some $n \geq 1$ and simple submodules $L_i \subseteq R$.
-%   By sorting these submoduls by isomorphism classes we get
-%   \[
-%     R \cong n_1 V_1 \oplus \dotsb \oplus n_r V_r
-%   \]
-%   for $n_1, \dotsc, n_r \geq 1$ and pairwise non-isomorphic simple $R$-modules $V_1, \dotsc, V_r$.
-%   Since it is enough to prove the theorem for $n_1 V_1 \oplus \dotsb \oplus n_r V_r$ we will assume that $R = n_1 V_1 \oplus \dotsb \oplus n_r V_r$.
-%   
-%   By Schur’s Lemma we find for every $1 \leq i \leq r$
-%   \[
-%           \End_R(n_i V_i)
-%     \cong \Mat_{n_i}(\End_R(V_i))
-%   \]
-%   where $\End_R(V_i)$ is a skew field, and
-%   \[
-%           \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r)
-%     \cong \End_R(n_1 V_1) \oplus \dotsb \oplus \End_R(n_r V_r)
-%   \]
-%   because the $V_i$ are pairwise non-isomorpic.
-%   Using Lemma \ref{lemma: End_R(R) = Rop} we find that
-%   \begin{align*}
-%             R^\op
-%     &\cong  \End_R(R) \\
-%     &\cong  \End_R(n_1 V_1 \oplus \dotsb \oplus n_r V_r) \\
-%     &\cong  \End_R(n_1 V_1) \times \dotsb \times \End_R(n_r V_r) \\
-%     &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
-%   \end{align*}
-%   as rings for the skew field $D_i \coloneqq \End_R(V_i)$.
-%   Therefore
-%   \begin{align*}
-%             R
-%     &\cong  \left( R^\op \right)^\op \\
-%     &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
-%     &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op \\
-%     &\cong  \Mat_{n_1}\left( D_1^\op \right) \times \dotsb \times \Mat_{n_r}\left( D_r^\op \right)
-%   \end{align*}
-%   as rings where $D_i^\op$ is a skew field for every $1 \leq i \leq r$.
-%   
-%   To see the uniquness let
-%   \begin{align}
-%             R
-%     &\cong  \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \,,
-%     \label{eqn: artin wedderburn isomorphisms 1}
-%   \shortintertext{and}
-%             R
-%     &\cong \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_s}(D'_s)
-%     \label{eqn: artin wedderburn isomorphisms 2} 
-%   \end{align}
-%   for $r, s \geq 1$, $n_1, \dotsc, n_r, n'_1, \dotsc, n'_s \geq 1$ and skew fields $D_1, \dotsc, D_r$, $D'_1, \dotsc, D'_s$.
-%   We start by noticing that
-%   \[
-%       r
-%     = |\Irr(R)|
-%     = s \,,
-%   \]
-%   so $r$ is unique.
-%   Using the isomorphisms \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} of rings we can make $\Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)$ and $\Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)$ into $R$-modules, such that \eqref{eqn: artin wedderburn isomorphisms 1} and \eqref{eqn: artin wedderburn isomorphisms 2} are also isomorphisms of $R$-modules.
-%   By decomposing $\Mat_{n_i}(D_i)$ into simple $R$-submodules (which are the same as simple $\Mat_{n_i}(D_i)$ submodules) $\Mat_{n_i}(D_i) = C^i_1 \oplus \dotsb \oplus C^i_{n_i}$ in the usual way (so $C^i_j$ are the matrices in $\Mat_{n_i}(D_i)$ for which all but the $j$-the column are zero and $C^i_j \cong D_i^{n_i}$) we get a decomposition
-%   \[
-%       \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
-%     = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n_i} C^i_j
-%   \]
-%   into simple $R$-submodules.
-%   In the same way we get a decomposition
-%   \[
-%       \Mat_{n'_1}(D'_1) \times \dotsm \times \Mat_{n'_r}(D'_r)
-%     = \bigoplus_{i=1}^r \bigoplus_{j=1}^{n'_i} C'^i_j
-%   \]
-%   into simple $R$-submodules.
-%   We know that $C^{i_1}_{j_1} \cong C^{i_2}_{j_2}$ as $R$-modules if and only if $i_1 = i_2$, the same goes for the $C'^i_j$.
-%   In particular both $C^1_1, \dotsc, C^r_1$ and $C'^1_1, \dotsc, C'^r_1$ are a complete collection of representatives of $\Irr(R)$.
-%   Since the $R$-endomorphism rings of the $C^i_j$ and $C'^i_j$ are skew fields by Schur’s Lemma we find by the theorem of Krull-Remak-Schmidt (which we will not prove in this lecture) that there exists a bijection
-%   \[
-%             \pi
-%     \colon  \left\{
-%               C^i_j
-%             \,\middle|\,
-%               1 \leq i \leq r, 
-%               1 \leq j \leq n_i
-%             \right\}
-%     \to     \left\{
-%               C'^i_j
-%             \,\middle|\,
-%               1 \leq i \leq r,
-%               1 \leq j \leq n'_i
-%             \right\}
-%   \]
-%   such that $\pi(C^i_j) \cong C^i_j$ for every $C^i_j$.
-%   Since $\pi$ restricts to bijections between the isomorphism classes of the $C^i_j$ and $C'^i_j$ we find a bijection
-%   \[
-%             \tau
-%     \colon  \{1, \dotsc, r\}
-%     \to     \{1, \dotsc, r\}
-%   \]
-%   such that $\pi$ restricts to a bijection
-%   \[
-%             \pi_i
-%     \colon  \{ C^i_1, \dotsc, C^i_{n_i} \}
-%     \to     \{ C^{\tau(i)}_1, \dotsc, C^{\tau(i)}_{n'_i} \}
-%   \]
-%   for every $1 \leq i \leq r$.
-%   Thus we find that $n_i = n'_i$.
-%   Because we have $C^i_1 \cong C^{\tau(i)}_1$ for every $1 \leq i \leq r$ and
-%   \[
-%           \End_R(C^i_1)
-%     \cong \End_{\Mat_{n_i}(D_i)}(C^i_1)
-%     \cong \End_{\Mat_{n_i}(D_i)}(D^n)
-%     \cong D_i^\op
-%   \]
-%   as well as $\End_R(C^{\tau(i)}_1) \cong D_{\tau(i)}'^\op$ we also find that
-%   \[
-%           D_i^\op
-%     \cong D_{\tau(i)}'^\op
-%   \]
-%   and thus $D_i \cong D'_{\tau(i)}$.
-% \end{proof}
 
 
 
