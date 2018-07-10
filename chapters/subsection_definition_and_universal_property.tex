@@ -378,6 +378,7 @@
 
 
 \begin{recall}
+  \label{recall: unique representation in tensor product}
   Let $W, V$ be $k$-vector spaces and let $(w_j)_{j \in J}$ be a $k$-basis of $W$.
   Then every $x \in W \otimes_k V$ can be written as $x = \sum_{j \in J} w_j \otimes v_j$ for unique elements $v_j \in V$ (with $v_j = 0$ for all but finitely many $j \in J$):
   We have that $W = \bigoplus_{j \in J} \gen{w_j}_k$ and therefore
@@ -388,6 +389,9 @@
     =     \bigoplus_{j \in J} (w_j \otimes V)
     \cong \bigoplus_{j \in J} V \,.
   \]
+  
+  Note that for the uniqueness of the decomposition $x = \sum_{j \in J} w_j \otimes v_j$ it sufficies that $(w_j)_{j \in J}$ in linearly independent, because we can then set $W = \gen{w_j \suchthat j \in J}_k$ and use the above result.
+  (Of course, if $(w_j)_{j \in J}$ is not a basis of $W$ then such a decomposition may not exist.)
 \end{recall}
 
 

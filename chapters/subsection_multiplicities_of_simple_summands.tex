@@ -94,53 +94,6 @@
 % \end{proof}
 
 
-\begin{fluff}
-  An important special case of Lemma~\ref{lemma: multiplicities for finite length} with its own popular proof is the following result:
-\end{fluff}
-
-
-\begin{lemma}
-  Let $A$ be a $k$-algebra and let $M$ be a semisimple $A$-module with $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ for pairwise non-isomorphic finite-dimensional simple $A$-modules $M_1, \dotsc, M_r$.
-  Then the numbers $n_1, \dotsc, n_r$ are uniquely determined as
-  \begin{align*}
-        n_i
-    &=  \frac{\dim_k \Hom_A(M_i, M)}{\dim_k \End_A(M_i)} \,.
-  \intertext{If $k$ is algebraically closed then}
-        n_i
-    &=  \dim_k \Hom_A(M_i, M) \,.
-  \end{align*}
-\end{lemma}
-
-
-\begin{proof}
-  We have that
-  \begin{align*}
-            \Hom_A(M_i, M)
-    &=      \Hom_A(M_i, M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}) \\
-    &\cong  \Hom_A(M_i, M_1)^{n_1} \times \dotsb \times \Hom_A(M_i, M_r)^{n_r}
-  \end{align*}
-  as $k$-vector spaces (see Corollary~\ref{corollary: Hom on direct sums}).
-  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and the simplicity of the $M_i$ that $\Hom(M_i, M_j) = 0$ for all $i \neq j$, and therefore that
-  \[
-          \Hom_A(M_i, M)
-    \cong \Hom_A(M_i, M_i)^{n_i}
-    =     \End_A(M_i)^{n_i}
-  \]
-  as $k$-vector spaces.
-  It follows that
-  \[
-      \dim_k \Hom_A(M_i, M)
-    = \dim_k \End_A(M_i)^{n_i}
-    = n_i \dim_k \End_A(M_i) \,,
-  \]
-  and it follows from the finite-dimensionality of $M_i$ that $\End_A(M_i)$ is finite-dimensional.
-  This shows the first equality.
-  
-  If $k$ is algebraically closed then $\End_A(M_i) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and therefore $\dim_k \End_A(M_i) = 1$.
-  The second equality thus follows from the first one.
-\end{proof}
-
-
 \begin{theorem}
   \label{theorem: multiplicity well-defined}
   Let $M$ be a semisimple $R$-module and let $M = \bigoplus_{i \in I} L_i = \bigoplus_{j \in J} L'_j$ be two decompositions into simple submodules $L_i, L'_j \moduleeq M$.
@@ -213,3 +166,49 @@
   (Theorem~\ref{theorem: multiplicity well-defined} shows that this multiplicity is well-defined.)
 \end{definition}
 
+
+\begin{fluff}
+  An important special case of Lemma~\ref{lemma: multiplicities for finite length} with its own popular proof is the following result:
+\end{fluff}
+
+
+\begin{lemma}
+  Let $A$ be a $k$-algebra and let $M$ be a semisimple $A$-module with $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ for pairwise non-isomorphic finite-dimensional simple $A$-modules $M_1, \dotsc, M_r$.
+  Then the numbers $n_1, \dotsc, n_r$ are uniquely determined as
+  \begin{align*}
+        n_i
+    &=  \frac{\dim_k \Hom_A(M_i, M)}{\dim_k \End_A(M_i)} \,.
+  \intertext{If $k$ is algebraically closed then}
+        n_i
+    &=  \dim_k \Hom_A(M_i, M) \,.
+  \end{align*}
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+            \Hom_A(M_i, M)
+    &=      \Hom_A(M_i, M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}) \\
+    &\cong  \Hom_A(M_i, M_1)^{n_1} \times \dotsb \times \Hom_A(M_i, M_r)^{n_r}
+  \end{align*}
+  as $k$-vector spaces (see Corollary~\ref{corollary: Hom on direct sums}).
+  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and the simplicity of the $M_i$ that $\Hom(M_i, M_j) = 0$ for all $i \neq j$, and therefore that
+  \[
+          \Hom_A(M_i, M)
+    \cong \Hom_A(M_i, M_i)^{n_i}
+    =     \End_A(M_i)^{n_i}
+  \]
+  as $k$-vector spaces.
+  It follows that
+  \[
+      \dim_k \Hom_A(M_i, M)
+    = \dim_k \End_A(M_i)^{n_i}
+    = n_i \dim_k \End_A(M_i) \,,
+  \]
+  and it follows from the finite-dimensionality of $M_i$ that $\End_A(M_i)$ is finite-dimensional.
+  This shows the first equality.
+  
+  If $k$ is algebraically closed then $\End_A(M_i) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and therefore $\dim_k \End_A(M_i) = 1$.
+  The second equality thus follows from the first one.
+\end{proof}
