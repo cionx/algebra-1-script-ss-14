@@ -88,10 +88,11 @@
   \label{corollary: End is isomorphic to product of matrix rings Schur style}
   Suppose that $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ where $M_1, \dotsc, M_r$ are pairwise non-isomorphic simple $R$-modules and $n_1, \dotsc, n_r \geq 1$.
   Then
-  \[
-          \End_R(M)
-    \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
-  \]
+  \begin{align*}
+            \End_R(M)
+    &\cong  \End_R(M_1^{\oplus n_1}) \times \dotsb \times \End_R(M_r^{\oplus n_r})  \\
+    &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+  \end{align*}
   as rings where $D_i \defined \End_R(M_i)$ for every $i = 1, \dotsc, r$.
   If $R$ is a $k$-algebra, then this is an isomorphism of $k$-algebras.
 \end{corollary}

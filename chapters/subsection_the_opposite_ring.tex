@@ -1,0 +1,222 @@
+\subsection{The Opposite Ring}
+\label{appendix: the opposite ring}
+
+
+\begin{conventions}
+  In the following $R$ denotes a ring.
+\end{conventions}
+
+
+\begin{definition}
+  The \emph{opposite ring} $R^\op$ has the same underlying additive group as $R$, and the multiplication is given by
+  \[
+              a * b
+    \defined  b \cdot a
+    =         ba
+  \]
+  for all $a, b \in R^\op$, where $\cdot$ denotes the multiplication of $R$.
+\end{definition}
+
+
+\begin{remark}
+  \label{remark: basic properties of op}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that $( R^\op )^\op = R$.
+    \item
+      The ring $R$ is commutative if and only if $R = R^\op$.
+    \item
+      If $D$ is a skew field then $D^\op$ is also a skew field.
+    \item
+      For every family of rings $(R_i)_{i \in I}$ we have that $( \prod_{i \in I} R_i )^\op = \prod_{i \in I} R_i^\op$.
+    \item
+      If $G$ is a group and $k$ a field then $k[G]^\op \cong k[G^\op] \cong k[G]$ because the map $G \to G^\op$, $g \mapsto g^{-1}$ is an isomorphism of groups.
+  \end{enumerate}
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: op of matrix rings}
+  The map
+  \[
+            \Mat_n(R)^\op
+    \to     \Mat_n(R^\op)
+    \quad   A
+    \mapsto A^T
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{proof}
+  We denote the multiplications on $R$ and $\Mat_n(R)$ by $\cdot$, the multiplication of $R^\op$ by $*$ and the multiplication on $\Mat_n(R)^\op$ by $\bullet$.
+  The given map is additive and bijective, and for all $A, B \in \Mat_n(R)^\op$ we have that
+  \begin{align*}
+        \left( (A \bullet B)^T \right)_{ij}
+    &=  (A \bullet B)_{ji}
+     =  (B \cdot A)_{ji}
+     =  \sum_{k=1}^n B_{jk} \cdot A_{ki}  \\
+    &=  \sum_{k=1}^n A_{ki} * B_{jk}
+     =  \sum_{k=1}^n (A^T)_{ik} * (B^T)_{kj}
+     =  \left( (A^T) \bullet (B^T) \right)_{ij}
+  \end{align*}
+  for all $i, j = 1, \dotsc, n$, and therefore $(A \bullet B)^T = A^T \bullet B^T$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: End_R(R) = Rop}
+  The map
+  \[
+              R^\op
+    \to       \End_R(R),
+    \quad     r
+    \mapsto   (x \mapsto xr)
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{proof}
+  We denote the given map by $\Phi$ and the multiplication of $R^\op$ by $*$.
+  For every $r \in R^\op$ we have that
+  \[
+      \Phi(r'x)
+    = r' x r
+    = r' \Phi(x)
+  \]
+  for all $r' \in R$, $x \in R$, which shows that $\Phi(r)$ is $R$-linear for every $r \in R$.
+  The additivity of $\Phi(r)$ for every $r \in R$ follows from the distributivity of $R$.
+  This shows that $\Phi$ is well-defined.
+  
+  The additivity of $\Phi$ also follows from the distributivity of $R$, and we have that $\Phi(1_{R^\op}) = \Phi(1_R) = \id_R$.
+  For all $r_1, r_2 \in R^\op$ we have that
+  \[
+      \Phi(r_1 * r_2)(x)
+    = x (r_1 * r_2)
+    = x r_2 r_1
+    = \Phi(r_2)(x) r_1
+    = \Phi(r_1)(\Phi(r_2)(x))
+    = (\Phi(r_1) \circ \Phi(r_2))(x)
+  \]
+  for every $x \in R$ and thus $\Phi(r_1 * r_2) = \Phi(r_1) \circ \Phi(r_2)$.
+  This shows that $\Phi$ is multiplicative.
+  Alltogether this shows that $\Phi$ is a ring homomorphism.
+  
+  For every $r \in R^\op$ we have that $\Phi(r)(1) = r$, which shows that $\Phi$ is injective.
+  For every $\varphi \in \End_R(R)$ we have for $r \defined \varphi(1)$ that
+  \[
+      \varphi(x)
+    = \varphi(x \cdot 1)
+    = x \cdot \varphi(1)
+    = x r
+    = \Phi(r)(x)
+  \]
+  and thus $\Phi(r) = \varphi$.
+  This shows that $\Phi$ is surjective.
+\end{proof}
+
+
+\begin{proposition}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $M$ be an abelian group.
+      Then a map $\mu \colon R \times M \to M$ is a left $R$-module structure if and only if the map $\mu' \colon  M \times R^\op \to M$ given $\mu'(m,) = \mu(r,m)$ is a right $R^\op$-module structure.
+  \end{enumerate}
+  This shows that left modules over $R$ are \enquote{the same} as $R^\op$-modules over $R$.
+  \begin{enumerate}[resume]
+    \item
+      If $M, N$ are two left $R$-modules, then a map $f \colon M \to N$ is a homomorphism of left $R$-modules if and only if it is a homomorphism of right $R^\op$-modules.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{remark}
+  The above proposition shows that the category $\cMod{R}$ of left $R$-modules is isomorphic to the category $\cModR{R^\op}$ of right $R^\op$-modules.
+\end{remark}
+
+
+\begin{example}[Duality for finite-dimensional modules over $k$-algebras]
+  Let $A$ be a $k$-algebra.
+  
+  For every left $A$-module $M$ its the dual space $M^*$ carries the structure of a right $A$-module via
+  \[
+      (\varphi \cdot a)(m)
+    = \varphi(am)
+  \]
+  for all $a \in A$, $\varphi \in M^*$, $m \in M$, which then corresponds to a left $A^\op$-module structure on $M^*$ given by
+  \[
+    (a * \varphi)(m)
+    = \varphi(a \cdot m)
+  \]
+  for all $a \in A^\op$, $\varphi \in M^*$, $m \in M$.
+  If $f \colon M \to N$ is a homomorphis of left $A$-modules then $f^* \colon N^* \to M^*$ is a homomorphism of right $A$-modules, and therefore a homomorphism of left $A^\op$-modules.
+  Together this shows that dualizing results in a contravariant functor
+  \[
+            (-)^*
+    \colon  \cMod{A}
+    \to     \cMod{A^\op} \,.
+  \]
+  
+  It similarly follows that for every right $A$-module $M$ its dual $M^*$ carries the structure of a left $A$-module via
+  \[
+      (a \cdot \varphi)(m)
+    = \varphi(m \cdot a)
+  \]
+  for all $a \in A$, $\varphi \in M^*$, $m \in M$, which then corresponds to a right $A^\op$-module structure on $M^*$ given by
+  \[
+      (\varphi * a)(m)
+    = \varphi(m \cdot a)
+  \]
+  for all $a \in A^\op$, $\varphi \in A$, $m \in M$.
+  As above we find that the dual of a homomorphism of right $A$-modules is an homomorphism of left $A$-modules, and therefore a homomorphism of right $A^\op$-modules.
+  
+  If $M$ is a left $A$-module then it follows that $(M^*)^*$ carries the structure of a left $A$-module via
+  \[
+      (a \cdot \beta)(\varphi)
+    = \beta(\varphi \cdot a)
+  \]
+  for all $a \in A$, $\beta \in (M^*)^*$, $\varphi \in M^*$.
+  The canonical homomorphism
+  \[
+            \varepsilon_M
+    \colon  M
+    \to     (M^*)^*,
+    \quad   m
+    \mapsto (\varphi \mapsto \varphi(m))
+  \]
+  is then a homomorphism of left $A$-modules because
+  \[
+      (a \cdot \varepsilon_M(m))(\varphi)
+    = \varepsilon_M(m)(\varphi \cdot a)
+    = (\varphi \cdot a)(m)
+    = \varphi(a \cdot m)
+    = \varepsilon_M(a \cdot m)(\varphi)
+  \]
+  for all $a \in A$, $m \in M$, $\varphi \in M^*$.
+  The analogous results holds for right $A$-modules.
+
+  Let $\cModfd{A}$ be the category of finite-dimensional left $A$-modules and similary $\cModfd{A^\op}$ the category of finite-dimensional $A^\op$-modules.
+  It follows from the above discussion that dualizing defines a duality of categories
+  \[
+            (-)^*
+    \colon  \cModfd{A}
+    \to     \cModfd{A^\op} \,.
+  \]
+  So whenever we have a theorem which holds for finite-dimensional modules over an arbitrary $k$-algebras (or at least for a class of $k$-algebras which is closed under $(-)^\op$) then we get a dual theorem for free.
+  This applies to the following two classes of $k$-algebras:
+  \begin{enumerate}
+    \item
+      If $G$ is a group then $k[G]^\op \cong k[G^\op] \cong k[G]$ as seen in Remark~\ref{remark: basic properties of op}.
+      It follows that the category $\cModfd{k[G]}$, which is isomorphic to the category of finite dimensional $k$-representations of $G$ over $k$, has an autoduality given by $(-)^*$.
+    \item
+      If $Q$ is a quiver then $k[Q]^\op \cong k[Q^\op]$ and it follows that the cateories of finite dimensional representations of $Q$ and $Q^\op$ over $k$ are dual to each other via $(-)^*$.
+      This is prominently used in the representation theory of quivers.
+  \end{enumerate}
+\end{example}
+
+
+
+

@@ -43,6 +43,9 @@
                   \} \,,
       \]
       and we have that $C_i \cong D^n$ for every $i = 1, \dotsc, n$.
+      
+      Note that with respect to Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} this decomposition corresponds to the complete set of parwise orthogonal idempotents $E_{11}, \dotsc, E_{nn} \in \Mat_n(D)$.
+      Indeed, we have for every $i = 1, \dotsc, n$ that $C_i = \Mat_n(D) E_{ii}$.
   \end{enumerate}
 \end{example}
 
@@ -114,6 +117,7 @@
 
 
 \begin{corollary}
+  \label{corollary: ss rings have only finitely many simple modules}
   If $R$ is a semisimple then there exist only finitely many simple $R$ modules up to isomorphism.
 \end{corollary}
 
@@ -124,7 +128,8 @@
 
 
 \begin{fluff}
-   The main goal of this subsection is to state and prove the theorem of Artin--Wedderburn, which classifies semisimple rings up to isomorphism.
+  The main goal of this subsection is to state and prove the theorem of Artin--Wedderburn, which classifies semisimple rings up to isomorphism.
+  For this we will need some knowledge about the opposite ring $R^\op$, a brief introduction to which can be found in Appendix~\ref{appendix: the opposite ring}.
 \end{fluff}
 
 
@@ -149,6 +154,7 @@
 
 
 \begin{proposition}
+  \label{proposition: product of semisimple}
   Let $R_1, R_2$ be rings and let $M_i$ be an $R_i$-module for $i = 1, 2$.
   \begin{enumerate}
     \item
@@ -238,124 +244,36 @@
 
 
 
-\subsubsection{The Opposite Ring}
-
-
-\begin{definition}
-  The \emph{opposite ring} $R^\op$ has the same underlying additive group as $R$, and the multiplication is given by
-  \[
-              a * b
-    \defined  b \cdot a
-    =         ba
-  \]
-  for all $a, b \in R^\op$, where $\cdot$ denotes the multiplication of $R$.
-\end{definition}
-
-
-\begin{remark}
-  \label{remark: basic properties of op}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      We have that $( R^\op )^\op = R$.
-    \item
-      The ring $R$ is commutative if and only if $R = R^\op$.
-    \item
-      If $D$ is a skew field then $D^\op$ is also a skew field.
-    \item
-      For every family of rings $(R_i)_{i \in I}$ we have that $( \prod_{i \in I} R_i )^\op = \prod_{i \in I} R_i^\op$.
-    \item
-      If $G$ is a group and $k$ a field then $k[G]^\op \cong k[G^\op] \cong k[G]$ because the map $G \to G^\op$, $g \mapsto g^{-1}$ is an isomorphism of groups.
-  \end{enumerate}
-\end{remark}
-
-
-\begin{lemma}
-  \label{lemma: op of matrix rings}
-  The map
-  \[
-            \Mat_n(R)^\op
-    \to     \Mat_n(R^\op)
-    \quad   A
-    \mapsto A^T
-  \]
-  is an isomorphism of rings.
-\end{lemma}
-
-
-\begin{proof}
-  We denote the multiplications on $R$ and $\Mat_n(R)$ by $\cdot$, the multiplication of $R^\op$ by $*$ and the multiplication on $\Mat_n(R)^\op$ by $\bullet$.
-  The given map is additive and bijective, and for all $A, B \in \Mat_n(R)^\op$ we have that
-  \begin{align*}
-        \left( (A \bullet B)^T \right)_{ij}
-    &=  (A \bullet B)_{ji}
-     =  (B \cdot A)_{ji}
-     =  \sum_{k=1}^n B_{jk} \cdot A_{ki}  \\
-    &=  \sum_{k=1}^n A_{ki} * B_{jk}
-     =  \sum_{k=1}^n (A^T)_{ik} * (B^T)_{kj}
-     =  \left( (A^T) \bullet (B^T) \right)_{ij}
-  \end{align*}
-  for all $i, j = 1, \dotsc, n$, and therefore $(A \bullet B)^T = A^T \bullet B^T$.
-\end{proof}
-
-
-\begin{lemma}
-  \label{lemma: End_R(R) = Rop}
-  The map
-  \[
-              R^\op
-    \to       \End_R(R),
-    \quad     r
-    \mapsto   (x \mapsto xr)
-  \]
-  is an isomorphism of rings.
-\end{lemma}
-
-
-\begin{proof}
-  We denote the given map by $\Phi$ and the multiplication of $R^\op$ by $*$.
-  For every $r \in R^\op$ we have that
-  \[
-      \Phi(r'x)
-    = r' x r
-    = r' \Phi(x)
-  \]
-  for all $r' \in R$, $x \in R$, which shows that $\Phi(r)$ is $R$-linear for every $r \in R$.
-  The additivity of $\Phi(r)$ for every $r \in R$ follows from the distributivity of $R$.
-  This shows that $\Phi$ is well-defined.
-  
-  The additivity of $\Phi$ also follows from the distributivity of $R$, and we have that $\Phi(1_{R^\op}) = \Phi(1_R) = \id_R$.
-  For all $r_1, r_2 \in R^\op$ we have that
-  \[
-      \Phi(r_1 * r_2)(x)
-    = x (r_1 * r_2)
-    = x r_2 r_1
-    = \Phi(r_2)(x) r_1
-    = \Phi(r_1)(\Phi(r_2)(x))
-    = (\Phi(r_1) \circ \Phi(r_2))(x)
-  \]
-  for every $x \in R$ and thus $\Phi(r_1 * r_2) = \Phi(r_1) \circ \Phi(r_2)$.
-  This shows that $\Phi$ is multiplicative.
-  Alltogether this shows that $\Phi$ is a ring homomorphism.
-  
-  For every $r \in R^\op$ we have that $\Phi(r)(1) = r$, which shows that $\Phi$ is injective.
-  For every $\varphi \in \End_R(R)$ we have for $r \defined \varphi(1)$ that
-  \[
-      \varphi(x)
-    = \varphi(x \cdot 1)
-    = x \cdot \varphi(1)
-    = x r
-    = \Phi(r)(x)
-  \]
-  and thus $\Phi(r) = \varphi$.
-  This shows that $\Phi$ is surjective.
-\end{proof}
-
-
-
-
 
 \subsubsection{The Theorem of Artin--Wedderburn}
+
+
+\begin{lemma}
+  \label{lemma: isotypical components are two sided ideals}
+  If $E$ is a simple $R$-module then the isotypical component $R_E$ is a two-sided ideal of $R$.
+\end{lemma}
+
+
+\begin{proof}
+  The isotypical component $R_E$ is a submodule of $R$, and therefore a left ideal.
+  For every $r \in R$ the map $R \to R$, $x \mapsto xr$ is a homomorphism of $R$-modules and therefore maps $R_E$ into $R_E$ by Lemma~\ref{lemma: functioriality of isotypical components}.
+  Therefore $R_E$ is also a right ideal.
+\end{proof}
+
+
+\begin{fluff}
+  \label{fluff: intro to artin wedderburn}
+  If $R$ is semisimple then by Corollary~\ref{corollary: ss rings have only finitely many simple modules} there exist only finitely many simple $R$-modules $E_1, \dotsc, E_r$ up to isomorphism.
+  The \hyperref[theorem: isotypical decomposition]{isotypical decomposition} then reads
+  \[
+      R
+    = R_{E_1} \times \dotsb \times R_{E_r}
+  \]
+  and each $R_{E_i}$ is a non-trivial two-sided ideal by Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and Lemma~\ref{lemma: isotypical components are two sided ideals}.
+  Each $R_{E_i}$ is then itself a ring with respect to the addition and multiplication inherited from $R$ as explained in Proposition~\ref{proposition: factor ideals are again rings}.
+  Each $R_{E_i}$ is itself semisimple by Proposition~\ref{proposition: product of semisimple} with $E_i$ being its only simple module up to isomorphism.
+  We will now see that the $R_{E_i}$ are already isomorphic to a matrix ring over a skew field:
+\end{fluff}
 
 
 \begin{theorem}[Artin--Wedderburn]
@@ -366,14 +284,15 @@
       If
       \[
               R
-        \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}
+        \cong E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}
       \]
-      for some $r \geq 0$, pairwise non-isomorphic simple $R$-modules $M_1, \dotsc, M_r$ and suitable $n_1, \dotsc, n_r \geq 1$, then
-      \[
-              R
-        \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
-      \]
-      as rings with $D_i = \End(M_i)^\op$ for every $i = 1, \dotsc, r$.
+      for some $r \geq 0$, pairwise non-isomorphic simple $R$-modules $E_1, \dotsc, E_r$ and suitable $n_1, \dotsc, n_r \geq 1$, then
+      \begin{align*}
+                R
+        &\cong  \End_R(E_1^{\oplus n_1}) \times \dotsb \times \End_R(E_r^{\oplus n_r})  \\
+        &\cong  \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+      \end{align*}
+      as rings with $D_i = \End(E_i)^\op$ for every $i = 1, \dotsc, r$.
       If $R$ is a $k$-algebra then this is an isomorphism of $k$-algebras.
     \item
       This decomposition is unique in the following sense:
@@ -392,12 +311,13 @@
   \begin{enumerate}
     \item
       It follows from Lemma~\ref{lemma: End_R(R) = Rop} and Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} that
-      \[
+      \begin{align*}
                 R^\op
-        \cong   \End_R(R)
-        \cong   \End_R(M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r})
-        \cong   \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \,.
-      \]
+         \cong  \End_R(R)
+        &\cong  \End_R(E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r})  \\
+        &\cong  \End_R(E_1^{\oplus n_1}) \times \dotsb \times \End_R(E_r^{\oplus n_r})  \\
+        &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \,.
+      \end{align*}
       It further follows from Remark~\ref{remark: basic properties of op} and Lemma~\ref{lemma: op of matrix rings} that
       \begin{align*}
                 R
@@ -425,15 +345,15 @@
       By using the uniqueness of multiplicities of simple summands (see Theorem~\ref{theorem: multiplicity well-defined} and Remark~\ref{remark: uniqueness of multiplicities alternative formulation}) it follows that the two decompositions
       \[
               R
-        =     M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}
+        =     E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}
         \cong {D'_1}^{\oplus m_1} \oplus \dotsb \oplus {D'_1}^{\oplus m_1}
       \]
       into simple submodules coincide up to permutation and isomorphism:
-      We have that $r = s$ and there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ for every $i = 1, \dotsc, r$ and $D'_{\pi(i)} \cong M_i$ for every $i = 1, \dotsc, r$.
+      We have that $r = s$ and there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ for every $i = 1, \dotsc, r$ and $D'_{\pi(i)} \cong E_i$ for every $i = 1, \dotsc, r$.
       By again using Corollary~\ref{corollary: artin wedderburn rings are semisimple} we find that
       \[
               D_i
-        =     \End_R(M_i)^\op
+        =     \End_R(E_i)^\op
         \cong \End_R({D'_i}^{\oplus m_i})^\op
         =     \End_{R'}({D'_i}^{\oplus m_i})^\op
         \cong ((D'_i)^\op)^\op
@@ -447,9 +367,43 @@
 
 
 \begin{remark}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Note that under an isomorphism of rings $R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ the isotypical components $R_{E_1}, \dotsc, R_{E_r}$ correspond (not necessarily in the same order) to the isotypical components $\Mat_{n_1}(D_1), \dotsc, \Mat_{n_r}(D_r)$.
+      We have therefore proven our claim from \ref{fluff: intro to artin wedderburn} that the factors $R_{E_i}$ are isomorphic to matrix rings over skew fields.
+      Note however that the decomposition
+      \[
+          R
+        = R_{E_1} \times \dotsb \times R_{E_r}
+      \]
+      is canonical, while the decomposition
+      \[
+              R
+        \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+      \]
+      depends on the choice of decompositions of $R_{E_i}$ into a direct sums of simple submodules.
+    \item
+      Under the isomorphism of $R$-modules $R \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}$ the isotypical component $R_{E_i}$ corresponds to the direct summand $E_i^{n_i}$.
+      In the above proof of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have therefore actually constructed an isomorphism
+      \[
+                                R^\op
+        \xlongrightarrow{\sim}  \End_R(R_{E_1}) \times \dotsb \times \End_R(R_{E_r})
+      \]
+      which maps $x \in R^\op$ to $(f_1, \dotsc, f_r)$ with $f_i(y) = yx$ for all $i = 1, \dotsc, r$.
+      
+      This decomposition of $R^\op$ is canonical and does not depend on the further decomposition of $R_{E_i}$ into a direct sum of simple submodules $R_{E_1} \cong E_i^{\oplus n_i}$, contrary to the identification of $\End_R(R_{E_i})$ with $\Mat_{n_i}(\End_R(E_i))$.
+  \end{enumerate}
+\end{remark}
+
+
+
+\begin{remark}
   Corollary~\ref{corollary: artin wedderburn rings are semisimple} and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} together give a classification of semisimple rings up to isomorphism:
   Semisimple rings are precisely the products of matrix rings over skew fields.
 \end{remark}
+
+
 
 
 
@@ -482,28 +436,38 @@
 \end{proof}
 
 
-\begin{corollary}\label{corollary: semisimple algebra product of matrix algebras over field}
-  Let $k$ be an algebraically closed field and $A$ a finite-dimensional semisimple $k$-algebra.
-  Then
-  \[
-          A
-    \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
-  \]
-  as $k$-algebras for some $r \geq 0$ and $n_1, \dotsc, n_r \geq 1$.
+\begin{corollary}
+  \label{corollary: semisimple algebra product of matrix algebras}
+  Let $A$ be a finite-dimensional semisimple $k$-algebra.
+  \begin{enumerate}
+    \item
+      The $k$-algebra $A$ contains up to isomorphism of $A$-modules only finitely many nonzero minimal left ideals $I_1, \dotsc, I_r \idealeq A$ (which are pairwise non-isomorphic), and we have that
+      \[
+              A
+        \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+      \]
+      where $D_i = \End_A(I_i)^\op$ for every $i = 1, \dotsc, r$.
+    \item
+      If $k$ is algebraically closed then
+      \[
+              A
+        \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)
+      \]
+      as $k$-algebras.
+  \end{enumerate}
 \end{corollary}
 
 
 \begin{proof}
-  It follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that
-  \[
-    A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
-  \]
-  as $k$-algebras for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and division algebras $D_1, \dotsc, D_r$ over $k$, and every $D_i$ is of the form
-  \[
-    D_i = \End_A(S_i)^\op
-  \]
-  for a simple $A$-module $S_i$.
-  It follows from Corollary~\ref{corollary: simple modules over fd algebras are fd} that each $S_i$ is finite-dimensional, and it thus further then follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $D_i = k$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      A nonzero minimal left ideal $I \idealeq A$ is the same as a simple $A$-submodule of $M$.
+      The claim is therefore just a repretition of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
+    \item
+      It follows from Corollary~\ref{corollary: simple modules over fd algebras are fd} that each $I_j$ is finite-dimensional, and it thus further follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $D_i = k$.
+    \qedhere
+  \end{enumerate}
 \end{proof}
 
 
@@ -541,17 +505,6 @@
 
 
 
-\begin{corollary}
-  Let $A$ be a finite-dimensional semisimple $k$-algebra.
-  Then $A$ has finitely many nonzero minimal left ideals (i.e.\ simple $A$-submodules) $I_1, \dotsc, I_r$ (up to isomorphism of left ideal) and
-  \[
-    A \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
-  \]
-  where $D_i = \End_A(I_i)^\op$.
-\end{corollary}
-\begin{proof}
-  We will prove this later.
-\end{proof}
 
 
 
@@ -560,70 +513,66 @@
 
 
 
-\subsection{Simple Rings}
+
+\subsection{Simple Rings \& The Theorem of Weddeburn}
 
 
-\begin{definition}
-  A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
-  In particular $R$ is semisimple.
-\end{definition}
-
-
-\begin{corollary}
-\label{corollary: simple rings one simple module}
-  Let $R$ be a simple ring.
-  Then there is exactly one simple $R$-module up to isomorphism.
-\end{corollary}
-\begin{proof}
-  Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
-  For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
-  Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
-\end{proof}
+% \begin{definition}
+%   A ring $R$ is called \emph{simple} if $R \neq 0$ and $R = R_E$ for some simple $R$-module $E$.
+%   In particular $R$ is semisimple.
+% \end{definition}
+% 
+% 
+% \begin{corollary}
+% \label{corollary: simple rings one simple module}
+%   Let $R$ be a simple ring.
+%   Then there is exactly one simple $R$-module up to isomorphism.
+% \end{corollary}
+% \begin{proof}
+%   Because $R$ is simple we have $R = M_F$ for some simple submodle $F \subseteq R$.
+%   For every simple $R$-module $E$ we have $E \cong F'$ for some simple $R$-module $F' \subseteq R$.
+%   Since $F' \subseteq M_F$ we have $F' \cong F$ and thus $E \cong F$.
+% \end{proof}
 
 
 \begin{definition}
-  A ring $R$ is called \emph{simple} if it’s only two-sided ideals are $R$ and $0$.
+  The ring $R$ is simple if $R \neq 0$ and $0, R$ are the only two-sided ideals of $R$.
 \end{definition}
 
 
-\begin{warning}
-  This definition of a simple ring is no equivalent to the last one:
-  Earlier we defined a ring $R$ to be simple if it is semisimple and has precisely one simple module up to isomorphism.
-  We will refer to these rings as \emph{simple according to definition 1}.
-  Rings which are simple according to the new definition above will be referred to as just \emph{simple}.
-\end{warning}
+\begin{remark}
+  A ring $R$ is simple if and only if it has precisely two two-sided ideals.
+\end{remark}
 
 
 \begin{example}
-  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
-    \item
-      Let $D$ be a division ring and $n \geq 1$.
-      We have already seen that $\Mat_n(D)$ is a simple according to definition 1.
-      It is also simple:
-      Let $I \subseteq \Mat_n(D)$ be a two-sided ideal with $I \neq 0$.
-      Let $A = (a_{ij})_{1 \leq i,j \leq n} \in I$ with $A \neq 0$.
-      Then $a_{ij} \neq 0$ for some $1 \leq i,j \leq n$.
-      Therefore
-      \[
-          \diag\left( a_{ij}^{-1}, \dotsc, a_{ij}^{-1} \right) E_{ii} A E_{jj}
-        = E_{ij} \in I
-      \]
-      and thus for every $1 \leq k,l \leq n$
-      \[
-            E_{kl}
-        =   E_{ki} E_{ij} E_{jl}
-        \in I \,.
-      \]
-      Since $I$ is a $D$-submodule of $\Mat_n(D)$ we find that $I = \Mat_n(D)$.
-    \item
-      The Weyl-algebra
-      \[
-          \mc{A}_2
-        = k \gen{X,\partial} / (X \partial - \partial X - 1)
-      \]
-      is simple, but not simple according to definition 1.
-  \end{enumerate}
+  If $D$ is a division ring and $n \geq 1$ then $M_n(D)$ is simple.
+  This follows from the following lemma:
 \end{example}
+
+
+\begin{lemma}
+  For every $n \geq 1$ the map
+  \begin{align*}
+              \{ \text{two sided ideals $I \idealeq R$} \}
+    &\longto  \{ \text{two sided ideals $J \idealeq R$} \} \,,
+    \\
+                  I
+    &\longmapsto  \Mat_n(I)
+  \end{align*}
+  is a well-defined bijection.
+\end{lemma}
+
+
+
+% \begin{warning}
+%   This definition of a simple ring is no equivalent to the last one:
+%   Earlier we defined a ring $R$ to be simple if it is semisimple and has precisely one simple module up to isomorphism.
+%   We will refer to these rings as \emph{simple according to definition 1}.
+%   Rings which are simple according to the new definition above will be referred to as just \emph{simple}.
+% \end{warning}
+
+
 
 
 \begin{warning}

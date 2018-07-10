@@ -1,0 +1,216 @@
+\subsection{Recognizing Direct Sums and Direct Products}
+
+
+\begin{conventions}
+  In the following $R$ denotes a ring.
+\end{conventions}
+
+
+\begin{fluff}
+  We give a brief explanation under what conditions an $R$-moudule $M$ can be decomposed into a finite direct sum $M = M_1 \oplus \dotsb \oplus M_n$, and under what conditions $R$ can be decomposed as a product $R \cong R_1 \times \dotsb \times R_n$ of suitable rings $R_1, \dotsc, R_n$.
+\end{fluff}
+
+
+
+
+
+\subsubsection{Decomposition of Modules}
+
+
+\begin{definition}
+  An element $e \in R$ is \emph{idempotent} if $e^2 = e$.
+\end{definition}
+
+
+\begin{definition}
+  Two elements $r_1, r_2 \in R$ are \emph{orthogonal} if $r_1 r_2 = r_2 r_1 = 0$.
+\end{definition}
+
+
+\begin{definition}
+  A family of elements $r_1, \dotsc, r_n \in R$ is \emph{complete} if $1_R = r_1 + \dotsb + r_n$.
+\end{definition}
+
+
+\begin{theorem}
+  \label{theorem: correspondence idempotents and direct decompositions}
+  Let $M$ be an $R$-module.
+  Then the map
+  \begin{align*}
+    \left\{
+      \begin{tabular}{c}
+        complete families of pairwise \\
+        orthogonal idempotents  \\
+        $(e_1, \dotsc, e_n)$ in $\End_R(M)$
+      \end{tabular}
+    \right\}
+    &\longto
+      \left\{
+      \begin{tabular}{c}
+        families $(M_1, \dotsc, M_n)$ of  \\
+        submodules $M_i \moduleeq M$ with \\
+        $M = M_1 \oplus \dotsb \oplus M_n$
+      \end{tabular}
+      \right\},
+    \\
+                  (e_1, \dotsc, e_n)
+    &\longmapsto  (\im(e_1), \dotsc, \im(e_n))
+  \end{align*}
+  is a well-defined bijection.
+  For every family $(M_1, \dotsc, M_n)$ of submodules $M_i \moduleeq M$ with $M = M_1 \oplus \dotsb \oplus M_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by
+  \[
+      e_i(m_1 + \dotsb + m_n)
+    = m_i
+  \]
+  for all $i = 1, \dotsc, n$, $m_1 \in M_1, \dotsc, m_n \in M_n$.
+\end{theorem}
+
+
+\begin{corollary}
+  \label{corollary: correspondence idempotents and direct ideal decompositions}
+  The map
+  \begin{align*}
+    \left\{
+      \begin{tabular}{c}
+        complete families of pairwise \\
+        orthogonal idempotents  \\
+        $(e_1, \dotsc, e_n)$ in $R$
+      \end{tabular}
+    \right\}
+    &\longto
+      \left\{
+      \begin{tabular}{c}
+        families $(I_1, \dotsc, I_n)$ of  \\
+        ideals $I_j \moduleeq M$ with \\
+        $R = I_1 \oplus \dotsb \oplus I_n$
+      \end{tabular}
+      \right\},
+    \\
+                  (e_1, \dotsc, e_n)
+    &\longmapsto  (Re_1, \dotsc, Re_n)
+  \end{align*}
+  is a well-defined bijection.
+  For every family $(I_1, \dotsc, I_n)$ of submodules $I_j \moduleeq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by the unique $e_j \in I_j$ with $1 = e_1 + \dotsb + e_n$.
+\end{corollary}
+
+
+\begin{remark}
+  The analogous result of Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} for right ideal also holds, and can be proven in the same way.
+  Note that the left ideals $R e_i$ have to be replaced by the right ideals $e_i R$.
+\end{remark}
+
+
+\begin{corollary}
+  If $M$ is an $R$-module, then the map
+  \begin{align*}
+    \{ \text{idempotents $e \in \End_R(M)$} \}
+    &\longto
+      \left\{
+      \begin{tabular}{c}
+        pairs $(N,P)$ of submodules \\
+        $N, P \moduleeq M$ with $M = N \oplus P$
+      \end{tabular}
+      \right\},
+    \\
+                  e
+    &\longmapsto  (\im(e), \ker(e))
+  \end{align*}
+  is a bijection.
+\end{corollary}
+
+
+\begin{corollary}
+  If $M$ is an $R$-module then for any submodule $N \moduleeq M$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The submodule $N$ is a direct summand of $M$.
+    \item
+      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im(e) = N$.
+    \item
+      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\ker(e) = N$.
+    \item
+      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im(e) \moduleeq N$ and $e(n) = n$ for every $n \in N$.
+  \end{enumerate}
+\end{corollary}
+
+
+
+\subsubsection{Decomposition of Rings}
+
+
+\begin{lemma}
+  Let $R_1, \dotsc, R_n$ be rings, and for every $j = 1, \dotsc, n$ let
+  \[
+              I_j
+    \defined  0 \times \dotsb \times 0 \times R_j \times 0 \times \dotsb \times 0
+  \]
+  with $R_j$ in the $j$-th position.
+  Then $I_1, \dotsc, I_n$ are two-sided ideals in $R_1 \times \dotsb \times R_n$ with $R_1 \times \dotsb \times R_n = I_1 \oplus \dotsb \oplus I_n$.
+\end{lemma}
+
+
+\begin{definition}
+  An element $z \in R$ is \emph{central} if $rz = zr$ for all $r \in R$.
+\end{definition}
+
+
+\begin{proposition}
+  \label{proposition: factor ideals are again rings}
+  Let $R$ be a ring and let $I_1, \dotsc, I_n \idealeq R$ be two-sided ideals with $R = I_1 \oplus \dotsb \oplus I_n$.
+  \begin{enumerate}
+    \item
+      If $1_R = e_1 + \dotsb + e_n$ is the unique decomposition of $1_R$ with $e_j \in I_j$ for every $j = 1, \dotsc, n$, then $e_1, \dotsc, e_n$ is a complete collection of pairwise orthogonal central idempotents of $R$, and 
+    \item
+      Every $I_j$ is a ring with the addition and multiplication inherited from $R$, and $1_{I_j} = e_j$ for every $i = 1, \dotsc, n$.
+    \item
+      The map
+      \[
+            I_1 \times \dotsb \times I_n
+        \to R,
+        \quad   (x_1, \dotsc, x_n)
+        \mapsto x_1 + \dotsb + x_n
+      \]
+      is an isomorphism of rings.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{theorem}
+  \label{theorem: correspondence central idempotents and direct decompositions}
+  The map
+  \begin{align*}
+    \left\{
+      \begin{tabular}{c}
+        complete families of pairwise \\
+        orthogonal central idempotents  \\
+        $(e_1, \dotsc, e_n)$ in $R$
+      \end{tabular}
+    \right\}
+    &\longto
+      \left\{
+      \begin{tabular}{c}
+        families $(I_1, \dotsc, I_n)$ of  \\
+        two-sided ideals $I_j \idealeq R$ \\
+        with $R = I_1 \oplus \dotsb \oplus I_n$
+      \end{tabular}
+      \right\},
+    \\
+                  (e_1, \dotsc, e_n)
+    &\longmapsto  (R e_1 R, \dotsc, R e_n R)
+  \end{align*}
+  is a well-defined bijection, where we denote for every $x \in R$ by
+  \[
+      R x R
+    = \left\{
+        \sum_{k=1}^m r_k x r'_k
+      \suchthat*
+        m \geq 0,
+        r_k, r'_k \in R
+      \right\}
+  \]
+  the two-sided ideal generated by $x$.
+  For every family  $(I_1, \dotsc, I_n)$ of two-sided ideals $I_j \idealeq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the corresponding family $(e_1, \dotsc, e_n)$ is given by the unique $e_j \in I_j$ with $1_R = e_1 + \dotsb + e_n$.s
+\end{theorem}
+
+
+
