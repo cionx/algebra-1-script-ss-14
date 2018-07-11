@@ -66,6 +66,62 @@
 \end{theorem}
 
 
+\begin{proof}
+  Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotent endomorphisms $e_i \colon M \to M$, and for every $i = 1, \dotsc, n$ let $M_i \defined \im(e_i)$.
+  For every $m \in M$ we have that
+  \[
+        m
+    =   \id_M(m)
+    =   (e_1 + \dotsb + e_n)(m)
+    =   e_1(m) + \dotsb + e_n(m)
+    \in M + \dotsb + M_n \,,
+  \]
+  which shows that $M = M_1 + \dotsb + M_n$.
+  It follows from the orthogonality of the $e_i$ that $\restrict{e_i}{M_j} = 0$ for all $i \neq j$ and it follows from the idempotence of the $e_i$ that $\restrict{e_i}{M_i} = \id_{M_i}$ for every $i$.
+  It follows that for every decomposition $m = m_1 + \dotsb + m_n$ with $m_i \in M_i$ for every $i = 1, \dotsc, n$ we have that
+  \[
+      e_i(m)
+    = e_i(m_1 + \dotsb + m_n)
+    = e_i(m_1) + \dotsb + e_i(m_n)
+    = m_i \,.
+  \]
+  This shows that this decomposition $m = m_1 + \dotsb + m_n$ is unique, which shows the directness of the sum $M = M_1 + \dotsb + M_n$.
+  This shows alltogether that $M = M_1 \oplus \dotsb \oplus M_n$.
+  This shows that the given map is well-defined.
+  
+  Suppose that $M = M_1 \oplus \dotsb \oplus M_n$ for submodules $M_i \moduleeq M$.
+  For every $i = 1, \dotsc, n$ let $e_i \colon M \to M$ be the unique endomorphism with
+  \[
+      e_i(m_1 + \dotsb + m_n)
+    = m_i
+  \]
+  for all $m_1 \in M_1, \dotsc, m_n \in M_n$.
+  We then have that $\id_M = e_1 + \dotsb + e_n$, $e_i^2 = e_i$ for all $i = 1, \dotsc, n$ and $e_i e_j = 0$ for all $i \neq j$.
+  This shows that $(e_1, \dotsc, e_n)$ is a complete family of pairwise orthogonal idempotents.
+  
+  These constructions are inverse to each other:
+  
+  Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotents and let $M = M_1 \oplus \dotsb \oplus M_n$ be the associated decomposition.
+  Then for the resulting complete family $(e'_1, \dotsc, e'_n)$ of pairwise orthogonal idempotents we have for all $i \neq j$ that
+  \[
+      \restrict{e_i}{M_j}
+    = 0
+    = \restrict{e'_i}{M_j} \,,
+  \]
+  and for all $i = 1, \dotsc, n$ we have that
+  \[
+      \restrict{e_i}{M_i}
+    = \id_{M_i}
+    = \restrict{e'_i}{M_i} \,.
+  \]
+  It follows that $e_i = e'_i$ for all $i = 1, \dotsc, n$ because $M = M_1 + \dotsb + M_n$.
+  
+  Let $M = M_1 \oplus \dotsb \oplus M_n$ be a decomposition into submodule $M_i \moduleeq M$ and let $(e_1, \dotsc, e_n)$ be the associated complete family of pairwise orthogonal idempotents.
+  For the resulting decomposition $M = M'_1 \oplus \dotsb \oplus M'_n$ we have that $M'_i = \im(e_i)$ for every $i = 1, \dotsc, n$.
+  It then follows for every $i = 1, \dotsc, n$ from $\restrict{e_i}{M_j} = 0$ for $j \neq i$ and $\restrict{e_i}{M_i} = \id_{M_i}$ that $\im(e_i) = M_i$ and therefore that $M_i = M'_i$.s
+\end{proof}
+
+
 \begin{corollary}
   \label{corollary: correspondence idempotents and direct ideal decompositions}
   The map

@@ -147,18 +147,13 @@
 \end{fluff}
 
 
-\begin{lemma}
-  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
-  Then $M_1 \boxplus M_2$ is simple as an $(R_1 \times R_2)$-module (see Definition~\ref{definition: simple and maximal modules}) if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
-\end{lemma}
-
-
 \begin{proposition}
   \label{proposition: product of semisimple}
   Let $R_1, R_2$ be rings and let $M_i$ be an $R_i$-module for $i = 1, 2$.
   \begin{enumerate}
     \item
-      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if either ($M_1$ is simple and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is simple).
+      \label{enumerate: when boxplus is simple}
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
     \item
       The map
       \begin{align*}
@@ -173,11 +168,105 @@
       \end{align*}
       is a well-defined bijection.
     \item
+      \label{enumerate: when boxplus is semisimple}
       The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is semisimple if and only if $M_i$ is semisimple as an $R_i$-module for $i = 1, 2$.
     \item
       The ring $R_1 \times R_2$ is semisimple if and only if both $R_1$ and $R_2$ are semisimple.
   \end{enumerate}
 \end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $\mc{S}_i$ be the set of $R_i$-submodules of $M_i$ for $i = 1, 2$ and let $\mc{S}$ be the set of $(R_1 \times R_2)$-submodules of $M_1 \boxplus M_2$.
+      The map
+      \[
+                  \mc{S}_1 \times \mc{S}_2
+        \to      \mc{S},
+        \quad    (N_1, N_2)
+        \mapsto  N_1 \boxplus N_2
+      \]
+      is a bijection by Proposition~\ref{proposition: submodules of products over rings}, from which it follows that
+      \[
+        |\mc{S}| = |\mc{S}_1| \cdot |\mc{S}_2| \,.
+      \]
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if $|\mc{S}| = 2$.
+      This is the case if and only if either ($|\mc{S}_1| = 2$ and $|\mc{S}_2| = 1$) or ($|\mc{S}_1| = 1$ and $|\mc{S}_2| = 2$), which is equivalent to ($M_1$ simple, $M_2 = 0$), resp.\ ($M_1 = 0$ and $M_2$ simple).
+    \item
+      This follows by restricting the bijection from Corollary~\ref{corollary: isomorphism classes of modules over products} according to part~\ref*{enumerate: when boxplus is simple}.
+        \item
+      This can be seen in two ways:
+      
+      \begin{itemize}
+        \item
+          Every submodule $N \moduleeq M_1 \boxplus M_2$ is of the form $N = N_1 \boxplus N_2$ for unique $R_i$-submodules $N_i \moduleeq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
+          It thus follows from Corollary~\ref{corollary: direct summands for modules over products} that every submodule of $M_1 \boxplus M_2$ has a direct complement if and only if every submodules of $M_i$ has a direct complement for both $i = 1, 2$.
+        \item
+          Suppose that $M_1, M_2$ are semisimple.
+          Then $M_i = \bigoplus_{j \in J_i} L^j_1$ for simple submodules $L^j_i \moduleeq M_i$.
+          It then follows that
+          \[
+              M_1 \boxplus M_2
+            = \left( \bigoplus_{j \in J_1} L^j_1 \right)
+              \boxplus
+              \left( \bigoplus_{j \in J_2} L^j_2 \right)
+            = \bigoplus_{j \in J_1} (L^j_1 \boxplus 0)
+              \oplus
+              \bigoplus_{j \in J_2} (0 \boxplus L^j_2)
+          \]
+          is a decomposition into submodules which are simple by part~\ref*{enumerate: when boxplus is simple}.
+          
+          Suppose now that $M_1 \boxplus M_2$ is semisimple.
+          Then there exists a decomposition $M_1 \boxplus M_2 = \bigoplus_{j \in J} L^j$ into simple submodules $L^j \moduleeq M_1 \boxplus M_2$.
+          Every $L^j$ is of the form $L^j = L^j_1 \boxplus L^j_2$ for unique $R_i$-submodules $L^j_i \moduleeq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
+          It follows from part~\ref*{enumerate: when boxplus is simple} that $J$ is the disjoint union of
+          \[
+              J_1
+            = \{ j \in J \suchthat L^j_2 = 0 \}
+            \quad\text{and}\quad
+              J_2
+            = \{ j \in J \suchthat L^j_1 = 0 \}
+          \]
+          and that $L^j_i$ is simple for every $j \in L_i$.
+          It follows that
+          \begingroup
+          \allowdisplaybreaks
+          \begin{align*}
+                M_1 \boxplus M_2
+            &=  \bigoplus_{j \in J} L^j
+            =   \bigoplus_{j \in J} ( L^j_1 \boxplus  L^j_2 )
+            \\
+            &=  \left(
+                  \bigoplus_{j \in J_1} ( L^j_1 \boxplus 0 )
+                \right)
+                \oplus
+                \left(
+                  \bigoplus_{j \in J_2} ( 0 \boxplus  L^j_2 )
+                \right)
+            \\
+            &=  \left(
+                  \left( \bigoplus_{j \in J_1} L^j_1 \right) \boxplus 0
+                \right)
+                \oplus
+                \left(
+                  0 \boxplus \left( \bigoplus_{j \in J_2} ( 0 \boxplus  L^j_2 ) \right)
+                \right)
+            \\
+            &=  \left( \bigoplus_{j \in J_1} L^j_1 \right)
+                \boxplus
+                \left( \bigoplus_{j \in J_2} L^j_2 \right)
+          \end{align*}
+          \endgroup
+          and therefore that $M_i = \bigoplus_{j \in J_i} L^j_i$ is a direct sum of simple modules.
+      \end{itemize}
+    \item
+      We have that $R_1 \times R_2 = R_1 \boxplus R_2$ as $(R_1 \times R_2)$-modules.
+      The claim therefore follows from part~\ref*{enumerate: when boxplus is semisimple}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{corollary}
@@ -206,12 +295,13 @@
 
 \begin{lemma}
   \label{lemma: matrix vector space correspondence for skew fields}
-  Let $D$ be a skew-field.
+  Let $D$ be a skew-field and $n \geq 1$.
   Then the map
   \[
-            D^\op
-    \longto \End_{\Mat_n(D)}(D^n) \,,
-            d
+            \Phi 
+    \colon  D^\op
+    \to     \End_{\Mat_n(D)}(D^n) \,,
+    \quad   d
     \mapsto \left(
                       \vect{x_1 \\ \vdots \\ x_n}
               \mapsto \vect{x_1 \\ \vdots \\ x_n} d
@@ -222,10 +312,81 @@
 \end{lemma}
 
 
+\begin{proof}
+  We denote the multiplication of $D^\op$ by $*$.
+  
+  The column space $D^n$ carries the structure of a right $D$-module via scalar multiplication from the right.
+  This right $D$-module structure corresponds to a left $D^\op$-modules structure (see Proposition~\ref{proposition: left right modules under op}), which in turn corresponds to a ring homomorphism $\Phi' \colon D^\op \to \End_\Integer(D^n)$ as described above.
+  For every matrix $A \in \Mat_n(D)$, vector $x \in D^n$ and scalar $d \in D^\op$ we have that
+  \[
+      A(xd)
+    = Axd
+    = (Ax)d \,,
+  \]
+  which shows that $\Phi'$ restrict to $\Phi \colon D^\op \to \End_{\Mat_n(D)}(D^n)$ as desired.
+  
+  It remains to show that $\Phi$ is bijective.
+  For $d, d' \neq 1$ we have that
+  \[
+          \Phi(d)(e_1)
+    =     e_1 d
+    \neq  e_1 d'
+    =     \Phi(d')(e_1) \,,
+  \]
+  which shows that $\Phi$ is injective.
+  To see that $\Phi$ is surjective let $f \in \End_{\Mat_n(D)}(D^n)$.
+  Let $A \in \Mat_n(D)$ be the matrix whose first column is $e_1$ and whose other columns are $0$, so that
+  \[
+      A
+    = \begin{bmatrix}
+        1       & 0       & \cdots  & 0       \\
+        0       & 0       & \cdots  & 0       \\
+        \vdots  & \vdots  & \ddots  & \vdots  \\
+        0       & 0       & \cdots  & 0
+      \end{bmatrix}.
+  \]
+  Then $A e_1 = e_1$ and therefore
+  \[
+      A f(e_1)
+    = f(A e_1)
+    = f(e_1) \,,
+  \]
+  which shows that $f(e_1)$ is of the form
+  \[
+      f(e_1)
+    = \vect{d \\ 0 \\ \vdots \\ 0}
+    = e_1 d
+  \]
+  for some $d \in D$.
+  For every other $x \in D^n$ there exists some $A \in \Mat_n(D)$ with $Ae_1 = x$ (take $x$ as the first column of $A$) and it follows that
+  \[
+      f(x)
+    = f(A e_1)
+    = A f(e_1)
+    = A e_1 d
+    = x d \,.
+  \]
+  This shows that $f(x) = xd$ for every $x \in D^n$, which shows that $\Phi$ is surjective.
+\end{proof}
+
+
 \begin{corollary}
   \label{corollary: endomorphism ring of Si}
   In the situation and notation of Corollary~\ref{corollary: artin wedderburn rings are semisimple} we have that $\End_R(S_i) \cong D_i^\op$ for every $i = 1, \dotsc, r$.
 \end{corollary}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+            \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(S_i)
+    &\cong  0 \times \dotsb \times 0 \times \End_{\Mat_{n_i}(D_i)}(D^{n_i}) \times 0 \times \dotsb \times 0 \\
+    &\cong  \End_{\Mat_{n_i}(D_i)}(D^{n_i})
+     \cong  D_i^\op
+  \end{align*}
+  by Corollary~\ref{label: endomorphism ring of boxsum}.
+\end{proof}
+
 
 
 \begin{notation}
@@ -538,13 +699,38 @@
   For every $n \geq 1$ the map
   \begin{align*}
               \{ \text{two-sided ideals $I \idealeq R$} \}
-    &\longto  \{ \text{two-sided ideals $J \idealeq R$} \} \,,
+    &\longto  \{ \text{two-sided ideals $J \idealeq \Mat_n(R)$} \} \,,
     \\
                   I
     &\longmapsto  \Mat_n(I)
   \end{align*}
   is a well-defined bijection.
 \end{lemma}
+
+
+\begin{proof}
+  If $I \idealeq R$ is a two-sided ideal then the canonical projection $\pi \colon R \to R/I$ is a ring homomorphism.
+  The induced ring homomorphism $\Mat_n(R) \to \Mat_n(R/I)$ has $\Mat_n(I)$ as its kernel, which is therefore a two-sided ideal in $\Mat_n(R)$.
+  
+  Let on the other hand $J \idealeq \Mat_n(R)$ be a two-sided ideal.
+  For all $i, j = 1, \dotsc, n$ let
+  \[
+      I_{ij}
+    = \{
+        r \in R
+      \suchthat
+        \text{there exists a matrix $A \in J$ whose $ij$-th coefficient is $r$}
+      \} \,.
+  \]
+  Then $I_{ij}$ is a two-sided ideal in $R$:
+  The projection $\pi_{ij} \colon \Mat_n(R) \to R$ onto the $ij$-th coefficient is a homomorphism of both left and right $R$-modules.
+  The two-sided ideal $J$ is both a left and right $R$-submodule of $\Mat_n(R)$.
+  Thus $\pi_{ij}(J)$ is both a left and right $R$-submodule of $R$, i.e.\ a two-sided ideal.
+  
+  By multiplying the a matrix $A \in J$ with an permutation matrices from the left and from the right we can move every coefficient of $A$ to every other position without leaving $A$.
+  It follows that $I_{ij}$ does not depend on the position $ij$.
+  For the two-sided ideal $I \idealeq R$ with $I_{ij} = I$ for all $i, j = 1, \dotsc, n$ we then have have that $J = \Mat_n(I)$.
+\end{proof}
 
 
 \begin{warning}
@@ -597,7 +783,7 @@
 
 
 \begin{theorem}[Wedderburn]
-  \label{theorem: weddeburn theorem}
+  \label{theorem: wedderburns theorem}
   If $R$ is simple then the following are equivalent:
   \begin{enumerate}
     \item
@@ -660,7 +846,7 @@
   \begin{enumerate}
     \item
       The algebra $A$ contains a nonzero left ideal of minimal dimension, which is then a minimal nonzero left ideal.
-      The claim therefore follows from \hyperref[theorem: weddeburn theorem]{Wedderburn’s theorem}.
+      The claim therefore follows from \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}.
     \item
       We have that $\dim_k D \leq \dim_k A < \infty$ so it follows that $D = k$.
     \qedhere
@@ -690,14 +876,6 @@
       Then $\End_k(V)/I$ is simple but not semisimple:
   \end{enumerate}
 \end{example}
-
-
-
-
-
-
-
-
 
 
 
@@ -827,18 +1005,6 @@
 \end{proof}
 
 
-\begin{lemma}
-  \label{lemma: preparation for csa}
-  Let $A$ be a central simple $k$-algebra and $B$ any $k$-algebra.
-  Then every two-sided ideal of $A \otimes B$ is of the form $A \otimes J$ for a two-sided ideal $J \idealeq B$.
-\end{lemma}
-
-
-\begin{proof}
-  
-\end{proof}
-
-
 \begin{corollary}
   Let $A, B$ be central simple $k$-algebras.
   Then $A \otimes B$ is again a central simple $k$-algebra.
@@ -922,3 +1088,147 @@
   \]
   This shows that $A \otimes B$ is the only non-zero two-sided ideals in $A \otimes B$.
 \end{proof}
+
+
+\begin{remark}
+  It can be shown more generally that if $A$ is a central simple $k$-algebra and $B$ is any $k$-algebra then every two-sided ideal of $A \otimes B$ is of the form $A \otimes J$ for a two-sided ideal $J \idealeq B$.
+  A proof of this can be found in \cite[Lemma~4.1]{Clark2012NonCA}.
+\end{remark}
+
+
+\begin{fluff}
+  Much of the rest of this subsection is taken from \cite[4.2]{Clark2012NonCA}
+\end{fluff}
+
+
+\begin{fluff}
+  Let $\CSA_k$ denote the class of central simple $k$-algebras.
+  We have shown that
+  \[
+              [A] \cdot [B]
+    \defined  [A \otimes B]
+  \]
+  is a well-defined binary operation on the set of isomorphic classas $\CSA_k\!/{\cong}$.
+  This operation is also associative, commutative and we have that
+  \[
+      [k] \cdot [A]
+    = [k \otimes A]
+    = [A] \,,
+  \]
+  which shows that $[k]$ is neutral.
+  Alltogether we have thus endowed $\CSA_k\!/{\cong}$ with the structure of a commutative monoid.
+  
+  By \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} every finite-dimensional simple $k$-algebra is isomorphic to $\Mat_n(D)$ where $D$ is a division $k$algebra.
+  We can now identify the central simple $k$-algebras which come from the same divsion $k$-algebra to get the Brauer group of $k$.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: characterization of Brauer equivalence}
+  For simple central $k$-algebras $A, B$ the following are equivalent:
+  \begin{enumerate}
+    \item
+      There exists $n, m \geq 1$ and a division $k$-algebra $D$ such that $A \cong \Mat_n(D)$ and $B \cong \Mat_m(D)$ as $k$-algebras.
+    \item
+      If $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ as $k$-algebras for divisions $k$-algebras $D_1, D_2$ and $n, m \geq 1$ then $D_1 \cong D_2$ as $k$-algebras.
+    \item
+      There exists $n, m \geq 1$ with $A \otimes \Mat_n(k) \cong B \otimes \Mat_m(k)$ as $k$-algebras.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{definition}
+  Two central simple $k$-algebras $A, B$ are \emph{Brauer equivalent} if they satisfy one (and thus all) of the conditions from Lemma~\ref{lemma: characterization of Brauer equivalence}.
+  This is denoted by $A \sim B$.
+\end{definition}
+
+
+\begin{corollary}
+  Brauer equivalence is an equivalence relation on the class $\CSA_k$.
+\end{corollary}
+
+
+\begin{remark}
+  Note that isomorphic central simple $k$-algebras are in particular Brauer equivalent.
+\end{remark}
+
+
+\begin{lemma}
+  Let $A$ be a central simple $k$-algebra.
+  \begin{enumerate}
+    \item
+      The algebra $A^\op$ is again a central simple $k$-algebra.
+    \item
+      If $n = \dim_k A$ then $A \otimes A^\op \cong \End_k(A)$ as $k$-algebras.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{theorem}
+  \label{theorem: existence of brauer group}
+  The binary operation
+  \[
+              [A] \cdot [B]
+    \defined  [A \otimes B]
+  \]
+  defines on $\CSA_k\!/{\sim}$ the structure of an abelian groups.
+\end{theorem}
+
+
+\begin{definition}
+  The group $\Br(k) \defined \CSA_k\!/{\sim}$ from Theorem~\ref{theorem: existence of brauer group} is the \emph{Brauer group} of $k$.
+\end{definition}
+
+
+\begin{definition}
+  A division $k$-algebra $D$ is \emph{central} if $\ringcenter(D) = k$.
+\end{definition}
+
+
+\begin{lemma}
+  For every $n \geq 0$ the map
+  \[
+            \ringcenter(R)
+    \to     \ringcenter(\Mat_n(R))  \,,
+    \quad   z
+    \mapsto z I_n
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{corollary}
+  Let $A$ be a central simple $k$-algebra with $A \cong \Mat_n(D)$ as $k$-algebras for a division $k$-algebra $D$.
+  Then $D$ is a central division $k$-algebra.
+\end{corollary}
+
+
+\begin{corollary}
+  The elements of the Brauer group $\Br(k)$ are in $1$:$1$-correspondence with the isomorphism class of central finite-dimensional division $k$-algebras via
+  \[
+    \{ \text{finite dimensional division $k$-algebras} \}
+    \to
+    \Br(k),
+    \quad   [D]
+    \mapsto [D] \,.
+  \]
+\end{corollary}
+
+
+\begin{proposition}[Skolem--Noether]
+  If $A$ is a $k$-algebra and $B$ is a central simple $k$-algebra then every two $k$-algebra homomorphisms $f, g \colon A \to B$ are conjugated, i.e.\ there exists a unit $u \in B^\times$ with $g(a) = u f(a) u^{-1}$ for every $a \in A$.
+\end{proposition}
+
+
+\begin{corollary}
+  Every automorphism of a central simple $k$-algebra $A$ is inner.
+\end{corollary}
+
+
+\begin{example}
+  Every automorphism of the matrix ring $\Mat_n(k)$ is inner, and thus comes from a base change of $k^n$.
+\end{example}
+
+
+
+

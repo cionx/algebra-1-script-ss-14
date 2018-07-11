@@ -119,11 +119,12 @@
 
 
 \begin{proposition}
+  \label{proposition: left right modules under op}
   \leavevmode
   \begin{enumerate}
     \item
       Let $M$ be an abelian group.
-      Then a map $\mu \colon R \times M \to M$ is a left $R$-module structure if and only if the map $\mu' \colon  M \times R^\op \to M$ given $\mu'(m,) = \mu(r,m)$ is a right $R^\op$-module structure.
+      Then a map $\mu \colon R \times M \to M$ is a left $R$-module structure if and only if the map $\mu' \colon  M \times R^\op \to M$ given $\mu'(m,r) = \mu(r,m)$ is a right $R^\op$-module structure.
   \end{enumerate}
   This shows that left modules over $R$ are \enquote{the same} as $R^\op$-modules over $R$.
   \begin{enumerate}[resume]
@@ -131,6 +132,40 @@
       If $M, N$ are two left $R$-modules, then a map $f \colon M \to N$ is a homomorphism of left $R$-modules if and only if it is a homomorphism of right $R^\op$-modules.
   \end{enumerate}
 \end{proposition}
+
+
+\begin{proof}
+  We denote the multiplication of $R^\op$ by $*$.
+  \begin{enumerate}
+    \item
+      The map $\mu$ is additive in both arguments if and only if $\mu'$ is additive in both arguments.
+      We have that
+      \begin{align*}
+              \text{$\mu$ is associative}
+        &\iff \forall r_1, r_2 \in R, m \in M: \mu(r_1, \mu(r_2, m)) = \mu(r_1 r_2, m)  \\
+        &\iff \forall r_1, r_2 \in R^\op, m \in M: \mu'(\mu'(m, r_2), r_1) = \mu'(m, r_1 r_2)  \\
+        &\iff \forall r_1, r_2 \in R^\op, m \in M: \mu'(\mu'(m, r_2), r_1) = \mu'(m, r_2 * r_1)  \\
+        &\iff \text{$\mu'$ is associative} \,.
+      \end{align*}
+      We also have that
+      \[
+              \mu(1_R, -) = \id_M
+        \iff  \mu'(-, 1_{R^\op}) = \id_M
+      \]
+      because $1_R = 1_{R^\op}$.
+    \item
+      We denote the left $R$-module structure of $M$ by $\cdot$ and the right $R$-module structure of $M$ by $*$.
+      We have that
+      \begin{align*}
+              \text{$f$ is left $R$-linear}
+        &\iff \forall r \in R, m \in M: f(r \cdot m) = r \cdot f(m) \\
+        &\iff \forall r \in R^\op, m \in M: f(m * r) = f(m) * r     \\
+        &\iff \text{$f$ is right $R^\op$-linear}
+      \end{align*}
+      This proves the claim.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{remark}
