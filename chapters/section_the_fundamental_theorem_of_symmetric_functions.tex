@@ -1,4 +1,67 @@
-\subsection{The Fundamental Theorem of Symmetric Functions}
+\section{The Fundamental Theorem of Symmetric Functions}
+
+
+\begin{conventions}
+  We fix a number of variables $n \in \Natural$.
+\end{conventions}
+
+
+\begin{fluff}
+  The symmetric group $S_n$ acts by $k$-algebra automorphisms on the polynomial ring $k[X_1, \dotsc, X_n]$ by
+  \[
+      \sigma.f(X_1, \dotsc, X_n)
+    = f(X_{\sigma(1)}, \dotsc, X_{\sigma(n)}) \,.
+  \]
+  In this section we will be concerned by the $k$-algebra of invariants $k[X_1, \dotsc, X_n]^{S_n}$.
+\end{fluff}
+
+
+\begin{definition}
+  Let $k$ be a field.
+  The polynomial $f \in k[X_1, \dotsc, X_n]^{S_n}$ are \emph{symmetric}, and $k[X_1, \dotsc, X_n]^{S_n}$ is the \emph{ring of symmetric polynomials \textup(in $n$ variables\textup) \textup(over $k$\textup)}.
+\end{definition}
+
+
+\begin{example}
+  \label{example: symmetric polynomials}
+  In $k[X_1, X_2, X_3]$ we have the symmetric polynomials
+  \begin{align*}
+                p_2
+    &\coloneqq  X_1^2 + X_2^2 + X_3^2 \,,
+    \\
+                h_2
+    &\coloneqq  X_1^2 + X_1 X_2 + X_1 X_3 + X_2^2 + X_2 X_3 + X_3^2 \,,
+    \\
+                e_2
+    &\coloneqq  X_1 X_2 + X_1 X_3 + X_2 X_3 \,,
+    \\
+                m_{(4,4,2)}
+    &\coloneqq  X_1^4 X_2^2 X_3^2 + X_1^2 X_2^4 X_3^2 + X_1^2 X_2^2 X_3^4 \,.
+  \end{align*}
+  In the next subsections we will generalize these examples.
+\end{example}
+
+
+\begin{lemma}
+  \label{lemma: symmetric iff all homogeneous parts are symmetric}
+  With respect to the usual grading $k[X_1, \dotsc, X_n] = \bigoplus_{d \in \Natural} k[X_1, \dotsc, X_n]_d$ a polynomial $f \in k[X_1, \dotsc, X_n]$ is symmetric if and only if all of its homogeneous parts are symmetric.
+\end{lemma}
+
+
+\begin{proof}
+  The decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ is a decomposition into subrepresentations of $S_n$, thus the claim follows from Lemma~\ref{lemma: direct sum and invariants commute}.
+\end{proof}
+
+\begin{fluff}
+  In the following subsections we will consider families of symmetric polynomials which generalize the polynomials given in Example~\ref{example: symmetric polynomials}.
+  
+  We will start off with the so called \emph{elemantary symmetric polynomials}.
+  We prove the famous \emph{fundamental theorem of symmetric functions}, which roughly states that every every symmetric polynomial can be uniquely expressed in terms of the elementary symmetric polynomials.
+  
+  We will then use the elementary symmetric polynomials to study other kinds of symmetric polynomials:
+  Namely the \emph{complete homogeneous symmetric polynomials}, \emph{power sums} \emph{monomial symmetric polynomials}.
+  Along the way we will also introduce \emph{partitions} as a natural way for labeling these different kinds of symmetric polynomials.
+\end{fluff}
 
 
 \begin{definition}
