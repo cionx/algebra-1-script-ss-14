@@ -1,0 +1,151 @@
+\subsection{The Skolem--Noether Theorem}
+
+
+\begin{fluff}
+  The main ideas of this section are taken from \cite[4.3]{Clark2012NonCA}
+\end{fluff}
+
+
+\begin{example}
+  \label{example: every automorphism of matrix ring is inner}
+  As a motivation for the upcoming theorem and its proof we first consider a special case:
+  
+  Let $n \geq 1$ and let $\alpha \colon \Mat_n(k) \to \Mat_n(k)$ be a $k$-algebra automorphism.
+  The usual matrix-vector multiplication makes $k^n$ into a simple $\Mat_n(k)$-module which we will denote by $M$.
+  By using the automorphism $\alpha$ we can \enquote{twist} this module structure, resulting in a $\Mat_n(k)$-module $M_\alpha$ whose underlying $k$-vector space is again $k^n$ but whose multiplication is given by
+  \[
+              A * x
+    \defined  \varphi(A) x
+  \]
+  for all $A \in \Mat_n(k)$, $x \in k^n$.
+  It follows from the surjectivity of $\alpha$ that $M_\alpha$ is also simple.
+  
+  The $k$-algebra $\Mat_n(k)$ has only one simple module up to isomorphism (namely $M$), so it follows that $M \cong M_\alpha$.
+  If $f \colon M \to M_\alpha$ is such an isomorphism then $f$ is in particular $k$-linear and therefore given by multiplication with some invertible matrix $S \in \GL_n(k)$.
+  The inverse $f^{-1}$ is then given by multiplication with $S^{-1}$
+  
+  It follows for every $A \in \Mat_n(k)$ that
+  \[
+      \alpha(A) x
+    = A * x
+    = f(A f^{-1}(x))
+    = S A S^{-1} x
+  \]
+  for every $x \in k^n$, and therefore that $\alpha(A) = S A S^{-1}$.
+  We have thus found that $\alpha$ is an inner automorphism, given by conjugation with the unit $S \in \Mat_n(k)^\times$.
+\end{example}
+
+
+\begin{lemma}
+  \label{lemma: isomorphic iff same dimension}
+  If $A$ is a finite-dimensional simple $k$-algebra and $M, N$ are finite-dimensional $A$-module then $M, N$ are isomorphic as $A$-modules if and only if they have the same $k$-dimension.
+\end{lemma}
+
+
+\begin{proof}
+  The algebra $A$ is semisimple and there exists only one simple $A$-module $E$ up to isomorphism, for which it follows from the finite-dimensionality of $A$ that it is also finite-dimensional.
+  It follows for $M \cong E^{\oplus m}$ and $N \cong N^{\oplus n}$ that
+  \[
+    \dim_k M = m \dim_k E
+    \qquad\text{and}\qquad
+    \dim_k N = n \dim_k E
+  \]
+  and therefore that
+  \[
+          M \cong N
+    \iff  m = n
+    \iff  \dim_k M = \dim_k N
+  \]
+  by the uniqueness of multiplicities.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: skolem noether for into matrix rings}
+  If $A$ is a finite-dimensional simple $k$-algebra then any two $k$-algebra homomorphisms $f, g \colon A \to \Mat_n(k)$ are conjugated, i.e.\ there exists some $S \in \GL_n(k)$ with $g(a) = S f(a) S^{-1}$ for every $a \in A$.
+\end{corollary}
+
+
+\begin{proof}
+  The homomorphisms $f, g$ correspond to $A$-module structures on $k^n$ given by
+  \[
+    a \cdot x = f(a)x
+    \qquad\text{and}\quad
+    a * x = g(a)x
+  \]
+  for all $a \in A$, $x \in k^n$.
+  We denote the resulting $A$-modules by $M_f$ and $M_g$.
+  It follows from Lemma~\ref{lemma: isomorphic iff same dimension} that $M_f$ and $M_g$ are isomorphic as $A$-modules.
+  It follows in the same way as in Example~\ref{example: every automorphism of matrix ring is inner} that there exists some $S \in \GL_n(k)$ with $g(a) = S f(a) S^{-1}$ for every $a \in A$.
+\end{proof}
+
+
+\begin{theorem}[Skolem--Noether]
+  If $A$ is a simple $k$-algebra and $B$ is a central simple $k$-algebra then any two $k$-algebra homomorphisms $f, g \colon A \to B$ are conjugated, i.e.\ there exists a unit $u \in B^\times$ with $g(a) = u f(a) u^{-1}$ for every $a \in A$.
+\end{theorem}
+
+
+\begin{proof}
+  Note first that $A$ must be finite-dimensional:
+  The kernel $\ker(f)$ is a proper two-sided ideal of $A$ because $B \neq 0$.
+  It follows that $\ker(f) = 0$ and therefore that $\dim_k B \leq \dim_k A$ by the injectivity of $f$
+  
+  By observing that $B \otimes B^\op \cong \End_k(B)$ we can now apply Corollary~\ref{corollary: skolem noether for into matrix rings} to the extended $k$-algebra homomorphisms
+  \[
+            f \otimes \id, g \otimes \id
+    \colon  A \otimes B^\op
+    \to     B \otimes B^\op
+  \]
+  to conclude that $f \otimes \id$ and $g \otimes \id$ are conjugated:
+  There exists some $x \in B \otimes B^\op$ with
+  \begin{equation}
+    \label{equation: noether skolem formula}
+      g(a) \otimes b
+    = x ( f(a) \otimes b ) x^{-1}
+  \end{equation}
+  for all $a \in A$, $b \in B^\op$.
+  By setting $a = 1$ we find that
+  \[
+      1 \otimes b
+    = x (1 \otimes b) x^{-1}
+  \]
+  for all $b \in B$, which shows that $x, x^{-1} \in \centralizer{B \otimes B^\op}(1 \otimes B^\op) = \centralizer{B \otimes B^\op}(k \otimes B^\op)$.
+  It follows from Lemma~\ref{lemma: centralizer componentwise} that
+  \[
+      \centralizer{B \otimes B^\op}(k \otimes B^\op)
+    = \centralizer{B}(k) \otimes \centralizer{B^\op}(B^\op)
+    = \centralizer{B}(k) \otimes \ringcenter(B^\op)
+    = B \otimes k \,.
+  \]
+  We therefore have that $x = u \otimes 1$ and $x^{-1} = u' \otimes 1$ for some $u, u' \in B$.
+  It follows from
+  \[
+      1 \otimes 1
+    = x x^{-1}
+    = (u \otimes 1) (u' \otimes 1)
+    = (u u') \otimes 1
+  \]
+  that $u u' = 1$ and similarly that $u' u = 1$.
+  This shows that $u \in B^\times$ is a unit with $u' = u^{-1}$.
+  By setting $b = 1$ in \eqref{equation: noether skolem formula} we find that
+  \[
+      g(a) \otimes 1
+    = (u \otimes 1) (f(a) \otimes 1) (u^{-1} \otimes 1)
+    = (u f(a) u^{-1}) \otimes 1
+  \]
+  and therefore $g(a) = u f(a) u^{-1}$ for every $a \in A$.
+\end{proof}
+
+
+\begin{corollary}
+  Every $k$-algebra automorphism of a central simple $k$-algebra $A$ is inner, i.e.\ given by conjugation with an element $u \in A^\times$.
+\end{corollary}
+
+
+\begin{proof}
+  Every automorphism is conjugated to the identity $\id_A$ by the Skolem--Noether theorem.
+\end{proof}
+
+
+
+

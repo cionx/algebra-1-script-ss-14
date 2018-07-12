@@ -1,0 +1,210 @@
+\subsection{Tensor Products of CSA}
+
+
+\begin{definition}
+  If $R$ is a ring and $S \subseteq R$ a subset, then
+  \[
+      \centralizer_R(S)
+    = \{
+        r \in R
+      \suchthat
+        \text{$rs = sr$ for every $s \in R$}
+      \}
+  \]
+  is the \emph{centralizer of $S$} in $R$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: centralizer componentwise}
+  Let $A, B$ be $k$-algebras and let $A' \subseteq A$, $B' \subseteq B$ be subalgebras.
+  Then
+  \[
+      \centralizer_{A \otimes B}(A' \otimes B')
+    = \centralizer_A(A') \otimes \centralizer_B(B') \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  We have for every simple tensor $a \otimes b \in \centralizer_A(A') \otimes \centralizer_B(B')$ that
+  \[
+      (a \otimes b) (a' \otimes b')
+    = (aa') \otimes (bb')
+    = (a'a) \otimes (b'b)
+    = (a' \otimes b')(a \otimes b)
+  \]
+  for every simple tensor $a' \otimes b' \in k \otimes B$.
+  It follows that $(a \otimes b) x = x (a \otimes b)$ for every $x \in A' \otimes B'$ because every tensor is a sum of simple tensors.
+  This shows that
+  \[
+              \centralizer_A(A') \otimes \centralizer_B(B')
+    \subseteq \centralizer_{A \otimes B}(A' \otimes B') \,.
+  \]
+  
+  To show the other inclusion let $x \in \centralizer_{A \otimes B}(A' \otimes B')$.
+  We may write $x = \sum_{i=1}^n a_i \otimes b_i$ and assume w.l.o.g.\ that both $a_1, \dotsc, a_n$ and $b_1, \dotsc, b_n$ are linearly independent.
+  For every $a' \in A'$ we then have that
+  \[
+      \sum_{i=1}^n (a' a_i) \otimes b_i
+    = (a' \otimes 1) x
+    = x (a' \otimes 1)
+    = \sum_{i=1}^n (a_i a') \otimes b_i
+  \]
+  and therefore that $a_i a' = a' a_i$ for every $i = 1, \dotsc, n$ because $b_1, \dotsc, b_n$ are linearly independent (see Recall~\ref{recall: unique representation in tensor product}).
+  This shows that $a_1, \dotsc, a_n \in \centralizer_{A}(A')$.
+  In the same way we find that $b_1, \dotsc, b_n \in \centralizer_{B}(B')$.
+  Together this shows that $x \in \centralizer_A(A') \otimes \centralizer_B(B')$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: center of tensor product}
+  Let $A$ and $B$ be $k$-algebras.
+  Then
+  \[
+      Z(A \otimes B)
+    = Z(A) \otimes Z(B) \,.
+  \]
+\end{corollary}
+
+
+\begin{proof}
+  We have that
+  \[
+      \ringcenter(A \otimes B)
+    = \centralizer_{A \otimes B}(A \otimes B)
+    = \centralizer_A(A) \otimes \centralizer_B(B)
+    = \ringcenter(A) \otimes \ringcenter(B)
+  \]
+  by Lemma~\ref{lemma: centralizer componentwise}.
+\end{proof}
+
+
+\begin{proposition}
+  Let $A, B$ be central simple $k$-algebras.
+  Then $A \otimes B$ is again a central simple $k$-algebra.
+\end{proposition}
+
+
+\begin{proof}
+  The $k$-algebra $A \otimes B$ is finite-dimensional because both $A, B$ are finite-di\-men\-si\-o\-nal, and by Corollary~\ref{corollary: center of tensor product} we have that
+  \[
+      \ringcenter(A \otimes B)
+    = \ringcenter(A) \otimes \ringcenter(B)
+    = k \otimes k
+    = k \,.
+  \]
+  It follows from $A, B \neq 0$ that $A \otimes B \neq 0$.
+  It remains to show that the only nonzero two-sided ideal $I \idealeq A \otimes B$ is $A \otimes B$:
+  
+  Every $u \in I$ can be written as $u = \sum_{i=1}^n a_i \otimes b_i$ where $b_1, \dotsc, b_n \in B$ are linearly independent.
+  Let $x \in I$ with $x \neq 0$ for which the number of summands $n$ is minimal with respect to all nonzero elements in $I$.
+  Let
+  \begin{equation}
+    \label{eqn: u as a sum}
+      x
+    = a_1 \otimes b_1 + a_2 \otimes b_2 + \dotsb + a_n \otimes b_n
+  \end{equation}
+  be such a sum.
+  
+  We will modify $x$ such that $a_1 = 1$:
+  We have that $n \geq 1$ because $x$ is nonzero and $a_1 \neq 0$ by the minimality of $n$.
+  It follows that the two-sided ideal $A a_1 A \idealeq A$ is nonzero, and therefore that $A a_1 A = A$ because $A$ is simple.
+  We thus have that $1 \in A a_1 A$ which is why $1 = \sum_{i=1}^m c_i a_1 c'_i$ for suitable coefficients $c_i, c'_i \in C$.
+  We then have that $x' \in I$ for
+  \[
+              x'
+    \defined  \sum_{i=1}^m (c_i \otimes 1) x (c'_i \otimes 1)
+    =         1 \otimes b_1 + a'_2 \otimes b_2 + \dotsb + a'_n \otimes b_n
+  \]
+  with $a'_2, \dotsc, a'_n \in A$.
+  We have that $x' \neq 0$ because $b_1, \dotsc, b_n$ are linearly independent.
+  
+  Now we show that $x'$ is already of the form $x' = 1 \otimes b$ for some $b \in B$:
+  For every $a \in A$ the element
+  \[
+        (a \otimes 1) x' - x' (a \otimes 1)
+    =     (a a'_2 - a'_2 a) \otimes b_2
+        + \dotsb
+        + (a a'_n - a'_n a) \otimes b_2
+  \]
+  is contained in $I$.
+  It thus follows from the minimality of $n$ that
+  \[
+      (a \otimes 1) x' - x' (a \otimes 1)
+    = 0 \,.
+  \]
+  Because $b_2, \dotsc, b_n$ are linearly independent it follows that $a a'_i - a'_i a = 0$ for all $a \in A$ and $i = 2 \dotsc, n$.
+  We therefore have that $a'_2, \dotsc, a'_n \in Z(A) = k$.
+  It follows that
+  \begin{align*}
+        x'
+    &=  1 \otimes b_1 + a'_2 \otimes b_2 + \dotsb + a'_n \otimes b_n  \\
+    &=  1 \otimes b_1 + 1 \otimes (a'_2 b_2) + \dotsb + 1 \otimes (a'_n b_n)  \\
+    &=  1 \otimes (b_1 + a'_2 b_2 + \dotsb + a'_n b_n)  \\
+    &=  1 \otimes b
+  \end{align*}
+  with $b \defined b_1 + a'_2 b_2 + \dotsb + a'_n b_n \in B$.
+  
+  We have that $b \neq 0$ because $x' \neq 0$, and it follows that $BbB = B$ because $B$ is simple.
+  We therefore have that
+  \[
+              I
+    \supseteq (1 \otimes B) x' (1 \otimes B)
+    =         (1 \otimes B) (1 \otimes b) (1 \otimes B)
+    =         1 \otimes (BbB)
+    =         1 \otimes B \,.
+  \]
+  It follows that
+  \[
+              I
+    \supseteq (A \otimes 1) (1 \otimes B)
+    =         A \otimes B \,.
+  \]
+  This shows that $A \otimes B$ is the only non-zero two-sided ideals in $A \otimes B$.
+\end{proof}
+
+
+\begin{remark}
+  It can be shown more generally that if $A$ is a central simple $k$-algebra and $B$ is any $k$-algebra then every two-sided ideal of $A \otimes B$ is of the form $A \otimes J$ for a two-sided ideal $J \idealeq B$.
+  A proof of this can be found in \cite[Lemma~4.1]{Clark2012NonCA}.
+\end{remark}
+
+
+\begin{fluff}
+  We have shown that
+  \[
+              [A] \cdot [B]
+    \defined  [A \otimes B]
+  \]
+  is a well-defined binary operation on the set of isomorphic classas $\CSA_k\!/{\cong}$.
+  This operation is also associative, commutative and we have that
+  \[
+      [k] \cdot [A]
+    = [k \otimes A]
+    = [A] \,,
+  \]
+  which shows that $[k]$ is neutral.
+  Altogether we have thus endowed $\CSA_k\!/{\cong}$ with the structure of a commutative monoid.
+\end{fluff}
+
+
+\begin{warning}
+  For central $k$-algebras $A, B$ their tensor product $A \otimes B$ does not need to be simple.
+  A counterexample is given by
+  \begin{align*}
+            \Complex \otimes_\Real \Complex
+     \cong  \Complex \otimes \Real[X]/(X^2 + 1)
+    &\cong  \Complex[X]/(X^2 + 1)
+     =      \Complex[X]/((X-1)(X+1))
+    \\
+    &\cong  \Complex[X]/(X-1) \times \Complex[X]/(X+1)
+     \cong  \Complex \times \Complex \,.
+  \end{align*}
+  where we use the chinese reminder theorem for the second to last isomorphism.
+\end{warning}
+
+
+
+

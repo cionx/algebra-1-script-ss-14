@@ -1,0 +1,397 @@
+\subsection{Brauer Equivalence}
+
+
+\begin{fluff}
+  Much of the rest of this subsection is taken from \cite[4.2]{Clark2012NonCA}, except that the author added most of the proofs himself.
+\end{fluff}
+
+
+\begin{definition}
+  A division $k$-algebra $D$ is \emph{central} if $\ringcenter(D) = k$.
+  The class of finite-dimensional central $k$-algebras is denotey by $\CDA_k$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: center of matrix ring}
+  For every $n \geq 0$ the map
+  \[
+            \ringcenter(R)
+    \to     \ringcenter(\Mat_n(R))  \,,
+    \quad   z
+    \mapsto z I_n
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{fluff}
+  By \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} every finite-dimensional simple $k$-algebra is isomorphic to $\Mat_n(D)$ where $D$ is a finite-dimensional division $k$-algebra, which is unique up to isomorphism.
+  It follows from Lemma~\ref{lemma: center of matrix ring} that
+  \[
+          \ringcenter(D)
+    \cong \ringcenter(\Mat_n(D))
+    \cong \ringcenter(A)
+    \cong k \,,
+  \]
+  which shows that $D$ is already a central division $k$-algebra.
+  It follows that there exists a well-defined map
+  \[
+        \CSA_k\!/{\cong}
+    \to \CDA_k\!/{\cong}
+  \]
+  wich maps $[A]$ to $[D]$.
+  This map is surjective because every $D \in \CDA_k$ is in particular a central simple $k$-algebra, for which the isomorphism class $[D] = [\Mat_1(D)] \in \CSA_k\!/{\cong}$ is mapped to $[D] \in \CDA_k\!/{\cong}$.
+\end{fluff}
+
+
+\begin{definition}
+  Two central simple $k$-algebras $A, B$ are \emph{Brauer equivalent} if for the central divsion $k$-algebras $D_1, D_2$ with $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ (for suitable $n, m$) we have that $D_1 \cong D_2$.
+  Brauer equivalence is denoted by $\sim$.
+\end{definition}
+
+
+\begin{corollary}
+  Brauer equivalence is an equivalence relation on $\CSA_k$ and the map
+  \[
+        \CSA_k\!/{\sim}
+    \to \CDA_k\!/{\cong} \,,
+    \quad   [\Mat_n(D)]
+    \mapsto [D]
+  \]
+  is a well-defined bijection.
+\end{corollary}
+
+
+\begin{proof}
+  For any $A, B \in \CSA_k$ we have that $A \sim B$ if and only if $A$ and $B$ are mapped to the same element by the composition
+  \[
+        \CSA_k
+    \to \CSA_k\!/{\cong}
+    \to \CDA_k\!/{\cong} \,.
+  \]
+  It follows that $\sim$ is an equivalence relation.
+  The above composition is surjective and thus descends to the desired bijection.
+\end{proof}
+
+
+\begin{remark}
+  Isomorphic central simple $k$-algebras are Brauer equivalent.
+  By abuse of notation we will to the refer to the equivalence relation induced by $\sim$ on $\CSA_k\!/{\cong}$ also as Brauer equivalence and write $[A] \sim [B]$ if $A \sim B$ for all $[A], [B] \in \CSA_k\!/{\cong}$.
+\end{remark}
+
+
+\begin{fluff}
+  We will now show that $\sim$ is a congruence relation on $\CSA_k\!/{\cong}$, and that the induced monoid structure on $(\CSA_k\!/{\cong})/{\sim} \cong \CSA_k\!/{\sim}$ is already a group structure.
+\end{fluff}
+
+
+\begin{lemma}
+  Let $n, m \geq 0$.
+  \begin{enumerate}
+    \item
+      If $D$ is a $k$-algebra then
+      \[
+              \Mat_n(D)
+        \cong D \otimes \Mat_n(k) \,.
+      \]
+      as $k$-algebras.
+    \item
+      We have that $\Mat_n(k) \otimes \Mat_m(k) \cong \Mat_{nm}(k)$ as $k$-algebras.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      There exists a unique $k$-linear map $\varphi \colon D \otimes \Mat_n(k) \to \Mat_n(D)$ which is on simple tensors given by $d \otimes M \mapsto dM$ by the universal property of the tensor product.
+      Let $E_{ij}$ be the standard $D$-basis of $\Mat_n(D)$ and let $E'_{ij}$ be the standard $k$-basis of $\Mat_n(k)$.
+      Then
+      \[
+              D \otimes \Mat_n(k)
+        =     D \otimes \bigoplus_{i,j=1}^n k E_{ij}
+        \cong \bigoplus_{i,j=1}^n D \otimes (k E_{ij})
+      \]
+      as $k$-vector spaces and $\varphi$ maps $D \otimes (k E_{ij})$ isomorphically onto $D E_{ij}$.
+      This shows that $\varphi$ is an isomorphism of $k$-vector spaces.
+      The multiplicativity of $\varphi$ can be checked on simple tensors, for which we have that 
+      \begin{align*}
+            \varphi( (d \otimes M) (d' \otimes M') )
+         =  \varphi( (d d') \otimes (M M') )
+        &=  d d' M M' \\
+        &=  d M d' M'
+         =  \varphi(d \otimes M) \varphi(d' M') \,.
+      \end{align*}
+      We also have that $\varphi(1 \otimes I) = I$.
+    \item
+      We have that
+      \begin{align*}
+                \Mat_n(k) \otimes \Mat_m(k)
+        &\cong  \End_k(k^n) \otimes \End_k(k^m) \\
+        &\cong  \End_k(k^n \otimes k^m)
+         \cong \End_k(k^{nm})
+         \cong \Mat_{nm}(k)
+      \end{align*}
+      where the second isomorphism is given by $f \otimes g \mapsto f \otimes g$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  The above isomorphism $\Mat_n(k) \otimes \Mat_m(k) \to \Mat_{nm}(k)$ can be expressed on simple tensors by the Kronecker product:
+  \[
+            \varphi
+    \colon  \Mat_n(k) \otimes \Mat_m(k)
+    \to     \Mat_{nm}(k),
+    \quad   A \otimes B
+    \mapsto \begin{bmatrix}
+              A_{11} B  & \cdots  & A_{1n} B  \\
+              \vdots    & \ddots  & \vdots    \\
+              A_{n1} B  & \cdots  & A_{nn} B
+            \end{bmatrix}.
+  \]
+  It can also be checked by hand that this $k$-linear map is an isomorphis of $k$-algebras:
+  The basis $E_{ij} \otimes E_{i'j'}$ with $i,j = 1, \dotsc, n$ and $i', j' = 1, \dotsc, m$ of $\Mat_n(k) \otimes \Mat_m(k)$ is mapped bijectively onto the analogous standard basis of $\Mat_{mn}(k)$, which shows that $\varphi$ is bijective.
+  We have that
+  \begin{align*}
+      &\,  \varphi(A \otimes B) \varphi(A' \otimes B'))
+    \\
+    =&\,  \begin{bmatrix}
+            A_{11} B  & \cdots  & A_{1n} B  \\
+            \vdots    & \ddots  & \vdots    \\
+            A_{n1} B  & \cdots  & A_{nn} B
+          \end{bmatrix}
+          \cdot
+          \begin{bmatrix}
+            A'_{11} B'  & \cdots  & A'_{1n} B'  \\
+            \vdots      & \ddots  & \vdots      \\
+            A'_{n1} B'  & \cdots  & A'_{nn} B'
+          \end{bmatrix}
+    \\
+    =&\,  \begin{bmatrix}
+            \sum_{j=1}^n A_{1j} B A'_{j1} B'  & \cdots  & \sum_{j=1}^n A_{1j} B A'_{jn} B'  \\
+            \vdots                            & \ddots  & \vdots                            \\
+            \sum_{j=1}^n A_{nj} B A'_{j1} B'  & \cdots  & \sum_{j=1}^n A_{nj} B A'_{jn} B'
+          \end{bmatrix}
+    \\
+    =&\,  \begin{bmatrix}
+            \sum_{j=1}^n A_{1j} A'_{j1} B B'  & \cdots  & \sum_{j=1}^n A_{1j} A'_{jn} B B'  \\
+            \vdots                            & \ddots  & \vdots                            \\
+            \sum_{j=1}^n A_{nj} A'_{j1} B B'  & \cdots  & \sum_{j=1}^n A_{nj} A'_{jn} B B'
+          \end{bmatrix}
+          \\
+    =&\,  \begin{bmatrix}
+            (A A')_{11} B B' & \cdots  & (A A')_{1n} B B' \\
+            \vdots           & \ddots  & \vdots           \\
+            (A A')_{n1} B B' & \cdots  & (A A')_{nn} B B'
+          \end{bmatrix}
+    \\
+    =&\,  \varphi((A A') \otimes (B B'))
+    =     \varphi((A \otimes B) (A' \otimes B'))
+  \end{align*}
+  for all simple tensors $A \otimes B, A' \otimes B' \in \Mat_n(k) \otimes \Mat_m(k)$, which shows that $\varphi$ is multiplicative.
+  We also have that $\varphi(I \otimes I) = I$.
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: characterization of Brauer equivalence}
+  For simple central $k$-algebras $A, B$ the following are equivalent:
+  \begin{enumerate}
+    \item
+      \label{enumerate: matrices over isomorphic division algebra}
+      We have that $A \sim B$, i.e.\ there exist $n, m \geq 1$ and division $k$-algebras $D_1 \cong D_2$ with $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ as $k$-algebras.
+    \item
+      \label{enumerate: matrices over same division algebra}
+      There exist $n, m \geq 1$ and a division $k$-algebra $D$ such that $A \cong \Mat_n(D)$ and $B \cong \Mat_m(D)$ as $k$-algebras.
+    \item
+      \label{enumerate: up to tensor with a matrix ring}
+      There exists $n', m' \geq 1$ with $A \otimes \Mat_{n'}(k) \cong B \otimes \Mat_{m'}(k)$ as $k$-algebras.
+  \end{enumerate}
+\end{lemma}
+
+
+
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\ref*{enumerate: matrices over isomorphic division algebra} $\implies$ \ref*{enumerate: matrices over same division algebra}]
+      Choose $D = D_1$.
+    \item[\ref*{enumerate: matrices over same division algebra} $\implies$ \ref*{enumerate: up to tensor with a matrix ring}]
+      We can choose $n' = m$ and $m' = n$ because
+      \begin{align*}
+              A \otimes \Mat_m(k)
+        &\cong \Mat_n(D) \otimes \Mat_m(k)
+         \cong D \otimes \Mat_n(k) \otimes \Mat_m(k)  \\
+        &\cong D \otimes \Mat_m(k) \otimes \Mat_n(k)
+         \cong \Mat_m(D) \otimes \Mat_n(k)
+         \cong B \otimes \Mat_n(k) \,.
+      \end{align*}
+    \item[\ref*{enumerate: up to tensor with a matrix ring} $\implies$ \ref*{enumerate: matrices over isomorphic division algebra}]
+      Let $D_1, D_2$ be division $k$-algebras with $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ as $k$-algebras.
+      Then
+      \begin{align*}
+                A \otimes \Mat_{n'}(k)
+         \cong  \Mat_n(D_1) \otimes \Mat_{n'}(k)
+        &\cong  D_1 \otimes \Mat_n(k) \otimes \Mat_{n'}(k)  \\
+        &\cong  D_1 \otimes \Mat_{nn'}(k)
+         \cong  \Mat_{nn'}(D_1)
+      \end{align*}
+      and similarly
+      \[
+              B \otimes \Mat_{m'}(k)
+        \cong \Mat_{mm'}(D_2) \,.
+      \]
+      It follows from $\Mat_{nn'}(D_1) \cong \Mat_{mm'}(D_2)$ and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that $D_1 \cong D_2$ as $k$-algebras (and $nn' = mm'$).
+    \qedhere
+  \end{description}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: Brauer equivalence is a congruence relation}
+  Brauer equivalence is an congruence relation on $\CSA_k\!/{\cong}$, i.e.\ for $A, A', B, B' \in \CSA_k$ with $A \sim A'$ and $B \sim B'$ we have that $A \otimes B \sim A' \otimes B'$.
+\end{corollary}
+
+
+\begin{proof}
+  There then exist $n, n', m, m' \geq 1$ with
+  \[
+          A \otimes \Mat_n(k)
+    \cong A' \otimes \Mat_{n'}(k)
+    \quad\text{and}\quad
+          B \otimes \Mat_m(k)
+    \cong B'  \otimes \Mat_{m'}(k)
+  \]
+  by Lemma~\ref{lemma: characterization of Brauer equivalence}.
+  It follows that
+  \begin{align*}
+            A \otimes B \otimes \Mat_{nm}(k)
+    &\cong  A \otimes B \otimes \Mat_{n}(k) \otimes \Mat_{m}(k) \\
+    &\cong  A \otimes \Mat_{n}(k) \otimes B \otimes \Mat_{m}(k) \\
+    &\cong  A' \otimes \Mat_{n'}(k) \otimes B' \otimes \Mat_{m'}(k) \\
+    &\cong  A' \otimes B' \otimes \Mat_{n'}(k) \otimes \Mat_{m'}(k) \\
+    &\cong  A' \otimes B' \otimes \Mat_{n'm'}(k) \,,
+  \end{align*}
+  which shows that $A \otimes B \sim A' \otimes B'$ by Lemma~\ref{lemma: characterization of Brauer equivalence}.
+\end{proof}
+
+
+\begin{lemma}
+  Let $A$ be a central simple $k$-algebra.
+  \begin{enumerate}
+    \item
+      The algebra $A^\op$ is again a central simple $k$-algebra.
+    \item
+      We have that $A \otimes A^\op \cong \End_k(A)$ as $k$-algebras.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The two-sided ideals of $A^\op$ are precisely the two-sided ideals of $A$, of which there are precisely two.
+      We have that $\ringcenter(A^\op) = \ringcenter(A) = k$ and the dimension $\dim_k(A^\op) = \dim_k(A)$ is finite.
+    \item
+      We denote the multiplication of $A^\op$ by $*$.
+      
+      The left $A$-module structure of $A$ itself corresponds to a $k$-algebra homomorphism $f \colon A \to \End_k(A)$ with $f(a)(x) = ax$ for all $a \in A$, $x \in A$.
+      The right $A$-module structure of $A$ itself corresponds to a left $A^\op$-module structure of $A$, which in turn corresponds to a $k$-algebra homomorphism $f \colon A^\op \to \End_k(A)$ given by $f(b)(x) = xb$ for all $b \in A^\op$, $x \in A$.
+      Then $f, g$ induce a well-defined $k$-linear map
+      \[
+                \varphi
+        \colon  A \otimes A^\op
+        \to     \End_k(A)
+      \]
+      which is given on simple tensors by
+      \[
+          \varphi(a \otimes b)(x)
+        = (f(a) \circ g(b))(x)
+        = a x a'
+      \]
+      for all $a \otimes b \in A \otimes A^\op$, $x \in A$.
+      For all simple tensors $a \otimes b, a' \otimes b' \in A \otimes A^\op$ we have that
+      \begin{align*}
+            \varphi(a \otimes a') \varphi(b \otimes b')
+        &=  f(a) \circ g(b) \circ f(a') \circ g(b')
+         =  f(a) \circ f(a') \circ g(b) \circ g(b') \\
+        &=  f(a a') \circ g(b * b')
+         =  \varphi((a a') \otimes (b * b'))
+         =  \varphi((a \otimes b) (a' \otimes b'))
+      \end{align*}
+      where we use for the second equality that $g(b)$ and $f(a')$ commute by the associativity of the multiplication of $A$.
+      We also have that $\varphi(1 \otimes 1) = \id_A$.
+      
+      Altogether this shows that $\varphi$ is a homomorphism of $k$-algebras.
+      The kernel $\ker(\varphi)$ is a nonzero two-sided ideal in the central simple $k$-algebra $A \otimes A^\op$.
+      It follows that $\ker(\varphi) = 0$ which shows that $\varphi$ is injective.
+      We have that
+      \[
+          \dim_k (A \otimes A^\op)
+        = \dim_k(A) \dim_k(A^\op)
+        = \dim_k(A)^2
+        = \dim_k \End_k(A) \,,
+      \]
+      so it follows that $\varphi$ is already an isomorphism.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+  \label{theorem: existence of brauer group}
+  The binary operation
+  \[
+              [A] \cdot [B]
+    \defined  [A \otimes B]
+  \]
+  defines on $\CSA_k\!/{\sim}$ the structure of an abelian groups.
+\end{theorem}
+
+
+\begin{proof}
+  Brauer equivalence is a congruence relation on $\CSA_k\!/{\cong}$ by Corollary~\ref{corollary: Brauer equivalence is a congruence relation}, from which it follows that this binary operation is well-defined.
+  Since $\CSA_k\!/{\cong}$ was is commutative monoid the same goes for $\CSA_k\!/{\sim}$.
+  For every $[A] \in \CSA_k\!/{\sim}$ with $n = \dim_k A$ we have that
+  \[
+      [A] \cdot [A^\op]
+    = [A \otimes A^\op]
+    = [\End_k(A)]
+    = [\Mat_n(k)]
+    = [k] \,,
+  \]
+  which shows that $[A^\op]$ is inverse to $[A]$.
+\end{proof}
+
+
+\begin{definition}
+  The group $\Br(k) \defined \CSA_k\!/{\sim}$ as described in Theorem~\ref{theorem: existence of brauer group} is the \emph{Brauer group} of the field $k$.
+\end{definition}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      If $k$ is algebraically closed then every finite-dimensional division $k$-algebra is already $k$ itself.
+      It follows that the Brauer group $\Br(k)$ is trivial.
+    \item
+      It is a classical result due to Frobenius that the only finite-dimensional division $\Real$-algebras are $\Real, \Complex, \Quaternion$.
+      Both $\Real$ and $\Quaternion$ are central, while $\Complex$ is not.
+      It follows that $\CDA\!/{\cong} = {[\Real], [\Quaternion]}$ has two elements.
+      The Brauer group $\Br(\Real)$ is therefore the cyclic group of order two.
+    \item
+      A theorem of Wedderburn (which is not to be confused with \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}) states that every finite skew field is already commutative, and thus a field.
+      It follows that for a finite field $k$ the only \emph{central} finite-dimensional $k$-division ring is $k$ itself.
+      It follows that the Brauer group $\Br(k)$ is trivial.
+  \end{enumerate}
+\end{example}
+
+
+
+
