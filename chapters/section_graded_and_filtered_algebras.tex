@@ -405,6 +405,28 @@
 \end{remark}
 
 
+\begin{lemma}
+  \label{lemma: associated graded reflects no zero divisors}
+  Let $A$ be a $k$-algebra with filtration $F$.
+  If $\gr_F(A)$ has no zero-divisors then $A$ has no zero divisors.
+\end{lemma}
+
+
+\begin{proof}
+  Suppose that there exist nonzero elements $x, y \in A$ with $xy = 0$.
+  Then $x$ is of degree $d \geq 0$ and $y$ is of degree $d' \geq 0$.
+  It follows that $[x]_d, [y]_{d'} \in \gr_F(A)$ are nonzero with
+  \[
+      [x]_d [y]_{d'}
+    = [xy]_{d d'}
+    = [0]_{d d'}
+    = 0 \,.
+  \]
+  This shows that $\gr_F(A)$ has zero divisors.
+\end{proof}
+
+
+
 
 
 
@@ -730,6 +752,8 @@
   
   Note that it follows that the filtration $F'$ of $\mc{A}'$ does not come from a grading of $\mc{A}'$:
   Otherwise the associated graded $k$-algebra $\gr_{F'}(\mc{A}')$ would be isomorphic to $\mc{A}'$ by Example~\ref{example: associated of graded}, contradicting $DX = XD + 1$.
+  
+  It also follows from Lemma~\ref{lemma: associated graded reflects no zero divisors} that $\mc{A}'$ has no zero divisors because $\gr_{F'}(\mc{A}')$ has no zero divisors.
 \end{fluff}
 
 
@@ -740,7 +764,7 @@
       F_d(\mc{A})
     = \gen{ \xi^n \del^m \suchthat n + m \leq d }
   \]
-  and the $\xi^n \del^m$ with $n, m \geq 0$ are a basis of $\mc{A}$.
+  and the monomials $\xi^n \del^m$ with $n, m \geq 0$ are a basis of $\mc{A}$.
   We also have that
   \[
       \xi^n \del^m \xi^{n'} \del^{m'}
@@ -748,12 +772,9 @@
       + (\text{terms of lower degree})
   \]
   for all $n, n', m, m' \geq 0$.
-  The associated graded algebra $\gr_F(\mc{A})$ is then the commutative polynomial ring in the two variables $\xi$ and $\del$.
-  This also shows that the filtration $F$ of $\mc{A}$ does not come from a filtration of $\mc{A}$.
+  The associated graded algebra $\gr_F(\mc{A})$ is the commutative polynomial ring in the two free variables $\xi$ and $\del$.
+  This shows that the filtration $F$ of $\mc{A}$ does not come from a filtration of $\mc{A}$, and it follows from Lemma~\ref{lemma: associated graded reflects no zero divisors} that $\mc{A}$ has no zero divisors.
 \end{fluff}
-
-
-% TODO: Add a remark regard universal enveloping algebras and Ore extension.
 
 
 
