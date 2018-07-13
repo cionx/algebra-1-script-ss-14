@@ -16,7 +16,7 @@
     = L_1 \oplus \dotsb \oplus L_n
     = L'_1 \oplus \dotsb \oplus L'_{n'}
   \]
-  be two decompositions into finitely many simple submodules $L_i, L'_j \moduleeq M$.
+  be two decompositions into finitely many simple submodules $L_i, L'_j \moduleleq M$.
   Then this decomposition is unique up to permutation of isomorphism, i.e.\ it follows that $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ with $L'_{\pi(i)} \cong L_i$ for every $i = 1, \dotsc, n$.
 \end{lemma}
 
@@ -26,19 +26,19 @@
   Both decompositions give rise to composition series
   \[
                 0
-    \moduleneq  L_1
-    \moduleneq  L_1 \oplus L_2
-    \moduleneq  \dotsb
-    \moduleneq  L_1 \oplus \dotsb \oplus L_n
+    \modulelneq  L_1
+    \modulelneq  L_1 \oplus L_2
+    \modulelneq  \dotsb
+    \modulelneq  L_1 \oplus \dotsb \oplus L_n
     =           M
   \]
   and
   \[
                 0
-    \moduleneq  L'_1
-    \moduleneq  L'_1 \oplus L'_2
-    \moduleneq  \dotsb
-    \moduleneq  L'_1 \oplus \dotsb \oplus L'_{n'}
+    \modulelneq  L'_1
+    \modulelneq  L'_1 \oplus L'_2
+    \modulelneq  \dotsb
+    \modulelneq  L'_1 \oplus \dotsb \oplus L'_{n'}
     =           M
   \]
   with composition factors $L_i, L'_j$.
@@ -96,7 +96,7 @@
 
 \begin{theorem}
   \label{theorem: multiplicity well-defined}
-  Let $M$ be a semisimple $R$-module and let $M = \bigoplus_{i \in I} L_i = \bigoplus_{j \in J} L'_j$ be two decompositions into simple submodules $L_i, L'_j \moduleeq M$.
+  Let $M$ be a semisimple $R$-module and let $M = \bigoplus_{i \in I} L_i = \bigoplus_{j \in J} L'_j$ be two decompositions into simple submodules $L_i, L'_j \moduleleq M$.
   Then for every simple $R$-module $E$ the sets
   \[
     \{ i \in I \suchthat L_i \cong E \}
@@ -119,14 +119,14 @@
   We make the following observation:
   
   \begin{claim}
-    For every $j \in J$ there exists a finite subset $I' \subseteq I$ with $L'_j \moduleeq \bigoplus_{i \in I'} L_i$.
+    For every $j \in J$ there exists a finite subset $I' \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I'} L_i$.
   \end{claim}
   
   \begin{proof}
     Let $y \in L'_j$ be nonzero.
     Then $y = \sum_{i \in I} x_i$ with $x_i \in L_i$ for every $i \in I$ and $x_i = 0$ for all but finitely many $i \in I$.
     It follows that there exists a finite subset $I' \subseteq I$ with $x \in \bigoplus_{i \in I'} L_i$.
-    It follows from the simplicity of $L'_j$ that $x$ is a cylic generator of $L'_j$, and therefore that $L'_j \moduleeq \bigoplus_{i \in I'} L_i$.
+    It follows from the simplicity of $L'_j$ that $x$ is a cylic generator of $L'_j$, and therefore that $L'_j \moduleleq \bigoplus_{i \in I'} L_i$.
   \end{proof}
   
   We now distinguish between four cases:
@@ -134,15 +134,15 @@
     \item 
       If $I$ and $J$ are both finite then the theorem follows from Lemma~\ref{lemma: multiplicities for finite length}.
     \item
-      If $J$ is finite then by the above claim that there exists a finite subset $I' \subseteq I$ with $L'_j \moduleeq \bigoplus_{i \in I} L_i$ for every $j \in J$.
+      If $J$ is finite then by the above claim that there exists a finite subset $I' \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I} L_i$ for every $j \in J$.
       It then follows that $M = \bigoplus_{i \in I} L_i$ and therefore that $I = I'$ is already finite.
       The theorem then follows from the first case.
     \item
       If $I$ is finite then we find in the same way as above that $J$ is finite and the theorem follows from the first case.
     \item
       Suppose now that both $I$ and $J$ are infine.
-      It follows from the above claim that there exists for every $j \in J$ some finite subset $I_j \subseteq I$ with $L'_j \moduleeq \bigoplus_{i \in I} L_i$.
-      For $I' \defined \bigcup_{j \in J} I_j$ we then have that $L'_j \moduleeq \bigoplus_{i \in I'} L_i$ for every $j \in J$.
+      It follows from the above claim that there exists for every $j \in J$ some finite subset $I_j \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I} L_i$.
+      For $I' \defined \bigcup_{j \in J} I_j$ we then have that $L'_j \moduleleq \bigoplus_{i \in I'} L_i$ for every $j \in J$.
       It follows that $M = \bigoplus_{i \in I'} L_i$ and therefore that $I = I'$.
       Note that $I = I' = \bigcup_{j \in J} I_j$ has at most the cardinality of $J$ because $J$ is infinite and every $I_j$ is finite.
       
@@ -162,7 +162,7 @@
 
 \begin{definition}
   Let $M$ be a semisimple $R$-module and let $E$ be a simple $R$-module.
-  If $M = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules $L_i \moduleeq M$ then the cardinality of the set $\{i \in I \suchthat L_i \cong E\}$ is the \emph{multiplicity of $E$ in $M$}.
+  If $M = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules $L_i \moduleleq M$ then the cardinality of the set $\{i \in I \suchthat L_i \cong E\}$ is the \emph{multiplicity of $E$ in $M$}.
   (Theorem~\ref{theorem: multiplicity well-defined} shows that this multiplicity is well-defined.)
 \end{definition}
 

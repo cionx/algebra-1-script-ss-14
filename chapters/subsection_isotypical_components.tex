@@ -16,7 +16,7 @@
   The $E$-isotypical component of $M$ is
   \[
               M_E
-    \defined  \sum_{L \moduleeq M, L \cong E} L \,.
+    \defined  \sum_{L \moduleleq M, L \cong E} L \,.
   \]
   The module $M$ is $E$-isotypical if $M = M_E$.
 \end{definition}
@@ -31,11 +31,11 @@
   We have that
   \[
       (M_E)_E
-    = \sum_{L \moduleeq M_E, L \cong E} L
-    = \sum_{L \moduleeq M, L \cong E} L
+    = \sum_{L \moduleleq M_E, L \cong E} L
+    = \sum_{L \moduleleq M, L \cong E} L
     = M_E
   \]
-  because every submodule $L \moduleeq M$ isomorphic to $E$ is already contained in $M_E$.
+  because every submodule $L \moduleleq M$ isomorphic to $E$ is already contained in $M_E$.
 \end{proof}
 
 
@@ -47,7 +47,7 @@
 
 \begin{lemma}
   \label{lemma: intersection of semisimple sums}
-  Let $N, N' \moduleeq M$ be semisimple submodules with $N = \sum_{i \in I} L_i$, $N' = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleeq N$, $L'_j \moduleeq N'$.
+  Let $N, N' \moduleleq M$ be semisimple submodules with $N = \sum_{i \in I} L_i$, $N' = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleleq N$, $L'_j \moduleleq N'$.
   If $N \cap N' \neq 0$ then $L_i \cong L'_j$ for some $i, j$.
 \end{lemma}
 
@@ -76,7 +76,7 @@
       M
     = \bigoplus_{[E] \in \Irr(R)} M_E \,,
   \]
-  and if $M = \sum_{i \in I} L_i$ for simple submodules $L_i \moduleeq M$ then
+  and if $M = \sum_{i \in I} L_i$ for simple submodules $L_i \moduleleq M$ then
   \[
       M_E
     = \sum_{i \in I, L_i \cong E} L_i
@@ -91,9 +91,9 @@
               M
     =         \sum_{i \in I} L_i
     =         \sum_{[E] \in \Irr(R)} \sum_{i \in I, L_i \cong E} L_i
-    \moduleeq \sum_{[E] \in \Irr(R)} M_E \,.
+    \moduleleq \sum_{[E] \in \Irr(R)} M_E \,.
   \]
-  with $\sum_{i \in I, L_i \cong E} L_i \moduleeq M_E$ for every $E \in \Irr(R)$.
+  with $\sum_{i \in I, L_i \cong E} L_i \moduleleq M_E$ for every $E \in \Irr(R)$.
   It thus sufficies to show that the sum $M  = \sum_{[E] \in \Irr(R)} M_E$ is direct, i.e. that
   \[
           M_E \cap \left( \sum_{[F] \in \Irr(R), [F] \neq [E]} M_F \right)
@@ -106,7 +106,7 @@
 
 \begin{corollary}
   \label{corollary: isotypical components of isotypicial modules}
-  If $M$ is $E$-isotypical and $F \ncong E$ then $M_F = 0$, i.e.\ if $L \moduleeq M$ is simple then $F \cong E$.
+  If $M$ is $E$-isotypical and $F \ncong E$ then $M_F = 0$, i.e.\ if $L \moduleleq M$ is simple then $F \cong E$.
 \end{corollary}
 
 
@@ -117,20 +117,20 @@
 
 
 \begin{lemma}
-  If $N \moduleeq M$ is a submodule then $N_E = N \cap M_E$.
+  If $N \moduleleq M$ is a submodule then $N_E = N \cap M_E$.
 \end{lemma}
 
 
 \begin{proof}
-  It follows from $N \moduleeq M$ that $N_E \moduleeq M_E$ and therefore that $N_E \moduleeq N \cap M_E$.
+  It follows from $N \moduleleq M$ that $N_E \moduleleq M_E$ and therefore that $N_E \moduleleq N \cap M_E$.
   The module $N \cap M_E$ is a submodule of $M_E$ and therefore semisimple.
-  For every simple submodule $L \moduleeq N \cap M_E \moduleeq M_E$ we have that $L \cong E$ by Corollary~\ref{corollary: isotypical components of isotypicial modules} and therefore $L \moduleeq N_E$.
-  It follows that $N \cap M_E \moduleeq N_E$.
+  For every simple submodule $L \moduleleq N \cap M_E \moduleleq M_E$ we have that $L \cong E$ by Corollary~\ref{corollary: isotypical components of isotypicial modules} and therefore $L \moduleleq N_E$.
+  It follows that $N \cap M_E \moduleleq N_E$.
 \end{proof}
 
 
 \begin{corollary}
-  If $M$ is $E$-isotypical then every submodule $N \moduleeq M$ is again $E$-isotypical.
+  If $M$ is $E$-isotypical then every submodule $N \moduleleq M$ is again $E$-isotypical.
 \end{corollary}
 
 
@@ -140,12 +140,12 @@
 
 
 \begin{lemma}
-  If $M$ is semisimple and $M = \bigoplus_{i \in I} L_i$ a decomposition into simple submodules $L_i \moduleeq M$, then for every simple submodule $E \moduleeq M$ there then exists some $i \in I$ with $E \cong L_i$.
+  If $M$ is semisimple and $M = \bigoplus_{i \in I} L_i$ a decomposition into simple submodules $L_i \moduleleq M$, then for every simple submodule $E \moduleleq M$ there then exists some $i \in I$ with $E \cong L_i$.
 \end{lemma}
 
 
 \begin{proof}
-  This follows from $0 \neq E \moduleeq M_E \moduleeq \bigoplus_{i \in I, L_i \cong E} L_i$.
+  This follows from $0 \neq E \moduleleq M_E \moduleleq \bigoplus_{i \in I, L_i \cong E} L_i$.
   Alternatively, apply Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusion $E \hookrightarrow M = \sum_{i \in I} L_i$.
 \end{proof}
 
@@ -157,13 +157,13 @@
 
 
 \begin{proof}
-  For every simple submodule $L \moduleeq M$ the restriction $\restrict{f}{L}$ is either zero or injective, so that either $f(L) = 0$ or $f(L) \cong L$.
+  For every simple submodule $L \moduleleq M$ the restriction $\restrict{f}{L}$ is either zero or injective, so that either $f(L) = 0$ or $f(L) \cong L$.
   It follows that
   \[
               f(M_E)
-    \moduleeq f\left(\sum_{L \moduleeq M, L \cong E} L \right)
-    =         \sum_{L \moduleeq M, L \cong E} f(L)
-    \moduleeq \sum_{L' \moduleeq N, L' \cong E} L'
+    \moduleleq f\left(\sum_{L \moduleleq M, L \cong E} L \right)
+    =         \sum_{L \moduleleq M, L \cong E} f(L)
+    \moduleleq \sum_{L' \moduleleq N, L' \cong E} L'
     =         N_E \,,
   \]
   which proves the claim.
@@ -177,14 +177,14 @@
   To see that $\Irr(R)$ is indeed a set, and not a proper class, we construct a $1$:$1$-correspondence between simple $R$-modules and maximal left ideals in $R$.
   Recall that the annihilator of an $R$-module $M$ is $\Ann(M) = \{r \in R \suchthat rm = 0\}$, which is a left ideal in $R$.
   
-  If $I \idealeq R$ is a maximal left ideal then the $R$-module $R/I$ is simple with $\Ann(R/I) = I$.
+  If $I \idealleq R$ is a maximal left ideal then the $R$-module $R/I$ is simple with $\Ann(R/I) = I$.
   
   If $M$ is a simple $R$-module and $x \in M$ is nonzero then $x$ is a cyclic generator of $M$ by Lemma~\ref{lemma: simple iff every cyclic generator}.
   It follows that the map $R \to M$, $r \mapsto rm$ is a surjective homomorphism of $R$-modules with kernel $\Ann(M) \defines I$, and thus induces an isomorphism of $R$-modules $R/I \cong M$.
   
   We have thus constructed a $1$:$1$-correspondence
   \begin{align*}
-    \{ \text{maximal ideals $I \idealeq R$} \}
+    \{ \text{maximal ideals $I \idealleq R$} \}
     &\longleftrightarrow
     \Irr(R) \,, 
     \\

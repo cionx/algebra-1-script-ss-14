@@ -82,7 +82,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealeq \mc{P}(V)$ is prime, which, Lemma~\ref{lemma: X is irreducible iff I(X) is prime}, is the case if and only if $X$ is irreducible by .
+      The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is an integral domain if and only if the ideal $\mc{I}(X) \idealleq \mc{P}(V)$ is prime, which, Lemma~\ref{lemma: X is irreducible iff I(X) is prime}, is the case if and only if $X$ is irreducible by .
     \item
       The quotient $\mc{P}(X) \cong \mc{P}(V)/\mc{I}(X)$ is a field if and only if the ideal $\mc{I}(X)$ is a maximal ideal, which, by Lemma~\ref{lemma: correspence between points and vanishing maximal ideals}, holds if and only if $X = \{a\}$ is a singleton for some $a \in V$.
       Then $\mc{P}(X) = \mc{P}(\{x\})$ consists of all maps $\{x\} \to k$, so that $\mc{P}(\{x\}) = k$.
@@ -199,7 +199,7 @@
 \begin{remark}
   The functor $\mc{P} \colon \cAff{k} \to \cAlg{k}$ is a contravariant embedding by Proposition~\ref{proposition: P is fully faithful for affine varieties}.
   It follows that $\cAff{k}$ is dual to a strictly full subcategory of $\cAlg{k}$.
-  It follows from Lemma~\ref{lemma: coordinate ring as quotient} that this strictly full subcategory has as objects precisely those $k$-algebras which are isomorphic to a $k$-algebra of the form $k[X_1, \dotsc, X_n]/I$ where $I \idealeq k[X_1, \dotsc, X_n]$ is a vanishing ideal.
+  It follows from Lemma~\ref{lemma: coordinate ring as quotient} that this strictly full subcategory has as objects precisely those $k$-algebras which are isomorphic to a $k$-algebra of the form $k[X_1, \dotsc, X_n]/I$ where $I \idealleq k[X_1, \dotsc, X_n]$ is a vanishing ideal.
   
   If $k$ is algebraically closed then vanishing ideals are precisely radical ideals, and we get a nice description of the category dual to $\cAff{k}$:
 \end{remark}
@@ -245,13 +245,13 @@
 
 
 \begin{proof}
-  A $k$-algebra $A$ is finitely generated if and only if $A \cong k[X_1, \dotsc, X_n]/I$ for some $n \geq 0$ and some ideal $I \idealeq k[X_1, \dotsc, X_n]$, and the ideal $I$ is radical (resp.\ prime) if and only if $k[X_1, \dotsc, X_n]/I \cong A$ is reduced (resp.\ an integral domain).
+  A $k$-algebra $A$ is finitely generated if and only if $A \cong k[X_1, \dotsc, X_n]/I$ for some $n \geq 0$ and some ideal $I \idealleq k[X_1, \dotsc, X_n]$, and the ideal $I$ is radical (resp.\ prime) if and only if $k[X_1, \dotsc, X_n]/I \cong A$ is reduced (resp.\ an integral domain).
 \end{proof}
 
 
 \begin{remark}
   Let $k$ be algebraically closed.
-  If $A$ is a finitely generated $k$-algebra then $A \cong k[X_1, \dotsc, X_n]/I$ for some $n \geq 1$ and ideal $I \idealeq k[X_1, \dotsc, X_n]$.
+  If $A$ is a finitely generated $k$-algebra then $A \cong k[X_1, \dotsc, X_n]/I$ for some $n \geq 1$ and ideal $I \idealleq k[X_1, \dotsc, X_n]$.
   If $A$ is reduced then the ideal $I$ is radical and it follows that $X \defined \mc{V}(I) \subseteq k^n$ is an affine variety with $\mc{I}(X) = I$.
   It then follows that
   \[
@@ -284,7 +284,7 @@
       \end{tabular}
     \right\} \,.
   \]
-  The image of the left hand side under $\mc{P}$ is (up to isomorphism) just $k$ itself, and we retrieve \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s lemma} from the geometric picture of Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points}.
+  The image of the left hand side under $\mc{P}$ is (up to isomorphism) just $k$ itself, and we retrieve \hyperref[corollary: zariskis lemma]{Zariski’s lemma} from the geometric picture of Corollary~\ref{corollary: algebraically closed correspondence for algebraic subsets and points}.
   With this, we have altogether shown the following implications:
   \[
     \begin{tikzpicture}[commutative diagrams/every diagram]
@@ -307,7 +307,7 @@
       \node (ZL) at (-90-3*72:2cm) {
         \makebox[5ex][l]{
         \begin{tabular}{c}
-          \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s Lemma} \\
+          \hyperref[corollary: zariskis lemma]{Zariski’s Lemma} \\
           for alg.\ closed fields
         \end{tabular}
         \phantom{y}
@@ -332,7 +332,7 @@
 
 
 \begin{definition}
-  Let $X$ be an affine algebraic variety and let $Y \subseteq X$, $I \idealeq \mc{P}(V)$.
+  Let $X$ be an affine algebraic variety and let $Y \subseteq X$, $I \idealleq \mc{P}(V)$.
   \begin{enumerate}
     \item
       The set
@@ -371,7 +371,7 @@
   The subset $Y$ is closed in $X$ if and only if it is closed in $V$ because $X$ is closed in $V$.
   Whether $Y$ is irreducible, or just a singleton $Y = \{y\}$ also does not depend on whether we view $Y$ as a subspace of $X$ or of $V$.
   
-  Every ideal $I \idealeq \mc{P}(X)$ is of the form $I = I'/\mc{I}(X)$ for a unique ideal $I' \idealeq \mc{P}(V)$ with $I' \supseteq \mc{I}(X)$, and we have that $\mc{V}_X(I) = \mc{V}(I')$.
+  Every ideal $I \idealleq \mc{P}(X)$ is of the form $I = I'/\mc{I}(X)$ for a unique ideal $I' \idealleq \mc{P}(V)$ with $I' \supseteq \mc{I}(X)$, and we have that $\mc{V}_X(I) = \mc{V}(I')$.
   The ideal $I$ is reduced (resp.\ prime, resp.\ maximal) if and only if $I'$ is reduced (resp.\ prime, resp.\ maximal) because
   \[
           \mc{P}(X)/I
@@ -407,7 +407,7 @@
           & \left\{
               \begin{tabular}{c}
                 vanishing ideals \\
-                $I \idealeq \mc{P}(X)$
+                $I \idealleq \mc{P}(X)$
               \end{tabular}
             \right\}
           \\
@@ -439,7 +439,7 @@
           & \left\{
               \begin{tabular}{c}
                 vanishing ideals \\
-                $\mf{p} \idealeq \mc{P}(X)$ \\
+                $\mf{p} \idealleq \mc{P}(X)$ \\
                 which are prime
               \end{tabular}
             \right\}
@@ -470,7 +470,7 @@
           & \left\{
               \begin{tabular}{c}
                 vanishing ideals \\
-                $\mf{m} \idealeq \mc{P}(X)$ \\
+                $\mf{m} \idealleq \mc{P}(X)$ \\
                 which are maximal
               \end{tabular}
             \right\}
@@ -495,7 +495,7 @@
           & \left\{
               \begin{tabular}{c}
                 radical ideals \\
-                $I \idealeq \mc{P}(X)$
+                $I \idealleq \mc{P}(X)$
               \end{tabular}
             \right\}
           \\
@@ -527,7 +527,7 @@
           & \left\{
               \begin{tabular}{c}
                 prime ideals \\
-                $\mf{p} \idealeq \mc{P}X)$
+                $\mf{p} \idealleq \mc{P}X)$
               \end{tabular}
             \right\}
           \\
@@ -557,7 +557,7 @@
           & \left\{
               \begin{tabular}{c}
                 maximal ideals \\
-                $\mf{m} \idealeq \mc{P}(X)$
+                $\mf{m} \idealleq \mc{P}(X)$
               \end{tabular}
             \right\}
         \end{matrix}

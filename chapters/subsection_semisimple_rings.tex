@@ -22,7 +22,7 @@
           \Mat_n(D)
         = C_1 \oplus \dotsb \oplus C_n
       \]
-      for the submodules $C_i \moduleeq \Mat_n(D)$ given by 
+      for the submodules $C_i \moduleleq \Mat_n(D)$ given by 
       \[
                   C_i
         \defined  \{
@@ -58,7 +58,7 @@
 
 \begin{lemma}
   \label{lemma: simple module of semisimple ring is direct summand}
-  Let $R$ be semisimple with $R = \bigoplus_{i \in I} L_i$ for simple submodules then $L_i \moduleeq R$.
+  Let $R$ be semisimple with $R = \bigoplus_{i \in I} L_i$ for simple submodules then $L_i \moduleleq R$.
   Then every simple $R$-module is isomorphic to some $L_i$.
 \end{lemma}
 
@@ -77,7 +77,7 @@
 
 \begin{lemma}
   \label{lemma: ring is already finite sum of submodules}
-  Let $R$ be semisimple with $R = \sum_{i \in I} M_i$ for submodules $M_i \moduleeq R$.
+  Let $R$ be semisimple with $R = \sum_{i \in I} M_i$ for submodules $M_i \moduleleq R$.
   Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
 \end{lemma}
 
@@ -113,6 +113,32 @@
 
 \begin{proof}
   This follows from Corollary~\ref{corollary: semisimple ring is already a finite sum} and Lemma~\ref{lemma: simple module of semisimple ring is direct summand}.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: semisimple rings are notherian artinian}
+  Every semisimple ring is both noetherian and artinian.
+\end{corollary}
+
+
+\begin{proof}
+  By using Corollary~\ref{corollary: ss rings have only finitely many simple modules} we may write
+  \[
+    R = L_1 \oplus \dotsb \oplus L_n
+  \]
+  for some simple submodules $L_i \moduleleq R$.
+  It then follows that
+  \[
+                0
+    \modulelneq L_1
+    \modulelneq L_1 \oplus L_2
+    \modulelneq \dotsb
+    \modulelneq L_1 \oplus \dotsb \oplus L_n
+    =           R
+  \]
+  is a composition series of $R$ of length $n$.
+  It follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan-Hölder theorem} that every strictly increasing (resp.\ strictly decreasing) sequence of submodules of $R$ stabilizes after at most $n$ steps (see Corollary~\ref{corollary: consequences of jordan hoelder}).
 \end{proof}
 
 
@@ -190,11 +216,11 @@
       
       \begin{itemize}
         \item
-          Every submodule $N \moduleeq M_1 \boxplus M_2$ is of the form $N = N_1 \boxplus N_2$ for unique $R_i$-submodules $N_i \moduleeq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
+          Every submodule $N \moduleleq M_1 \boxplus M_2$ is of the form $N = N_1 \boxplus N_2$ for unique $R_i$-submodules $N_i \moduleleq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
           It thus follows from Corollary~\ref{corollary: direct summands for modules over products} that every submodule of $M_1 \boxplus M_2$ has a direct complement if and only if every submodules of $M_i$ has a direct complement for both $i = 1, 2$.
         \item
           Suppose that $M_1, M_2$ are semisimple.
-          Then $M_i = \bigoplus_{j \in J_i} L^j_1$ for simple submodules $L^j_i \moduleeq M_i$.
+          Then $M_i = \bigoplus_{j \in J_i} L^j_1$ for simple submodules $L^j_i \moduleleq M_i$.
           It then follows that
           \[
               M_1 \boxplus M_2
@@ -208,8 +234,8 @@
           is a decomposition into submodules which are simple by part~\ref*{enumerate: when boxplus is simple}.
           
           Suppose now that $M_1 \boxplus M_2$ is semisimple.
-          Then there exists a decomposition $M_1 \boxplus M_2 = \bigoplus_{j \in J} L^j$ into simple submodules $L^j \moduleeq M_1 \boxplus M_2$.
-          Every $L^j$ is of the form $L^j = L^j_1 \boxplus L^j_2$ for unique $R_i$-submodules $L^j_i \moduleeq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
+          Then there exists a decomposition $M_1 \boxplus M_2 = \bigoplus_{j \in J} L^j$ into simple submodules $L^j \moduleleq M_1 \boxplus M_2$.
+          Every $L^j$ is of the form $L^j = L^j_1 \boxplus L^j_2$ for unique $R_i$-submodules $L^j_i \moduleleq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
           It follows from part~\ref*{enumerate: when boxplus is simple} that $J$ is the disjoint union of
           \[
               J_1
@@ -591,7 +617,7 @@
   Let $A$ be a finite-dimensional semisimple $k$-algebra.
   \begin{enumerate}
     \item
-      The $k$-algebra $A$ contains up to isomorphism of $A$-modules only finitely many nonzero minimal left ideals $I_1, \dotsc, I_r \idealeq A$ (which are pairwise non-isomorphic), and we have that
+      The $k$-algebra $A$ contains up to isomorphism of $A$-modules only finitely many nonzero minimal left ideals $I_1, \dotsc, I_r \idealleq A$ (which are pairwise non-isomorphic), and we have that
       \[
               A
         \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
@@ -613,7 +639,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      A nonzero minimal left ideal $I \idealeq A$ is the same as a simple $A$-submodule of $M$.
+      A nonzero minimal left ideal $I \idealleq A$ is the same as a simple $A$-submodule of $M$.
       The claim is therefore just a repretition of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
     \item
       It follows from Corollary~\ref{corollary: simple modules over fd algebras are fd} that each $I_j$ is finite-dimensional, and it thus further follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $D_i = k$.

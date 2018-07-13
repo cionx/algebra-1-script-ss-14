@@ -344,13 +344,13 @@
   Let $M_i$ be an $R_i$-module for $i = 1, 2$.
   \begin{enumerate}
     \item
-      If $N_i \moduleeq M_i$ is an $R_i$-submodule for $i = 1, 2$ then $N_1 \boxplus N_2$ is an $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$.
+      If $N_i \moduleleq M_i$ is an $R_i$-submodule for $i = 1, 2$ then $N_1 \boxplus N_2$ is an $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$.
     \item
-      Every $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$ is of the form $N_1 \boxplus N_2$ for unique $R_i$ submodules $N_i \moduleeq M_i$.
+      Every $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$ is of the form $N_1 \boxplus N_2$ for unique $R_i$ submodules $N_i \moduleleq M_i$.
   \end{enumerate}
   We thus have a bijection
   \begin{align*}
-    \{ (N_1, N_2) \suchthat \text{$R_i$-submodules $N_i \moduleeq M_i$} \}
+    \{ (N_1, N_2) \suchthat \text{$R_i$-submodules $N_i \moduleleq M_i$} \}
     &\longleftrightarrow
     \{ \text{$(R_1 \times R_2)$-submodules of $M_1 \boxplus M_2$} \} \,,
     \\
@@ -363,7 +363,7 @@
 
 \begin{corollary}
   \label{corollary: ideals in products of rings}
-  Every left ideal in $R_1 \times R_2$ is of the form $J_1 \times J_2$ for unique left ideals $J_i \idealeq R_i$ for $i = 1, 2$.
+  Every left ideal in $R_1 \times R_2$ is of the form $J_1 \times J_2$ for unique left ideals $J_i \idealleq R_i$ for $i = 1, 2$.
 \end{corollary}
 
 
@@ -384,7 +384,7 @@
           = \bigoplus_{j \in J} (M^j_1 \boxplus M^j_2) \,.
       \]
     \item
-      Let $M_i$ be an $R_i$-module and $(N^j_i)_{j \in J}$ a family of submodules $N^j_i \moduleeq M_i$ for $i = 1, 2$.
+      Let $M_i$ be an $R_i$-module and $(N^j_i)_{j \in J}$ a family of submodules $N^j_i \moduleleq M_i$ for $i = 1, 2$.
       Then
       \[
               M_1 \boxplus M_2 = \bigoplus_{j \in J} \left( N^j_1 \boxplus N^j_2 \right)
@@ -398,8 +398,8 @@
 
 \begin{corollary}
   \label{corollary: direct summands for modules over products}
-  Let $M_i$ be an $R_i$-module and $N_i \moduleeq M_i$ an $R_i$-submodule for $i = 1, 2$.
-  Then the submodule $N_1 \boxplus N_2 \moduleeq M_1 \boxplus M_2$ is a direct summand if and only if both $N_1 \moduleeq M_1$ and $N_2 \moduleeq M_2$ are direct summands.
+  Let $M_i$ be an $R_i$-module and $N_i \moduleleq M_i$ an $R_i$-submodule for $i = 1, 2$.
+  Then the submodule $N_1 \boxplus N_2 \moduleleq M_1 \boxplus M_2$ is a direct summand if and only if both $N_1 \moduleleq M_1$ and $N_2 \moduleleq M_2$ are direct summands.
 \end{corollary}
 
 

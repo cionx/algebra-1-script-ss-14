@@ -16,8 +16,8 @@
 \begin{lemma}
   For every $n \geq 1$ the map
   \begin{align*}
-              \{ \text{two-sided ideals $I \idealeq R$} \}
-    &\longto  \{ \text{two-sided ideals $J \idealeq \Mat_n(R)$} \} \,,
+              \{ \text{two-sided ideals $I \idealleq R$} \}
+    &\longto  \{ \text{two-sided ideals $J \idealleq \Mat_n(R)$} \} \,,
     \\
                   I
     &\longmapsto  \Mat_n(I)
@@ -27,10 +27,10 @@
 
 
 \begin{proof}
-  If $I \idealeq R$ is a two-sided ideal then the canonical projection $\pi \colon R \to R/I$ is a ring homomorphism.
+  If $I \idealleq R$ is a two-sided ideal then the canonical projection $\pi \colon R \to R/I$ is a ring homomorphism.
   The induced ring homomorphism $\Mat_n(R) \to \Mat_n(R/I)$ has $\Mat_n(I)$ as its kernel, which is therefore a two-sided ideal in $\Mat_n(R)$.
   
-  Let on the other hand $J \idealeq \Mat_n(R)$ be a two-sided ideal.
+  Let on the other hand $J \idealleq \Mat_n(R)$ be a two-sided ideal.
   For all $i, j = 1, \dotsc, n$ let
   \[
       I_{ij}
@@ -47,7 +47,7 @@
   
   By multiplying the a matrix $A \in J$ with an permutation matrices from the left and from the right we can move every coefficient of $A$ to every other position without leaving $A$.
   It follows that $I_{ij}$ does not depend on the position $ij$.
-  For the two-sided ideal $I \idealeq R$ with $I_{ij} = I$ for all $i, j = 1, \dotsc, n$ we then have have that $J = \Mat_n(I)$.
+  For the two-sided ideal $I \idealleq R$ with $I_{ij} = I$ for all $i, j = 1, \dotsc, n$ we then have have that $J = \Mat_n(I)$.
 \end{proof}
 
 
@@ -127,20 +127,9 @@
     \item[\ref*{enumerate: is semisimple} $\iff$ \ref*{enumerate: is matrix ring over skew field}]
       This is part of Proposition~\ref{proposition: when semisimple is simple}.
     \item[\ref*{enumerate: is semisimple} $\implies$ \ref*{enumerate: is left artian}]
-      We have that $R = L_1 \oplus \dotsb \oplus L_n$ for finitely many simple submodules $L_i \moduleeq R$ by Corollary~\ref*{corollary: semisimple ring is already a finite sum}.
-      Then
-      \[
-                    0
-        \moduleneq  L_1
-        \moduleneq  L_1 \oplus L_2
-        \moduleneq  \dotsb
-        \moduleneq  L_1 \oplus L_n
-        =           R
-      \]
-      is a composition series of length $R$.
-      It follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan--Hölder theorem} that every strictly decreasing chain of ideals in $R$ has at most length $n$.
+      This is part of Corollary~\ref{corollary: semisimple rings are notherian artinian}.
     \item[\ref*{enumerate: is left artian} $\implies$ \ref*{enumerate: has minimal left ideal}]
-      Starting with any nonzero left ideal $I_1 \idealeq R$ there would otherwise exist for every $n \geq 1$ an ideal $I_{n+1} \idealeq R$ with $I_{n+1} \subsetneq I_n$, resulting in a descreasing sequence of ideals which does not stablize.
+      Starting with any nonzero left ideal $I_1 \idealleq R$ there would otherwise exist for every $n \geq 1$ an ideal $I_{n+1} \idealleq R$ with $I_{n+1} \subsetneq I_n$, resulting in a descreasing sequence of ideals which does not stablize.
     \item[\ref*{enumerate: has minimal left ideal} $\implies$ \ref*{enumerate: is semisimple}]
       The isotypical component $R_I$ is a two-sided ideal by Lemma~\ref{lemma: isotypical components are two sided ideals} and nonzero by assumption.
       It follows that $R = R_I$ is semisimple.
@@ -173,16 +162,110 @@
   \end{enumerate}
 \end{proof}
 
+\begin{fluff}
+  We now give some examples of simple rings which are not semisimple.
+\end{fluff}
+
 
 \begin{example}
   \label{example: simple but not semisimple}
-  \leavevmode
-  % TODO: Write these examples.
-  \begin{enumerate}
-    \item
-      The (first) Weyl algebra $\mc{A} = \mc{A}_1$ from Example~\ref{example: weyl algebra} is simple but not semisimple.
-%     \item
-%       Let $V$ be an countable infinite-dimensional $k$-vector space and let $I \idealeq \End_k(V)$ be a maximal two-sided ideal (which exists by Zorn’s lemma).
-%       Then $\End_k(V)/I$ is simple but not semisimple:
-  \end{enumerate}
+  The (first) Weyl algebra $\mc{A} = \mc{A}_1$ from Example~\ref{example: weyl algebra} is simple but not semisimple.
 \end{example}
+
+
+\begin{example}
+  Let $V$ be a countable infinite-dimensional $k$-vector space.
+  Then
+  \[
+              I
+    \defined  \{
+                f \in \End(V)
+              \suchthat
+                \text{$f$ has finite rank}
+              \}
+  \]
+  is a two-sided ideal because we have for all $g \in \End(V)$ and $f, f_1, f_2 \in I$ that
+  \begin{gather*}
+            \rank(f \circ g),
+            \rank(g \circ f)
+      \leq  \rank(f)
+  \shortintertext{and}
+            \rank(f_1 + f_2)
+      \leq  \rank(f_1) + \rank(f_2) \,.
+  \end{gather*}
+  The two-sided ideal is already maxmimal:
+  
+  Suppose that $f \in \End(V)$ has infinite rank.
+  Let $C_1$ be a direct complement of $\im(f)$ and let $C_2$ be a direct complement of $\ker(f)$.
+  Then $\im(f)$ is countable infinite-dimensional, so there exists an endomorphism $g_1 \colon V \to V$ such that the restriction $\restrict{g_1}{\im(f)} \to V$ is an isomorphism.
+  The endomorphism $f$ restricts to an isomorphism $C_2 \to \im(f)$, so $C_2$ is also countable infinite-dimensional.
+  It follows that there exists an endomorphism $g_2 \colon V \to V$ which restricts to an isomorphism $V \to C_2$.
+  The composition $g_1 \circ f \circ g_2 \colon V \to V$ is then an isomorphism.
+  This shows that the two-sided ideal generated by $f$ is already $\End(V)$ itself.
+  
+  It follows from the maximality of $I$ that $\End(V)/I$ is simple.
+  We now show that $\End(V)/I$ is not noetherian, from which it follows from Corollary~\ref{corollary: semisimple rings are notherian artinian} that $\End(V)/I$ is not semisimple.
+  
+  We choose a basis $(b_{i,j})_{i,j \geq 0}$ of $V$, and for every $n \geq 0$ we consider the left ideal of $\End(V)$ given by
+  \[
+              J_n
+    \defined  \{
+                f \in \End(V)
+              \suchthat
+                \text{$f(b_{ij}) = 0$ for all $i \geq n$, $j \geq 0$}
+              \} \,.
+  \]
+  We then have that $J_n \ideallneq J_{n+1}$ for all $n \geq 0$. 
+  
+  \begin{claim}
+    For all $n \geq 0$ we have that $I + J_n \ideallneq I + J_{n+1}$.
+  \end{claim}
+  
+  \begin{proof}
+    It sufficies to show that $J_{n+1} \idealnleq I + J_n$.
+    For this consider an element $f \in J_{n+1}$ with
+    \[
+      f(b_{n+1, j}) = b_{n+1,j}
+    \]
+    for all $j \geq 0$.
+    If $f \in I + J_n$ then there would exist some $g \in I$, $f' \in J_n$ with $f = g + f'$.
+    It then follows that
+    \[
+        b_{n+1,j}
+      = f(b_{n+1,j})
+      = g(b_{n+1,j}) + f'(b_{n+1,j})
+      = g(b_{n+1,j})
+    \]
+    for all $j \geq 0$, and therefore that
+    \[
+        g(b_{n+1,j})
+      = -b_{n+1,j}
+    \]
+    for all $j \geq 0$.
+    But this contradicts $g$ having finite rank.
+  \end{proof}
+
+  It follows that
+  \[
+                I
+    =           I + J_0
+    \ideallneq  I + J_1
+    \ideallneq  I + J_2
+    \ideallneq  \dotsb
+  \]
+  is a strictly increasing sequence of ideals in $\End(V)$ which does not stabilize.
+  It then follows that
+  \[
+                0
+    =           (I + J_0)/I
+    \ideallneq  (I + J_1)/I
+    \ideallneq  (I + J_2)/I
+    \ideallneq  \dotsb
+  \]
+  is a strictly increasing sequence of ideals in $\End(V)/I$ which does not stabilize.
+  This shows that $\End(V)/I$ is not noetherian.
+\end{example}
+
+
+
+

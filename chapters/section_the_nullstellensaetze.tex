@@ -2,23 +2,23 @@
 
 
 \begin{fluff}
-  We can associate to every subset $X \subseteq V$ its vanishing ideal $\mc{I}(X) \idealeq \mc{P}(V)$, and to every ideal $I \idealeq \mc{P}(V)$ its vanishing set $\mc{V}(I) \subseteq V$, resulting in maps $\mc{I}, \mc{V}$ as follows:
+  We can associate to every subset $X \subseteq V$ its vanishing ideal $\mc{I}(X) \idealleq \mc{P}(V)$, and to every ideal $I \idealleq \mc{P}(V)$ its vanishing set $\mc{V}(I) \subseteq V$, resulting in maps $\mc{I}, \mc{V}$ as follows:
   \[
     \begin{tikzcd}
         \{ \text{subsets $X \subseteq V$} \}
         \arrow[shift left]{r}[above]{\mc{I}}
-      & \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
+      & \{ \text{ideals $I \idealleq \mc{P}(V)$} \}
         \arrow[shift left]{l}[below]{\mc{V}}
     \end{tikzcd}
   \]
   In general the maps $\mc{I}, \mc{V}$ will neither be injective nor surjective.
-  But we will see in this section that when we restrict our attention to suitable classes (or rather sets) of subsets $X \subseteq V$ and ideals $I \idealeq \mc{P}(V)$ the maps $\mc{V}$ and $\mc{I}$ not only restrict to bijections, but that they become inverse to each other.
+  But we will see in this section that when we restrict our attention to suitable classes (or rather sets) of subsets $X \subseteq V$ and ideals $I \idealleq \mc{P}(V)$ the maps $\mc{V}$ and $\mc{I}$ not only restrict to bijections, but that they become inverse to each other.
 \end{fluff}
 
 
 \begin{lemma}
   \label{lemma: galois connection for vanishing ideals and zero sets}
-  For every subset $X \subseteq V$ and ideal $I \idealeq \mc{P}(V)$ we have that
+  For every subset $X \subseteq V$ and ideal $I \idealleq \mc{P}(V)$ we have that
   \[
           X \subseteq \mc{V}(I)
     \iff  \mc{I}(X) \supseteq I \,.
@@ -33,7 +33,7 @@
 
 \begin{lemma}
   \label{lemma: properties of V and I}
-  Let $X \subseteq V$ be a subset and let $I \idealeq \mc{P}(V)$ be an ideal.
+  Let $X \subseteq V$ be a subset and let $I \idealleq \mc{P}(V)$ be an ideal.
   Then
   \begin{enumerate}
     \item
@@ -92,7 +92,7 @@
 
 
 \begin{definition}
-  An ideal $I \idealeq \mc{P}(V)$ is a \emph{vanishing ideal} if it is the vanishing ideal of some subset $X \subseteq V$.
+  An ideal $I \idealleq \mc{P}(V)$ is a \emph{vanishing ideal} if it is the vanishing ideal of some subset $X \subseteq V$.
 \end{definition}
 
 
@@ -116,7 +116,7 @@
       & \left\{
           \begin{tabular}{c}
             vanishing ideals \\
-            $I \idealeq \mc{P}(V)$
+            $I \idealleq \mc{P}(V)$
           \end{tabular}
         \right\}
     \end{matrix}
@@ -125,7 +125,7 @@
   \[
     \mc{V}(\mc{I}(X)) = X \,,
   \]
-  and for every vanishing ideal $I \idealeq \mc{P}(V)$ we have that
+  and for every vanishing ideal $I \idealleq \mc{P}(V)$ we have that
   \[
     \mc{I}(\mc{V}(I)) = I \,.
   \]
@@ -139,7 +139,7 @@
 
 \begin{lemma}
   \label{lemma: correspence between points and vanishing maximal ideals}
-  An ideal $\mf{m} \idealeq \mc{P}(V)$ is of the form $\mf{m} = \mf{m}_a$ for some $a \in V$ if and only if it is both a maximal ideal and a vanishing ideal.
+  An ideal $\mf{m} \idealleq \mc{P}(V)$ is of the form $\mf{m} = \mf{m}_a$ for some $a \in V$ if and only if it is both a maximal ideal and a vanishing ideal.
 \end{lemma}
 
 
@@ -180,7 +180,7 @@
       & \left\{
           \begin{tabular}{c}
             vanishing ideals \\
-            $I \idealeq \mc{P}(V)$
+            $I \idealleq \mc{P}(V)$
           \end{tabular}
         \right\}
       \\
@@ -210,7 +210,7 @@
       & \left\{
           \begin{tabular}{c}
             vanishing ideals \\
-            $\mf{m} \idealeq \mc{P}(V)$ \\
+            $\mf{m} \idealleq \mc{P}(V)$ \\
             which are maximal
           \end{tabular}
         \right\}
@@ -356,7 +356,7 @@
               \mc{V}\left( \sum_{j \in J} I_j \right)
             = \bigcap_{i \in I} \mc{V}(I_j)
           \]
-          for every family $(I_j)_{j \in J}$ of ideal $I_j \idealeq \mc{P}(V)$, which we will see in Lemma~\ref{lemma: intersections and unions of Zariski closed sets}.
+          for every family $(I_j)_{j \in J}$ of ideal $I_j \idealleq \mc{P}(V)$, which we will see in Lemma~\ref{lemma: intersections and unions of Zariski closed sets}.
       \end{itemize}
   \end{enumerate}
 \end{remark}
@@ -369,7 +369,7 @@
     \subseteq \{ \text{subsets $X \subseteq V$} \}
     \qquad\text{and}\qquad
               B
-    \subseteq \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
+    \subseteq \{ \text{ideals $I \idealleq \mc{P}(V)$} \}
   \]
   such that the maps $\mc{I}, \mc{V}$ restrict to bijections $A \to B$ and $B \to A$.
   Then $A$ needs to be contained in the image of $\mc{V}$ while $B$ needs to be contained in the image of $\mc{I}$.
@@ -387,9 +387,9 @@
   Let $R$ be a commutative ring.
   \begin{enumerate}
     \item
-      An ideal $I \idealeq R$ is a \emph{radical ideal} if for all $x \in R$, $n \geq 0$ it follows from $x^n \in I$ that $x \in I$.
+      An ideal $I \idealleq R$ is a \emph{radical ideal} if for all $x \in R$, $n \geq 0$ it follows from $x^n \in I$ that $x \in I$.
     \item
-      The \emph{radical} of an ideal $I \idealeq R$ is
+      The \emph{radical} of an ideal $I \idealleq R$ is
       \[
                   \rad{I}
         \defined  \{
@@ -403,7 +403,7 @@
 
 
 \begin{lemma}
-  Let $R$ be a commutative ring and let $I \idealeq R$ be an ideal.
+  Let $R$ be a commutative ring and let $I \idealleq R$ be an ideal.
   Then $I$ is radical if and only if the ring $R/I$ is reduced, i.e.\ has no non-zero commutative elements.
 \end{lemma}
 
@@ -429,7 +429,7 @@
     \item
       The zero ideal $0$ is radical if and only if $R = R/0$ is reduced.
     \item
-      Every prime ideal $\mf{p} \idealneq R$ is a radical ideal:
+      Every prime ideal $\mf{p} \ideallneq R$ is a radical ideal:
       
       If $x^n \in \mf{p}$ for some $x \in R$, $n \geq 0$ then $n \geq 1$ because $x^0 = 1 \notin \mf{p}$, and it then follows from $x^n \in \mf{p}$ and $\mf{p}$ being prime that $x \in \mf{p}$.
       
@@ -442,7 +442,7 @@
 
 
 \begin{lemma}
-  Let $R$ be a commutative ring and let $I \idealeq R$ be an ideal. 
+  Let $R$ be a commutative ring and let $I \idealleq R$ be an ideal. 
   \begin{enumerate}
     \item
       \label{enumerate: radicals are radical}
@@ -450,14 +450,14 @@
     \item
       The radical $\rad{I}$ is the smallest radical ideal which contains $I$.
     \item
-      For an ideal $J \idealeq R$ the following conditions are equivalent:
+      For an ideal $J \idealleq R$ the following conditions are equivalent:
       \begin{enumerate}
         \item
           \label{enumerate: J is radical}
           The ideal $J$ is radical.
         \item
           \label{enumerate: J is some radical}
-          There exists some ideal $I \idealeq R$ with $J = \rad{I}$.
+          There exists some ideal $I \idealleq R$ with $J = \rad{I}$.
         \item
           \label{enumerate: J is its own radical}
           The ideal $J$ satisfies $J = \rad{J}$.
@@ -493,7 +493,7 @@
       It then follows that $x \in \rad{I}$.
       This shows that the ideal $\rad{I}$ is radical.
     \item
-      We have that $I \subseteq \rad{I}$ because $x = x^1 \in I$ for every $x \in I$, and every radical ideal $J \idealeq R$ which contains $I$ must also contain the elements of $\rad{I}$.
+      We have that $I \subseteq \rad{I}$ because $x = x^1 \in I$ for every $x \in I$, and every radical ideal $J \idealleq R$ which contains $I$ must also contain the elements of $\rad{I}$.
     \item
       \begin{description}
         \item[\ref*{enumerate: J is radical} $\implies$ \ref*{enumerate: J is its own radical}:]
@@ -522,14 +522,14 @@
 
 \begin{fluff}
   We will now show that the converse of Lemma~\ref{lemma: vanishing ideals are radical} holds if $k$ is algebraically closed.
-  This will then answer our question which ideals $I \idealeq \mc{P}(V)$ are vanishing ideals:
+  This will then answer our question which ideals $I \idealleq \mc{P}(V)$ are vanishing ideals:
   It is precisely the radical ideals.
   
   We proceed in three steps, each of which resulting in some kind of Nullstellensatz:
   We start off the weak Nullstellensatz, from which we then conclude the Nullstellensatz.
   By using the Rabinowitsch trick we then show the strong Nullstellensatz.
   
-  To show the weak Nullstellensatz we will need a results from commutative algebra, namely Zariski’s lemma (Corollary~\ref{corollary: finitely generated field extensions are finite}).
+  To show the weak Nullstellensatz we will need a results from commutative algebra, namely Zariski’s lemma (Corollary~\ref{corollary: zariskis lemma}).
 \end{fluff}
 
 
@@ -549,7 +549,7 @@
 \begin{proof}
   Let $R \defined k[X_1, \dotsc, X_n]$.
   The quotient $L \defined R/\mf{m}$ is a field because the ideal $\mf{m}$ is maximal and $L$ is finitely generated as a $k$-algebra because $R$ is a finitely generated $k$-algebra.
-  It follows from \hyperref[corollary: finitely generated field extensions are finite]{Zariski’s lemma} that the field extension $L/k$ is finite
+  It follows from \hyperref[corollary: zariskis lemma]{Zariski’s lemma} that the field extension $L/k$ is finite
   It follows that $L = k$ because $k$ is algebraically closed.
   
   Let $a_i \defined \overline{X_i} \in L$ for every $i = 1, \dotsc, n$.
@@ -561,12 +561,12 @@
 \begin{theorem}(Nullstellensatz)
   \label{theorem: nullstellensatz}
   Let $k$ be an algebraically closed field.
-  For every proper ideal $I \idealneq k[X_1, \dotsc, X_n]$ we have that $\mc{V}(I) \neq \emptyset$.
+  For every proper ideal $I \ideallneq k[X_1, \dotsc, X_n]$ we have that $\mc{V}(I) \neq \emptyset$.
 \end{theorem}
 
 
 \begin{proof}
-  There exists a maximal ideal $\mf{m} \idealneq k[X_1, \dotsc, X_n]$ with $I \subseteq \mf{m}$ because $I$ is a proper ideal.
+  There exists a maximal ideal $\mf{m} \ideallneq k[X_1, \dotsc, X_n]$ with $I \subseteq \mf{m}$ because $I$ is a proper ideal.
   By the weak Nullstellensatz we have that $\mf{m} = \mf{m}_a$ for some $a \in k^n$.
   We then have that $\{a\} = \mc{V}(\mf{m}_a) \subseteq \mc{V}(I)$.
 \end{proof}
@@ -579,7 +579,7 @@
     \item
       \label{enumerate: WNS follows from NS}
       The weak Nullstellensatz follows from the Nullstellensatz:
-      If $\mf{m} \idealneq k[X_1, \dotsc, X_n]$ is a maximal ideal then $\mf{m}$ is in particular a proper ideal, so by the Nullstellensatz there exists some $a \in k^n$ with $a \in \mc{V}(\mf{m})$.
+      If $\mf{m} \ideallneq k[X_1, \dotsc, X_n]$ is a maximal ideal then $\mf{m}$ is in particular a proper ideal, so by the Nullstellensatz there exists some $a \in k^n$ with $a \in \mc{V}(\mf{m})$.
       It follows that
       \[
                   \mf{m}
@@ -604,7 +604,7 @@
       This also shows that both Nullstellensätze hold only if $k$ is algebraically closed.
       
       Consider for example the case $k = \Real$ and $n = 1$.
-      Then the ideal $(X^2 + 1) \idealeq \Real[X]$ is maximal but not of the form $X - a$ for some $a \in \Real$, and $\mc{V}((X^2 + 1)) = \emptyset$.
+      Then the ideal $(X^2 + 1) \idealleq \Real[X]$ is maximal but not of the form $X - a$ for some $a \in \Real$, and $\mc{V}((X^2 + 1)) = \emptyset$.
     \item
       \label{enumerate: partition of unity formulation of NS}
       The Nullstellensatz states that for all polynomials $f_1, \dotsc, f_s \in k[X_1, \dotsc, X_n]$ precisely one the following two things occurs:
@@ -625,7 +625,7 @@
       \mc{I}(\mc{V}(I))
     = \rad{I}
   \]
-  for every ideal $I \idealeq k[X_1, \dotsc, X_n]$.
+  for every ideal $I \idealleq k[X_1, \dotsc, X_n]$.
 \end{theorem}
 \begin{proof}
   The ideal $\mc{I}(\mc{V}(I))$ is radical by Lemma~\ref{lemma: vanishing ideals are radical} and contains $I$ by Lemma~\ref{lemma: properties of V and I} so it follows that $\rad{I} \subseteq \mc{I}(\mc{V}(I))$.
@@ -682,7 +682,7 @@
 \begin{remark}
   The strong Nullstellensatz implies the Nullstellensatz:
   
-  If $I \idealneq k[X_1, \dotsc, X_n]$ is a proper ideal with $\mc{V}(I) = \emptyset$ then $\rad{I} = \mc{I}(\mc{V}(I)) = \mc{I}(\emptyset) = (1)$ and thus $1 \in \rad{I}$.
+  If $I \ideallneq k[X_1, \dotsc, X_n]$ is a proper ideal with $\mc{V}(I) = \emptyset$ then $\rad{I} = \mc{I}(\mc{V}(I)) = \mc{I}(\emptyset) = (1)$ and thus $1 \in \rad{I}$.
   But then $1^m \in I$ for some $m \geq 0$ and thus $1 \in I$, which contradicts $I$ being a proper ideal.
   
   Together with part~\ref*{enumerate: WNS follows from NS} of Remark~\ref{remark: (weak) nullstellensatz} this shows that all three forms of the Nullstellensatz are equivalent.
@@ -695,7 +695,7 @@
 
 \begin{corollary}
   \label{corollary: vanishing ideals are precisely radical ideals}
-  If $k$ is algebraically closed then an ideal $I \idealeq k[X_1, \dotsc, X_n]$ is a vanishing ideal if and only if it is a radical ideal.
+  If $k$ is algebraically closed then an ideal $I \idealleq k[X_1, \dotsc, X_n]$ is a vanishing ideal if and only if it is a radical ideal.
 \end{corollary}
 
 
@@ -725,7 +725,7 @@
       & \left\{
           \begin{tabular}{c}
             radical ideals \\
-            $I \idealeq \mc{P}(V)$
+            $I \idealleq \mc{P}(V)$
           \end{tabular}
         \right\}
       \\
@@ -755,7 +755,7 @@
       & \left\{
           \begin{tabular}{c}
             maximal ideals \\
-            $\mf{m} \idealeq \mc{P}(V)$
+            $\mf{m} \idealleq \mc{P}(V)$
           \end{tabular}
         \right\}
     \end{matrix}
@@ -772,10 +772,10 @@
   It follows from part~\ref*{enumerate: VIV = V} of Lemma~\ref{lemma: properties of V and I} that the composition
   \[
             \mc{I} \circ \mc{V}
-    \colon  \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
-    \to     \{ \text{ideals $I \idealeq \mc{P}(V)$} \}
+    \colon  \{ \text{ideals $I \idealleq \mc{P}(V)$} \}
+    \to     \{ \text{ideals $I \idealleq \mc{P}(V)$} \}
   \]
-  is idempotent and monotone with $I \subseteq (\mc{I} \circ \mc{V})(I)$ for all $I \idealeq \mc{P}(V)$.
+  is idempotent and monotone with $I \subseteq (\mc{I} \circ \mc{V})(I)$ for all $I \idealleq \mc{P}(V)$.
   The composition $\mc{I} \circ \mc{V}$ is therefore a closure operator.
   If $k$ is algebraically closed then we have shown in this section that $\mc{I} \circ \mc{V}$ is the radical-operator $\rad{\phantom{I}}$.
 \end{remark}
@@ -800,7 +800,7 @@
 %         & \left\{
 %             \begin{tabular}{c}
 %               radical ideals \\
-%               $I \idealeq \mc{P}(V)$
+%               $I \idealleq \mc{P}(V)$
 %             \end{tabular}
 %           \right\}
 %           \arrow[shift left, shorten >= 1.5pt, shorten <= 4pt]{l}[below, xshift = -1.25 pt]{\mc{V}}
@@ -817,7 +817,7 @@
 %         & \left\{
 %             \begin{tabular}{c}
 %               prime ideals \\
-%               $\mf{p} \idealneq \mc{P}(V)$
+%               $\mf{p} \ideallneq \mc{P}(V)$
 %             \end{tabular}
 %           \right\}
 %           \arrow[phantom]{u}[rotate=90]{\subseteq}
@@ -833,7 +833,7 @@
 %         & \left\{
 %             \begin{tabular}{c}
 %               maximal ideals \\
-%               $\mf{m} \idealneq \mc{P}(V)$
+%               $\mf{m} \ideallneq \mc{P}(V)$
 %             \end{tabular}
 %           \right\}
 %           \arrow[phantom]{u}[rotate=90]{\subseteq}

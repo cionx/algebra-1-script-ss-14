@@ -11,10 +11,10 @@
   \leavevmode
   \begin{enumerate}
     \item
-      Let $(I_j)_{j \in J}$ be a family of ideals $I_j \idealeq \mc{P}(V)$.
+      Let $(I_j)_{j \in J}$ be a family of ideals $I_j \idealleq \mc{P}(V)$.
       Then $\bigcap_{j \in J} \mc{V}(I_j) = \mc{V}( \sum_{j \in J} I_j )$.
     \item
-      Let $I_1, I_2 \idealeq \mc{P}(V)$ be ideals.
+      Let $I_1, I_2 \idealleq \mc{P}(V)$ be ideals.
       Then $\mc{V}(I_1) \cup \mc{V}(I_2) = \mc{V}(I_1 \cap I_2) = \mc{V}(I_1 I_2)$.
   \end{enumerate}
 \end{lemma}
@@ -78,10 +78,10 @@
       \begin{align*}
             \closure{X}
         &=  \bigcap \{ C \suchthat \text{$C \subseteq V$ is Zariski closed, $X \subseteq C$} \}
-         =  \bigcap \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V), X \subseteq \mc{V}(I) \} \\
-        &=  \bigcap \{ \mc{V}(I) \suchthat I \idealeq \mc{P}(V), \mc{I}(X) \supseteq I \}
-         =  \bigcap_{\substack{I \idealeq \mc{P}(V) \\ I \subseteq \mc{I}(X)}} \mc{V}(I)
-         =  \mc{V}\left( \sum_{\substack{I \idealeq \mc{P}(V) \\ I \subseteq \mc{I}(X)}} I \right)
+         =  \bigcap \{ \mc{V}(I) \suchthat I \idealleq \mc{P}(V), X \subseteq \mc{V}(I) \} \\
+        &=  \bigcap \{ \mc{V}(I) \suchthat I \idealleq \mc{P}(V), \mc{I}(X) \supseteq I \}
+         =  \bigcap_{\substack{I \idealleq \mc{P}(V) \\ I \subseteq \mc{I}(X)}} \mc{V}(I)
+         =  \mc{V}\left( \sum_{\substack{I \idealleq \mc{P}(V) \\ I \subseteq \mc{I}(X)}} I \right)
          =  \mc{V}(\mc{I}(X)) \,.
       \end{align*}
     \item
@@ -148,18 +148,18 @@
   (Here $\supp$ denotes the support $\supp(\varphi) = \closure{\{x \in X \suchthat \varphi(x) \neq 0\}}$.)
   
   For every ideal $I \subseteq \mc{P}(V)$ we now set $U(I) \defined V \smallsetminus \mc{V}(I)$.
-  Then the sets $U(I)$ with $I \idealeq \mc{P}(V)$ are precisely the Zariski open subsets of $V$, and
+  Then the sets $U(I)$ with $I \idealleq \mc{P}(V)$ are precisely the Zariski open subsets of $V$, and
   \begin{itemize}
     \item
       we have that $U(S) = U((S))$ for every subset $S \subseteq \mc{P}(V)$,
     \item
       for all $S \subseteq T \subseteq \mc{P}(V)$ it follows from $S \subseteq T$ that $U(S) \subseteq U(T)$,
     \item
-      for every family $(I_j)_{j \in J}$ of ideals $I_j \idealeq \mc{P}(V)$ we have that $\bigcup_{j \in J} U(I_j) = U( \sum_{j \in J} I_j )$.
+      for every family $(I_j)_{j \in J}$ of ideals $I_j \idealleq \mc{P}(V)$ we have that $\bigcup_{j \in J} U(I_j) = U( \sum_{j \in J} I_j )$.
   \end{itemize}
   
   Suppose now that $k$ is algebraically closed and that $(U_j)_{j \in J}$ is an open covering of $V$.
-  Every set $U_j \subseteq V$ is Zariski open, and thus of the form $U_j = U(I_j)$ for some ideal $I_j \idealeq \mc{P}(V)$.
+  Every set $U_j \subseteq V$ is Zariski open, and thus of the form $U_j = U(I_j)$ for some ideal $I_j \idealleq \mc{P}(V)$.
   Then $U_j$ consists of all those $a \in V$ which are not a common zero of all $f \in I_j$.
   The condition $V = \bigcup_{j \in J} U_j$ is therefore equivalent to the polynomial functions $f \in I \defined \sum_{j \in J} I_j$ having no common roots.
   This can also seen by using that
@@ -237,7 +237,7 @@
 
 \begin{lemma}
   \label{lemma: trivial prime avoidance}
-  Let $R$ be a commutative ring, $\mf{p} \idealneq R$ a prime ideal and let $I_1, I_2 \idealeq R$ be ideals with $I_1 I_2 \subseteq \mf{p}$.
+  Let $R$ be a commutative ring, $\mf{p} \ideallneq R$ a prime ideal and let $I_1, I_2 \idealleq R$ be ideals with $I_1 I_2 \subseteq \mf{p}$.
   Then $I_1 \subseteq \mf{p}$ or $I_2 \subseteq \mf{p}$.
 \end{lemma}
 
@@ -250,7 +250,7 @@
 
 \begin{lemma}
   \label{lemma: X is irreducible iff I(X) is prime}
-  Let $X \subseteq V$ be a Zariski closed subset with corresponding vanishing ideal $\mf{p} \idealeq \mc{P}(V)$, i.e.\ $X = \mc{V}(\mf{p})$ and $\mf{p} = \mc{I}(X)$.
+  Let $X \subseteq V$ be a Zariski closed subset with corresponding vanishing ideal $\mf{p} \idealleq \mc{P}(V)$, i.e.\ $X = \mc{V}(\mf{p})$ and $\mf{p} = \mc{I}(X)$.
   Then $X$ is irreducible if and only if $\mf{p}$ is prime.
 \end{lemma}
 
@@ -269,7 +269,7 @@
   This shows that the ideal $\mf{p}$ is prime.
   
   Suppose on the other hand that $\mf{p}$ is prime and that $X = C_1 \cup C_2$ for some closed subsets $C_1, C_2 \subseteq V$.
-  Then $C_1, C_2$ are also closed in $V$ because $X$ is a closed subset of $V$, so there exist ideals $I_1, I_2 \idealeq \mc{P}(V)$ with $C_j = \mc{V}(I_j)$ for $j = 1,2$.
+  Then $C_1, C_2$ are also closed in $V$ because $X$ is a closed subset of $V$, so there exist ideals $I_1, I_2 \idealleq \mc{P}(V)$ with $C_j = \mc{V}(I_j)$ for $j = 1,2$.
   It then follows from
   \[
       X
@@ -306,7 +306,7 @@
           & \left\{
               \begin{tabular}{c}
                 vanishing ideals \\
-                $I \idealeq \mc{P}(V)$
+                $I \idealleq \mc{P}(V)$
               \end{tabular}
             \right\}
           \\
@@ -338,7 +338,7 @@
           & \left\{
               \begin{tabular}{c}
                 vanishing ideals \\
-                $\mf{p} \idealeq \mc{P}(V)$ \\
+                $\mf{p} \idealleq \mc{P}(V)$ \\
                 which are prime
               \end{tabular}
             \right\}
@@ -369,7 +369,7 @@
           & \left\{
               \begin{tabular}{c}
                 vanishing ideals \\
-                $\mf{m} \idealeq \mc{P}(V)$ \\
+                $\mf{m} \idealleq \mc{P}(V)$ \\
                 which are maximal
               \end{tabular}
             \right\}
@@ -394,7 +394,7 @@
           & \left\{
               \begin{tabular}{c}
                 radical ideals \\
-                $I \idealeq \mc{P}(V)$
+                $I \idealleq \mc{P}(V)$
               \end{tabular}
             \right\}
           \\
@@ -426,7 +426,7 @@
           & \left\{
               \begin{tabular}{c}
                 prime ideals \\
-                $\mf{p} \idealeq \mc{P}(V)$
+                $\mf{p} \idealleq \mc{P}(V)$
               \end{tabular}
             \right\}
           \\
@@ -456,7 +456,7 @@
           & \left\{
               \begin{tabular}{c}
                 maximal ideals \\
-                $\mf{m} \idealeq \mc{P}(V)$
+                $\mf{m} \idealleq \mc{P}(V)$
               \end{tabular}
             \right\}
         \end{matrix}

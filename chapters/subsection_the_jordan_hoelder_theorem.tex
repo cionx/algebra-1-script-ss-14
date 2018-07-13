@@ -13,14 +13,14 @@
   \[
                 0
     =           M_0
-    \moduleneq  M_1
-    \moduleneq  M_2
-    \moduleneq  M_3
-    \moduleneq  \dotsb
-    \moduleneq  M_n
+    \modulelneq  M_1
+    \modulelneq  M_2
+    \modulelneq  M_3
+    \modulelneq  \dotsb
+    \modulelneq  M_n
     =           M
   \]
-  of submodules $M_i \moduleeq M$.
+  of submodules $M_i \moduleleq M$.
   The number $n$ is the \emph{length} of this filtration, and the quotients $M_i/M_{i-1}$ with $i = 1, \dotsc, n$ are its \emph{factors}.
 \end{definition}
 
@@ -56,23 +56,23 @@
 
 \begin{lemma}
   \label{lemma: modularity of submodule lattice}
-  Let $P \moduleeq N \moduleeq M$ be submodules.
+  Let $P \moduleleq N \moduleleq M$ be submodules.
   Then
   \[
       (P + C) \cap N
     = P + (C \cap N)
   \]
-  for every submodule $C \moduleeq N$.
+  for every submodule $C \moduleleq N$.
 \end{lemma}
 
 
 \begin{proof}
   For $n \in (P + C) \cap N$ we have that $n \in N$ and there exist $p \in P$, $c \in C$ with $n = p + c$.
-  It then follows from $n - c = p \in P \moduleeq N$ that also $c = n - p \in N$.
+  It then follows from $n - c = p \in P \moduleleq N$ that also $c = n - p \in N$.
   We therefore have that $c \in C \cap N$ and thus $n = p + c \in P + (C \cap N)$.
   
-  It follows from $P \moduleeq P + C$ and $P \moduleeq N$ that $P \moduleeq (P + C) \cap N$, and it similarly follows from $C \cap N \moduleeq C \moduleeq P + C$ and $C \cap N \moduleeq N$ that $C \cap N \moduleeq N$.
-  Together this shows that $P + (C \cap N) \moduleeq (P + C) \cap N$.
+  It follows from $P \moduleleq P + C$ and $P \moduleleq N$ that $P \moduleleq (P + C) \cap N$, and it similarly follows from $C \cap N \moduleleq C \moduleleq P + C$ and $C \cap N \moduleleq N$ that $C \cap N \moduleleq N$.
+  Together this shows that $P + (C \cap N) \moduleleq (P + C) \cap N$.
 \end{proof}
 
 
@@ -83,7 +83,7 @@
 
 \begin{lemma}[Butterfly lemma]
   \label{lemma: butterfly lemma}
-  Let $M$ be an $R$-module and let $N_1 \moduleeq N_2 \moduleeq M$ and $P_1 \moduleeq P_2 \moduleeq M$ be submodules.
+  Let $M$ be an $R$-module and let $N_1 \moduleleq N_2 \moduleleq M$ and $P_1 \moduleleq P_2 \moduleleq M$ be submodules.
   Then
   \begin{align*}
          &\,  (N_1 + P_2 \cap N_2)/(N_1 + P_1 \cap N_2)         \\
@@ -121,7 +121,7 @@
   The butterfly~lemma states that the quotients associated to the three vertical edges are isomorphic.
   
   This image also explains how to prove the butterfly~lemma:
-  Recall that the third isomorphism theory states that for all submodule $N', P' \moduleeq M$ we have that
+  Recall that the third isomorphism theory states that for all submodule $N', P' \moduleleq M$ we have that
   \[
           (N' + P')/P'
     \cong N'/(N' \cap P') \,,
@@ -181,7 +181,7 @@
     =&\,  (N_2 \cap P_1) + (N_1 \cap (N_2 \cap P_2))  \\
     =&\,  (N_2 \cap P_1) + (N_1 \cap P_2) \,,
   \end{align*}
-  where we used for the second equality that $N_2 \cap P_1 \moduleeq N_2 \cap P_2$ to apply Lemma~\ref{lemma: modularity of submodule lattice}.
+  where we used for the second equality that $N_2 \cap P_1 \moduleleq N_2 \cap P_2$ to apply Lemma~\ref{lemma: modularity of submodule lattice}.
 \end{proof}
 
 
@@ -197,11 +197,11 @@
     \label{equation: Schreier starting filtration one}
                 0
     =           M_0
-    \moduleneq  M_1
-    \moduleneq  M_2
-    \moduleneq  M_3
-    \moduleneq  \dotsb
-    \moduleneq  M_n
+    \modulelneq  M_1
+    \modulelneq  M_2
+    \modulelneq  M_3
+    \modulelneq  \dotsb
+    \modulelneq  M_n
     =           M
   \end{equation}
   and
@@ -209,11 +209,11 @@
     \label{equation: Schreier starting filtration two}
                 0
     =           M'_0
-    \moduleneq  M'_1
-    \moduleneq  M'_2
-    \moduleneq  M'_3
-    \moduleneq  \dotsb
-    \moduleneq  M'_{n'}
+    \modulelneq  M'_1
+    \modulelneq  M'_2
+    \modulelneq  M'_3
+    \modulelneq  \dotsb
+    \modulelneq  M'_{n'}
     =           M
   \end{equation}
   be two filtrations of $M$.
@@ -225,17 +225,17 @@
       \begin{array}{ccccccccccccc}
                     0
         &=&         M_0 + M'_0    \cap M_1
-        &\moduleeq& M_0 + M'_1    \cap M_1
-        &\moduleeq& \dotsb
-        &\moduleeq& M_0 + M'_{n'} \cap M_1
+        &\moduleleq& M_0 + M'_1    \cap M_1
+        &\moduleleq& \dotsb
+        &\moduleleq& M_0 + M'_{n'} \cap M_1
         &(=&        M_1)
         &  &        {}
         \\
                     {}
         &=&         M_1 + M'_0    \cap M_2
-        &\moduleeq& M_1 + M'_1    \cap M_2
-        &\moduleeq& \dotsb
-        &\moduleeq& M_1 + M'_{n'} \cap M_2
+        &\moduleleq& M_1 + M'_1    \cap M_2
+        &\moduleleq& \dotsb
+        &\moduleleq& M_1 + M'_{n'} \cap M_2
         &(=&        M_2)
         &  &        {}
         \\
@@ -249,9 +249,9 @@
         \\
                     {}
         &=&         M_{n-1} + M'_0    \cap M_n
-        &\moduleeq& M_{n-1} + M'_1    \cap M_n
-        &\moduleeq& \dotsb
-        &\moduleeq& M_{n-1} + M'_{n'} \cap M_n
+        &\moduleleq& M_{n-1} + M'_1    \cap M_n
+        &\moduleleq& \dotsb
+        &\moduleleq& M_{n-1} + M'_{n'} \cap M_n
         &(=&        M_n)
         &=&         M \,,
       \end{array}
@@ -265,17 +265,17 @@
       \begin{array}{ccccccccccccc}
                     0
         &=&         M'_0 + M_0  \cap M'_1
-        &\moduleeq& M'_0 + M_1  \cap M'_1
-        &\moduleeq& \dotsb
-        &\moduleeq& M'_0 + M_n  \cap M'_1
+        &\moduleleq& M'_0 + M_1  \cap M'_1
+        &\moduleleq& \dotsb
+        &\moduleleq& M'_0 + M_n  \cap M'_1
         &(=&        M'_1)
         &  &        {}
         \\
                     {}
         &=&         M'_1 + M_0  \cap M'_2
-        &\moduleeq& M'_1 + M_1  \cap M'_2
-        &\moduleeq& \dotsb
-        &\moduleeq& M'_1 + M_n  \cap M'_2
+        &\moduleleq& M'_1 + M_1  \cap M'_2
+        &\moduleleq& \dotsb
+        &\moduleleq& M'_1 + M_n  \cap M'_2
         &(=&        M'_2)
         &  &        {}
         \\
@@ -289,9 +289,9 @@
         \\
                     {}
         &=&         M'_{n-1} + M_0  \cap M'_n
-        &\moduleeq& M'_{n-1} + M_1  \cap M'_n
-        &\moduleeq& \dotsb
-        &\moduleeq& M'_{n-1} + M_n  \cap M'_n
+        &\moduleleq& M'_{n-1} + M_1  \cap M'_n
+        &\moduleleq& \dotsb
+        &\moduleleq& M'_{n-1} + M_n  \cap M'_n
         &(=&        M'_{n'})
         &=&         M \,.
       \end{array}
@@ -430,6 +430,7 @@
       \label{enumerate: composition series have same length and factors}
       Every two composition series of $M$ have the same length, and up to permutation and isomorphism the same composition factors.
     \item
+      \label{enumerate: filtration maximal length of composition series}
       If $M$ admits a composition series of length $n$ then every filtration of $M$ has at most length $n$.
     \item
       A filtration is a composition series if and only if it has maximal length among all filtrations.
@@ -449,18 +450,18 @@
       It follows with part~\ref*{enumerate: composition series have same length and factors} that $n = n'' \geq n'$.
       This shows that composition series have maximal length among all filtrations.
       
-      If $M_i/M_{i-1}$ were not simple for some $i = 1, \dotsc, n$ then $M_i/M_{i-1}$ would have a nonzero proper submodule, which would then correspond to a proper submodule $N \moduleeq M_i$ with $M_{i-1} \moduleeq M_i$.
+      If $M_i/M_{i-1}$ were not simple for some $i = 1, \dotsc, n$ then $M_i/M_{i-1}$ would have a nonzero proper submodule, which would then correspond to a proper submodule $N \moduleleq M_i$ with $M_{i-1} \moduleleq M_i$.
       Then
       \[
                     0
         =           M_0
-        \moduleneq  M_1
-        \moduleneq  \dotsb
-        \moduleneq  M_{i-1}
-        \moduleneq  N
-        \moduleneq  M_i
-        \moduleneq  \dotsb
-        \moduleneq  M_n
+        \modulelneq  M_1
+        \modulelneq  \dotsb
+        \modulelneq  M_{i-1}
+        \modulelneq  N
+        \modulelneq  M_i
+        \modulelneq  \dotsb
+        \modulelneq  M_n
         =           M
       \]
       is a refinement of $(M_i)_{i=0}^n$ of length $n+1$.
@@ -470,18 +471,90 @@
 \end{proof}
 
 
-\begin{definition}
-  The \emph{length} of $M$ is
+\begin{lemma}
+  \label{lemma: artinian contains simple}
+  Every nonzero artinian $R$-module contains a simple submodule.
+\end{lemma}
+
+
+\begin{proof}
+  Suppose that $M$ is a nonzero artinian $R$-module which contains no simple submodule.
+  Then $M \defines M_0$ is not simple itself and thus contains a nonzero proper submodule $M_1$, which must also not contain a simple submodule.
+  This constructes inductivey a strictly decreasing sequence of submodules
   \[
-              \ell(M)
-    \defined  \sup  \{
-                n \geq 0
-              \suchthat
-                \text{$M$ admits a filtration of length $n$}
-              \} \,.
+                M
+    =           M_0
+    \modulegneq M_1
+    \modulegneq M_2
+    \modulegneq \dotsb
   \]
-  If $\ell(M) < \infty$ then $M$ has \emph{finite length}.
-\end{definition}
+  which does not stabilize.
+  This contradicts $M$ being artinian.
+\end{proof}
+
+
+\begin{proposition}
+  The $R$-module $M$ has a composition series iff and only if it is both noetherian and artinian.
+\end{proposition}
+
+
+\begin{proof}
+  Suppose that $M$ has a composition series of length $n$.
+  Then every strictly increasing (resp.\ strictly decreasing) sequence of submodules of $M$ has at most length $n$ by Corollary~\ref{corollary: consequences of jordan hoelder}, part~\ref*{enumerate: filtration maximal length of composition series}.
+  It follows that every strictly increasing (resp.\ strictly decreasing) sequence of submodule of $M$ stabilizies after at most $n$ steps.
+  This shows that $M$ is both noetherian and artinian.
+  
+  Suppose that $M$ is both noetherian and artinian.
+  If $M = 0$ then $M$ has a (unique) composition series of length $0$, so suppose that $M \neq 0$.
+  It then follows that $M$ contains a simple submodule $M_1$ by Lemma~\ref{lemma: artinian contains simple}.
+  If $M/M_1 = 0$ then $M = M_1$ and
+  \[
+                0
+    =           M_0
+    \modulelneq M_1
+    =           M
+  \]
+  is a composition series of $M$.
+  Otherwise the quotient $M/M_1$ is nonzero and again artinian by Proposition~\ref{proposition: noether artin ses} and thus contains a simple submodule.
+  This simple submodule is then of the form $M_2/M_1$ for some submodule $M_2 \moduleleq M$ with $M_1 \modulelneq M_2$.
+  
+  If the above process terminates after $n$ steps then we arrive at a filtration
+  \[
+                0
+    =           M_0
+    \modulelneq M_1
+    \modulelneq M_2
+    \modulelneq \dotsb
+    \modulelneq M_n
+    =           M
+  \]
+  with simple factors $M_i/M_{i-1}$ for $i = 1, \dotsc, n$, i.e.\ at a composition series of $M$.
+  Otherwise we would have constructed a strictly increasing sequence
+  \[
+                 0
+    =            M_0
+    \modulelneq  M_1
+    \modulelneq  M_2
+    \modulelneq  \dotsb
+  \]
+  which does not stabilize.
+  But this contradicts $M$ being noetherian.
+\end{proof}
+
+
+
+% \begin{definition}
+%   The \emph{length} of $M$ is
+%   \[
+%               \ell(M)
+%     \defined  \sup  \{
+%                 n \geq 0
+%               \suchthat
+%                 \text{$M$ admits a filtration of length $n$}
+%               \} \,.
+%   \]
+%   If $\ell(M) < \infty$ then $M$ has \emph{finite length}.
+% \end{definition}
 
 
 % \begin{lemma}

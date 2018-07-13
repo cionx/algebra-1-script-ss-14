@@ -26,7 +26,7 @@
     \item
       The module $M$ is \emph{simple} if $M$ is nonzero and $0, M$ are the only submodules of $M$.
     \item
-      A submodule $N \moduleeq M$ is \emph{maximal} if it is a maximal proper submodule, i.e.\ $N$ is a proper submodule and for every submodule $N' \moduleeq M$ with $N \moduleeq N'$ we have that $N' = N$ or $N' = M$.
+      A submodule $N \moduleleq M$ is \emph{maximal} if it is a maximal proper submodule, i.e.\ $N$ is a proper submodule and for every submodule $N' \moduleleq M$ with $N \moduleleq N'$ we have that $N' = N$ or $N' = M$.
   \end{enumerate}
 \end{definition}
 
@@ -43,7 +43,7 @@
       Then a $k$-vector space $V$ is simple (as a $k$-module) if and only if $V$ is one-dimensional.
     \item
       If $D$ is a skew field then $D^n$ is simple as an $\Mat_n(D)$-module:
-      Let $U \moduleeq D^n$ be a nonzero submodule and let $x \in U$ with $x \neq 0$.
+      Let $U \moduleleq D^n$ be a nonzero submodule and let $x \in U$ with $x \neq 0$.
       It then follows that $x_i \neq 0$ for some $i = 1, \dotsc, n$ and therefore that
       \[
             e_i
@@ -64,7 +64,7 @@
 \begin{remark}
   \label{remark: alternative formulation of simple and maximal}
   One can also reformulate the definitions of an simple module and maximal submodule:
-  An $R$-module $M$ is simple if and only if $M$ contains precisely two submodules, and a submodule $N \moduleeq M$ is maximal if and only if there exists precisely two submodules $N' \moduleeq M$ with $N \moduleeq N'$.
+  An $R$-module $M$ is simple if and only if $M$ contains precisely two submodules, and a submodule $N \moduleleq M$ is maximal if and only if there exists precisely two submodules $N' \moduleleq M$ with $N \moduleleq N'$.
 \end{remark}
 
 
@@ -78,7 +78,7 @@
   If $M$ is simple then for every nonzero $x \in M$ the cyclic submodule $Rx$ of $M$ is nonzero, from which it follows that $Rx = M$.
   
   Suppose that every nonzero $x \in M$ is a cyclic generator of $M$.
-  Every nonzero submodule $N \moduleeq M$ contains some nonzero $x \in N$, for which it then follows that $M = Rx \moduleeq N$ and therefore $M = N$.
+  Every nonzero submodule $N \moduleleq M$ contains some nonzero $x \in N$, for which it then follows that $M = Rx \moduleleq N$ and therefore $M = N$.
 \end{proof}
 
 
@@ -96,7 +96,7 @@
 
 \begin{lemma}
   \label{lemma: maximal iff quotient is simple}
-  Let $M$ be an $R$-module and let $N \moduleeq M$ be a submodule.
+  Let $M$ be an $R$-module and let $N \moduleleq M$ be a submodule.
   Then $N$ is a maximal submodule if and only if $M/N$ is simple.
 \end{lemma}
 
@@ -104,9 +104,9 @@
 \begin{proof}
   This follows from the $1$:$1$-correspondence
   \begin{align*}
-    \{ \text{submodules $N' \moduleeq M$ with $N \moduleeq N'$} \}
+    \{ \text{submodules $N' \moduleleq M$ with $N \moduleleq N'$} \}
     &\longleftrightarrow
-    \{ \text{submodules $P \moduleeq M/N$} \}
+    \{ \text{submodules $P \moduleleq M/N$} \}
     \\
                   N'
     &\longmapsto  N'/N
@@ -116,7 +116,7 @@
 
 
 \begin{corollary}
-  Let $M$ be an $R$-module and let $N, P \moduleeq M$ be submodule with $M = N \oplus P$.
+  Let $M$ be an $R$-module and let $N, P \moduleleq M$ be submodule with $M = N \oplus P$.
   Then $S$ is simple if and only if $P$ is maximal.
 \end{corollary}
 
@@ -134,24 +134,24 @@
 
 \begin{proof}
   Let $m_1, \dotsc, m_t$ be generators of $M$.
-  A submodule $N \moduleeq M$ is proper if and only if $N$ does not contain all $m_i$, and by Zorn’s~lemma there exists a submodule which is maxmial with this property.
+  A submodule $N \moduleleq M$ is proper if and only if $N$ does not contain all $m_i$, and by Zorn’s~lemma there exists a submodule which is maxmial with this property.
 \end{proof}
 
 
 \begin{fluff}
-  Recall that if $M$ is an $R$-module and $P \moduleeq N \moduleeq M$ are submodules, then
+  Recall that if $M$ is an $R$-module and $P \moduleleq N \moduleleq M$ are submodules, then
   \[
       (P + C) \cap N
     = P + (C \cap N)
   \]
-  for every submodule $C \moduleeq N$.
+  for every submodule $C \moduleleq N$.
   (See Lemma~\ref{lemma: modularity of submodule lattice} for a proof.)
 \end{fluff}
 
 
 \begin{corollary}
   \label{corollary: direct complements in submodules}
-  Let $M$ be an $R$-module and let $P \moduleeq N \moduleeq M$ be submodules.
+  Let $M$ be an $R$-module and let $P \moduleleq N \moduleleq M$ be submodules.
   Let $C$ be a direct complement of $P$ in $M$.
   Then $C \cap N$ is a direct complement of $P$ in $N$.
 \end{corollary}
@@ -202,7 +202,7 @@
     \item[\ref*{enumerate: direct sum of simple} $\implies$ \ref*{enumerate: sum of simple}:]
       Every direct sum is a sum.
     \item[\ref*{enumerate: sum of simple} $\implies$ \ref*{enumerate: direct complements}:]
-      Suppose that $M = \sum_{i \in I} L_i$ where every $L_i$ is a simple submodule of $M$, and let $N \moduleeq M$ be any submodule.
+      Suppose that $M = \sum_{i \in I} L_i$ where every $L_i$ is a simple submodule of $M$, and let $N \moduleleq M$ be any submodule.
       For every $J \subseteq I$ let
       \[
                   M_J
@@ -211,7 +211,7 @@
       It follows from Zorn’s lemma that there exists a maximal subset $J \subseteq I$ for which $N \cap M_J = 0$.
       Then $P \defined M_J$ is a direct complement of $N$:
       
-      Otherwise there would exist some $i \in I$ with $L_i \nmoduleeq N \oplus P$.
+      Otherwise there would exist some $i \in I$ with $L_i \nmoduleleq N \oplus P$.
       Then the intersection $L_i \cap (N \oplus P)$ is a proper submodule of the simple module $L_i$ and it follows that $L_i \cap (N \oplus P) = 0$.
       It then follows that the sum $(N \oplus P) + L_i$ is direct, so that
       \[
@@ -220,17 +220,17 @@
         = N \oplus P'
       \]
       and thus $N \cap P' = 0$ for $P' \defined P + L_i = M_{J'}$ with $J' = J \cup \{i\}$.
-      It follows from $L_i \nmoduleeq N \oplus M_J$ that $i \notin J$ and thus $J \subsetneq J'$.
+      It follows from $L_i \nmoduleleq N \oplus M_J$ that $i \notin J$ and thus $J \subsetneq J'$.
       This contradicts the maximality of $J$.
     \item[\ref*{enumerate: direct complements} $\implies$ \ref*{enumerate: direct sum of simple}:]
-      It follows from Corollary~\ref{corollary: direct complements in submodules} that for all submodules $N \moduleeq C \moduleeq M$ the module $N$ also has a direct complement in $C$.
+      It follows from Corollary~\ref{corollary: direct complements in submodules} that for all submodules $N \moduleleq C \moduleleq M$ the module $N$ also has a direct complement in $C$.
       
-      Let $S \moduleeq M$ be the sum of all simple submodules of $M$ and suppose that $S \neq M$.
+      Let $S \moduleleq M$ be the sum of all simple submodules of $M$ and suppose that $S \neq M$.
       Let $P \neq 0$ be a direct complement of $S$ so that $M = S \oplus P$.
       Then $P$ does not contain any simple submodule.
       
-      For $x \in P$ with $x \neq 0$ the cyclic submodule $C \defined Rx \moduleeq P$ contains a maximal submodule $N \moduleneq C$ by Lemma~\ref{lemma: fg modules contain max submodules}.
-      As noted above there exists a submodule $S' \moduleeq C$ with $C = N \oplus S'$.
+      For $x \in P$ with $x \neq 0$ the cyclic submodule $C \defined Rx \moduleleq P$ contains a maximal submodule $N \modulelneq C$ by Lemma~\ref{lemma: fg modules contain max submodules}.
+      As noted above there exists a submodule $S' \moduleleq C$ with $C = N \oplus S'$.
       Then $S'$ is simple by Lemma~\ref{lemma: maximal iff quotient is simple}.
       This shows that $P$ contains a simple submodule $S'$, a contradiction.
     \qedhere
@@ -285,7 +285,7 @@
           \vect{x \\ y}
         = \vect{ax + by \\ cy},
       \]
-      so if a submodule $N' \moduleeq k^2$ contains an element $(x,y)^T \in k^2$ with $y \neq 0$ then it contains both
+      so if a submodule $N' \moduleleq k^2$ contains an element $(x,y)^T \in k^2$ with $y \neq 0$ then it contains both
       \begin{align*}
             \begin{bmatrix}
               0 & y^{-1} \\
@@ -316,12 +316,12 @@
     \item
       If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
     \item
-      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-submodules $M_i \moduleeq M$ then $\sum_{i \in I} M_i$ is semisimple.
+      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-submodules $M_i \moduleleq M$ then $\sum_{i \in I} M_i$ is semisimple.
     \item
-      If $M$ is a semisimple $R$-module and $N \moduleeq M$ a submodule then $N$ is semisimple.
+      If $M$ is a semisimple $R$-module and $N \moduleleq M$ a submodule then $N$ is semisimple.
     \item
       \label{enumerate: quotient is again semisimple}
-      If $M$ is a semisimple $R$-module and $N \moduleeq M$ a submodule then $M/N$ is semisimple.
+      If $M$ is a semisimple $R$-module and $N \moduleleq M$ a submodule then $M/N$ is semisimple.
   \end{enumerate}
 \end{lemma}
 
@@ -330,7 +330,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      We can write each $M_i$ as a direct sum $M_i = \bigoplus_{j \in J_i} L^i_j$ where $L^i_j \moduleeq M_i$ is a simple submodule for every $j \in J_i$.
+      We can write each $M_i$ as a direct sum $M_i = \bigoplus_{j \in J_i} L^i_j$ where $L^i_j \moduleleq M_i$ is a simple submodule for every $j \in J_i$.
       Then
       \[
           \bigoplus_{i \in I} M_i
@@ -343,7 +343,7 @@
     \item
       This follows from Corollary~\ref{corollary: direct complements in submodules}.
     \item
-      There exists a direct complement $P \moduleeq M$ of $N$.
+      There exists a direct complement $P \moduleleq M$ of $N$.
       It follows from part~\ref*{enumerate: quotient is again semisimple} that $M/N \cong P$ is again semisimple.
     \qedhere
   \end{enumerate}
@@ -354,7 +354,7 @@
   The \emph{socle} of an $R$-module $M$ is
   \[
               \soc(M)
-    \defined  \sum_{\substack{L \moduleeq M \\ \text{simple}}} L \,.
+    \defined  \sum_{\substack{L \moduleleq M \\ \text{simple}}} L \,.
   \]
 \end{definition}
 

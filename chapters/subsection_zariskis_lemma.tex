@@ -11,7 +11,7 @@
 
 \begin{proof}
   We will construct a ring $B_0$ with $A \subseteq B_0 \subseteq B$ such that $B_0$ is finitely generated as an $A$-algebra, say $B_0 = A[b'_1, \dotsc, b'_s]$ for suitable $b'_i \in B_0$, and $C$ is finitely generated as an $B_0$-module.
-  It then follows from Corollary~\ref{corollary: finite type preserves noetherian} that $B_0$ is noetherian because $A$ is noetherian, and that $C$ is noetherian as a $B_0$-module by Lemma~\ref{lemma: finitely generated over notherian rings}.
+  It then follows from Corollary~\ref{corollary: finite type preserves noetherian} that $B_0$ is noetherian because $A$ is noetherian, and that $C$ is noetherian as a $B_0$-module by Lemma~\ref{lemma: finitely generated over notherian artinian rings}.
   Then the $B_0$-submodule $B \subseteq C$ is also finitely generated as an $B_0$-module, say $B = B_0 b_1 + \dotsb + B_0 b_t$ for suitable $b_1, \dotsc, b_t \in B$.
   It then follows that $B$ is finitely generated as an $A$-algebra because
   \begin{align*}
@@ -120,7 +120,7 @@
 
 
 \begin{corollary}[Zariski’s lemma]
-  \label{corollary: finitely generated field extensions are finite}
+  \label{corollary: zariskis lemma}
   Let $L/k$ be a field extension.
   If $L$ is finitely generated as a $k$-algebra then the field extension $L/k$ is already finite.
 \end{corollary}
@@ -140,3 +140,9 @@
   
   This shows that $F = k$ and that $L/F$ is finite.
 \end{proof}
+
+
+\begin{remark}
+  Another proof of \hyperref[corollary: zariskis lemma]{Zariski’s Lemma} which uses the concept of integral dependece can be found in \cite[Corollary 5.24]{AtiyahMacdonald}.
+\end{remark}
+
