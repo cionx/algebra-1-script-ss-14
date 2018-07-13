@@ -18,25 +18,31 @@
 \usepackage[backend=biber,style=alphabetic]{biblatex} %for bibliography
 \usepackage{multirow}   % for multicolumn
 
+
 % fonts for titlepage
 \setkomafont{titlehead}{\ttfamily}
 \setkomafont{subject}{\Large\sffamily\bfseries}
 \setkomafont{author}{\Large\sffamily}
 \setkomafont{publishers}{\sffamily}
 
+
 % settings for scrlayer-scrpage
 \pagestyle{scrheadings}
 \automark{section}
 
+
 % no subsections in the toc
 \setcounter{tocdepth}{2}
+
 
 % no unplaned surprises with \cite
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
 
-% colours
+
+% colours for young tableaux
 \definecolor{light-gray}{gray}{0.9}
+
 
 % colours for hyperref
 \hypersetup{
@@ -46,9 +52,11 @@
     urlcolor={blue!80!black}
 }
 
+
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
 \relpenalty=\maxdimen
+
 
 % settings for list like environments
 \setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
@@ -58,6 +66,7 @@
 \setlist[itemize, 1]{leftmargin=*}
 \setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
 \setlist[itemize, 3]{leftmargin=*}
+
 
 % theorem like environments
 \theoremstyle{definition}
@@ -76,10 +85,12 @@
 \newtheorem{theorem}[everything]{Theorem}
 \newtheorem{warning}[everything]{Warning}
 
+
 % don't reset section counter
 \counterwithout{section}{chapter}
 % reset equation counters between sections
 \counterwithin*{equation}{section}
+
 
 % how counters are printed
 \renewcommand{\thechapter}{\Roman{chapter}}
@@ -90,12 +101,8 @@
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
 
-% useful macros
-\NewDocumentCommand{\suchthat}{s}{
-  \IfBooleanTF{#1}
-    {\,\middle|\,}
-    {\,|\,}       
-}
+
+% relations
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
 \newcommand{\divides}{\mid}
@@ -112,9 +119,7 @@
 \newcommand{\modulegeq}{\geq}
 \newcommand{\modulegneq}{\gneq}
 \newcommand{\nmoduleleq}{\nleq}
-\newcommand{\longto}{\longrightarrow}
-\newcommand{\inclusion}{\hookrightarrow}
-\newcommand{\projection}{\twoheadrightarrow}
+
 
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}
@@ -175,6 +180,7 @@
 \DeclareMathOperator{\vspan}{span}
 \DeclareMathOperator{\gr}{gr}
 
+
 % functions
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\rank}{rank}
@@ -183,16 +189,28 @@
 \DeclareMathOperator{\init}{init}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\sgn}{sgn}
-\newcommand{\op}{\mathrm{op}}
-\newcommand{\ind}{\mathrm{ind}}
 \DeclareMathOperator{\kchar}{char}
 \DeclareMathOperator{\diag}{diag}
 
-% operators
-\newcommand{\dotcup}{\ensuremath{\mathrel{\mathaccent\cdot\cup}}}
-\newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 
-% stuff taking arguments
+% decorations
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\ind}{\mathrm{ind}}
+
+
+% misc. shortcuts
+\NewDocumentCommand{\suchthat}{s}{
+  \IfBooleanTF{#1}
+    {\,\middle|\,}
+    {\,|\,}       
+}
+\newcommand{\del}{\partial}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\inclusion}{\hookrightarrow}
+\newcommand{\projection}{\twoheadrightarrow}
+
+
+% constructors
 \newcommand{\class}[1]{\overline{#1}}
 \newcommand{\closure}[1]{\overline{#1}}
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
@@ -204,6 +222,12 @@
     {\left. {#2} \right|_{#3}^{#4}}
     {{#2}|_{#3}^{#4}}
 }
+
+
+% dotcup for disjoint unions
+\newcommand{\dotcup}{\ensuremath{\mathrel{\mathaccent\cdot\cup}}}
+\newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
+
 
 % technical stuff for \bigdotcup
 \makeatletter
@@ -217,3 +241,7 @@
       }
     \ifx#1\mathop\expandafter\displaylimits\fi}
 \makeatother
+
+
+
+
