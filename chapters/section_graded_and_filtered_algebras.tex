@@ -525,10 +525,11 @@
       
       We have that $X \cdot X^n D^m = X^{n+1} D^m \in I$.
       To show that $D \cdot X^n D^m \in I$ we observe that the relation $DX = XD + 1$ generalizen inductively to
-      \[
+      \begin{equation}
+        \label{equation: weyl algebra more general formula}
           D \cdot X^n
         = X^n D + n X^{n-1}
-      \]
+      \end{equation}
       for all $n \geq 0$.
       We therefore have that
       \begin{equation}
@@ -775,6 +776,124 @@
   The associated graded algebra $\gr_F(\mc{A})$ is the commutative polynomial ring in the two free variables $\xi$ and $\del$.
   This shows that the filtration $F$ of $\mc{A}$ does not come from a filtration of $\mc{A}$, and it follows from Lemma~\ref{lemma: associated graded reflects no zero divisors} that $\mc{A}$ has no zero divisors.
 \end{fluff}
+
+
+\begin{remark}(Skew polynomial rings)
+  We have seen above that the first Weyl algebra $\mc{A}$ can be thought about in two ways:
+  \begin{itemize}
+    \item
+      The $k$-algebra of linear differential operators $\sum_{n,m \geq 0} c_{n,m} \xi^n \partial^m$ on $k[x]$.
+    \item
+      The $k$-algebra with generators $X, D$ subject to the relation $DX = X D + 1$.
+  \end{itemize}
+  Yet another way to think about $\mc{A}$ is provided by the language of skew polynomial rings and Ore extensions:
+  
+  We may replace the polynomial ring $k[\xi] \subseteq \mc{A}$ by the polynomial ring $k[x]$ and rename the generator $\del$ of $\mc{A}$ to $y$.
+  We then have that
+  \[
+    yx = xy + 1 \,,
+  \]
+  and the more general formula \eqref{equation: weyl algebra more general formula} becomes
+  \[
+      y x^n
+    = x^n y + n x^{n-1}
+    = x^n y + \del(x^n) \,.
+  \]
+  It follows by linearity that
+  \[
+      y p
+    = p y + \del(p)
+  \]
+  for every polynomial $p \in k[x]$.
+  Note also that the monomials $1, y, y^2, \dotsc$ form a $k[x]$-basis of the Weyl algebra.
+  We can therefore think about the Weyl algebra $\mc{A}$ as resulting from $k[x]$ by adjoining a new variable $y$ with $y p = \del(p)$ for all $p \in k[x]$.
+  This idea leads to the notion of skew polynomial rings:
+  
+  Let $R$ be a $k$-algebra and let $\delta \colon R \to R$ be a map.
+  We want to give the $k$-vector space $R[y]$ the structure of a $k$-algebra (different from the usual structure of a polynomial ring) such that
+  \begin{equation}
+    \label{equation: formula for skew poylnomial ring}
+      y r
+    = r y + \delta(r)
+  \end{equation}
+  for all $r \in R$.
+  For the multiplications $R[y] \to R[y]$, $f \mapsto yf$ and $y \mapsto fy$ to be $k$-linear the map $\delta$ needs to be $k$-linear, and for the above multiplication to be associative we need that $\delta(rs) = r \delta(s) + \delta(r) s$ because
+  \begin{align*}
+        rs y + \delta(rs)
+    &=  y rs
+     =  y r s
+     =  (r y + \delta(r)) s
+     =  r y s + \delta(r) s
+    \\
+    &=  r (s y + \delta(s)) + \delta(r) s
+     =  r s y + r \delta(s) + \delta(r) s
+  \end{align*}
+  for all $r, s \in R$.
+  A $k$-linear map $\delta \colon R \to R$ satisfying the product rule
+  \[
+    \delta(rs) = r \delta(s) + \delta(r) s
+  \]
+  is a \emph{$k$-derivation} of $R$.
+  If $\delta \colon R \to R$ is a $k$-derivation then it can be shown that there exists a unique $k$-algebra structure on $R[y]$ such that $R \subseteq R[y]$ is a subring and Equation~\ref{equation: formula for skew poylnomial ring} holds.
+  This $k$-algebra is then denoted by $R[y;\delta]$ and is a \emph{skew polynomial ring} or \emph{differential polynomial ring} of $R$.
+  
+  For $R = k[x]$ and $\delta = 0$ we get that $k[x][y;0] = k[x,y]$ is the usual commutative polynomial ring in two variables $x,y$.
+  For $R = k[x]$ and $\delta = \del$ we have seen above that $k[x][y,\del] \cong \mc{A}$.
+  
+  In addition to the $k$-derivation one can also consider a $k$-algebra homomorphism $\alpha \colon R \to R$:
+  A map $\delta \colon R \to R$ is then a $\alpha$-derivation if
+  \[
+      \delta(rs)
+    = \alpha(r) \delta(s) + \delta(r) s
+  \]
+  for all $r, s \in R$.
+  There then exists a unique $k$-algebra structure on $R[y]$ such that $R \subseteq R[y]$ is a subring and
+  \[
+      y r
+    = \alpha(r) y + \delta(r)
+  \]
+  for every $r \in R$.
+  This $k$-algebra is then denotey by $R[y;\alpha,\delta]$ is an \emph{Ore extension} of $R$.
+  For $\alpha = \id_R$ we retrieve the above the nototion of a skew polynomial ring.
+  Ore extensions inhert properties from the original ring $R$:
+  \begin{itemize}
+    \item
+      If $R$ has no zero divisors then $R[y;\alpha,\delta]$ has no zero divisors.
+    \item
+      If $R$ is noetherian and $\alpha$ is an automorphism then $R[y;\alpha,\delta]$ is noetherian.
+  \end{itemize}
+  
+  An introduction to skew polynomial rings and Ore extensions can be found in \cite[\S 3]{NoncommutativeNoetherian}, and an overview about skew polynomial rings can be found in \cite[\S 1]{Lam1991First}.
+\end{remark}
+
+
+\begin{remark}
+  Let $\kchar k = 0$.
+  One can more generally consider for every $n \geq 0$ the $n$-th Weyl algebra $\mc{A}_n$, which can be defined in multiple ways:
+  \begin{itemize}
+    \item
+      The $k$-algebra $\mc{A}_n$ can be defined as the $k$-algebra of linear differential operators of $k[x_1, \dotsc x_n]$, i.e.\ the $k$-subalgebra of $\End_k(k[x_1, \dotsc, x_n])$ generated by $\xi_1, \dotsc, \xi_n$, where $\xi_i$ is the multiplication with $x_i$, and the partial derivatives $\del_1, \dotsc, \del_n$.
+    \item
+      The $k$-algebra $\mc{A}_n$ can be described by the generators $X_1, \dotsc, X_n, D_1, \dotsc, D_n$ and relations
+      \[
+        \begingroup
+        \arraycolsep = 12pt
+        \renewcommand{\arraystretch}{1.5}
+        \begin{array}{ll}
+            \text{$X_i X_j = X_j X_i$ for all $i,j$},
+          & \text{$D_i D_j = D_j D_i$ for all $i, j$},
+          \\
+            \text{$D_i X_j = X_j D_i$ for $i \neq j$},
+          & \text{$D_i X_i = X_i D_i + 1$ for all $i$} \,.
+        \end{array}
+        \endgroup
+      \]
+    \item
+      The $n$-th Weyl algebra $\mc{A}_n$ can be constructed from the first Weyl algebra $\mc{A}_1$ as the $n$-fold tensor product $\mc{A}_1 \otimes \dotsb \otimes \mc{A}_1$.
+    \item
+      By defining more generaly the first Weyl algebra $\mc{A}_1(R)$ for every $k$-algebra $R$, the $n$-th Weyl algebra $\mc{A}_n(R)$ can inductively be constructed as $\mc{A}_n(R) = \mc{A}_1(\mc{A}_{n-1}(R))$.
+  \end{itemize}
+\end{remark}
 
 
 
