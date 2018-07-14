@@ -2,6 +2,140 @@
 
 
 \begin{definition}
+  Let $A$ be a $k$-algebra.
+  Then the \emph{commutator of $A$} is defined as
+  \[
+              [A,A]
+    \coloneqq \vspan_k  \{
+                          ab - ba
+                        \mid
+                          a, b \in A
+                        \}
+    \subseteq A \,.
+  \]
+\end{definition}
+
+
+\begin{example}
+  For every field $k$ and $n \geq 1$ we set
+  \[
+    \Sl_n(k) \coloneqq [\Mat_n(k), \Mat_n(k)]
+  \]
+  We then have
+  \[
+      \Sl_n(k)
+    = \ker \tr
+    = \{
+        M \in \Mat_n(k)
+      \mid
+        \tr M = 0
+      \} \,.
+  \]
+  \begin{proof}
+    For all $A, B \in \Mat_n(k)$ we have
+    \[
+        \tr(AB - BA)
+      = \tr(AB) - \tr(BA)
+      = \tr(AB) -0\tr(AB)
+      = 0 \,.
+    \]
+    Since these elements generate $\Sl_n(k)$ as a $k$-vector space and $\tr$ is $k$-linear we find that $\Sl_n(k) \subseteq \ker \tr$.
+    
+    To show the other inclusion let $(E_{ij})_{1 \leq i,j \leq n}$ be the usual $k$-basis of $\Mat_n(k)$ (where $E_{ij}$ maps $e_j$ to $e_i$ for all $1 \leq i,j \leq n)$.
+    It is clear that the matrices $E_{ij}$ for $i \neq j$ together with the matrices $E_{ii}-E_{i+1,i+1}$ for $1 \leq i \leq n-1$ form a $k$-basis of $\ker \tr$.
+    For all $1 \leq i,j \leq n$ with $i \neq j$ we have
+    \[
+          E_{ij}
+      =   E_{ii} E_{ij} - \underbrace{E_{ij} E_{ii}}_{=0}
+      =   [E_{ii}, E_{ij}]
+      \in \Sl_n(k)
+    \]
+    and for all $1 \leq i \leq n-1$ we have
+    \[
+          E_{ii} - E_{i+1,i+1}
+      =   E_{i,i+1} E_{i+1,i} - E_{i+1,i} E_{i,i+1}
+      =   [E_{i,i+1}, E_{i+1,i}]
+      \in \Sl_n(k) \,,
+    \]
+    so $\ker \tr \subseteq \Sl_n(k)$.
+  \end{proof}
+\end{example}
+
+
+\begin{remark}
+  Let $k$ be any field.
+  One can show that for every matrix $C \in \Mat_n(k)$ with $\tr C = 0$ we have matrices $A, B \in \Mat_n(k)$ with $C = [A,B]$.
+  So
+  \[
+      \Sl_n(k)
+    = \{
+        [A,B]
+      \mid
+        A, B \in \Mat_n(k)
+      \} \,.
+  \]
+\end{remark}
+
+
+\begin{lemma}
+  Let $A$ and $B$ be $k$-algebras. Then
+  \[
+      [A \oplus B, A \oplus B]
+    = [A,A] \oplus [B,B].
+  \]
+  as $k$-vector subspaces of $A \oplus B$.
+\end{lemma}
+\begin{proof}
+  For all $a, a' \in A$ and $b, b' \in B$ we have
+  \begin{align*}
+        [(a,b),(a',b')]
+    &=  (a,b)(a',b') - (a',b')(a,b)
+     =  (aa',bb') - (a'a, b'b) \\
+    &=  (aa'-a'a, bb' - b'b)
+     =  ([a,a'], [b,b']) \,.
+  \end{align*}
+  Therefore
+  \begin{align*}
+        [A \oplus B, A \oplus B]
+    &=  \vspan_k  \{
+                    [(a,b), (a',b')]
+                  \mid
+                    (a,b), (a',b') \in A \oplus B
+                  \} \\
+    &= \vspan_k \{
+                  ([a,a'], [b,b'])
+                \mid
+                  a, a' \in A
+                  \text{ and }
+                  b, b' \in B
+                \} \\
+    &=  \left(
+          \vspan_k \{ [a,a'] \mid a, a' \in A \}
+        \right)
+        \oplus
+        \left(
+          \vspan_k \{ [b,b'] \mid b, b' \in B \}
+        \right) \\
+    &= [A,A] \oplus [B,B] \,.
+    \qedhere
+  \end{align*}
+\end{proof}
+
+
+\begin{corollary}\label{corollary: commutator product of matrix algebras}
+  Let $r \geq 1$ and $n_1, \dots, n_r \geq 1$. For
+  \[
+    A \coloneqq \Mat_{n_1}(k) \oplus \dotsb \oplus \Mat_{n_r}(k)
+  \]
+  we then have
+  \[
+      [A,A]
+    = \Sl_{n_1}(k) \oplus \dotsb \oplus \Sl_{n_r}(k) \,.
+  \]
+\end{corollary}
+
+
+\begin{definition}
   Let $A$ be a $k$-algebra, $V$ a finite-dimensional representation of $A$.
   Let
   \[

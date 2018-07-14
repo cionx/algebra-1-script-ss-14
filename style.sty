@@ -33,6 +33,10 @@
 
 % no subsections in the toc
 \setcounter{tocdepth}{2}
+% 
+\RedeclareSectionCommand[tocnumwidth = 20pt]{chapter}
+\RedeclareSectionCommand[tocindent = 20pt]{section}
+\RedeclareSectionCommand[tocindent = 43pt]{subsection}
 
 
 % no unplaned surprises with \cite

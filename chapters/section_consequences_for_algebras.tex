@@ -1,0 +1,536 @@
+\section{Consequences for \texorpdfstring{$k$}{k}-Algebras}
+
+
+\begin{fluff}
+  In this section we collect some results for semisimple $k$-algebras which follows from the general theory of semisimplicity from the previous section.
+\end{fluff}
+
+
+\begin{fluff}
+  An important special case of Lemma~\ref{lemma: multiplicities for finite length} with its own popular proof is the following result:
+\end{fluff}
+
+
+\begin{lemma}
+  Let $A$ be a $k$-algebra and let $M$ be a semisimple $A$-module with $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ for pairwise non-isomorphic finite-dimensional simple $A$-modules $M_1, \dotsc, M_r$.
+  Then the numbers $n_1, \dotsc, n_r$ are uniquely determined as
+  \begin{align*}
+        n_i
+    &=  \frac{\dim_k \Hom_A(M_i, M)}{\dim_k \End_A(M_i)} \,.
+  \intertext{If $k$ is algebraically closed then}
+        n_i
+    &=  \dim_k \Hom_A(M_i, M) \,.
+  \end{align*}
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+            \Hom_A(M_i, M)
+    &=      \Hom_A(M_i, M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}) \\
+    &\cong  \Hom_A(M_i, M_1)^{n_1} \times \dotsb \times \Hom_A(M_i, M_r)^{n_r}
+  \end{align*}
+  as $k$-vector spaces (see Corollary~\ref{corollary: Hom on direct sums}).
+  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and the simplicity of the $M_i$ that $\Hom(M_i, M_j) = 0$ for all $i \neq j$, and therefore that
+  \[
+          \Hom_A(M_i, M)
+    \cong \Hom_A(M_i, M_i)^{n_i}
+    =     \End_A(M_i)^{n_i}
+  \]
+  as $k$-vector spaces.
+  It follows that
+  \[
+      \dim_k \Hom_A(M_i, M)
+    = \dim_k \End_A(M_i)^{n_i}
+    = n_i \dim_k \End_A(M_i) \,,
+  \]
+  and it follows from the finite-dimensionality of $M_i$ that $\End_A(M_i)$ is finite-dimensional.
+  This shows the first equality.
+  
+  If $k$ is algebraically closed then $\End_A(M_i) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and therefore $\dim_k \End_A(M_i) = 1$.
+  The second equality thus follows from the first one.
+\end{proof}
+
+
+\begin{corollary}[Density Theorem]
+  Let $A$ be a $k$-algebra and $M$ a finite-dimensional semisimple $A$-module.
+  Then the map
+  \[
+            \Phi
+    \colon  A
+    \to     \End_{\End_A(M)}(M)
+  \]
+  is surjective.
+\end{corollary}
+
+
+\begin{proof}
+  Because we have $k \subseteq \End_A(M)$ we also have
+  \[
+              \End_{\End_A(M)}(M)
+    \subseteq \End_k(M) \,.
+  \]
+  Let $m_1, \dotsc, m_s$ be a $k$-basis of $M$.
+  For $\varphi \in \End_{\End_A(M)}(M)$ we have $a \in A$ with
+  \[
+      \varphi(m_i)
+    = a m_i
+    \text{ for all }
+    1 \leq i \leq s
+  \]
+  by the 1.\ Jacobson density theorem.
+  Let
+  \[
+            \psi
+    \colon  M \to M,
+    \quad   m
+    \mapsto am \,.
+  \]
+  Because $m_1, \dotsc, m_s$ generates $M$ as a $k$-vector space and $\varphi$ and $\psi$ are $k$-linear it follows that $\varphi = \psi$.
+\end{proof}
+
+
+\begin{corollary}[Burnside’s Theorem on matrix algebras (coordinate free version)]
+  Let $k$ be an algebraically closed field and $V$ a finite-dimensional $k$-vector space, $A \subseteq \End(V)$ a subalgebra such that $V$ is a simple $A$-module.
+  Then $A = \End_k(V)$.
+\end{corollary}
+
+
+\begin{proof}
+  From Schur’s Lemma we find that $\End_A(k^n) = k$.
+  By the Density Theorem the inclusion
+  \[
+                    A
+    \hookrightarrow \End_{\End_A(k^n)}(k^n)
+    =               \End_k(k^n)
+  \]
+  is surjective.
+  So $A = \End_k(k^n)$.
+\end{proof}
+
+
+\begin{corollary}[Burnside’s Theorem on matrix algebras (coordinate version)]
+  Let $k$ be an algebraically closed field and $A \subseteq \Mat_n(k)$ a subalgebra, such that $k^n$ is a simple $A$-module.
+  Then $A = \Mat_n(k)$.
+\end{corollary}
+
+
+It is perhaps interesting to notice that this could also be proven using the 2.\ Jacobson density theorem:
+
+
+\begin{proof}
+  From Schur’s Lemma we find that $\End_A(k^n) = k$.
+  Therefore the standard basis $e_1, \dotsc, e_n$ of $k^n$ is linearly independent over $\End_A(k^n)$.
+  Let $M \in \Mat_n(k)$ and let $m_i \in k^n$ be the $i$-th column vector of $M$ for all $1 \leq i \leq n$.
+  By the 2.\ Jacobson density theorem there exists $M' \in A$ with $M' e_i = m_i$ for all $1 \leq i \leq n$.
+  Since $M' e_i$ is the $i$-th column vector of $M'$ we have $M = M' \in A$.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: simple algebra module surjective algebra homo}
+  Let $k$ be an algebraically closed field and $A$ a  $k$-algebra.
+  For a finite-dimensional $A$-module $M$ the following are equivalent:
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      $M$ is a simple $A$-module.
+    \item
+      The corresponding algebra homomorphism $\Phi \colon A \to \End_k(M)$ is surjective.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  If $M$ is simple as an $A$-module it is simple as a module over $\im \Phi$.
+  By Burnside’s Theorem on matrix algebras we find that $\im \Phi = \End_k(V)$.
+  So $\Phi$ is surjective.
+  
+  Suppose $\Phi$ is surjective.
+  Let $m \in M$ with $m \neq 0$.
+  For every $m' \in M$ there exists $\varphi \in \End_k(M)$ with $\varphi(m) = m'$.
+  Since $\Phi$ is surjective there exists $a \in A$ with $\Phi(a) = \varphi$ and thus
+  \[
+      am
+    = \Phi(a)(m)
+    = \varphi(m)
+    = m \,.
+  \]
+  Therefore $Am = M$.
+\end{proof}
+
+
+\begin{corollary}\label{corollary: dimension simple algebra modules}
+  Let $k$ be an algebraically closed field, $A$ a $k$-algebra and $M$ a finite-dimensional simple $A$-module.
+  Then
+  \[
+          (\dim_k M)^2
+    \leq  \dim_k A \,.
+  \]
+\end{corollary}
+
+
+\begin{proof}
+  By Corollary \ref{corollary: simple algebra module surjective algebra homo} the corresponding algebra homomorphism
+  \[
+            \Phi
+    \colon  A
+    \to     \End_k(M)
+  \]
+  is surjective. Therefore
+  \[
+          (\dim_k M)^2
+    =     \dim_k \End_k(M)
+    =     \dim_k \im \Phi
+    \leq  \dim_k A \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+If $k$ is algebraically closed and $A$ a $k$-algebra we know that for every finite-dimensional simple $A$-module $M$ the corresponding algebra homomorphism $A \to \End_k(M)$ is surjective.
+We can strengthen this result.
+
+
+\begin{lemma}\label{lemma: map into sum endomorphisms surjective}
+  Let $k$ be an algebraically closed field, $A$ a $k$-algebra and $M_1, \dotsc, M_s$ finite-dimensional simple $A$-modules which are pairwise non-isomorphic.
+  For every $1 \leq i \leq s$ we have a surjective algebra homomorphism
+  \[
+                        \phi_i
+    \colon              A
+    \twoheadrightarrow  \End_k(M_i) \,.
+  \]
+  The map
+  \[
+              \Phi
+    \coloneqq \bigoplus_{i=1}^r \phi_i
+    \colon    A
+    \to       \bigoplus_{i=1}^r \End_k(M_i)
+  \]
+  is also surjective.
+\end{lemma}
+\begin{proof}
+  We set
+  \[
+    M \coloneqq \bigoplus_{i=1}^r M_i \,.
+  \]
+  Because the $M_i$ are simple and pairwise non-isomorphic we know from Schur’s Lemma that
+  \begin{align*}
+                \End_A(M)
+    &\cong      \bigoplus_{i=1}^r \End_A(M_i), \\
+                \varphi_1 \oplus \dotsb \oplus \varphi_r
+    &\mapsfrom  (\varphi_1, \dotsc, \varphi_r)
+  \end{align*}
+  Because $k$ is algebraically closed and the $M_i$ are finite-dimensional and simple Schur’s Lemma also tells us that
+  \[
+              \End_A(M_i)
+    \cong     k,
+    \quad     \lambda \id_{M_i}
+    \mapsfrom \lambda
+  \]
+  for every $1 \leq i \leq r$.
+  Combining these isomorphisms we find that
+  \begin{align*}
+                \End_A(M)
+    &\cong      k^r \\
+                (
+                          (m_1, \dotsc, m_r)
+                  \mapsto (a_1 m_1, \dotsc, a_r m_r)
+                )
+    &\mapsfrom  (a_1, \dotsc, a_r).
+  \end{align*}
+  We therefore have
+  \[
+      \End_{\End_A(M)}(M)
+    = \End_{k^r}(M)
+  \]
+  where $(a_1, \dotsc, a_r) \in k^r$ acts on $(m_1, \dotsc, m_r) \in M$ as
+  \[
+      (a_1, \dotsc, a_n)(m_1, \dotsc, m_r)
+    = (a_1 m_1, \dotsc, a_r m_r) \,.
+  \]
+  It is clear that
+  \begin{align*}
+                \End_{k^r}(M)
+    &\cong      \bigoplus_{i=1}^r \End_k(M_i) \,, \\
+                \varphi_1 \oplus \dotsb \oplus \varphi_r
+    &\mapsfrom  (\varphi_1, \dotsc, \varphi_r) \,.
+  \end{align*}
+  By the Density Theorem we find that the map
+  \[
+            A
+    \to     \End_{k^r}(M) \,,
+    \quad   a
+    \mapsto (m \mapsto am)
+  \]
+  is surjective.
+  Since the diagram
+  \[
+    \begin{tikzcd}[sep = large]
+        {}
+      & A
+        \arrow[two heads]{dl}
+        \arrow{dr}{\Phi}
+      & {}
+      \\
+        \End_{k^r}(M)
+        \arrow[equal]{rr}{\sim}
+      & {}
+      & \bigoplus_{i=1}^r \End_k(M_i)
+    \end{tikzcd}
+  \]
+  commutes, we find that $\Phi$ is surjective.
+\end{proof}
+
+
+Applying our results about finite-dimensional simple modules over algebras to group algebras gives us corresponding statements about representations of groups.
+
+
+\begin{lemma}\label{lemma: equivalence to irreducible}
+  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
+  \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+    \item \label{enum: V irreducible}
+      $V$ is irreducible.
+    \item \label{enum: V simple kG-module}
+      $V$ is simple as a $kG$-module.
+    \item \label{enum: surjective algebra homo}
+      The algebra homomorphism
+      \[
+                \Phi
+        \colon  kG
+        \to     \End_k(V) \,,
+        \quad   a
+        \mapsto (v \mapsto av)
+      \]
+      is surjective.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  The equivalence of \ref{enum: V irreducible} and \ref{enum: V simple kG-module} is clear.
+  The equivalence of \ref{enum: V simple kG-module} and \ref{enum: surjective algebra homo} follows directly from Corollary \ref{corollary: simple algebra module surjective algebra homo}.
+\end{proof}
+
+
+\begin{corollary}
+  Let $G$ be a finite group and $V$ a finite-dimensional irreducible representation of $G$ over an algebraically closed field $k$.
+  Then
+  \[
+          \left( \dim_k V \right)^2
+    \leq |G| \,.
+  \]
+\end{corollary}
+
+
+\begin{proof}
+  $V$ is a simple $kG$-module, so by Corollary \ref{corollary: dimension simple algebra modules}
+  \[
+          (\dim_k V)^2
+    \leq  \dim_k kG
+    =     |G| \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: modules over direct sum of algebras}
+  Let $R_i$, $1 \leq i \leq n$ be rings (with $1$) and $R \coloneqq \prod_{i=1}^n R_i$.
+  For $1 \leq i \leq n$ let
+  \[
+      1_i
+    = (\delta_{ij})_{1 \leq j \leq r}
+    \in R
+  \]
+  be the unit of $R_i \subseteq R$, i.e.\
+  \[
+      (1_i)_j
+    = \begin{cases}
+        1 & \text{if } j = i \,,  \\
+        0 & \text{otherwise} \,.
+      \end{cases}
+  \]
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      $R$ is unitary with $1 = \sum_{i=1}^n 1_i$ and for all $1 \leq i,j \leq n$ we have $1_i 1_j = \delta_{ij}$.
+    \item
+      If $M$ is an $R$-module then $M_i \coloneqq 1_i M$ is an $M_i$-module by restriction and for every $1 \leq j \leq n$ with $i \neq j$ we have $R_j M_i = 0$.
+    \item
+      If $M_i$ is an $R_i$-module for every $1 \leq i \leq n$ then $M \coloneqq M_1 \oplus \dotsb \oplus M_n$ is an $R$-module via
+      \[
+          (r_1, \dotsc, r_n) (m_1, \dotsc, m_n)
+        = (r_1 m_1, \dotsc, r_n m_n) \,.
+      \]
+    \item
+      Let $M$ be an $R$-module and $M_i \coloneqq 1_i M$ for every $1 \leq i \leq n$.
+      Then the abelian subgroup \mbox{$\sum_{i=1}^n M_i \subseteq M$} is an $R$-submodule.
+      We have $\sum_{i=1}^n M_i = M$ and the sum is direct, so
+      \[
+        M = M_1 \oplus \dotsb \oplus M_r \,.
+      \]
+    \item
+      An $R$-module $M \neq 0$ is simple if and only if there exists an (unique) \mbox{$1 \leq i \leq n$} such that for every $1 \leq j \leq n$
+      \[
+        1_j M
+        = \begin{cases}
+            \text{a simple $R_j$-module} & \text{if } i = j \,, \\
+                                       0 & \text{otherwise} \,.
+          \end{cases}
+      \]
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      This is clear.
+    \item
+      It is clear that $1_i M \subseteq M$ is an abelian subgroup. We have
+      \[
+          R_i 1_i
+        = 1_i R_i
+        = 1_i R
+      \]
+      and therefore
+      \[
+                  R_i 1_i M
+        =         1_i R_i M
+        =         1_i R M
+        \subseteq 1_i M \,,
+      \]
+      and for every $m \in M$ we have
+      \[
+          1_i (1_i m)
+        = (1_i 1_i) m
+        = 1_i m \,.
+      \]
+      For every $1 \leq j \leq n$ with $j \neq i$ we have
+      \[
+          R_j M_i
+        = (R 1_j) (1_i M)
+        = R \underbrace{1_j 1_i}_{=0} M
+        = 0 \,.
+      \]
+    \item
+      This is clear.
+    \item
+      We set
+      \[
+        M' \coloneqq \sum_{i=1}^n M_i \,.
+      \]
+      $M'$ is an $R$-submodule since
+      \[
+          R M'
+        = R \sum_{i=1}^n M_i
+        = \sum_{i=1}^n R M_i
+        = \sum_{i=1}^n R 1_i M_i
+        = \sum_{i=1}^n R_i M_i
+        = \sum_{i=1}^n M_i
+        = M' \,.
+      \]
+      To see that $M = M'$ notice that
+      \[
+          M
+        = 1 M
+        = \left( \sum_{i=1}^n 1_i \right) M
+        = \sum_{i=1}^n (1_i M)
+        = \sum_{i=1}^n M_i
+        = M' \,.
+      \]
+      To see that this sum is direct let $m = \sum_{i=1}^n m_i = \sum_{i=1}^n m'_i \in M$ with $m_i, m'_i \in M_i$ for every $1 \leq i \leq n$.
+      Then we have for every $1 \leq i \leq n$
+      \[
+          1_i m
+        = 1_i \sum_{j=1}^n m_j
+        = \sum_{j=1}^n 1_i m_j
+        = m_i
+      \]
+      and in the same way $1_i m = m'_i$, so $m_i = m'_i$ for every $1 \leq i \leq n$.
+    \item
+      We can write $M$ as $M = M_1 \oplus \dotsb \oplus M_n$ where $M_i \coloneqq 1_i M$ is an $R_i$-module for every $1 \leq i \leq n$.
+      From the previous observations we find that we have a bijection
+      \[
+                S_1 \times \dotsb \times S_n
+        \to     S,
+        \quad   (N_1, \dotsb, N_n)
+        \mapsto N_1 \oplus \dotsb \oplus N_n \,,
+      \]
+      where $S_i$ is the set of $R_i$-submodules of $M_i$ for every $1 \leq i \leq n$ and $S$ is the set of $R$-submodules of $M$.
+      Since $M$ is simple we have $|S| = 2$, so
+      \[
+          2
+        = |S|
+        = |S_1 \times \dotsb \times S_n|
+        = |S_1| \dotsm |S_n| \,.
+      \]
+      So we have $|S_i| = 2$ for exactly one $1 \leq i \leq n$ and $|S_j| = 1$ for $j \neq i$.
+      So $M_i$ is a simple $R_i$-module and $M_j = 0$ for $j \neq i$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: simple modules over product of matrix algebras}
+  Let $R$ be a ring
+  \[
+                  A
+    \cong         \Mat_{n_1}(D_1)
+          \times  \dotsb
+          \times  \Mat_{n_r}(D_r)
+  \]
+  for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  Then there are up to isomorphism exactly $r$ simple $R$-modules, namely $D_1^{n_1}, \dotsc, D_r^{n_r}$, where $(B_1, \dotsc, B_r) \in R$ acts on $x \in D_i^{n_i}$ by
+  \[
+      (B_1, \dotsc, B_r) x
+    =  B_i x \,.
+  \]
+\end{corollary}
+\begin{proof}
+  This follows immediately from Example \ref{example: D^n is the only simple M_n(D)-module} and Lemma \ref{lemma: modules over direct sum of algebras}.
+\end{proof}
+
+
+\begin{proposition}\label{proposition: simple modules over finite-dimensional algebras}
+  Let $k$ be a field and $A$ a finite-dimensional $k$-algebra.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Every simple $A$-module is finite-dimensional.
+      More precisely
+      \[
+        \dim_k V \leq \dim_k A
+      \]
+      for every simple $A$-module $V$.
+    \item
+      If $k$ is algebraically closed there are (up to isomorphism) only finitely many simple $A$-modules. More precisely
+      \[
+        |\Irr(A)| \leq \dim_k A \,.
+      \]
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*]
+    \item
+      Since $V$ is simple it is cyclic, so we have a surjective homomorphism of $A$-modules
+      \[
+                            \varphi
+        \colon              A
+        \twoheadrightarrow  V \,.
+      \]
+      Because $\varphi$ is $k$-linear we find that $\dim_k V \leq \dim_k A$.
+    \item
+      Let $V_1, \dotsc, V_r$ be pairwise non-isomorphic simple $A$-modules. By Lemma \ref{lemma: map into sum endomorphisms surjective} we find that the map
+      \[
+            A
+        \to \bigoplus_{i=1}^r \End_k(V_i)
+      \]
+      is surjective. Therefore
+      \[
+              r
+        \leq  \sum_{i=1}^r \dim_k \End_k(V_i)
+        \leq  \dim_k A \,.
+        \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
