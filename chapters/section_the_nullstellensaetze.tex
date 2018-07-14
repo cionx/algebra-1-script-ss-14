@@ -49,17 +49,6 @@
       \label{enumerate: VIV = V}
       $\mc{V}(\mc{I}(\mc{V}(I))) = \mc{V}(I)$.
   \end{enumerate}
-%   and the two compositions
-%   \begin{gather*}
-%             \mc{V} \circ \mc{I}
-%     \colon  \{ \text{subsets $X \subseteq V$} \}
-%     \to     \{ \text{subsets $X \subseteq V$} \}
-%   \shortintertext{and}
-%             \mc{I} \circ \mc{V}
-%     \colon  \{ \text{ideals $I \subseteq \mc{P}(V)$} \}
-%     \to     \{ \text{ideals $X \subseteq \mc{P}(V)$} \}
-%   \end{gather*}
-%   are idempotent.
 \end{lemma}
 
 
@@ -71,28 +60,25 @@
     \item
       This is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $\mc{V}(I) \subseteq \mc{V}(I)$.
     \item
-      That $\mc{I}(X) \subseteq \mc{I}(\mc{V}(\mc{I}(X)))$ follows from part~\ref*{enumerate: IV is monotone}.
-      The inclusion $\mc{I}(X) \supseteq \mc{I}(\mc{V}(\mc{I}(X)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $X \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X))))$, which follows from part~\ref*{enumerate: VI is monotone} because
-      \[
-                  X
-        \subseteq \mc{V}(\mc{I}(X))
-        \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X)))) \,.
-      \]
+      It follows from $X \subseteq \mc{V}(\mc{I}(X))$ that $\mc{I}(X) \supseteq \mc{I}(\mc{V}(\mc{I}(X)))$ because $\mc{I}$ is order-reversing.
+      That $\mc{I}(X) \subseteq \mc{I}(\mc{V}(\mc{I}(X)))$ is equivalent to $\mc{V}(\mc{I}(X)) \supseteq \mc{V}(\mc{I}(X)) $ by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets}.
+%       That $\mc{I}(X) \subseteq \mc{I}(\mc{V}(\mc{I}(X)))$ follows from part~\ref*{enumerate: IV is monotone}.
+%       The inclusion $\mc{I}(X) \supseteq \mc{I}(\mc{V}(\mc{I}(X)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $X \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X))))$, which follows from part~\ref*{enumerate: VI is monotone} because
+%       \[
+%                   X
+%         \subseteq \mc{V}(\mc{I}(X))
+%         \subseteq \mc{V}(\mc{I}(\mc{V}(\mc{I}(X)))) \,.
+%       \]
     \item
-      That $\mc{V}(I) \subseteq \mc{V}(\mc{I}(\mc{V}(I)))$ follows from part~\ref*{enumerate: VI is monotone}.
-      The inlusion $\mc{V}(I) \supseteq \mc{V}(\mc{I}(\mc{V}(I)))$ is by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets} equivalent to $I \subseteq \mc{I}(\mc{V}(\mc{I}(\mc{V}(I))))$, which follows from part~\ref*{enumerate: IV is monotone} because
-      \[
-                  I
-        \subseteq \mc{I}(\mc{V}(I))
-        \subseteq \mc{I}(\mc{V}(\mc{I}(\mc{V}(I)))) \,.
-        \qedhere
-      \]
+      It follows from $I \subseteq \mc{I}(\mc{V}(I))$ that $\mc{V}(I) \supseteq \mc{V}(\mc{I}(\mc{V}(I)))$ because $\mc{V}$ is order-reversing.
+      That $\mc{V}(I) \subseteq \mc{V}(\mc{I}(\mc{V}(I)))$ is equivalent to $\mc{I}(\mc{V}(I)) \supseteq \mc{I}(\mc{V}(I)) $ by Lemma~\ref{lemma: galois connection for vanishing ideals and zero sets}.
+    \qedhere
   \end{enumerate}
 \end{proof}
 
 
 \begin{definition}
-  An ideal $I \idealleq \mc{P}(V)$ is a \emph{vanishing ideal} if it is the vanishing ideal of some subset $X \subseteq V$.
+  An ideal $I \idealleq \mc{P}(V)$ is a \emph{vanishing ideal} if $I = \mc{I}(X)$ for some $X \subseteq V$.
 \end{definition}
 
 

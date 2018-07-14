@@ -1,4 +1,4 @@
-\section{Density Theorems}
+\section{Centralizers and Density Theorems}
 
 
 \begin{conventions}
@@ -7,129 +7,257 @@
 
 
 \begin{definition}
-  For a subset $S \subseteq R$ the subring
+  The \emph{centralizer} or \emph{commutant} of a subset $S \subseteq R$ is
   \[
       \centralizer_R(S)
     = \{
         r \in R
       \suchthat
         \text{$rs = sr$ for every $s \in S$}
-      \}
+      \} \,.
   \]
-  of $R$ is the \emph{centralizer of $S$} in $R$.
+  The set $S''$ is the \emph{double centralizer} or \emph{double commutant} \emph{bicommutant} of $S$.
 \end{definition}
 
 
-\begin{theorem}[1.\ Jacobson density theorem]
-  Let $M$ be a semisimple $R$-module.
-  Then $M$ is an $\End_R(M)$-module in the usual way, i.e.\
+\begin{definition}
+  The \emph{center} of $R$ is
+  \[
+              \ringcenter(R)
+    \defined  \centralizer_R(R)
+    =         \{
+                r \in R
+              \suchthat
+                \text{$rs = sr$ for every $s \in R$}
+              \} \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  For every subset $S \subseteq R$ the centralizer $\centralizer_R(S)$ is a subring of $R$.
+  The center $\ringcenter(R)$ in particular is a subring of $R$.
+\end{lemma}
+
+
+\begin{proof}
+  We have that $1 \in \centralizer_R(S)$.
+  For all $r_1, r_2 \in \centralizer_R(S)$ we have for every $s \in S$ that
+  \[
+      (r_1 + r_2)s
+    = r_1 s + r_2 s
+    = s r_1 + s r_2
+    = s (r_1 + r_2)
+  \]
+  and therefore $r_1 + r_2 \in \centralizer_R(S)$, as well as
+  \[
+      r_1 r_2 s
+    = r_1 s r_2
+    = s r_1 r_2
+  \]
+  and therefore $r_1 r_2 \in \centralizer_R(S)$.
+  For every $r \in \centralizer_R(S)$ we have for every $s \in S$ that
+  \[
+      (-r) s
+    = - (rs)
+    = - (sr)
+    = s (-r)
+  \]
+  and therefore $-r \in \centralizer_R(S)$.
+\end{proof}
+
+
+\begin{notation}
+  We will often denote the centralizer of $S \subseteq R$ by $S'$ instead of $\centralizer_R(S)$.
+\end{notation}
+
+
+\begin{lemma}
+  \label{lemma: centralizes is Galois connection}
+  Let $S, T \subseteq R$ be subsets.
+  \begin{enumerate}
+    \item
+      If $S \subseteq T$ then $S' \supseteq T'$.
+    \item
+      We have that $S \subseteq T'$ if and only if $S' \supseteq T$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[start = 2]
+    \item
+      Both conditions express that every $s \in S$ commutes with every $t \in T$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  Let $S \subseteq R$ be a subsets.
+  Then $S \subseteq S''$ and $S''' = S'$.
+\end{corollary}
+
+
+\begin{proof}
+  That $S \subseteq S''$ follows from $S' \supseteq S'$ by Lemma~\ref{lemma: centralizes is Galois connection}.
+  It follows from $S \subseteq S''$ that $S' \supseteq S'''$ because $(-)'$ is order-reversing and it follows from $S'' \supseteq S''$ that $S' \subseteq S'''$ by Lemma~\ref{lemma: centralizes is Galois connection}.
+\end{proof}
+
+
+\begin{fluff}
+  We will now try to give some motivation for the upcoming theorems as well as for some of the later sections:
+  
+  Let $M$ be an abelian group.
+  Then $M$ is a left $\End_\Integer(M)$-module via
   \[
       f \cdot m
-    = f(m)
-    \text{ for all }
-    f \in \End_R(M)\,,\,
-    m \in M \,.
+    = f(m) \,.
   \]
-  We then have a map
+  
+  Suppose that $R \subseteq \End_\Integer(M)$ is a subring.
+  Then the abelian groups $M$ inherts an $R$-module structure by restriction.
+  The centralizer $R'$ consists of all additive maps $f \colon M \to M$ such that
+  \[
+    f \circ r = r \circ f
+  \]
+  for all $r \in R$, which holds if and only if
+  \[
+    f(r \cdot m) = r \cdot f(m)
+  \]
+  for all $r \in R$, $m \in M$.
+  We therefore have that $R' = \End_R(M)$.
+  By applying this result to the subring $\End_R(M) \subseteq \End_\Integer(M)$ we find that
+  \[
+      R'' 
+    = \End_{R'}(M)
+    = \End_{\End_R(M)}(M) \,.
+  \]
+  The inclusion $R \subseteq R''$ tells us that every $r \in R$ acts on $M$ by $\End_R(M)$-endomorphisms.
+  
+  Suppose more generally that $M$ is an $R$-module.
+  Then the $R$-module of $M$ corresponds to a ring homomorphism
   \[
             \Phi
     \colon  R
-    \to     \End_{\End_R(M)}(M),
+    \to     \End_\Integer(M) \,,
     \quad   r
-    \mapsto (m \mapsto rm)
+    \mapsto (m \mapsto rm) \,. 
   \]
-  and $\im \Phi$ is `dense' in $\End_{\End_R(M)}(M)$ in the following sense:
-  Given
+  By the above discussion we have that
   \[
-    f \in \End_{\End_R(M)}(M)
+      \im(\Phi)'
+    = \End_{\im(\Phi)}(M)
+    = \End_R(M) 
   \]
-  and $m_1, \dotsc, m_s \in M$ there exists $x \in R$ such that
+  as well as $\im(\Phi) \subseteq \End_{\End_R(M)}(M)$.
+  By abuse of notation we will therefore also write
   \[
-      x m_i
-    = f(m_i)
-    \text{ for all }
-    1 \leq i \leq s \,.
+              R'
+    \defined  \End_R(M) \,,
   \]
+  even if $R$ itself is not a subring of $\End_\Integer(M)$.
+  We then do not have that $R \subseteq R''$, but $\Phi$ restrict to a homomorphism $R \to R''$, which we will refer to as the \emph{canonical homomorphism}.
+  
+  We will be concerned with the following problems regarding centralizers:
+  \begin{itemize}
+    \item
+      Suppose that $R \subseteq \End_\Integer(M)$ is a subring.
+      Then under what conditions do we have that $R = R''$?
+      That is, under what conditions does $R$ have the \emph{double centralizer property}?
+    \item
+      Suppose more generally that $M$ is an $R$-module.
+      Then under what conditions does $R$ have the double centralizer property in the sense that the canonical homomorphism $R \xrightarrow{\Phi} R''$ is surjective?
+    \item
+      Suppose that $R, S \subseteq \End_\Integer(M)$ are subrings.
+      Then under what conditions do we have that $R = S'$ and $S' = R$?
+      That is, under what conditions do $R$ and $S$ \emph{centralize each other}?
+    \item
+      Suppose more generally that $M$ is both an $R$-module and and $S$-module and let $\Phi \colon R \to \End_\Integer(M)$ and $\Psi \colon S \to \End_\Integer(M)$ be the corresponding ring homomorphisms.
+      Suppose further that the actions of $R, S$ on $M$ commute, i.e.\ such that
+      \[
+          r \cdot (s \cdot m)
+        = s \cdot (r \cdot m)
+      \]
+      for all $r \in R$, $s \in S$, $m \in M$.
+      Then $\im(\Phi) \subseteq S'$ and $\im(\Psi) \subseteq R'$.
+      Under what conditions are these equalities, that is, under what conditions do $R$ and $S$ centralize each other?
+  \end{itemize}
+  
+  We will see some partial results on this questions in the upcoming sections, mostly for $k$-algebras in combination with some semisimplicity conditions.
+  We will finish this section by giving two classical results by Jacobson on these problems which holds for (semi)simple modules over arbitrary rings.
+\end{fluff}
+
+
+\begin{theorem}[1.\ Jacobson density theorem]
+  Let $M$ be a semisimple $R$-module and let $\Phi \colon R \to R''$ be the canonical ring homomorphism.
+  Then $R$ (or more precisely $\im(\Phi)$ is \enquote{dense} in $R''$ in the sense that for every $f \in R''$ and every finitel collection $m_1, \dotsc, m_t \in M$ there exists some $r \in R$ with
+  \[
+      f(m_i)
+    = r \cdot m_i
+  \]
+  for all $i = 1, \dotsc, t$.
 \end{theorem}
 
 
 \begin{proof}
-  It is clear that $\Phi$ is well defined.
+  We first consider the case $t = 1$:
   
-  We first show that $\im \Phi$ is `dense' in $\End_{\End_R(M)}(M)$ in the case that $s = 1$.
-  For this let $m \in M$. Because $M$ is semisimple as an $R$-module we have
-  \[
-    M = Rm \oplus C
-  \]
-  as $R$-modules for some $R$-submodule $C \subseteq M$.
-  Consider the projection (along this decomposition)
-  \[
-                        \pi
-    \colon              M
-    \twoheadrightarrow  Rm
-    \hookrightarrow     M \,.
-  \]
-  It is clear that $\pi \in \End_R(M)$.
-  So given $f \in \End_{\End_R(M)}(M)$ we have
-  \[
-      f \circ \pi
-    = \pi \circ f \,.
-  \]
-  Because of this we have
+  Let $m = m_1 \in M$, let $f \in R''$ and let $C$ be a direct complement of the cylic submodule $Rm \moduleleq M$.
+  Let $\pi \colon M \to M$ be the projection onto $Rm$ along the decomposition $M = Rm \oplus C$.
+  Then $\pi$ is $R$-linear, i.e.\ an element of $R'$, and it follows that $f$ and $\pi$ commute.
+  It follows that
   \[
         f(m)
     =   f(\pi(m))
     =   \pi(f(m))
-    \in Rm \,.
+    \in Rm
   \]
-  Therefore there exists $x \in R$ such that $f(m) = xm$.
-
-  Now let $s \geq 2$. Let $f \in \End_{\End_R(M)}(M)$ and $m_1, \dotsc, m_s \in M$.
-  We define
+  which shows that $f(m) = rm$ for some $r \in R$.
+  
+  Suppose now that $t \geq 2$ and let $f \in R''$.
+  We extend $f$ to an additive map
   \[
-            \hat{f}
-    \colon  M^s
-    \to     M^s,
-    \quad   (n_1, \dotsc, n_s)
-    \mapsto (f(n_1), \dotsc, f(n_s)) \,.
+              \hat{f}
+    \defined  f^{\oplus t}
+    \colon    M^{\oplus t}
+    \to       M^{\oplus t} \,,
   \]
-  It is easy to see that $\hat{f} \in \End_{\End_R(M^s)}(M^s)$:
-  Let $g \in \End_R(M^s)$.
-  Using the usual isomorphism $\End_R(M^s) \cong \Mat_s(\End_R(M))$ we have $g_{ij} \in \End_R(M)$ for $1 \leq i,j \leq s$ such that
+  which is in matrix form (see Appendix~\ref{appendix: homomorphisms between direct sums}) given by the diagonal matrix
   \[
-      g(n_1, \dotsc, n_s)
-    = ( g_{11}(n_1) + \dotsb + g_{1s}(n_s),
-        \dotsc,
-        g_{s1}(n_1) + \dotsb + g_{ss}(n_s)  )
+      \hat{f}
+    = \begin{bmatrix}
+        f &         &   \\  
+          & \ddots  &   \\
+          &         & f
+      \end{bmatrix}.
   \]
-  for every $(n_1, \dotsc, n_s) \in M^s$.
-  Because of this we have for every $(n_1, \dotsc, n_s) \in M^s$
-  \begin{align*}
-     &\,  \hat{f}( g(n_1, \dotsc, n_s) )  \\
-    =&\,  \hat{f}( g_{11}(n_1) + \dotsb + g_{1s}(n_s),
-                   \dotsc,
-                   g_{s1}(n_1) + \dotsb + g_{ss}(n_s) ) \\
-    =&\,  ( f(g_{11}(n_1) + \dotsb + g_{1s}(n_s)),
-            \dotsc,
-            f(g_{s1}(n_1) + \dotsb + g_{ss}(n_s)) ) \\
-    =&\,  ( f(g_{11}(n_1)) + \dotsb + f(g_{1s}(n_s)),
-            \dotsc,
-            f(g_{s1}(n_1)) + \dotsb + f(g_{ss}(n_s))  ) \\
-    =&\,  ( g_{11}(f(n_1)) + \dotsb + g_{1s}(f(n_s)),
-            \dotsc,
-            g_{s1}(f(n_1)) + \dotsb + g_{ss}(f(n_s))  ) \\
-    =&\,  g( f(n_1), \dotsc, f(n_s) )
-    =     g( \hat{f}(n_1, \dotsc, n_s )) \,.
-  \end{align*}
-  Since $f \in \End_{\End_R(M^s)}(M^s)$ we can use the previous case to find that there exists some $x \in R$ such that
+  It then follows from $f \in R'' = \End_{\End_R(M)}(M)$ that $\hat{f} \in \End_{\End_R(M^{\oplus t})}(M^{\oplus t})$:
+  We can represent every $R$-linear map $g \colon M^{\oplus t} \to M^{\oplus t}$ as a matrix
   \[
-    (f(m_1), \dotsc, f(m_s))
-    = \hat{f}(m_1, \dotsc, m_s)
-    = x (m_1, \dotsc, m_s)
-    = (x m_1, \dotsc, x m_s) \,.
+      g
+    = \begin{bmatrix}
+        g_{11}  & \cdots  & g_{1n}  \\
+        \vdots  & \ddots  & \vdots  \\
+        g_{n1}  & \cdots  & g_{nn}
+      \end{bmatrix}
   \]
-  Therefore $x m_i = f(m_i)$ for all $1 \leq i \leq s$.
+  with entries $g_{ij} \in \End_R(M) = R'$.
+  It then folllows that $f$ commutes with every $g_{ij}$.
+  It further follows from this by the usual rules of matrix multiplication that $\hat{f}$ and $g$ commute.
+  
+  It follows from the previously considered case $t = 1$ that for all $m_1, \dotsc, m_t \in M$ there exists some $r \in R$ with
+  \[
+      (f(m_1), \dotsc, f(m_t))
+    = \hat{f}(m_1, \dotsc, m_t)
+    = r \cdot (m_1, \dotsc, m_t) \,.
+  \]
+  We find that $f(m_i) = r \cdot m_i$ for all $i = 1, \dotsc, t$.
 \end{proof}
+
+
+\noindent\hrulefill
 
 
 \begin{remark}
