@@ -169,11 +169,77 @@
 
 \begin{example}
   \label{example: simple but not semisimple}
-  The (first) Weyl algebra $\mc{A} = \mc{A}_1$ from \ref{subsection: first weyl algebra} is simple but not semisimple.
+  Let $\kchar k = 0$.
+  The (first) Weyl algebra $\weyl = \weyl_1$ from subsection~\ref{subsection: first weyl algebra} is simple but not semisimple:
+  
+  To show that $\weyl$ is not semisimple it sufficies by Corollary~\ref{corollary: semisimple rings are notherian artinian} to observe that $\weyl$ is not artinian:
+  We have seen that $\weyl$ has basis given by $X^n \del^m$ with $n, m \geq 0$.
+  It then follows for every $i \geq 0$ that
+  \[
+      \weyl \del^i
+    = \gen{ X^n \del^{m+i} \suchthat n, m \geq 0 }_k \,,
+  \]
+  which shows that
+  \[
+                \weyl
+    =           \weyl \del^0
+    \idealgneq  \weyl \del^1
+    \idealgneq  \weyl \del^2
+    \idealgneq  \dotsb
+  \]
+  is a strictly decreasing sequence of ideals of $\weyl$.
+  
+  To show that $\weyl$ is simple let $I \idealleq \weyl$ be a two-sided ideal and let $f \in I$ be non-zero.
+  We can then write $f$ uniquely as
+  \[
+      f
+    = \sum_{m \geq 0} p_m \del^m
+  \]
+  with $p_m \in k[X] \subseteq \weyl$ for all $m \geq 0$.
+  It follows from $\del X = X \del + 1$ by induction that 
+  \[
+      \del^n X
+    = X \del^n + n \del^{n-1}
+  \]
+  for all $n \geq 0$.
+  It follows that
+  \[
+      f X - X f
+    = \sum_{m \geq 0} m p_m \del^{m-1} \,.
+  \]
+  For the maximal index $m \geq 0$ with $p_m \neq 0$ it follows that $m! p_m \in I$ and therefore that
+  \[
+    p_m \in I \,.
+  \]
+  This shows that $I$ already contains a non-zero polynomial from $k[X] \subseteq \weyl$.
+  We have seen in subsection~\ref{subsection: first weyl algebra} that
+  \[
+    \del p = p \del + p'
+  \]
+  for all $p \in k[X] \subseteq \weyl$, where $p'$ denotes the (formal) derivative of $p$.
+  We thus have that
+  \[
+      \del p - p \del
+    = p'
+  \]
+  for all $p \in k[X]$.
+  It follows for $d \defined \deg_X p_m$ that $p^{(d)} \in I$ is a non-zero constant polynomial (because $\kchar k \neq 0$).
+  This shows that $I$ contains a unit, which shows that $I = \weyl$.
 \end{example}
 
 
+\begin{remark}
+  We have given in Remark~\ref{remark: skew polynomial rings} a short overview how the Weyl algebra $\weyl$ can be understood as a skew polyonmial ring over $k[X]$ with respect to the $k$-derivation $\del \colon k[X] \to k[X]$.
+  
+  It can be shown more generally that for a field of characteristic $\kchar k = 0$ and an $k$-algebra $A$ a skew polynomial ring $A[x;\delta]$ (with respect to a $k$-derivation $\delta \colon A \to A$) is simple if and only if $A$ is $\delta$-simple and $\delta$ is not an inner derivation;
+  this can be found in \cite[Theorem~3.15]{Lam1991First} and \cite[Proposition~2.1]{NoncommutativeNoetherian}.
+  
+  If $\kchar k = 0$ then it also holds that for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ the skew polynomial ring $A[x;\delta]$ is a nonartinian simple ring, and thus a simple ring which is not semisimple by \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}.
+\end{remark}
+
+
 \begin{example}
+  The following example is taken from \cite[3.14]{Lam1991First}:
   Let $V$ be a countable infinite-dimensional $k$-vector space.
   Then
   \[
@@ -193,7 +259,7 @@
             \rank(f_1 + f_2)
       \leq  \rank(f_1) + \rank(f_2) \,.
   \end{gather*}
-  The two-sided ideal is already maxmimal:
+  The two-sided ideal $I$ is already maxmimal:
   
   Suppose that $f \in \End(V)$ has infinite rank.
   Let $C_1$ be a direct complement of $\im(f)$ and let $C_2$ be a direct complement of $\ker(f)$.
