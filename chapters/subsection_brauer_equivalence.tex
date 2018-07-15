@@ -114,12 +114,7 @@
   Let $n, m \geq 0$.
   \begin{enumerate}
     \item
-      If $D$ is a $k$-algebra then
-      \[
-              \Mat_n(D)
-        \cong D \otimes \Mat_n(k) \,.
-      \]
-      as $k$-algebras.
+      If $D$ is a $k$-algebra then $\Mat_n(D) \cong D \otimes \Mat_n(k)$ as $k$-algebras.
     \item
       We have that $\Mat_n(k) \otimes \Mat_m(k) \cong \Mat_{nm}(k)$ as $k$-algebras.
   \end{enumerate}
@@ -373,6 +368,18 @@
 % TODO: Alternative proof of b) via Jacobson density theorem.
 
 
+\begin{example}
+  The quaternions algebra $\Hamiltons$ is a four-dimensional central simple $\Real$-algebra and the quaternion conjugation $\Hamiltons \to \Hamiltons^\op$, $x \mapsto \overline{x}$ is an isomorphism of $\Real$-algebras.
+  It follows that
+  \[
+          \Hamiltons \otimes_\Real \Hamiltons
+    \cong \Hamiltons \otimes_\Real \Hamiltons^\op
+    \cong \End_\Real(\Hamiltons)
+    \cong \Mat_4(\Real) \,.
+  \]
+\end{example}
+
+
 \begin{theorem}
   \label{theorem: existence of brauer group}
   The binary operation
@@ -412,9 +419,9 @@
       If $k$ is algebraically closed then every finite-dimensional division $k$-algebra is already $k$ itself.
       It follows that the Brauer group $\Br(k)$ is trivial.
     \item
-      It is a classical result due to Frobenius that the only finite-dimensional division $\Real$-algebras are $\Real, \Complex, \Quaternion$.
-      Both $\Real$ and $\Quaternion$ are central, while $\Complex$ is not.
-      It follows that $\CDA\!/{\cong} = {[\Real], [\Quaternion]}$ has two elements.
+      It is a classical result due to Frobenius that the only finite-dimensional division $\Real$-algebras are $\Real, \Complex, \Hamiltons$.
+      Both $\Real$ and $\Hamiltons$ are central, while $\Complex$ is not.
+      It follows that $\CDA\!/{\cong} = {[\Real], [\Hamiltons]}$ has two elements.
       The Brauer group $\Br(\Real)$ is therefore the cyclic group of order two.
     \item
       A theorem of Wedderburn (which is not to be confused with \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}) states that every finite skew field is already commutative, and thus a field.
