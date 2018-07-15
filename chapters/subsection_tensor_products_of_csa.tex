@@ -57,33 +57,25 @@
 
 \begin{proof}
   We have that
-  \[
+  $
       \ringcenter(A \otimes B)
     = \centralizer_{A \otimes B}(A \otimes B)
     = \centralizer_A(A) \otimes \centralizer_B(B)
     = \ringcenter(A) \otimes \ringcenter(B)
-  \]
-  by Lemma~\ref{lemma: centralizer componentwise}.
+  $.
 \end{proof}
 
 
-\begin{proposition}
-  Let $A, B$ be central simple $k$-algebras.
-  Then $A \otimes B$ is again a central simple $k$-algebra.
-\end{proposition}
+\begin{lemma}
+  \label{lemma: tensor product is again simple}
+  Let $A$ be a central simple $k$-algebra and $B$ be a simple $k$-algebra.
+  Then $A \otimes B$ is again simple.
+\end{lemma}
 
 
 \begin{proof}
-  The $k$-algebra $A \otimes B$ is finite-dimensional because both $A, B$ are finite-di\-men\-si\-o\-nal, and by Corollary~\ref{corollary: center of tensor product} we have that
-  \[
-      \ringcenter(A \otimes B)
-    = \ringcenter(A) \otimes \ringcenter(B)
-    = k \otimes k
-    = k \,.
-  \]
   It follows from $A, B \neq 0$ that $A \otimes B \neq 0$.
-  It remains to show that the only nonzero two-sided ideal $I \idealleq A \otimes B$ is $A \otimes B$:
-  
+  Let $I \idealleq A \otimes B$ be a non-zero two-sided ideal.
   Every $u \in I$ can be written as $u = \sum_{i=1}^n a_i \otimes b_i$ where $b_1, \dotsc, b_n \in B$ are linearly independent.
   Let $x \in I$ with $x \neq 0$ for which the number of summands $n$ is minimal with respect to all nonzero elements in $I$.
   Let
@@ -158,24 +150,6 @@
 \end{remark}
 
 
-\begin{fluff}
-  We have shown that
-  \[
-              [A] \cdot [B]
-    \defined  [A \otimes B]
-  \]
-  is a well-defined binary operation on the set of isomorphic classas $\CSA_k\!/{\cong}$.
-  This operation is also associative, commutative and we have that
-  \[
-      [k] \cdot [A]
-    = [k \otimes A]
-    = [A] \,,
-  \]
-  which shows that $[k]$ is neutral.
-  Altogether we have thus endowed $\CSA_k\!/{\cong}$ with the structure of a commutative monoid.
-\end{fluff}
-
-
 \begin{warning}
   For central $k$-algebras $A, B$ their tensor product $A \otimes B$ does not need to be simple.
   A counterexample is given by
@@ -190,6 +164,43 @@
   \end{align*}
   where we use the chinese reminder theorem for the second to last isomorphism.
 \end{warning}
+
+
+\begin{proposition}
+  If $A, B$ are central simple $k$-algebras then $A \otimes B$ is again a central simple $k$-algebra, and if $A, B \in \CSA_k$ then $A \otimes B \in \CSA_k$.
+\end{proposition}
+
+
+\begin{proof}
+  It follows from Corollary~\ref{corollary: center of tensor product} that
+  \[
+      \ringcenter(A \otimes B)
+    = \ringcenter(A) \otimes \ringcenter(B)
+    = k \otimes k
+    = k \,,
+  \]
+  and $A \otimes B$ is simple by Lemma~\ref{lemma: tensor product is again simple}.
+  If both $A, B$ are finite-dimensional then $A \otimes B$ is also finite-dimensional.
+\end{proof}
+
+
+\begin{fluff}
+  Let $\preBr_k \defined \CSA_k\!/{\cong}$.
+  We have shown that
+  \[
+              [A] \cdot [B]
+    \defined  [A \otimes B]
+  \]
+  is a well-defined binary operation on $\preBr(k)$.
+  This operation is also associative, commutative and we have that
+  \[
+      [k] \cdot [A]
+    = [k \otimes A]
+    = [A] \,,
+  \]
+  which shows that $[k]$ is neutral.
+  Altogether we have thus endowed $\preBr(k)$ with the structure of a commutative monoid.
+\end{fluff}
 
 
 

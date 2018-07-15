@@ -2,14 +2,13 @@
 
 
 \begin{fluff}
-  Much of the rest of this subsection is taken from \cite[4.2]{Clark2012NonCA}, except that the author added most of the proofs himself.
+  This subsection is very much inspired by \cite[4.2]{Clark2012NonCA}.
 \end{fluff}
 
 
-\begin{definition}
-  A division $k$-algebra $D$ is \emph{central} if $\ringcenter(D) = k$.
-  The class of finite-dimensional central $k$-algebras is denotey by $\CDA_k$.
-\end{definition}
+\begin{notation}
+  The class of finite-dimensional central division $k$-algebras is denotey by $\CDA_k$.
+\end{notation}
 
 
 \begin{lemma}
@@ -46,7 +45,7 @@
 
 
 \begin{definition}
-  Two central simple $k$-algebras $A, B$ are \emph{Brauer equivalent} if for the central divsion $k$-algebras $D_1, D_2$ with $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ (for suitable $n, m$) we have that $D_1 \cong D_2$.
+  Two finite-dimensionl central simple $k$-algebras $A, B \in \CSA_k$ are \emph{Brauer equivalent} if for the central divsion $k$-algebras $D_1, D_2$ with $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ (for suitable $n, m$) we have that $D_1 \cong D_2$.
   Brauer equivalence is denoted by $\sim$.
 \end{definition}
 
@@ -77,12 +76,37 @@
 
 \begin{remark}
   Isomorphic central simple $k$-algebras are Brauer equivalent.
-  By abuse of notation we will to the refer to the equivalence relation induced by $\sim$ on $\CSA_k\!/{\cong}$ also as Brauer equivalence and write $[A] \sim [B]$ if $A \sim B$ for all $[A], [B] \in \CSA_k\!/{\cong}$.
+  By abuse of notation we will refer to the equivalence relation induced by $\sim$ on $\CSA_k\!/{\cong} = \preBr(k)$ also as Brauer equivalence and write for $A, B \in \preBr(k)$ that $[A] \sim [B]$ if $A \sim B$.
 \end{remark}
 
 
+\begin{notation}
+  The set of Brauer equivalence classes is denoted by
+  \[
+              \Br(k)
+    \defined  \CSA_k\!/{\sim} \,.
+  \]
+  By abuse of notation we will identify $\Br(k)$ with $\preBr(k)/{\sim}$ via the mapping $[[A]] \mapsto [A]$.
+\end{notation}
+
+
+\begin{recall}
+  Let $M$ be a (multiplicatively written) monoid and let $\sim$ be an equivalence relation on $M$.
+  Then $\sim$ is a \emph{congruence relation} if for all $m, m', n, n' \in M$ with $m \sim m'$ and $n \sim n'$ it follows that
+  \[
+    m \cdot n \sim m' \cdot n' \,.
+  \]
+  The equivalence relation $\sim$ is a congruence relation if and only if on the set of equivalence classes $M/{\sim}$ the binary operation
+  \[
+      [m] \cdot [n]
+    = [m \cdot n]
+  \]
+  is well-defined.
+\end{recall}
+
+
 \begin{fluff}
-  We will now show that $\sim$ is a congruence relation on $\CSA_k\!/{\cong}$, and that the induced monoid structure on $(\CSA_k\!/{\cong})/{\sim} \cong \CSA_k\!/{\sim}$ is already a group structure.
+  We will now show that $\sim$ is a congruence relation on $\preBr(k)$, and that the induced monoid structure on $\preBr(k)/{\sim} = \Br(k)$ is already a group structure.
 \end{fluff}
 
 
@@ -156,6 +180,8 @@
   It can also be checked by hand that this $k$-linear map is an isomorphis of $k$-algebras:
   The basis $E_{ij} \otimes E_{i'j'}$ with $i,j = 1, \dotsc, n$ and $i', j' = 1, \dotsc, m$ of $\Mat_n(k) \otimes \Mat_m(k)$ is mapped bijectively onto the analogous standard basis of $\Mat_{mn}(k)$, which shows that $\varphi$ is bijective.
   We have that
+  \begingroup
+  \allowdisplaybreaks
   \begin{align*}
       &\,  \varphi(A \otimes B) \varphi(A' \otimes B'))
     \\
@@ -192,6 +218,7 @@
     =&\,  \varphi((A A') \otimes (B B'))
     =     \varphi((A \otimes B) (A' \otimes B'))
   \end{align*}
+  \endgroup
   for all simple tensors $A \otimes B, A' \otimes B' \in \Mat_n(k) \otimes \Mat_m(k)$, which shows that $\varphi$ is multiplicative.
   We also have that $\varphi(I \otimes I) = I$.
 \end{remark}
@@ -199,7 +226,7 @@
 
 \begin{lemma}
   \label{lemma: characterization of Brauer equivalence}
-  For simple central $k$-algebras $A, B$ the following are equivalent:
+  For $A, B \in \CSA_k$ the following are equivalent:
   \begin{enumerate}
     \item
       \label{enumerate: matrices over isomorphic division algebra}
@@ -253,12 +280,12 @@
 
 \begin{corollary}
   \label{corollary: Brauer equivalence is a congruence relation}
-  Brauer equivalence is an congruence relation on $\CSA_k\!/{\cong}$, i.e.\ for $A, A', B, B' \in \CSA_k$ with $A \sim A'$ and $B \sim B'$ we have that $A \otimes B \sim A' \otimes B'$.
+  Brauer equivalence is an congruence relation on $\preBr(k)$, i.e.\ for $A, A', B, B' \in \CSA_k$ with $A \sim A'$ and $B \sim B'$ we have that $A \otimes B \sim A' \otimes B'$.
 \end{corollary}
 
 
 \begin{proof}
-  There then exist $n, n', m, m' \geq 1$ with
+  There exist $n, n', m, m' \geq 1$ with
   \[
           A \otimes \Mat_n(k)
     \cong A' \otimes \Mat_{n'}(k)
@@ -284,9 +311,9 @@
   Let $A$ be a central simple $k$-algebra.
   \begin{enumerate}
     \item
-      The algebra $A^\op$ is again a central simple $k$-algebra.
+      The algebra $A^\op$ is again a central simple $k$-algebra and if $A \in \CSA_k$ then $A^\op \in \CSA_k$.
     \item
-      We have that $A \otimes A^\op \cong \End_k(A)$ as $k$-algebras.
+      If $A \in \CSA_k$ then $A \otimes A^\op \cong \End_k(A)$ as $k$-algebras.
   \end{enumerate}
 \end{lemma}
 
@@ -295,8 +322,8 @@
   \leavevmode
   \begin{enumerate}
     \item
-      The two-sided ideals of $A^\op$ are precisely the two-sided ideals of $A$, of which there are precisely two.
-      We have that $\ringcenter(A^\op) = \ringcenter(A) = k$ and the dimension $\dim_k(A^\op) = \dim_k(A)$ is finite.
+      The two-sided ideals of $A^\op$ are precisely the two-sided ideals of $A$, of which there are precisely two, and $\ringcenter(A^\op) = \ringcenter(A) = k$.
+      If $A$ is finite-dimensional then so is $A^\op$ because $\dim_k(A^\op) = \dim_k(A)$.
     \item
       We denote the multiplication of $A^\op$ by $*$.
       
@@ -343,6 +370,9 @@
 \end{proof}
 
 
+% TODO: Alternative proof of b) via Jacobson density theorem.
+
+
 \begin{theorem}
   \label{theorem: existence of brauer group}
   The binary operation
@@ -350,14 +380,15 @@
               [A] \cdot [B]
     \defined  [A \otimes B]
   \]
-  defines on $\CSA_k\!/{\sim}$ the structure of an abelian groups.
+  defines on $\Br(k)$ the structure of an abelian group.
 \end{theorem}
 
 
 \begin{proof}
-  Brauer equivalence is a congruence relation on $\CSA_k\!/{\cong}$ by Corollary~\ref{corollary: Brauer equivalence is a congruence relation}, from which it follows that this binary operation is well-defined.
-  Since $\CSA_k\!/{\cong}$ was is commutative monoid the same goes for $\CSA_k\!/{\sim}$.
-  For every $[A] \in \CSA_k\!/{\sim}$ with $n = \dim_k A$ we have that
+  Brauer equivalence is a congruence relation on $\preBr(k)$ by Corollary~\ref{corollary: Brauer equivalence is a congruence relation}, from which it follows that this binary operation on $\Br(k)$ is well-defined.
+  Since $\preBr(k)$ is a commutative monoid the same holds for $\Br(k)$.
+  The neutral element of $\Br(k)$ is $[k]$.
+  For every $[A] \in \Br(k)$ with $n = \dim_k A$ we have that
   \[
       [A] \cdot [A^\op]
     = [A \otimes A^\op]
@@ -365,12 +396,12 @@
     = [\Mat_n(k)]
     = [k] \,,
   \]
-  which shows that $[A^\op]$ is inverse to $[A]$.
+  which shows that $[A^\op]$ is inverse to $[A]$ in $\Br(k)$.
 \end{proof}
 
 
 \begin{definition}
-  The group $\Br(k) \defined \CSA_k\!/{\sim}$ as described in Theorem~\ref{theorem: existence of brauer group} is the \emph{Brauer group} of the field $k$.
+  The group $\Br(k)$ as described in Theorem~\ref{theorem: existence of brauer group} is the \emph{Brauer group} of the field $k$.
 \end{definition}
 
 

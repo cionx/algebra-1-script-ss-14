@@ -81,12 +81,13 @@
 
 
 \begin{theorem}[Skolem--Noether]
-  If $A$ is a simple $k$-algebra and $B$ is a central simple $k$-algebra then any two $k$-algebra homomorphisms $f, g \colon A \to B$ are conjugated, i.e.\ there exists a unit $u \in B^\times$ with $g(a) = u f(a) u^{-1}$ for every $a \in A$.
+ Let $A$ be a simple $k$-algebra and $B$ be a finite-dimensional central simple $k$-algebra
+ Then any two $k$-algebra homomorphisms $f, g \colon A \to B$ are conjugated, i.e.\ there exists a unit $u \in B^\times$ with $g(a) = u f(a) u^{-1}$ for every $a \in A$.
 \end{theorem}
 
 
 \begin{proof}
-  Note first that $A$ must be finite-dimensional:
+  The $k$-algebra $A$ must also be finite-dimensional:
   The kernel $\ker(f)$ is a proper two-sided ideal of $A$ because $B \neq 0$.
   It follows that $\ker(f) = 0$ and therefore that $\dim_k B \leq \dim_k A$ by the injectivity of $f$
   
@@ -138,13 +139,55 @@
 
 
 \begin{corollary}
-  Every $k$-algebra automorphism of a central simple $k$-algebra $A$ is inner, i.e.\ given by conjugation with an element $u \in A^\times$.
+  \label{corollary: skolem noether for automorphisms}
+  Every $k$-algebra automorphism of a finite-dimensioanl central simple $k$-algebra $A$ is inner, i.e.\ given by conjugation with an element $u \in A^\times$.
 \end{corollary}
 
 
 \begin{proof}
   Every automorphism is conjugated to the identity $\id_A$ by the Skolem--Noether theorem.
 \end{proof}
+
+
+\begin{corollary}
+  Let $A$ is a finite-dimensional central simple $k$-algebra then
+  \[
+          \Aut_{\cAlg{k}}(A)
+    \cong A^\times / \ringcenter(A)^\times
+  \]
+  where $[u] \in A^\times / \ringcenter(A)^\times$ acts on $A$ by conjugation.
+\end{corollary}
+
+
+\begin{proof}
+  The map
+  \[
+            A^\times
+    \to     \Aut_{\cAlg{k}}(A),
+    \quad   [u]
+    \mapsto (a \mapsto u a u^{-1})
+  \]
+  is a group homomorphisms which is surjective by Corollary~\ref{corollary: skolem noether for automorphisms}.
+  Its kernel is given by
+  \[
+      A^\times \cap \ringcenter(A)
+    = \ringcenter(A)^\times
+  \]
+  because for every $u \in \ringcenter(A)$ which is a unit in $A$ its inverse $u^{-1}$ is again central.
+\end{proof}
+
+
+\begin{example}
+  We have that $\Mat_n(k)^\times = \GL_n(k)$.
+  We also have that $\ringcenter(\Mat_n(k)) = k I$ by Lemma~\ref{lemma: center of matrix ring}, and therefore that $\ringcenter(\Mat_n(k))^\times = k^\times I$.
+  It follows that
+  \[
+          \Aut_{\cAlg{k}}(\Mat_n(k))
+    \cong \GL_n(k) / (k^\times I)
+    =     \PGL_n(k)
+  \]
+  where $\PGL_n(k)$ acts on $\Mat_n(k)$ by conjugation.
+\end{example}
 
 
 
