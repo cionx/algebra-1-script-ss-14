@@ -174,27 +174,50 @@
 
 
 \begin{remark}
-  To see that $\Irr(R)$ is indeed a set, and not a proper class, we construct a $1$:$1$-correspondence between simple $R$-modules and maximal left ideals in $R$.
-  Recall that the annihilator of an $R$-module $M$ is $\Ann(M) = \{r \in R \suchthat rm = 0\}$, which is a left ideal in $R$.
+  To see that $\Irr(R)$ is indeed a set (and not a proper class) we show that
+  \[
+      \Irr(R)
+    = \{
+        [R/I]
+      \suchthat
+        \text{$I \idealleq R$ is a maximal left ideal}
+      \} \,.
+  \]
+  It follows from Lemma~\ref{proposition: characterisation semisimple modules} that $R/I$ is simple for every maxmimal left ideal $I \idealleq R$.
+  If on the other hand $M$ is a simple $R$-module and $m \in M$ is nonzero then $m$ is a cyclic generator.
+  The map
+  \[
+            \varphi
+    \colon  R
+    \to     M,
+    \quad   r
+    \mapsto rm
+  \]
+  is therefore a surjective homomorphism of $R$-modules.
+  It follows that $R/I \cong M$ for the left ideal $I \defined \ker \varphi \idealleq R$, and it follows from Lemma~\ref{proposition: characterisation semisimple modules} that $I$ is maximal.
+
   
-  If $I \idealleq R$ is a maximal left ideal then the $R$-module $R/I$ is simple with $\Ann(R/I) = I$.
-  
-  If $M$ is a simple $R$-module and $x \in M$ is nonzero then $x$ is a cyclic generator of $M$ by Lemma~\ref{lemma: simple iff every cyclic generator}.
-  It follows that the map $R \to M$, $r \mapsto rm$ is a surjective homomorphism of $R$-modules with kernel $\Ann(M) \defines I$, and thus induces an isomorphism of $R$-modules $R/I \cong M$.
-  
-  We have thus constructed a $1$:$1$-correspondence
-  \begin{align*}
-    \{ \text{maximal ideals $I \idealleq R$} \}
-    &\longleftrightarrow
-    \Irr(R) \,, 
-    \\
-    I
-    &\longmapsto
-    R/I \,,
-    \\
-    \Ann(M)
-    &\longmapsfrom
-    M \,.
-  \end{align*}
+%    We construct a $1$:$1$-correspondence between isomorphism classes of simple $R$-modules and maximal left ideals in $R$.
+%   Recall that the annihilator of an $R$-module $M$ is $\Ann(M) = \{r \in R \suchthat rm = 0\}$, which is a left ideal in $R$.
+%   
+%   If $I \idealleq R$ is a maximal left ideal then the $R$-module $R/I$ is simple with $\Ann(R/I) = I$.
+%   
+%   If $M$ is a simple $R$-module and $x \in M$ is nonzero then $x$ is a cyclic generator of $M$ by Lemma~\ref{lemma: simple iff every cyclic generator}.
+%   It follows that the map $R \to M$, $r \mapsto rm$ is a surjective homomorphism of $R$-modules with kernel $\Ann(M) \defines I$, and thus induces an isomorphism of $R$-modules $R/I \cong M$.
+%   
+%   We have thus constructed a $1$:$1$-correspondence
+%   \begin{align*}
+%     \{ \text{maximal ideals $I \idealleq R$} \}
+%     &\longleftrightarrow
+%     \Irr(R) \,, 
+%     \\
+%     I
+%     &\longmapsto
+%     R/I \,,
+%     \\
+%     \Ann(M)
+%     &\longmapsfrom
+%     M \,.
+%   \end{align*}
 \end{remark}
 
