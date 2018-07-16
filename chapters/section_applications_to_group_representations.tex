@@ -1,0 +1,50 @@
+\section{Applications to the Representation Theory of Groups}
+
+
+% FROM DENSITY STUFF
+
+
+\begin{lemma}\label{lemma: equivalence to irreducible}
+  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
+  \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+    \item \label{enum: V irreducible}
+      $V$ is irreducible.
+    \item \label{enum: V simple kG-module}
+      $V$ is simple as a $kG$-module.
+    \item \label{enum: surjective algebra homo}
+      The algebra homomorphism
+      \[
+                \Phi
+        \colon  kG
+        \to     \End_k(V) \,,
+        \quad   a
+        \mapsto (v \mapsto av)
+      \]
+      is surjective.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  The equivalence of \ref{enum: V irreducible} and \ref{enum: V simple kG-module} is clear.
+  The equivalence of \ref{enum: V simple kG-module} and \ref{enum: surjective algebra homo} follows directly from Corollary \ref{corollary: simple algebra module surjective algebra homo}.
+\end{proof}
+
+
+\begin{corollary}
+  Let $G$ be a finite group and $V$ a finite-dimensional irreducible representation of $G$ over an algebraically closed field $k$.
+  Then
+  \[
+          \left( \dim V \right)^2
+    \leq |G| \,.
+  \]
+\end{corollary}
+
+
+\begin{proof}
+  $V$ is a simple $kG$-module, so by Corollary \ref{corollary: dimension simple algebra modules}
+  \[
+          (\dim V)^2
+    \leq  \dim kG
+    =     |G| \,.
+    \qedhere
+  \]
+\end{proof}

@@ -93,8 +93,12 @@
     &\cong  \End_R(M_1^{\oplus n_1}) \times \dotsb \times \End_R(M_r^{\oplus n_r})  \\
     &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
   \end{align*}
-  as rings where $D_i \defined \End_R(M_i)$ for every $i = 1, \dotsc, r$.
-  If $R$ is a $k$-algebra, then this is an isomorphism of $k$-algebras.
+  as rings, where $D_i \defined \End_R(M_i)$ for every $i = 1, \dotsc, r$ and the first isomorphism is given by
+  \[
+            f
+    \mapsto \left( \restrict*{f}{M_1^{\oplus n_1}} \,,\, \dotsc \,,\, \restrict*{f}{M_t^{\oplus n_t}} \right)
+  \]
+  If $R$ is a $k$-algebra, then these are isomorphisms of $k$-algebras.
 \end{corollary}
 
 
@@ -102,6 +106,15 @@
   This follows from Corollary~\ref{corollary: decomposition of endomorphisms for orthogonal modules} because $\Hom_R(M_i, M_j) = 0$ for all $i \neq j$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma}.
 \end{proof}
 
+
+% \begin{notation}
+%   \label{notation: abuse of notation for schur}
+%   In the situation of Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} we will often identify $\End_R(M)$ with $\End_R(M_1^{\oplus n_1}) \times \dotsb \times \End_R(M_r^{\oplus n_r})$ and by abuse of notation just write
+%   \[
+%       \End_R(M)
+%     = \End_R(M_1^{\oplus n_1}) \times \dotsb \times \End_R(M_r^{\oplus n_r}) \,.
+%   \]
+% \end{notation}
 
 
 \begin{remark}

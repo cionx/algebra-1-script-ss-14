@@ -52,7 +52,7 @@
 % colours for hyperref
 \hypersetup{
     colorlinks,
-    linkcolor={green!50!black},
+    linkcolor={green!45!black},
     citecolor={blue!50!black},
     urlcolor={blue!80!black}
 }
@@ -152,7 +152,7 @@
 \newcommand{\Real}{\mathbb{R}}
 \newcommand{\Complex}{\mathbb{C}}
 \newcommand{\Finite}{\mathbb{F}}
-\newcommand{\Hamiltons}{\mathbb{H}}
+\newcommand{\Hamilton}{\mathbb{H}}
 
 % often used commands
 \newcommand{\mc}{\mathcal}
@@ -228,7 +228,7 @@
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 \NewDocumentCommand{\restrict}{smmO{}}{
   \IfBooleanTF{#1}
-    {\left. {#2} \right|_{#3}^{#4}}
+    {\left. {#2} \middle|_{#3}^{#4} \right.}
     {{#2}|_{#3}^{#4}}
 }
 

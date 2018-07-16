@@ -497,7 +497,7 @@
       It further follows from Remark~\ref{remark: basic properties of op} and Lemma~\ref{lemma: op of matrix rings} that
       \begin{align*}
                 R
-        =      (R^\op)^\op
+        =       (R^\op)^\op
         &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
         &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op  \\
         &\cong  \Mat_{n_1}(D_1^\op) \times \dotsb \times \Mat_{n_r}(D_r^\op) \,.
@@ -580,14 +580,6 @@
 \end{remark}
 
 
-
-
-
-
-
-\subsubsection{Applications of Artin--Wedderburn}
-
-
 \begin{corollary}
   If $R$ is semisimple then $R^\op$ is also semisimple.
 \end{corollary}
@@ -612,43 +604,12 @@
 \end{proof}
 
 
-\begin{corollary}
-  \label{corollary: semisimple algebra product of matrix algebras}
-  Let $A$ be a finite-dimensional semisimple $k$-algebra.
-  \begin{enumerate}
-    \item
-      The $k$-algebra $A$ contains up to isomorphism of $A$-modules only finitely many nonzero minimal left ideals $I_1, \dotsc, I_r \idealleq A$ (which are pairwise non-isomorphic), and we have that
-      \[
-              A
-        \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
-      \]
-      where $D_i = \End_A(I_i)^\op$ for every $i = 1, \dotsc, r$.
-      
-    \item
-      If $k$ is algebraically closed then $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras.
-  \end{enumerate}
-\end{corollary}
-
-
-\begin{proof}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      A nonzero minimal left ideal $I \idealleq A$ is the same as a simple $A$-submodule of $M$.
-      The claim is therefore just a repretition of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
-    \item
-      It follows from Corollary~\ref{corollary: simple modules over fd algebras are fd} that each $I_j$ is finite-dimensional, and it thus further follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $D_i = k$.
-    \qedhere
-  \end{enumerate}
-\end{proof}
-
-
 \begin{definition}
   An $R$-module $M$ is \emph{faithful} if for every $r_1, r_2 \in R$ with $r_1 \neq r_2$ there exists some $m \in M$ with $r m_1 \neq r m_2$.
 \end{definition}
 
 
-\begin{remark}
+\begin{recall}
   An $R$-module $M$ is faithful if any of the following equivalent conditions is fullfilled:
   \begin{enumerate}
     \item
@@ -660,11 +621,11 @@
     \item
       The annihilator $\Ann_R(M) = \{r \in R \suchthat rm = 0\}$ is $0$.
   \end{enumerate}
-\end{remark}
+\end{recall}
 
 
 \begin{example}
-  The $R$-module $R$ is injective because we can choose $m = 1$.
+  The $R$-module $R$ is faithful because we can choose $m = 1$.
 \end{example}
 
 
