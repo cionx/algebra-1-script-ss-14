@@ -241,8 +241,6 @@
 
 
 
-
-
 \subsubsection{Centralizers}
 
 \begin{fluff}
@@ -417,16 +415,28 @@
 % TODO: Give counterexample for non-algebraically closed fields.
 
 
+\begin{notation}
+  We denote by $\irr(A)$ the set of isomorphism classes of finite-dimen\-sional $A$-modules.
+\end{notation}
+
+
+\begin{fluff}
+  Note that for $A$ finite-dimensional we have that $\irr(A) = \Irr(A)$ by Lemma~\ref{lemma: simple modules over fd algebras are fd}.
+\end{fluff}
+
+
 \begin{corollary}
   If $k$ is algebraically closed and $A$ is finite-dimensional then
   \[
-    |{\Irr(A)}| \leq \dim A \,.
+          |{\irr(A)}|
+    =     |{\Irr(A)}|
+    \leq  \dim A \,.
   \]
 \end{corollary}
 
 
 \begin{proof}
-  If $\Irr(A) = \{[M_1], \dotsc, [M_n]\}$ with $[M_i] \neq [M_j]$ for $i \neq j$ then it follows from Corollary~\ref{corollary: dimension simple algebra modules} that $n \leq  \dim \prod_{i=1}^n (\dim M_i)^2 \leq  A$.
+  If $[M_1], \dotsc, [M_n] \in \irr(A)$ with $[M_i] \neq [M_j]$ for $i \neq j$ then it follows from Corollary~\ref{corollary: dimension simple algebra modules} that $n \leq  \dim \prod_{i=1}^n (\dim M_i)^2 \leq \dim A$.
 \end{proof}
 
 

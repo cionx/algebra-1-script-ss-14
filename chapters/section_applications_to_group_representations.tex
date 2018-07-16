@@ -1,7 +1,10 @@
 \section{Applications to the Representation Theory of Groups}
 
 
-% FROM DENSITY STUFF
+
+
+
+\subsection{General Stuff}
 
 
 \begin{lemma}\label{lemma: equivalence to irreducible}
@@ -48,3 +51,251 @@
     \qedhere
   \]
 \end{proof}
+
+
+
+
+
+\subsection{Characters}
+
+
+\begin{lemma}
+  Let $V, W$ be finite-dimensional representations of a group $G$.
+  \begin{enumerate}[label=\emph{\alph*)},leftmargin=*,resume]
+    \item
+      We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
+    \item
+      We have $\chi_V(hgh^{-1}) = \chi_V(g)$.
+    \item
+      We have that $\chi_{V \otimes W}(g) = \chi_V(g) \chi_W(g) = (\chi_V \chi_W)(g)$.
+    \item
+      When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
+  \end{enumerate}
+\end{lemma}
+
+
+% \begin{proof}
+%   \begin{enumerate}
+%     \item
+%       Let $a \in k[G]$.
+%       Let $M \in \Mat_s(k) = (m_{ij})_{1 \leq i,j \leq s}$ be the representing matrix of $\rho_V(a)$ with respect to the basis $v_1, \dotsc, v_s$ and $N$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1, \dotsc, w_t$.
+%       Since
+%       \[
+%           \rho_{V \otimes W}(a)
+%         = \rho_V(a) \otimes \rho_W(a)
+%       \]
+%       the representing matrix of $\rho_{V \otimes W}(a)$ with respect to the basis $v_1 \otimes w_1$, $v_1 \otimes w_2, \dotsc, v_r \otimes w_t$ is
+%       \[
+%           M \otimes N
+%         = \begin{bmatrix}
+%             m_{11} N & m_{12} N & \cdots & m_{1s} N \\
+%             m_{21} N & m_{22} N & \cdots & m_{2s} N \\
+%             \vdots   & \vdots   & \ddots & \vdots   \\
+%             m_{s1} N & m_{s2} N & \cdots & m_{ss} N
+%           \end{bmatrix}.
+%       \]
+%       Therefore
+%       \begin{align*}
+%             \chi_{V \otimes W}(a)
+%         &=  \tr \rho_{V \otimes W}(a)
+%          =  \tr M \otimes N
+%          =  \tr M \cdot \tr N \\
+%         &=  \tr \rho_V(a) \cdot \tr \rho_W(a)
+%          =  \chi_V(a) \cdot \chi_W(a) \,.
+%       \end{align*}
+%     \item
+%       The representing matrix of $\rho_V(e)$ (with respect to any $k$-basis of $V$) is the identity matrix $I_s \in \Mat_s(k)$.
+%       Therefore
+%       \[
+%           \chi_V(e)
+%         = \tr \rho_V(e)
+%         = \tr I_s
+%         = s \bmod \kchar k
+%         = \dim_k V \bmod \kchar k
+%       \]
+%     \item
+%       Let $M$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1, \dotsc, v_s$ and $N$ be the representing matrix of $\rho_V(h)$ with respect to the basis $v_1, \dotsc, v_s$.
+%       Then $N^{-1}$ is the representing matrix of $\rho_V(h^{-1}) = \rho_V(h)^{-1}$ with respect to the basis $v_1, \dotsc, v_s$.
+%       Therefore
+%       \begin{align*}
+%             \chi_V\left( hgh^{-1} \right)
+%         &=  \tr \rho_V\left( hgh^{-1} \right)
+%          =  \tr\left( \rho_V(h) \rho_V(g) \rho_V\left( h^{-1} \right) \right) \\
+%         &=  \tr\left( NMN^{-1} \right)
+%          =  \tr M
+%          =  \tr \rho_V(g)
+%          =  \chi_V(g) \,.
+%       \end{align*}
+%     \item
+%       Let $M \in \Mat_s(k)$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1, \dotsc, v_s$ and $M^* \in \Mat_s(k)$ be the representing matrix of $\rho_{V^*}(g)$ with respect to the basis $v_1^*, \dotsc, v_s^*$.
+%       Then $M^{-1}$ is the representing matrix of $\rho_V(g^{-1}) = \rho_V(g)^{-1}$ with respect to the basis $v_1, \dotsc, v_s$.
+%       We also know from the tutorial problems that $M^* = \left(A^{-1}\right)^T$.
+%       Therefore
+%       \begin{align*}
+%             \chi_{V^*}(g)
+%         &=  \tr \rho_{V^*}(g)
+%          =  \tr M^*
+%          =  \tr \left(M^{-1}\right)^T \\
+%         &=  \tr M^{-1}
+%          =  \tr \rho_V\left( g^{-1} \right)
+%          =  \chi_V\left( g^{-1} \right) \,.
+%         \qedhere
+%       \end{align*}
+%   \end{enumerate}
+% \end{proof}
+
+
+\begin{corollary}\label{corollary: number of irreducible representations of finite abelian group}
+  Let $k$ be an algebraically closed field and $G$ a finite, abelian group with $\kchar k \nmid |G|$.
+  Then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
+\end{corollary}
+\begin{proof}
+  The group algebra $kG$ is finite-dimensional and by Maschke’s Theorem also semisimple.
+  Therefore
+  \[
+      |\Irr_k(G)|
+    = |\Irr(kG)|
+    = \dim_k (kG/[kG, kG])^*
+    = \dim_k kG/[kG, kG] \,.
+  \]
+  Since $G$ is abelian the group algebra $kG$ is commutative, so $[kG,kG] = 0$ and
+  \[
+      \dim_k kG/[kG, kG]
+    = \dim_k kG
+    = |G| \,.
+    \qedhere
+  \]
+\end{proof}
+
+
+\begin{definition}
+  Let $G$ be a group and $X$ a set.
+  A function $f \colon G \to X$ is called a \emph{class function (with values in $X$)} if it is constant on the conjugation classes of $G$, i.e.\ if $f$ is invariant under conjugation.
+  If we see $X$ as a trivial $G$-set then the set of $X$-valued class functions is precisely $\Maps(G,X)^G$ where $G$ acts on itself by conjugation.
+\end{definition}
+
+
+\begin{lemma} \label{lemma: characterisation class functions}
+  Let $G$ be a group and $k$ a field (not necessarily algebraically closed).
+  Let $f \colon G \to k$ be a map and $F \colon kG \to k$ the corresponding $k$-linear extension.
+  Then the following are equivalent:
+  \begin{enumerate}[label=\emph{\roman*)}, leftmargin=*]
+    \item \label{enum: class function}
+      $f$ is a class function.
+    \item
+      $f(gh) = f(hg)$ for all $g \in G$, $h \in H$.
+    \item
+      $F(ab) = F(ba)$ for all $a, b \in kG$.
+    \item
+      The restriction $F_{|[kG,kG]}$ is the zero map.
+  \end{enumerate}
+  If $G$ is additionally finite we also have the following:
+  \begin{enumerate}[label=\emph{\roman*)}, leftmargin=*, resume]
+    \item \label{enum: center of group algebra}
+      If we see $f$ as an element of $kG$, i.e.\ $f = \sum_{g \in G} f(g) g$, then $f \in Z(kG)$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  The equivalence of the first four are easy to see.
+  To see the equivalence of \ref{enum: class function} and \ref{enum: center of group algebra} notice that $f \in Z(kG)$ if and only if $hfh^{-1} = f$ for every $h \in G$.
+  Since we have
+    \[
+        h f h^{-1}
+      = h\left( \sum_{g \in G} f(g) g \right) h^{-1}
+      = \sum_{g \in G} f(g) hgh^{-1}
+      = \sum_{g \in G} f(h^{-1} g h) g
+    \]
+    this is equivalent to $f(h^{-1} g h) = f(g)$ for all $g, h \in G$.
+\end{proof}
+
+
+\begin{definition}
+  Let $G$ be a group and $V$ a finite-dimensional representation of $G$ over a field $k$. If $\rho \colon G \to \GL(V)$ is the corresponding group homomorphism the \emph{character} of the representation $V$ is defined as the map $\chi_V \colon G \to k$ with $\chi_V(g) \coloneqq \tr \rho(g)$. It is equivalently the restriction of the character $\chi_V$ of $V$ as a $kG$-module to $G$.
+\end{definition}
+
+
+From Lemma \ref{lemma: characterisation class functions} we know that the character $\chi_V$ of a representation $V$ of a group $G$ over a field $k$ is a class function from $G$ to $k$.
+
+
+\begin{proposition} \label{proposition: conjugation classes and irreducible representations}
+  Let $G$ be a finite group and $k$ an algebraically closed field with $\kchar k \nmid |G|$.
+  \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
+    \item
+      Then the characters of the irreducible representations of $G$ form a $k$-basis of the $k$-vector space of class functions from $G$ to $k$.
+    \item
+      The number of irreducible representations of $G$ is exactly the number conjugation classes of $G$.
+    \item
+      The number of irreducible representations of $G$ is exactly $\dim_k Z(kG)$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
+    \item
+      By Lemma \ref{lemma: characterisation class functions} we can regard the $k$-vector space of class functions from $G$ to $k$ as $(kG/[kG,kG])^*$.
+      Thus the statement follows directly from Theorem \ref{theorem: characters as a basis} since $kG$ is semisimple by Maschke’s theorem.
+    \item
+      Let $\mc{O}_1, \dotsc, \mc{O}_n$ be the conjugation classes of $G$.
+      Then the characteristic functions $\chi_{\mc{O}_1}, \dotsc, \chi_{\mc{O}_n}$ form a $k$-basis of the $k$-valued class functions of $G$.
+      By identifying the $k$-vector space of $k$-valued class functions of $G$ with $kG/[kG,kG]$ the same holds for the characters of irreducible representations of $G$ by the first part.
+      Therefore $G$ has precisely $n$ irreducible representations.
+    \item
+      This follows directly from Lemma \ref{lemma: characterisation class functions} and the previous parts.
+  \end{enumerate}
+\end{proof}
+
+
+\begin{example}
+  \begin{enumerate}[label=\emph{\alph*)}, leftmargin=*]
+    \item
+      Corollary is also \ref{corollary: number of irreducible representations of finite abelian group} a direct corollary of \ref{proposition: conjugation classes and irreducible representations}.
+    \item
+      The conjugation class of the symmetric group $S_n$ correspond directly to the partitions of $n$ in the following way:
+      We can write every permutation $\pi \in S_n$ as a product of cycles
+      \[
+          \pi
+        =         \left( x^1_1 \; \dots \; x^1_{n_1} \right)
+          \dotsm  \left(x^s_1 \; \dots \; x^s_{n_s} \right),
+      \]
+      which is unique up to permutation of the cycles. For every $\sigma \in S_n$ we have
+      \[
+          \sigma \pi \sigma^{-1}
+        =         \left(
+                        \sigma\left( x^1_1 \right)
+                    \;  \dotso
+                    \;  \sigma\left( x^1_{n_1} \right)
+                  \right)
+          \dotsm  \left(
+                        \sigma\left( x^s_1 \right)
+                    \;  \dotso
+                    \;  \sigma\left( x^s_{n_s} \right)
+                  \right)
+      \]
+      So for every $m \geq 1$ the number of cycles in $\pi$ of length $m$ is invariant under conjugation.
+      This is the \emph{cycle type of $\pi$}.
+      
+      \begin{claim}
+        Two permutations are conjugated if and only if they have the same cycle type.
+      \end{claim}
+      \begin{proof}
+        We have already seen that conjugated permutations have the same cycle type.
+        On the other hand let $\pi \in S_n$ and denote by $l_m$ the number of cycles of length $m$ in $\pi$ and by $M$ the maximal length of a cycle in $\pi$.
+        Then $\pi$ is conjugated to the permutation
+        \[
+                  \underbrace{ (1 \; \dots \; M) \dotsm ((l_M-1)M+1 \; \dots \; l_M M) }_{ \text{$l_M$ many} }
+          \dotsm  \underbrace{ (n-l_1+1) \dotsm (n) }_{ \text{$l_1$ many} } \,.
+        \]
+        Since this permutation depends only on the cycle type of $\pi$ the statement follows.
+      \end{proof}
+      
+      Using this we find that the permutations
+      \[
+                (1 \; \dotso \; \lambda_1)
+                (\lambda_1 + 1 \; \dotso \; \lambda_1 + \lambda_2)
+        \dotsm  (n-\lambda_s \; \dots \; n)
+      \]
+      for the partitions $\lambda = (\lambda_1, \dotsc, \lambda_s) \in \Par(n)$ are a set of representatives of the permutations classes of $S_n$.
+      
+      So we find that the number of irreducible representations of $S_n$ over an algebraically closed field $k$ with $\kchar k \nmid |S_n|$, i.e.\ $\kchar k = 0$ or $\kchar k > n$, is precisely the number of partitions of $n$.
+  \end{enumerate}
+\end{example}
+
