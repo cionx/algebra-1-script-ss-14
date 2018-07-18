@@ -4,7 +4,7 @@
 
 
 
-\subsection{General Stuff}
+\subsection*{General Stuff}
 
 
 \begin{lemma}\label{lemma: equivalence to irreducible}
@@ -53,10 +53,230 @@
 \end{proof}
 
 
+\begin{definition}
+  For a field $k$ and a group $G$ we set
+  \[
+              \Irr_k(G)
+    \coloneqq \{ \text{isomorphism classes of representations of $G$} \}
+  \]
+  and
+  \begin{align*}
+                \irr_k(G)
+    &\coloneqq  \{ \text{isomorphism classes of finite-dimensional representations of $G$} \} \\
+    &=          \{ [V] \in \Irr_k(G) \mid \dim_k V < \infty \}.
+  \end{align*}
+\end{definition}
 
 
+Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$ are the same as simple $kG$-modules and thus $\Irr_k(G) = \Irr(kG)$ for the group algebra $kG$ of $G$ over $k$.
 
-\subsection{Characters}
+
+\begin{definition}
+  Let $k$ be a field, $V$ a representation of a group $G$ and $W$ a representation of a group $H$.
+  Then we define the representations $V \boxtimes_k W$ of $G \times H$ as the $k$-vector space $V \otimes_k W$ together with the (linear) group action
+  \[
+      (g,h).(v \otimes w)
+    = (g.v) \otimes (h.w) \,.
+  \]
+\end{definition}
+
+
+To see that $V \boxtimes_k W$ is well-defined notice that the multiplication with $(g,h) \in G \times H$ is given by $\pi_g \otimes \tau_h$ where $\pi_g \colon V \to V$, $v \mapsto g.v$ is the multiplication with $g$ and $\tau_h \colon W \to W, w \mapsto h.w$ is the multiplication with $h$.
+
+
+\begin{theorem}
+  Let $k$ be an algebraically closed field, $G$ and $H$ groups.
+  Then we have a bijection
+  \[
+            \Psi
+    \colon  \irr_k(G) \times \irr_k(H)
+    \to     \irr_k(G \times H),
+    \quad   ([V],[W])
+    \mapsto [V \boxtimes_k W] \,.
+  \]
+\end{theorem}
+% \begin{proof}
+%   We start by showing that $\Psi$ is well-defined.
+%   We first show that $\Psi$ is independent of the choice of representatives:
+%   Let $V$ and $V'$ be irreducible finite-dimensional representations of $G$ with $\phi_V \colon V \cong V'$ (as representations) and $W$ and $W'$ irreducible finite-dimenisonal representations of $H$ with $\phi_W \colon W \cong W'$.
+%   Then
+%   \[
+%             \phi_V \otimes \phi_W
+%     \colon  V  \otimes_k W
+%     \cong   V' \otimes_k W'
+%   \]
+%   as $k$-vector spaces.
+%   That $\phi_V \otimes \phi_W$ is also $(G \times H)$-equivariant can be seen by calculation since for all $(g,h) \in G \times H$ and simple tensors $v \otimes w \in V \otimes_k W$
+%   \begin{align*}
+%      &\, (\phi_V \otimes \phi_W)((g,h).(v \otimes w))
+%     =    (\phi_V \otimes \phi_W)((g.v) \otimes (h.w)) \\
+%     =&\, (\phi_V(g.v)) \otimes (\phi_W(h.w))
+%     =    (g.\phi_V(v)) \otimes (h.\phi_W(w)) \\
+%     =&\, (g,h).(\phi_V(v) \otimes \phi_W(w))
+%     =    (g,h).((\phi_V \otimes \phi_W)(v \otimes w)) \,.
+%   \end{align*}
+%   Since these simple tensors generate $V \otimes_k W$ as a $k$-vector space it follows that $\phi_V \otimes \phi_W$ is $(G \times H)$-equivariant.
+%   
+%   To show that $\Psi$ is well-defined we still need to show that $V \boxtimes_k W$ is irreducible and finite-dimensional for all $V \in \irr_k(G)$ and $W \in \irr_k(H)$.
+%   That $V \boxtimes_k W$ is finite-dimensional is clear, since
+%   \[
+%       \dim_k V \otimes_k W
+%     = \dim_k V \cdot \dim_k W
+%     < \infty \,.
+%   \]
+%   To show that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$ for every irreducible representation $V$ of 
+%   $G$ and every irreducible representation $W$ of $H$ let
+%   \[
+%             \psi
+%     \colon  k(G \times H)
+%     \to     \End_k(V \otimes_k W)
+%   \]
+%   be the corresponding homomorphism of $k$-algebras.
+%   We also have the homomorphisms of $k$-algebras
+%   \begin{gather*}
+%             \phi_1
+%     \colon  kG
+%     \to     \End_k(V),
+%             a
+%     \mapsto (v \mapsto av)
+%   \shortintertext{and}
+%             \phi_2
+%     \colon  kH
+%     \to     \End_k(W),
+%     \quad   b
+%     \mapsto (w \mapsto bw) \,.
+%   \end{gather*}
+%   By Lemma \ref{lemma: equivalence to irreducible} these homomorphisms are surjective.
+%   Together with the isomorphisms of $k$-algebras
+%   \[
+%             kG \otimes_k kH
+%     \cong   k(G \times H),
+%     \quad   g \otimes h
+%     \mapsto (g,h)
+%   \]
+%   and
+%   \[
+%             \End_k(V) \otimes_k \End_k(W)
+%     \cong   \End(V \otimes_k W),
+%     \quad   f \otimes g
+%     \mapsto f \otimes g
+%   \]
+%   we get the following commutative diagram.
+%   \[
+%     \begin{tikzcd}[column sep = huge]
+%         kG \otimes_k kH
+%         \arrow{r}{\phi_1 \otimes \phi_2}
+%         \arrow[equal]{d}{\wr}
+%       & \End_k(V) \otimes_k \End_k(W)
+%         \arrow[equal]{d}{\wr}
+%       \\
+%         k(G \times H)
+%         \arrow{r}{\psi}
+%       & \End_k(V \otimes_k W)
+%     \end{tikzcd}
+%   \]
+%   Since both $\phi_1$ and $\phi_2$ are surjective $\phi_1 \otimes \phi_2$ is also surjective.
+%   Therefore $\psi$ is surjective.
+%   Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lemma: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.
+%   
+%   Next we show that $\Psi$ is surjective.
+%   For this let $[Z] \in \irr_k(G \times H)$.
+%   By identifying $G$ with the subgroup $G \times 1 \subseteq G \times H$ we can view $Z$ as a representation of $G$.
+%   Since $Z$ is finite-dimensional and $Z \neq 0$ it contains some irreducible subrepresentation $V$ of $G$.
+%   We can turn $\Hom_G(V, Z)$ into a representation of $H$ via
+%   \[
+%       (h.f)(v)
+%     = h.f(v)
+%     \text{ for all }
+%     h \in H \,,\,
+%     f \in \Hom_G(V, Z) \,,\,
+%     v \in V \,,
+%   \]
+%   where we see $Z$ a representation of $H$ via the identification $H \cong 1 \times H \subseteq G \times H$.
+%   To see that $h.f$ is $G$-equivariant for all $h \in H$ and $f \in \Hom_G(V,W)$ notice that the actions of $G$ and $H$ on $Z$ commute, since for all $g \in G$, $h \in H$, $z \in Z$
+%   \[
+%       g.(h.z)
+%     = (g,1).((1,h).z)
+%     = (g,h).z
+%     = (1,h).((g,1).z)
+%     = h.(g.z) \,,
+%   \]
+%   and thus
+%   \[
+%       (h.f)(g.v)
+%     = h.(f(g.v))
+%     = h.(g.f(v))
+%     = g.(h.f(v))
+%     = g.((h.f)(v)) \,.
+%   \]
+%   Since $\Hom_G(V, Z)$ is finite-dimensional and $\Hom_G(V, Z) \neq 0$ (since the inclusion $\iota \colon V \hookrightarrow Z$ is $G$-equivariant and nonzero) it contains some irreducible subrepresentation $W$ of $H$.
+%   
+%   We want to show that $V \boxtimes_k W \cong Z$ as representations of $G \times H$.
+%   For this let
+%   \[
+%             \beta
+%     \colon  V \boxtimes_k \Hom_G(V,Z)
+%     \to     Z,
+%     \quad   (v, f)
+%     \mapsto f(v) \,.
+%   \]
+%   It is clear that $\beta$ is well-defined and $k$-linear.
+%   It is also $(G \times H)$-equivariant, since for or every $v \otimes f \in V \boxtimes_k \Hom_G(V,Z)$ and $(g,h) \in G \times H$ we have
+%   \begin{align*}
+%         \beta((g.h)(v \otimes f))
+%     &=  \beta((g.v) \otimes (h.f))
+%      =  (h.f)(g.v)
+%      =  h.f(g.v)) \\
+%     &=  h.g.f(v)
+%      =  (h,g).f(v)
+%      =  (h,g).\beta(v \otimes f)
+%   \end{align*}
+%   and these simple tensors $v \otimes f$ generate $V \boxtimes_k \Hom_G(V,Z)$ as a $k$-vector space.
+%   By restriction to $V \boxtimes_k W \subseteq V \boxtimes_k \Hom_G(V,Z)$ we get an homomorphism of representations of $(G \times H)$
+%   \[
+%             \gamma
+%     \colon  V \boxtimes_k W
+%     \to     Z,
+%     \quad   v \otimes f
+%     \mapsto f(v) \,.
+%   \]
+%   We claim that $\gamma$ is an isomorphism.
+%   Since $V \boxtimes_k W$ and $Z$ are both irreducible as representations of $G \times H$ and $k$ is algebraically closed it is enough to show $\gamma \neq 0$ by Schur’s Lemma.
+%   Since $W \neq 0$ there exists some $f \in W$ with $f \neq 0$.
+%   Since $f \neq 0$ there exists some $v \in V$ with $f(v) \neq 0$.
+%   Therefore we have $v \otimes f \in V \boxtimes_k W$ with
+%   \[
+%           \gamma(v \otimes f)
+%     =     f(v)
+%     \neq  0 \,,
+%   \]
+%   so $\gamma \neq 0$.
+%   
+%   Last we show that $\Psi$ is injective.
+%   For this let $[M], [M'] \in \irr_k(G)$ and $[N], [N'] \in \irr_k(H)$ with
+%   \[
+%             \alpha
+%     \colon  M  \boxtimes_k N
+%     \cong   M' \boxtimes_k N'
+%   \]
+%   As representations of $G$ (!) we have
+%   \[
+%           M \boxtimes_k N
+%     \cong \underbrace{ M \oplus \dotsb \oplus M }_{ \dim_k(N) \text{ copies} }
+%   \]
+%   and
+%   \[
+%           M' \boxtimes_k N'
+%     \cong \underbrace{ M' \oplus \dotsb \oplus M' }_{ \dim_k(N') \text{ copies} }\,.
+%   \]
+%   Since $\alpha$ is a $(G \times H)$-equivariant also $G$-equivariant and therefore an isomorphism of representations of $G$.
+%   Therefore we we have $M \cong M'$.
+%   In the same way we find that $N \cong N'$.
+%   This shows that $\Psi$ is injective.
+% \end{proof}
+
+
+\subsection*{Characters}
 
 
 \begin{lemma}
