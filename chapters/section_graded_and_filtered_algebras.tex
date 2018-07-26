@@ -449,7 +449,7 @@
   \begin{equation}
   \label{equation: product rule}
       \del \xi
-    = \xi \del + \id \,.
+    = \xi \del + {\id} \,.
   \end{equation}
   We denote by $k\!\gen{X,D}$ the free $k$-algebra in two generators $X,D$ and by
   \[
@@ -641,34 +641,33 @@
 \end{proof}
 
 
-\begin{conventions}
-  In we following we use for $\ell \geq 0$ and $n_1, \dotsc, n_\ell \geq 0$ the short hand notation
-  \[
-              n(1,\dotsc,\ell)
-    \defined  n_1 + \dotsb + n_\ell \,.
-  \]
-  Note that for numbers $n_1, n_2, \dotsc, n_\ell \geq 0$ we have that
-  \[
-      n_1 + n(2, \dotsc, \ell)
-    = n(1, \dotsc, \ell) \,.
-  \]
-\end{conventions}
-
-
 \begin{corollary}
   \label{corollary: multiple monomials commute up to smaller degree}
   For all $\ell \geq 0$, $n_1, m_1, \dotsc, m_\ell, n_\ell \geq 0$ we have that
   \begin{align*}
        &\,  X^{n_1} D^{m_1} \dotsm X^{n_\ell} D^{m_\ell}  \\
-      =&\,    X^{n(1,\dotsc,\ell)} D^{m(1,\dotsc,\ell)}
+      =&\,    X^{n_1 + \dotsb + n_\ell} D^{m_1 + \dotsb + m_\ell}
             + \left(
-                \text{terms of degree $< n(1,\dotsc,\ell) + m(1,\dotsc,\ell)$}
+                \text{terms of degree $< n_1 + \dotsb + n_\ell + m_1 + \dotsb + m_\ell$}
               \right) \\
-    \in&\,    X^{n(1,\dotsc,\ell)} D^{m(1,\dotsc,\ell)}
-            + F'_{n(1,\dotsc,\ell) + m(1,\dotsc,\ell) - 1}(\weyl')
+    \in&\,    X^{n_1 + \dotsb + n_\ell} D^{m_1 + \dotsb + m_\ell}
+            + F'_{n_1 + \dotsb + n_\ell + m_1 + \dotsb + m_\ell - 1}(\weyl')
   \end{align*}
 \end{corollary}
 
+
+\begin{notation}
+  In we following we use for $\ell \geq 0$ and $n_1, \dotsc, n_\ell \geq 0$ the short hand notation
+  \[
+              n(1,\dotsc,\ell)
+    \defined  n_1 + \dotsb + n_\ell \,.
+  \]
+  Note that for all numbers $n_1, n_2, \dotsc, n_\ell \geq 0$ we have that
+  \[
+      n_1 + n(2, \dotsc, \ell)
+    = n(1, \dotsc, \ell) \,.
+  \]
+\end{notation}
 
 \begin{proof}
   The claim holds for $\ell = 0, 1$.
@@ -774,7 +773,7 @@
   \]
   for all $n, n', m, m' \geq 0$.
   The associated graded algebra $\gr_F(\weyl)$ is the commutative polynomial ring in the two free variables $\xi$ and $\del$.
-  This shows that the filtration $F$ of $\weyl$ does not come from a filtration of $\weyl$, and it follows from Lemma~\ref{lemma: associated graded reflects no zero divisors} that $\weyl$ has no zero divisors.
+  This shows that the filtration $F$ of $\weyl$ does not come from a grading of $\weyl$, and it follows from Lemma~\ref{lemma: associated graded reflects no zero divisors} that $\weyl$ has no zero divisors.
 \end{fluff}
 
 
@@ -839,10 +838,10 @@
   This $k$-algebra is then denoted by $R[y;\delta]$ and is a \emph{skew polynomial ring} or \emph{differential polynomial ring} of $R$.
   
   For $R = k[x]$ and $\delta = 0$ we get that $k[x][y;0] = k[x,y]$ is the usual commutative polynomial ring in two variables $x,y$.
-  For $R = k[x]$ and $\delta = \del$ we have seen above that $k[x][y,\del] \cong \weyl$.
+  For $R = k[x]$ and $\delta = \del$ we have seen above that $k[x][y;\del] \cong \weyl$.
   
   In addition to the $k$-derivation one can also consider a $k$-algebra homomorphism $\alpha \colon R \to R$:
-  A map $\delta \colon R \to R$ is then a $\alpha$-derivation if
+  Then a map $\delta \colon R \to R$ is a $\alpha$-derivation if
   \[
       \delta(rs)
     = \alpha(r) \delta(s) + \delta(r) s
@@ -854,8 +853,8 @@
     = \alpha(r) y + \delta(r)
   \]
   for every $r \in R$.
-  This $k$-algebra is then denotey by $R[y;\alpha,\delta]$ is an \emph{Ore extension} of $R$.
-  For $\alpha = \id_R$ we retrieve the above the nototion of a skew polynomial ring.
+  This $k$-algebra, which is denoted by $R[y;\alpha,\delta]$, is an \emph{Ore extension} of $R$.
+  For $\alpha = \id_R$ we retrieve the above the notion of a skew polynomial ring.
   Ore extensions inhert properties from the original ring $R$:
   \begin{itemize}
     \item
@@ -884,7 +883,7 @@
             \text{$X_i X_j = X_j X_i$ for all $i,j$},
           & \text{$D_i D_j = D_j D_i$ for all $i, j$},
           \\
-            \text{$D_i X_j = X_j D_i$ for $i \neq j$},
+            \text{$D_i X_j = X_j D_i$ for all $i \neq j$},
           & \text{$D_i X_i = X_i D_i + 1$ for all $i$} \,.
         \end{array}
         \endgroup

@@ -63,6 +63,9 @@
 \end{lemma}
 
 
+% TODO: Does not hold for general rings.
+
+
 \begin{proof}
   Let $E$ be a simple $R$-module and let $x \in E$ with $x \neq 0$.
   Then the map $R \to E$, $r \mapsto rx$ is a nonzero homomorphism of $R$-modules and the claim follows from Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules}.
@@ -140,12 +143,6 @@
   is a composition series of $R$ of length $n$.
   It follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan-Hölder theorem} that every strictly increasing (resp.\ strictly decreasing) sequence of submodules of $R$ stabilizes after at most $n$ steps (see Corollary~\ref{corollary: consequences of jordan hoelder}).
 \end{proof}
-
-
-\begin{fluff}
-  The main goal of this subsection is to state and prove the theorem of Artin--Wedderburn, which classifies semisimple rings up to isomorphism.
-  For this we will need some knowledge about the opposite ring $R^\op$, a brief introduction to which can be found in Appendix~\ref{appendix: the opposite ring}.
-\end{fluff}
 
 
 
@@ -305,6 +302,7 @@
 
 \begin{fluff}
   We will also need the endomorphisms rings of the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple}.
+  From now on we will need some knowledge about the opposite ring $R^\op$, a brief introduction to which can be found in Appendix~\ref{appendix: the opposite ring}.
 \end{fluff}
 
 
@@ -316,37 +314,33 @@
             \Phi 
     \colon  D^\op
     \to     \End_{\Mat_n(D)}(D^n) \,,
-    \quad   d
-    \mapsto \left(
-                      \vect{x_1 \\ \vdots \\ x_n}
-              \mapsto \vect{x_1 \\ \vdots \\ x_n} d
-              =       \vect{x_1 d \\ \vdots \\ x_n d}
-            \right)
+    \quad   d^\op
+    \mapsto (x \mapsto xd)
   \]
   is an isomorphism of rings.
 \end{lemma}
 
 
 \begin{proof}
-  We denote the multiplication of $D^\op$ by $*$.
+%   We denote the multiplication of $D^\op$ by $*$.
   
   The column space $D^n$ carries the structure of a right $D$-module via scalar multiplication from the right.
   This right $D$-module structure corresponds to a left $D^\op$-modules structure (see Proposition~\ref{proposition: left right modules under op}), which in turn corresponds to a ring homomorphism $\Phi' \colon D^\op \to \End_\Integer(D^n)$ as described above.
-  For every matrix $A \in \Mat_n(D)$, vector $x \in D^n$ and scalar $d \in D^\op$ we have that
+  For every matrix $A \in \Mat_n(D)$, vector $x \in D^n$ and scalar $d \in D$ we have that
   \[
       A(xd)
     = Axd
     = (Ax)d \,,
   \]
-  which shows that $\Phi'$ restrict to $\Phi \colon D^\op \to \End_{\Mat_n(D)}(D^n)$ as desired.
+  which shows that $\Phi'$ restrict to a ring homomorphism $\Phi \colon D^\op \to \End_{\Mat_n(D)}(D^n)$ as desired.
   
   It remains to show that $\Phi$ is bijective.
-  For $d, d' \neq 1$ we have that
+  For $d_1, d_2 \in D$ with $d_1 \neq d_2$ we have that
   \[
-          \Phi(d)(e_1)
-    =     e_1 d
-    \neq  e_1 d'
-    =     \Phi(d')(e_1) \,,
+          \Phi(d_1^\op)(e_1)
+    =     e_1 d_1
+    \neq  e_1 d_2
+    =     \Phi(d_2^\op)(e_1) \,,
   \]
   which shows that $\Phi$ is injective.
   To see that $\Phi$ is surjective let $f \in \End_{\Mat_n(D)}(D^n)$.
@@ -412,7 +406,7 @@
           \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(D_i^{n_i})
     \cong D_i^\op
   \]
-  by Corollary~\ref{corollary: endomorphism ring of Si}.
+  by Corollary~\ref{corollary: endomorphism ring of Si}, with $d^\op \in D_i^\op$ acting on $D_i^{n_i}$ by right multiplication with $d$.
 \end{notation}
 
 
@@ -424,32 +418,7 @@
 \subsubsection{The Theorem of Artin--Wedderburn}
 
 
-\begin{lemma}
-  \label{lemma: isotypical components are two sided ideals}
-  If $E$ is a simple $R$-module then the isotypical component $R_E$ is a two-sided ideal of $R$.
-\end{lemma}
 
-
-\begin{proof}
-  The isotypical component $R_E$ is a submodule of $R$, and therefore a left ideal.
-  For every $r \in R$ the map $R \to R$, $x \mapsto xr$ is a homomorphism of $R$-modules and therefore maps $R_E$ into $R_E$ by Lemma~\ref{lemma: functioriality of isotypical components}.
-  Therefore $R_E$ is also a right ideal.
-\end{proof}
-
-
-\begin{fluff}
-  \label{fluff: intro to artin wedderburn}
-  If $R$ is semisimple then by Corollary~\ref{corollary: ss rings have only finitely many simple modules} there exist only finitely many simple $R$-modules $E_1, \dotsc, E_r$ up to isomorphism.
-  The \hyperref[theorem: isotypical decomposition]{isotypical decomposition} then reads
-  \[
-      R
-    = R_{E_1} \times \dotsb \times R_{E_r}
-  \]
-  and each $R_{E_i}$ is a non-trivial two-sided ideal by Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and Lemma~\ref{lemma: isotypical components are two sided ideals}.
-  Each $R_{E_i}$ is then itself a ring with respect to the addition and multiplication inherited from $R$ as explained in Proposition~\ref{proposition: factor ideals are again rings}.
-  Each $R_{E_i}$ is itself semisimple by Proposition~\ref{proposition: product of semisimple} with $E_i$ being its only simple module up to isomorphism.
-  We will now see that the $R_{E_i}$ are already isomorphic to a matrix ring over a skew field:
-\end{fluff}
 
 
 \begin{theorem}[Artin--Wedderburn]
@@ -543,38 +512,6 @@
 
 
 \begin{remark}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      Note that under an isomorphism of rings $R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ the isotypical components $R_{E_1}, \dotsc, R_{E_r}$ correspond (not necessarily in the same order) to the isotypical components $\Mat_{n_1}(D_1), \dotsc, \Mat_{n_r}(D_r)$.
-      We have therefore proven our claim from \ref{fluff: intro to artin wedderburn} that the factors $R_{E_i}$ are isomorphic to matrix rings over skew fields.
-      Note however that the decomposition
-      \[
-          R
-        = R_{E_1} \times \dotsb \times R_{E_r}
-      \]
-      is canonical, while the decomposition
-      \[
-              R
-        \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
-      \]
-      depends on the choice of decompositions of $R_{E_i}$ into a direct sums of simple submodules.
-    \item
-      Under the isomorphism of $R$-modules $R \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}$ the isotypical component $R_{E_i}$ corresponds to the direct summand $E_i^{n_i}$.
-      In the above proof of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have therefore actually constructed an isomorphism
-      \[
-                                R^\op
-        \xlongrightarrow{\sim}  \End_R(R_{E_1}) \times \dotsb \times \End_R(R_{E_r})
-      \]
-      which maps $x \in R^\op$ to $(f_1, \dotsc, f_r)$ with $f_i(y) = yx$ for all $i = 1, \dotsc, r$.
-      
-      This decomposition of $R^\op$ is canonical and does not depend on the further decomposition of $R_{E_i}$ into a direct sum of simple submodules $R_{E_1} \cong E_i^{\oplus n_i}$, contrary to the identification of $\End_R(R_{E_i})$ with $\Mat_{n_i}(\End_R(E_i))$.
-  \end{enumerate}
-\end{remark}
-
-
-
-\begin{remark}
   Corollary~\ref{corollary: artin wedderburn rings are semisimple} and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} together give a classification of semisimple rings up to isomorphism:
   Semisimple rings are precisely the products of matrix rings over skew fields.
 \end{remark}
@@ -609,24 +546,24 @@
 \end{definition}
 
 
+\begin{example}
+  The $R$-module $R$ is faithful because we can choose $m = 1$.
+\end{example}
+
+
 \begin{recall}
-  An $R$-module $M$ is faithful if any of the following equivalent conditions is fullfilled:
+  For an $R$-module $M$ the following conditions are equivalent:
   \begin{enumerate}
     \item
       The module $M$ is faithful.
     \item
-      The corresponding ring homomorphism $R \to \End_\Integer(M)$ is injective.
-    \item
       For every $r \in R$ with $r \neq 0$ there exists some $m \in M$ with $rm \neq 0$.
+    \item
+      The corresponding ring homomorphism $R \to \End_\Integer(M)$ is injective.
     \item
       The annihilator $\Ann_R(M) = \{r \in R \suchthat rm = 0\}$ is $0$.
   \end{enumerate}
 \end{recall}
-
-
-\begin{example}
-  The $R$-module $R$ is faithful because we can choose $m = 1$.
-\end{example}
 
 
 \begin{corollary}
@@ -641,10 +578,11 @@
   \]
   for $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew field $D_1, \dotsc, D_r$.
   Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ form a complete set of representatives of $\Irr(R)$.
+  For every $i = 1, \dotsc, r$ let $M_i$ be the $D_i^{n_i}$-isotypical component of $M$.
   
-  The module $M$ is semisimple because $R$ is semisimpe, so there exists a decomposition into isotypical components $M \cong \bigoplus_{i=1}^s M_{D_i^{n_i}}$.
-  If $M_{D_i^{n_i}} = 0$ for some $1 \leq i \leq s$ then every element $A \in M_{n_i}(D_i) \subseteq R$ would act by multiplication with zero on $M$, which would contradicts the faithfulness of $M$.
-  The isotypical components $M_{D_i^{n_i}}$ are therefore all nonzero.
+  The module $M$ is semisimple because $R$ is semisimpe, so there exists a decomposition into isotypical components $M = \bigoplus_{i=1}^r M_i$.
+  If $M_i = 0$ for some $1 \leq i \leq r$ then every element $A \in \Mat_{n_i}(D_i) \subseteq R$ would act by multiplication with zero on $M$, which would contradicts the faithfulness of $M$.
+  The isotypical components $M_i$ are therefore all nonzero.
 \end{proof}
 
 

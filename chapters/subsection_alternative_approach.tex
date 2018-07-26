@@ -1,0 +1,363 @@
+\subsection{Alternative Approach}
+
+
+\begin{fluff}
+  We will now show another approach to the theorems of \hyperref[theorem: artin wedderburn theorem]{Artin--Wedderburn} and \hyperref[theorem: wedderburns theorem]{Wedderburn} which illuminates the role that simple ring play in the theory.
+  
+  We have seen in Lemma~\ref{lemma: isotypical components are two sided ideals} that the isotypical components of a ring $R$ are two-sided ideals.
+  We will begin by strengthening this result:
+\end{fluff}
+
+
+\begin{lemma}[{\cite[Lemma~1.14]{FarbDennis1993}}]
+  \label{lemma: decomposition of module into End tensor R modules}
+  Let $M$ be an $R$-module.
+  \begin{enumerate}
+    \item
+      For every simple $R$-module $E$ the $E$-isotypical component $M_E$ is $\End_R(M)$-in\-vari\-ant, i.e.\ we have that $f(M_E) \subseteq M_E$ for every $f \in \End_R(M)$.
+    \item
+      If $M$ is semisimple and $N \moduleleq M$ is an $R$-submodule which is $\End_R(M)$-invariant then $N$ is a sum of isotypical components of $M$, i.e.\ there exists some subset $\mc{S} \subseteq \Irr(R)$ with $N = \bigoplus_{[E] \in \mc{S}} M_E$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      This follows from Lemma~\ref{lemma: functoriality of isotypical components}.
+    \item
+      We have that $M = \bigoplus_{[E] \in \Irr(R)} M_E$ and $N = \bigoplus_{[E] \in \Irr(R)} N_E$, so we need to show that for every $E \in \Irr(R)$ with $N_E \neq 0$ we already have that $N_E = M_E$.
+      
+      Note that $N_E = N \cap M_E$ is $\End_{R}(M)$-invariant and therefore also $\End_{R}(M_E)$-invariant because every $R$-module endomorphism of $M_E$ extends to an endomorphism of $M$ by Corollary~\ref{corollary: endomorphism ring of semisimple module}. 
+      It therefore sufficies to consider the case that $M = M_E$ for some $E \in \Irr(R)$, i.e.\ that $M$ is $E$-isotypical.
+      
+      Then $N$ is also $E$-isotypical and it follows from $N \neq 0$ that there exists a submodule $L \moduleleq N$ with $L \cong E$.
+      If $L' \moduleleq M$ is any submodule with $L' \cong E$ then $L \cong L'$ and every isomorphism $f \colon L \to L'$ extends to an $R$-module endomorphism $g \colon M \to M$:
+      We may choose direct complements $C, C'$ of $L, L'$ because $M$ is semisimple and define $g$ by
+      \[
+                g
+        \colon  M
+        =       L \oplus C
+        \xlongrightarrow{ \begin{bmatrix} f & 0 \\ 0 & 0 \end{bmatrix} }
+                L' \oplus C'
+        =       M \,,
+      \]
+      i.e.\ $g$ is given by the composition
+      \[
+                            g
+        \colon              M
+        =                   L \oplus C
+        \projection         L
+        \xlongrightarrow{f} L'
+        \inclusion          L' \oplus C'
+        =                   M \,.
+      \]
+      It follows that
+      \[
+                    L'
+        =           f(L)
+        =           g(L)
+        \moduleleq  N
+      \]
+      because $N$ is $\End_R(M)$-invariant.
+      This shows that
+      \[
+                    M
+        =           M_E
+        =           \sum_{L' \moduleleq M, L' \cong E} L'
+        \moduleleq  N \,,
+      \]
+      which shows that $M = N$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: isotypical components as two sided ideals}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For every simple $R$-module $E$ the $E$-isotypical component $R_E$ is a two-sided ideal of $R$.
+    \item
+      If $R$ is semisimple and $E_1, \dotsc, E_n$ is a set of representatives for the isomorphism classes of simple $R$-modules (this set is finite by Corollary~\ref{corollary: ss rings have only finitely many simple modules}) then the $E_i$-isotypical components $R_{E_i}$ are minimal two-sided ideals of $R$, and every two-sided ideal of $R$ is a sum of isotypical components.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+    The two-sided ideal of $R$ are precisely those left ideals which are also invariant under right multiplication with elements of $R$.
+    It follows from the isomorphism $R^\op \cong \End_R(R)$ from Lemma~\ref{lemma: End_R(R) = Rop} that for a left ideal, invariance under right multiplication is the same as $\End_R(R)$-invariance.
+    The two-sided ideals of $R$ are therefore precisely those left ideals which are $\End_R(R)$-invariant.
+    
+    With this observation the claims follow from Lemma~\ref{lemma: decomposition of module into End tensor R modules}.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: semisimple ring has only finitely many components}
+  If $R$ is semisimple then $R$ contains only finite many two-sided ideals, namely $2^n$ many where $n = |{\Irr(R)}|$.
+\end{corollary}
+
+
+\begin{remark}
+  Corollary~\ref{corollary: semisimple ring has only finitely many components} also follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}:
+  We may assume that the semisimple ring $R$ is given by $R = \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ with $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  Then every two-sided ideal $I \idealleq R$ is of the form $I = I_1 \times \dotsb \times I_r$ for unique two-sided ideals $I_j \idealleq \Mat_{n_j}(D_j)$ by Remark~\ref{remark: right and two-sided ideals in products of rings}.
+  It follows for every $j = 1, \dotsc, r$ that either $I_j = 0$ or $I_j = \Mat_{n_j}(D_j)$ because the matrix rings $\Mat_{n_j}(D_j)$ are simple.
+  Thus it follows that $R$ contains precisely $2^r$ two-sided ideals, with $r = |{\Irr(R)}|$.
+\end{remark}
+
+
+\begin{fluff}
+  \label{fluff: intro to artin wedderburn}
+  If $R$ is semisimple then by Corollary~\ref{corollary: ss rings have only finitely many simple modules} there exist only finitely many simple $R$-modules $E_1, \dotsc, E_r$ up to isomorphism.
+  The \hyperref[theorem: isotypical decomposition]{isotypical decomposition} then reads
+  \[
+      R
+    = R_{E_1} \times \dotsb \times R_{E_r}
+  \]
+  and each $R_{E_i}$ is a non-trivial two-sided ideal by Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and Corollary~\ref{corollary: isotypical components as two sided ideals}.
+  
+  Each $R_{E_i}$ is then itself a ring with respect to the addition and multiplication inherited from $R$ as explained in Proposition~\ref{proposition: factor ideals are again rings}.
+  Each $R_{E_i}$ is itself semisimple by Proposition~\ref{proposition: product of semisimple} with $E_i$ being its only simple module up to isomorphism.
+  The rings $R_{E_i}$ are simple, as can be seen in two ways:
+  \begin{itemize}
+    \item
+      Every $R_{E_i}$ is a minimal two-sided ideal of $R$, so it cannot contain any nonzero proper ideals.
+    \item
+      Because $R_{E_i}$ is semisimple and has precisely one isomorphism class of simple modules it follows from Corollary~\ref{corollary: isotypical components as two sided ideals} that $R_{E_i}$ is the unique nonzero two-sided ideal of $R_{E_i}$.
+  \end{itemize}
+  
+  We have thus shown that every semisimple ring has a canonical decomposition into a direct product of rings, each of which is simple and semisimple with only one isomorphism class of simple modules.
+  We would now like to rewoke \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} to conclude that each factor $R_{E_i}$ is already of the form $R_{E_i} \cong \Mat_{n_i}(D_i)$ for some $n_i \geq 1$ and skew field $D_i$.
+  
+  But in the proof of \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} we actually used the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}, which are trying to avoid.
+  However, by taking a careful look at the given proof of \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} we see that we only used the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} for one of the implications.
+  We will therefore now give another proof, which does not rely on the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
+  The main tool is the following observation due to \cite{Rieffel}.
+%   and can also be found in \cite[Chapter~XVII, Theorem~5.4]{LangAlgebra2005} and \cite[Theorem~3.11]{Lam1991First}.
+\end{fluff}
+
+
+\begin{lemma}[Rieffel]
+  \label{lemma: simple ring isomorphic to endomorphism ring of ideal}
+  Let $I \idealleq R$ be a left ideal.
+  Then $I$ is a left $D$-module for $D \defined \End_R(I)$ via
+  \[
+      \varphi \cdot x
+    = \varphi(x)
+  \]
+  for all $\varphi \in D$, $x \in I$, and the map
+  \[
+            \Phi    
+    \colon  R
+    \to     \End_D(I)\,,
+    \quad   r
+    \mapsto (x \mapsto rx)
+  \]
+  is a well-defined ring homomorphism.
+  If $R$ is simple and $I$ is nonzero then $\Phi$ is an isomorphism.
+\end{lemma}
+
+
+\begin{proof}
+  That $I$ is a left $D$-module follows by direct calculation.
+  The $R$-module structure of $I$ corresponds to a ring homomorphism $\Phi' \colon R \to \End_\Integer(I)$, $r \mapsto (x \mapsto rx)$, which restrict to the desired ring homomorphism $\Phi$ because the actions of $R$ and $D$ on $I$ commute (by definition of $D$).
+  
+  It follows from $I \neq 0$ that $D \neq 0$ and therefore that $\Phi \neq 0$.
+  The kernel $\ker(\Phi)$ is a therefore a proper two-sided ideal of $R$, and must be trivial by the simplicity of $R$.
+  This shows that $\Phi$ is injective.
+  
+  The key observation behind the surjectivity of $\Phi$ is that $\Phi(I)$ is a left-ideal in $\End_D(I)$:
+  Let $f \in \End_D(I)$ and $x \in I$.
+  For every $y \in I$ the map $\rho_y \colon I \to I$, $x' \mapsto x'y$ is a homomorphism of $R$-modules, i.e.\ an element of $D$, and thus commutes with $f$.
+  It follows for every $y \in I$ that
+  \[
+      (f \Phi(x))(y)
+    = f(\Phi(x)(y))
+    = f(xy)
+    = f(\rho_y(x))
+    = \rho_y(f(x))
+    = f(x)y
+    = \Phi(f(x))(y) \,,
+  \]
+  showing that $f \Phi(x) = \Phi(f(x)) \in \Phi(I)$.
+  
+  It follows that $\Phi(R)$ is a left ideal in $\End_D(I)$:
+  It follows from $IR$ being a nonzero two-sided ideal of $R$ that $R = IR$ by the simplicity of $R$.
+  It follows that $\Phi(R) = \Phi(I)\Phi(R)$, and because $\Phi(I)$ is a left ideal in $\End_D(R)$ it further follows that
+  \[
+              \End_D(I) \Phi(R)
+    =         \End_D(I) \Phi(I) \Phi(R)
+    \subseteq \Phi(I) \Phi(R)
+    =         \Phi(R) \,.
+  \]
+  Because the left ideal $\Phi(R)$ contains the identity $1_{\End_D(I)} = \Phi(1)$ it follows that $\Phi(R) = \End_D(I)$, showing the surjecitvity of $R$.
+\end{proof}
+
+
+\begin{proof}[Alternative proof of {\hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}}]
+  \leavevmode
+  \begin{description}
+    \item[\ref*{enumerate: simple and artinian} $\implies$ \ref*{enumerate: simple and minimal left ideal}]
+      As in the \hyperref[proof: wedderburns theorem first proof]{first proof}.
+    \item[\ref*{enumerate: simple and minimal left ideal} $\implies$ \ref*{enumerate: matrix algebra over skew field}]
+      It follows from Lemma~\ref{lemma: simple ring isomorphic to endomorphism ring of ideal} that $R \cong \End_D(I)$ for $D \defined \End_R(I)$.
+      It follows from $I$ being simple as an $R$-module that $D$ is a skew field.
+      If $I$ were not finite-dimensional as a $D$-vector space then it would follows as in Example~\ref{example: simple but not semisimple endorphism ring} that
+      \[
+        \{
+          f \in \End_D(I)
+        \suchthat
+          \text{$f$ has finite rank}
+        \}
+      \]
+      is a nonzero proper two-ideal in $\End_D(I)$, which would contradict $R$ being simple.
+      We thus find that $I$ is finite-dimensional as a $D$-vector space of dimension $n \defined \dim_D(I)$.
+      By linear algebra we find that $I \cong D^n$ as $D$-vector spaces;
+      contrary to our usual convention we will regard $D^n$ as the space of \emph{row} vectors of width $n$.
+      It then follows from linear algebra that every $D$-endomorphism $f \colon D^n \to D^n$ is given by right multiplication with a matrix $A \in \Mat_n(D)$, resulting in an isomorphism of rings $\End_D(D^n) \cong \Mat_n(D)^\op$.
+      It follows that
+      \[
+              R
+        \cong \End_D(I)
+        \cong \End_D(D^n)
+        \cong \Mat_n(D)^\op
+        \cong \Mat_n(D^\op)
+      \]
+      with $D^\op$ being a skew field.
+    \item[\ref*{enumerate: matrix algebra over skew field} $\implies$ \ref*{enumerate: simple and semisimple}]
+      We know that $\Mat_n(D)$ is both simple and semisimple.
+    \item[\ref*{enumerate: simple and semisimple} $\implies$ \ref*{enumerate: semisimple with unique simple}]
+      As in the \hyperref[proof: wedderburns theorem first proof]{first proof}.
+    \item[\ref*{enumerate: semisimple with unique simple} $\implies$ \ref*{enumerate: simple and artinian}]
+      Every semisimple ring is artinian by Corollary~\ref{corollary: semisimple rings are notherian artinian}, and if $R$ has only a single isomorphism class of simple modules then it follows from Corollary~\ref{corollary: isotypical components as two sided ideals} that $R$ is simple.
+  \end{description}
+  The uniqueness of $D$ up to isomorphism and the uniqueness of $n$ can be shown as in the \hyperref[proof: wedderburns theorem first proof]{first proof}.
+\end{proof}
+
+
+\begin{fluff}
+  We now have an alternative proof for the existence of an Artin--Wedderburn decomposition of a semisimple ring $R$:
+  We first decompose $R$ as
+  \[
+      R
+    = R_{E_1} \times \dotsb \times R_{E_n}
+  \]
+  where $E_1, \dotsc, E_n$ is a set of representatives for the isomorphism classes of simple $R$-modules.
+  This is a decomposition into two-sided ideals, and therefore a decomposition of $R$ into a direct products of rings $R_{E_1}, \dotsc, R_{E_n}$.
+  Then each factor $R_{E_i}$ is a ring which is both simple and semisimple.
+  By \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} each factor $R_{E_i}$ isomorphic to a matrix ring $R_{E_i} \cong \Mat_{n_i}(D_i)$ where $n_i$ is the multiplicity of $E_i$ in $R_{E_i}$, which is the same as the multiplicity of $E_i$ in $R$, and $D_i = \End_{R_{E_i}}(E_i)^\op = \End_R(E_i)^\op$ is a skew field.
+  
+  We can also give an alternative proof of the uniqueness of the Artin--Wedderburn decomposition (up to isomorphism):
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: uniqueness of decompositon into simple rings}
+  Let $R = I_1 \oplus \dotsb \oplus I_n = J_1 \oplus \dotsb \oplus J_m$ be two decompositions into minimal two-sided ideals.
+  Then both decompositions coincide up to permutation of the summands.
+\end{lemma}
+
+
+\begin{proof}[First proof ({\cite[Lemma~3.8]{Lam1991First}})]
+  Each $I_i$ inherits the structure of a ring from $R$ by Proposition~\ref{proposition: factor ideals are again rings}, and $R$ is the internal direct product of the rings $I_1, \dotsc, I_n$ in the sense of Definition~\ref{definition: internal direct product of rings}.
+  It follows from Remark~\ref{remark: right and two-sided ideals in products of rings} that every two-sided ideal $K \idealleq R$ is of the form
+  \[
+    K = K_1 \oplus \dotsb \oplus K_n
+  \]
+  for unique two-sided ideals $K_i \idealleq I_i$;
+  the component $K_i$ can equivalently be described as $K_i = K \cap I_i$.
+  We thus find for all $j = 1, \dotsc, m$ that
+  \[
+    J_j = (J_j \cap I_1) \oplus \dotsb \oplus (J_j \cap I_n) \,.
+  \]
+  The intersections $J_j \cap I_i$ are again two-sided ideals.
+  It therefore follows from the minimality of $J_j$ that there exists a unique index $1 \leq \tau(j) \leq n$ with $J_j = J_j \cap I_{\tau(j)}$, which can be rephrased as $J_j \subseteq I_{\tau(j)}$.
+  
+  We find in the same way that there exists for every $i = 1, \dotsc, n$ some $1 \leq \sigma(i) \leq m$ with $I_i \subseteq J_{\sigma(i)}$.
+  It follows for every $i = 1, \dotsc, n$ that
+  \[
+              I_i
+    \subseteq J_{\sigma(i)}
+    \subseteq I_{\tau(\sigma(i))} \,,
+  \]
+  from which it follows that $\tau(\sigma(i)) = i$.
+  It then also follows that $I_i = J_{\sigma(i)}$ for every $i = 1, \dotsc, n$.
+  That $\sigma(\tau(j)) = j$ and $J_j = I_{\tau(j)}$ for all $j = 1, \dotsc, m$ follows in the same way.
+  
+  This shows that the mappings $\sigma, \tau$ are mutually inverse bijections, which shows that $n = m$.
+  We have also shown that both $I_1, \dotsc, I_n$ and $J_1, \dotsc, J_m = J_n$ agree up to permutation (namely $\sigma$, resp.\ $\tau$).
+\end{proof}
+
+
+\begin{proof}[Second proof ({\cite[Theorem~1.13]{FarbDennis1993}})]
+  We have for all $j = 1, \dotsc, m$ that
+  \[
+      J_j
+    = R J_j
+    = \bigoplus_{i=1}^n I_i J_j    
+  \]
+  with $I_i J_j$ being two-sided ideals which are contained in $J_j$.
+  It follows from the minimality of $J_j$ that there exists a unique index $\tau(j) \in \{1, \dotsc, n\}$  with $J_j = I_{\tau(i)} J_j$, and thus $J_j \subseteq I_{\tau(i)}$.
+  We can now proceed as in the first proof.
+\end{proof}
+
+
+\begin{fluff}
+  We can now prove the uniqueness part of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}:
+  Suppose that $R$ is semisimple with $R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_i$.
+  Then the factors $\Mat_{n_i}(D_i)$ corresponding precisely to the isotypical components of $R$, as can be seen in two ways:
+  \begin{itemize}
+    \item
+      The factors $\Mat_{n_i}(D_i)$ are the isotyipical components of $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$, and thus are mapped by every isomorphism $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \to R$ bijectively onto the isotypical components of $R$.
+    \item
+      The product structure of $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ correspondings to a decomposition $R = I_1 \oplus \dotsb \oplus I_r$ into two-sided ideals.
+      The ideals $I_i$ are minimal nonzero two-sided ideals because the rings $\Mat_{n_i}(D_i)$ are simple.
+      It follows from Lemma~\ref{lemma: uniqueness of decompositon into simple rings} that the ideals $I_1, \dotsc, I_r$ coincide the with isotypical components of $R$ up to permutation.
+  \end{itemize}
+  By reordering the factors $\Mat_{n_i}(D_i)$ we may therefore assume that $R_{E_i} \cong \Mat_{n_i}(D_i)$ for all $i = 1, \dotsc, r$, where $E_1, \dotsc, E_r$ is a set of representatives for the isomorphism classes of simple $R$-modules.
+  It now follows from \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} that the number $n_i$ is uniquely determined as the multiplicity of $E_i$ in $R$, and the skew field $D_i$ is uniquely determined up to isomorphism as $D_i \cong \End_R(E_i)^\op$.
+\end{fluff}
+
+
+\begin{fluff}
+  Altogether we have shown that every semisimple ring $R$ has a unique decomposition into a product of simple rings, and that each factor is then isomorphic to matrix ring $\Mat_{n_i}(D_i)$ over a skew field $D_i$ by \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}, with $n_i$ being uniquely determined and $D_i$ being unique up to isomorphism.
+\end{fluff}
+
+
+% \begin{remark}
+%   \leavevmode
+%   \begin{enumerate}
+%     \item
+%       Note that under an isomorphism of rings $R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ the isotypical components $R_{E_1}, \dotsc, R_{E_r}$ correspond (not necessarily in the same order) to the isotypical components $\Mat_{n_1}(D_1), \dotsc, \Mat_{n_r}(D_r)$.
+%       We have therefore proven our claim from \ref{fluff: intro to artin wedderburn} that the factors $R_{E_i}$ are isomorphic to matrix rings over skew fields.
+%       Note however that the decomposition
+%       \[
+%           R
+%         = R_{E_1} \times \dotsb \times R_{E_r}
+%       \]
+%       is canonical, while the decomposition
+%       \[
+%               R
+%         \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+%       \]
+%       depends on the choice of decompositions of $R_{E_i}$ into a direct sums of simple submodules.
+% %     \item
+% %       Under the isomorphism of $R$-modules $R \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}$ the isotypical component $R_{E_i}$ corresponds to the direct summand $E_i^{n_i}$.
+% %       In the above proof of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have therefore actually constructed an isomorphism
+% %       \[
+% %                                 R^\op
+% %         \xlongrightarrow{\sim}  \End_R(R_{E_1}) \times \dotsb \times \End_R(R_{E_r})
+% %       \]
+% %       which maps $x \in R^\op$ to $(f_1, \dotsc, f_r)$ with $f_i(y) = yx$ for all $i = 1, \dotsc, r$.
+% %       
+% %       This decomposition of $R^\op$ is canonical and does not depend on the further decomposition of $R_{E_i}$ into a direct sum of simple submodules $R_{E_1} \cong E_i^{\oplus n_i}$, contrary to the identification of $\End_R(R_{E_i})$ with $\Mat_{n_i}(\End_R(E_i))$.
+%   \end{enumerate}
+% \end{remark}
+
+
+
+

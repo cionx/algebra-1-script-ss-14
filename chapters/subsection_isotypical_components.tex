@@ -151,7 +151,7 @@
 
 
 \begin{lemma}
-  \label{lemma: functioriality of isotypical components}
+  \label{lemma: functoriality of isotypical components}
   Every homomorphism of $R$-modules $f \colon M \to N$ restrict to a homomorphism $f_E \colon M_E \to N_E$.
 \end{lemma}
 
@@ -171,6 +171,26 @@
 
 
 % TODO: Have seen this before for Reynolds Operator
+
+
+\begin{corollary}
+  \label{corollary: endomorphism ring of semisimple module}
+  If $M$ is semisimple, then the map
+  \[
+            \End_R(M)
+    \to     \prod_{[E] \in \Irr(R)} \End_R(M_E),
+    \quad   f
+    \mapsto (f_E)_{[E] \in \Irr(R)}
+  \]
+  is a well-defined isomorphis of rings.
+  If $R$ is a $k$-algebra, then it is an isomorphism of $k$-algebras.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Lemma~\ref{lemma: functoriality of isotypical components} that every endomorphism $f \colon M \to M$ restrict for every $E \in \Irr(R)$ to an endomorphism $f_E \colon M_E \to M_E$.
+  The statement therefore follows from Corollary~\ref{corollary: decomposition of endomorphism ring into product}.
+\end{proof}
 
 
 \begin{remark}
@@ -195,8 +215,6 @@
   \]
   is therefore a surjective homomorphism of $R$-modules.
   It follows that $R/I \cong M$ for the left ideal $I \defined \ker \varphi \idealleq R$, and it follows from Lemma~\ref{proposition: characterisation semisimple modules} that $I$ is maximal.
-
-  
 %    We construct a $1$:$1$-correspondence between isomorphism classes of simple $R$-modules and maximal left ideals in $R$.
 %   Recall that the annihilator of an $R$-module $M$ is $\Ann(M) = \{r \in R \suchthat rm = 0\}$, which is a left ideal in $R$.
 %   

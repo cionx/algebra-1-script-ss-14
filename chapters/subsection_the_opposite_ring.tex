@@ -3,7 +3,7 @@
 
 
 \begin{conventions}
-  In the following $R$ denotes a ring.
+  In the following $R, S$ denotes a ring.
 \end{conventions}
 
 
@@ -18,7 +18,17 @@
 \end{definition}
 
 
-\begin{remark}
+\begin{notation}
+  If we regard an element $a \in R$ as an element of $R^\op$ then we often write $a^{\op}$ instead of $a$.
+  For all $a, b \in R$ the multiplication of $R$ can the be expressed as
+  \[
+      a^\op \, b^\op
+    = b a \,.
+  \]
+\end{notation}
+
+
+\begin{lemma}
   \label{remark: basic properties of op}
   \leavevmode
   \begin{enumerate}
@@ -30,10 +40,52 @@
       If $D$ is a skew field then $D^\op$ is also a skew field.
     \item
       For every family of rings $(R_i)_{i \in I}$ we have that $( \prod_{i \in I} R_i )^\op = \prod_{i \in I} R_i^\op$.
-    \item
-      If $G$ is a group and $k$ a field then $k[G]^\op \cong k[G^\op] \cong k[G]$ because the map $G \to G^\op$, $g \mapsto g^{-1}$ is an isomorphism of groups.
   \end{enumerate}
-\end{remark}
+\end{lemma}
+
+
+\begin{example}
+  If $G$ is a group and $k$ a field then the group isomorphism $G^\op \to G$, $g^\op \mapsto g^{-1}$ induces a $k$-algebra isomorphism $k[G]^\op \to k[G^\op] \to k[G]$.
+\end{example}
+
+
+\begin{definition}
+  A map $f \colon R \to S$ is an \emph{antihomomorphism of rings} if $f$ is additive with
+  \[
+    f(a b) = f(b) f(a)
+  \]
+  for all $a, b \in R$.
+  If $f$ is additionally bijective then $f$ is an \emph{antiisomorphism of rings}.
+\end{definition}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+     \item
+      For every $n \geq 0$ the map $R \to R^\op$, $a \mapsto a^\op$ is an antiisomorphism.
+     \item
+      If $f \colon R \to S$ and $g \colon S \to T$ are antihomomorphisms then $g \circ f$ is a homomorphism.
+      If one of the maps $f, g$ is and antimorphism and the other is a homomorphism then the composition $g \circ f$ is an antihomomorphism.
+    \item
+      If $f \colon R \to S$ is an antiisomorphism then $f^{-1} \colon S \to R$ is again an antihomomorphism.
+  \end{enumerate}
+\end{example}
+
+
+\begin{lemma}
+  For a map $f \colon R \to S$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The map $f$ is a homomorphism $R \to S$.
+    \item
+      The map $f$ is an antihomomorphism $R \to S^\op$.
+    \item
+      The map $f$ is an antihomomorphism $R^\op \to S$.
+    \item
+      The map $f$ is a homomorphism $R^\op \to S^\op$.
+  \end{enumerate}
+\end{lemma}
 
 
 \begin{lemma}
@@ -42,7 +94,7 @@
   \[
             \Mat_n(R)^\op
     \to     \Mat_n(R^\op)
-    \quad   A
+    \quad   A^\op
     \mapsto A^T
   \]
   is an isomorphism of rings.
@@ -50,18 +102,7 @@
 
 
 \begin{proof}
-  We denote the multiplications on $R$ and $\Mat_n(R)$ by $\cdot$, the multiplication of $R^\op$ by $*$ and the multiplication on $\Mat_n(R)^\op$ by $\bullet$.
-  The given map is additive and bijective, and for all $A, B \in \Mat_n(R)^\op$ we have that
-  \begin{align*}
-        \left( (A \bullet B)^T \right)_{ij}
-    &=  (A \bullet B)_{ji}
-     =  (B \cdot A)_{ji}
-     =  \sum_{k=1}^n B_{jk} \cdot A_{ki}  \\
-    &=  \sum_{k=1}^n A_{ki} * B_{jk}
-     =  \sum_{k=1}^n (A^T)_{ik} * (B^T)_{kj}
-     =  \left( (A^T) \bullet (B^T) \right)_{ij}
-  \end{align*}
-  for all $i, j = 1, \dotsc, n$, and therefore $(A \bullet B)^T = A^T \bullet B^T$.
+  The map $\Mat_n(R) \to \Mat_n(R^\op)$, $(A_{ij})_{ij} \mapsto A^T = (A^\op_{ji})_{ij}$ is an antiisomorphism of rings, and thus results in an isomorphism of rings $\Mat_n(R)^\op \to \Mat_n(R^\op)$, $A^\op \mapsto A^T$.
 \end{proof}
 
 
@@ -69,51 +110,50 @@
   \label{lemma: End_R(R) = Rop}
   The map
   \[
-              R^\op
+              \Phi
+    \colon    R^\op
     \to       \End_R(R),
-    \quad     r
-    \mapsto   (x \mapsto xr)
+    \quad     a^\op
+    \mapsto   (x \mapsto xa)
   \]
   is an isomorphism of rings.
 \end{lemma}
 
 
 \begin{proof}
-  We denote the given map by $\Phi$ and the multiplication of $R^\op$ by $*$.
-  For every $r \in R^\op$ we have that
+  The additivity of $\Phi(a^\op)$ for every $a \in R$ follows from the distributivity of $R$.
+  For every $a \in R$ we have that
   \[
-      \Phi(r'x)
-    = r' x r
-    = r' \Phi(x)
+      \Phi(a^\op)(rx)
+    = r x a
+    = r \Phi(a^\op(x)
   \]
-  for all $r' \in R$, $x \in R$, which shows that $\Phi(r)$ is $R$-linear for every $r \in R$.
-  The additivity of $\Phi(r)$ for every $r \in R$ follows from the distributivity of $R$.
-  This shows that $\Phi$ is well-defined.
+  for all $r' \in R$, $x \in R$.
+  Together this shows that $\Phi(a^\op)$ is $R$-linear for every $a \in R$, which shows that $\Phi$ is well-defined.
   
-  The additivity of $\Phi$ also follows from the distributivity of $R$, and we have that $\Phi(1_{R^\op}) = \Phi(1_R) = \id_R$.
-  For all $r_1, r_2 \in R^\op$ we have that
-  \[
-      \Phi(r_1 * r_2)(x)
-    = x (r_1 * r_2)
-    = x r_2 r_1
-    = \Phi(r_2)(x) r_1
-    = \Phi(r_1)(\Phi(r_2)(x))
-    = (\Phi(r_1) \circ \Phi(r_2))(x)
-  \]
-  for every $x \in R$ and thus $\Phi(r_1 * r_2) = \Phi(r_1) \circ \Phi(r_2)$.
+  The additivity of $\Phi$ also follows from the distributivity of $R$, and we have that $\Phi(1_{R^\op}) = \Phi(1_R^\op) = \id_R$.
+  For all $a, b \in R$ we have that
+  \begin{align*}
+        \Phi(a^\op b^\op)(x)
+     =  \Phi((ba)^\op)(x)
+    &=  x b a
+     =  \Phi(a^\op)(x b)  \\
+    &=  \Phi(a^\op)(\Phi(b^\op)(x))
+     =  (\Phi(a^\op) \circ \Phi(b^\op))(x)
+  \end{align*}
+  for every $x \in R$ and thus $\Phi(a^\op b^\op) = \Phi(a^\op) \circ \Phi(b^\op)$.
   This shows that $\Phi$ is multiplicative.
-  Alltogether this shows that $\Phi$ is a ring homomorphism.
   
-  For every $r \in R^\op$ we have that $\Phi(r)(1) = r$, which shows that $\Phi$ is injective.
-  For every $\varphi \in \End_R(R)$ we have for $r \defined \varphi(1)$ that
+  For every $a \in R$ we have that $\Phi(a^\op)(1) = a$, which shows that $\Phi$ is injective.
+  For every $\varphi \in \End_R(R)$ we have for $a \defined \varphi(1)$ that
   \[
       \varphi(x)
     = \varphi(x \cdot 1)
     = x \cdot \varphi(1)
-    = x r
-    = \Phi(r)(x)
+    = x a
+    = \Phi(a^\op)(x)
   \]
-  and thus $\Phi(r) = \varphi$.
+  and thus $\Phi(a^\op) = \varphi$.
   This shows that $\Phi$ is surjective.
 \end{proof}
 
@@ -124,48 +164,29 @@
   \begin{enumerate}
     \item
       Let $M$ be an abelian group.
-      Then a map $\mu \colon R \times M \to M$ is a left $R$-module structure if and only if the map $\mu' \colon  M \times R^\op \to M$ given $\mu'(m,r) = \mu(r,m)$ is a right $R^\op$-module structure.
+      Then a multiplication
+      \[
+                R \times M 
+        \to     M,
+        \quad   (r,m)
+        \mapsto r \cdot m
+      \]
+      is a left $R$-module structure on $M$ if and only if the multiplication
+      \[
+                  M \times R^\op
+        \to       M,
+        \quad     (m, r^\op)
+        \mapsto   m * r^\op
+        \defined  r \cdot m
+      \]
+      is a right $R^\op$-module structure on $M$.
   \end{enumerate}
-  This shows that left modules over $R$ are \enquote{the same} as $R^\op$-modules over $R$.
+  This shows that left modules over $R$ are \enquote{the same} as right modules over $R^\op$.
   \begin{enumerate}[resume]
     \item
       If $M, N$ are two left $R$-modules, then a map $f \colon M \to N$ is a homomorphism of left $R$-modules if and only if it is a homomorphism of right $R^\op$-modules.
   \end{enumerate}
 \end{proposition}
-
-
-\begin{proof}
-  We denote the multiplication of $R^\op$ by $*$.
-  \begin{enumerate}
-    \item
-      The map $\mu$ is additive in both arguments if and only if $\mu'$ is additive in both arguments.
-      We have that
-      \begin{align*}
-              \text{$\mu$ is associative}
-        &\iff \forall r_1, r_2 \in R, m \in M: \mu(r_1, \mu(r_2, m)) = \mu(r_1 r_2, m)  \\
-        &\iff \forall r_1, r_2 \in R^\op, m \in M: \mu'(\mu'(m, r_2), r_1) = \mu'(m, r_1 r_2)  \\
-        &\iff \forall r_1, r_2 \in R^\op, m \in M: \mu'(\mu'(m, r_2), r_1) = \mu'(m, r_2 * r_1)  \\
-        &\iff \text{$\mu'$ is associative} \,.
-      \end{align*}
-      We also have that
-      \[
-              \mu(1_R, -) = \id_M
-        \iff  \mu'(-, 1_{R^\op}) = \id_M
-      \]
-      because $1_R = 1_{R^\op}$.
-    \item
-      We denote the left $R$-module structure of $M$ by $\cdot$ and the right $R$-module structure of $M$ by $*$.
-      We have that
-      \begin{align*}
-              \text{$f$ is left $R$-linear}
-        &\iff \forall r \in R, m \in M: f(r \cdot m) = r \cdot f(m) \\
-        &\iff \forall r \in R^\op, m \in M: f(m * r) = f(m) * r     \\
-        &\iff \text{$f$ is right $R^\op$-linear}
-      \end{align*}
-      This proves the claim.
-    \qedhere
-  \end{enumerate}
-\end{proof}
 
 
 \begin{remark}
@@ -183,10 +204,11 @@
   \]
   for all $a \in A$, $\varphi \in M^*$, $m \in M$, which then corresponds to a left $A^\op$-module structure on $M^*$ given by
   \[
-    (a * \varphi)(m)
+      (a^\op * \varphi)(m)
+    = (\varphi \cdot a)(m)
     = \varphi(a \cdot m)
   \]
-  for all $a \in A^\op$, $\varphi \in M^*$, $m \in M$.
+  for all $a \in A$, $\varphi \in M^*$, $m \in M$.
   If $f \colon M \to N$ is a homomorphis of left $A$-modules then $f^* \colon N^* \to M^*$ is a homomorphism of right $A$-modules, and therefore a homomorphism of left $A^\op$-modules.
   Together this shows that dualizing results in a contravariant functor
   \[
@@ -202,10 +224,11 @@
   \]
   for all $a \in A$, $\varphi \in M^*$, $m \in M$, which then corresponds to a right $A^\op$-module structure on $M^*$ given by
   \[
-      (\varphi * a)(m)
+      (\varphi * a^\op)(m)
+    = (a \cdot \varphi)(m)
     = \varphi(m \cdot a)
   \]
-  for all $a \in A^\op$, $\varphi \in A$, $m \in M$.
+  for all $a \in A$, $\varphi \in A$, $m \in M$.
   As above we find that the dual of a homomorphism of right $A$-modules is an homomorphism of left $A$-modules, and therefore a homomorphism of right $A^\op$-modules.
   
   If $M$ is a left $A$-module then it follows that $(M^*)^*$ carries the structure of a left $A$-module via
@@ -244,8 +267,9 @@
   This applies to the following two classes of $k$-algebras:
   \begin{enumerate}
     \item
-      If $G$ is a group then $k[G]^\op \cong k[G^\op] \cong k[G]$ as seen in Remark~\ref{remark: basic properties of op}.
-      It follows that the category $\cModfd{k[G]}$, which is isomorphic to the category of finite dimensional $k$-representations of $G$ over $k$, has an autoduality given by $(-)^*$.
+      If $G$ is a group then $k[G]^\op = k[G^\op] \cong k[G]$ because the antiisomorphism of groups $G \to G$, $g \mapsto g^{-1}$ induces an isomorphism of groups $G^\op \to G$, $g^\op \mapsto g^{-1}$, which then induces an isomorphism of $k$-algebras $k[G^\op] \to k[G]$.
+      It follows that the category $\cModfd{k[G]}$, which is isomorphic to the category of finite dimensional $k$-representations of $G$ over $k$, has an autoduality given by $(-)^*$:
+      If $V$ is a (finite-dimensional) representation of $G$, then $V^*$ is just the dual representation as defined in Example~\ref{example: representations of groups}.
     \item
       If $Q$ is a quiver then $k[Q]^\op \cong k[Q^\op]$ and it follows that the cateories of finite dimensional representations of $Q$ and $Q^\op$ over $k$ are dual to each other via $(-)^*$.
       This is prominently used in the representation theory of quivers.

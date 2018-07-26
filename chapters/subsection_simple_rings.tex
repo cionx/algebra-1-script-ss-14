@@ -7,7 +7,7 @@
 
 
 \begin{example}
-  \label{example: simple ring}
+  \label{example: matrix algebra over skew field is simple}
   If $D$ is a division ring and $n \geq 1$ then $M_n(D)$ is simple.
   This follows from the following lemma:
 \end{example}
@@ -45,8 +45,8 @@
   The two-sided ideal $J$ is both a left and right $R$-submodule of $\Mat_n(R)$.
   Thus $\pi_{ij}(J)$ is both a left and right $R$-submodule of $R$, i.e.\ a two-sided ideal.
   
-  By multiplying the a matrix $A \in J$ with an permutation matrices from the left and from the right we can move every coefficient of $A$ to every other position without leaving $A$.
-  It follows that $I_{ij}$ does not depend on the position $ij$.
+  By multiplying a matrix $A \in J$ with an permutation matrices from the left and from the right we can move every coefficient of $A$ to every other position without leaving $J$.
+  It follows that $I_{ij}$ does not depend on the position $i,j$.
   For the two-sided ideal $I \idealleq R$ with $I_{ij} = I$ for all $i, j = 1, \dotsc, n$ we then have have that $J = \Mat_n(I)$.
 \end{proof}
 
@@ -57,89 +57,86 @@
 \end{warning}
 
 
-\begin{fluff}
-  Despite its name not every simple ring is semisimple as we will see in Example~\ref{example: simple but not semisimple}.
-  We will show in Proposition~\ref{proposition: when semisimple is simple} which semisimple rings are simple, and Wedderburn’s theorem will then show will simple rings are semisimple.
-\end{fluff}
+% \begin{proposition}
+%   \label{proposition: when semisimple is simple}
+%   If $R$ is semisimple then the following are equivalent:
+%   \begin{enumerate}
+%     \item
+%       \label{enumerate: is simple}
+%       The ring $R$ is simple.
+%     \item
+%       \label{enumerate: only one simple}
+%       The ring $R$ has only one simple $R$-module up to isomorphism
+%     \item
+%       \label{enumerate: is a matrix ring}
+%       We have that $R \cong \Mat_n(D)$ for some $n \in \Natural$ and skew field $D$.
+%   \end{enumerate}
+% \end{proposition}
+% 
+% 
+% \begin{proof}
+%   It follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that
+%   \[
+%     R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+%   \]
+%   for $r = |\Irr(R)|$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+%   
+%   \begin{description}
+%     \item[\ref*{enumerate: is a matrix ring} $\implies$ \ref*{enumerate: is simple}]
+%       This follows from Example~\ref{example: simple ring}.
+%     \item[\ref*{enumerate: is simple} $\implies$ \ref*{enumerate: only one simple}]
+%       The $\Mat_{n_i}(D_i)$ correspond to two-sided ideal in $R$.
+%       For $r \geq 2$ it would follow that $R$ contains nonzero proper two-sided ideals.
+%     \item[\ref*{enumerate: only one simple} $\implies$ \ref*{enumerate: is a matrix ring}]
+%       We have that $r = 1$ and therefore that $R \cong \Mat_{n_1}(D_1)$.
+%     \qedhere
+%   \end{description}
+% \end{proof}
+% 
+% 
+% \begin{theorem}[Wedderburn]
+%   \label{theorem: wedderburns theorem}
+%   If $R$ is simple then the following are equivalent:
+%   \begin{enumerate}
+%     \item
+%       \label{enumerate: is semisimple}
+%       The ring $R$ is semisimple.
+%     \item 
+%       \label{enumerate: is left artian}
+%       The ring $R$ is (left) artian.
+%     \item
+%       \label{enumerate: has minimal left ideal}
+%       The ring $R$ has a minimal nonzero left ideal $I$.
+%     \item
+%       \label{enumerate: is matrix ring over skew field}
+%       We have that $R \cong \Mat_n(D)$ for some $n \in \Natural$ and skew field $D$.
+%   \end{enumerate}
+%   The skew field $D$ is then unique up to isomorphism.
+% \end{theorem}
+% 
+% 
+% \begin{proof}
+%   The uniqueness of $D$ follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}
+%   \begin{description}
+%     \item[\ref*{enumerate: is semisimple} $\iff$ \ref*{enumerate: is matrix ring over skew field}]
+%       This is part of Proposition~\ref{proposition: when semisimple is simple}.
+%     \item[\ref*{enumerate: is semisimple} $\implies$ \ref*{enumerate: is left artian}]
+%       This is part of Corollary~\ref{corollary: semisimple rings are notherian artinian}.
+%     \item[\ref*{enumerate: is left artian} $\implies$ \ref*{enumerate: has minimal left ideal}]
+%       Starting with any nonzero left ideal $I_1 \idealleq R$ there would otherwise exist for every $n \geq 1$ an ideal $I_{n+1} \idealleq R$ with $I_{n+1} \subsetneq I_n$, resulting in a descreasing sequence of ideals which does not stablize.
+%     \item[\ref*{enumerate: has minimal left ideal} $\implies$ \ref*{enumerate: is semisimple}]
+%       The isotypical component $R_I$ is a two-sided ideal by Lemma~\ref{lemma: isotypical components are two sided ideals} and nonzero by assumption.
+%       It follows that $R = R_I$ is semisimple.
+%     \qedhere
+%   \end{description}
+% \end{proof}
 
 
-\begin{proposition}
-  \label{proposition: when semisimple is simple}
-  If $R$ is semisimple then the following are equivalent:
-  \begin{enumerate}
-    \item
-      \label{enumerate: is simple}
-      The ring $R$ is simple.
-    \item
-      \label{enumerate: only one simple}
-      The ring $R$ has only one simple $R$-module up to isomorphism
-    \item
-      \label{enumerate: is a matrix ring}
-      We have that $R \cong \Mat_n(D)$ for some $n \in \Natural$ and skew field $D$.
-  \end{enumerate}
-\end{proposition}
 
-
-\begin{proof}
-  It follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that
-  \[
-    R \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
-  \]
-  for $r = |\Irr(R)|$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
-  
-  \begin{description}
-    \item[\ref*{enumerate: is a matrix ring} $\implies$ \ref*{enumerate: is simple}]
-      This follows from Example~\ref{example: simple ring}.
-    \item[\ref*{enumerate: is simple} $\implies$ \ref*{enumerate: only one simple}]
-      The $\Mat_{n_i}(D_i)$ correspond to two-sided ideal in $R$.
-      For $r \geq 2$ it would follow that $R$ contains nonzero proper two-sided ideals.
-    \item[\ref*{enumerate: only one simple} $\implies$ \ref*{enumerate: is a matrix ring}]
-      We have that $r = 1$ and therefore that $R \cong \Mat_{n_1}(D_1)$.
-    \qedhere
-  \end{description}
-\end{proof}
-
-
-\begin{theorem}[Wedderburn]
-  \label{theorem: wedderburns theorem}
-  If $R$ is simple then the following are equivalent:
-  \begin{enumerate}
-    \item
-      \label{enumerate: is semisimple}
-      The ring $R$ is semisimple.
-    \item 
-      \label{enumerate: is left artian}
-      The ring $R$ is (left) artian.
-    \item
-      \label{enumerate: has minimal left ideal}
-      The ring $R$ has a minimal nonzero left ideal $I$.
-    \item
-      \label{enumerate: is matrix ring over skew field}
-      We have that $R \cong \Mat_n(D)$ for some $n \in \Natural$ and skew field $D$.
-  \end{enumerate}
-  The skew field $D$ is then unique up to isomorphism.
-\end{theorem}
-
-
-\begin{proof}
-  The uniqueness of $D$ follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}
-  \begin{description}
-    \item[\ref*{enumerate: is semisimple} $\iff$ \ref*{enumerate: is matrix ring over skew field}]
-      This is part of Proposition~\ref{proposition: when semisimple is simple}.
-    \item[\ref*{enumerate: is semisimple} $\implies$ \ref*{enumerate: is left artian}]
-      This is part of Corollary~\ref{corollary: semisimple rings are notherian artinian}.
-    \item[\ref*{enumerate: is left artian} $\implies$ \ref*{enumerate: has minimal left ideal}]
-      Starting with any nonzero left ideal $I_1 \idealleq R$ there would otherwise exist for every $n \geq 1$ an ideal $I_{n+1} \idealleq R$ with $I_{n+1} \subsetneq I_n$, resulting in a descreasing sequence of ideals which does not stablize.
-    \item[\ref*{enumerate: has minimal left ideal} $\implies$ \ref*{enumerate: is semisimple}]
-      The isotypical component $R_I$ is a two-sided ideal by Lemma~\ref{lemma: isotypical components are two sided ideals} and nonzero by assumption.
-      It follows that $R = R_I$ is semisimple.
-    \qedhere
-  \end{description}
-\end{proof}
 
 
 \begin{fluff}
-  We now give some examples of simple rings which are not semisimple.
+  Despite its name not every simple ring is semisimple:
 \end{fluff}
 
 
@@ -208,15 +205,17 @@
   We have given in Remark~\ref{remark: skew polynomial rings} a short overview how the Weyl algebra $\weyl$ can be understood as a skew polyonmial ring over $k[X]$ with respect to the $k$-derivation $\del \colon k[X] \to k[X]$.
   
   It can be shown more generally that for a field of characteristic $\kchar k = 0$ and an $k$-algebra $A$ a skew polynomial ring $A[x;\delta]$ (with respect to a $k$-derivation $\delta \colon A \to A$) is simple if and only if $A$ is $\delta$-simple and $\delta$ is not an inner derivation;
-  this can be found in \cite[Theorem~3.15]{Lam1991First} and \cite[Proposition~2.1]{NoncommutativeNoetherian}.
+  proofs of this can be found in \cite[Theorem~3.15]{Lam1991First} and \cite[Proposition~2.1]{NoncommutativeNoetherian}.
+  If $\kchar k = 0$ then it also holds for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ that the skew polynomial ring $A[x;\delta]$ is a nonartinian simple ring; a proof of this can be found in \cite[Corollary~3.16]{Lam1991First}.
   
-  If $\kchar k = 0$ then it also holds that for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ the skew polynomial ring $A[x;\delta]$ is a nonartinian simple ring, and thus a simple ring which is not semisimple by \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}.
+  In this way we can construct simple rings which are not semisimple.
 \end{remark}
 
 
 \begin{example}
+  \label{example: simple but not semisimple endorphism ring}
   The following example is taken from \cite[3.14]{Lam1991First}:
-  Let $V$ be a countable infinite-dimensional $k$-vector space.
+  Let $V$ be a countable infinite-dimensional $k$-vector space for some (skew) field $k$.
   Then
   \[
               I
@@ -307,6 +306,76 @@
   is a strictly increasing sequence of ideals in $\End(V)/I$ which does not stabilize.
   This shows that $\End(V)/I$ is not noetherian.
 \end{example}
+
+
+\begin{lemma}
+  \label{lemma: isotypical components are two sided ideals}
+  If $E$ is a simple $R$-module then the isotypical component $R_E$ is a two-sided ideal of $R$.
+\end{lemma}
+
+
+\begin{proof}
+  The isotypical component $R_E$ is a submodule of $R$, and therefore a left ideal.
+  For every $r \in R$ the map $R \to R$, $x \mapsto xr$ is a homomorphism of $R$-modules and therefore maps $R_E$ into $R_E$ by Lemma~\ref{lemma: functoriality of isotypical components}.
+  Therefore $R_E$ is also a right ideal.
+\end{proof}
+
+
+\begin{theorem}[Wedderburn]
+  \label{theorem: wedderburns theorem}
+  The following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      \label{enumerate: simple and artinian}
+      The ring $R$ is simple and (left) artinian.
+    \item
+      \label{enumerate: simple and minimal left ideal}
+      The ring $R$ is simple and contains a minimal nonzero left ideal $I \idealleq R$.
+    \item
+      \label{enumerate: simple and semisimple}
+      The ring $R$ is both simple and semisimple.
+    \item
+      \label{enumerate: semisimple with unique simple}
+      The ring $R$ is semisimple and has only one simple module up to isomorphism.
+    \item
+      \label{enumerate: matrix algebra over skew field}
+      We have that $R \cong \Mat_n(D)$ for some $n \geq 1$ and skew field $D$.
+  \end{enumerate}
+  The skew field $D$ is then uniquely determined up to isomorphism as $D \cong \End_R(I)^\op$, with $I$ as above being the unique simple $R$-module up to isomorphism.
+  The number $n$ is uniquely determined as the multiplicity of $I$ in $R$.
+\end{theorem}
+
+
+\begin{proof}
+  \label{proof: wedderburns theorem first proof}
+  \leavevmode
+  \begin{description}
+    \item[\ref*{enumerate: simple and artinian} $\implies$ \ref*{enumerate: simple and minimal left ideal}]
+      The set of nonzero left ideals of $R$ is non-empty because $R \neq 0$ and thus contains a minimal element because $R$ is artinian.
+    \item[\ref*{enumerate: simple and minimal left ideal} $\implies$ \ref*{enumerate: simple and semisimple}]
+      The ideal $I$ is a simple $R$-module and the $I$-isotypical component $R_I$ is a nonzero two-sided ideal by Lemma~\ref{lemma: isotypical components are two sided ideals}.
+      It follows from $R$ being simple that $R_I = R$, and therefore that $R$ is semisimple.
+    \item[\ref*{enumerate: simple and semisimple} $\implies$ \ref*{enumerate: semisimple with unique simple}]
+      Because $R \neq 0$ is a sum of simple $R$-modules it follows that there exists a simple $R$-module $E$.
+      The $E$-isotypical component $R_E$ is a two-sided ideal by Lemma~\ref{lemma: isotypical components are two sided ideals} which is nonzero by Lemma~\ref{lemma: simple module of semisimple ring is direct summand}.
+      It follows that $R_E = R$, and therefore from Lemma~\ref{lemma: simple module of semisimple ring is direct summand} that $E$ is the unique simple $R$-module up to isomorphism.
+    \item[\ref*{enumerate: semisimple with unique simple} $\implies$ \ref*{enumerate: matrix algebra over skew field}]
+      This follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
+    \item[\ref*{enumerate: matrix algebra over skew field} $\implies$ \ref*{enumerate: simple and semisimple}]
+      That $\Mat_n(D)$ is simple follows from Example~\ref*{example: matrix algebra over skew field is simple}, and that $R$ is semisimple follows from Example~\ref{example: semisimple rings}.
+    \item[\ref*{enumerate: simple and semisimple} $\implies$ \ref*{enumerate: simple and artinian}]
+      This follows from Corollary~\ref{corollary: semisimple rings are notherian artinian}.
+  \end{description}
+  The minimal ideal $I$ is a simple submodule of $R$, and thus the unique simple $R$-module up to isomorphism .
+  Because $D^n$ is a simple $\Mat_n(D)$-module, so it follows that
+  \[
+          D^\op
+    \cong \End_{\Mat_n(D)}(D^n)
+    \cong \End_R(I) \,,
+  \]
+  and therefore that $D \cong \End_R(I)^\op$.
+  The multiplicity of $I$ in $R$ is the same as the multiplicity of $D^n$ in $\Mat_n(D)$, which is $n$.
+\end{proof}
 
 
 
