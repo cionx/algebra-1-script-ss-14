@@ -114,6 +114,17 @@
 \end{proof}
 
 
+\begin{corollary}
+  \label{corollary: simple modules are quotients by maximal ideals}
+  The simple $R$-modules are up to isomorphism precisely those of the form $R/I$ where $I \idealleq R$ is a maximal left ideal.
+\end{corollary}
+
+
+\begin{proof}
+  Every simple $R$-module is up to isomorphism of the form $R/I$ for some left ideal $I \idealleq R$ by Lemma~\ref{lemma: simple iff every cyclic generator}, and $R/I$ is simple if and only if $I$ is maximal by Lemma~\ref{lemma: maximal iff quotient is simple}.
+\end{proof}
+
+
 \begin{lemma}
   \label{lemma: fg modules contain max submodules}
   Every nonzero finitely generated $R$-module $M$ admits a maximal submodule.
@@ -126,27 +137,22 @@
 \end{proof}
 
 
-\begin{fluff}
-  Recall that if $M$ is an $R$-module and $P \moduleleq N \moduleleq M$ are submodules, then
+\begin{lemma}
+  \label{lemma: direct complements in submodules}
+  Let $M$ be an $R$-module and let $P \moduleleq N \moduleleq M$ be submodules.
+  Let $C$ be a direct complement of $P$ in $M$.
+  Then $C \cap N$ is a direct complement of $P$ in $N$.
+\end{lemma}
+
+
+\begin{proof}[First proof]
+  It follows from $P \moduleleq N \moduleleq M$ that
   \[
       (P + C) \cap N
     = P + (C \cap N)
   \]
-  for every submodule $C \moduleleq N$.
-  (See Lemma~\ref{lemma: modularity of submodule lattice} for a proof.)
-\end{fluff}
-
-
-\begin{corollary}
-  \label{corollary: direct complements in submodules}
-  Let $M$ be an $R$-module and let $P \moduleleq N \moduleleq M$ be submodules.
-  Let $C$ be a direct complement of $P$ in $M$.
-  Then $C \cap N$ is a direct complement of $P$ in $N$.
-\end{corollary}
-
-
-\begin{proof}
-  We have that
+  by Lemma~\ref{lemma: modularity of submodule lattice}.
+  We thus have that
   \[
       P \cap (C \cap N)
     = P \cap C \cap N
@@ -158,13 +164,24 @@
       P + (C \cap N)
     = (P + C) \cap N
     = M \cap N
-    = N \,.
+    = N \,,
   \]
-  This proves the claim.
+  which proves the claim.
 \end{proof}
 
 
-% TODO: Alternative proof via idempotent endomorphism as projection P.
+\begin{proof}[Second proof]
+  Let $\pi \colon M \to M$ be the projection onto $P$ along the decomposition $M = P \oplus C$.
+  It follows from $P \moduleleq N$ that $\pi(N) = P$.
+  It follows that $\pi$ restrict to an endomorphism $\restrict{\pi}{N} \colon N \to N$ with $\im \restrict{\pi}{N} = P$ and $\ker \restrict{\pi}{N} = \ker \pi \cap N = C \cap N$.
+  The restriction $\restrict{\pi}{N}$ is again idempotent, resulting in a decomposition
+  \[
+      N
+    = \im \restrict{\pi}{N} \oplus \ker \restrict{\pi}{N}
+    = P \oplus (C \cap N)
+  \]
+  as desired.
+\end{proof}
 
 
 \begin{proposition}
@@ -211,7 +228,7 @@
       It follows from $L_i \nmoduleleq N \oplus M_J$ that $i \notin J$ and thus $J \subsetneq J'$.
       This contradicts the maximality of $J$.
     \item[\ref*{enumerate: direct complements} $\implies$ \ref*{enumerate: direct sum of simple}:]
-      It follows from Corollary~\ref{corollary: direct complements in submodules} that for all submodules $N \moduleleq C \moduleleq M$ the module $N$ also has a direct complement in $C$.
+      It follows from Corollary~\ref{lemma: direct complements in submodules} that for all submodules $N \moduleleq C \moduleleq M$ the module $N$ also has a direct complement in $C$.
       
       Let $S \moduleleq M$ be the sum of all simple submodules of $M$ and suppose that $S \neq M$.
       Let $P \neq 0$ be a direct complement of $S$ so that $M = S \oplus P$.
@@ -332,7 +349,7 @@
       Every $M_i$ is a sum $M_i = \sum_{j \in J_i} L^i_j$ of simple $R$-modulse $L^i_j$.
       It follows that $\sum_{i \in I} M_i = \sum_{i \in I} \sum_{j \in J_i} L^i_j$ is sum of simple modules.
     \item
-      This follows from Corollary~\ref{corollary: direct complements in submodules}.
+      This follows from Corollary~\ref{lemma: direct complements in submodules}.
     \item
       There exists a direct complement $P \moduleleq M$ of $N$.
       It follows from part~\ref*{enumerate: quotient is again semisimple} that $M/N \cong P$ is again semisimple.

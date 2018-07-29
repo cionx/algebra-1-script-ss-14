@@ -1,4 +1,16 @@
-\subsection{Isotypical Components}
+\subsection{Isotypical Components and Multiplicity Spaces}
+\label{subsection: isotyipical components and multiplicity spaces}
+
+
+\begin{conventions}
+  In this subsection $R$ denotes a ring, $M, N$ denote $R$-modules and $E, F$ denote simple $R$-modules.
+\end{conventions}
+
+
+
+
+
+\subsubsection{Isotypical Components}
 
 
 \begin{fluff}
@@ -7,18 +19,13 @@
 \end{fluff}
 
 
-\begin{conventions}
-  In this subsection $R$ denotes a ring, $M, N$ denote $R$-modules and $E, F$ denote simple $R$-modules.
-\end{conventions}
-
-
 \begin{definition}
-  The $E$-isotypical component of $M$ is
+  The \emph{$E$-isotypical component} of $M$ is
   \[
               M_E
     \defined  \sum_{L \moduleleq M, L \cong E} L \,.
   \]
-  The module $M$ is $E$-isotypical if $M = M_E$.
+  The module $M$ is \emph{$E$-isotypical} if $M = M_E$.
 \end{definition}
 
 
@@ -45,6 +52,12 @@
 \end{remark}
 
 
+% TODO: Add examples.
+
+
+% TODO: Warning: Not every element contained in a simple submodule, even for isotypical.
+
+
 \begin{lemma}
   \label{lemma: intersection of semisimple sums}
   Let $N, N' \moduleleq M$ be semisimple submodules with $N = \sum_{i \in I} L_i$, $N' = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleleq N$, $L'_j \moduleleq N'$.
@@ -65,11 +78,16 @@
 
 
 \begin{remark}
-  The isotypical component $M_E$ does only depend on the isomorphism class $[E] \in \Irr(R)$.
+  It follows from Corollary~\ref{corollary: simple modules are quotients by maximal ideals} that $\Irr(R)$ is indeed just a set, and not a proper class.
 \end{remark}
 
 
-\begin{theorem}[Decomposition into isotypical components]
+\begin{remark}
+  The isotypical component $M_E$ does only depend on the isomorphism class $[E] \in \Irr(R)$ of $E$.
+\end{remark}
+
+
+\begin{theorem}[Isotypical Decomposition]
   \label{theorem: isotypical decomposition}
   If $M$ is semisimple then
   \[
@@ -193,49 +211,376 @@
 \end{proof}
 
 
+
+
+
+\subsubsection{Multiplicities of Simple Summands}
+
+
+\begin{fluff}
+  We know from linear algebra that for a $k$-vector space $V$ with $V \cong k^{\oplus I}$ the cardinality $|I|$ is unique.
+  We will now show how this generalizes to semisimple modules.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: multiplicities for finite length}
+  Let $M$ be semisimple and let
+  \[
+      M
+    = L_1 \oplus \dotsb \oplus L_n
+    = L'_1 \oplus \dotsb \oplus L'_{n'}
+  \]
+  be two decompositions into finitely many simple submodules $L_i, L'_j \moduleleq M$.
+  Then this decomposition is unique up to permutation of isomorphism, i.e.\ it follows that $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ with $L'_{\pi(i)} \cong L_i$ for every $i = 1, \dotsc, n$.
+\end{lemma}
+
+
+\begin{proof}[First proof]
+  We use the language of composition series (see Appendix~\ref{appendix: jordan hoelder}):
+  Both decompositions give rise to composition series
+  \[
+                0
+    \modulelneq  L_1
+    \modulelneq  L_1 \oplus L_2
+    \modulelneq  \dotsb
+    \modulelneq  L_1 \oplus \dotsb \oplus L_n
+    =           M
+  \]
+  and
+  \[
+                0
+    \modulelneq  L'_1
+    \modulelneq  L'_1 \oplus L'_2
+    \modulelneq  \dotsb
+    \modulelneq  L'_1 \oplus \dotsb \oplus L'_{n'}
+    =           M
+  \]
+  with composition factors $L_i, L'_j$.
+  The claim therefore follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan--Hölder Theorem}.
+\end{proof}
+
+
+\begin{proof}[Second proof]
+  Suppose that
+  \[
+          M
+    \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}
+    \cong E_1^{n'_r} \oplus \dotsb \oplus E_r^{n'_r}
+  \]
+  for simple, pairwise non-isomorphic $R$-modules $E_1, \dotsc, E_r$ and $n_i, n'_i \geq 0$ for every $i = 1, \dotsc, r$.
+  We need to show that $n_i = n'_i$ for every $i = 1, \dotsc, r$.
+  
+  For every $i = 1, \dotsc, r$ we have that $M_{E_i} \cong E_i^{n_i} \cong E_i^{n'_i}$ by Theorem~\ref{theorem: isotypical decomposition}.
+  It therefore sufficies to show that for every simple $R$-module $E$ and all $n, n' \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus n'}$ that $n = n'$.
+  
+  Let $f \colon E^{\oplus n} \to E^{\oplus n'}$ be an isomorphism of $R$-modules.
+  Then for $D \defined \End_R(M)$ we may represent $f$ as a matrix $A \in \Mat(n' \times n, D)$ and $f^{-1} \colon E^{\oplus n'} \to E^{\oplus n}$ as a matrix $B \in \Mat(n \times n', D)$ (see Appendix~\ref{appendix: homomorphisms between direct sums} for a more detailed explanation on this).
+  It then follows from $f \circ f^{-1} = \id_{E^{\oplus n'}}$ and $f^{-1} \circ f = \id_{E^{\oplus n}}$ that $AB = I_n$ and $BA = I_m$.
+  
+  The matrix is $A$ is therefore invertible with $A^{-1} = B$.
+  It follows that $A$ defines an isomorphism of right $D$-vector spaces $D^n \to D^{n'}$ by left multiplication.
+  It follows that $n = n'$ because the dimension of a vector space over a skew field is well-defined.
+\end{proof}
+
+
+% \begin{proof}[Alternative proof]
+%   The following proof is taken from \cite[XVII, \S 1, Proposition 1.2]{LangAlgebra2005}):
+%   Suppose that
+%   \[
+%           M
+%     \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}
+%     \cong E_1^{n'_r} \oplus \dotsb \oplus E_r^{n'_r}
+%   \]
+%   for simple, pairwise non-isomorphic $R$-modules $E_1, \dotsc, E_r$ and $n_i, n'_i \geq 0$ for all $i = 1, \dotsc, r$.
+%   We need to show that $n_i = n'_i$ for all $i = 1, \dotsc, r$.
+%   
+%   For every $i = 1, \dotsc, r$ we have that $M_{E_i} \cong E_i^{n_i} \cong E_i^{n'_i}$ by Theorem~\ref{theorem: isotypical decomposition}.
+%   It therefore sufficies to show that for every simple $R$-module $E$ and all $n, n' \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus n'}$ that $n \cong n'$.
+%   
+%   The endomorphism ring $D \defined \End_R(E)$ is a skew field by \hyperref[proposition: Schurs lemma]{Schur’s lemma} and it follows from Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} that
+%   \[
+%           \Mat_n(D)
+%     \cong \End_R(E^{\oplus n})
+%     \cong \End_R(E^{\oplus n'})
+%     \cong \Mat_{n'}(D)
+%   \]
+%   as rings.
+% \end{proof}
+
+
+\begin{theorem}
+  \label{theorem: multiplicity well-defined}
+  Let $M$ be semisimple and let $M = \bigoplus_{i \in I} L_i = \bigoplus_{j \in J} L'_j$ be two decompositions into simple submodules $L_i, L'_j \moduleleq M$.
+  Then for every simple $R$-module $E$ the sets
+  \[
+    \{ i \in I \suchthat L_i \cong E \}
+    \quad\text{and}\quad
+    \{ j \in J \suchthat L'_j \cong E \}
+  \]
+  have the same cardinality.
+\end{theorem}
+
+
+\begin{proof}
+  We know from Theorem~\ref{theorem: isotypical decomposition} that
+  \[
+      M_E
+    = \bigoplus_{i \in I, L_i \cong E} L_i
+    = \bigoplus_{j \in J, L_j \cong E} L_j \,.
+  \]
+  We may therefore replace $M$ by $M_E$ and thus assume that $M$ is $E$-isotypical.
+  We then have that $L_i, L'_j \cong E$ for all $i, j$, and we need to show that $\card{I} = \card{J}$.
+  We make the following observation:
+  
+  \begin{claim}
+    For every $j \in J$ there exists a finite subset $I' \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I'} L_i$.
+  \end{claim}
+  
+  \begin{proof}
+    Let $y \in L'_j$ be nonzero.
+    Then $y = \sum_{i \in I} x_i$ with $x_i \in L_i$ for every $i \in I$ and $x_i = 0$ for all but finitely many $i \in I$.
+    It follows that there exists a finite subset $I' \subseteq I$ with $x \in \bigoplus_{i \in I'} L_i$.
+    It follows from the simplicity of $L'_j$ that $x$ is a cylic generator of $L'_j$, and therefore that $L'_j \moduleleq \bigoplus_{i \in I'} L_i$.
+  \end{proof}
+  
+  We now distinguish between four cases:
+  \begin{itemize}
+    \item 
+      If $I$ and $J$ are both finite then the theorem follows from Lemma~\ref{lemma: multiplicities for finite length}.
+    \item
+      If $J$ is finite then by the above claim that there exists a finite subset $I' \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I} L_i$ for every $j \in J$.
+      It then follows that $M = \bigoplus_{i \in I} L_i$ and therefore that $I = I'$ is already finite.
+      The theorem then follows from the first case.
+    \item
+      If $I$ is finite then we find in the same way as above that $J$ is finite and the theorem follows from the first case.
+    \item
+      Suppose now that both $I$ and $J$ are infine.
+      It follows from the above claim that there exists for every $j \in J$ some finite subset $I_j \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I} L_i$.
+      For $I' \defined \bigcup_{j \in J} I_j$ we then have that $L'_j \moduleleq \bigoplus_{i \in I'} L_i$ for every $j \in J$.
+      It follows that $M = \bigoplus_{i \in I'} L_i$ and therefore that $I = I'$.
+      Note that $I = I' = \bigcup_{j \in J} I_j$ has at most the cardinality of $J$ because $J$ is infinite and every $I_j$ is finite.
+      
+      This shows that $\card{I} \leq \card{J}$.
+      It follows in the same way that $\card{J} \leq \card{I}$.
+      Together this shows that $\card{I} = \card{J}$ by the theorem of Cantor--Schröder--Bernstein.
+    \qedhere
+  \end{itemize}
+\end{proof}
+
+
 \begin{remark}
-  To see that $\Irr(R)$ is indeed a set (and not a proper class) we show that
-  \[
-      \Irr(R)
-    = \{
-        [R/I]
-      \suchthat
-        \text{$I \idealleq R$ is a maximal left ideal}
-      \} \,.
-  \]
-  It follows from Lemma~\ref{proposition: characterisation semisimple modules} that $R/I$ is simple for every maxmimal left ideal $I \idealleq R$.
-  If on the other hand $M$ is a simple $R$-module and $m \in M$ is nonzero then $m$ is a cyclic generator.
-  The map
-  \[
-            \varphi
-    \colon  R
-    \to     M,
-    \quad   r
-    \mapsto rm
-  \]
-  is therefore a surjective homomorphism of $R$-modules.
-  It follows that $R/I \cong M$ for the left ideal $I \defined \ker \varphi \idealleq R$, and it follows from Lemma~\ref{proposition: characterisation semisimple modules} that $I$ is maximal.
-%    We construct a $1$:$1$-correspondence between isomorphism classes of simple $R$-modules and maximal left ideals in $R$.
-%   Recall that the annihilator of an $R$-module $M$ is $\Ann(M) = \{r \in R \suchthat rm = 0\}$, which is a left ideal in $R$.
-%   
-%   If $I \idealleq R$ is a maximal left ideal then the $R$-module $R/I$ is simple with $\Ann(R/I) = I$.
-%   
-%   If $M$ is a simple $R$-module and $x \in M$ is nonzero then $x$ is a cyclic generator of $M$ by Lemma~\ref{lemma: simple iff every cyclic generator}.
-%   It follows that the map $R \to M$, $r \mapsto rm$ is a surjective homomorphism of $R$-modules with kernel $\Ann(M) \defines I$, and thus induces an isomorphism of $R$-modules $R/I \cong M$.
-%   
-%   We have thus constructed a $1$:$1$-correspondence
-%   \begin{align*}
-%     \{ \text{maximal ideals $I \idealleq R$} \}
-%     &\longleftrightarrow
-%     \Irr(R) \,, 
-%     \\
-%     I
-%     &\longmapsto
-%     R/I \,,
-%     \\
-%     \Ann(M)
-%     &\longmapsfrom
-%     M \,.
-%   \end{align*}
+  \label{remark: uniqueness of multiplicities alternative formulation}
+  Theorem~\ref{theorem: multiplicity well-defined} states that there exists a bijection $\pi \colon I \to J$ with $L'_{\pi(i)} \cong L_i$ for every $i \in I$.
 \end{remark}
+
+
+\begin{definition}
+  If $M = \bigoplus_{i \in I} L_i$ is any decomposition into simple submodules $L_i \moduleleq M$ then the cardinality of the set $\{i \in I \suchthat L_i \cong E\}$ is the \emph{multiplicity of $E$ in $M$}.
+  (Theorem~\ref{theorem: multiplicity well-defined} shows that this multiplicity is well-defined.)
+\end{definition}
+
+
+
+
+
+\subsubsection{Multiplicity Spaces}
+
+
+\begin{fluff}
+  Another approach to both isotypical components and multiplicities are multiplicity spaces.
+  For this we will require tensor products of modules, a nice introduction to which can be found in \cite[Chapter 10.4]{DummitFoote2004}.
+\end{fluff}
+
+
+\begin{fluff}
+  Every nonzero homomorphism $E \to M$ is injective by by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}, so we may think about $\Hom_R(E,M)$ as the space of all embeddings $E \to M$ (together with the zero homomorphism).
+  The images $f(E)$ of the various embeddings $f \in \Hom_R(E,M)$ are precisely those submodules of $M$ which are isomorphic to $E$, the sum of which is the $E$-isotypical component $M_E$.
+  Hence, if we consider the evaluation map
+  \begin{equation}
+    \label{equation: raw evalution map for multiplicity spaces}
+            \Hom_R(M,E) \times E
+    \to     M,
+    \quad   (f, e)
+    \mapsto f(e) \,,
+  \end{equation}
+  then the image of the induced map
+  \[            
+            \Hom_R(E,M) \otimes_\Integer E
+    \to     M,
+    \quad   f \otimes e
+    \mapsto f(e) \,,
+  \]
+  is precisely the $E$-isotypical component $M_E$.
+  But this map will in general not be injective, which we can fix by tensoring over $\End_R(E)$ instead of $\Integer$:
+  
+  We also know from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that the endomorphism ring $D \defined \End_R(E)$ is a skew field.
+  The $R$-module $E$ is also a left $\End_R(E)$-module, i.e.\ left $D$-vector space, via
+  \[
+      \varphi \cdot e
+    = \varphi(e)
+  \]
+  for all $\varphi \in \End_R(E) = D$, $e \in E$.
+  This also induces a right $\End_R(E)$-module structure, i.e.\ right $D$-vector space structure on the $\Hom_R(E,M)$ via precomposition, i.e.\ via
+  \[
+      f \cdot \varphi
+    = f \circ \varphi
+  \]
+  for all $f \in \Hom_R(E,M)$, $\varphi \in \End_R(E) = D$.
+  The evaluation map~\eqref{equation: raw evalution map for multiplicity spaces} is $D$-balenced and thus induces a well-defined map
+  \[            
+            \Hom_R(E,M) \otimes_D E
+    \to     M,
+    \quad   f \otimes e
+    \mapsto f(e) \,,
+  \]
+  whose image is again the $E$-isotypical component $M_E$.
+  
+  The abelian group $\Hom_R(E,M) \otimes_D E$ inherits the structure of a left $R$-module from $E$ via
+  \[
+      r \cdot (f \otimes e)
+    = f \otimes (r e)
+  \]
+  for all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  Indeed, the actions of $R$ and $D$ on $E$ commute in the sense that
+  \[
+      \varphi \cdot (r \cdot e)
+    = r \cdot (\varphi \cdot e)
+  \]
+  for all $r \in R$, $\varphi \in D$, $e \in E$ by definition of $D$.
+  Hence $E$ carries the structure of an $D$-$R^\op$-bimodule via
+  \[
+      \varphi \cdot e \cdot r^\op
+    = \varphi \cdot (r \cdot e)
+    = r \cdot (\varphi \cdot e)
+  \]
+  for all $r \in R$, $\varphi \in D$, $e \in E$.
+  This then endows $\Hom_R(E,M) \otimes_D E$ with the structure of a right $R^\op$-module via
+  \[
+      (f \otimes e) \cdot r^\op
+    = f \otimes (e \cdot r^\op)
+    = f \otimes (r e)
+  \]
+  for all $r \in R$, which corresponds to the claimed left $R$-module structure.
+\end{fluff}
+
+
+\begin{definition}
+  The right $\End_R(E)$-vector space $\Hom_R(E,M)$ is the \emph{multiplicity space} of $M$ with respect to $E$.
+\end{definition}
+
+
+\begin{proposition}
+    \leavevmode
+    \begin{enumerate}
+    \item
+      \label{enumerate: one-dimensional as D vector space}
+      If $F \cong E$ then the multiplicity $\Hom_R(E,F)$ is one-dimensional as a right $D$-vector space.
+    \item
+      \label{enumerate: multiplicity is dimension}
+      More generally, the multiplicity of $E$ in $M$ is given by the dimension of the multiplicity space $\Hom_R(E,M)$ as a right $D$-vector space.
+    \item
+      The evaluation map
+      \[
+                \Phi
+        \colon  \Hom_R(E,M) \otimes_D E
+        \to     M_E,
+        \quad   f \otimes e
+        \mapsto f(e)
+      \]
+      is an isomorphism of $R$-modules.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $f \colon F \to E$ be an isomorphism of $R$-modules.
+      Then $f$ induces an isomorphism of right $D$-vector spaces
+      \[
+                              \Hom_R(E,F)
+        \xlongrightarrow{f_*} \Hom_R(E,E)
+        =                     D \,.
+      \]
+    \item
+      The inclusion $\iota \colon M_E \to M$ induces an isomorphism of $D$-vector spaces
+      \[
+                                  \Hom_R(E, M_E)
+        \xlongrightarrow{\iota_*} \Hom_R(E, M) \,,
+      \]
+      which is an isomorphism of right $D$-vector spaces.
+      Let $M_E = \bigoplus_{i \in I} L_i$ be a decomposition into simple $R$-modules, each of which (necessarily) isomorphic to $E$.
+      For every $i \in I$ let $\pi_i \colon M_E \to L_i$ be the projection along this decomposition.
+      It follows from $E$ being cyclic (and thus finitely generated), that the map
+      \[
+              \Hom_R(E, M_E)
+        =     \Hom_R\left(E, \bigoplus_{i \in I} L_i \right)
+        \xlongrightarrow{((\pi_i)_*)_{i \in I}}
+              \bigoplus_{i \in I} \Hom_R(E, L_i)
+      \]
+      is an isomorphism of abelian groups (by Lemma~\ref{lemma: hom is additive for fg modules}).
+      This is also an isomorphism of right $D$-vector spaces, so it follows that
+      \[
+          \dim_D \Hom_R(E, M)
+        = \dim_D \Hom_R(E, M_E)
+        = \dim_D \bigoplus_{i \in I} \Hom_R(E, L_i)
+        = |I|
+      \]
+      because each summand $\Hom_R(E, L_i)$ is one-dimensional by part~\ref*{enumerate: one-dimensional as D vector space}.
+    \item
+      For every $i \in I$ let $\tilde{f}_i \colon E \to L_i$ be an isomorphism, which we will regard as a homomorphism $f_i \colon E \to M$.
+      It follows from the isomorphism of right $D$-vector spaces
+      \[
+              \Hom_R(E, M)
+        \cong \Hom_R(E, M_E)
+        =     \Hom_R\left(E, \bigoplus_{i \in I} L_i \right)
+        \cong \bigoplus_{i \in I} \Hom_R(E, L_i)
+      \]
+      constructed in part~\ref*{enumerate: multiplicity is dimension} that $(f_i)_{i \in I}$ is a right $D$-basis of $\Hom_R(E,M)$.
+      It follows that
+      \[
+          \Hom_R(E, M) \otimes_D E
+        = \left( \bigoplus_{i \in I} f_i D \right) \otimes_D E
+        = \bigoplus_{i \in I} (f_i D) \otimes_D E
+        = \bigoplus_{i \in I} (f_i \otimes E) \,.
+      \]
+      The map $\Phi$ maps the summand $f_i \otimes E$ onto $f_i(E) = L_i$, and because $f_i$ is an isomorphism it does so bijectively.
+      (Here we use that $D$ a skew field:
+      The map $E \to \Hom_R(E, M) \otimes_D E$, $e \mapsto f_i \otimes e$ is injective because $\Hom_R(E,M)$ is free as a right $D$-module.)
+      It follows that $\Phi \colon \bigoplus_{i \in I} (f_i \otimes_D E) \to \bigoplus_{i \in I} L_i$ is also bijective.
+      
+      For all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes E$ we have that
+      \[
+          \Phi(r \cdot (f \otimes e))
+        = \Phi(f \otimes (re))
+        = f(re)
+        = r f(e)
+        = r \Phi(f \otimes e) \,,
+      \]
+      which shows that $\Phi$ is an isomorphism of $R$-modules.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  If $M$ is semisimple then the map
+  \[
+            \bigoplus_{[E] \in \Irr(R)} \Hom_R(E, M) \otimes_{\End_R(E)} E
+    \to     M \,,
+    \quad   f \otimes e
+    \mapsto f(e)
+  \]
+  is an isomorphism of $R$-modules, where $R$ acts on $\Hom_R(E, M) \otimes_{\End_R(E)} E$ via
+  \[
+      r \cdot (f \otimes e)
+    = f \otimes (re)
+  \]
+  for all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E, M) \otimes_{\End_R(E)} E$.
+\end{corollary}
+
+
+
 

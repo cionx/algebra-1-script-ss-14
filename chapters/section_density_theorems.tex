@@ -193,10 +193,11 @@
   By abuse of notation we will therefore also write
   \[
               R'
+    \defined  R'(M)
     \defined  \End_R(M) \,,
   \]
   even if $R$ itself is not a subring of $\End_\Integer(M)$.
-  We then do not have that $R \subseteq R''$, but $\Phi$ restrict to a homomorphism $R \to R''$, which we will refer to as the \emph{canonical homomorphism}.
+  We then do not have that $R \subseteq R''(M)$, but $\Phi$ restrict to a homomorphism $R \to R''(M)$, which we will refer to as the \emph{canonical homomorphism}.
   
   We will be concerned with the following problems regarding centralizers:
   \begin{itemize}
@@ -206,7 +207,7 @@
       That is, under what conditions does $R$ have the \emph{double centralizer property}?
     \item
       Suppose more generally that $M$ is an $R$-module.
-      Then under what conditions does $R$ have the double centralizer property in the sense that the canonical homomorphism $R \xrightarrow{\Phi} R''$ is surjective?
+      Then under what conditions does $R$ have the \emph{double centralizer property} in the sense that the canonical homomorphism $R \xrightarrow{\Phi} R''(M)$ is surjective?
     \item
       Suppose that $R, S \subseteq \End_\Integer(M)$ are subrings.
       Then under what conditions do we have that $R = S'$ and $S' = R$?
@@ -219,16 +220,20 @@
         = s \cdot (r \cdot m)
       \]
       for all $r \in R$, $s \in S$, $m \in M$.
-      Then $\im(\Phi) \subseteq S'$ and $\im(\Psi) \subseteq R'$.
-      Under what conditions are these equalities, that is, under what conditions do $R$ and $S$ centralize each other?
+      Then $\im(\Phi) \subseteq S'(M)$ and $\im(\Psi) \subseteq R'(M)$.
+      That under what conditions do $R$ and $S$ \emph{centralize each other} in the sense that $\im(\Phi) = S'(M)$ and $\im(\Psi) = R'(M)$?
   \end{itemize}
-  
-  We will see some partial results on this questions in the upcoming sections, mostly for $k$-algebras in combination with some semisimplicity conditions.
 \end{fluff}
 
 
+\begin{example}
+  If $R$ is simple then $R$ has the double centralizer property with respect to every submodule $M \idealleq R$ by \hyperref[lemma: rieffels theorem]{Rieffel’s theorem}, because the canonical homomorphism $R \to R''(M)$ is an isomorphism for $M \neq 0$, and still surjective for $M = 0$.
+  Indeed, the original formulation in \cite{Rieffel} is that \enquote{$R$ coincides with the bicommutant of $M$}.
+\end{example}
+
+
 \begin{remark}
-  A $R$-module $M$ for which the canonical homomorphism $R \to R''$ is surjective is called \emph{balanced}.
+  A $R$-module $M$ for which the canonical homomorphism $R \to R''(M)$ is surjective is called \emph{balanced}.
 \end{remark}
 
 
@@ -246,8 +251,8 @@
 
 \begin{theorem}[First Jacobson density theorem]
   \label{theorem: first jacobson density theorem}
-  Let $M$ be a semisimple $R$-module and let $\Phi \colon R \to R''$ be the canonical ring homomorphism.
-  Then $R$ (or more precisely $\im(\Phi)$) is \enquote{dense} in $R''$ in the sense that for every $f \in R''$ and every finite collection $m_1, \dotsc, m_n \in M$ there exists some $r \in R$ with
+  Let $M$ be a semisimple $R$-module and let $\Phi \colon R \to R''(M)$ be the canonical ring homomorphism.
+  Then $R$ (or more precisely $\im(\Phi)$) is \enquote{dense} in $R''(M)$ in the sense that for every $f \in R''(M)$ and every finite collection of elements $m_1, \dotsc, m_n \in M$ there exists some $r \in R$ with
   \[
       f(m_i)
     = r \cdot m_i
@@ -315,8 +320,8 @@
 
 \begin{corollary}
   \label{corollary: balanced if finitely generated}
-  Let $M$ be a semisimple $R$-module such that $M$ is finitely-generated as an $R'$-module.
-  Then the canonical homomorphism $R \to R''$ is surjective.
+  Let $M$ be a semisimple $R$-module such that $M$ is finitely-generated as an $R'(M)$-module.
+  Then the canonical homomorphism $R \to R''(M)$ is surjective.
 \end{corollary}
 
 
@@ -329,16 +334,16 @@
 
 \begin{remark}
   The \enquote{density} in the \hyperref[theorem: first jacobson density theorem]{first Jacobson density theorem} can also be explained topologically:
-  We can endow $M$ with the discrete topology and $R'' \subseteq M^M$ with the induced product topology.
-  Then the \hyperref[theorem: first jacobson density theorem]{first Jacobson density theorem} states that $R$ (or more precisely $\im(\Phi)$) is topologically dense in $R''$.
+  We can endow $M$ with the discrete topology and $R''(M) \subseteq M^M$ with the induced product topology.
+  Then the \hyperref[theorem: first jacobson density theorem]{first Jacobson density theorem} states that $R$ (or more precisely $\im(\Phi)$) is topologically dense in $R''(M)$.
 \end{remark}
 
 
 \begin{theorem}[Second Jacobson density theorem]
   \label{theorem: second jacobson density theorem}
-  Let $M$ be a simple $R$-module and let $D \defined R' = \End_R(M)$.
+  Let $M$ be a simple $R$-module and let $D \defined R'(M)$.
   Suppose that $u_1, \dotsc, u_n \in M$ are $D$-linearly independent.
-  Then $R$ (or rather $\im(\Phi)$ for the ring homomorphism $\Phi \colon R \to \End_\Integer(M)$) is dense in $R'' = \End_D(M)$ in the sense that for all $v_1, \dotsc, v_n \in M$ there exists some $r \in R$ with
+  Then $R$ (or rather $\im(\Phi)$ for the ring homomorphism $\Phi \colon R \to \End_\Integer(M)$) is dense in $R''(M) = \End_D(M)$ in the sense that for all $v_1, \dotsc, v_n \in M$ there exists some $r \in R$ with
   \[
     r \cdot u_i = v_i
   \]
@@ -346,7 +351,7 @@
 \end{theorem}
 
 
-\begin{proof}
+\begin{proof}[First proof]
   It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} that $D$ is a skew field.
   It follows from linear algebra that we can extend $u_1, \dotsc, u_n$ to a basis of $M$, from which it then follows that there exists some $f \in \End_D(M)$ with $f(u_i) = v_i$ for all $i = 1, \dotsc, n$.
   It then follows from the \hyperref[theorem: first jacobson density theorem]{first Jacobson density theorem} that there exists some $r \in R$ with
@@ -359,7 +364,7 @@
 \end{proof}
 
 
-\begin{proof}[Alternative proof]
+\begin{proof}[Second proof]
   We need to show that $N \defined M^{\oplus n}$ is as an $R$-module cyclicly generated by $x \defined (u_1, \dotsc, u_n)$.
   The $R$-module $N$ is semisimple, so there exists a direct complement $C$ of $Rx$.
   Let $\pi \colon N \to N$ be the projection onto $C$ along the decomposition $N = Rx \oplus C$.
