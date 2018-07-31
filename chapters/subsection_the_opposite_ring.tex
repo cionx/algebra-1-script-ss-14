@@ -95,7 +95,9 @@
             \Mat_n(R)^\op
     \to     \Mat_n(R^\op)
     \quad   A^\op
-    \mapsto A^T
+    =       \left( (A_{ij})_{ij} \right)^{\op}
+    \mapsto (A_{ji}^\op)_{ij}
+    =       A^T \,,
   \]
   is an isomorphism of rings.
 \end{lemma}
@@ -113,8 +115,10 @@
             \Mat_I^\cf(R)^\op
     \xlongrightarrow{\sim}
             \Mat_I^{\rf}(R^\op),
-    \quad   (A_{ij})_{ij}
-    \mapsto (A_{ji}^\op)_{ij} \,,
+    \quad   A^\op
+    =       \left( (A_{ij})_{ij} \right)^{\op}
+    \mapsto (A_{ji}^\op)_{ij}
+    =       A^T \,,
   \]
   where $\Mat_I^\cf(R)$ and $\Mat_I^\rf(R^\op)$ denote the rings of column finite, resp.\ row finite $(I \times I)$-matrices with coefficients in $R$, resp. $R^\op$ (see Definition~\ref{definition: infinite matrices} and Lemma~\ref{lemma: structure on infinite matrices}).
 \end{remark}

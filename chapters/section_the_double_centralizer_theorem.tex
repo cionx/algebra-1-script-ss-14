@@ -241,6 +241,7 @@
 
 
 \begin{theorem}
+  \label{theorem: canonical decomposition of ss module}
   Let $M$ be semisimple.
   \begin{enumerate}
     \item
@@ -250,8 +251,12 @@
     \item
       \label{enumerate: simple modules are tensor products}
       Every simple $(R' \otimes_\Integer R)$-submodule $M_i$ is of the form $E'_i \otimes_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_{R'}(E'_i)$.
-      The simple $(R' \otimes_\Integer R)$-module $M_i$ coincides with both the $E_i$-isotypical and the $E'_i$-isotypical components of $M$.
       The modules $E_i, E'_i$ are unique up to isomorphism.
+    \item
+      The simple $(R' \otimes_\Integer R)$-module $M_i$ coincides with both the $E_i$-isotypical and the $E'_i$-isotypical components of $M$.
+    \item
+      The simple $R$-modules which occur in $M$ are precisely $E_i$, $i \in I$ and these modules are pairwise non-isomorphic.
+      Similarly, the simple $R'$-modules which occur in $M$ are precisely $E'_i$, $i \in I$ and these modules are pairwise non-isomorphic.
     \item
       The multiplicity of $E_i$ in $M$ is the right $D_i$-dimension of $E'_i$ and the multiplicity of $E'_i$ in $M$ is the left $D_i$-dimension of $E_i$.
   \end{enumerate}
@@ -359,12 +364,8 @@
 \subsection{The Double Centralizer Theorem}
 
 
-\begin{fluff}
-  We will now answer the questions under what condition the centralizer $R'(M)$ is semisimple when $M$ is semisimple:
-\end{fluff}
-
-
 \begin{proposition}
+  \label{proposition: when R' is semisimple}
   If $M$ is semisimple then $R'$ is semisimple if and only if $M$ is the sum of only finitely many simple submodules.
 \end{proposition}
 
@@ -398,10 +399,11 @@
 
 
 \begin{theorem}[Double Centralizer Theorem]
-  Let $R$ be semisimple and let $M$ be faithful such that $M$ decomposes into finitely many simple $R$-modules.
+  \label{theorem: general double centralizer theorem}
+  Let $R$ be semisimple and let $M$ be faithful and suppose that $M$ decomposes into finitely many simple $R$-modules.
   \begin{enumerate}
     \item
-      The commutator $R'$ is again semisimple.
+      The centralizer $R'$ is again semisimple.
     \item
       The canonical homomorphism $R \to R''$ is an isomorphism.
     \item
@@ -412,31 +414,43 @@
       \]
       into simple $(R' \otimes_\Integer R)$-modules, and this decomposition coincides with both the $R$-isotypical decomposition and the $R'$-isotypical decomposition of $M$.
     \item
-      Each $(R' \otimes_\Integer R)$-submodule $M_i$ is of the form $M_i \cong E'_i \otimes_D E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D$ with $D \cong \End_R(E_i)$ and $D^\op \cong \End_R(E'_i)$.
+      Each $(R' \otimes_\Integer R)$-submodule $M_i$ is of the form $M_i \cong E'_i \otimes_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_R(E'_i)$.
       The modules $E_i, E_i'$ are unique up to isomorphism.
     \item
       The summand $M_i$ is both the $E_i$-isotypical and the $E'_i$-isotypical component of $M$.
     \item
-      The simple $R$-modules $E_1, \dotsc, E_n$ form a set of representatives of the isomorphism classes of simple $R$-modules and $E'_1, \dotsc, E'_n$ form a set of representatives of the isomorphism classes of simple $R'$-modules.
-    \item
-      There exist a canonical bijection between $\Irr(R)$ and $\Irr(R')$.
+      The $R$-modules $E_1, \dotsc, E_n$ form a set of representatives of the isomorphism classes of simple $R$-modules and the $R'$-modules $E'_1, \dotsc, E'_n$ form a set of representatives of the isomorphism classes of simple $R'$-modules.
+      
+      Thus the correspondence $E_i \leftrightarrow E'_i$ is a $1$:$1$-correspondence $\Irr(R) \leftrightarrow \Irr(R')$.
   \end{enumerate}
 \end{theorem}
 
 
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      This follows from Proposition~\ref{proposition: when R' is semisimple}.
+    \item
+      This follows from Proposition~\ref{proposition: semisimple rings are balanced}.
+    \item
+      This follows from Theorem~\ref{theorem: canonical decomposition of ss module}.
+    \item
+      This follows from Theorem~\ref{theorem: canonical decomposition of ss module}.
+    \item
+      This follows from Theorem~\ref{theorem: canonical decomposition of ss module}.
+    \item
+      It follows from Corollary~\ref{corollary: faithful over ss contains ever simple} that up to isomorphism every simple $R$-module and every simple $R'$-module occurs in $M$, so the claim follows from Theorem~\ref{theorem: canonical decomposition of ss module}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
-% \begin{fluff}
-%   It is worthwhile to point out that a similar result holds for $R$ itself:
-% \end{fluff}
-% 
-% 
-% \begin{lemma}
-%   If $M$ is faithful as an $R$-module and $M = L_1 \oplus \dotsb \oplus L_n$ for (finitely many) simple $R$-modules $L_1, \dotsc, L_n$ then $R$ is semisimple.
-% \end{lemma}
-% 
-% 
-% \begin{proof}
-%   
-% \end{proof}
+
+\begin{remark}
+  The above version of the \hyperref[theorem: general double centralizer theorem]{double centralizer theorem} is a combination of the version given in the lecture (which can be found in Corollary~\ref{corollary: special double centralizer theorem}) and the version given in \cite{AP2012DoubleCommutant}.
+\end{remark}
+
+
+
 
 

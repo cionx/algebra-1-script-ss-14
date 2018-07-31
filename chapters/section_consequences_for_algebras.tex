@@ -9,7 +9,7 @@
 
 \begin{conventions}
   In this section $k$ denotes a field and $A$ denotes a $k$-algebra.
-  We abreviate $\dim_k \defines \dim$.
+  We abreviate $\dim_k \defines \dim$ and $\otimes_k \defines \otimes$.
 \end{conventions}
 
 
@@ -26,7 +26,7 @@
 
 \begin{lemma}
   \label{lemma: hom dimension is symmetric}
-  Let $M, N$ be two finite-dimensional $A$-modules.
+  Let $M, N$ be two finite-dimensional semisimple $A$-modules.
   Then
   \[
     \dim \Hom_A(M,N) = \dim \Hom_A(N,M) \,.
@@ -46,8 +46,8 @@
   \end{align*}
   as $k$-vector spaces (see Theorem~\ref{theorem: bijection homomorphisms matrices}).
   It therefore sufficies to consider the case that both $M, N$ are simple.
-  For $M \ncong N$ we have that $\Hom_A(M,N) \cong \Hom_A(N,M)$ as $k$-vector spaces, so it sufficies to consider the case $M \ncong N$.
-  It then follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} that for $M \ncong N$ we have that $\Hom_A(M,N) = 0 = \Hom_A(N,M)$.
+  For $M \cong N$ we have that $\Hom_A(M,N) \cong \Hom_A(N,M)$ as $k$-vector spaces, so it sufficies to consider the case $M \ncong N$.
+  It then follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} that $\Hom_A(M,N) = 0 = \Hom_A(N,M)$.
 \end{proof}
 
 
@@ -305,12 +305,13 @@
 \begin{corollary}[Artin--Wedderburn]
   \label{corollary: semisimple algebra product of matrix algebras}
   Let $A$ be finite-dimensional and semisimple.
-  If $k$ is algebraically closed then $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras for some $n_1, \dotsc, n_r \geq 0$
+  If $k$ is algebraically closed then $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras with $r \geq 0$ an $n_1, \dotsc, n_r \geq 1$.
+  The number $r$ is unique and the numbers $n_1, \dotsc, n_r$ are unique up to permutation.
 \end{corollary}
 
 
 \begin{proof}
-  This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\dim \End(M) = 1$ for every simple $A$-module $M$.
+  This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\dim \End_A(M) = 1$ for every simple $A$-module $M$.
 \end{proof}
 
 
@@ -447,12 +448,7 @@
 \end{proof}
 
 
-\begin{fluff}
-  The following result is taken from \cite[XVII, Theorem~3.7]{LangAlgebra2005}:
-\end{fluff}
-
-
-\begin{corollary}[Existence of projection operators]
+\begin{corollary}[Existence of projection operators, {\cite[XVII, Theorem~3.7]{LangAlgebra2005}}]
   \label{corollary: existence of projection operators}
   Let $M_1, \dotsc, M_n$ be pairwise non-isomorphic finite-dimensional simple $A$-modules.
   Then there exists for every $i = 1, \dotsc, n$ some element $a \in A$ with $a m_i = m_i$ for every $m_i \in M_i$ and $a M_j = 0$ for every $j \neq i$.
@@ -513,7 +509,9 @@
 
 
 % TODO: Corollary: R isomorph to product over endomorphism rings if semisimple
+
 % TODO: Generalization of this to semisimple rings
+
 
 \begin{remark}
   Part~\ref*{enumerate: density theorem for one module} of Theorem~\ref{theorem: density theorem} is known as \emph{Burnside’s theorem on matrix algebras}:
@@ -583,6 +581,43 @@
   If $[M_1], \dotsc, [M_n] \in \irr(A)$ with $[M_i] \neq [M_j]$ for $i \neq j$ then it follows from Corollary~\ref{corollary: dimension simple algebra modules} that $n \leq  \dim \prod_{i=1}^n (\dim M_i)^2 \leq \dim A$.
 \end{proof}
 
+
+
+
+
+\subsection*{The Double Centralizer Theorem}
+
+
+\begin{corollary}[Double Centralizer Theorem]
+  \label{corollary: special double centralizer theorem}
+  Let $W$ be a finite-dimensional $k$-vector space and let $A \subseteq \End_k(W)$ be a semisimple $k$-subalgebra.
+  \begin{enumerate}
+    \item
+      The centralizer $A'$ is again a semisimple $k$-subalgebra of $\End_k(W)$.
+    \item
+      We have that $A = A''$.
+    \item
+      There exists a unique decomposition
+      \[
+        W = W_1 \oplus \dotsb \oplus W_r
+      \]
+      into simple $(A' \otimes_k A)$-submodules, and this decomposition coincides with both the $A$-isotypical and the $A'$-isotypical decomposition of $W$.
+    \item
+      Each $(A' \otimes_k A)$-submodule $W_i$ is of the form $W_i \cong V'_i \otimes_{D_i} V_i$ for a simple $A$-module $V_i$, a simple $A'$-module $V'_i$ and a skew field $D_i$ with $D_i \cong \End_A(V_i)$ and $D_i^\op \cong \End_{A'}(V'_i)$.
+      The modules $V_i, V'_i$ are unique up to isomorphism.
+    \item
+      The summand $W_i$ is both the $E_i$-isotypical and the $E'_i$-isotypical component of $M$.
+    \item
+      The simple $A$-modules $V_1, \dotsc, V_n$ form a set of representatives for the isomorphism classes of simple $A$-modules, and the $A'$-modules $V'_1, \dotsc, V'_i$ form a set of representatives for the isomorphism classes of simple $A$-modules.
+      
+      Thus the correspondence $V_i \leftrightarrow V'_i$ is a $1$:$1$-correspondece $\Irr(A) \leftrightarrow \Irr(A')$.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  This follows from the \hyperref[theorem: general double centralizer theorem]{double centralizer theorem} because $W$ is the sum of only finitely many simple $A$-modules because $W$ is finite-dimensional.
+\end{proof}
 
 
 

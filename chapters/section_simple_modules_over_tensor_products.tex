@@ -181,15 +181,8 @@
 \end{fluff}
 
 
-% \begin{lemma}
-%   \label{lemma: homo of modules over tensor products checked factorwise}
-%   Let $P, P'$ be two $(A \otimes B)$-modules.
-%   Then a map $\varphi \colon P \to P'$ is a homomorphism of $(A \otimes B)$-modues if and only if $\varphi$ is both a homomorphism of $A$-modules and $B$-modules.
-% \end{lemma}
-
-
 \begin{fluff}
-  Let $M$ b an $A$-module and let $N$ be an $B$-module.
+  Let $M$ be an $A$-module and let $N$ be an $B$-module.
   Then the tensor product $M \otimes N$ carries the structure of an $A$-module via
   \[
       a \cdot (m \otimes n)
@@ -210,7 +203,7 @@
     = b \cdot (a \cdot (m \otimes n))
   \]
   for all $a \in A$, $b \in B$, $m \otimes n \in M \otimes N$.
-  It follows from~\ref{fluff: commuting modules structures for tensor products} that $M \otimes N$ carries the structure of an $(A \otimes B)$-module with
+  It follows from \ref{fluff: commuting modules structures for tensor products} that $M \otimes N$ carries the structure of an $(A \otimes B)$-module via
   \[
       (a \otimes b) \cdot (m \otimes n)
     = (am) \otimes (bn)
@@ -218,10 +211,10 @@
   for all simple tensors $a \otimes b \in A \otimes B$, $m \otimes n \in M \otimes N$.
   We will denote the resulting $(A \otimes B)$-module by
   \[
-    M \boxtimes N \,.
+    M \mathbin{\boxtimes} N \,.
   \]
-  
-%   Note that when $\Phi \colon A \to \End_k(M)$ and $\Psi \colon B \to \End_k(N)$ are the $k$-algebra homomorphisms corresponding to the above module structures, then the $k$-algebra homomorphism $A \otimes B \to \End_k(M \otimes B)$ corresponding to the $(A \otimes B)$-module structure of $M \boxtimes N$ is given by
+  Note that $A \otimes B = A \mathbin{\boxtimes} B$ as $(A \otimes B)$-modules.
+%   Note that when $\Phi \colon A \to \End_k(M)$ and $\Psi \colon B \to \End_k(N)$ are the $k$-algebra homomorphisms corresponding to the above module structures, then the $k$-algebra homomorphism $A \otimes B \to \End_k(M \otimes B)$ corresponding to the $(A \otimes B)$-module structure of $M \mathbin{\boxtimes} N$ is given by
 %   \[
 %     A \otimes B
 %     \xlongrightarrow{\,\Phi \otimes \Psi\,}
@@ -230,21 +223,19 @@
 %     \End_k(M \otimes N) \,.
 %   \]
 %   Here the inclusion $\iota \colon \End_k(M) \otimes \End_k(N) \hookrightarrow \End_k(M \otimes N)$ is given on simple tensors $f \otimes g \in \End_k(M) \otimes \End_k(N)$ by $\iota(f \otimes g)(m \otimes n) = f(m) \otimes g(n)$ for all simple tensors $m \otimes n \in M \otimes N$.
-  
-  Note also that $A \otimes B = A \boxtimes B$ as $(A \otimes B)$-modules.
 \end{fluff}
 
 
 \begin{lemma}
   \label{lemma: if product is simple then so are factors}
-  If $M$ is an $A$-module and $N$ is a $B$-module such that $M \boxtimes N$ is simple as an $(A \otimes B)$-module then both $M$ and $N$ are simple.
+  If $M$ is an $A$-module and $N$ is a $B$-module such that $M \mathbin{\boxtimes} N$ is simple as an $(A \otimes B)$-module then both $M$ and $N$ are simple.
 \end{lemma}
 
 
 \begin{proof}
-  It follows that $M, N \neq 0$ because $M \boxtimes N \neq 0$.
+  It follows that $M, N \neq 0$ because $M \mathbin{\boxtimes} N \neq 0$.
   If $M$ were not semisimple then there would exist a proper nonzero $A$-submodule $M' \modulelneq M$.
-  Then $M' \boxtimes N$ would be a proper nonzero $(A \otimes B)$-submodule of $M \boxtimes N$, which would contradict $M \boxtimes N$ being simple.
+  Then $M' \mathbin{\boxtimes} N$ would be a proper nonzero $(A \otimes B)$-submodule of $M \mathbin{\boxtimes} N$, which would contradict $M \mathbin{\boxtimes} N$ being simple.
   It follows that $M$ must be simple.
   We find in the same way that $N$ is simple.
 \end{proof}
@@ -252,7 +243,7 @@
 
 \begin{lemma}
   \label{lemma: tensor product of modules is again simple}
-  If $k$ is algebraically closed, $M$ is a finite-dimensional simple $A$-module and $N$ is a finite-dimensional simple $B$-module then the $(A \otimes B)$-module $M \boxtimes N$ is also simple.
+  If $k$ is algebraically closed, $M$ is a finite-dimensional simple $A$-module and $N$ is a finite-dimensional simple $B$-module then the $(A \otimes B)$-module $M \mathbin{\boxtimes} N$ is also simple.
 \end{lemma}
 
 
@@ -266,7 +257,7 @@
     \xlongrightarrow{\sim}  \End_k(M \otimes N)
   \]
   is also surjective.
-  This is the $k$-algebra homomorphism corresponding to $M \boxtimes N$ so it follows from the \hyperref[theorem: density theorem]{density theorem} that $M \boxtimes N$ is simple.
+  This is the $k$-algebra homomorphism corresponding to the module structure of $M \mathbin{\boxtimes} N$ so it follows from the \hyperref[theorem: density theorem]{density theorem} that $M \mathbin{\boxtimes} N$ is simple.
 \end{proof}
 
 
@@ -279,7 +270,7 @@
     \item
       \label{enumerate: outer tensor product of semisimple modules}
       Let $M$ be a semisimple finite-dimensional $A$-module and let $N$ be a semisimple finite-dimensional $B$-module.
-      Then $M \boxtimes N$ is semisimple as an $(A \otimes B)$-module.
+      Then $M \mathbin{\boxtimes} N$ is semisimple as an $(A \otimes B)$-module.
     \item
       If $A, B$ are finite-dimensional and semisimple then $A \otimes B$ is again semisimple.
   \end{enumerate}
@@ -287,18 +278,19 @@
 
 
 \begin{proof}
+  \leavevmode
   \begin{enumerate}
     \item
       Let $M = \bigoplus_{i=1}^m M_i$ and $N = \bigoplus_{j=1}^n N_j$ be a decomposition into simple submodules.
       Then
       \[
-          M \boxtimes N
-        = \left( \bigoplus_{i=1}^m M_i \right) \boxtimes \left( \bigoplus_{j=1}^n N_j \right)
-        = \bigoplus_{i=1}^m \bigoplus_{j=1}^n M_i \boxtimes N_j
+          M \mathbin{\boxtimes} N
+        = \left( \bigoplus_{i=1}^m M_i \right) \mathbin{\boxtimes} \left( \bigoplus_{j=1}^n N_j \right)
+        = \bigoplus_{i=1}^m \bigoplus_{j=1}^n M_i \mathbin{\boxtimes} N_j
       \]
-      is a decomposition of $M \boxtimes N$ into simple $(A \otimes B)$-submodules.
+      is a decomposition of $M \mathbin{\boxtimes} N$ into simple $(A \otimes B)$-submodules.
     \item
-      This follows from part~\ref*{enumerate: outer tensor product of semisimple modules} because $A \otimes B = A \boxtimes B$ as $(A \otimes B)$-modules.
+      This follows from part~\ref*{enumerate: outer tensor product of semisimple modules} because $A \otimes B = A \mathbin{\boxtimes} B$ as $(A \otimes B)$-modules.
     \qedhere
   \end{enumerate}
 \end{proof}
@@ -314,32 +306,31 @@
     \colon  \irr(A) \times \irr(B)
     \to     \irr(A \otimes B),
     \quad   ([M],[N])
-    \mapsto [M \boxtimes N]
+    \mapsto [M \mathbin{\boxtimes} N]
   \]
   is a well-defined bijection.
-  In other words, every finite-dimensional simple $(A \otimes B)$-module is up to isomorphism of the form $M \boxtimes N$ for a finite-dimensional simple $A$-module $M$ and a finite-dimensional simple $B$-module $N$, and $M, N$ are unique up to isomorphism.
+  In other words, every finite-dimensional simple $(A \otimes B)$-module is up to isomorphism of the form $M \mathbin{\boxtimes} N$ for a finite-dimensional simple $A$-module $M$ and a finite-dimensional simple $B$-module $N$, and $M, N$ are unique up to isomorphism.
 \end{theorem}
 
 
 \begin{proof}
   That $\Phi$ is well-defined follows from Lemma~\ref{lemma: tensor product of modules is again simple}.
   
-  To see that $\Phi$ is injective let $[M], [M'] \in \irr(A)$ and $[N], [N'] \in \irr(B)$ be isomorphism classes such that $M \boxtimes N \cong M' \boxtimes N'$.
-  Then $M \boxtimes N \cong M' \boxtimes N'$ as $A$-modules where $A$ acts on $M \boxtimes N$ by $a \cdot (m \otimes n) = (am) \otimes n$ for all $a \in A$ and simple tensors $m \otimes n \in M \otimes N$, and similarly for $M' \boxtimes N'$.
+  To see that $\Phi$ is injective let $[M], [M'] \in \irr(A)$ and $[N], [N'] \in \irr(B)$ be isomorphism classes such that $M \mathbin{\boxtimes} N \cong M' \mathbin{\boxtimes} N'$.
+  Then $M \mathbin{\boxtimes} N \cong M' \mathbin{\boxtimes} N'$ as $A$-modules where $A$ acts on $M \mathbin{\boxtimes} N$ by $a \cdot (m \otimes n) = (am) \otimes n$ for all $a \in A$ and simple tensors $m \otimes n \in M \otimes N$, and similarly for $M' \mathbin{\boxtimes} N'$.
   We then have that
   \begin{align*}
-            M \boxtimes N
+            M \mathbin{\boxtimes} N
     &\cong  \underbrace{ M \oplus \dotsb \oplus M }_{\text{$\dim(N)$ many}}
   \shortintertext{and}
-            M' \boxtimes N'
+            M' \mathbin{\boxtimes} N'
     &\cong  \underbrace{ M' \oplus \dotsb \oplus M' }_{\text{$\dim(N')$ many}} \,.
   \end{align*}
   as $A$-modules.
-  It then follows from the uniqueness of multiplicities that $M \cong M'$ as $A$-modules (and that $\dim(N) = \dim(N')$).
+  It then follows from that $M \cong M'$ as $A$-modules because $M, M'$ are simple.
   In the same way it can be shown that $N \cong N'$ as $B$-modules.
   
   To see that $\Phi$ is surjective let $[P] \in \irr(A \otimes B)$.
-  
   We can regard $P$ as a $B$-module by restriction, i.e.\ via the action given by
   \[
       b \cdot p
@@ -347,7 +338,7 @@
   \]
   for all $b \in B$, $p \in P$.
   Then $P$ is a finite-dimensional $B$-module and therefore contains a simple $B$-submodule $N \moduleleq P$.
-  The map
+  It follows from Proposition~\ref{proposition: multiplicity spaces} that the evaluation map
   \[
             \psi
     \colon  \Hom_B(N,P) \otimes N
@@ -355,20 +346,25 @@
     \quad   f \otimes n
     \mapsto f(n)
   \]
-  is therefore nonzero and $k$-linear.
+  is a homomorphis of $B$-modules which restrict to an isomorphism $\Hom_B(N,P) \to N_E$, where $B$ acts on $\Hom_B(N,P) \otimes N$ via
+  \[
+      b \cdot (f \otimes n)
+    = f \otimes (bn)
+  \]
+  for all $b \in B$ and simple tensors $f \otimes n \in \Hom_B(N,P) \otimes N$.
   
   The $(A \otimes B)$-module structure on $P$ also corresponds to a $k$-algebra homomorphism $A \to \End_B(P)$ given by $b \mapsto (p \mapsto bp)$ as seen in \ref{fluff: commuting modules structures for tensor products}. 
-  The $k$-vector space $\Hom_B(N,P)$ carries the structure of and $\End_B(P)$-module via postcomposition, so it follows that $\Hom_B(N,P)$ carries the structure of a $A$-module via
+  The multiplicity space $\Hom_B(N,P)$ carries the structure of an $\End_B(P)$-module via postcomposition, so it follows that $\Hom_B(N,P)$ carries the structure of a $A$-module via
   \[
       (a \cdot f)(n)
     = a \cdot f(n)
   \]
   for all $a \in A$, $f \in \Hom_B(N,P)$, $n \in N$.
-  
+  We can therefore enhance the $k$-vector space $\Hom_B(N,P) \otimes N$ to the $(A \otimes B)$-module $\Hom_B(N,P) \otimes N$.
   The $k$-linear map
   \[
             \psi
-    \colon  \Hom_B(N,P) \boxtimes N
+    \colon  \Hom_B(N,P) \mathbin{\boxtimes} N
     \to     P
   \]
   is already a homomorphism of $(A \otimes B)$-modules because
@@ -383,11 +379,9 @@
      =  (a \otimes b) \psi(f \otimes n)
   \end{align*}
   for all simple tensors $a \otimes b \in A \otimes B$, $f \otimes n \in \Hom_B(N,P) \otimes N$.
-  Because $P$ is simple and $\psi$ is nonzero it follows that $\psi$ is surjective.
-  We also know from Proposition~\ref{proposition: multiplicity spaces} that $\Phi$ is injective.
-  Together this shows that $\psi$ is an isomorphism.
   
-  Altogether this shows that $P \cong \Hom_B(N,P) \boxtimes N$ as $(A \otimes B)$-modules.
+  Because $P$ is simple and $\psi$ is nonzero it follows that $\psi$ is surjective.
+  Together with the injectivity of $\psi$ this shows that $\psi$ is an isomorphism of $(A \otimes B)$-modules, which shows that $P \cong \Hom_B(N,P) \mathbin{\boxtimes} N$ as $(A \otimes B)$-modules.
   It follows from Lemma~\ref{lemma: if product is simple then so are factors} that both $\Hom_B(N,P)$ and $N$ are already simple themselves.
   This shows that $\Phi$ is surjective.
 \end{proof}
