@@ -394,6 +394,7 @@
 
 
 \begin{fluff}
+  \label{fluff: introducting multiplicity spaces}
   Every nonzero homomorphism $E \to M$ is injective by by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}, so we may think about $\Hom_R(E,M)$ as the space of all embeddings $E \to M$ (together with the zero homomorphism).
   The images $f(E)$ of the various embeddings $f \in \Hom_R(E,M)$ are precisely those submodules of $M$ which are isomorphic to $E$, the sum of which is the $E$-isotypical component $M_E$.
   Hence, if we consider the evaluation map
@@ -466,20 +467,24 @@
 
 
 \begin{definition}
-  The right $\End_R(E)$-vector space $\Hom_R(E,M)$ is the \emph{multiplicity space} of $M$ with respect to $E$.
+  The right $\End_R(E)$-vector space $\Hom_R(E,M)$ is the \emph{multiplicity space}\footnote{
+  The author has taken this term from \cite{AP2012DoubleCommutant} and does not know how common its usage is.
+  } of $M$ with respect to $E$.
 \end{definition}
 
 
 \begin{proposition}
   \label{proposition: multiplicity spaces}
-    \leavevmode
+    Let $D \defined \End_R(E)$.
     \begin{enumerate}
     \item
       \label{enumerate: one-dimensional as D vector space}
-      If $F \cong E$ then the multiplicity $\Hom_R(E,F)$ is one-dimensional as a right $D$-vector space.
+      If $F \cong E$ then the multiplicity space $\Hom_R(E,F)$ is one-dimensional as a right $D$-vector space.
     \item
-      \label{enumerate: multiplicity is dimension}
-      More generally, the multiplicity of $E$ in $M$ is given by the dimension of the multiplicity space $\Hom_R(E,M)$ as a right $D$-vector space.
+      \label{enumerate: basis of multiplicity space}
+      Let $M_E = \bigoplus_{i \in I} L_i$ be a decomposition into simple $R$-module, each of which (necessarily) isomorphic to $E$.
+      For every $i \in I$ let $\tilde{f}_i \colon E \to L_i$ be an isomorphism of $R$-modules, and let $f_i \colon E \to M$ be the extension of $\tilde{f}_i$ to a homomorphism $E \to M$.
+      Then the family $(f_i)_{i \in I}$ is a right $D$-basis for $\Hom_R(E,M)$.
     \item
       The evaluation map
       \[
@@ -498,56 +503,45 @@
   \leavevmode
   \begin{enumerate}
     \item
-      Let $f \colon F \to E$ be an isomorphism of $R$-modules.
-      Then $f$ induces an isomorphism of right $D$-vector spaces
+      Any isomorphism of $R$-modulen $f \colon F \to E$ induces an isomorphism of right $D$-vector spaces
       \[
                               \Hom_R(E,F)
         \xlongrightarrow{f_*} \Hom_R(E,E)
         =                     D \,.
       \]
     \item
-      The inclusion $\iota \colon M_E \to M$ induces an isomorphism of $D$-vector spaces
+      The inclusion $\iota \colon M_E \to M$ induces an isomorphism of right $D$-vector spaces
       \[
                                   \Hom_R(E, M_E)
-        \xlongrightarrow{\iota_*} \Hom_R(E, M) \,,
+        \xlongrightarrow{\iota_*} \Hom_R(E, M) \,.
       \]
-      which is an isomorphism of right $D$-vector spaces.
-      Let $M_E = \bigoplus_{i \in I} L_i$ be a decomposition into simple $R$-modules, each of which (necessarily) isomorphic to $E$.
-      For every $i \in I$ let $\pi_i \colon M_E \to L_i$ be the projection along this decomposition.
-      It follows from $E$ being cyclic (and thus finitely generated), that the map
+      For every $i \in I$ let $\pi_i \colon M_E \to L_i$ be the projection along this decomposition and for every $f \in \Hom_R(E,M_E)$ let $f_i \defined \pi_i \circ f$ be the $i$-th component of $f$.
+      It follows from $E$ being cyclic (and thus finitely generated) that the map
       \[
               \Hom_R(E, M_E)
         =     \Hom_R\left(E, \bigoplus_{i \in I} L_i \right)
-        \xlongrightarrow{((\pi_i)_*)_{i \in I}}
+        \xlongrightarrow{f \mapsto (f_i)_{i \in I}}
               \bigoplus_{i \in I} \Hom_R(E, L_i)
       \]
       is an isomorphism of abelian groups (by Lemma~\ref{lemma: hom is additive for fg modules}).
-      This is also an isomorphism of right $D$-vector spaces, so it follows that
-      \[
-          \dim_D \Hom_R(E, M)
-        = \dim_D \Hom_R(E, M_E)
-        = \dim_D \bigoplus_{i \in I} \Hom_R(E, L_i)
-        = |I|
-      \]
-      because each summand $\Hom_R(E, L_i)$ is one-dimensional by part~\ref*{enumerate: one-dimensional as D vector space}.
-    \item
-      For every $i \in I$ let $\tilde{f}_i \colon E \to L_i$ be an isomorphism, which we will regard as a homomorphism $f_i \colon E \to M$.
-      It follows from the isomorphism of right $D$-vector spaces
+      This is also an isomorphism of right $D$-vector spaces, so it follows altogether that
       \[
               \Hom_R(E, M)
         \cong \Hom_R(E, M_E)
-        =     \Hom_R\left(E, \bigoplus_{i \in I} L_i \right)
+        =     \Hom_R\left( E, \bigoplus_{i \in I} L_i \right)
         \cong \bigoplus_{i \in I} \Hom_R(E, L_i)
       \]
-      constructed in part~\ref*{enumerate: multiplicity is dimension} that $(f_i)_{i \in I}$ is a right $D$-basis of $\Hom_R(E,M)$.
-      It follows that
+      as right $D$-vector spaces.
+      For every $i \in I$ the element $\tilde{f}_i \in \Hom_R(E, L_i)$ is a right $D$-basis by part~\ref*{enumerate: one-dimensional as D vector space}, and under the above isomorphism the resulting right $D$-basis $(\tilde{f}_i)_{i \in I}$ of $\bigoplus_{i \in I} \Hom_R(E, L_i)$ corresponds to the family $(f_i)_{i \in I}$ in $\Hom_R(E,M)$, which is therefore also a right $D$-basis.
+    \item
+      It follows that from part~\ref*{enumerate: basis of multiplicity space} that
       \[
           \Hom_R(E, M) \otimes_D E
         = \left( \bigoplus_{i \in I} f_i D \right) \otimes_D E
         = \bigoplus_{i \in I} (f_i D) \otimes_D E
         = \bigoplus_{i \in I} (f_i \otimes E) \,.
       \]
-      The map $\Phi$ maps the summand $f_i \otimes E$ onto $f_i(E) = L_i$, and because $f_i$ is an isomorphism it does so bijectively.
+      The map $\Phi$ maps the summand $f_i \otimes E$ onto the summand $f_i(E) = L_i$, and because $f_i$ is an isomorphism it does so bijectively.
       (Here we use that $D$ a skew field:
       The map $E \to \Hom_R(E, M) \otimes_D E$, $e \mapsto f_i \otimes e$ is injective because $\Hom_R(E,M)$ is free as a right $D$-module.)
       It follows that $\Phi \colon \bigoplus_{i \in I} (f_i \otimes_D E) \to \bigoplus_{i \in I} L_i$ is also bijective.
@@ -558,12 +552,18 @@
         = \Phi(f \otimes (re))
         = f(re)
         = r f(e)
-        = r \Phi(f \otimes e) \,,
+        = r \, \Phi(f \otimes e) \,,
       \]
       which shows that $\Phi$ is an isomorphism of $R$-modules.
     \qedhere
   \end{enumerate}
 \end{proof}
+
+
+\begin{corollary}
+  \label{corollary: dimension of multiplicity space is multiplicity}
+  For $D \defined \End_R(E)$ the right $D$-dimension of the multiplicity space $\Hom_R(E,M)$ is given by the multiplicity of $E$ in $M$.
+\end{corollary}
 
 
 \begin{corollary}

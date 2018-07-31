@@ -10,7 +10,7 @@
 
 
 \begin{lemma}[{\cite[Lemma~1.14]{FarbDennis1993}}]
-  \label{lemma: decomposition of module into End tensor R modules}
+  \label{lemma: submodules which are End invariant}
   Let $M$ be an $R$-module.
   \begin{enumerate}
     \item
@@ -91,18 +91,18 @@
     It follows from the isomorphism $R^\op \cong \End_R(R)$ from Lemma~\ref{lemma: End_R(R) = Rop} that for a left ideal, invariance under right multiplication is the same as $\End_R(R)$-invariance.
     The two-sided ideals of $R$ are therefore precisely those left ideals which are $\End_R(R)$-invariant.
     
-    With this observation the claims follow from Lemma~\ref{lemma: decomposition of module into End tensor R modules}.
+    With this observation the claims follow from Lemma~\ref{lemma: submodules which are End invariant}.
 \end{proof}
 
 
 \begin{corollary}
-  \label{corollary: semisimple ring has only finitely many components}
+  \label{corollary: semisimple ring has only finitely many two sided ideals}
   If $R$ is semisimple then $R$ contains only finite many two-sided ideals, namely $2^n$ many where $n = |{\Irr(R)}|$.
 \end{corollary}
 
 
 \begin{remark}
-  Corollary~\ref{corollary: semisimple ring has only finitely many components} also follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}:
+  Corollary~\ref{corollary: semisimple ring has only finitely many two sided ideals} also follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}:
   We may assume that the semisimple ring $R$ is given by $R = \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ with $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
   Then every two-sided ideal $I \idealleq R$ is of the form $I = I_1 \times \dotsb \times I_r$ for unique two-sided ideals $I_j \idealleq \Mat_{n_j}(D_j)$ by Remark~\ref{remark: right and two-sided ideals in products of rings}.
   It follows for every $j = 1, \dotsc, r$ that either $I_j = 0$ or $I_j = \Mat_{n_j}(D_j)$ because the matrix rings $\Mat_{n_j}(D_j)$ are simple.

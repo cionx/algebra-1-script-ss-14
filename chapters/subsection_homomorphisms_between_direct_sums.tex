@@ -551,6 +551,20 @@
 \end{corollary}
 
 
+\begin{corollary}
+  \label{corollary: decomposition of endomorphism ring into product including sums}
+  If $\Hom_R(M_i, M_j) = 0$ for all $i \neq j$ then for all index sets $J_i$, $i \in I$ the map
+  \[
+            \End\left( \bigoplus_{i \in I} M_i^{\oplus J_i} \right)
+    \to     \prod_{i \in I} \End( M_i^{\oplus J_i} ) \,,
+    \quad   f
+    \mapsto \left( \restrict*{f}{M_i^{\oplus J_i}} \right)_{i \in I}
+  \]
+  is a well-defined isomorphism of rings.
+  If $R$ is a $k$-algebra, then it is an isomorphism of $k$-algebras.
+\end{corollary}
+
+
 \begin{fluff}
   For every $i \in I$ let $\iota_i \colon M_i \to \bigoplus_{j \in J} M_j$ be the inclusion of the $i$-th summand, and for every $i \in I$ let $\pi_i \colon \bigoplus_{j \in J} N_j \to N_i$ be the projection onto the $i$-th summand.
 \end{fluff}
@@ -571,6 +585,7 @@
 
 
 \begin{definition}
+  \label{definition: infinite matrices}
   Let $I, J$ be index sets.
   \begin{itemize}
     \item
@@ -612,10 +627,12 @@
         &\defined \Mat^{\cf}(I \times I, C) \,.
       \end{align*}
   \end{itemize}
+  The notion of a \emph{row finite} $(I \times J)$-matrix is defined similarly, and instead of ${}^\cf$ the supscript ${}^\rf$ is used.
 \end{definition}
 
 
 \begin{lemma}
+  \label{lemma: structure on infinite matrices}
   Let $I, J$ be index sets
   \begin{enumerate}
     \item
@@ -630,6 +647,7 @@
       \]
       for all $A, B \in \Mat^{\cf}_I(R)$ and all $i, k \in I$.
   \end{enumerate}
+  The analogous results for row finite matrices also hold.
 \end{lemma}
 
 
@@ -655,6 +673,7 @@
 
 
 \begin{corollary}
+  \label{corollary: endomorphism ring of sum power of fg module}
   For every endomorphism of $R$-modules $f \colon M^{\oplus I} \to M^{\oplus I}$ let
   \[
               f_{ij}

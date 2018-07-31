@@ -1,29 +1,437 @@
 \section{The Double Centralizer Theorem}
 
 
+\begin{conventions}
+  In the following $R$ denotes a ring and $M$ denotes an $R$-module.
+\end{conventions}
 
 
 
-% \subsubsection{Revisiting Isotypical Components}
-% 
-% 
-% \begin{conventions}
-%   In the following $R$ denotes a ring, $M$ denotes an $R$-module and $E$ denotes a simple $R$-module.
-% \end{conventions}
-% 
-% 
-% \begin{corollary}
-%   If $M$ is semisimple then $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a decomposition into simple $(R' \otimes_\Integer R)$-submodules, and it is the unique such decomposition.
-% \end{corollary}
+
+
+\subsection{Revisiting Isotypical Components}
+
+
+\begin{fluff}
+  We will begin by investigating how $M$ behaves an $R'(M)$-module.
+  While we do not follow any particular source, most of the following results can be found in \cite[Chapter~3.2]{DaSilva2017NonCommutative}.
+  
+  For this we first observe that the actions of $R$ and $R'$ on $M$ commute in the sense that
+  \[
+      \varphi \cdot (r \cdot m)
+    = r \cdot (\varphi \cdot m)
+  \]
+  for all $r \in R$, $\varphi \in R'$, $m \in M$.
+  It follows that the $R$- and $R'$-module structures on $M$ extend to an $(R' \otimes_\Integer R)$-module structure given by
+  \[
+      (\varphi \otimes r) \cdot m
+    = \varphi \cdot (r \cdot m)
+    = r \cdot (\varphi \cdot m)
+  \]
+  for all simple tensors $\varphi \otimes r \in R' \otimes_\Integer R$ and all $m \in M$.
+  
+  The $(R' \otimes_\Integer R)$-submodules of $M$ are then precisely those $R$-submodules which are also $R'$-submodules.
+  We have seen in Lemma~\ref{lemma: submodules which are End invariant} that if $M$ is semisimple then these are precisely those $R$-submodules, which are a (direct) sum of isotypical components of $M$.
+  We can therefore reformulate Lemma~\ref{lemma: submodules which are End invariant} as follows:
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: unique decomposition into simple R' tensor R modules}
+  If $M$ is semisimple as an $R$-module then it is also semisimple as an $(R' \otimes R)$-module, and the isotypical decomposition $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a unique decomposition into simple $(R' \otimes R)$-submodules.
+  Moreover, the summand $M_E$, $[E] \in \Irr(R)$ are pairwise non-isomorphic as $(R' \otimes R)$-modules.
+\end{lemma}
+
+
+\begin{proof}
+  That $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a unique decomposition into simple $(R' \otimes R)$-submodules is a reformulation of Lemma~\ref{lemma: submodules which are End invariant}.
+  If $M_E \cong M_F$ as $(R' \otimes R)$-modules for some simple $R$-modules $E, F$ then in particular $M_E \cong M_F$ as $R$-modules and therefore $E \cong F$.
+\end{proof}
+
+
+% TODO: Is M_E simple for M not ss?
+
+
+\begin{fluff}
+  We have seen in subsection~\ref{subsection: isotyipical components and multiplicity spaces} that for every simple $R$-module $E$ the $E$-isotypical component $M_E$ can be described via the multiplicity space $\Hom_R(E,M)$:
+  For the skew field $D \defined \End_R(E)$ the evaluation map
+  \[
+            \Phi
+    \colon  \Hom_R(E, M) \otimes_D E
+    \to     M_E,
+    \quad   f \otimes e
+    \mapsto f(e)
+  \]
+  is an isomorphism of $R$-modules.
+  Here the left $D$-vector space structure on $E$ is given by $\psi \cdot e = \psi(e)$ for all $\psi \in D$, $e \in E$, the right $D$-vector space structure on $\Hom_R(E,M)$ is induced by this left $D$-vector space structure on $E$, and the left $R$-module structure on $\Hom_R(E,M) \otimes_D E$ is inherited from $E$ via
+  \[
+      r \cdot (f \otimes e)
+    = f \otimes (re)
+  \]
+  for all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  We can now strengthen these results:
+  
+  The multiplicity space $\Hom_R(E,M)$ carries the structure of a left $R'$-module via
+  \[
+      \varphi \cdot f
+    = \varphi \circ f
+  \]
+  for all $\varphi \in R'$, $f \in \Hom_R(E,M)$.
+  Together with the right $D$-vector space structure this makes $\Hom_R(E,M)$ into an $R'$-$D$-bimodule via
+  \[
+      \varphi \cdot f \cdot \psi
+    = \varphi \circ f \circ \psi
+  \]
+  for all $\varphi \in R'$, $f \in \Hom_R(E,M)$, $\psi \in D$.
+  It follows that $\Hom_R(E,M) \otimes_D E$ carries the structure of a left $R'$-module via
+  \[
+      \varphi \cdot (f \otimes e)
+    = (\varphi \cdot f) \otimes e
+  \]
+  for all $\varphi \in R'$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  
+  The actions of $R'$ and $R$ on $\Hom_R(E, M) \otimes E$ commute because
+  \[
+      \varphi \cdot (r \cdot (f \otimes e))
+    = \varphi \cdot (f \otimes (r \cdot e))
+    = (\varphi \cdot f) \otimes (r \cdot e)
+    = r \cdot ((\varphi \cdot f) \otimes e)
+    = r \cdot (\varphi \cdot (f \otimes e))
+  \]
+  for all $\varphi \in R'$, $e \in E$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  It follows that the $R'$- and $R$-module structures on $\Hom_R(E,M) \otimes_D E$ extend to an $(R' \otimes_\Integer R)$-module structure given by
+  \[
+      (\varphi \otimes r) \cdot (f \otimes e)
+    = (\varphi \cdot f) \otimes (r \cdot e)
+  \]
+  for all simple tensors $\varphi \otimes r \in R' \otimes_\Integer R$, $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+\end{fluff}
+
+
+\begin{lemma}
+  For $D \defined \End_R(E)$ the evaluation map $\Phi \colon \Hom_R(E,M) \otimes_D E \to M_E$, $f \otimes e \mapsto f(e)$ is an isomorphism of $(R' \otimes R)$-modules.
+\end{lemma}
+
+
+\begin{proof}
+  We know from Lemma~\ref{proposition: multiplicity spaces} that $\Phi$ is bijective, so it remains to show that $\Phi$ is $(R' \otimes R)$-linear.
+  This holds because
+  \begin{align*}
+        \Phi((\varphi \otimes r) \cdot (f \otimes e))
+    &=  \Phi((\varphi \cdot f) \otimes (r \cdot e))
+     =  (\varphi \cdot f)(r \cdot e)
+     =  (\varphi \circ f)(re) \\
+    &=  \varphi(f(re))
+     =  \varphi(rf(e))
+     =  (\varphi \otimes r) \cdot f(e)
+     =  (\varphi \otimes r) \cdot \Phi(f \otimes e)
+  \end{align*}
+  for all simple tensors $\varphi \otimes r \in R' \otimes_\Integer R$, $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+\end{proof}
+
+
+\begin{fluff}
+  This shows us that under the isomorphism $M_E \cong \Hom_R(E,M) \otimes_D E$ the action of $R' \otimes R$ on $M_E$ can be understood componentwise.
+  If $M$ is semisimple then $\Hom_R(E,M) \otimes_D E$ is simple as an $(R' \otimes R)$-module, and the tensor factor $E$ is simple as an $R$-module by construction.
+  This begs the questions if $\Hom_R(E,M)$ is simple as an $R'$-module.
+\end{fluff}
+
+
+\begin{lemma}
+  Let $M$ be semisimple and suppose that $M_E \neq 0$.
+  Let $D \defined \End_R(E)$.
+  \begin{enumerate}
+    \item
+      The $R'$-module $\Hom_R(E,M)$ is simple.
+    \item
+      If $E \ncong F$ as $R$-modules then $\Hom_R(E,M) \ncong \Hom_R(E,F)$ as $R'$-modules.
+    \item
+      We have that $\End_{R'}( \Hom_R(E,M) ) \cong D^\op$ with the left $\End_{R'}( \Hom_R(E,M)$-module structure of $\Hom_R(E,M)$ corresponding to the left $D^\op$-module structure of $\Hom_R(E,M)$ associated to the right $D$-module structure discussed in \ref{fluff: introducting multiplicity spaces}.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The inclusion $\iota \colon M_E \to M$ induces an isomorphism of abelian groups
+      \[
+        \Hom_R(E, M_E)
+        \xlongrightarrow{\iota_*}
+        \Hom_R(E, M) \,,
+      \]
+      so we may identify $\Hom_R(E, M)$ with $\Hom_R(E, M_E)$.
+      We have that
+      \[
+              R'
+        =     \End_R(M)
+        \cong \prod_{[E'] \in \Irr(R)} \End_R(M_{E'})
+      \]
+      with all factors but $\End_R(M_E)$ annihilating $M_E$, and therefore also $\Hom_R(E,M)$.
+      We therefore need to show that $\Hom_R(E,M_E)$ is simple as an $\End_R(M_E)$-module, i.e.\ it sufficies to consider the case $M = M_E$, i.e.\ the case that $M$ is $E$-isotypical.
+      
+      Let $M = \bigoplus_{i \in I} L_i$ be a decomposition into simple $R$-modules, each of which (necessarily) isomorphic to $E$, and let $D \defined \End_R(E)$.
+      We have that $I \neq \emptyset$ because $M_E \neq 0$.
+      For every $i \in I$ let $\tilde{f}_i \colon E \to L_i$ be an isomorphism and let $f_i \colon E \to M$ be the extension of $\tilde{f}_i$ to a homomorphism $E \to M$.
+      Then $(f_i)_{i \in I}$ is a right $D$-basis of $\Hom_R(E,M)$ by Proposition~\ref{proposition: multiplicity spaces}, so that
+      \[
+              \Hom_R(E,M)
+        =     \bigoplus_{i \in I} f_i D
+        \cong D^{\oplus I} \,.
+      \]
+      On the other hand we have that
+      \[
+              R'
+        =     \End_R(M)
+        =     \End_R\left( \bigoplus_{i \in I} L_i \right)
+        \cong \End_R( E^{\oplus I} )
+        \cong \Mat_I^{\cf}( \End_R(E) )
+        =     \Mat_I^{\cf}( D )
+      \]
+      by Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style}.
+      The left $R'$-module structure of $\Hom_R(E,M)$ corresponds under these isomorphisms to the usual matrix-vector left $\Mat_I^{\cf}(D)$-module structure of $D^{\oplus I}$, which is simple by Example~\ref{example: simple modules}, part~\ref*{enumerate: D^I simple as a Matcf module}.
+    \item
+      Under the above isomorphism $R' \cong \prod_{[E'] \in \Irr(R)} \End_R(M_{E'})$ the factor $\End_R(M_E)$ acts non-trivially on $\Hom_R(M,E)$ (because it is simple as an $\End_R(M_E)$-module as seen above) but annihilates $M_F$ and therefore also $\Hom_R(F,M)$.
+    \item
+      We have by the above identifications that 
+      \begin{align*}
+                \End_{R'}( \Hom_R(E,M) )
+        &\cong  \End_{\End_R(M_E)}( \Hom_{R}(E,M_E) )   \\
+        &\cong  \End_{\Mat_I^{\cf}(D)}( D^{\oplus I} )
+         \cong  D^\op
+      \end{align*}
+      as seen in Remark~\ref{remark: infinite matrix vector space correspondence for skew fields}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+% TODO: Does not hold for non ss modules.
+
+
+\begin{fluff}
+  For $E' \defined \Hom_R(E,M)$ we have now seen that $M_E \cong E' \otimes_D E$ as $(R' \otimes R)$-modules with $E$ simple as an $R$-module and $R'$ simple as an $R'$-module.
+  From this we get the following observations:
+  \begin{itemize}
+    \item
+      We have that
+      \[
+              M_E
+        \cong E' \otimes_D E
+        \cong D^{\oplus \dim_D(E')} \otimes_D E
+        \cong E^{\oplus \dim_D(E')}
+      \]
+      as $R$-modules, so the multiplicity of $E$ in $M_E$, which is the same as the multiplicity of $E$ in $M$, is the right $D$-dimension of $E'$.
+      (We have already seen this in Corollary~\ref{corollary: dimension of multiplicity space is multiplicity}.)
+    \item
+      We similarly have that
+      \begin{equation}
+        \label{equation: decomposition of ME as R' module}
+              M_E
+        \cong E' \otimes_D E
+        \cong E' \otimes_D D^{\oplus \dim_D(E)}
+        \cong (E')^{\oplus \dim_D(E)} \,.
+      \end{equation}
+      It follows that the $R$-isotypical decomposition $M = \bigoplus_{[E] \in \Irr(R)} M_E$ coincides with the $R'$-isotypical decomposition in such way that $M_{E'} = M_E$ for all $[E] \in \Irr(R)$ because $E' \ncong F'$ for $E \ncong F$.
+      It therefore also follows from \eqref{equation: decomposition of ME as R' module} that the multiplicity of $E'$ in $M$ is the left $D$-dimension of $D$.
+  \end{itemize}
+  We can summarize our findings as follows:
+\end{fluff}
+
+
+\begin{theorem}
+  Let $M$ be semisimple.
+  \begin{enumerate}
+    \item
+      There exists a unique decomposition $M  = \bigoplus_{i \in I} M_i$ into simple $(R' \otimes_\Integer R)$-modules.
+      The simple $(R' \otimes_\Integer R)$-modules $M_i$ are pairwise non-isomorphic and this decomposition coincides with both the $R$-isotypical and the $R'$-isotypical compositions of $M$.
+      The $R$-module $M$ is in particular also semisimple as an $R'$-module.
+    \item
+      \label{enumerate: simple modules are tensor products}
+      Every simple $(R' \otimes_\Integer R)$-submodule $M_i$ is of the form $E'_i \otimes_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_{R'}(E'_i)$.
+      The simple $(R' \otimes_\Integer R)$-module $M_i$ coincides with both the $E_i$-isotypical and the $E'_i$-isotypical components of $M$.
+      The modules $E_i, E'_i$ are unique up to isomorphism.
+    \item
+      The multiplicity of $E_i$ in $M$ is the right $D_i$-dimension of $E'_i$ and the multiplicity of $E'_i$ in $M$ is the left $D_i$-dimension of $E_i$.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+  It only remains to show for part~\ref*{enumerate: simple modules are tensor products} that when $E' \otimes_{D_1} E \cong F' \otimes_{D_2} F$ as $(R' \otimes_\Integer R)$-modules then $E' \cong F'$ as $R'$-modules and $F \cong E$ as $R$-modules.
+  We have that
+  \[
+          E' \otimes_{D_1} E
+    \cong E^{\oplus \dim_{D_1}(E')}
+    \quad\text{and}\quad
+          F' \otimes_{D_2} F
+    \cong F^{\oplus \dim_{D_1}(F')}
+  \]
+  as $R$-modules, so if $E' \otimes_{D_1} E \cong F' \otimes_{D_2} F$ as $(R' \otimes_\Integer R)$-modules then also
+  \[
+          E^{\oplus \dim_{D_1}(E')}
+    \cong F^{\oplus \dim_{D_2}(F')}
+  \]
+  as $R$-modules and therefore $E \cong F$ as $R$-modules.
+  That $E' \cong F'$ as $R'$-modules follows in the same way.
+\end{proof}
+
+
+\begin{corollary}
+  If $M$ is semisimple then there exists a canonical bijection between the isomorphism classes of simple $R$-modules occuring in $M$ and the isomorphism classes of simple $R'$-modules occuring in $M$.
+\end{corollary}
+
+
+% TODO: Not every simple R' module must occur in M, even if every simple R module occurs
+
+
+% TODO: More direct proof that M is semisimple as an R'-module.
+
+
+
+\subsubsection{Digression: $M$ as an $R''$-module}
+
+\begin{fluff}
+  We have so far observed how a semisimple $R$-module $M$ looks like as an $R'$-module:
+  It is again semisimple with the same isotypical components and the occuring simple $R'$-modules can be described as multiplicity spaces of the occuring simple $R$-modules.
+  
+  We can also investigate how $E$ looks like as an $R''$-module.
+  The main observations are taken from \cite[Chapter~2.6]{DaSilva2017NonCommutative}.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: same direct sum decompositions}
+  Two subsets $N, P \subseteq M$ are $R$-submodules with $M = N \oplus P$ if and only if they are $R''$-submodules with $M = N \oplus P$.
+\end{lemma}
+
+
+\begin{proof}
+  That $N, P$ are $R$-submodules with $M = N \oplus P$ is equivalent to the existence of an idempotent elemente $e \in \End_R(M) = R'$ with $N = \ker(e)$ and $P = \im(e)$.
+  Similary for $R''$.
+  Since $\End_{R''}(M) = R''' = R'$ both conditions are equivalent.
+\end{proof}
+
+
+\begin{proposition}
+  Let $M$ be semisimple as an $R$-module.
+  \begin{enumerate}
+    \item
+      \label{enumerate: same submodules}
+      The $R$-submodules of $M$ are precisely the $R''$-submodules of $M$.
+    \item
+      A submodule $E \moduleleq M$ is simple over $R$ if and only if it is simple over $R''$.
+      The $R$-module $M$ is in particular also semisimple as an $R''$-module.
+    \item
+      \label{enumerate: same isomorphisms}
+      For every two submodules $N, P \moduleleq M$ we have that $\Hom_R(N,P) = \Hom_{R''}(N,P)$.
+      The submodules $N, P \moduleleq M$ are in particular isomorphic as $R$-modules if and only if they are isomorphic as $R''$-modules.
+    \item
+      The $R$-module $M$ is also semisimple as an $R''$-module and the $R$-isotypical components of $M$ are the same as the $R''$-isotypical components.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Every $R''$-submodule is also an $R$-submodule, and every $R$-submodule is a direct summand and therefore also an $R''$-submodule by Lemma~\ref{lemma: same direct sum decompositions}.
+    \item
+      The simple submodules are precisely the minimal nonzero submodules, which are by part~\ref*{enumerate: same submodules} the same for both $R$ and $R''$.
+      It follows from the $R$-semisimplicity of $M$ that $M$ is a sum of simple $R$-modules, and therefore also a sum of simple $R''$-modules.
+    \item
+      Every $R$-module homomorphism $N \to P$ extends to an $R$-module endomorphism $M \to M$ because $M$ is semisimple as an $R$-module.
+      In other words, every $R$-module homomorphism $N \to P$ is the restriction of an $R$-module endomorphism $M \to M$.
+      The same holds for $M$ as an $R''$-module.
+      The claim thus follows from $\End_R(M) = R' = R''' = \End_{R''}(M)$.
+    \item
+      This follows from part~\ref*{enumerate: same submodules} with help of part~\ref*{enumerate: same isomorphisms}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+\subsection{The Double Centralizer Theorem}
+
+
+\begin{fluff}
+  We will now answer the questions under what condition the centralizer $R'(M)$ is semisimple when $M$ is semisimple:
+\end{fluff}
+
+
+\begin{proposition}
+  If $M$ is semisimple then $R'$ is semisimple if and only if $M$ is the sum of only finitely many simple submodules.
+\end{proposition}
+
+
+\begin{proof}
+  Let $(E_i)_{i \in I}$ be a set of representatives for the isomorphism classes of simple $R$-modules.
+  We may assume w.l.o.g.\ that $M = \bigoplus_{i \in I} E_i^{\oplus J_i}$ for some index sets $J_i$, $i \in I$.
+  It then follows from Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} that
+  \[
+          R'
+    =     \End_R(M)
+    \cong \prod_{i \in I} \Mat_{J_i}^{\cf}(D_i)
+  \]
+  for the skew fields $D_i \defined \End_R(E_i)$.
+  If $J_i$ were nonempty for infinitey many $i \in I$ then $R'$ would not be semisimple, as can be seen in (at least) two ways:
+  \begin{itemize}
+    \item
+      The ring $\prod_{i \in I} \Mat_{J_i}^{\cf}(D_i)$ would be neither noetherian nor artinian, and would therefore not semisimple by Corollary~\ref{corollary: semisimple rings are notherian artinian},
+    \item
+      The ring $\prod_{i \in I} \Mat_{J_i}^{\cf}(D_i)$ would contain infinitely many two-sided ideals (namely the factors $\Mat_{J_i}^{\cf}(D_i)$) and would therefore not be semisimple by Corollary~\ref{corollary: semisimple ring has only finitely many two sided ideals}.
+  \end{itemize}
+  Thus for $R'$ to be semisimple, $J_i$ must be empty for all but finitely many $i \in I$, i.e.\ only finitely many simple $R$-modules can occur in $M$ up to isomorphism.
+  
+  Hence we need only consider the case that $M = E_1^{\oplus J_1} \oplus \dotsb \oplus E_n^{\oplus J_n}$ and thus
+  \[
+          R'
+    \cong \Mat_{J_1}^{\cf}(D_1) \times \dotsb \times \Mat_{J_n}^{\cf}(D_n) \,.
+  \]
+  It then follows from Proposition~\ref{proposition: product of semisimple} that $R'$ is semisimple if and only if each factor $\Mat_{J_i}^{\cf}(D_i)$ is semisimple, which by Example~\ref{example: semisimple rings} and Example~\ref{example: infinite matrix ring not semisimple} holds if and only if each $J_i$ is finite.
+\end{proof}
+
+
+\begin{theorem}[Double Centralizer Theorem]
+  Let $R$ be semisimple and let $M$ be faithful such that $M$ decomposes into finitely many simple $R$-modules.
+  \begin{enumerate}
+    \item
+      The commutator $R'$ is again semisimple.
+    \item
+      There exists a unique decomposition
+      \[
+          M
+        = M_1 \oplus \dotsb \oplus M_n
+      \]
+      into simple $(R' \otimes_\Integer R)$-modules, and this decomposition coincides with both the $R$-isotypical decomposition and the $R'$-isotypical decomposition of $M$.
+    \item
+      Each $M_i$ is of the form $M_i \cong E'_i \otimes_D E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D$ with $D \cong \End_R(E_i)$ and $D^\op \cong \End_R(E'_i)$.
+    \item
+      The summand $M_i$ is both the $E_i$-isotypical and the $E'_i$-isotypical component of $M$.
+    \item
+      The simple $R$-modules $E_1, \dotsc, E_n$ form a set of representatives of the isomorphism classes of simple $R$-modules and $E'_1, \dotsc, E'_n$ form a set fo representatives of the isomorphism classes of simple $R'$-modules.
+  \end{enumerate}
+\end{theorem}
+
+
+
+% \begin{fluff}
+%   It is worthwhile to point out that a similar result holds for $R$ itself:
+% \end{fluff}
 % 
 % 
 % \begin{lemma}
-%   Let $M$ be semisimple.
-%   \begin{enumerate}
-%     \item
-%       The $R'(M)$-module $\Hom_R(E,M)$ is simple.
-%     \item
-%       We have that $\End_{R'(M)}( \Hom_R(E,M) ) \cong \End_R(E)^\op$, with the action of $\End_{R'(M)}( \Hom_R(E,M) )$ on $\Hom_R(E,M)$ corresponding to the action of $\End_R(E)^\op$ on $\Hom_R(E,M)$.
-%   \end{enumerate}
-% 
+%   If $M$ is faithful as an $R$-module and $M = L_1 \oplus \dotsb \oplus L_n$ for (finitely many) simple $R$-modules $L_1, \dotsc, L_n$ then $R$ is semisimple.
 % \end{lemma}
+% 
+% 
+% \begin{proof}
+%   
+% \end{proof}
+
+

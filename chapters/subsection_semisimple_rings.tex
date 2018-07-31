@@ -145,6 +145,39 @@
 \end{proof}
 
 
+\begin{example}
+  \label{example: infinite matrix ring not semisimple}
+  Let $R$ be a nonzero ring.
+  For an infinite set $I$ the ring $\Mat_I^{\cf}(R)$ of column finite $(I \times I)$-matrices is not semisimple:
+  There exist a stricty increasing sequence of subsets
+  \[
+                I_0
+    \subsetneq  I_1
+    \subsetneq  I_2
+    \subsetneq  \dotsb
+    \subsetneq  I \,,
+  \]
+  and for every $n \geq 0$ the set
+  \[
+              J_n
+    \defined  \{
+                A \in \Mat_I^{\cf}(R)
+              \suchthat
+                \text{the $i$-th column of $A$ is zero for all $i \in I_n$}
+              \}
+  \]
+  is a left ideal of $\Mat_I^{\cf}(R)$.
+  The stricty decreasing sequence
+  \[
+                J_0
+    \supsetneq  J_1
+    \supsetneq  J_2
+    \supsetneq  \dotsb
+  \]
+  shows that $\Mat_I^{\cf}(R)$ is not artinian.
+\end{example}
+
+
 
 
 
@@ -377,6 +410,17 @@
   \]
   This shows that $f(x) = xd$ for every $x \in D^n$, which shows that $\Phi$ is surjective.
 \end{proof}
+
+
+\begin{remark}
+  \label{remark: infinite matrix vector space correspondence for skew fields}
+  It follows more generally for every nonempty index set $I$ in the same way that $\End_{\Mat_I^{\cf}(D)}( D^{\oplus I} ) \cong D^\op$ where we identify $D^{\oplus I}$ with the space of (column finite) column vectors $\Mat^{\cf}(I \times 1, D)$ and the action of $\Mat_I^{\cf}(D)$ on $D^{\oplus I} = \Mat^{\cf}(I \times 1, D)$ is given by matrix-vector multiplication.
+  
+  One can also identify $D^{\oplus I}$ with the space of (row finite) row vectors $\Mat^{\rf}(1 \times I, D)$, which we denote by $(D^{\oplus I})^T$.
+  Then $(D^{\oplus I})^T$ is a right $\Mat_I^{\rf}(D)$-module via vector-matrix multiplication.
+  It can be shown as above that the endomorphism ring of this right module structure is given by $D$, where $D$ acts on $(D^{\oplus I})^T$ by left multiplication.
+  Since we are working mostly with left module structures we can replace this right $\Mat_I^{\rf}(D)$-module structure by the corresponding left $\Mat_I^{\rf}(D)^\op$-module structure and get that $\Hom_{\Mat_I^{\rf}(D)^\op}\left( (D^{\oplus I})^T \right) \cong D$.
+\end{remark}
 
 
 \begin{corollary}

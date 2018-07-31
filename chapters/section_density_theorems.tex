@@ -228,13 +228,112 @@
 
 \begin{example}
   If $R$ is simple then $R$ has the double centralizer property with respect to every submodule $M \idealleq R$ by \hyperref[lemma: rieffels theorem]{Rieffel’s theorem}, because the canonical homomorphism $R \to R''(M)$ is an isomorphism for $M \neq 0$, and still surjective for $M = 0$.
-  Indeed, the original formulation in \cite{Rieffel} is that \enquote{$R$ coincides with the bicommutant of $M$}.
+  Indeed, the original formulation of \hyperref[lemma: rieffels theorem]{Rieffel’s theorem} in \cite{Rieffel} is that \enquote{$R$ coincides with the bicommutant of $M$}.
 \end{example}
 
 
-\begin{remark}
-  A $R$-module $M$ for which the canonical homomorphism $R \to R''(M)$ is surjective is called \emph{balanced}.
-\end{remark}
+\begin{proposition}
+  If $R$ is semisimple then every $R$-module $M$ has the double centralizer property, i.e.\ for every $R$-module $M$ the canonical homomorphism $R \to R''(M)$ is surjective.
+\end{proposition}
+
+
+\begin{proof}
+  We may assume w.l.o.g.\ that $R = \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$ by the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
+  If $M = M_1 \oplus \dotsb \oplus M_r$ is the isotypical decomposition of $M$ with $M_i$ being the $D_i^{n_i}$-isotypical component, then it follows that
+  \[
+          R'
+    =     \End_R(M)
+    \cong \End_R(M_1) \times \dotsb \times \End_R(M_r)
+  \]
+  with the factor $\End_R(M_i)$ acting on $M_i$ but annihilating $M_j$ for $j \neq i$.
+  We thus have that $M = M_1 \boxplus \dotsb \boxplus M_r$ as an $(\End_R(M_1) \times \dotsb \times \End_R(M_r))$-module.
+  It follows that
+  \begin{align*}
+            R''
+    &=      \End_{R'}(M)  \\
+    &=      \End_{\End_R(M_1) \times \dotsb \times \End_R(M_r)}(M_1 \boxplus \dotsb \boxplus M_r) \\
+    &\cong  \End_{\End_R(M_1)}(M_1) \times \dotsb \times \End_{\End_R(M_r)}(M_r)
+  \end{align*}
+  by Lemma~\ref{label: endomorphism ring of boxsum}.
+  The canonical homomorphism $R \to R''$ maps the factor $\Mat_{n_i}(D_i)$ of $R$ into the factor $\End_{\End_R(M_i)}(M_i)$ of $R''$, so it sufficies to consider the case $r = 1$.
+  
+  Thus we may assume that $R = \Mat_n(D)$ for some $n \geq 1$ and skew field $D$.
+  We may then assume that $M = (D^n)^{\oplus I}$ for some index set $I$.
+  Then
+  \[
+          R'
+    =     \End_R(M)
+    =     \End_R( (D^n)^{\oplus I} )
+    \cong \Mat_I^{\cf}( \End_R( D^n ) )
+    \cong \Mat_I^{\cf}( D^\op )
+    \cong \Mat_I^{\rf}( D )^\op \,.
+  \]
+  where the first two isomorphisms follow from Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} and the third isomorphism follows from Remark~\ref{remark: transposing infinite matrix ring opposite ring}.
+  
+  To understand how the $R'$-module structure on $M$ behaves under these isomorphisms we may think of $M = (D^n)^{\oplus I}$ as the space of row-finite matrices $\Mat^{\rf}(n \times I, D)$.
+  The left $R$-module structure of $M$ is then simply given by matrix-matrix multiplication, and the $R'$-module structure on $M$ corresponds to the action of $\Mat_I^{\rf}(D)^\op$ on $M$ under which $A^\op \in \Mat_I^{\rf}(D)^\op$ acts on $M$ by matrix-matrix multiplication with $A$ from the right.
+  If one thinks about this left $\Mat_I^{\rf}(D)^\op$-module structure of $M$ as the corresponding right $\Mat_I^{\rf}(D)$-module structure then $R = \Mat_n(D)$ and $\Mat_I^{\rf}(D)$ act on $M$ by multiplication from the left and right:
+  \[
+    \begin{tikzcd}[column sep = 0em]
+        R
+        \arrow[equal]{d}
+      &\curvearrowright
+      & M
+        \arrow[equal]{d}
+      & \curvearrowleft
+      & (R')^\op
+        \arrow[equal]{d}[right]{\rotatebox[origin=c]{90}{$\sim$}}
+      \\
+        \Mat_n(D)
+      & \curvearrowright
+      & \Mat^{\rf}(n \times I, D)
+      & \curvearrowleft
+      & \Mat_I^{\rf}(D)
+    \end{tikzcd}
+  \]
+  We denote by $(D^{\oplus I})^T \defined \Mat^\rf(1 \times I, D)$ the space of (row finite) row vectors of size $I$.
+  Then
+  \[
+          M
+    \cong \underbrace{ (D^{\oplus I})^T \oplus \dotsb \oplus (D^{\oplus I})^T }_{\text{$n$ times}}
+  \]
+  as left $\Mat_I^{\rf}(D)^\op$-modules, resp.\ right $\Mat_I^{\rf}(D)$-modules by decomposing $M$ into rows.
+  It follows from Remark~\ref{remark: infinite matrix vector space correspondence for skew fields} that
+  \[
+          \End_{ \Mat_I^{\rf}(D)^\op }\left( (D^{\oplus I})^T \right) 
+    \cong D
+  \]
+  with $D$ acting on $(D^{\oplus I})^T$ by right multiplication.
+  It follows that
+  \begin{align*}
+            R''
+    &=      \End_{R'}(M)  \\
+    &=      \End_{ \Mat_I^{\rf}(D)^\op }( M )   \\
+    &\cong  \End_{ \Mat_I^{\rf}(D)^\op }\left( (D^{\oplus I})^T \oplus \dotsb \oplus (D^{\oplus I})^T \right) \\
+    &\cong  \Mat_n\left( \End_{ \Mat_I^{\rf}(D)^\op }\left( (D^{\oplus I})^T \right) \right)  \\
+    &\cong  \Mat_n(D) \\
+    &=      R
+  \end{align*}
+  with the action of $R''$ on $M$ corresponding to the action of $R$ on $M$.
+  This shows that every $\varphi \in R''$ is of the form $\varphi(m) = rm$ for some $r \in R$, i.e.\ that the canonical homomorphism $R \to R''$ is surjective.
+% , and that $M = (D_1^{n_1})^{\oplus J_1} \oplus \dotsb \oplus (D_r^{n_r})^{\oplus J_r}$ for some index sets $J_1, \dotsc, J_r$.
+%   It then follows that
+%   \begingroup
+%   \allowdisplaybreaks
+%   \begin{align*}
+%             R'
+%     &=      \End_R(M) \\
+%     &=      \End_R\left( (D_1^{n_1})^{\oplus J_1} \oplus \dotsb \oplus (D_r^{n_r})^{\oplus J_r} \right) \\
+%     &\cong  \End_R( (D_1^{n_1})^{\oplus J_1} ) \times \dotsb \times \End_R( (D_r^{n_r})^{\oplus J_r} )  \\
+%     &\cong  \Mat_{J_1}^{\cf}(\End_R(D_1^{n_1})) \times \dotsb \Mat_{J_1}^{\cf}(\End_R(D_1^{n_1}))       \\
+%     &\cong  \Mat_{J_1}^{\cf}(D_1^{\op}) \times \dotsb \Mat_{J_1}^{\cf}(D_r^{\op})                       \\
+%     &\cong  \Mat_{J_1}^{\cf}(D_1)^\op \times \dotsb \Mat_{J_1}^{\cf}(D_r)^\op                           \\
+%     &\cong  \left( \Mat_{J_1}^{\cf}(D_1) \times \dotsb \Mat_{J_1}^{\cf}(D_r) \right)^\op \,.            \\
+%   \end{align*}
+%   \endgroup
+%   We may think about $$
+\end{proof}
+
 
 
 
@@ -390,5 +489,14 @@
 \end{proof}
 
 
+\begin{corollary}
+  If $M$ is a simple $R$-module which is finite-dimensional as an $R'(M)$-module, then the canonical homomorphism $R \to R''(M)$ is surjective.
+\end{corollary}
 
+
+% TODO: Add a proof.
+
+% TODO: Add a counterexample when this not holds.
+
+% TODO: Add reference that this simple modules are balanced over artinian rings.
 

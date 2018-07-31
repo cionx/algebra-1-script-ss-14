@@ -44,10 +44,11 @@
     \item
       If $D$ is a skew field then $D^n$ is simple as an $\Mat_n(D)$-module:
       Let $U \moduleleq D^n$ be a nonzero submodule and let $x \in U$ with $x \neq 0$.
-      It then follows that $x_i \neq 0$ for some $i = 1, \dotsc, n$ and therefore that
+      It then follows that $x_i \neq 0$ for some $i = 1, \dotsc, n$;
+      if $D \in \Mat_n(D)$ is the diagonal matrix with $D_{ii} = x_i^{-1}$ and $D_{jj} = 0$ for $j \neq i$ then it follows that
       \[
             e_i
-        =   x^{-1} I x
+        =   D x
         \in U \,.
       \]
       For every $j = 1, \dotsc, n$ it follows by using a suitable permutation matrix $P \in \Mat_n(K)$ that
@@ -57,6 +58,10 @@
         \in U \,.
       \]
       This shows that $e_1, \dotsc, e_n \in U$ and therefore that $U = D^n$.
+    \item
+      \label{enumerate: D^I simple as a Matcf module}
+      If more generally $D$ is a skew field and $I$ is any nonempty index set, then $D^{\oplus I}$ is simple as an $\Mat_I^{\cf}(D)$-module, where $\Mat_I^{\cf}(D)$ denotes the ring of column finite $(I \times I)$-matrices with entries in $D$ (see Definition~\ref{definition: infinite matrices} and Lemma~\ref{lemma: structure on infinite matrices}).
+      This can be seen in the same way as in the finite case $I = \{1, \dotsc, n\}$ above.
   \end{enumerate}
 \end{example}
 
