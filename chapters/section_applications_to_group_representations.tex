@@ -58,6 +58,7 @@
 
 
 \begin{lemma}
+  \label{lemma: order of group decomposes into dim of irrep}
   Let $G$ be finite with $\kchar(k) \ndivides |G|$
   \begin{enumerate}
     \item
@@ -538,30 +539,30 @@
       \hline
         (\class{0},\class{0})
       & 1
-      & \phantom{-}1
+      &            1
       & \phantom{-}1
       & \phantom{-}1
       & \phantom{-}1
       \\
         (\class{1},\class{0})
       & 1
+      &            1
       & \phantom{-}1
-      & \phantom{-}1
-      & -1
-      & -1
+      &           -1
+      &           -1
       \\
         (\class{0},\class{1})
       & 1
+      &            1
+      &           -1
       & \phantom{-}1
-      & -1
-      & \phantom{-}1
-      & -1
+      &           -1
       \\
         (\class{1},\class{1})
       & 1
-      & \phantom{-}1
-      & -1
-      & -1
+      &            1
+      &           -1
+      &           -1
       & \phantom{-}1
       \\
       \hline
@@ -572,9 +573,591 @@
 
 
 \begin{example}[Character table of $S_3$]
+  \label{example: character table S3}
   Let $\triv$ be the irreducible trivial representation of $S_3$ and let $\sgn$ be the sign representation.
+  The groups $S_3$ acts on $\Complex^3$ by permutation of the entries, i.e.\ via
+  \[
+      \sigma.e_i
+    = e_{\sigma(i)}
+  \]
+  for all $\sigma \in S_n$, $i = 1, 2, 3$, and it follows from Example~\ref{example: subrepresentations of natural action of Sn} that
+  \[
+        V
+    = \{
+        (x_1, x_2, x_3) \in \Complex^3
+      \suchthat
+        x_1 + x_2 + x_3 = 0
+      \}
+  \]
+  is a two-dimensional irreducible subrepresentation.
+  With respect to the basis $b_1, b_2$ of $V$ with $b_1 \defined e_1 - e_2$ and $b_2 \defined e_2 - e_3$ the action of the elements of $S_3$ is represented by the following matrices:
+  \begin{equation}
+    \label{equation: representing matrix for 2dim irrep of S3}
+    \begin{array}{cccccc}
+        \begin{bmatrix*}[r]
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          -1  & 1 \\
+           0  & 1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+           0  & -1  \\
+          -1  &  0
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          1 &  0 \\
+          1 & -1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          0 & -1 \\
+          1 & -1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          -1  & 1 \\
+          -1  & 0
+        \end{bmatrix*}
+      \\
+        \rule{0pt}{1.2em}
+        \id
+      & (1,2)
+      & (1,3)
+      & (2,3)
+      & (1,2,3)
+      & (1,3,2)
+    \end{array}
+  \end{equation}
+  We can directy read off the character $\chi_V$ from this.
+  The representations $\triv, \sgn, V$ are a complete set of representatives of $S_3$ as can be seen in the following ways:
+  \begin{itemize}
+    \item
+      We have that
+      \[
+          (\dim \triv)^2
+        + (\dim \sgn)^2
+        + (\dim V)^2
+        = 1 + 1 + 4
+        = 6
+        = |S_3| \,,
+      \]
+      so the claim follows from Lemma~\ref{lemma: order of group decomposes into dim of irrep}.
+    \item
+      The groups $S_3$ has three conjugacy classes, and thus three irreducible complex representations.
+  \end{itemize}
+  We find that the character table of $S_3$ is given as follows:
+  \[
+    \begin{array}{|c|c||c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{S_3}
+      & \triv
+      & \sgn
+      & V
+      \\
+      \hline
+        \id
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}2
+      \\
+        (1,2)
+      & 3
+      &            1
+      &           -1
+      & \phantom{-}0
+      \\
+        (1,2,3)
+      & 2
+      &            1
+      & \phantom{-}1
+      &           -1
+      \\
+      \hline
+    \end{array}
+  \]
+  The third row can also be deduced from the first two by using the orthonormality relations:
+  If $a, b, c$ are the entries of the last row then we need that
+  \[
+    \left\{
+      \begin{array}{lllcl}
+         a   & + 3b & + 2c    &=& 0 \,, \\
+         a   & - 3b & + 2c    &=& 0 \,, \\
+         a^2 &      & + 2c^2  &=& |S_3| = 6 \,.
+      \end{array}
+    \right.
+  \]
+  It follows from the first two equations that $b = 0$ and that $a = -2c$.
+  From the third equation it then follows that $6c^2 = 6$ and thus either $(a,b,c) = (-2,0,1)$ or $(a,b,c) = (2,0,-1)$.
+  We have that $a > 0$ because $a$ is precisely the dimension of the missing irreducible representation and thus $(a,b,c) = (2,0,-1)$.
 \end{example}
 
+
+\begin{example}[Character table of $S_4$]
+  The partitions of the natural number $4$ are $(4), (3,1), (2,2), (2,1,1), (1,1,1,1)$, so $S_4$ has five irreducible representations.
+  The trivial representation $\triv$ and sign representation $\sgn$ are two of them.
+  We thus get the following character table for $S_4$:
+  \[
+    \begin{array}{|c|c||c|c|c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{S_4}
+      & \triv
+      & \sgn
+      & ?
+      & ?
+      & ?
+      \\
+      \hline
+        \id
+      & 1
+      &            1
+      & \phantom{-}1
+      &            ?
+      &            ?
+      &            ?
+      \\
+        (1,2)
+      & 6
+      &            1
+      &           -1
+      &            ?
+      &            ?
+      &            ?
+      \\
+        (1,2,3)
+      & 8
+      &            1
+      & \phantom{-}1
+      &            ?
+      &            ?
+      &            ?
+      \\
+        (1,2,3,4)
+      & 6
+      &            1
+      &           -1
+      &            ?
+      &            ?
+      &            ?
+      \\
+        (1,2)(3,4)
+      & 3
+      &            1
+      & \phantom{-}1
+      &            ?
+      &            ?
+      &            ?
+      \\
+      \hline
+    \end{array}
+  \]
+  The symmetric group $S_4$ acts on $\Complex^4$ via
+  \[
+      \sigma.e_i
+    = e_{\sigma(i)}
+  \]
+  for all $i = 1, 2, 3, 4$, and it follows from Example~\ref{example: subrepresentations of natural action of Sn} that
+  \[
+      V
+    = \{
+        (x_1, x_2, x_3, x_4) \in \Complex^4
+      \suchthat
+        x_1 + x_2 + x_3 + x_4 = 0
+      \}
+  \]
+  is an irreducible three-dimensional representation of $S_3$ with basis
+  \[
+    b_1 \defined e_1 - e_2 \,,
+    \quad
+    b_2 \defined e_2 - e_3 \,,
+    \quad
+    b_3 \defined e_3 - e_4 \,.
+  \]
+  With respect to the basis $b_1, b_2, b_3$ of $V$ we have the following representing matrices:
+  \[
+    \begin{array}{ccccc}
+        \begin{bmatrix*}[r]
+          1 & 0 & 0 \\
+          0 & 1 & 0 \\
+          0 & 0 & 1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          -1  & 1 & 0 \\
+           0  & 1 & 0 \\
+           0  & 0 & 1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          0 & -1  & 1 \\
+          1 & -1  & 1 \\
+          0 &  0  & 1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          0 & 0 & -1  \\
+          1 & 0 & -1  \\
+          0 & 1 & -1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          -1  & 1 &  0  \\
+           0  & 1 &  0  \\
+           0  & 1 & -1
+        \end{bmatrix*}
+      \\
+        \rule{0pt}{1.2em}
+        \id
+      & (1,2)
+      & (1,2,3)
+      & (1,2,3,4)
+      & (1,2)(3,4)
+    \end{array}
+  \]
+  We can read off another column of the character table:
+  \[
+    \begin{array}{|c|c||c|c|c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{S_4}
+      & \triv
+      & \sgn
+      & V
+      & ?
+      & ?
+      \\
+      \hline
+        \id
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}3
+      &            ?
+      &            ?
+      \\
+        (1,2)
+      & 6
+      &            1
+      &           -1
+      & \phantom{-}1
+      &            ?
+      &            ?
+      \\
+        (1,2,3)
+      & 8
+      &            1
+      & \phantom{-}1
+      & \phantom{-}0
+      &            ?
+      &            ?
+      \\
+        (1,2,3,4)
+      & 6
+      &            1
+      &           -1
+      &           -1
+      &            ?
+      &            ?
+      \\
+        (1,2)(3,4)
+      & 3
+      &            1
+      & \phantom{-}1
+      &           -1
+      &            ?
+      &            ?
+      \\
+      \hline
+    \end{array}
+  \]
+  To find another irreducible representation we the three-dimensional representation consider $V \tensor \sgn$, whose character is given as follows:
+  \[
+    \begin{array}{|c|c||c|}
+      \hline
+        \multicolumn{2}{|c||}{S_4}
+      & V \tensor \sgn
+      \\
+      \hline
+        \id
+      & 1
+      & \phantom{-}3
+      \\
+        (1,2)
+      & 6
+      & -1
+      \\
+        (1,2,3)
+      & 8
+      & \phantom{-}0
+      \\
+        (1,2,3,4)
+      & 6
+      & \phantom{-}1
+      \\
+        (1,2)(3,4)
+      & 3
+      & -1
+      \\
+      \hline
+    \end{array}
+  \]
+  We have that
+  \[
+      \innerp{ V \tensor \sgn, V \tensor \sgn }
+    = \frac{1}{24}
+      \left(
+          1 \cdot 3^2
+        + 6 \cdot 1^2
+        + 8 \cdot 0^2
+        + 6 \cdot 1^2
+        + 3 \cdot 1^2
+      \right)
+    = 1
+  \]
+  so $V \tensor \sgn$ is irreducible.
+  We have thus found another column of the character table:
+  \[
+    \begin{array}{|c|c||c|c|c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{S_4}
+      & \triv
+      & \sgn
+      & V
+      & V \tensor \sgn
+      & ?
+      \\
+      \hline
+        \id
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}3
+      & \phantom{-}3
+      &            ?
+      \\
+        (1,2)
+      & 6
+      &            1
+      &           -1
+      & \phantom{-}1
+      &           -1
+      &            ?
+      \\
+        (1,2,3)
+      & 8
+      &            1
+      & \phantom{-}1
+      & \phantom{-}0
+      & \phantom{-}0
+      &            ?
+      \\
+        (1,2,3,4)
+      & 6
+      &            1
+      &           -1
+      &           -1
+      & \phantom{-}1
+      &            ?
+      \\
+        (1,2)(3,4)
+      & 3
+      &            1
+      & \phantom{-}1
+      &           -1
+      &           -1
+      &            ?
+      \\
+      \hline
+    \end{array}
+  \]
+  Let $a,b,c,d,e \in \Complex$ be the missing entries of the last column.
+  With the orthonormality relations of the columns we find that
+  \[
+    \left\{
+      \begin{array}{lllllcl}
+        \phantom{3}a    & + 6b    & + 8c    & + 6d    & + 3e    &=& 0 \,, \\
+        \phantom{3}a    & - 6b    & + 8c    & - 6d    & + 3e    &=& 0 \,, \\
+                  3a    & + 6b    &         & - 6d    & - 3e    &=& 0 \,, \\
+                  3a    & - 6b    &         & + 6d    & - 3e    &=& 0 \,, \\
+        \phantom{3}a^2  & + 6b^2  & + 8c^2  & + 6d^2  & + 3 e^2 &=& |S_4| = 24  \,.
+      \end{array}
+    \right.
+  \]
+  The entry $a$ is the dimension of the missing irreducible representation $W$ and it follows from
+  \[
+      24
+    = |S_4|
+    = 1^2 + 1^2 + 3^2 + 3^2 + a^2
+  \]
+  that $a = 2$.
+  We can therefore simplify the above equation system to
+  \[
+    \left\{
+      \begin{array}{lllllcr}
+        \phantom{-} 6b    & + 8c    & + 6d    & + 3e    &=& -2 \,,  \\
+                  - 6b    & + 8c    & - 6d    & + 3e    &=& -2 \,,  \\
+        \phantom{-} 6b    &         & - 6d    & - 3e    &=& -6 \,,  \\
+                  - 6b    &         & + 6d    & - 3e    &=& -6 \,,  \\
+        \phantom{-} 6b^2  & + 8c^2  & + 6d^2  & + 3 e^2 &=& 20  \,,
+      \end{array}
+    \right.
+  \]
+  which leads to the solution
+  \[
+    (a,b,c,d,e) = (2,0,-1,0,2) \,.
+  \]
+  We have now found the complete character table:
+  \[
+    \begin{array}{|c|c||c|c|c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{S_4}
+      & \triv
+      & \sgn
+      & V
+      & V \tensor \sgn
+      & W
+      \\
+      \hline
+        \id
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}3
+      & \phantom{-}3
+      & \phantom{-}2
+      \\
+        (1,2)
+      & 6
+      &            1
+      &           -1
+      & \phantom{-}1
+      &           -1
+      & \phantom{-}0
+      \\
+        (1,2,3)
+      & 8
+      &            1
+      & \phantom{-}1
+      & \phantom{-}0
+      & \phantom{-}0
+      &           -1
+      \\
+        (1,2,3,4)
+      & 6
+      &            1
+      &           -1
+      &           -1
+      & \phantom{-}1
+      & \phantom{-}0
+      \\
+        (1,2)(3,4)
+      & 3
+      &            1
+      & \phantom{-}1
+      &           -1
+      &           -1
+      & \phantom{-}2
+      \\
+      \hline
+    \end{array}
+  \]
+  We can also construct the missing two-dimensional irreducible representation $W$ explicitely:
+  The group $S_4$ acts on $\{1,2,3,4\}$ in the natural way, and therefore also on the set
+  \[
+      X
+    = \big\{
+        \quad
+        \{\{1,2\},\{3,4\}\},
+        \quad
+        \{\{1,3\},\{2,4\}\},
+        \quad
+        \{\{1,4\},\{2,3\}\}
+        \quad
+      \big\}
+  \]
+  of partitions of $\{1,2,3,4\}$ into two-element subsets.
+  By labeling these subsets as $X_1, X_2, X_3$ this action of $S_4$ on $X$ corresponds to a group homomorphism $\varphi \colon S_4 \to S_3$.
+  We have that
+  \begin{gather*}
+      \varphi( (1,2) )
+    = (2,3) \,,
+    \quad
+      \varphi( (1,3) )
+    = (1,3) \,,
+    \quad
+      \varphi( (1,4) )
+    = (1,2) \,,
+    \\
+      \varphi( (2,3) )
+    = (1,2) \,,
+    \quad
+      \varphi( (2,4) )
+    = (1,3) \,,
+    \quad
+      \varphi( (3,4) )
+    = (2,3) \,,
+  \end{gather*}
+  which shows in particular that $\varphi$ is surjective.
+  We can there pull back the two-dimensional irreducible representation $W$ of $S_3$ (see Example~\ref{example: character table S3}) to a two-di\-men\-sion\-al irreducible representation of $S_4$ given by
+  \[
+      \sigma . w
+    = \varphi(\sigma) . w
+  \]
+  for all $\sigma \in S_4$, $w \in W$.
+  We have that
+  \begin{align*}
+        \varphi(\id)
+    &=  \id
+    \\
+        \varphi( (1,2) )
+    &=  (2,3) \,,
+    \\
+        \varphi( (1,2,3) )
+    &=  \varphi( (1,2) (2,3) )
+     =  \varphi( (1,2) ) \varphi( (2,3) )
+     =  (2,3) (1,2)
+     =  (1,3,2) \,,
+    \\
+        \varphi( (1,2,3,4) )
+    &=  \varphi( (1,2) (2,3) (3,4) )
+     =  \varphi( (1,2) ) \varphi( (2,3) ) \varphi( (3,4) )  \\
+    &=  (2,3) (1,2) (2,3)
+     =  (1,3) \,,
+    \\
+        \varphi( (1,2) (3,4) )
+    &=  \varphi( (1,2) ) \varphi( (3,4) )
+     =  (2,3) (2,3)
+     =  \id
+  \end{align*}
+  so by using the representing matrices from \eqref{equation: representing matrix for 2dim irrep of S3} we find that with respect to a suitable basis $b_1, b_2$ of $W$ the action of $S_4$ on $W$ is represented by the following matrices:
+  \[
+    \begin{array}{ccccc}
+        \begin{bmatrix*}[r]
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          1 &  0  \\
+          1 & -1
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          -1  & 1 \\
+          -1  & 0
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+           0  & -1 \\
+          -1  &  0
+        \end{bmatrix*}
+      & \begin{bmatrix*}[r]
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix*}
+      \\
+        \rule{0pt}{1.2em}
+        \id
+      & (1,2)
+      & (1,2,3)
+      & (1,2,3,4)
+      & (1,2)(3,4)
+    \end{array}
+  \]
+  With this we get the last column of the character table as calculated above.
+\end{example}
 
 
 
