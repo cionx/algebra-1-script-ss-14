@@ -114,9 +114,9 @@
   Let $n, m \geq 0$.
   \begin{enumerate}
     \item
-      If $D$ is a $k$-algebra then $\Mat_n(D) \cong D \otimes \Mat_n(k)$ as $k$-algebras.
+      If $D$ is a $k$-algebra then $\Mat_n(D) \cong D \tensor \Mat_n(k)$ as $k$-algebras.
     \item
-      We have that $\Mat_n(k) \otimes \Mat_m(k) \cong \Mat_{nm}(k)$ as $k$-algebras.
+      We have that $\Mat_n(k) \tensor \Mat_m(k) \cong \Mat_{nm}(k)$ as $k$-algebras.
   \end{enumerate}
 \end{lemma}
 
@@ -125,47 +125,47 @@
   \leavevmode
   \begin{enumerate}
     \item
-      There exists a unique $k$-linear map $\varphi \colon D \otimes \Mat_n(k) \to \Mat_n(D)$ which is on simple tensors given by $d \otimes M \mapsto dM$ by the universal property of the tensor product.
+      There exists a unique $k$-linear map $\varphi \colon D \tensor \Mat_n(k) \to \Mat_n(D)$ which is on simple tensors given by $d \tensor M \mapsto dM$ by the universal property of the tensor product.
       Let $E_{ij}$ be the standard $D$-basis of $\Mat_n(D)$ and let $E'_{ij}$ be the standard $k$-basis of $\Mat_n(k)$.
       Then
       \[
-              D \otimes \Mat_n(k)
-        =     D \otimes \bigoplus_{i,j=1}^n k E_{ij}
-        \cong \bigoplus_{i,j=1}^n D \otimes (k E_{ij})
+              D \tensor \Mat_n(k)
+        =     D \tensor \bigoplus_{i,j=1}^n k E_{ij}
+        \cong \bigoplus_{i,j=1}^n D \tensor (k E_{ij})
       \]
-      as $k$-vector spaces and $\varphi$ maps $D \otimes (k E_{ij})$ isomorphically onto $D E_{ij}$.
+      as $k$-vector spaces and $\varphi$ maps $D \tensor (k E_{ij})$ isomorphically onto $D E_{ij}$.
       This shows that $\varphi$ is an isomorphism of $k$-vector spaces.
       The multiplicativity of $\varphi$ can be checked on simple tensors, for which we have that 
       \begin{align*}
-            \varphi( (d \otimes M) (d' \otimes M') )
-         =  \varphi( (d d') \otimes (M M') )
+            \varphi( (d \tensor M) (d' \tensor M') )
+         =  \varphi( (d d') \tensor (M M') )
         &=  d d' M M' \\
         &=  d M d' M'
-         =  \varphi(d \otimes M) \varphi(d' M') \,.
+         =  \varphi(d \tensor M) \varphi(d' M') \,.
       \end{align*}
-      We also have that $\varphi(1 \otimes I) = I$.
+      We also have that $\varphi(1 \tensor I) = I$.
     \item
       We have that
       \begin{align*}
-                \Mat_n(k) \otimes \Mat_m(k)
-        &\cong  \End_k(k^n) \otimes \End_k(k^m) \\
-        &\cong  \End_k(k^n \otimes k^m)
+                \Mat_n(k) \tensor \Mat_m(k)
+        &\cong  \End_k(k^n) \tensor \End_k(k^m) \\
+        &\cong  \End_k(k^n \tensor k^m)
          \cong \End_k(k^{nm})
          \cong \Mat_{nm}(k)
       \end{align*}
-      where the second isomorphism is given by $f \otimes g \mapsto f \otimes g$.
+      where the second isomorphism is given by $f \tensor g \mapsto f \tensor g$.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
 \begin{remark}
-  The above isomorphism $\Mat_n(k) \otimes \Mat_m(k) \to \Mat_{nm}(k)$ can be expressed on simple tensors by the Kronecker product
+  The above isomorphism $\Mat_n(k) \tensor \Mat_m(k) \to \Mat_{nm}(k)$ can be expressed on simple tensors by the Kronecker product
   \[
             \varphi
-    \colon  \Mat_n(k) \otimes \Mat_m(k)
+    \colon  \Mat_n(k) \tensor \Mat_m(k)
     \to     \Mat_{nm}(k),
-    \quad   A \otimes B
+    \quad   A \tensor B
     \mapsto \begin{bmatrix}
               A_{11} B  & \cdots  & A_{1n} B  \\
               \vdots    & \ddots  & \vdots    \\
@@ -173,12 +173,12 @@
             \end{bmatrix}.
   \]
   It can also be checked by hand that this $k$-linear map is an isomorphis of $k$-algebras:
-  The basis $E_{ij} \otimes E_{i'j'}$ with $i,j = 1, \dotsc, n$ and $i', j' = 1, \dotsc, m$ of $\Mat_n(k) \otimes \Mat_m(k)$ is mapped bijectively onto the analogous standard basis of $\Mat_{mn}(k)$, which shows that $\varphi$ is bijective.
+  The basis $E_{ij} \tensor E_{i'j'}$ with $i,j = 1, \dotsc, n$ and $i', j' = 1, \dotsc, m$ of $\Mat_n(k) \tensor \Mat_m(k)$ is mapped bijectively onto the analogous standard basis of $\Mat_{mn}(k)$, which shows that $\varphi$ is bijective.
   We have that
   \begingroup
   \allowdisplaybreaks
   \begin{align*}
-      &\,  \varphi(A \otimes B) \varphi(A' \otimes B'))
+      &\,  \varphi(A \tensor B) \varphi(A' \tensor B'))
     \\
     =&\,  \begin{bmatrix}
             A_{11} B  & \cdots  & A_{1n} B  \\
@@ -210,12 +210,12 @@
             (A A')_{n1} B B' & \cdots  & (A A')_{nn} B B'
           \end{bmatrix}
     \\
-    =&\,  \varphi((A A') \otimes (B B'))
-    =     \varphi((A \otimes B) (A' \otimes B'))
+    =&\,  \varphi((A A') \tensor (B B'))
+    =     \varphi((A \tensor B) (A' \tensor B'))
   \end{align*}
   \endgroup
-  for all simple tensors $A \otimes B, A' \otimes B' \in \Mat_n(k) \otimes \Mat_m(k)$, which shows that $\varphi$ is multiplicative.
-  We also have that $\varphi(I \otimes I) = I$.
+  for all simple tensors $A \tensor B, A' \tensor B' \in \Mat_n(k) \tensor \Mat_m(k)$, which shows that $\varphi$ is multiplicative.
+  We also have that $\varphi(I \tensor I) = I$.
 \end{remark}
 
 
@@ -231,7 +231,7 @@
       There exist $n, m \geq 1$ and a division $k$-algebra $D$ such that $A \cong \Mat_n(D)$ and $B \cong \Mat_m(D)$ as $k$-algebras.
     \item
       \label{enumerate: up to tensor with a matrix ring}
-      There exists $n', m' \geq 1$ with $A \otimes \Mat_{n'}(k) \cong B \otimes \Mat_{m'}(k)$ as $k$-algebras.
+      There exists $n', m' \geq 1$ with $A \tensor \Mat_{n'}(k) \cong B \tensor \Mat_{m'}(k)$ as $k$-algebras.
   \end{enumerate}
 \end{lemma}
 
@@ -245,26 +245,26 @@
     \item[\ref*{enumerate: matrices over same division algebra} $\implies$ \ref*{enumerate: up to tensor with a matrix ring}]
       We can choose $n' = m$ and $m' = n$ because
       \begin{align*}
-              A \otimes \Mat_m(k)
-        &\cong \Mat_n(D) \otimes \Mat_m(k)
-         \cong D \otimes \Mat_n(k) \otimes \Mat_m(k)  \\
-        &\cong D \otimes \Mat_m(k) \otimes \Mat_n(k)
-         \cong \Mat_m(D) \otimes \Mat_n(k)
-         \cong B \otimes \Mat_n(k) \,.
+              A \tensor \Mat_m(k)
+        &\cong \Mat_n(D) \tensor \Mat_m(k)
+         \cong D \tensor \Mat_n(k) \tensor \Mat_m(k)  \\
+        &\cong D \tensor \Mat_m(k) \tensor \Mat_n(k)
+         \cong \Mat_m(D) \tensor \Mat_n(k)
+         \cong B \tensor \Mat_n(k) \,.
       \end{align*}
     \item[\ref*{enumerate: up to tensor with a matrix ring} $\implies$ \ref*{enumerate: matrices over isomorphic division algebra}]
       Let $D_1, D_2$ be division $k$-algebras with $A \cong \Mat_n(D_1)$ and $B \cong \Mat_m(D_2)$ as $k$-algebras.
       Then
       \begin{align*}
-                A \otimes \Mat_{n'}(k)
-         \cong  \Mat_n(D_1) \otimes \Mat_{n'}(k)
-        &\cong  D_1 \otimes \Mat_n(k) \otimes \Mat_{n'}(k)  \\
-        &\cong  D_1 \otimes \Mat_{nn'}(k)
+                A \tensor \Mat_{n'}(k)
+         \cong  \Mat_n(D_1) \tensor \Mat_{n'}(k)
+        &\cong  D_1 \tensor \Mat_n(k) \tensor \Mat_{n'}(k)  \\
+        &\cong  D_1 \tensor \Mat_{nn'}(k)
          \cong  \Mat_{nn'}(D_1)
       \end{align*}
       and similarly
       \[
-              B \otimes \Mat_{m'}(k)
+              B \tensor \Mat_{m'}(k)
         \cong \Mat_{mm'}(D_2) \,.
       \]
       It follows from $\Mat_{nn'}(D_1) \cong \Mat_{mm'}(D_2)$ and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that $D_1 \cong D_2$ as $k$-algebras (and that $nn' = mm'$).
@@ -275,30 +275,30 @@
 
 \begin{corollary}
   \label{corollary: Brauer equivalence is a congruence relation}
-  Brauer equivalence is an congruence relation on $\preBr(k)$, i.e.\ for $A, A', B, B' \in \CSA_k$ with $A \sim A'$ and $B \sim B'$ we have that $A \otimes B \sim A' \otimes B'$.
+  Brauer equivalence is an congruence relation on $\preBr(k)$, i.e.\ for $A, A', B, B' \in \CSA_k$ with $A \sim A'$ and $B \sim B'$ we have that $A \tensor B \sim A' \tensor B'$.
 \end{corollary}
 
 
 \begin{proof}
   There exist $n, n', m, m' \geq 1$ with
   \[
-          A \otimes \Mat_n(k)
-    \cong A' \otimes \Mat_{n'}(k)
+          A \tensor \Mat_n(k)
+    \cong A' \tensor \Mat_{n'}(k)
     \quad\text{and}\quad
-          B \otimes \Mat_m(k)
-    \cong B'  \otimes \Mat_{m'}(k)
+          B \tensor \Mat_m(k)
+    \cong B'  \tensor \Mat_{m'}(k)
   \]
   by Lemma~\ref{lemma: characterization of Brauer equivalence}.
   It follows that
   \begin{align*}
-            A \otimes B \otimes \Mat_{nm}(k)
-    &\cong  A \otimes B \otimes \Mat_{n}(k) \otimes \Mat_{m}(k) \\
-    &\cong  A \otimes \Mat_{n}(k) \otimes B \otimes \Mat_{m}(k) \\
-    &\cong  A' \otimes \Mat_{n'}(k) \otimes B' \otimes \Mat_{m'}(k) \\
-    &\cong  A' \otimes B' \otimes \Mat_{n'}(k) \otimes \Mat_{m'}(k) \\
-    &\cong  A' \otimes B' \otimes \Mat_{n'm'}(k) \,,
+            A \tensor B \tensor \Mat_{nm}(k)
+    &\cong  A \tensor B \tensor \Mat_{n}(k) \tensor \Mat_{m}(k) \\
+    &\cong  A \tensor \Mat_{n}(k) \tensor B \tensor \Mat_{m}(k) \\
+    &\cong  A' \tensor \Mat_{n'}(k) \tensor B' \tensor \Mat_{m'}(k) \\
+    &\cong  A' \tensor B' \tensor \Mat_{n'}(k) \tensor \Mat_{m'}(k) \\
+    &\cong  A' \tensor B' \tensor \Mat_{n'm'}(k) \,,
   \end{align*}
-  which shows that $A \otimes B \sim A' \otimes B'$ by Lemma~\ref{lemma: characterization of Brauer equivalence}.
+  which shows that $A \tensor B \sim A' \tensor B'$ by Lemma~\ref{lemma: characterization of Brauer equivalence}.
 \end{proof}
 
 
@@ -308,7 +308,7 @@
     \item
       The algebra $A^\op$ is again a central simple $k$-algebra and if $A \in \CSA_k$ then $A^\op \in \CSA_k$.
     \item
-      If $A \in \CSA_k$ then $A \otimes A^\op \cong \End_k(A)$ as $k$-algebras.
+      If $A \in \CSA_k$ then $A \tensor A^\op \cong \End_k(A)$ as $k$-algebras.
   \end{enumerate}
 \end{lemma}
 
@@ -325,34 +325,34 @@
       Then $f, g$ induce a well-defined $k$-linear map
       \[
                 \varphi
-        \colon  A \otimes A^\op
+        \colon  A \tensor A^\op
         \to     \End_k(A)
       \]
       which is given on simple tensors by
       \[
-          \varphi(a \otimes b^\op)(x)
+          \varphi(a \tensor b^\op)(x)
         = (f(a) \circ g(b^\op))(x)
         = a x b
       \]
-      for all $a \otimes b^\op \in A \otimes A^\op$, $x \in A$.
-      For all simple tensors $a_1 \otimes b_1^\op, a_2 \otimes b_2^\op \in A \otimes A^\op$ we have that
+      for all $a \tensor b^\op \in A \tensor A^\op$, $x \in A$.
+      For all simple tensors $a_1 \tensor b_1^\op, a_2 \tensor b_2^\op \in A \tensor A^\op$ we have that
       \begin{align*}
-            \varphi(a_1 \otimes b_1^\op) \varphi(a_2 \otimes b_2^\op)
+            \varphi(a_1 \tensor b_1^\op) \varphi(a_2 \tensor b_2^\op)
         &=  f(a_1) \circ g(b_1^\op) \circ f(a_2) \circ g(b_2^\op) \\
         &=  f(a_1) \circ f(a_2) \circ g(b_1^\op) \circ g(b_2^\op  \\
         &=  f(a_1 a_2) \circ g(b_1^\op b_2^\op)                   \\
-        &=  \varphi((a_1 a_2) \otimes (b_1^\op b_2^\op))          \\
-        &=  \varphi((a_1 \otimes b_1^\op) (a_2 \otimes b_2^\op))
+        &=  \varphi((a_1 a_2) \tensor (b_1^\op b_2^\op))          \\
+        &=  \varphi((a_1 \tensor b_1^\op) (a_2 \tensor b_2^\op))
       \end{align*}
       where we use for the second equality that $g(b_1^\op)$ and $f(a_2)$ commute by the associativity of the multiplication of $A$.
-      We also have that $\varphi(1 \otimes 1) = \id_A$.
+      We also have that $\varphi(1 \tensor 1) = \id_A$.
       
       Altogether this shows that $\varphi$ is a homomorphism of $k$-algebras.
-      The kernel $\ker(\varphi)$ is a nonzero two-sided ideal in the central simple $k$-algebra $A \otimes A^\op$.
+      The kernel $\ker(\varphi)$ is a nonzero two-sided ideal in the central simple $k$-algebra $A \tensor A^\op$.
       It follows that $\ker(\varphi) = 0$ which shows that $\varphi$ is injective.
       We have that
       \[
-          \dim_k (A \otimes A^\op)
+          \dim_k (A \tensor A^\op)
         = \dim_k(A) \dim_k(A^\op)
         = \dim_k(A)^2
         = \dim_k \End_k(A) \,,
@@ -370,8 +370,8 @@
   The quaternions algebra $\Hamilton$ is a four-dimensional central simple $\Real$-algebra and the quaternion conjugation $\Hamilton \to \Hamilton^\op$, $x \mapsto \overline{x}^\op$ is an isomorphism of $\Real$-algebras.
   It follows that
   \[
-          \Hamilton \otimes_\Real \Hamilton
-    \cong \Hamilton \otimes_\Real \Hamilton^\op
+          \Hamilton \tensor_\Real \Hamilton
+    \cong \Hamilton \tensor_\Real \Hamilton^\op
     \cong \End_\Real(\Hamilton)
     \cong \Mat_4(\Real) \,.
   \]
@@ -383,7 +383,7 @@
   The binary operation
   \[
               [A] \cdot [B]
-    \defined  [A \otimes B]
+    \defined  [A \tensor B]
   \]
   defines on $\Br(k)$ the structure of an abelian group.
   The neutral element is given by $[k]$ and the inverse of $[A] \in \Br(k)$ is given by $[A^\op]$.
@@ -397,7 +397,7 @@
   For every $[A] \in \Br(k)$ with $n = \dim_k A$ we have that
   \[
       [A] \cdot [A^\op]
-    = [A \otimes A^\op]
+    = [A \tensor A^\op]
     = [\End_k(A)]
     = [\Mat_n(k)]
     = [k] \,,

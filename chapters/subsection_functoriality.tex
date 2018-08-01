@@ -4,34 +4,34 @@
   For every $k$-linear map $f \colon V \to W$ between $k$-vector spaces $V, W$ the induced $k$-linear map
   \[
               f_L
-    \coloneqq {\id_L} \otimes f
+    \coloneqq {\id_L} \tensor f
     \colon    V_L
     \to       W_L
   \]
   is already $L$-linear:
-  For all $\lambda \in L$ and simple tensors $l \otimes v \in V_L$ with $l \in L$, $v \in V$ we have that
+  For all $\lambda \in L$ and simple tensors $l \tensor v \in V_L$ with $l \in L$, $v \in V$ we have that
   \[
-      f_L( \lambda \cdot (l \otimes v) )
-    = f_L( (\lambda l) \otimes v )
-    = (\lambda l) \otimes f(v)
-    = \lambda \cdot (l \otimes f(v))
-    = \lambda f_L(l \otimes v) \,,
+      f_L( \lambda \cdot (l \tensor v) )
+    = f_L( (\lambda l) \tensor v )
+    = (\lambda l) \tensor f(v)
+    = \lambda \cdot (l \tensor f(v))
+    = \lambda f_L(l \tensor v) \,,
   \]
   and thus $f_L( \lambda \cdot x ) = \lambda f_L(x)$ for every $x \in V_L$ because every tensor is a sum of simple tensors.
   
   For every $k$-vector space $V$ we have that
   \[
       (\id_V)_L
-    = {\id_L} \otimes {\id_V}
-    = \id_{V \otimes_k L}
+    = {\id_L} \tensor {\id_V}
+    = \id_{V \tensor_k L}
     = \id_{V_L} \,,
   \]
   and for all composable $k$-linear maps $f \colon U \to V$, $g \colon V \to W$ we have that
   \[
       g_L \circ f_L
-    = ({\id_L} \otimes g) \circ ({\id_L} \otimes f)
-    = (\id_L \circ \id_L) \otimes (g \circ f)
-    = {\id_L} \otimes (g \circ f)
+    = ({\id_L} \tensor g) \circ ({\id_L} \tensor f)
+    = (\id_L \circ \id_L) \tensor (g \circ f)
+    = {\id_L} \tensor (g \circ f)
     = (g \circ f)_L \,.
   \]
   This shows that $(-)_L$ defines a functor
@@ -65,8 +65,8 @@
   For every $v \in V$ one has that
   \[
           f_L(\can_V(v))
-      =  f_L(1 \otimes v)
-      =  1 \otimes f(v)
+      =  f_L(1 \tensor v)
+      =  1 \tensor f(v)
       =  \can_{V'}(f(v)) \,.
     \qedhere
   \]
@@ -183,10 +183,10 @@
   If $f \colon V \to W$ is a $k$-linear map between finite-dimensional $k$-vector spaces $V, W$ and $B \subseteq V$, $C \subseteq W$ are $k$-basis, then with respect to the basis
   \[
               B_L
-    \defined  1 \otimes B
-    =         \{1 \otimes b \suchthat b \in B\}
+    \defined  1 \tensor B
+    =         \{1 \tensor b \suchthat b \in B\}
   \]
-  of $V_L$ and the basis $C_L \defined 1 \otimes C$ of $W_L$ we have the equality of representing matrices
+  of $V_L$ and the basis $C_L \defined 1 \tensor C$ of $W_L$ we have the equality of representing matrices
   \[
       [f]^B_C
     = [f_L]^{B_L}_{C_L} \,.

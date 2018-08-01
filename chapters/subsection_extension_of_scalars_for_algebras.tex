@@ -3,34 +3,34 @@
 
 \begin{fluff}
   \label{fluff: tensor product of algebras}
-  For $k$-algebras $A$ and $B$ their tensor product $A \otimes_k B$ can again be endowed with the structure of a $k$-algebra, with the multiplication being given on simple tensors by
+  For $k$-algebras $A$ and $B$ their tensor product $A \tensor_k B$ can again be endowed with the structure of a $k$-algebra, with the multiplication being given on simple tensors by
   \[
-      (a_1 \otimes b_1) \cdot (a_2 \otimes b_2)
-    = (a_1 a_2) \otimes (b_1 b_2).
+      (a_1 \tensor b_1) \cdot (a_2 \tensor b_2)
+    = (a_1 a_2) \tensor (b_1 b_2).
   \]
   for all $a_1, a_2 \in A$, $b_1, b_2 \in B$.
-  If both $A, B$ are unital then $A \otimes_k B$ is again unital with $1_{A \otimes B} = 1_A \otimes 1_B$.
+  If both $A, B$ are unital then $A \tensor_k B$ is again unital with $1_{A \tensor B} = 1_A \tensor 1_B$.
   
   To see that this multiplication is well-defined note that the map
   \begin{align*}
               A \times B \times A \times B
-    &\to      A \otimes_k B \,, \\
+    &\to      A \tensor_k B \,, \\
               (a_1, b_1, a_2, b_2)
-    &\mapsto  (a_1 a_2) \otimes (b_1 b_2)
+    &\mapsto  (a_1 a_2) \tensor (b_1 b_2)
   \end{align*}
   is well-defined and $k$-multilinear, and thus induces a well-defined $k$-linear map
   \begin{align*}
-              A \otimes_k B \otimes_k A \otimes_k B
-    &\to      A \otimes_k B \,, \\
-              a_1 \otimes b_1 \otimes a_2 \otimes b_2
-    &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,,
+              A \tensor_k B \tensor_k A \tensor_k B
+    &\to      A \tensor_k B \,, \\
+              a_1 \tensor b_1 \tensor a_2 \tensor b_2
+    &\mapsto  (a_1 a_2) \tensor (b_1 b_2) \,,
   \end{align*}
   which in turn corresponds to a $k$-bilinear map
   \begin{align*}
-              (A \otimes_k B) \times (A \otimes_k B)
-    &\to      A \otimes_k B \,, \\
-              (a_1 \otimes b_1, a_2 \otimes b_2)
-    &\mapsto  (a_1 a_2) \otimes (b_1 b_2) \,.
+              (A \tensor_k B) \times (A \tensor_k B)
+    &\to      A \tensor_k B \,, \\
+              (a_1 \tensor b_1, a_2 \tensor b_2)
+    &\mapsto  (a_1 a_2) \tensor (b_1 b_2) \,.
   \end{align*}
   The various algebra axioms can now be checked on simple tensors.
 \end{fluff}
@@ -38,18 +38,18 @@
 
 \begin{fluff}
   Let $A$ be a $k$-algebra.
-  By considering $L$ as a $k$-algebra it now follows that $A_L = L \otimes_k A$ carries the structure of a $k$-algebra, with the multiplication being given on simple tensors by
+  By considering $L$ as a $k$-algebra it now follows that $A_L = L \tensor_k A$ carries the structure of a $k$-algebra, with the multiplication being given on simple tensors by
   \[
-      (l_1 \otimes a_1) \cdot (l_2 \otimes a_2)
-    = (l_1 l_2) \otimes (a_1 a_2)
+      (l_1 \tensor a_1) \cdot (l_2 \tensor a_2)
+    = (l_1 l_2) \tensor (a_1 a_2)
   \]
   for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
   The $k$-bilinear map
   \begin{align*}
-              (L\otimes_k A) \times (L \otimes_k A)
-    &\to      L \otimes_k A \,, \\
-              (l_1 \otimes a_1, l_2 \otimes a_2)
-    &\mapsto  (l_1 l_2) \otimes (a_1 a_2)
+              (L\tensor_k A) \times (L \tensor_k A)
+    &\to      L \tensor_k A \,, \\
+              (l_1 \tensor a_1, l_2 \tensor a_2)
+    &\mapsto  (l_1 l_2) \tensor (a_1 a_2)
   \end{align*}
   is already $L$-bilinear, so the $L$-vector space structure of $A_L$ makes the $k$-algebra $A_L$ into an $L$-algebra.
 \end{fluff}
@@ -59,7 +59,7 @@
   Let $A$ be a $k$-algebra.
   \begin{enumerate}
     \item
-    If $A$ is unital then so is $A_L$ with $1_{A_L} = 1 \otimes 1_A$.
+    If $A$ is unital then so is $A_L$ with $1_{A_L} = 1 \tensor 1_A$.
     \item
     The canonical homomorphism $\can_A \colon A \to A_L$ is already a homomorphism of $k$-algebras.
   \end{enumerate}
@@ -72,15 +72,15 @@
 \begin{proof}
   The map $f_L$ is multiplicative on simple tensors because
   \begin{align*}
-     &\,  f_L((l_1 \otimes a_1)(l_2 \otimes a_2))
-    =     f_L((l_1 l_2) \otimes (a_1 a_2))
-    =     (l_1 l_2) \otimes f(a_1 a_2) \\
-    =&\,  (l_1 l_2) \otimes (f(a_1)f(a_2))
-    =     (l_1 \otimes f(a_1)) (l_2 \otimes f(a_2))
-    =     f_L(l_1 \otimes a_1) f_L(l_2 \otimes a_2)
+     &\,  f_L((l_1 \tensor a_1)(l_2 \tensor a_2))
+    =     f_L((l_1 l_2) \tensor (a_1 a_2))
+    =     (l_1 l_2) \tensor f(a_1 a_2) \\
+    =&\,  (l_1 l_2) \tensor (f(a_1)f(a_2))
+    =     (l_1 \tensor f(a_1)) (l_2 \tensor f(a_2))
+    =     f_L(l_1 \tensor a_1) f_L(l_2 \tensor a_2)
   \end{align*}
   for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
-  It follows that $f_L$ is multiplicative because these simple tensors generate $L \otimes_k A_1$ as a vector space i.
+  It follows that $f_L$ is multiplicative because these simple tensors generate $L \tensor_k A_1$ as a vector space i.
 \end{proof}
   
   
@@ -96,12 +96,12 @@
   \begin{proof}
   The map $\overline{f}$ is multiplicative on simple tensors because
     \begin{align*}
-          \overline{f}((l_1 \otimes a_1)(l_2 \otimes a_2))
-      &=  \overline{f}((l_1 l_2) \otimes (a_1 a_2))
+          \overline{f}((l_1 \tensor a_1)(l_2 \tensor a_2))
+      &=  \overline{f}((l_1 l_2) \tensor (a_1 a_2))
        =  l_1 l_2 f(a_1 a_2)    \\
       &=  l_1 l_2 f(a_1) f(a_2)
        =  l_1 f(a_1) l_2 f(a_2)
-       =  \overline{f}(l_1 \otimes a_1) \overline{f}(l_2 \otimes a_2)
+       =  \overline{f}(l_1 \tensor a_1) \overline{f}(l_2 \tensor a_2)
     \end{align*}
     for all $l_1, l_2 \in L$, $a_1, a_2 \in A$.
     It follows that $\overline{f}$ is multiplicative because the simple tensors generate $A_L$ as a vector space.
@@ -142,7 +142,7 @@
   Suppose that $X \subseteq A$ is both a $k$-basis of $A$ and an $L$-basis of $B$.
   Then the isomorphism of $L$-vector spaces $\varphi \colon A_L \to B$ from Corollary~\ref{corollary: inclusion to bijection vector spaces}, which is given on simple tensors by
   \[
-      \varphi(l \otimes a)
+      \varphi(l \tensor a)
     = l a
   \]
   for all $l \in L$, $a \in A$, is an isomorphism of $L$-algebras.
@@ -171,11 +171,11 @@
 \end{lemma}
 \begin{proof}
   It follows from $I$ being a $k$-linear subspace of $A$ that $I_L$ is an $L$-linear subspace of $A_L$.
-  For all simple tensors $l \otimes a \in A_L$, $l' \otimes x \in I_L$ with $l, l' \in L$, $a \in A$, $x \in I$ we have that
+  For all simple tensors $l \tensor a \in A_L$, $l' \tensor x \in I_L$ with $l, l' \in L$, $a \in A$, $x \in I$ we have that
   \[
-        (l \otimes a) \cdot (l' \otimes x)
-    =   (l l') \otimes (a x)
-    \in L \otimes_k I
+        (l \tensor a) \cdot (l' \tensor x)
+    =   (l l') \tensor (a x)
+    \in L \tensor_k I
     =   I_L \,.
   \]
   It follows that $A_L I_L \subseteq I_L$ because every tensor is a linear combination of simple tensors.
@@ -186,24 +186,24 @@
 
 \begin{lemma}
   Let $A$ be a $k$-algebra and let $I \idealleq A$ be an ideal generated by elements $(b_j)_{j \in J}$.
-  Then the ideal $I_L \idealleq A_L$ is generated by the elements $(1 \otimes b_j)_{j \in J}$.
+  Then the ideal $I_L \idealleq A_L$ is generated by the elements $(1 \tensor b_j)_{j \in J}$.
 \end{lemma}
 \begin{proof}
-  Let $I_0$ be the ideal in $A_L$ generated by the elements $(1 \otimes b_j)_{j \in J}$.
-  We have that $I_0 \subseteq I_L$ because $I_L$ is an ideal with $1 \otimes b_j \in I_L$ for every $j \in J$.
+  Let $I_0$ be the ideal in $A_L$ generated by the elements $(1 \tensor b_j)_{j \in J}$.
+  We have that $I_0 \subseteq I_L$ because $I_L$ is an ideal with $1 \tensor b_j \in I_L$ for every $j \in J$.
   To show that $I_L \subseteq I_0$ we consider the preimage
   \[
               I'
     \coloneqq \{
                 a \in A
               \mid
-                1 \otimes a \in I_0
+                1 \tensor a \in I_0
               \}
     =         \can_A^{-1}(I_0) \,.
   \]
   This is an ideal in $A$ because $\can_A$ is a homomorphism of $k$-algebras.
   We have that $b_j \in I'$ for every $j \in J$, and thus $I \subseteq I'$.
-  It follows that $1 \otimes a \in I_0$ for all $a \in I$, and it further follows that $I_L \subseteq I_0$ because these simple tensors generate $I_L$ as an $L$-vector space.
+  It follows that $1 \tensor a \in I_0$ for all $a \in I$, and it further follows that $I_L \subseteq I_0$ because these simple tensors generate $I_L$ as an $L$-vector space.
 \end{proof}
 
 

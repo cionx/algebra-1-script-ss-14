@@ -407,9 +407,9 @@
   \end{equation}
   then the image of the induced map
   \[            
-            \Hom_R(E,M) \otimes_\Integer E
+            \Hom_R(E,M) \tensor_\Integer E
     \to     M,
-    \quad   f \otimes e
+    \quad   f \tensor e
     \mapsto f(e) \,,
   \]
   is precisely the $E$-isotypical component $M_E$.
@@ -430,19 +430,19 @@
   for all $f \in \Hom_R(E,M)$, $\varphi \in \End_R(E) = D$.
   The evaluation map~\eqref{equation: raw evalution map for multiplicity spaces} is $D$-balenced and thus induces a well-defined map
   \[            
-            \Hom_R(E,M) \otimes_D E
+            \Hom_R(E,M) \tensor_D E
     \to     M,
-    \quad   f \otimes e
+    \quad   f \tensor e
     \mapsto f(e) \,,
   \]
   whose image is again the $E$-isotypical component $M_E$.
   
-  The abelian group $\Hom_R(E,M) \otimes_D E$ inherits the structure of a left $R$-module from $E$ via
+  The abelian group $\Hom_R(E,M) \tensor_D E$ inherits the structure of a left $R$-module from $E$ via
   \[
-      r \cdot (f \otimes e)
-    = f \otimes (r e)
+      r \cdot (f \tensor e)
+    = f \tensor (r e)
   \]
-  for all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  for all $r \in R$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor_D E$.
   Indeed, the actions of $R$ and $D$ on $E$ commute in the sense that
   \[
       \varphi \cdot (r \cdot e)
@@ -456,11 +456,11 @@
     = r \cdot (\varphi \cdot e)
   \]
   for all $r \in R$, $\varphi \in D$, $e \in E$.
-  This then endows $\Hom_R(E,M) \otimes_D E$ with the structure of a right $R^\op$-module via
+  This then endows $\Hom_R(E,M) \tensor_D E$ with the structure of a right $R^\op$-module via
   \[
-      (f \otimes e) \cdot r^\op
-    = f \otimes (e \cdot r^\op)
-    = f \otimes (r e)
+      (f \tensor e) \cdot r^\op
+    = f \tensor (e \cdot r^\op)
+    = f \tensor (r e)
   \]
   for all $r \in R$, which corresponds to the claimed left $R$-module structure.
 \end{fluff}
@@ -489,9 +489,9 @@
       The evaluation map
       \[
                 \Phi
-        \colon  \Hom_R(E,M) \otimes_D E
+        \colon  \Hom_R(E,M) \tensor_D E
         \to     M_E,
-        \quad   f \otimes e
+        \quad   f \tensor e
         \mapsto f(e)
       \]
       is an isomorphism of $R$-modules.
@@ -536,23 +536,23 @@
     \item
       It follows that from part~\ref*{enumerate: basis of multiplicity space} that
       \[
-          \Hom_R(E, M) \otimes_D E
-        = \left( \bigoplus_{i \in I} f_i D \right) \otimes_D E
-        = \bigoplus_{i \in I} (f_i D) \otimes_D E
-        = \bigoplus_{i \in I} (f_i \otimes E) \,.
+          \Hom_R(E, M) \tensor_D E
+        = \left( \bigoplus_{i \in I} f_i D \right) \tensor_D E
+        = \bigoplus_{i \in I} (f_i D) \tensor_D E
+        = \bigoplus_{i \in I} (f_i \tensor E) \,.
       \]
-      The map $\Phi$ maps the summand $f_i \otimes E$ onto the summand $f_i(E) = L_i$, and because $f_i$ is an isomorphism it does so bijectively.
+      The map $\Phi$ maps the summand $f_i \tensor E$ onto the summand $f_i(E) = L_i$, and because $f_i$ is an isomorphism it does so bijectively.
       (Here we use that $D$ a skew field:
-      The map $E \to \Hom_R(E, M) \otimes_D E$, $e \mapsto f_i \otimes e$ is injective because $\Hom_R(E,M)$ is free as a right $D$-module.)
-      It follows that $\Phi \colon \bigoplus_{i \in I} (f_i \otimes_D E) \to \bigoplus_{i \in I} L_i$ is also bijective.
+      The map $E \to \Hom_R(E, M) \tensor_D E$, $e \mapsto f_i \tensor e$ is injective because $\Hom_R(E,M)$ is free as a right $D$-module.)
+      It follows that $\Phi \colon \bigoplus_{i \in I} (f_i \tensor_D E) \to \bigoplus_{i \in I} L_i$ is also bijective.
       
-      For all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes E$ we have that
+      For all $r \in R$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor E$ we have that
       \[
-          \Phi(r \cdot (f \otimes e))
-        = \Phi(f \otimes (re))
+          \Phi(r \cdot (f \tensor e))
+        = \Phi(f \tensor (re))
         = f(re)
         = r f(e)
-        = r \, \Phi(f \otimes e) \,,
+        = r \, \Phi(f \tensor e) \,,
       \]
       which shows that $\Phi$ is an isomorphism of $R$-modules.
     \qedhere
@@ -569,17 +569,17 @@
 \begin{corollary}
   If $M$ is semisimple then the map
   \[
-            \bigoplus_{[E] \in \Irr(R)} \Hom_R(E, M) \otimes_{\End_R(E)} E
+            \bigoplus_{[E] \in \Irr(R)} \Hom_R(E, M) \tensor_{\End_R(E)} E
     \to     M \,,
-    \quad   f \otimes e
+    \quad   f \tensor e
     \mapsto f(e)
   \]
-  is an isomorphism of $R$-modules, where $R$ acts on $\Hom_R(E, M) \otimes_{\End_R(E)} E$ via
+  is an isomorphism of $R$-modules, where $R$ acts on $\Hom_R(E, M) \tensor_{\End_R(E)} E$ via
   \[
-      r \cdot (f \otimes e)
-    = f \otimes (re)
+      r \cdot (f \tensor e)
+    = f \tensor (re)
   \]
-  for all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E, M) \otimes_{\End_R(E)} E$.
+  for all $r \in R$ and simple tensors $f \tensor e \in \Hom_R(E, M) \tensor_{\End_R(E)} E$.
 \end{corollary}
 
 

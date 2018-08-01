@@ -148,17 +148,17 @@
       for all $d \in \Integer$.
     \item
       Let $V$ be a $k$-vector space.
-      For every $d \geq 0$ we denote by $V^{\otimes d}$ the $d$-th tensor power of $V$.
-      Recall that $V^{\otimes 0} = k$.
+      For every $d \geq 0$ we denote by $V^{\tensor d}$ the $d$-th tensor power of $V$.
+      Recall that $V^{\tensor 0} = k$.
       
-      For all $p, q \in \Natural$ there exists a unique $k$-bilinear map $V^{\otimes p} \times V^{\otimes q} \to V^{\otimes(p+q)}$, $(x, y) \mapsto x \cdot y$ which is given on simple tensors by
+      For all $p, q \in \Natural$ there exists a unique $k$-bilinear map $V^{\tensor p} \times V^{\tensor q} \to V^{\tensor(p+q)}$, $(x, y) \mapsto x \cdot y$ which is given on simple tensors by
       \[
-          (v_{i_1} \otimes \dotsb \otimes v_{i_p}) \cdot (v_{j_1} \otimes \dotsb \otimes v_{j_q})
-        = v_{i_1} \otimes \dotsb \otimes v_{i_p} \otimes v_{j_1} \otimes \dotsb \otimes v_{j_q}
+          (v_{i_1} \tensor \dotsb \tensor v_{i_p}) \cdot (v_{j_1} \tensor \dotsb \tensor v_{j_q})
+        = v_{i_1} \tensor \dotsb \tensor v_{i_p} \tensor v_{j_1} \tensor \dotsb \tensor v_{j_q}
       \]
       for all $v_{i_1}, \dotsc, v_{i_p}, v_{j_1}, \dotsc, v_{j_q} \in V$.
-      The \emph{tensor algebra \textup(over $V$\textup)} is given by the $k$-vector space $T(V) \defined \bigoplus_{d \in \Natural} V^{\otimes d}$ together with the unique $k$-bilinear extension $T(V) \times T(V) \to V$ of the above multiplications.
-      The decomposition $T(V) = \bigoplus_{d \in \Natural} V^{\otimes d}$ is then a grading of $T(V)$.
+      The \emph{tensor algebra \textup(over $V$\textup)} is given by the $k$-vector space $T(V) \defined \bigoplus_{d \in \Natural} V^{\tensor d}$ together with the unique $k$-bilinear extension $T(V) \times T(V) \to V$ of the above multiplications.
+      The decomposition $T(V) = \bigoplus_{d \in \Natural} V^{\tensor d}$ is then a grading of $T(V)$.
     \item
       Let $n \geq 1$ and let $E_{ij}$ with $i,j = 1, \dotsc, n$ be the standard basis of $\Mat_n(k)$.
       We set $E_{ij} \defined 0$ for all $i,j \in \Integer$ with $i \notin \{1, \dotsc, m\}$ or $j \notin \{1, \dotsc, n\}$.
@@ -889,7 +889,7 @@
         \endgroup
       \]
     \item
-      The $n$-th Weyl algebra $\weyl_n$ can be constructed from the first Weyl algebra $\weyl_1$ as the $n$-fold tensor product $\weyl_1 \otimes \dotsb \otimes \weyl_1$.
+      The $n$-th Weyl algebra $\weyl_n$ can be constructed from the first Weyl algebra $\weyl_1$ as the $n$-fold tensor product $\weyl_1 \tensor \dotsb \tensor \weyl_1$.
     \item
       By defining more generaly the first Weyl algebra $\weyl_1(R)$ for every $k$-algebra $R$, the $n$-th Weyl algebra $\weyl_n(R)$ can inductively be constructed as $\weyl_n(R) = \weyl_1(\weyl_{n-1}(R))$.
   \end{itemize}

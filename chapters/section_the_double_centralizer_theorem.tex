@@ -22,15 +22,15 @@
     = r \cdot (\varphi \cdot m)
   \]
   for all $r \in R$, $\varphi \in R'$, $m \in M$.
-  It follows that the $R$- and $R'$-module structures on $M$ extend to an $(R' \otimes_\Integer R)$-module structure given by
+  It follows that the $R$- and $R'$-module structures on $M$ extend to an $(R' \tensor_\Integer R)$-module structure given by
   \[
-      (\varphi \otimes r) \cdot m
+      (\varphi \tensor r) \cdot m
     = \varphi \cdot (r \cdot m)
     = r \cdot (\varphi \cdot m)
   \]
-  for all simple tensors $\varphi \otimes r \in R' \otimes_\Integer R$ and all $m \in M$.
+  for all simple tensors $\varphi \tensor r \in R' \tensor_\Integer R$ and all $m \in M$.
   
-  The $(R' \otimes_\Integer R)$-submodules of $M$ are then precisely those $R$-submodules which are also $R'$-submodules.
+  The $(R' \tensor_\Integer R)$-submodules of $M$ are then precisely those $R$-submodules which are also $R'$-submodules.
   We have seen in Lemma~\ref{lemma: submodules which are End invariant} that if $M$ is semisimple then these are precisely those $R$-submodules, which are a (direct) sum of isotypical components of $M$.
   We can therefore reformulate Lemma~\ref{lemma: submodules which are End invariant} as follows:
 \end{fluff}
@@ -38,14 +38,14 @@
 
 \begin{lemma}
   \label{lemma: unique decomposition into simple R' tensor R modules}
-  If $M$ is semisimple as an $R$-module then it is also semisimple as an $(R' \otimes R)$-module, and the isotypical decomposition $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a unique decomposition into simple $(R' \otimes R)$-submodules.
-  Moreover, the summand $M_E$, $[E] \in \Irr(R)$ are pairwise non-isomorphic as $(R' \otimes R)$-modules.
+  If $M$ is semisimple as an $R$-module then it is also semisimple as an $(R' \tensor R)$-module, and the isotypical decomposition $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a unique decomposition into simple $(R' \tensor R)$-submodules.
+  Moreover, the summand $M_E$, $[E] \in \Irr(R)$ are pairwise non-isomorphic as $(R' \tensor R)$-modules.
 \end{lemma}
 
 
 \begin{proof}
-  That $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a unique decomposition into simple $(R' \otimes R)$-submodules is a reformulation of Lemma~\ref{lemma: submodules which are End invariant}.
-  If $M_E \cong M_F$ as $(R' \otimes R)$-modules for some simple $R$-modules $E, F$ then in particular $M_E \cong M_F$ as $R$-modules and therefore $E \cong F$.
+  That $M = \bigoplus_{[E] \in \Irr(R)} M_E$ is a unique decomposition into simple $(R' \tensor R)$-submodules is a reformulation of Lemma~\ref{lemma: submodules which are End invariant}.
+  If $M_E \cong M_F$ as $(R' \tensor R)$-modules for some simple $R$-modules $E, F$ then in particular $M_E \cong M_F$ as $R$-modules and therefore $E \cong F$.
 \end{proof}
 
 
@@ -57,18 +57,18 @@
   For the skew field $D \defined \End_R(E)$ the evaluation map
   \[
             \Phi
-    \colon  \Hom_R(E, M) \otimes_D E
+    \colon  \Hom_R(E, M) \tensor_D E
     \to     M_E,
-    \quad   f \otimes e
+    \quad   f \tensor e
     \mapsto f(e)
   \]
   is an isomorphism of $R$-modules.
-  Here the left $D$-vector space structure on $E$ is given by $\psi \cdot e = \psi(e)$ for all $\psi \in D$, $e \in E$, the right $D$-vector space structure on $\Hom_R(E,M)$ is induced by this left $D$-vector space structure on $E$, and the left $R$-module structure on $\Hom_R(E,M) \otimes_D E$ is inherited from $E$ via
+  Here the left $D$-vector space structure on $E$ is given by $\psi \cdot e = \psi(e)$ for all $\psi \in D$, $e \in E$, the right $D$-vector space structure on $\Hom_R(E,M)$ is induced by this left $D$-vector space structure on $E$, and the left $R$-module structure on $\Hom_R(E,M) \tensor_D E$ is inherited from $E$ via
   \[
-      r \cdot (f \otimes e)
-    = f \otimes (re)
+      r \cdot (f \tensor e)
+    = f \tensor (re)
   \]
-  for all $r \in R$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  for all $r \in R$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor_D E$.
   We can now strengthen these results:
   
   The multiplicity space $\Hom_R(E,M)$ carries the structure of a left $R'$-module via
@@ -83,56 +83,56 @@
     = \varphi \circ f \circ \psi
   \]
   for all $\varphi \in R'$, $f \in \Hom_R(E,M)$, $\psi \in D$.
-  It follows that $\Hom_R(E,M) \otimes_D E$ carries the structure of a left $R'$-module via
+  It follows that $\Hom_R(E,M) \tensor_D E$ carries the structure of a left $R'$-module via
   \[
-      \varphi \cdot (f \otimes e)
-    = (\varphi \cdot f) \otimes e
+      \varphi \cdot (f \tensor e)
+    = (\varphi \cdot f) \tensor e
   \]
-  for all $\varphi \in R'$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  for all $\varphi \in R'$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor_D E$.
   
-  The actions of $R'$ and $R$ on $\Hom_R(E, M) \otimes E$ commute because
+  The actions of $R'$ and $R$ on $\Hom_R(E, M) \tensor E$ commute because
   \[
-      \varphi \cdot (r \cdot (f \otimes e))
-    = \varphi \cdot (f \otimes (r \cdot e))
-    = (\varphi \cdot f) \otimes (r \cdot e)
-    = r \cdot ((\varphi \cdot f) \otimes e)
-    = r \cdot (\varphi \cdot (f \otimes e))
+      \varphi \cdot (r \cdot (f \tensor e))
+    = \varphi \cdot (f \tensor (r \cdot e))
+    = (\varphi \cdot f) \tensor (r \cdot e)
+    = r \cdot ((\varphi \cdot f) \tensor e)
+    = r \cdot (\varphi \cdot (f \tensor e))
   \]
-  for all $\varphi \in R'$, $e \in E$ and simple tensors $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
-  It follows that the $R'$- and $R$-module structures on $\Hom_R(E,M) \otimes_D E$ extend to an $(R' \otimes_\Integer R)$-module structure given by
+  for all $\varphi \in R'$, $e \in E$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor_D E$.
+  It follows that the $R'$- and $R$-module structures on $\Hom_R(E,M) \tensor_D E$ extend to an $(R' \tensor_\Integer R)$-module structure given by
   \[
-      (\varphi \otimes r) \cdot (f \otimes e)
-    = (\varphi \cdot f) \otimes (r \cdot e)
+      (\varphi \tensor r) \cdot (f \tensor e)
+    = (\varphi \cdot f) \tensor (r \cdot e)
   \]
-  for all simple tensors $\varphi \otimes r \in R' \otimes_\Integer R$, $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  for all simple tensors $\varphi \tensor r \in R' \tensor_\Integer R$, $f \tensor e \in \Hom_R(E,M) \tensor_D E$.
 \end{fluff}
 
 
 \begin{lemma}
-  For $D \defined \End_R(E)$ the evaluation map $\Phi \colon \Hom_R(E,M) \otimes_D E \to M_E$, $f \otimes e \mapsto f(e)$ is an isomorphism of $(R' \otimes R)$-modules.
+  For $D \defined \End_R(E)$ the evaluation map $\Phi \colon \Hom_R(E,M) \tensor_D E \to M_E$, $f \tensor e \mapsto f(e)$ is an isomorphism of $(R' \tensor R)$-modules.
 \end{lemma}
 
 
 \begin{proof}
-  We know from Lemma~\ref{proposition: multiplicity spaces} that $\Phi$ is bijective, so it remains to show that $\Phi$ is $(R' \otimes R)$-linear.
+  We know from Lemma~\ref{proposition: multiplicity spaces} that $\Phi$ is bijective, so it remains to show that $\Phi$ is $(R' \tensor R)$-linear.
   This holds because
   \begin{align*}
-        \Phi((\varphi \otimes r) \cdot (f \otimes e))
-    &=  \Phi((\varphi \cdot f) \otimes (r \cdot e))
+        \Phi((\varphi \tensor r) \cdot (f \tensor e))
+    &=  \Phi((\varphi \cdot f) \tensor (r \cdot e))
      =  (\varphi \cdot f)(r \cdot e)
      =  (\varphi \circ f)(re) \\
     &=  \varphi(f(re))
      =  \varphi(rf(e))
-     =  (\varphi \otimes r) \cdot f(e)
-     =  (\varphi \otimes r) \cdot \Phi(f \otimes e)
+     =  (\varphi \tensor r) \cdot f(e)
+     =  (\varphi \tensor r) \cdot \Phi(f \tensor e)
   \end{align*}
-  for all simple tensors $\varphi \otimes r \in R' \otimes_\Integer R$, $f \otimes e \in \Hom_R(E,M) \otimes_D E$.
+  for all simple tensors $\varphi \tensor r \in R' \tensor_\Integer R$, $f \tensor e \in \Hom_R(E,M) \tensor_D E$.
 \end{proof}
 
 
 \begin{fluff}
-  This shows us that under the isomorphism $M_E \cong \Hom_R(E,M) \otimes_D E$ the action of $R' \otimes R$ on $M_E$ can be understood componentwise.
-  If $M$ is semisimple then $\Hom_R(E,M) \otimes_D E$ is simple as an $(R' \otimes R)$-module, and the tensor factor $E$ is simple as an $R$-module by construction.
+  This shows us that under the isomorphism $M_E \cong \Hom_R(E,M) \tensor_D E$ the action of $R' \tensor R$ on $M_E$ can be understood componentwise.
+  If $M$ is semisimple then $\Hom_R(E,M) \tensor_D E$ is simple as an $(R' \tensor R)$-module, and the tensor factor $E$ is simple as an $R$-module by construction.
   This begs the questions if $\Hom_R(E,M)$ is simple as an $R'$-module.
 \end{fluff}
 
@@ -211,15 +211,15 @@
 
 
 \begin{fluff}
-  For $E' \defined \Hom_R(E,M)$ we have now seen that $M_E \cong E' \otimes_D E$ as $(R' \otimes R)$-modules with $E$ simple as an $R$-module and $R'$ simple as an $R'$-module.
+  For $E' \defined \Hom_R(E,M)$ we have now seen that $M_E \cong E' \tensor_D E$ as $(R' \tensor R)$-modules with $E$ simple as an $R$-module and $R'$ simple as an $R'$-module.
   From this we get the following observations:
   \begin{itemize}
     \item
       We have that
       \[
               M_E
-        \cong E' \otimes_D E
-        \cong D^{\oplus \dim_D(E')} \otimes_D E
+        \cong E' \tensor_D E
+        \cong D^{\oplus \dim_D(E')} \tensor_D E
         \cong E^{\oplus \dim_D(E')}
       \]
       as $R$-modules, so the multiplicity of $E$ in $M_E$, which is the same as the multiplicity of $E$ in $M$, is the right $D$-dimension of $E'$.
@@ -229,8 +229,8 @@
       \begin{equation}
         \label{equation: decomposition of ME as R' module}
               M_E
-        \cong E' \otimes_D E
-        \cong E' \otimes_D D^{\oplus \dim_D(E)}
+        \cong E' \tensor_D E
+        \cong E' \tensor_D D^{\oplus \dim_D(E)}
         \cong (E')^{\oplus \dim_D(E)} \,.
       \end{equation}
       It follows that the $R$-isotypical decomposition $M = \bigoplus_{[E] \in \Irr(R)} M_E$ coincides with the $R'$-isotypical decomposition in such way that $M_{E'} = M_E$ for all $[E] \in \Irr(R)$ because $E' \ncong F'$ for $E \ncong F$.
@@ -245,15 +245,15 @@
   Let $M$ be semisimple.
   \begin{enumerate}
     \item
-      There exists a unique decomposition $M  = \bigoplus_{i \in I} M_i$ into simple $(R' \otimes_\Integer R)$-modules.
-      The simple $(R' \otimes_\Integer R)$-modules $M_i$ are pairwise non-isomorphic and this decomposition coincides with both the $R$-isotypical and the $R'$-isotypical compositions of $M$.
+      There exists a unique decomposition $M  = \bigoplus_{i \in I} M_i$ into simple $(R' \tensor_\Integer R)$-modules.
+      The simple $(R' \tensor_\Integer R)$-modules $M_i$ are pairwise non-isomorphic and this decomposition coincides with both the $R$-isotypical and the $R'$-isotypical compositions of $M$.
       The $R$-module $M$ is in particular also semisimple as an $R'$-module.
     \item
       \label{enumerate: simple modules are tensor products}
-      Every simple $(R' \otimes_\Integer R)$-submodule $M_i$ is of the form $E'_i \otimes_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_{R'}(E'_i)$.
+      Every simple $(R' \tensor_\Integer R)$-submodule $M_i$ is of the form $E'_i \tensor_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_{R'}(E'_i)$.
       The modules $E_i, E'_i$ are unique up to isomorphism.
     \item
-      The simple $(R' \otimes_\Integer R)$-module $M_i$ coincides with both the $E_i$-isotypical and the $E'_i$-isotypical components of $M$.
+      The simple $(R' \tensor_\Integer R)$-module $M_i$ coincides with both the $E_i$-isotypical and the $E'_i$-isotypical components of $M$.
     \item
       The simple $R$-modules which occur in $M$ are precisely $E_i$, $i \in I$ and these modules are pairwise non-isomorphic.
       Similarly, the simple $R'$-modules which occur in $M$ are precisely $E'_i$, $i \in I$ and these modules are pairwise non-isomorphic.
@@ -264,16 +264,16 @@
 
 
 \begin{proof}
-  It only remains to show for part~\ref*{enumerate: simple modules are tensor products} that when $E' \otimes_{D_1} E \cong F' \otimes_{D_2} F$ as $(R' \otimes_\Integer R)$-modules then $E' \cong F'$ as $R'$-modules and $F \cong E$ as $R$-modules.
+  It only remains to show for part~\ref*{enumerate: simple modules are tensor products} that when $E' \tensor_{D_1} E \cong F' \tensor_{D_2} F$ as $(R' \tensor_\Integer R)$-modules then $E' \cong F'$ as $R'$-modules and $F \cong E$ as $R$-modules.
   We have that
   \[
-          E' \otimes_{D_1} E
+          E' \tensor_{D_1} E
     \cong E^{\oplus \dim_{D_1}(E')}
     \quad\text{and}\quad
-          F' \otimes_{D_2} F
+          F' \tensor_{D_2} F
     \cong F^{\oplus \dim_{D_1}(F')}
   \]
-  as $R$-modules, so if $E' \otimes_{D_1} E \cong F' \otimes_{D_2} F$ as $(R' \otimes_\Integer R)$-modules then also
+  as $R$-modules, so if $E' \tensor_{D_1} E \cong F' \tensor_{D_2} F$ as $(R' \tensor_\Integer R)$-modules then also
   \[
           E^{\oplus \dim_{D_1}(E')}
     \cong F^{\oplus \dim_{D_2}(F')}
@@ -412,9 +412,9 @@
           M
         = M_1 \oplus \dotsb \oplus M_n
       \]
-      into simple $(R' \otimes_\Integer R)$-modules, and this decomposition coincides with both the $R$-isotypical decomposition and the $R'$-isotypical decomposition of $M$.
+      into simple $(R' \tensor_\Integer R)$-modules, and this decomposition coincides with both the $R$-isotypical decomposition and the $R'$-isotypical decomposition of $M$.
     \item
-      Each $(R' \otimes_\Integer R)$-submodule $M_i$ is of the form $M_i \cong E'_i \otimes_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_R(E'_i)$.
+      Each $(R' \tensor_\Integer R)$-submodule $M_i$ is of the form $M_i \cong E'_i \tensor_{D_i} E_i$ for a simple $R'$-module $E'_i$, a simple $R$-module $E_i$ and a skew field $D_i$ with $D_i \cong \End_R(E_i)$ and $D_i^\op \cong \End_R(E'_i)$.
       The modules $E_i, E_i'$ are unique up to isomorphism.
     \item
       The summand $M_i$ is both the $E_i$-isotypical and the $E'_i$-isotypical component of $M$.

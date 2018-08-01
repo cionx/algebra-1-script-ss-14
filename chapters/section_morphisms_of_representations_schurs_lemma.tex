@@ -45,49 +45,49 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
       If $V_1$, $V_2$, $W$ are representations of $G$, then the linear isomorphism
       \[
                 \alpha
-        \colon  (V_1 \oplus V_2) \otimes W
-        \to     V_1 \times W \oplus V_2 \otimes W \,,
-        \quad   (v_1, v_2) \otimes w
-        \mapsto (v_1 \otimes w, v_2 \otimes w)
+        \colon  (V_1 \oplus V_2) \tensor W
+        \to     V_1 \times W \oplus V_2 \tensor W \,,
+        \quad   (v_1, v_2) \tensor w
+        \mapsto (v_1 \tensor w, v_2 \tensor w)
       \]
       is an isomorphism of representations because
       \begin{align*}
-            \alpha( g . ((v_1,v_2) \otimes w) )
-        &=  \alpha( (g.(v_1, v_2)) \otimes (g.w) )
-         =  \alpha( (g.v_1, g.v_2) \otimes (g.w) )
+            \alpha( g . ((v_1,v_2) \tensor w) )
+        &=  \alpha( (g.(v_1, v_2)) \tensor (g.w) )
+         =  \alpha( (g.v_1, g.v_2) \tensor (g.w) )
         \\
-        &=  ( (g.v_1) \otimes (g.w) , (g.v_2) \otimes (g.w) )
-         =  ( g.(v_1 \otimes w), g.(v_2 \otimes w) )
+        &=  ( (g.v_1) \tensor (g.w) , (g.v_2) \tensor (g.w) )
+         =  ( g.(v_1 \tensor w), g.(v_2 \tensor w) )
         \\
-        &=  g.(v_1 \otimes w, v_2 \otimes w)
-         =  g.\alpha((v_1, v_2) \otimes w) \,.
+        &=  g.(v_1 \tensor w, v_2 \tensor w)
+         =  g.\alpha((v_1, v_2) \tensor w) \,.
       \end{align*}
     \item
       If $V$, $W$ are finite-dimensional representations of $G$, then the linear isomorphism
       \[
                 \beta
-        \colon  V^* \otimes W
+        \colon  V^* \tensor W
         \to     \Hom(V,W) \,,
-        \quad   \varphi \otimes w
+        \quad   \varphi \tensor w
         \mapsto (v \mapsto \varphi(v) w)
       \]
       is an isomorphism of representations because
       \begin{align*}
-            \beta( g.(\varphi \otimes w) )(v)
-        &=  \beta( (g.\varphi) \otimes (g.w) )(v)
+            \beta( g.(\varphi \tensor w) )(v)
+        &=  \beta( (g.\varphi) \tensor (g.w) )(v)
          =  (g.\varphi)(v) (g.w)
          =  \varphi(g^{-1}.v) \cdot (g.w)
         \\
         &=  g.\left( \varphi(g^{-1}.v) w \right)
-         =  g.\left( \beta(\varphi \otimes w)(g^{-1}.v) \right)
-         =  (g.\beta(\varphi \otimes w))(v) \,,
+         =  g.\left( \beta(\varphi \tensor w)(g^{-1}.v) \right)
+         =  (g.\beta(\varphi \tensor w))(v) \,,
       \end{align*}
       where we used for the fourth equality that $g \in G$ acts linearly on $W$.
     \item
       If $V$ is a representation of $G$ over $k$, then the evaluation homomorphism
       \[
                 \alpha
-        \colon  V^* \otimes V
+        \colon  V^* \tensor V
         \to     k \,,
         \quad   \varphi \times v
         \mapsto \varphi(v)
@@ -95,14 +95,14 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
       is a morphism of representations when we regard $k$ as the trivial representation.
       This holds because
       \begin{align*}
-            \alpha(g.(\varphi \otimes v))
-        &=  \alpha((g.\varphi) \otimes (g.v))
+            \alpha(g.(\varphi \tensor v))
+        &=  \alpha((g.\varphi) \tensor (g.v))
          =  (g.\varphi)(g.v)
         \\
         &=  \varphi(g^{-1}.g.v)
          =  \varphi(v)
          =  g.\varphi(v)
-         =  g.\alpha(\varphi \otimes v) \,.
+         =  g.\alpha(\varphi \tensor v) \,.
       \end{align*}
       Note that the linear action of $G$ on $V$ is defined precisely so that $\alpha$ is a morphism of representations.
     \item

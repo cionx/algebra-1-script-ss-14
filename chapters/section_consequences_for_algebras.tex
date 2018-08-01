@@ -9,7 +9,7 @@
 
 \begin{conventions}
   In this section $k$ denotes a field and $A$ denotes a $k$-algebra.
-  We abreviate $\dim_k \defines \dim$ and $\otimes_k \defines \otimes$.
+  We abreviate $\dim_k \defines \dim$ and $\tensor_k \defines \tensor$.
 \end{conventions}
 
 
@@ -150,17 +150,17 @@
 % 
 % 
 % \begin{conventions}
-%   We will write $\otimes_k \defines \otimes$.
+%   We will write $\tensor_k \defines \tensor$.
 % \end{conventions}
 % 
 % 
 % \begin{fluff}
-%   If $N$ is a $k$-vector space and $M$ is an $A$-module then $A \otimes M$ can be endowed with structure of an $A$-module via
+%   If $N$ is a $k$-vector space and $M$ is an $A$-module then $A \tensor M$ can be endowed with structure of an $A$-module via
 %   \[
-%       a \cdot (n \otimes m)
-%     = n \otimes (am)
+%       a \cdot (n \tensor m)
+%     = n \tensor (am)
 %   \]
-%   for all $a \in A$ and simple tensors $n \otimes m \in N \otimes M$.
+%   for all $a \in A$ and simple tensors $n \tensor m \in N \tensor M$.
 %   This can be used to give an alternative description of the isotypical components of an $A$-module:
 % \end{fluff}
 % 
@@ -173,19 +173,19 @@
 %       The image of the linear map
 %       \[
 %                 \Phi
-%         \colon  \Hom_A(E,M) \otimes E
+%         \colon  \Hom_A(E,M) \tensor E
 %         \to     M,
-%         \quad   f \otimes e
+%         \quad   f \tensor e
 %         \mapsto f(e)
 %       \]
 %       is the $E$-isotypical component $M_E$.
 %     \item
-%       When the $k$-vector space $\Hom_A(E,M) \otimes E$ is endowed with the structure of an $A$-module via
+%       When the $k$-vector space $\Hom_A(E,M) \tensor E$ is endowed with the structure of an $A$-module via
 %       \[
-%           a \cdot (f \otimes e)
-%         = f \otimes (a e)
+%           a \cdot (f \tensor e)
+%         = f \tensor (a e)
 %       \]
-%       for all $a \in A$ and simple tensors $f \otimes e \in \Hom_A(E,M) \otimes E$ then $\Phi$ is $A$-linear.
+%       for all $a \in A$ and simple tensors $f \tensor e \in \Hom_A(E,M) \tensor E$ then $\Phi$ is $A$-linear.
 %     \item
 %       If $k$ is algebraically closed and $M_E$ is finite-dimensional then $\Phi$ is bijective and thus an isomorphism of $A$-modules.
 %   \end{enumerate}
@@ -197,7 +197,7 @@
 %   \begin{enumerate}
 %     \item
 %       Every homomorphism of $A$-modules $f \colon E \to M$ restricts to a homomorphism between $E$-isotypical components $ E \to M_E$, i.e.\ we have that $f(E) \subseteq M_E$.
-%       This shows that $\Phi(f \otimes e) = f(e) \in M_E$ for every simple tensor $f \otimes e \in \Hom_A(E,M) \otimes E$, which shows that $\im(\Phi) \subseteq M_E$.
+%       This shows that $\Phi(f \tensor e) = f(e) \in M_E$ for every simple tensor $f \tensor e \in \Hom_A(E,M) \tensor E$, which shows that $\im(\Phi) \subseteq M_E$.
 %       
 %       Suppose on the other hand that $L \moduleleq M$ is a submodule with $L \cong E$.
 %       Then there exists an isomorphism $E \to L$, which extends to an element $f \in \Hom_A(E,M)$.
@@ -205,18 +205,18 @@
 %       \[
 %                   L
 %         =         f(E)
-%         =         \Phi(f \otimes E)
+%         =         \Phi(f \tensor E)
 %         \subseteq \im(\Phi) \,.
 %       \]
 %       This shows that $M_E = \sum_{L \moduleleq M, L \cong E} L \subseteq \im(\Phi)$.
 %     \item
-%       We have for every simple tensor $f \otimes e \in \Hom_A(E,M) \otimes E$ and $a \in A$ that
+%       We have for every simple tensor $f \tensor e \in \Hom_A(E,M) \tensor E$ and $a \in A$ that
 %       \[
-%           \Phi(a (f \otimes e))
-%         = \Phi(f \otimes (ae))
+%           \Phi(a (f \tensor e))
+%         = \Phi(f \tensor (ae))
 %         = f(ae)
 %         = a f(e)
-%         = a \, \Phi(f \otimes e) \,.
+%         = a \, \Phi(f \tensor e) \,.
 %       \]
 %     \item
 %       If $E$ is infinite-dimensional then $M_E = 0$ by the finite-dimensionality of $M_E$.
@@ -239,12 +239,12 @@
 %             \cong \prod_{i=1}^n \Hom_A( E, L_i )
 %           \]
 %           that $\Hom_A(E, M) = k f_1 \oplus \dotsb \oplus k f_n$.
-%           Then $\Phi$ maps $f_i \otimes E$ bijectively onto the submodule $L_i \moduleleq M$ (because $f_i$ is a bijection).
+%           Then $\Phi$ maps $f_i \tensor E$ bijectively onto the submodule $L_i \moduleleq M$ (because $f_i$ is a bijection).
 %           This shows that $\Phi$ maps the $i$-th summand of
 %           \[
-%               \Hom_A(E, M) \otimes E
-%             = \bigoplus_{i=1}^n k f_i \otimes E
-%             = \bigoplus_{i=1}^n f_i \otimes E
+%               \Hom_A(E, M) \tensor E
+%             = \bigoplus_{i=1}^n k f_i \tensor E
+%             = \bigoplus_{i=1}^n f_i \tensor E
 %           \]
 %           bijectively onto the $i$-th summand of $\bigoplus_{i=1}^n L_i = M_E$ for every $i = 1, \dotsc, n$.
 %           This shows that $\Phi$ is bijective.
@@ -258,7 +258,7 @@
 %           \]
 %           it follows that $\dim \Hom_A(E,M_E) = n$ and therefore that
 %           \[
-%               \dim (\Hom_A(E,M_E) \otimes E)
+%               \dim (\Hom_A(E,M_E) \tensor E)
 %             = n \dim E
 %             = \dim \bigoplus_{i=1}^n L_i
 %             = M_E \,.
@@ -274,9 +274,9 @@
 %   Let $(E_i)_{i \in I}$ be a set of representatives for the isomorphism classes of finite-dimensional simple $A$-modules.
 %   Then for every finite-dimensional semisimple $A$-module $M$ the map
 %   \[
-%             \bigoplus_{i \in I} \Hom_A(E_i, M) \otimes E_i
+%             \bigoplus_{i \in I} \Hom_A(E_i, M) \tensor E_i
 %     \to     M \,,
-%     \quad   f \otimes e
+%     \quad   f \tensor e
 %     \mapsto f(e)
 %   \]
 %   is an isomorphism of $A$-modules.
@@ -626,9 +626,9 @@
       \[
         W = W_1 \oplus \dotsb \oplus W_r
       \]
-      into simple $(A' \otimes_k A)$-submodules, and this decomposition coincides with both the $A$-isotypical and the $A'$-isotypical decomposition of $W$.
+      into simple $(A' \tensor_k A)$-submodules, and this decomposition coincides with both the $A$-isotypical and the $A'$-isotypical decomposition of $W$.
     \item
-      Each $(A' \otimes_k A)$-submodule $W_i$ is of the form $W_i \cong V'_i \otimes_{D_i} V_i$ for a simple $A$-module $V_i$, a simple $A'$-module $V'_i$ and a skew field $D_i$ with $D_i \cong \End_A(V_i)$ and $D_i^\op \cong \End_{A'}(V'_i)$.
+      Each $(A' \tensor_k A)$-submodule $W_i$ is of the form $W_i \cong V'_i \tensor_{D_i} V_i$ for a simple $A$-module $V_i$, a simple $A'$-module $V'_i$ and a skew field $D_i$ with $D_i \cong \End_A(V_i)$ and $D_i^\op \cong \End_{A'}(V'_i)$.
       The modules $V_i, V'_i$ are unique up to isomorphism.
     \item
       The summand $W_i$ is both the $E_i$-isotypical and the $E'_i$-isotypical component of $M$.

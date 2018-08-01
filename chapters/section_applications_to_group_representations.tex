@@ -9,7 +9,7 @@
 
 \begin{conventions}
   In the following, $k$ denotes a field and $G, H$ denote groups and $V$ denotes a representation of $G$ over $k$.
-  We abbreviate $\dim_k \defines \dim$ and $\otimes_k \defined \otimes$.
+  We abbreviate $\dim_k \defines \dim$ and $\tensor_k \defined \tensor$.
 \end{conventions}
 
 
@@ -84,9 +84,9 @@
   \[
             \varphi
     \colon  k[G \times H]
-    \to     k[G] \otimes k[H],
+    \to     k[G] \tensor k[H],
     \quad   (g,h)
-    \mapsto g \otimes h
+    \mapsto g \tensor h
   \]
   is a well-defined isomorphism of $k$-algebras.
 \end{lemma}
@@ -94,13 +94,13 @@
 
 \begin{proof}
   The existence and uniqueness of $\varphi$ follows from $G \times H$ being a basis of $k[G \times H]$.
-  Thise basis is bijectively mapped onto the basis $(g \otimes h)_{g \in G, h \in H}$ of $k[G] \otimes k[H]$, which shows that $\varphi$ is bijective.
+  Thise basis is bijectively mapped onto the basis $(g \tensor h)_{g \in G, h \in H}$ of $k[G] \tensor k[H]$, which shows that $\varphi$ is bijective.
   For all $(g_1, h_1), (g_2, h_2) \in G \times H$ we have that
   \begin{align*}
       \varphi((g_1, h_1) (g_2, h_2))
     &= \varphi((g_1 g_2, h_1 h_2))
-     = (g_1 g_2) \otimes (h_1 h_2)  \\
-    &= (g_1 \otimes h_1) (g_2 \otimes h_2)
+     = (g_1 g_2) \tensor (h_1 h_2)  \\
+    &= (g_1 \tensor h_1) (g_2 \tensor h_2)
      = \varphi((g_1, h_1)) \varphi((g_2, h_2))
   \end{align*}
   which shows that $\varphi$ is multiplicative.
@@ -108,10 +108,10 @@
 
 
 \begin{definition}
-  The representations $V \outertensor W$ of $G \times H$ is the $k$-vector space $V \otimes W$ together with the (linear) group action
+  The representations $V \outertensor W$ of $G \times H$ is the $k$-vector space $V \tensor W$ together with the (linear) group action
   \[
-      (g,h).(v \otimes w)
-    = (g.v) \otimes (h.w) \,.
+      (g,h).(v \tensor w)
+    = (g.v) \tensor (h.w) \,.
   \]
 \end{definition}
 
@@ -330,7 +330,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      We have that $\chi_{V \otimes W}(g) = \chi_V(g) \chi_W(g) = (\chi_V \chi_W)(g)$ for every $g \in G$.
+      We have that $\chi_{V \tensor W}(g) = \chi_V(g) \chi_W(g) = (\chi_V \chi_W)(g)$ for every $g \in G$.
     \item
       We have that $\chi_{V^*}(g) = \chi_V(g^{-1})$ for every $g \in G$.
     \item

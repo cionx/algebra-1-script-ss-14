@@ -91,48 +91,48 @@
   The kernel $\ker(f)$ is a proper two-sided ideal of $A$ because $B \neq 0$.
   It follows that $\ker(f) = 0$ and therefore that $\dim_k B \leq \dim_k A$ by the injectivity of $f$
   
-  By observing that $B \otimes B^\op \cong \End_k(B)$ we can now apply Corollary~\ref{corollary: skolem noether for into matrix rings} to the extended $k$-algebra homomorphisms
+  By observing that $B \tensor B^\op \cong \End_k(B)$ we can now apply Corollary~\ref{corollary: skolem noether for into matrix rings} to the extended $k$-algebra homomorphisms
   \[
-            f \otimes \id, g \otimes \id
-    \colon  A \otimes B^\op
-    \to     B \otimes B^\op
+            f \tensor \id, g \tensor \id
+    \colon  A \tensor B^\op
+    \to     B \tensor B^\op
   \]
-  to conclude that $f \otimes \id$ and $g \otimes \id$ are conjugated:
-  There exists some $x \in B \otimes B^\op$ with
+  to conclude that $f \tensor \id$ and $g \tensor \id$ are conjugated:
+  There exists some $x \in B \tensor B^\op$ with
   \begin{equation}
     \label{equation: noether skolem formula}
-      g(a) \otimes b
-    = x ( f(a) \otimes b ) x^{-1}
+      g(a) \tensor b
+    = x ( f(a) \tensor b ) x^{-1}
   \end{equation}
   for all $a \in A$, $b \in B^\op$.
   By setting $a = 1$ we find that
   \[
-      1 \otimes b
-    = x (1 \otimes b) x^{-1}
+      1 \tensor b
+    = x (1 \tensor b) x^{-1}
   \]
-  for all $b \in B$, which shows that $x, x^{-1} \in \centralizer_{B \otimes B^\op}(1 \otimes B^\op) = \centralizer_{B \otimes B^\op}(k \otimes B^\op)$.
+  for all $b \in B$, which shows that $x, x^{-1} \in \centralizer_{B \tensor B^\op}(1 \tensor B^\op) = \centralizer_{B \tensor B^\op}(k \tensor B^\op)$.
   It follows from Lemma~\ref{lemma: centralizer componentwise} that
   \[
-      \centralizer_{B \otimes B^\op}(k \otimes B^\op)
-    = \centralizer_{B}(k) \otimes \centralizer_{B^\op}(B^\op)
-    = \centralizer_{B}(k) \otimes \ringcenter(B^\op)
-    = B \otimes k \,.
+      \centralizer_{B \tensor B^\op}(k \tensor B^\op)
+    = \centralizer_{B}(k) \tensor \centralizer_{B^\op}(B^\op)
+    = \centralizer_{B}(k) \tensor \ringcenter(B^\op)
+    = B \tensor k \,.
   \]
-  We therefore have that $x = u \otimes 1$ and $x^{-1} = u' \otimes 1$ for some $u, u' \in B$.
+  We therefore have that $x = u \tensor 1$ and $x^{-1} = u' \tensor 1$ for some $u, u' \in B$.
   It follows from
   \[
-      1 \otimes 1
+      1 \tensor 1
     = x x^{-1}
-    = (u \otimes 1) (u' \otimes 1)
-    = (u u') \otimes 1
+    = (u \tensor 1) (u' \tensor 1)
+    = (u u') \tensor 1
   \]
   that $u u' = 1$ and similarly that $u' u = 1$.
   This shows that $u \in B^\times$ is a unit with $u' = u^{-1}$.
   By setting $b = 1$ in \eqref{equation: noether skolem formula} we find that
   \[
-      g(a) \otimes 1
-    = (u \otimes 1) (f(a) \otimes 1) (u^{-1} \otimes 1)
-    = (u f(a) u^{-1}) \otimes 1
+      g(a) \tensor 1
+    = (u \tensor 1) (f(a) \tensor 1) (u^{-1} \tensor 1)
+    = (u f(a) u^{-1}) \tensor 1
   \]
   and therefore $g(a) = u f(a) u^{-1}$ for every $a \in A$.
 \end{proof}

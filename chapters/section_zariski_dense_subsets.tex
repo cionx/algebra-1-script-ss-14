@@ -355,7 +355,7 @@
 
 \begin{conventions}
   In the following let $L/k$ be a field extension.
-  For every $k$-vector space $V$ we denote by $V_L = L \otimes_k V$ the extension of scalars of $V$, and regard $V$ as a $k$-linear subspace of $V_L$ (see Appendix~\ref{appendix: extension of scalars} for a short introduction to extension of scalars).
+  For every $k$-vector space $V$ we denote by $V_L = L \tensor_k V$ the extension of scalars of $V$, and regard $V$ as a $k$-linear subspace of $V_L$ (see Appendix~\ref{appendix: extension of scalars} for a short introduction to extension of scalars).
   If $V$ is finite-dimensional then we abbreviate $\mc{P}(V) = \mc{P}_k(V)$ and $\mc{P}(V_L) = \mc{P}_L(V_L)$.
 \end{conventions}
 
@@ -446,8 +446,8 @@
 
 \begin{proof}
   Let $v_1, \dotsc, v_n$ be a $k$-basis of $V$.
-  Then $1 \otimes v_1, \dotsc, 1 \otimes v_n$ is an $L$-basis of $V_L$.
-  The isomorphism of $L$-vector spaces $\varphi \colon L^n \to V_L$ with $\varphi(e_i) = 1 \otimes v_i$ maps $k^n \subseteq L^n$ onto $\varphi(k^n) = V$.
+  Then $1 \tensor v_1, \dotsc, 1 \tensor v_n$ is an $L$-basis of $V_L$.
+  The isomorphism of $L$-vector spaces $\varphi \colon L^n \to V_L$ with $\varphi(e_i) = 1 \tensor v_i$ maps $k^n \subseteq L^n$ onto $\varphi(k^n) = V$.
   The statement now follows from Corollary~\ref{corollary: kn is Zariski dense in Ln} because $\varphi$ is a polynomial isomorphism, since both $\varphi$ and $\varphi^{-1}$ are linear and therefore polynomial.
 \end{proof}
 
@@ -459,7 +459,7 @@
     \item
       Every $k$-polynomial map $f \colon V \to k$ extends uniquely to an $L$-polynomial map $\overline{f} \colon V_L \to L$ with
       \[
-          \overline{f}(1 \otimes v)
+          \overline{f}(1 \tensor v)
         = f(v)
       \]
       for all $v \in V$.
@@ -472,7 +472,7 @@
       \]
     \item
       Let $v_1, \dotsc, v_n$ be a $k$-basis of $V$ and let $\varphi_1, \dotsc, \varphi_n \in \mc{P}(V)$ be the corresponding coordinate functions.
-      Let $\psi_1, \dotsc, \psi_n \in \mc{P}(V_L)$ be the coordinate functions corresponding to the basis $1 \otimes v_1, \dotsc, 1 \otimes v_n$ of $V_L$.
+      Let $\psi_1, \dotsc, \psi_n \in \mc{P}(V_L)$ be the coordinate functions corresponding to the basis $1 \tensor v_1, \dotsc, 1 \tensor v_n$ of $V_L$.
       
       Let $\Phi \colon \mc{P}(V) \to k[X_1, \dotsc, X_n]$ be the unique isomorphism of $k$-algebras with $\Phi(\varphi_i) = X_i$ for all $i$, and let $\Psi \colon \mc{P}(V_L) \to L[X_1, \dotsc, X_n]$ be the unique isomorphism of $L$-algebras with $\Psi(\psi_i) = X_i$ for all $i$.
       
@@ -520,16 +520,16 @@
     \]
     for all $\lambda_1, \dotsc, \lambda_n \in k$ because the the map $f$ is $k$-polynomial.
     We can regard $p$ as a polynomial $p \in L[X_1, \dotsc, X_n]$.
-    With respect to the $L$-basis $1 \otimes v_1, \dotsc, 1 \otimes v_n$ of $V_L$ the polynomial $p$ then defines an $L$-polynomial map $\overline{f} \colon V_L \to L$ given by
+    With respect to the $L$-basis $1 \tensor v_1, \dotsc, 1 \tensor v_n$ of $V_L$ the polynomial $p$ then defines an $L$-polynomial map $\overline{f} \colon V_L \to L$ given by
     \[
-        \overline{f}(\lambda_1 (1 \otimes v_1) + \dotsb + \lambda_n (1 \otimes v_n))
+        \overline{f}(\lambda_1 (1 \tensor v_1) + \dotsb + \lambda_n (1 \tensor v_n))
       = p(\lambda_1, \dotsc, \lambda_n)
     \]
     for all $\lambda_1, \dotsc, \lambda_n \in L$.
     We have for every $v \in V$ with $v = \sum_{i=1}^n \lambda_i v_i$ that
     \[
-        \overline{f}(1 \otimes v)
-      = \overline{f}(\lambda_1 (1 \otimes v_1) + \dotsb + \lambda_n (1 \otimes v_n))
+        \overline{f}(1 \tensor v)
+      = \overline{f}(\lambda_1 (1 \tensor v_1) + \dotsb + \lambda_n (1 \tensor v_n))
       = p(\lambda_1, \dotsc, \lambda_n)
       = f(v) \,.
     \]
@@ -584,7 +584,7 @@
           \arrow[mapsto]{dd}
         & {}
         \\
-          1 \otimes \varphi_i
+          1 \tensor \varphi_i
           \arrow[crossing over, mapsto]{rr}
           \arrow[mapsto]{dd}
         & {}
@@ -597,7 +597,7 @@
           \arrow[mapsto]{dr}
         & {}
         \\
-          1 \otimes X_i
+          1 \tensor X_i
           \arrow[mapsto]{rr}
         & {}
         & X_i
@@ -731,18 +731,18 @@
   For every point $a \in k^n$ we then have that
   \begin{align*}
         \mc{I}_k(\{a\})_L
-    &=  L \otimes_k \mc{I}_k(\{a\}) \\
-    &=  L \otimes_k ( X_1 - a_1, \dotsc, X_n - a_n )_{ k[X_1, \dotsc, X_n] } \\
+    &=  L \tensor_k \mc{I}_k(\{a\}) \\
+    &=  L \tensor_k ( X_1 - a_1, \dotsc, X_n - a_n )_{ k[X_1, \dotsc, X_n] } \\
     &=  ( X_1 - a_1, \dotsc, X_n - a_n )_{ L[X_1, \dotsc, X_n] }  \\
     &=  \mc{I}_L(\{a\}) \,.
   \end{align*}
   For every subset $X \subseteq W$ we therefore have that
   \begin{align*}
         \mc{I}_k(X)_L
-    &=  L \otimes_k \mc{I}_k(X)
-     =  L \otimes_k \mc{I}_k\left( \bigcup_{x \in X} \{x\} \right)
-     =  L \otimes_k \left( \bigcap_{x \in X} \mc{I}_k(\{x\}) \right)  \\
-    &=  \bigcap_{x \in X} \left( L \otimes_k \mc{I}_k(\{x\}) \right)
+    &=  L \tensor_k \mc{I}_k(X)
+     =  L \tensor_k \mc{I}_k\left( \bigcup_{x \in X} \{x\} \right)
+     =  L \tensor_k \left( \bigcap_{x \in X} \mc{I}_k(\{x\}) \right)  \\
+    &=  \bigcap_{x \in X} \left( L \tensor_k \mc{I}_k(\{x\}) \right)
      =  \bigcap_{x \in X} \mc{I}_k(\{x\})_L
      =  \bigcap_{x \in X} \mc{I}_L(\{x\})
      =  \mc{I}_L(X) \,.

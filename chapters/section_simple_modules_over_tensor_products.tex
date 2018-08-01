@@ -3,37 +3,37 @@
 
 \begin{conventions}
   In the following $k$ is a field and $A, B$ are two $k$-algebras.
-  We abbreviate $\otimes_k \defines \otimes$.
+  We abbreviate $\tensor_k \defines \tensor$.
 \end{conventions}
 
 
 \begin{fluff}
-  The tensor product $A \otimes B$ is again a $k$-algebra with multiplication given by
+  The tensor product $A \tensor B$ is again a $k$-algebra with multiplication given by
   \[
-      (a_1 \otimes b_1) \cdot (a_2 \otimes b_2)
-    = (a_1 a_2) \otimes (b_1 b_2) \,.
+      (a_1 \tensor b_1) \cdot (a_2 \tensor b_2)
+    = (a_1 a_2) \tensor (b_1 b_2) \,.
   \]
-  for all simple tensors $a_1 \otimes b_1, a_2 \otimes b_2 \in A \otimes B$, as explained in \ref{fluff: tensor product of algebras}.
+  for all simple tensors $a_1 \tensor b_1, a_2 \tensor b_2 \in A \tensor B$, as explained in \ref{fluff: tensor product of algebras}.
   The two maps
   \begin{align*}
               A
-      &\to    A \otimes B,
+      &\to    A \tensor B,
       \quad   a
-      \mapsto a \otimes 1 \,,
+      \mapsto a \tensor 1 \,,
   \\
               B
-      &\to    A \otimes B,
+      &\to    A \tensor B,
       \quad   b
-      \mapsto 1 \otimes b
+      \mapsto 1 \tensor b
   \end{align*}
   are injective $k$-algebra homomorphism.
-  We may therefore regard $A$ and $B$ as $k$-subalgebras of $A \otimes B$ by identifying them with $A \otimes 1$ and $1 \otimes B$.
+  We may therefore regard $A$ and $B$ as $k$-subalgebras of $A \tensor B$ by identifying them with $A \tensor 1$ and $1 \tensor B$.
   
-  Note that when we identify an element $a \in A$ with $a \otimes 1 \in A \otimes B$ and an element $b \in B$ with $1 \otimes b \in A \otimes B$ then the \enquote{the elements $a$ and $b$ commute} in the sense that
+  Note that when we identify an element $a \in A$ with $a \tensor 1 \in A \tensor B$ and an element $b \in B$ with $1 \tensor b \in A \tensor B$ then the \enquote{the elements $a$ and $b$ commute} in the sense that
   \[
-      (a \otimes 1)(1 \otimes b)
-    = a \otimes b
-    = (1 \otimes b)(a \otimes 1) \,.
+      (a \tensor 1)(1 \tensor b)
+    = a \tensor b
+    = (1 \tensor b)(a \tensor 1) \,.
   \]
   This observations leads to the following:
 \end{fluff}
@@ -43,28 +43,28 @@
   \label{fluff: algebra homomorphisms out of tensor product}
   Let $C$ be another $k$-algebra.
   
-  If $f \colon A \otimes B \to C$ is a homomorphism of $k$-algebras then the restrictions of $f$ to $A$ and $B$ result in $k$-algebra homomorphisms
+  If $f \colon A \tensor B \to C$ is a homomorphism of $k$-algebras then the restrictions of $f$ to $A$ and $B$ result in $k$-algebra homomorphisms
   \begin{align*}
               f_1
     &\colon   A
      \to      C,
      \quad    a
-     \mapsto  f(a \otimes 1)
+     \mapsto  f(a \tensor 1)
   \\
               f_2
     &\colon   B
      \to      C,
      \quad    b
-     \mapsto  f(1 \otimes b) \,.
+     \mapsto  f(1 \tensor b) \,.
   \end{align*}
   The images of $f_1$ and $f_2$ commute with each other in the sense that
   \begin{align*}
         f_1(a) f_2(b)
-     =  f(a \otimes 1) f(1 \otimes b)
-    &=  f((a \otimes 1)(1 \otimes b))
-     =  f(a \otimes b)  \\
-    &=  f((1 \otimes b)(a \otimes 1))
-     =  f(1 \otimes b) f(a \otimes 1)
+     =  f(a \tensor 1) f(1 \tensor b)
+    &=  f((a \tensor 1)(1 \tensor b))
+     =  f(a \tensor b)  \\
+    &=  f((1 \tensor b)(a \tensor 1))
+     =  f(1 \tensor b) f(a \tensor 1)
      =  f_2(b) f_1(a)
   \end{align*}
   for all $a \in A$, $b \in B$.
@@ -78,60 +78,60 @@
   It then follows that the $k$-linear map
   \[
             f
-    \colon  A \otimes B
+    \colon  A \tensor B
     \to     C,
-    \quad   a \otimes b
+    \quad   a \tensor b
     \mapsto f_1(a) f_2(b)
   \]
-  is a homomorphism of $k$-algebras because $f(1 \otimes 1) = 1$ and
+  is a homomorphism of $k$-algebras because $f(1 \tensor 1) = 1$ and
   \begin{align*}
-        f(a \otimes b) f(a' \otimes b')
+        f(a \tensor b) f(a' \tensor b')
     &=  f_1(a) f_2(b) f_1(a') f_2(b')
      =  f_1(a) f_1(a') f_2(b) f_2(b') \\
     &=  f_1(a a') f_2(b b')
-     =  f((a a') \otimes (b b'))
-     =  f((a \otimes b) (a' \otimes b'))
+     =  f((a a') \tensor (b b'))
+     =  f((a \tensor b) (a' \tensor b'))
   \end{align*}
-  for all simple tensors $a \otimes b, a' \otimes b' \in A \otimes B$.
+  for all simple tensors $a \tensor b, a' \tensor b' \in A \tensor B$.
   
   These two constructions are mutually inverse.
-  This shows that a $k$-algebra homomorphism $A \otimes B \to C$ is \enquote{the same} as a pair of $k$-algebra homomorphisms $A \to C$, $B \to C$ whose images commute with each other.
+  This shows that a $k$-algebra homomorphism $A \tensor B \to C$ is \enquote{the same} as a pair of $k$-algebra homomorphisms $A \to C$, $B \to C$ whose images commute with each other.
 \end{fluff}
 
 
 \begin{remark}
-  The above discussions shows that if $A, B$ are commutative then $A \otimes B$ is the coproduct of $A$ and $B$ in the category of commutative $k$-algebras.
+  The above discussions shows that if $A, B$ are commutative then $A \tensor B$ is the coproduct of $A$ and $B$ in the category of commutative $k$-algebras.
 \end{remark}
 
 
 \begin{fluff}
   \label{fluff: commuting modules structures for tensor products}
-  If $P$ is a $k$-vector space then $(A \otimes B)$-module structures on $P$ are in $1$:$1$-correspondence with $k$-algebra homomorphisms $A \otimes B \to \End_k(P)$, where for every $k$-algebra homomorphism $f$ the corresponding module structure is given by
+  If $P$ is a $k$-vector space then $(A \tensor B)$-module structures on $P$ are in $1$:$1$-correspondence with $k$-algebra homomorphisms $A \tensor B \to \End_k(P)$, where for every $k$-algebra homomorphism $f$ the corresponding module structure is given by
   \[
-      (a \otimes b) \cdot p
-    = f(a \otimes b)(p)
+      (a \tensor b) \cdot p
+    = f(a \tensor b)(p)
   \]
-  for every simple tensor $a \otimes b \in A \otimes B$ and every $p \in P$.
-  It follows from \ref{fluff: algebra homomorphisms out of tensor product} that a $(A \otimes B)$-module structure on $P$ is \enquote{the same} as a pair of commuting $A$-module an $B$-module structures on $P$.
+  for every simple tensor $a \tensor b \in A \tensor B$ and every $p \in P$.
+  It follows from \ref{fluff: algebra homomorphisms out of tensor product} that a $(A \tensor B)$-module structure on $P$ is \enquote{the same} as a pair of commuting $A$-module an $B$-module structures on $P$.
   
   Let’s be more explicit:
-  Every $(A \otimes B)$-module structure on $P$ restricts to $A$- and $B$-module structures on $P$ given by
+  Every $(A \tensor B)$-module structure on $P$ restricts to $A$- and $B$-module structures on $P$ given by
   \[
       a \cdot p
-    = (a \otimes 1) p
+    = (a \tensor 1) p
     \quad\text{and}\quad
       b \cdot p
-    = (1 \otimes b) p
+    = (1 \tensor b) p
   \]
   for all $a \in A$, $b \in B$, $p \in P$.
   This actions commute in the sense that
   \begin{align*}
         a \cdot (b \cdot p)
-    &=  (a \otimes 1) \cdot ( (1 \otimes b) \cdot p )
-     =  ((a \otimes 1) (1 \otimes b)) \cdot p \\
-    &=  (a \otimes b) \cdot p
-     =  ((1 \otimes b) (a \otimes 1)) \cdot p
-     =  (1 \otimes b) \cdot ( (a \otimes 1) \cdot p )
+    &=  (a \tensor 1) \cdot ( (1 \tensor b) \cdot p )
+     =  ((a \tensor 1) (1 \tensor b)) \cdot p \\
+    &=  (a \tensor b) \cdot p
+     =  ((1 \tensor b) (a \tensor 1)) \cdot p
+     =  (1 \tensor b) \cdot ( (a \tensor 1) \cdot p )
      =  b \cdot (a \cdot p)
   \end{align*}
   for all $a \in A$, $b \in B$, $p \in P$.
@@ -142,33 +142,33 @@
   \]
   for all $a \in A$, $b \in B$, $p \in P$, then
   \[
-      (a \otimes b) \cdot p
+      (a \tensor b) \cdot p
     = a \cdot (b \cdot p)
     = b \cdot (a \cdot p)
   \]
-  for all simple tensors $a \otimes b \in A \otimes B$ and $p \in P$ defines an $(A \otimes B)$-module structure on $P$:
-  We have that $(1 \otimes 1) \cdot p = p$ for all $p \in P$, and for all simple tensors $a \otimes b, a' \otimes b' \in A \otimes B$ and all $p \in P$ we have that
+  for all simple tensors $a \tensor b \in A \tensor B$ and $p \in P$ defines an $(A \tensor B)$-module structure on $P$:
+  We have that $(1 \tensor 1) \cdot p = p$ for all $p \in P$, and for all simple tensors $a \tensor b, a' \tensor b' \in A \tensor B$ and all $p \in P$ we have that
   \begin{align*}
-        (a \otimes b) \cdot ( (a' \otimes b') \cdot p )
+        (a \tensor b) \cdot ( (a' \tensor b') \cdot p )
     &=  a \cdot (b \cdot (a' \cdot (b' \cdot p)))
      =  a \cdot (a' \cdot (b \cdot (b' \cdot p))) \\
     &=  (aa') \cdot ( (bb') \cdot p )
-     =  ((aa') \otimes (bb')) \cdot p
-     =  ( (a \otimes a') (b \otimes b') ) \cdot p \,.
+     =  ((aa') \tensor (bb')) \cdot p
+     =  ( (a \tensor a') (b \tensor b') ) \cdot p \,.
   \end{align*}
   With this we have seen that the following data are equivalent:
   \begin{enumerate}
     \item
-      An $(A \otimes B)$-module structure on $A$.
+      An $(A \tensor B)$-module structure on $A$.
     \item
       A pair of commuting $A$-module and $B$-module structuren on $A$.
     \item
-      A $k$-algebra homomorphism $A \otimes B \to \End_k(P)$.
+      A $k$-algebra homomorphism $A \tensor B \to \End_k(P)$.
     \item
       A pair of $k$-algebra homomorphisms $A \to \End_k(P)$ and $B \to \End_k(P)$ whose images commute with each other.
   \end{enumerate}
   
-  We can also give another description of $(A \otimes B)$-modules:
+  We can also give another description of $(A \tensor B)$-modules:
   A pair of $A$-module and $B$-module structures on $P$ commute if and only if for every $a \in A$ the map $P \to P$, $p \mapsto ap$ is a homomorphism of $B$-modules, and equivalently if for every $b \in B$ the map $P \to P$, $p \mapsto bp$ is a homomorphism of $A$-modules.
   This is equivalent to the $k$-algebra homomorphisms $A \to \End_k(P)$ restricting to a homomorphism $A \to \End_B(P)$, and equivalently to the $k$-algebra homomorphisms $B \to \End_k(P)$ restricting to a homomorphism $B \to \End_A(P)$.
   With this we can continue the above list:
@@ -184,59 +184,59 @@
 \begin{fluff}
   \label{fluff: construction of boxtimes}
   Let $M$ be an $A$-module and let $N$ be an $B$-module.
-  Then the tensor product $M \otimes N$ carries the structure of an $A$-module via
+  Then the tensor product $M \tensor N$ carries the structure of an $A$-module via
   \[
-      a \cdot (m \otimes n)
-    = (am) \otimes n
+      a \cdot (m \tensor n)
+    = (am) \tensor n
   \]
-  for all $a \in A$ and simple tensors $m \otimes n \in M \otimes N$, as well as the structure of an $B$-module via
+  for all $a \in A$ and simple tensors $m \tensor n \in M \tensor N$, as well as the structure of an $B$-module via
   \[
-      b \cdot (m \otimes n)
-    = m \otimes (bn)
+      b \cdot (m \tensor n)
+    = m \tensor (bn)
   \]
-  for all $b \in B$ and simple tensors $m \otimes n \in M \otimes N$.
+  for all $b \in B$ and simple tensors $m \tensor n \in M \tensor N$.
   These two module structures commute because
   \[
-      a \cdot (b \cdot (m \otimes n))
-    = a \cdot (m \otimes (bn))
-    = (am) \otimes (bn)
-    = b \cdot ((am) \otimes n)
-    = b \cdot (a \cdot (m \otimes n))
+      a \cdot (b \cdot (m \tensor n))
+    = a \cdot (m \tensor (bn))
+    = (am) \tensor (bn)
+    = b \cdot ((am) \tensor n)
+    = b \cdot (a \cdot (m \tensor n))
   \]
-  for all $a \in A$, $b \in B$, $m \otimes n \in M \otimes N$.
-  It follows from \ref{fluff: commuting modules structures for tensor products} that $M \otimes N$ carries the structure of an $(A \otimes B)$-module via
+  for all $a \in A$, $b \in B$, $m \tensor n \in M \tensor N$.
+  It follows from \ref{fluff: commuting modules structures for tensor products} that $M \tensor N$ carries the structure of an $(A \tensor B)$-module via
   \[
-      (a \otimes b) \cdot (m \otimes n)
-    = (am) \otimes (bn)
+      (a \tensor b) \cdot (m \tensor n)
+    = (am) \tensor (bn)
   \]
-  for all simple tensors $a \otimes b \in A \otimes B$, $m \otimes n \in M \otimes N$.
-  We will denote the resulting $(A \otimes B)$-module by
+  for all simple tensors $a \tensor b \in A \tensor B$, $m \tensor n \in M \tensor N$.
+  We will denote the resulting $(A \tensor B)$-module by
   \[
     M \outertensor N \,.
   \]
-  Note that $A \otimes B = A \outertensor B$ as $(A \otimes B)$-modules.
-%   Note that when $\Phi \colon A \to \End_k(M)$ and $\Psi \colon B \to \End_k(N)$ are the $k$-algebra homomorphisms corresponding to the above module structures, then the $k$-algebra homomorphism $A \otimes B \to \End_k(M \otimes B)$ corresponding to the $(A \otimes B)$-module structure of $M \outertensor N$ is given by
+  Note that $A \tensor B = A \outertensor B$ as $(A \tensor B)$-modules.
+%   Note that when $\Phi \colon A \to \End_k(M)$ and $\Psi \colon B \to \End_k(N)$ are the $k$-algebra homomorphisms corresponding to the above module structures, then the $k$-algebra homomorphism $A \tensor B \to \End_k(M \tensor B)$ corresponding to the $(A \tensor B)$-module structure of $M \outertensor N$ is given by
 %   \[
-%     A \otimes B
-%     \xlongrightarrow{\,\Phi \otimes \Psi\,}
-%     \End_k(M) \otimes \End_k(N)
+%     A \tensor B
+%     \xlongrightarrow{\,\Phi \tensor \Psi\,}
+%     \End_k(M) \tensor \End_k(N)
 %     \xhookrightarrow{\qquad}
-%     \End_k(M \otimes N) \,.
+%     \End_k(M \tensor N) \,.
 %   \]
-%   Here the inclusion $\iota \colon \End_k(M) \otimes \End_k(N) \hookrightarrow \End_k(M \otimes N)$ is given on simple tensors $f \otimes g \in \End_k(M) \otimes \End_k(N)$ by $\iota(f \otimes g)(m \otimes n) = f(m) \otimes g(n)$ for all simple tensors $m \otimes n \in M \otimes N$.
+%   Here the inclusion $\iota \colon \End_k(M) \tensor \End_k(N) \hookrightarrow \End_k(M \tensor N)$ is given on simple tensors $f \tensor g \in \End_k(M) \tensor \End_k(N)$ by $\iota(f \tensor g)(m \tensor n) = f(m) \tensor g(n)$ for all simple tensors $m \tensor n \in M \tensor N$.
 \end{fluff}
 
 
 \begin{lemma}
   \label{lemma: if product is simple then so are factors}
-  If $M$ is an $A$-module and $N$ is a $B$-module such that $M \outertensor N$ is simple as an $(A \otimes B)$-module then both $M$ and $N$ are simple.
+  If $M$ is an $A$-module and $N$ is a $B$-module such that $M \outertensor N$ is simple as an $(A \tensor B)$-module then both $M$ and $N$ are simple.
 \end{lemma}
 
 
 \begin{proof}
   It follows that $M, N \neq 0$ because $M \outertensor N \neq 0$.
   If $M$ were not semisimple then there would exist a proper nonzero $A$-submodule $M' \modulelneq M$.
-  Then $M' \outertensor N$ would be a proper nonzero $(A \otimes B)$-submodule of $M \outertensor N$, which would contradict $M \outertensor N$ being simple.
+  Then $M' \outertensor N$ would be a proper nonzero $(A \tensor B)$-submodule of $M \outertensor N$, which would contradict $M \outertensor N$ being simple.
   It follows that $M$ must be simple.
   We find in the same way that $N$ is simple.
 \end{proof}
@@ -244,7 +244,7 @@
 
 \begin{lemma}
   \label{lemma: tensor product of modules is again simple}
-  If $k$ is algebraically closed, $M$ is a finite-dimensional simple $A$-module and $N$ is a finite-dimensional simple $B$-module then the $(A \otimes B)$-module $M \outertensor N$ is also simple.
+  If $k$ is algebraically closed, $M$ is a finite-dimensional simple $A$-module and $N$ is a finite-dimensional simple $B$-module then the $(A \tensor B)$-module $M \outertensor N$ is also simple.
 \end{lemma}
 
 
@@ -252,10 +252,10 @@
   By the \hyperref[theorem: density theorem]{density theorem} the $k$-algebra homomorphisms $\Phi \colon A \to \End_k(M)$ and $\Psi \colon B \to \End_k(M)$ corresponding to the module structures are surjective.
   It follows that the $k$-algebra homomorphism
   \[
-                            \Phi \otimes \Psi
-    \colon                  A \otimes B
-    \to                     \End_k(M) \otimes \End_k(N)
-    \xlongrightarrow{\sim}  \End_k(M \otimes N)
+                            \Phi \tensor \Psi
+    \colon                  A \tensor B
+    \to                     \End_k(M) \tensor \End_k(N)
+    \xlongrightarrow{\sim}  \End_k(M \tensor N)
   \]
   is also surjective.
   This is the $k$-algebra homomorphism corresponding to the module structure of $M \outertensor N$ so it follows from the \hyperref[theorem: density theorem]{density theorem} that $M \outertensor N$ is simple.
@@ -271,9 +271,9 @@
     \item
       \label{enumerate: outer tensor product of semisimple modules}
       Let $M$ be a semisimple finite-dimensional $A$-module and let $N$ be a semisimple finite-dimensional $B$-module.
-      Then $M \outertensor N$ is semisimple as an $(A \otimes B)$-module.
+      Then $M \outertensor N$ is semisimple as an $(A \tensor B)$-module.
     \item
-      If $A, B$ are finite-dimensional and semisimple then $A \otimes B$ is again semisimple.
+      If $A, B$ are finite-dimensional and semisimple then $A \tensor B$ is again semisimple.
   \end{enumerate}
 \end{corollary}
 
@@ -289,9 +289,9 @@
         = \left( \bigoplus_{i=1}^m M_i \right) \outertensor \left( \bigoplus_{j=1}^n N_j \right)
         = \bigoplus_{i=1}^m \bigoplus_{j=1}^n M_i \outertensor N_j
       \]
-      is a decomposition of $M \outertensor N$ into simple $(A \otimes B)$-submodules.
+      is a decomposition of $M \outertensor N$ into simple $(A \tensor B)$-submodules.
     \item
-      This follows from part~\ref*{enumerate: outer tensor product of semisimple modules} because $A \otimes B = A \outertensor B$ as $(A \otimes B)$-modules.
+      This follows from part~\ref*{enumerate: outer tensor product of semisimple modules} because $A \tensor B = A \outertensor B$ as $(A \tensor B)$-modules.
     \qedhere
   \end{enumerate}
 \end{proof}
@@ -306,12 +306,12 @@
   \[
             \Phi
     \colon  \irr(A) \times \irr(B)
-    \to     \irr(A \otimes B),
+    \to     \irr(A \tensor B),
     \quad   ([M],[N])
     \mapsto [M \outertensor N]
   \]
   is a well-defined bijection.
-  In other words, every finite-dimensional simple $(A \otimes B)$-module is up to isomorphism of the form $M \outertensor N$ for a finite-dimensional simple $A$-module $M$ and a finite-dimensional simple $B$-module $N$, and $M, N$ are unique up to isomorphism.
+  In other words, every finite-dimensional simple $(A \tensor B)$-module is up to isomorphism of the form $M \outertensor N$ for a finite-dimensional simple $A$-module $M$ and a finite-dimensional simple $B$-module $N$, and $M, N$ are unique up to isomorphism.
 \end{theorem}
 
 
@@ -319,7 +319,7 @@
   That $\Phi$ is well-defined follows from Lemma~\ref{lemma: tensor product of modules is again simple}.
   
   To see that $\Phi$ is injective let $[M], [M'] \in \irr(A)$ and $[N], [N'] \in \irr(B)$ be isomorphism classes such that $M \outertensor N \cong M' \outertensor N'$.
-  Then $M \outertensor N \cong M' \outertensor N'$ as $A$-modules where $A$ acts on $M \outertensor N$ by $a \cdot (m \otimes n) = (am) \otimes n$ for all $a \in A$ and simple tensors $m \otimes n \in M \otimes N$, and similarly for $M' \outertensor N'$.
+  Then $M \outertensor N \cong M' \outertensor N'$ as $A$-modules where $A$ acts on $M \outertensor N$ by $a \cdot (m \tensor n) = (am) \tensor n$ for all $a \in A$ and simple tensors $m \tensor n \in M \tensor N$, and similarly for $M' \outertensor N'$.
   We then have that
   \begin{align*}
             M \outertensor N
@@ -332,58 +332,58 @@
   It then follows from that $M \cong M'$ as $A$-modules because $M, M'$ are simple.
   In the same way it can be shown that $N \cong N'$ as $B$-modules.
   
-  To see that $\Phi$ is surjective let $[P] \in \irr(A \otimes B)$.
+  To see that $\Phi$ is surjective let $[P] \in \irr(A \tensor B)$.
   We can regard $P$ as a $B$-module by restriction, i.e.\ via the action given by
   \[
       b \cdot p
-    = (1 \otimes b) p
+    = (1 \tensor b) p
   \]
   for all $b \in B$, $p \in P$.
   Then $P$ is a finite-dimensional $B$-module and therefore contains a simple $B$-submodule $N \moduleleq P$.
   It follows from Proposition~\ref{proposition: multiplicity spaces} that the evaluation map
   \[
             \psi
-    \colon  \Hom_B(N,P) \otimes N
+    \colon  \Hom_B(N,P) \tensor N
     \to     P,
-    \quad   f \otimes n
+    \quad   f \tensor n
     \mapsto f(n)
   \]
-  is a homomorphis of $B$-modules which restrict to an isomorphism $\Hom_B(N,P) \to N_E$, where $B$ acts on $\Hom_B(N,P) \otimes N$ via
+  is a homomorphis of $B$-modules which restrict to an isomorphism $\Hom_B(N,P) \to N_E$, where $B$ acts on $\Hom_B(N,P) \tensor N$ via
   \[
-      b \cdot (f \otimes n)
-    = f \otimes (bn)
+      b \cdot (f \tensor n)
+    = f \tensor (bn)
   \]
-  for all $b \in B$ and simple tensors $f \otimes n \in \Hom_B(N,P) \otimes N$.
+  for all $b \in B$ and simple tensors $f \tensor n \in \Hom_B(N,P) \tensor N$.
   
-  The $(A \otimes B)$-module structure on $P$ also corresponds to a $k$-algebra homomorphism $A \to \End_B(P)$ given by $b \mapsto (p \mapsto bp)$ as seen in \ref{fluff: commuting modules structures for tensor products}. 
+  The $(A \tensor B)$-module structure on $P$ also corresponds to a $k$-algebra homomorphism $A \to \End_B(P)$ given by $b \mapsto (p \mapsto bp)$ as seen in \ref{fluff: commuting modules structures for tensor products}. 
   The multiplicity space $\Hom_B(N,P)$ carries the structure of an $\End_B(P)$-module via postcomposition, so it follows that $\Hom_B(N,P)$ carries the structure of a $A$-module via
   \[
       (a \cdot f)(n)
     = a \cdot f(n)
   \]
   for all $a \in A$, $f \in \Hom_B(N,P)$, $n \in N$.
-  We can therefore enhance the $k$-vector space $\Hom_B(N,P) \otimes N$ to the $(A \otimes B)$-module $\Hom_B(N,P) \otimes N$.
+  We can therefore enhance the $k$-vector space $\Hom_B(N,P) \tensor N$ to the $(A \tensor B)$-module $\Hom_B(N,P) \tensor N$.
   The $k$-linear map
   \[
             \psi
     \colon  \Hom_B(N,P) \outertensor N
     \to     P
   \]
-  is already a homomorphism of $(A \otimes B)$-modules because
+  is already a homomorphism of $(A \tensor B)$-modules because
   \begin{align*}
-        \psi((a \otimes b) \cdot (f \otimes n))
-    &=  \psi((af) \otimes (bn))
+        \psi((a \tensor b) \cdot (f \tensor n))
+    &=  \psi((af) \tensor (bn))
      =  (af)(bn)
      =  a f(bn) \\
     &=  a b f(n)
-     =  (a \otimes 1)(1 \otimes b) f(n)
-     =  (a \otimes b) f(n)
-     =  (a \otimes b) \psi(f \otimes n)
+     =  (a \tensor 1)(1 \tensor b) f(n)
+     =  (a \tensor b) f(n)
+     =  (a \tensor b) \psi(f \tensor n)
   \end{align*}
-  for all simple tensors $a \otimes b \in A \otimes B$, $f \otimes n \in \Hom_B(N,P) \otimes N$.
+  for all simple tensors $a \tensor b \in A \tensor B$, $f \tensor n \in \Hom_B(N,P) \tensor N$.
   
   Because $P$ is simple and $\psi$ is nonzero it follows that $\psi$ is surjective.
-  Together with the injectivity of $\psi$ this shows that $\psi$ is an isomorphism of $(A \otimes B)$-modules, which shows that $P \cong \Hom_B(N,P) \outertensor N$ as $(A \otimes B)$-modules.
+  Together with the injectivity of $\psi$ this shows that $\psi$ is an isomorphism of $(A \tensor B)$-modules, which shows that $P \cong \Hom_B(N,P) \outertensor N$ as $(A \tensor B)$-modules.
   It follows from Lemma~\ref{lemma: if product is simple then so are factors} that both $\Hom_B(N,P)$ and $N$ are already simple themselves.
   This shows that $\Phi$ is surjective.
 \end{proof}

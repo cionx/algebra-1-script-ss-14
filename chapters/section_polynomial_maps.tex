@@ -550,29 +550,29 @@
       \[
                 f
         \colon  V
-        \to     V^{\otimes r},
+        \to     V^{\tensor r},
         \quad   v
-        \mapsto v \otimes \dotsb \otimes v
+        \mapsto v \tensor \dotsb \tensor v
       \]
       is polynomial.
       To see this we choose a basis $v_1, \dotsc, v_n$ of $V$.
       Then the elements
       \[
           v_{\underline{i}}
-        = v_{i_1} \otimes \dotsb \otimes v_{i_r}
+        = v_{i_1} \tensor \dotsb \tensor v_{i_r}
         \quad\text{with}\quad
             \underline{i}
         =   (i_1, \dotsc, i_r)
         \in \{1, \dotsc, n\}^r
       \]
-      form a basis of $V^{\otimes r}$.
+      form a basis of $V^{\tensor r}$.
       For $v \in V$ with $v = \sum_{i=1}^r \lambda_i v_i$ we have that
       \[
           f(v)
-        = v \otimes \dotsb \otimes v
+        = v \tensor \dotsb \tensor v
         =         \left( \sum_{i=1}^r \lambda_i v_i \right)
-          \otimes \dotsb
-          \otimes \left( \sum_{i=1}^r \lambda_i v_i \right)
+          \tensor \dotsb
+          \tensor \left( \sum_{i=1}^r \lambda_i v_i \right)
         = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} v_{\underline{i}} \,.
       \]
       For the polynomials $p_{\underline{i}} \defined  X_{i_1} \dotsm X_{i_r}$ and their corresponding polynomial maps $f_{\underline{i}} \colon V \to k$ given by

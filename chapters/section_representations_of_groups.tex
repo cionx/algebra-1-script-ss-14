@@ -115,10 +115,10 @@
       for all $g \in G$, $x \in X$.
       This representation is the \emph{permutation representation associated to $X$}.
     \item
-      For every $k$-vector space $V$ the symmetric group $S_n$ also acts linearly on $V^{\otimes n}$ via
+      For every $k$-vector space $V$ the symmetric group $S_n$ also acts linearly on $V^{\tensor n}$ via
       \[
-          \sigma.(v_1 \otimes \dotsb \otimes v_n)
-        = v_{\sigma^{-1}(1)} \otimes \dotsb \otimes v_{\sigma^{-1}(n)}
+          \sigma.(v_1 \tensor \dotsb \tensor v_n)
+        = v_{\sigma^{-1}(1)} \tensor \dotsb \tensor v_{\sigma^{-1}(n)}
       \]
       for all $\sigma \in S_n$, $v_1, \dotsc, v_n \in V$.
     \item
@@ -188,13 +188,13 @@
         \mapsto \varphi(v) \,.
       \]
     \item
-      If $V$ and $W$ be representations of $G$ over the same field, then $G$ acts linearly on $V \oplus W$ and $V \otimes W$ via
+      If $V$ and $W$ be representations of $G$ over the same field, then $G$ acts linearly on $V \oplus W$ and $V \tensor W$ via
       \begin{align*}
                   g.(v,w)
         &\defined (g.v,g.w) \,,       \tag{1}
         \\
-                  g.(v \otimes w)
-        &\defined (g.v) \otimes (g.w) \tag{2}
+                  g.(v \tensor w)
+        &\defined (g.v) \tensor (g.w) \tag{2}
       \end{align*}
       for all $v \in V$, $w \in W$, $g \in G$.
       If the linear actions of $G$ on $V, W$ are denoted by
@@ -207,23 +207,23 @@
       \begin{align*}
         \pi \oplus \tau  \colon G \times (V \oplus W)  &\to V \oplus W  \,,
         \\
-        \pi \otimes \tau \colon G \times (V \otimes W) &\to V \otimes W
+        \pi \tensor \tau \colon G \times (V \tensor W) &\to V \tensor W
       \end{align*}
       are given by
       \[
           (\pi \oplus \tau)_g
         = \pi_g \oplus \tau_g
         \quad\text{and}\quad
-          (\pi \otimes \tau)_g
-        = \pi_g \otimes \tau_g
+          (\pi \tensor \tau)_g
+        = \pi_g \tensor \tau_g
       \]
       for every $g \in G$.
 %       
 %       Note that if $\pi \colon G \times V \to V$ is the action on $V$ and $\pi' \colon G \times W \to W$ is the action on $W$, then the action
 %       
-%       Notice that the linear action on $V \otimes W$ is induces by the linear action on $V \times W$:
+%       Notice that the linear action on $V \tensor W$ is induces by the linear action on $V \times W$:
 %        then the action $\tau \colon G \times (V \times W) \to V \times W$ defined by (1) is given by $\tau_g = \pi_g \times \pi'_g$ for all $g \in G$.
-%       The action $\tau' \colon G \times (V \otimes W) \to V \otimes W$ defined by (2) is then given by $\tau_g = \pi_g \otimes \pi'_g$ for all $g \in G$.
+%       The action $\tau' \colon G \times (V \tensor W) \to V \tensor W$ defined by (2) is then given by $\tau_g = \pi_g \tensor \pi'_g$ for all $g \in G$.
 %       So $\tau'$ it is the unique action which makes the following diagram commute for every $g \in G$:
 %       \[
 %         \begin{tikzcd}[column sep = large]
@@ -233,12 +233,12 @@
 %           & V \times W
 %             \arrow{d}
 %           \\
-%             V \otimes W
-%             \arrow{r}{\pi_g \otimes \pi'_g}
-%           & V \otimes W
+%             V \tensor W
+%             \arrow{r}{\pi_g \tensor \pi'_g}
+%           & V \tensor W
 %         \end{tikzcd}
 %       \]
-      If $v_1, \dotsc, v_n$ is a basis of $V$ with respect to which $\pi_g$ is given by a matrix $A$, and $w_1, \dotsc, w_m$ a basis of $W$ with respect to which $\tau_g$ is given by a matrix $B$, then $(\pi \oplus \tau)_g$ and $(\pi \otimes \tau)_g$ are therefore given by the matrices
+      If $v_1, \dotsc, v_n$ is a basis of $V$ with respect to which $\pi_g$ is given by a matrix $A$, and $w_1, \dotsc, w_m$ a basis of $W$ with respect to which $\tau_g$ is given by a matrix $B$, then $(\pi \oplus \tau)_g$ and $(\pi \tensor \tau)_g$ are therefore given by the matrices
       \[
         \begin{bmatrix}
           A & 0 \\
@@ -252,7 +252,7 @@
           a_{n1} B & a_{n2} B & \cdots & a_{nm} B
         \end{bmatrix}
       \]
-      with respect to the basis $(v_1,0), \dotsc, (v_n,0), (0,w_1), \dotsc, (0,w_m)$ of $V \oplus W$ and the basis $v_1 \otimes w_1, v_1 \otimes w_2, \dotsc, v_n \otimes w_m$ of $V \otimes W$.
+      with respect to the basis $(v_1,0), \dotsc, (v_n,0), (0,w_1), \dotsc, (0,w_m)$ of $V \oplus W$ and the basis $v_1 \tensor w_1, v_1 \tensor w_2, \dotsc, v_n \tensor w_m$ of $V \tensor W$.
     \item
       Let $V$ be a representation of $G$ and $\pi \colon G \times V \to V$ the corresponding linear action.
       Then for every $d \geq 0$ the group $G$ acts linearly on the exterior power $\bigwedge^d V$ and symmetric power $S^d V$ via
@@ -543,32 +543,32 @@
 \begin{remark}
   Given representations $V, W$ of a group $G$ we have that
   \[
-              V^G \otimes W^G
-    \subseteq (V \otimes W)^G
+              V^G \tensor W^G
+    \subseteq (V \tensor W)^G
   \]
-  because for all simple tensors $v \otimes w \in V^G \otimes W^G$ with $v \in V^G$, $w \in W^G$ we have that
+  because for all simple tensors $v \tensor w \in V^G \tensor W^G$ with $v \in V^G$, $w \in W^G$ we have that
   \[
-      g.(v \otimes w)
-    = (g.v) \otimes (g.w)
-    = v \otimes w
+      g.(v \tensor w)
+    = (g.v) \tensor (g.w)
+    = v \tensor w
   \]
-  and thus $v \otimes w \in (V \otimes W)^G$.
+  and thus $v \tensor w \in (V \tensor W)^G$.
   
   But the other inclusion does not necessarily hold:
   Consider for example the action of $G = S_2 = \{1, s\}$ on $V = W = k^2$ given by swapping the coordinates, i.e.\
   \[
-      s.(v \otimes w)
-    = w \otimes v
+      s.(v \tensor w)
+    = w \tensor v
   \]
-  for all simple tensors $v \otimes w \in V \otimes W$ with $v \in V$, $w \in W$.
+  for all simple tensors $v \tensor w \in V \tensor W$ with $v \in V$, $w \in W$.
   Then $V^G = W^G = \gen{ e_1 + e_2 }_k$ and thus
   \begin{align*}
-        V^G \otimes W^G
-    &=  \gen{ e_1 + e_2 }_k \otimes \gen{ e_1 + e_2 }_k \\
-    &=  \gen{ (e_1 + e_2) \otimes (e_1 + e_2) }_k       \\
-    &=  \gen{ e_1 \otimes e_1 + e_1 \otimes e_2 + e_2 \otimes e_1 + e_2 \otimes e_2 }_k \,.
+        V^G \tensor W^G
+    &=  \gen{ e_1 + e_2 }_k \tensor \gen{ e_1 + e_2 }_k \\
+    &=  \gen{ (e_1 + e_2) \tensor (e_1 + e_2) }_k       \\
+    &=  \gen{ e_1 \tensor e_1 + e_1 \tensor e_2 + e_2 \tensor e_1 + e_2 \tensor e_2 }_k \,.
   \end{align*}
-  Then $e_1 \otimes e_2 + e_2 \otimes e_1 \in (V \otimes W)^G$ is not contained in $V^G \otimes W^G$.
+  Then $e_1 \tensor e_2 + e_2 \tensor e_1 \in (V \tensor W)^G$ is not contained in $V^G \tensor W^G$.
   
   We can look at the case $G = S_2 = \{1, s\}$ with $\kchar k \neq 2$ in a bit more detail:
   Then the linear map
@@ -598,24 +598,24 @@
   
   We then have that
   \begin{align*}
-        V \otimes W
-    &=  (V_+ \oplus V_-) \otimes (W_+ \oplus W_-) \\
-    &=  (V_+ \otimes W_+) \oplus (V_- \otimes W_-) \oplus (V_+ \otimes W_-) \oplus (V_- \otimes W_+)
+        V \tensor W
+    &=  (V_+ \oplus V_-) \tensor (W_+ \oplus W_-) \\
+    &=  (V_+ \tensor W_+) \oplus (V_- \tensor W_-) \oplus (V_+ \tensor W_-) \oplus (V_- \tensor W_+)
   \end{align*}
-  where $s$ acts trivially on the summands $V_+ \otimes W_+$ and $V_- \otimes W_-$ and by a sign change on the summands $V_+ \otimes W_-$ and $V_- \otimes W_+$.
+  where $s$ acts trivially on the summands $V_+ \tensor W_+$ and $V_- \tensor W_-$ and by a sign change on the summands $V_+ \tensor W_-$ and $V_- \tensor W_+$.
   It thus follows that
   \begin{align*}
-        (V \otimes W)^G
+        (V \tensor W)^G
     &=  \left(
-                  (V_+ \otimes W_+)
-          \oplus  (V_- \otimes W_-)
-          \oplus  (V_+ \otimes W_-)
-          \oplus  (V_- \otimes W_+)
+                  (V_+ \tensor W_+)
+          \oplus  (V_- \tensor W_-)
+          \oplus  (V_+ \tensor W_-)
+          \oplus  (V_- \tensor W_+)
         \right)^G \\
-    &=  (V_+ \otimes W_+)^G \oplus (V_- \otimes W_-)^G \oplus (V_+ \otimes W_-)^G \oplus (V_- \otimes W_+)^G  \\
-    &=  (V_+ \otimes W_+) \oplus (V_- \otimes W_-) \,.
+    &=  (V_+ \tensor W_+)^G \oplus (V_- \tensor W_-)^G \oplus (V_+ \tensor W_-)^G \oplus (V_- \tensor W_+)^G  \\
+    &=  (V_+ \tensor W_+) \oplus (V_- \tensor W_-) \,.
   \end{align*}
-  We that that compared to $V^G \otimes W^G = V_+ \otimes W_+$ we gain the additional summand $V_- \otimes W_-$, which is invariant because the actions of $s$ on the factors cancels out.
+  We that that compared to $V^G \tensor W^G = V_+ \tensor W_+$ we gain the additional summand $V_- \tensor W_-$, which is invariant because the actions of $s$ on the factors cancels out.
   
   In the previous example we have for $\kchar k \neq 2$ that
   \[
@@ -625,16 +625,16 @@
   \]
   By the above discussion we find that
   \begin{align*}
-     &\,  (V \otimes W)^G
-    =     (V_+ \otimes W_+) \oplus (V_- \otimes W_-)  \\
-    =&\,  (\gen{e_1 + e_2}_k \otimes \gen{e_1 + e_2}_k) \oplus (\gen{e_1 - e_2}_k \otimes \gen{e_1 - e_2}_k)  \\
-    =&\,          \gen{e_1 \otimes e_1 + e_1 \otimes e_2 + e_2 \otimes e_1 + e_2 \otimes e_2}_k
-          \oplus  \gen{e_1 \otimes e_1 - e_1 \otimes e_2 - e_2 \otimes e_1 + e_2 \otimes e_2}_k \\
+     &\,  (V \tensor W)^G
+    =     (V_+ \tensor W_+) \oplus (V_- \tensor W_-)  \\
+    =&\,  (\gen{e_1 + e_2}_k \tensor \gen{e_1 + e_2}_k) \oplus (\gen{e_1 - e_2}_k \tensor \gen{e_1 - e_2}_k)  \\
+    =&\,          \gen{e_1 \tensor e_1 + e_1 \tensor e_2 + e_2 \tensor e_1 + e_2 \tensor e_2}_k
+          \oplus  \gen{e_1 \tensor e_1 - e_1 \tensor e_2 - e_2 \tensor e_1 + e_2 \tensor e_2}_k \\
     =&\,  \gen{
-            e_1 \otimes e_1 + e_1 \otimes e_2 + e_2 \otimes e_1 + e_2 \otimes e_2,
-            e_1 \otimes e_1 - e_1 \otimes e_2 - e_2 \otimes e_1 + e_2 \otimes e_2
+            e_1 \tensor e_1 + e_1 \tensor e_2 + e_2 \tensor e_1 + e_2 \tensor e_2,
+            e_1 \tensor e_1 - e_1 \tensor e_2 - e_2 \tensor e_1 + e_2 \tensor e_2
           } \\
-    =&\,  \gen{e_1 \otimes e_1 + e_2 \otimes e_2, e_1 \otimes e_2 + e_2 \otimes e_1} \,.
+    =&\,  \gen{e_1 \tensor e_1 + e_2 \tensor e_2, e_1 \tensor e_2 + e_2 \tensor e_1} \,.
   \end{align*}
 \end{remark}
 

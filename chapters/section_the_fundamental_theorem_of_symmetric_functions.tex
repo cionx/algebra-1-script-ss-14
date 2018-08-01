@@ -531,25 +531,25 @@
 %   \]
 %   If $\dim_k A < \infty$ we have $P_A(t) \in k[t] \subseteq k\dblbrack{t}$.
 %   
-%   If $A = \bigoplus_{d \geq 0} A_d$ and $B = \bigoplus_{d \geq 0} B_d$ are graded $k$-algebras then $A \otimes_k B$ is a $k$-algebra via
+%   If $A = \bigoplus_{d \geq 0} A_d$ and $B = \bigoplus_{d \geq 0} B_d$ are graded $k$-algebras then $A \tensor_k B$ is a $k$-algebra via
 %   \[
-%       (a_1 \otimes b_1) (a_2 \otimes b_2)
-%     = (a_1 a_2) \otimes (b_1 b_2)
+%       (a_1 \tensor b_1) (a_2 \tensor b_2)
+%     = (a_1 a_2) \tensor (b_1 b_2)
 %   \]
-%   and a graded $k$-algebra $A \otimes B = \bigoplus_{d \geq 0} (A \otimes B)_d$ by setting
+%   and a graded $k$-algebra $A \tensor B = \bigoplus_{d \geq 0} (A \tensor B)_d$ by setting
 %   \[
-%       (A \otimes B)_d
-%     = \bigoplus_{i=0}^d (A_i \otimes B_{d-i}) \,.
+%       (A \tensor B)_d
+%     = \bigoplus_{i=0}^d (A_i \tensor B_{d-i}) \,.
 %   \]
 %   We than have
 %   \[
-%       \dim_k (A \otimes B)_d
-%     = \sum_{i=0}^d \dim_k (A_i \otimes B_{d-i})
+%       \dim_k (A \tensor B)_d
+%     = \sum_{i=0}^d \dim_k (A_i \tensor B_{d-i})
 %     = \sum_{i=0}^d (\dim_k A_i) (\dim_k B_{d-i})
 %   \]
 %   for all $d \geq 0$ and thus
 %   \[
-%       P_{A \otimes B}(t)
+%       P_{A \tensor B}(t)
 %     = P_A(t) P_B(t) \,.
 %   \]
 % \end{example}

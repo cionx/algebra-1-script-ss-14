@@ -3,12 +3,12 @@
 
 \begin{fluff}
   let $V$ be a $k$-vector space.
-  Then the $k$-vector space strucure of $L \otimes_k V$ extends to an $L$-vector space structure on $L \otimes_k V$ which is given by
+  Then the $k$-vector space strucure of $L \tensor_k V$ extends to an $L$-vector space structure on $L \tensor_k V$ which is given by
   \[
-      \lambda \cdot (l \otimes v)
-    = (\lambda l) \otimes v
+      \lambda \cdot (l \tensor v)
+    = (\lambda l) \tensor v
   \]
-  for all $\lambda \in L$ and simple tensors $l \otimes v \in L \otimes_k V$ with $l \in L$, $v \in V$:
+  for all $\lambda \in L$ and simple tensors $l \tensor v \in L \tensor_k V$ with $l \in L$, $v \in V$:
   To see that this multipliation is well-defined let $\lambda \in L$ and consider the map
   \[
             m_\lambda
@@ -18,20 +18,20 @@
     \mapsto \lambda l \,,
   \]
   which is $L$-linear and thus $k$-linear.
-  Then the multiplication with $\lambda$ on $L \otimes_k V$ is given by $m_\lambda \otimes \id_V$, and therefore well-defined.
+  Then the multiplication with $\lambda$ on $L \tensor_k V$ is given by $m_\lambda \tensor \id_V$, and therefore well-defined.
   The various vector space axioms can be checked on simple tensors.
 \end{fluff}
 
 
 \begin{definition}
-  For every $k$-vector space $V$ let $V_L$ be the $L$-vector space $V_L \defined L \otimes_k V$.
-  The $k$-linear map $\can_V \colon V \to V_L$, $v \mapsto 1 \otimes v$ is the \emph{canonical homomorphism}.
+  For every $k$-vector space $V$ let $V_L$ be the $L$-vector space $V_L \defined L \tensor_k V$.
+  The $k$-linear map $\can_V \colon V \to V_L$, $v \mapsto 1 \tensor v$ is the \emph{canonical homomorphism}.
 \end{definition}
 
 
 \begin{example}
   \label{example: extension of scalars for kn}
-  For $V = k^n$ we have that $V_L = L \otimes_k k^n \cong L^n$, and the canonical homomorphism $\can \colon k^n \to (k^n)_L$ corresponds to the inclusion $k^n \hookrightarrow L^n$.
+  For $V = k^n$ we have that $V_L = L \tensor_k k^n \cong L^n$, and the canonical homomorphism $\can \colon k^n \to (k^n)_L$ corresponds to the inclusion $k^n \hookrightarrow L^n$.
   \[
     \begin{tikzcd}[sep = large]
         (k^n)_L
@@ -48,21 +48,21 @@
 
 
 \begin{recall}
-  Recall from linear algebra that for $k$-vector spaces $U, V$ and $u \in U$, $v \in V$ one has that $u \otimes v = 0$ if and only if $u = 0$ or $v = 0$:
+  Recall from linear algebra that for $k$-vector spaces $U, V$ and $u \in U$, $v \in V$ one has that $u \tensor v = 0$ if and only if $u = 0$ or $v = 0$:
   
   If $u \neq 0$ and $v \neq 0$, then $u$ can be extended to a $k$-basis $(u_i)_{i \in I}$ of $U$ with $u = u_{i_0}$ for some $i_0 \in I$, and $v$ can be extended to a $k$-basis $(v_j)_{j \in J}$ of $V$ with $v = v_{j_0}$ for some $j_0 \in J$.
-  Then $(u_i \otimes v_j)_{i \in I, j \in J}$ is a $k$-basis of $U \otimes_k V$, and it follows that the basis element $u_{i_0} \otimes v_{j_0}$ is nonzero.
+  Then $(u_i \tensor v_j)_{i \in I, j \in J}$ is a $k$-basis of $U \tensor_k V$, and it follows that the basis element $u_{i_0} \tensor v_{j_0}$ is nonzero.
 \end{recall}
 
 
 \begin{corollary}
   \label{corollary: canonical homomorphism is injective}
-  The canonical homomorphism $\can_V \colon V \to V_L$, $v \mapsto 1 \otimes v$ is injective for every $k$-vector space $V$.
+  The canonical homomorphism $\can_V \colon V \to V_L$, $v \mapsto 1 \tensor v$ is injective for every $k$-vector space $V$.
 \end{corollary}
 
 
 \begin{fluff}
-  As a consequence of Corollary~$\ref{corollary: canonical homomorphism is injective}$ we can regard $V$ as a $k$-linear subspace of $V_L$ by identifying $v \in V$ with $1 \otimes v \in V_L$.
+  As a consequence of Corollary~$\ref{corollary: canonical homomorphism is injective}$ we can regard $V$ as a $k$-linear subspace of $V_L$ by identifying $v \in V$ with $1 \tensor v \in V_L$.
   We will not do so during this section, but will at time in the main text.
 \end{fluff}
 
@@ -84,7 +84,7 @@
       & {}
     \end{tikzcd}
   \]
-  On elements, $g^\circ$ is given by $g^\circ(v) = g(1 \otimes v)$ for every $v \in V$.
+  On elements, $g^\circ$ is given by $g^\circ(v) = g(1 \tensor v)$ for every $v \in V$.
   One may think about $g^\circ$ as the restriction of $g$ onto $V$.
   
   Let on the other hand $f \colon V \to W$ be a $k$-linear map.
@@ -98,24 +98,24 @@
   \]
   is $k$-bilinear and thus induces a $k$-linear map $\overline{f} \colon V_L \to W$, which is given on simple tensors by
   \[
-      \overline{f}(l \otimes v)
+      \overline{f}(l \tensor v)
     = l \cdot f(v)
   \]
   for all $l \in L$, $v \in V$.
   This map is already $L$-linear:
-  For every $\lambda \in L$ and simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$ one has that
+  For every $\lambda \in L$ and simple tensor $l \tensor v \in V_L$ with $l \in L$, $v \in V$ one has that
   \[
-      \overline{f}(\lambda \cdot (l \otimes v))
-    = \overline{f}( (\lambda l) \otimes v )
+      \overline{f}(\lambda \cdot (l \tensor v))
+    = \overline{f}( (\lambda l) \tensor v )
     = (\lambda l) \cdot f(v)
     = \lambda \cdot (l \cdot f(v))
-    = \lambda \cdot \overline{f}(l \otimes v) \,.
+    = \lambda \cdot \overline{f}(l \tensor v) \,.
   \]
   It then follows from the $k$-linearity of $\overline{f}$ that $\overline{f}(\lambda \cdot x) = \lambda \cdot \overline{f}(x)$ for all $\lambda \in L$, $x \in V_L$ because every $x \in V_L$ is a sum of simple tensors.
   The constructed $L$-linear map $\overline{f} \colon V_L \to W$ satisfies
   \[
       \overline{f}(\can_V(v))
-    = \overline{f}(1 \otimes v)
+    = \overline{f}(1 \tensor v)
     = 1 \cdot f(v)
     = f(v)
   \]
@@ -137,7 +137,7 @@
   If $f \colon V \to W$ is a $k$-linear map then for the corresponding $L$-linear map $\overline{f} \colon V_L \to W$ the induced $k$-linear map $(\overline{f})^\circ \colon V \to W$ is given by
   \[
       (\overline{f})^\circ(v)
-    = \overline{f}(1 \otimes v)
+    = \overline{f}(1 \tensor v)
     = 1 \cdot f(v)
     = f(v)
   \]
@@ -145,13 +145,13 @@
   
   If $g \colon V_L \to W$ is an $L$-linear map and $g^\circ \colon V \to W$ is the corresponding $k$-linear map, then for the induced $L$-linear map $\overline{g^\circ} \colon V_L \to k$ we have that
   \[
-      \overline{g^\circ}(l \otimes v)
+      \overline{g^\circ}(l \tensor v)
     = l \cdot g^\circ(v)
-    = l \cdot g(1 \otimes v)
-    = g(l \cdot (1 \otimes v))
-    = g(l \otimes v)
+    = l \cdot g(1 \tensor v)
+    = g(l \cdot (1 \tensor v))
+    = g(l \tensor v)
   \]
-  for every simple tensor $l \otimes v \in V_L$ with $l \in L$, $v \in V$.
+  for every simple tensor $l \tensor v \in V_L$ with $l \in L$, $v \in V$.
   It follows from the linearity of both $\overline{g^\circ}$ and $g$ that already $\overline{g^\circ}(x) = g(x)$ for every $x \in V_L$, and thus $\overline{g^\circ} = g$.
   
   This shows that the two constructions $(-)^\circ$ and $\overline{(-)}$ are inverse to each other.
@@ -239,7 +239,7 @@
 \begin{lemma}
   \label{lemma: bases under extension of scalars}
   Let $V$ be a $k$-vector space.
-  If a family $(v_i)_{i \in I}$ of vectors $v_i \in V$ is a $k$-basis of $V$, then $(1 \otimes v_i)_{i \in I}$ is an $L$-basis of $V_L$.
+  If a family $(v_i)_{i \in I}$ of vectors $v_i \in V$ is a $k$-basis of $V$, then $(1 \tensor v_i)_{i \in I}$ is an $L$-basis of $V_L$.
 \end{lemma}
 
 
@@ -247,10 +247,10 @@
   We have that $V = \bigoplus_{i \in I} \gen{v_i}_k$ and therefore
   \[
       V_L
-    = L \otimes_k V
-    = L \otimes_k \left( \bigoplus_{i \in I} \gen{v_i}_k \right)
-    = \bigoplus_{i \in I} (L \otimes_k \gen{v_i}_k)
-    = \bigoplus_{i \in I} \gen{1 \otimes v_i}_L \,,
+    = L \tensor_k V
+    = L \tensor_k \left( \bigoplus_{i \in I} \gen{v_i}_k \right)
+    = \bigoplus_{i \in I} (L \tensor_k \gen{v_i}_k)
+    = \bigoplus_{i \in I} \gen{1 \tensor v_i}_L \,,
   \]
   which proves the claim.
 \end{proof}
@@ -272,9 +272,9 @@
   \[
             c
     \colon  \{v_i\}_{i \in I}
-    \to     \{1 \otimes v_i\}_{i \in I},
+    \to     \{1 \tensor v_i\}_{i \in I},
     \quad   v_i
-    \mapsto 1 \otimes v_i
+    \mapsto 1 \tensor v_i
     =       \can_V(v_i) \,.
   \]
   For every $L$-vector space $W$ we therefore get a commutative diagram
@@ -286,7 +286,7 @@
       & \Hom_k(V,W)
         \arrow{d}[right]{\text{restriction}}
       \\
-        \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
+        \Maps\left( \{1 \tensor v_i\}_{i \in I}, W \right)
         \arrow{r}[above]{c^*}
       & \Maps\left( \{v_i\}_{i \in I}, W \right)
     \end{tikzcd}
@@ -302,14 +302,14 @@
   is bijective by Theorem~\ref{theorem: universal property of extension of scalars}, and the map
   \[
             c_*
-    \colon  \Maps\left( \{1 \otimes v_i\}_{i \in I}, W \right)
+    \colon  \Maps\left( \{1 \tensor v_i\}_{i \in I}, W \right)
     \to     \Maps\left( \{v_i\}_{i \in I}, W \right),
     \quad   h
     \mapsto h \circ c
   \]
   is bijective because $c$ is a bijection.
   
-  It follows that the restriction on the left is a bijection if and only if the restriction on the right is a bijection, i.e.\ that $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ if and only if $\{1 \otimes v_i\}_{i \in I}$ is an $L$-basis of $V_L$.
+  It follows that the restriction on the left is a bijection if and only if the restriction on the right is a bijection, i.e.\ that $\{v_i\}_{i \in I}$ is a $k$-basis of $V$ if and only if $\{1 \tensor v_i\}_{i \in I}$ is an $L$-basis of $V_L$.
 \end{remark}
 
 
@@ -328,7 +328,7 @@
   Suppose that $B \subseteq V$ is both a $k$-basis of $V$ and an $L$-basis of $W$.
   Then the unique $L$-linear map $\varphi \colon V_L \to W$ given on simple tensors by
   \[
-      \varphi(l \otimes v)
+      \varphi(l \tensor v)
     = l v
   \]
   for all $l \in L$, $v \in V$ is an isomorphism.
@@ -349,7 +349,7 @@
       & {}
     \end{tikzcd}
   \]
-  Then $\varphi$ maps the $L$-basis $(1 \otimes b)_{b \in B}$ of $V_L$ bijectively onto the $L$-basis $B$ of $W$, and is therefore an isomorphism.
+  Then $\varphi$ maps the $L$-basis $(1 \tensor b)_{b \in B}$ of $V_L$ bijectively onto the $L$-basis $B$ of $W$, and is therefore an isomorphism.
 \end{proof}
 
 
@@ -359,20 +359,20 @@
   \begin{enumerate}
     \item
       We have that $k^n \subseteq L^n$ is a $k$-linear subspace, and the standard basis $e_1, \dotsc, e_n$ is both a $k$-basis of $k^n$ and an $L$-basis of $L^n$.
-      It follows that there exists an isomorphism of $L$-vector spaces $(k^n)_L \to L^n$ which maps $1 \otimes e_i \in (k^n)_L$ to $e_i \in L^n$ for every $i = 1, \dotsc, n$.
+      It follows that there exists an isomorphism of $L$-vector spaces $(k^n)_L \to L^n$ which maps $1 \tensor e_i \in (k^n)_L$ to $e_i \in L^n$ for every $i = 1, \dotsc, n$.
       (We have already seen this in Example~\ref{example: extension of scalars for kn}.)
     \item
       We have that $K[X] \subseteq L[X]$ is a $k$-linear subspace, and the monomials $X^n$, $n \geq 0$ form both a $k$-basis of $K[X]$ and an $L$-basis of $L^n$.
-      It follows that there exists an isomorphism of $L$-vector spaces $k[X]_L \to L[X]$ which maps $1 \otimes X^n \in k[X]_L$ to $X^n \in L[X]$ for every $n \geq 0$.
+      It follows that there exists an isomorphism of $L$-vector spaces $k[X]_L \to L[X]$ which maps $1 \tensor X^n \in k[X]_L$ to $X^n \in L[X]$ for every $n \geq 0$.
     \item
-      We find in the same way that there exists an isomorphism of $L$-vector spaces $k[X_1, \dotsc, X_n]_L \to L[X_1, \dotsc, X_n]$ which maps $1 \otimes X^{\alpha_1} \dotsm X^{\alpha_n} \in k[X_1, \dotsc, X_n]_L$ to $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in L[X_1, \dotsc, X_n]$ for every multiindex $\underline{\alpha} \in \Natural^n$.
+      We find in the same way that there exists an isomorphism of $L$-vector spaces $k[X_1, \dotsc, X_n]_L \to L[X_1, \dotsc, X_n]$ which maps $1 \tensor X^{\alpha_1} \dotsm X^{\alpha_n} \in k[X_1, \dotsc, X_n]_L$ to $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \in L[X_1, \dotsc, X_n]$ for every multiindex $\underline{\alpha} \in \Natural^n$.
     \item
       We have that $\Mat_n(k) \subseteq \Mat_n(L)$ is a $k$-linear subspace, and the matrices $E_{ij}$, $1 \leq i,j \leq n$ are both a $k$-basis of $\Mat_n(k)$ and an $L$-basis of $\Mat_n(L)$.
-      It follows that there exists an isomorphism of $L$-vector spaces $\Mat_n(k)_L \to \Mat_n(L)$ which maps $1 \otimes E_{ij} \in \Mat_n(k)_L$ to $E_{ij} \in \Mat_n(L)$ for all $1 \leq i,j \leq n$.
+      It follows that there exists an isomorphism of $L$-vector spaces $\Mat_n(k)_L \to \Mat_n(L)$ which maps $1 \tensor E_{ij} \in \Mat_n(k)_L$ to $E_{ij} \in \Mat_n(L)$ for all $1 \leq i,j \leq n$.
     \item
       Let $G$ be a group.
       Then $k[G] \subseteq L[G]$ is a $k$-linear subspace, and the group $G$ is both a $k$-basis of $k[G]$ and an $L$-basis of $L[G]$.
-      It follows that there exists an isomorphism of $L$-vector spaces $k[G]_L \to L[G]$ which maps $1 \otimes g \in k[G]$ to $g \in L[G]$ for every $g \in G$.
+      It follows that there exists an isomorphism of $L$-vector spaces $k[G]_L \to L[G]$ which maps $1 \tensor g \in k[G]$ to $g \in L[G]$ for every $g \in G$.
   \end{enumerate}
 \end{example}
 
@@ -380,17 +380,17 @@
 \begin{recall}
   \label{recall: unique representation in tensor product}
   Let $W, V$ be $k$-vector spaces and let $(w_j)_{j \in J}$ be a $k$-basis of $W$.
-  Then every $x \in W \otimes_k V$ can be written as $x = \sum_{j \in J} w_j \otimes v_j$ for unique elements $v_j \in V$ (with $v_j = 0$ for all but finitely many $j \in J$):
+  Then every $x \in W \tensor_k V$ can be written as $x = \sum_{j \in J} w_j \tensor v_j$ for unique elements $v_j \in V$ (with $v_j = 0$ for all but finitely many $j \in J$):
   We have that $W = \bigoplus_{j \in J} \gen{w_j}_k$ and therefore
   \[
-          W \otimes_k V
-    =     \left( \bigoplus_{j \in J} \gen{w_j}_k \right) \otimes_k V
-    =     \bigoplus_{j \in J} ( \gen{w_j}_k \otimes_k V )
-    =     \bigoplus_{j \in J} (w_j \otimes V)
+          W \tensor_k V
+    =     \left( \bigoplus_{j \in J} \gen{w_j}_k \right) \tensor_k V
+    =     \bigoplus_{j \in J} ( \gen{w_j}_k \tensor_k V )
+    =     \bigoplus_{j \in J} (w_j \tensor V)
     \cong \bigoplus_{j \in J} V \,.
   \]
   
-  Note that for the uniqueness of the decomposition $x = \sum_{j \in J} w_j \otimes v_j$ it sufficies that $(w_j)_{j \in J}$ in linearly independent, because we can then set $W = \gen{w_j \suchthat j \in J}_k$ and use the above result.
+  Note that for the uniqueness of the decomposition $x = \sum_{j \in J} w_j \tensor v_j$ it sufficies that $(w_j)_{j \in J}$ in linearly independent, because we can then set $W = \gen{w_j \suchthat j \in J}_k$ and use the above result.
   (Of course, if $(w_j)_{j \in J}$ is not a basis of $W$ then such a decomposition may not exist.)
 \end{recall}
 
@@ -399,8 +399,8 @@
   Let $V$ be a $k$-vector space and $\{U_i\}_{i \in I}$ a collection of $k$-vector subspaces $U_i \subseteq V$.
   Then
   \[
-      L \otimes_k \left( \bigcap_{i \in I} U_i \right)
-    = \bigcap_{i \in I} \left( L \otimes_k U_i \right) \,.
+      L \tensor_k \left( \bigcap_{i \in I} U_i \right)
+    = \bigcap_{i \in I} \left( L \tensor_k U_i \right) \,.
   \]
 \end{corollary}
 
@@ -408,34 +408,34 @@
 \begin{proof}
   For every $j \in I$ we have that $\bigcap_{i \in I} U_i \subseteq U_j$, therefore
   \[
-              L \otimes_k \left( \bigcap_{i \in I} U_i \right)
-    \subseteq L \otimes_k U_j \,,
+              L \tensor_k \left( \bigcap_{i \in I} U_i \right)
+    \subseteq L \tensor_k U_j \,,
   \]
   and thus alltogether
   \[
-              L \otimes_k \left( \bigcap_{i \in I} U_i \right)
-    \subseteq \bigcap_{j \in I} (L \otimes_k U_j) \,.
+              L \tensor_k \left( \bigcap_{i \in I} U_i \right)
+    \subseteq \bigcap_{j \in I} (L \tensor_k U_j) \,.
   \]
   
-  For the other inclusion let $x \in \bigcap_{i \in I} (L \otimes U_i)$, and let $(b_j)_{j \in J}$ be a $k$-basis of $L$.
-  By using that $x \in L \otimes_k V$ we may write
+  For the other inclusion let $x \in \bigcap_{i \in I} (L \tensor U_i)$, and let $(b_j)_{j \in J}$ be a $k$-basis of $L$.
+  By using that $x \in L \tensor_k V$ we may write
   \[
       x
-    = \sum_{j \in J} b_j \otimes v_j
+    = \sum_{j \in J} b_j \tensor v_j
   \]
   for unique elements $v_j \in V$.
-  For every $i \in I$ it similarly follows from $x \in L \otimes_k U_i$ that
+  For every $i \in I$ it similarly follows from $x \in L \tensor_k U_i$ that
   \[
       x
-    = \sum_{j \in J} b_j \otimes u^i_j
+    = \sum_{j \in J} b_j \tensor u^i_j
   \]
   for unique elements $u^i_j \in U_i$.
   For every $j \in J$ it follows from the uniqueness of these decompositions that $v_j = u^i_j \in U_i$ for every $i \in I$, and therefore that $v_j \in \bigcap_{i \in I} U_i$.
   It thus follows that
   \[
         x
-    =   \sum_{j \in J} b_j \otimes v_j
-    \in L \otimes_k \left( \bigcap_{i \in I} U_i \right).
+    =   \sum_{j \in J} b_j \tensor v_j
+    \in L \tensor_k \left( \bigcap_{i \in I} U_i \right).
   \]
   This proves the other inclusion.
 \end{proof}

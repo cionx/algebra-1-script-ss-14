@@ -205,15 +205,15 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
   Let $A$ and $B$ be $k$-algebras.
   Then
   \[
-      Z(A \otimes_k B)
-    = Z(A) \otimes_k Z(B) \,.
+      Z(A \tensor_k B)
+    = Z(A) \tensor_k Z(B) \,.
   \]
 \end{lemma}
 
 
 \begin{recall}
   Let $k$ be a field $V$ and $W$ be $k$-vector spaces.
-  We know from linear algebra that every element $x \in V \otimes_k W$ can be written as a finite sum of simple tensors $x = \sum_{i=1}^n v_i \otimes w_i$.
+  We know from linear algebra that every element $x \in V \tensor_k W$ can be written as a finite sum of simple tensors $x = \sum_{i=1}^n v_i \tensor w_i$.
   Furthermore $v_1, \dotsc, v_n$ are unique if $w_1, \dotsc, w_n \in W$ are linearly independent.
   \begin{proof}
     We can assume w.l.o.g.\ that $W = \vspan_k \{w_1, \dotsc, w_n\}$.
@@ -227,22 +227,22 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
     and thus a $k$-linear map
     \[
               f_i
-      \colon  V \otimes_k W
+      \colon  V \tensor_k W
       \to     V,
-      \quad   v \otimes w_j
+      \quad   v \tensor w_j
       \mapsto \delta_{ij} v \,.
     \]
-    For $x \in V \otimes_k W$ with $x = \sum_{j=1}^n v_j \otimes w_j = \sum_{j=1}^n v'_j \otimes w_j$ we have
+    For $x \in V \tensor_k W$ with $x = \sum_{j=1}^n v_j \tensor w_j = \sum_{j=1}^n v'_j \tensor w_j$ we have
     \[
         0
-      =   \left( \sum_{j=1}^n v_j \otimes w_j \right)
-        - \left( \sum_{j=1}^n v'_j \otimes w_j \right)
-      = \sum_{j=1}^n (v_j - v'_j) \otimes w_j
+      =   \left( \sum_{j=1}^n v_j \tensor w_j \right)
+        - \left( \sum_{j=1}^n v'_j \tensor w_j \right)
+      = \sum_{j=1}^n (v_j - v'_j) \tensor w_j
     \]
     and therefore for every $1 \leq i \leq n$
     \[
         v_i - v'_i
-      = f_i\left( \sum_{j=1}^n (v_j - v'_j) \otimes w_j\right)
+      = f_i\left( \sum_{j=1}^n (v_j - v'_j) \tensor w_j\right)
       = f_i(0)
       = 0 \,.
       \qedhere
@@ -252,94 +252,94 @@ We can also ask ourselves under what conditions a simple ring $R$ is semisimple 
 
 
 \begin{proof}[Proof of the Lemma]
-  It is clear that $Z(A) \otimes_k Z(B) \subseteq Z(A \otimes_k B)$.
-  To show the other inclusion let $x \in Z(A \otimes_k B)$.
-  We can write $x = \sum_{i=1}^n a_i \otimes b_i$.
+  It is clear that $Z(A) \tensor_k Z(B) \subseteq Z(A \tensor_k B)$.
+  To show the other inclusion let $x \in Z(A \tensor_k B)$.
+  We can write $x = \sum_{i=1}^n a_i \tensor b_i$.
   We can assume w.l.o.g.\ that both $a_1, \dotsc, a_n$ and $b_1, \dotsc, b_n$ are linearly independent.
   For every $a \in A$ we have
   \[
-      \sum_{i=1}^n (a a_i) \otimes b_i
-    = (a \otimes 1) x
-    = x (a \otimes 1)
-    = \sum_{i=1}^n (a_i a) \otimes b_i
+      \sum_{i=1}^n (a a_i) \tensor b_i
+    = (a \tensor 1) x
+    = x (a \tensor 1)
+    = \sum_{i=1}^n (a_i a) \tensor b_i
   \]
   and thus $a_i a = a a_i$ (because $b_1, \dotsc, b_n$ are linearly independent).
   So $a_i \in Z(A)$ for every $1 \leq i \leq n$.
   In the same way we find that $b_1, \dotsc, b_n \in Z(B)$.
-  This shows that $x \in Z(A) \otimes_k Z(B)$.
+  This shows that $x \in Z(A) \tensor_k Z(B)$.
 \end{proof}
 
 
 \begin{proposition}
   Let $A$ and $B$ be central simple algebras over the same field $k$.
-  Then $A \otimes_k B$ is a central simple algebra.
+  Then $A \tensor_k B$ is a central simple algebra.
 \end{proposition}
 \begin{proof}
-  Since both $A$ and $B$ are finite-dimensional the same holds for $A \otimes_k B$.
+  Since both $A$ and $B$ are finite-dimensional the same holds for $A \tensor_k B$.
   By Lemma \ref{lemma: Z(A o B) = Z(A) o Z(B)} we have
   \[
-      Z(A \otimes_k B)
-    = Z(A) \otimes_k Z(B
-    = k \otimes_k k
+      Z(A \tensor_k B)
+    = Z(A) \tensor_k Z(B
+    = k \tensor_k k
     = k \,.
   \]
-  So we only need to show that $A \otimes_k B$ only contains $0$ and $A \otimes_k B$ as two-sided ideals.
-  To show this let $I \subseteq A \otimes_k B$ be a two-sided ideal with $I \neq 0$.
-  We can write every $u \in I$ as $u = \sum_{i=1}^n a_i \otimes b_i$ where $b_1, \dotsc, b_n$ are linearly independent.
+  So we only need to show that $A \tensor_k B$ only contains $0$ and $A \tensor_k B$ as two-sided ideals.
+  To show this let $I \subseteq A \tensor_k B$ be a two-sided ideal with $I \neq 0$.
+  We can write every $u \in I$ as $u = \sum_{i=1}^n a_i \tensor b_i$ where $b_1, \dotsc, b_n$ are linearly independent.
   Let $u \in I$ with $u \neq 0$ such that $u$ can be written as above so that the number of summands is minimal with respect to all nonzero elements in $I$.
   Let
   \begin{equation}\label{eqn: u as a sum}
-    u = \sum_{i=1}^n a_i \otimes b_i
+    u = \sum_{i=1}^n a_i \tensor b_i
   \end{equation}
   be such a sum.
   Since $n$ is minimal we have $a_1 \neq 0$.
   Therefore the two-sided ideal $A a_1 A \subseteq A$ is non-zero, so $A a_1 A = A$ because $A$ is simple.
   In particular there exists $c, c' \in A$ with $1 = c a_1 c'$.
-  By multiplying \eqref{eqn: u as a sum} from the left with $(c \otimes 1)$ and from the right with $(c' \otimes 1)$ we see that the element
+  By multiplying \eqref{eqn: u as a sum} from the left with $(c \tensor 1)$ and from the right with $(c' \tensor 1)$ we see that the element
   \[
               x
-    \coloneqq (c \otimes 1) u (c' \otimes 1)
+    \coloneqq (c \tensor 1) u (c' \tensor 1)
     \in       I
   \]
   can be written as
   \begin{equation}\label{eqn: x as a sum}
         x
-    =   1 \otimes b_1
-      + a'_2 \otimes b_2
+    =   1 \tensor b_1
+      + a'_2 \tensor b_2
       + \dotsb
-      + a'_n \otimes b_n
+      + a'_n \tensor b_n
   \end{equation}
   where $b_1, \dotsc, b_n$ are linearly independent.
   In particular $x \neq 0$.
   For every $a \in A$ we have
   \[
-        (a \otimes 1) x - x (a \otimes 1)
-    =   (a a'_2 - a'_2 a) \otimes b_2
+        (a \tensor 1) x - x (a \tensor 1)
+    =   (a a'_2 - a'_2 a) \tensor b_2
       + \dotsb
-      + (a a'_n - a'_n a) \otimes b_2 \in I \,.
+      + (a a'_n - a'_n a) \tensor b_2 \in I \,.
   \]
   By the minimality of $u$ we find that
   \[
-      (a \otimes 1) x - x (a \otimes 1)
+      (a \tensor 1) x - x (a \tensor 1)
     = 0
   \]
   for every $a \in A$.
   Because $b_2, \dotsc, b_n$ are linearly independent it follows that $a a'_i - a'_i a = 0$ for all $a \in A$ and $2 \leq i \leq n$.
   So $a'_2, \dotsc, a'_n \in Z(A) = k$.
-  Using \eqref{eqn: x as a sum} we find that $x = 1 \otimes b$ for some $b \in B$.
+  Using \eqref{eqn: x as a sum} we find that $x = 1 \tensor b$ for some $b \in B$.
   Since $x \neq 0$ we also have $b \neq 0$.
   Because $B$ is simple we find that $BbB = B$ and therefore
   \[
               I
-    \supseteq (1 \otimes B) x (1 \otimes B)
-    =         1 \otimes (BbB)
-    =         1 \otimes B \,.
+    \supseteq (1 \tensor B) x (1 \tensor B)
+    =         1 \tensor (BbB)
+    =         1 \tensor B \,.
   \]
   Using this we find that
   \[
               I
-    \supseteq (A \otimes 1) (1 \otimes B)
-    =         A \otimes_k B \,.
+    \supseteq (A \tensor 1) (1 \tensor B)
+    =         A \tensor_k B \,.
   \]
-  So $0$ and $A \otimes_k B$ are the only two-sided ideals in $A \otimes_k B$.
+  So $0$ and $A \tensor_k B$ are the only two-sided ideals in $A \tensor_k B$.
 \end{proof}

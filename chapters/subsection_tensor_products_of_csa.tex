@@ -6,41 +6,41 @@
   Let $A, B$ be $k$-algebras and let $A' \subseteq A$, $B' \subseteq B$ be subalgebras.
   Then
   \[
-      \centralizer_{A \otimes B}(A' \otimes B')
-    = \centralizer_A(A') \otimes \centralizer_B(B') \,.
+      \centralizer_{A \tensor B}(A' \tensor B')
+    = \centralizer_A(A') \tensor \centralizer_B(B') \,.
   \]
 \end{lemma}
 
 
 \begin{proof}
-  We have for every simple tensor $a \otimes b \in \centralizer_A(A') \otimes \centralizer_B(B')$ that
+  We have for every simple tensor $a \tensor b \in \centralizer_A(A') \tensor \centralizer_B(B')$ that
   \[
-      (a \otimes b) (a' \otimes b')
-    = (aa') \otimes (bb')
-    = (a'a) \otimes (b'b)
-    = (a' \otimes b')(a \otimes b)
+      (a \tensor b) (a' \tensor b')
+    = (aa') \tensor (bb')
+    = (a'a) \tensor (b'b)
+    = (a' \tensor b')(a \tensor b)
   \]
-  for every simple tensor $a' \otimes b' \in k \otimes B$.
-  It follows that $(a \otimes b) x = x (a \otimes b)$ for every $x \in A' \otimes B'$ because every tensor is a sum of simple tensors.
+  for every simple tensor $a' \tensor b' \in k \tensor B$.
+  It follows that $(a \tensor b) x = x (a \tensor b)$ for every $x \in A' \tensor B'$ because every tensor is a sum of simple tensors.
   This shows that
   \[
-              \centralizer_A(A') \otimes \centralizer_B(B')
-    \subseteq \centralizer_{A \otimes B}(A' \otimes B') \,.
+              \centralizer_A(A') \tensor \centralizer_B(B')
+    \subseteq \centralizer_{A \tensor B}(A' \tensor B') \,.
   \]
   
-  To show the other inclusion let $x \in \centralizer_{A \otimes B}(A' \otimes B')$.
-  We may write $x = \sum_{i=1}^n a_i \otimes b_i$ and assume w.l.o.g.\ that both $a_1, \dotsc, a_n$ and $b_1, \dotsc, b_n$ are linearly independent.
+  To show the other inclusion let $x \in \centralizer_{A \tensor B}(A' \tensor B')$.
+  We may write $x = \sum_{i=1}^n a_i \tensor b_i$ and assume w.l.o.g.\ that both $a_1, \dotsc, a_n$ and $b_1, \dotsc, b_n$ are linearly independent.
   For every $a' \in A'$ we then have that
   \[
-      \sum_{i=1}^n (a' a_i) \otimes b_i
-    = (a' \otimes 1) x
-    = x (a' \otimes 1)
-    = \sum_{i=1}^n (a_i a') \otimes b_i
+      \sum_{i=1}^n (a' a_i) \tensor b_i
+    = (a' \tensor 1) x
+    = x (a' \tensor 1)
+    = \sum_{i=1}^n (a_i a') \tensor b_i
   \]
   and therefore that $a_i a' = a' a_i$ for every $i = 1, \dotsc, n$ because $b_1, \dotsc, b_n$ are linearly independent (see Recall~\ref{recall: unique representation in tensor product}).
   This shows that $a_1, \dotsc, a_n \in \centralizer_{A}(A')$.
   In the same way we find that $b_1, \dotsc, b_n \in \centralizer_{B}(B')$.
-  Together this shows that $x \in \centralizer_A(A') \otimes \centralizer_B(B')$.
+  Together this shows that $x \in \centralizer_A(A') \tensor \centralizer_B(B')$.
 \end{proof}
 
 
@@ -49,8 +49,8 @@
   Let $A$ and $B$ be $k$-algebras.
   Then
   \[
-      Z(A \otimes B)
-    = Z(A) \otimes Z(B) \,.
+      Z(A \tensor B)
+    = Z(A) \tensor Z(B) \,.
   \]
 \end{corollary}
 
@@ -58,10 +58,10 @@
 \begin{proof}
   We have that
   $
-      \ringcenter(A \otimes B)
-    = \centralizer_{A \otimes B}(A \otimes B)
-    = \centralizer_A(A) \otimes \centralizer_B(B)
-    = \ringcenter(A) \otimes \ringcenter(B)
+      \ringcenter(A \tensor B)
+    = \centralizer_{A \tensor B}(A \tensor B)
+    = \centralizer_A(A) \tensor \centralizer_B(B)
+    = \ringcenter(A) \tensor \ringcenter(B)
   $.
 \end{proof}
 
@@ -69,20 +69,20 @@
 \begin{lemma}
   \label{lemma: tensor product is again simple}
   Let $A$ be a central simple $k$-algebra and $B$ be a simple $k$-algebra.
-  Then $A \otimes B$ is again simple.
+  Then $A \tensor B$ is again simple.
 \end{lemma}
 
 
 \begin{proof}
-  It follows from $A, B \neq 0$ that $A \otimes B \neq 0$.
-  Let $I \idealleq A \otimes B$ be a non-zero two-sided ideal.
-  Every $u \in I$ can be written as $u = \sum_{i=1}^n a_i \otimes b_i$ where $b_1, \dotsc, b_n \in B$ are linearly independent.
+  It follows from $A, B \neq 0$ that $A \tensor B \neq 0$.
+  Let $I \idealleq A \tensor B$ be a non-zero two-sided ideal.
+  Every $u \in I$ can be written as $u = \sum_{i=1}^n a_i \tensor b_i$ where $b_1, \dotsc, b_n \in B$ are linearly independent.
   Let $x \in I$ with $x \neq 0$ for which the number of summands $n$ is minimal with respect to all nonzero elements in $I$.
   Let
   \begin{equation}
     \label{eqn: u as a sum}
       x
-    = a_1 \otimes b_1 + a_2 \otimes b_2 + \dotsb + a_n \otimes b_n
+    = a_1 \tensor b_1 + a_2 \tensor b_2 + \dotsb + a_n \tensor b_n
   \end{equation}
   be such a sum.
   
@@ -93,24 +93,24 @@
   We then have that $x' \in I$ for
   \[
               x'
-    \defined  \sum_{i=1}^m (c_i \otimes 1) x (c'_i \otimes 1)
-    =         1 \otimes b_1 + a'_2 \otimes b_2 + \dotsb + a'_n \otimes b_n
+    \defined  \sum_{i=1}^m (c_i \tensor 1) x (c'_i \tensor 1)
+    =         1 \tensor b_1 + a'_2 \tensor b_2 + \dotsb + a'_n \tensor b_n
   \]
   with $a'_2, \dotsc, a'_n \in A$.
   We have that $x' \neq 0$ because $b_1, \dotsc, b_n$ are linearly independent.
   
-  Now we show that $x'$ is already of the form $x' = 1 \otimes b$ for some $b \in B$:
+  Now we show that $x'$ is already of the form $x' = 1 \tensor b$ for some $b \in B$:
   For every $a \in A$ the element
   \[
-        (a \otimes 1) x' - x' (a \otimes 1)
-    =     (a a'_2 - a'_2 a) \otimes b_2
+        (a \tensor 1) x' - x' (a \tensor 1)
+    =     (a a'_2 - a'_2 a) \tensor b_2
         + \dotsb
-        + (a a'_n - a'_n a) \otimes b_2
+        + (a a'_n - a'_n a) \tensor b_2
   \]
   is contained in $I$.
   It thus follows from the minimality of $n$ that
   \[
-      (a \otimes 1) x' - x' (a \otimes 1)
+      (a \tensor 1) x' - x' (a \tensor 1)
     = 0 \,.
   \]
   Because $b_2, \dotsc, b_n$ are linearly independent it follows that $a a'_i - a'_i a = 0$ for all $a \in A$ and $i = 2 \dotsc, n$.
@@ -118,10 +118,10 @@
   It follows that
   \begin{align*}
         x'
-    &=  1 \otimes b_1 + a'_2 \otimes b_2 + \dotsb + a'_n \otimes b_n  \\
-    &=  1 \otimes b_1 + 1 \otimes (a'_2 b_2) + \dotsb + 1 \otimes (a'_n b_n)  \\
-    &=  1 \otimes (b_1 + a'_2 b_2 + \dotsb + a'_n b_n)  \\
-    &=  1 \otimes b
+    &=  1 \tensor b_1 + a'_2 \tensor b_2 + \dotsb + a'_n \tensor b_n  \\
+    &=  1 \tensor b_1 + 1 \tensor (a'_2 b_2) + \dotsb + 1 \tensor (a'_n b_n)  \\
+    &=  1 \tensor (b_1 + a'_2 b_2 + \dotsb + a'_n b_n)  \\
+    &=  1 \tensor b
   \end{align*}
   with $b \defined b_1 + a'_2 b_2 + \dotsb + a'_n b_n \in B$.
   
@@ -129,33 +129,33 @@
   We therefore have that
   \[
               I
-    \supseteq (1 \otimes B) x' (1 \otimes B)
-    =         (1 \otimes B) (1 \otimes b) (1 \otimes B)
-    =         1 \otimes (BbB)
-    =         1 \otimes B \,.
+    \supseteq (1 \tensor B) x' (1 \tensor B)
+    =         (1 \tensor B) (1 \tensor b) (1 \tensor B)
+    =         1 \tensor (BbB)
+    =         1 \tensor B \,.
   \]
   It follows that
   \[
               I
-    \supseteq (A \otimes 1) (1 \otimes B)
-    =         A \otimes B \,.
+    \supseteq (A \tensor 1) (1 \tensor B)
+    =         A \tensor B \,.
   \]
-  This shows that $A \otimes B$ is the only non-zero two-sided ideals in $A \otimes B$.
+  This shows that $A \tensor B$ is the only non-zero two-sided ideals in $A \tensor B$.
 \end{proof}
 
 
 \begin{remark}
-  It can be shown more generally that if $A$ is a central simple $k$-algebra and $B$ is any $k$-algebra then every two-sided ideal of $A \otimes B$ is of the form $A \otimes J$ for a two-sided ideal $J \idealleq B$.
+  It can be shown more generally that if $A$ is a central simple $k$-algebra and $B$ is any $k$-algebra then every two-sided ideal of $A \tensor B$ is of the form $A \tensor J$ for a two-sided ideal $J \idealleq B$.
   A proof of this can be found in \cite[Lemma~4.1]{Clark2012NonCA}.
 \end{remark}
 
 
 \begin{warning}
-  For simple $k$-algebras $A, B$ their tensor product $A \otimes B$ does not need to be simple.
+  For simple $k$-algebras $A, B$ their tensor product $A \tensor B$ does not need to be simple.
   A counterexample is given by
   \begin{align*}
-            \Complex \otimes_\Real \Complex
-     \cong  \Complex \otimes \Real[X]/(X^2 + 1)
+            \Complex \tensor_\Real \Complex
+     \cong  \Complex \tensor \Real[X]/(X^2 + 1)
     &\cong  \Complex[X]/(X^2 + 1)
      =      \Complex[X]/((X-1)(X+1))
     \\
@@ -167,20 +167,20 @@
 
 
 \begin{proposition}
-  If $A, B$ are central simple $k$-algebras then $A \otimes B$ is again a central simple $k$-algebra, and if $A, B \in \CSA_k$ then $A \otimes B \in \CSA_k$.
+  If $A, B$ are central simple $k$-algebras then $A \tensor B$ is again a central simple $k$-algebra, and if $A, B \in \CSA_k$ then $A \tensor B \in \CSA_k$.
 \end{proposition}
 
 
 \begin{proof}
   It follows from Corollary~\ref{corollary: center of tensor product} that
   \[
-      \ringcenter(A \otimes B)
-    = \ringcenter(A) \otimes \ringcenter(B)
-    = k \otimes k
+      \ringcenter(A \tensor B)
+    = \ringcenter(A) \tensor \ringcenter(B)
+    = k \tensor k
     = k \,,
   \]
-  and $A \otimes B$ is simple by Lemma~\ref{lemma: tensor product is again simple}.
-  If both $A, B$ are finite-dimensional then $A \otimes B$ is also finite-dimensional.
+  and $A \tensor B$ is simple by Lemma~\ref{lemma: tensor product is again simple}.
+  If both $A, B$ are finite-dimensional then $A \tensor B$ is also finite-dimensional.
 \end{proof}
 
 
@@ -189,13 +189,13 @@
   We have shown that
   \[
               [A] \cdot [B]
-    \defined  [A \otimes B]
+    \defined  [A \tensor B]
   \]
   is a well-defined binary operation on $\preBr(k)$.
   This operation is also associative, commutative and we have that
   \[
       [k] \cdot [A]
-    = [k \otimes A]
+    = [k \tensor A]
     = [A] \,,
   \]
   which shows that $[k]$ is neutral.
