@@ -7,7 +7,7 @@
 
 
 \begin{notation}
-  The class of finite-dimensional central division $k$-algebras is denotey by $\CDA_k$.
+  The class of finite-dimensional central division $k$-algebras is denoted by $\CDA_k$.
 \end{notation}
 
 
@@ -160,7 +160,7 @@
 
 
 \begin{remark}
-  The above isomorphism $\Mat_n(k) \otimes \Mat_m(k) \to \Mat_{nm}(k)$ can be expressed on simple tensors by the Kronecker product:
+  The above isomorphism $\Mat_n(k) \otimes \Mat_m(k) \to \Mat_{nm}(k)$ can be expressed on simple tensors by the Kronecker product
   \[
             \varphi
     \colon  \Mat_n(k) \otimes \Mat_m(k)
@@ -267,7 +267,7 @@
               B \otimes \Mat_{m'}(k)
         \cong \Mat_{mm'}(D_2) \,.
       \]
-      It follows from $\Mat_{nn'}(D_1) \cong \Mat_{mm'}(D_2)$ and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that $D_1 \cong D_2$ as $k$-algebras (and $nn' = mm'$).
+      It follows from $\Mat_{nn'}(D_1) \cong \Mat_{mm'}(D_2)$ and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} that $D_1 \cong D_2$ as $k$-algebras (and that $nn' = mm'$).
     \qedhere
   \end{description}
 \end{proof}
@@ -320,10 +320,8 @@
       The two-sided ideals of $A^\op$ are precisely the two-sided ideals of $A$, of which there are precisely two, and $\ringcenter(A^\op) = \ringcenter(A) = k$.
       If $A$ is finite-dimensional then so is $A^\op$ because $\dim_k(A^\op) = \dim_k(A)$.
     \item
-      We denote the multiplication of $A^\op$ by $*$.
-      
       The left $A$-module structure of $A$ itself corresponds to a $k$-algebra homomorphism $f \colon A \to \End_k(A)$ with $f(a)(x) = ax$ for all $a \in A$, $x \in A$.
-      The right $A$-module structure of $A$ itself corresponds to a left $A^\op$-module structure of $A$, which in turn corresponds to a $k$-algebra homomorphism $f \colon A^\op \to \End_k(A)$ given by $f(b)(x) = xb$ for all $b \in A^\op$, $x \in A$.
+      The right $A$-module structure of $A$ itself corresponds to a left $A^\op$-module structure of $A$, which in turn corresponds to a $k$-algebra homomorphism $f \colon A^\op \to \End_k(A)$ given by $f(b^\op)(x) = xb$ for all $b \in A$, $x \in A$.
       Then $f, g$ induce a well-defined $k$-linear map
       \[
                 \varphi
@@ -332,21 +330,21 @@
       \]
       which is given on simple tensors by
       \[
-          \varphi(a \otimes b)(x)
-        = (f(a) \circ g(b))(x)
-        = a x a'
+          \varphi(a \otimes b^\op)(x)
+        = (f(a) \circ g(b^\op))(x)
+        = a x b
       \]
-      for all $a \otimes b \in A \otimes A^\op$, $x \in A$.
-      For all simple tensors $a \otimes b, a' \otimes b' \in A \otimes A^\op$ we have that
+      for all $a \otimes b^\op \in A \otimes A^\op$, $x \in A$.
+      For all simple tensors $a_1 \otimes b_1^\op, a_2 \otimes b_2^\op \in A \otimes A^\op$ we have that
       \begin{align*}
-            \varphi(a \otimes a') \varphi(b \otimes b')
-        &=  f(a) \circ g(b) \circ f(a') \circ g(b')
-         =  f(a) \circ f(a') \circ g(b) \circ g(b') \\
-        &=  f(a a') \circ g(b * b')
-         =  \varphi((a a') \otimes (b * b'))
-         =  \varphi((a \otimes b) (a' \otimes b'))
+            \varphi(a_1 \otimes b_1^\op) \varphi(a_2 \otimes b_2^\op)
+        &=  f(a_1) \circ g(b_1^\op) \circ f(a_2) \circ g(b_2^\op) \\
+        &=  f(a_1) \circ f(a_2) \circ g(b_1^\op) \circ g(b_2^\op  \\
+        &=  f(a_1 a_2) \circ g(b_1^\op b_2^\op)                   \\
+        &=  \varphi((a_1 a_2) \otimes (b_1^\op b_2^\op))          \\
+        &=  \varphi((a_1 \otimes b_1^\op) (a_2 \otimes b_2^\op))
       \end{align*}
-      where we use for the second equality that $g(b)$ and $f(a')$ commute by the associativity of the multiplication of $A$.
+      where we use for the second equality that $g(b_1^\op)$ and $f(a_2)$ commute by the associativity of the multiplication of $A$.
       We also have that $\varphi(1 \otimes 1) = \id_A$.
       
       Altogether this shows that $\varphi$ is a homomorphism of $k$-algebras.
@@ -369,7 +367,7 @@
 
 
 \begin{example}
-  The quaternions algebra $\Hamilton$ is a four-dimensional central simple $\Real$-algebra and the quaternion conjugation $\Hamilton \to \Hamilton^\op$, $x \mapsto \overline{x}$ is an isomorphism of $\Real$-algebras.
+  The quaternions algebra $\Hamilton$ is a four-dimensional central simple $\Real$-algebra and the quaternion conjugation $\Hamilton \to \Hamilton^\op$, $x \mapsto \overline{x}^\op$ is an isomorphism of $\Real$-algebras.
   It follows that
   \[
           \Hamilton \otimes_\Real \Hamilton
@@ -388,6 +386,7 @@
     \defined  [A \otimes B]
   \]
   defines on $\Br(k)$ the structure of an abelian group.
+  The neutral element is given by $[k]$ and the inverse of $[A] \in \Br(k)$ is given by $[A^\op]$.
 \end{theorem}
 
 
@@ -425,7 +424,7 @@
       The Brauer group $\Br(\Real)$ is therefore the cyclic group of order two.
     \item
       A theorem of Wedderburn (which is not to be confused with \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}) states that every finite skew field is already commutative, and thus a field.
-      It follows that for a finite field $k$ the only \emph{central} finite-dimensional $k$-division ring is $k$ itself.
+      It follows that for a finite field $k$ the only central finite-dimensional division $k$-algebra is $k$ itself.
       It follows that the Brauer group $\Br(k)$ is trivial.
   \end{enumerate}
 \end{example}

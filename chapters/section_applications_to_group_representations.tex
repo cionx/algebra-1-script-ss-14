@@ -1,79 +1,115 @@
-\section{Applications to the Representation Theory of Groups}
+\section{Applications to Group Representations}
+
+
+\begin{fluff}
+  We will now apply our previous results to the representation theory of groups and also enhance some our previous results.
+  In the following we will not distinguish between representations of a groups $G$ over a field $k$ and $k[G]$-modules, unless necessary.
+\end{fluff}
 
 
 
 
 
-\subsection*{General Stuff}
+\subsection{Consequences for Group Algebras}
 
 
-\begin{lemma}\label{lemma: equivalence to irreducible}
-  Let $G$ be a group and $V \neq 0$ a finite-dimensional representation of $G$ over an algebraically closed field $k$. Then the following are equivalent:
-  \begin{enumerate}[label=\emph{\roman*)},leftmargin=*]
+\begin{fluff}
+  We start by collecting some direct consequences of previous results.
+\end{fluff}
+
+
+\begin{conventions}
+  In the following, $k$ denotes a field and $G, H$ denote groups and $V$ denotes a representation of $G$ over $k$.
+  We abbreviate $\dim_k \defines \dim$ and $\otimes_k \defined \otimes$.
+\end{conventions}
+
+
+\begin{lemma}
+  \label{lemma: equivalence to irreducible}
+  If $k$ is algebraically closed then the following are equivalent:
+  \begin{enumerate}
     \item \label{enum: V irreducible}
-      $V$ is irreducible.
+      The representation $V$ is irreducible.
     \item \label{enum: V simple kG-module}
-      $V$ is simple as a $kG$-module.
+      The representation $V$ is simple as a $k[G]$-module.
     \item \label{enum: surjective algebra homo}
-      The algebra homomorphism
-      \[
-                \Phi
-        \colon  kG
-        \to     \End_k(V) \,,
-        \quad   a
-        \mapsto (v \mapsto av)
-      \]
-      is surjective.
+      The algebra homomorphism $k[G] \to \End_k(V)$, $a \mapsto (v \mapsto av)$ is surjective.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  The equivalence of \ref{enum: V irreducible} and \ref{enum: V simple kG-module} is clear.
-  The equivalence of \ref{enum: V simple kG-module} and \ref{enum: surjective algebra homo} follows directly from Corollary \ref{corollary: simple algebra module surjective algebra homo}.
-\end{proof}
-
-
-\begin{corollary}
-  Let $G$ be a finite group and $V$ a finite-dimensional irreducible representation of $G$ over an algebraically closed field $k$.
-  Then
-  \[
-          \left( \dim V \right)^2
-    \leq |G| \,.
-  \]
-\end{corollary}
-
-
-\begin{proof}
-  $V$ is a simple $kG$-module, so by Corollary \ref{corollary: dimension simple algebra modules}
-  \[
-          (\dim V)^2
-    \leq  \dim kG
-    =     |G| \,.
-    \qedhere
-  \]
+  The equivalence of \ref*{enum: V simple kG-module} and \ref*{enum: surjective algebra homo} follows from the \hyperref[theorem: density theorem]{density theorem}.
 \end{proof}
 
 
 \begin{definition}
   For a field $k$ and a group $G$ we set
-  \[
-              \Irr_k(G)
-    \coloneqq \{ \text{isomorphism classes of representations of $G$} \}
-  \]
-  and
   \begin{align*}
-                \irr_k(G)
-    &\coloneqq  \{ \text{isomorphism classes of finite-dimensional representations of $G$} \} \\
-    &=          \{ [V] \in \Irr_k(G) \mid \dim_k V < \infty \}.
+              \Irr_k(G)
+    &\defined \{ \text{isomorphism classes of irreducible $k$-representations of $G$} \}
+  \shortintertext{and}
+              \irr_k(G)
+    &\defined \{
+                [V] \in \Irr_k(G)
+              \suchthat
+                \text{$V$ is finite-dimensional}
+              \} \,.
   \end{align*}
 \end{definition}
 
 
-Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$ are the same as simple $kG$-modules and thus $\Irr_k(G) = \Irr(kG)$ for the group algebra $kG$ of $G$ over $k$.
+\begin{lemma}
+  Let $G$ be finite with $\kchar(k) \ndivides |G|$
+  \begin{enumerate}
+    \item
+      We have that
+      \[
+          |G|
+        = \sum_{i=1}^n \frac{ (\dim_k V_i)^2 }{\dim \End_G(V_i)}
+      \]
+      where $V_1, \dotsc, V_n$ is a set of representatives for the isomorphism classes of irreducible $k$-representations of $G$.
+    \item
+      If $k$ is algebraically closed then $|G| = \sum_{i=1}^n (\dim_k V_i)^2$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  This follows from Propositon~\ref{proposition: decomposition of fd ss algebra} because the group algebra $k[G]$ is semisimple with $\dim k[G] = |G|$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: group algebra of product}
+  The $k$-linear map
+  \[
+            \varphi
+    \colon  k[G \times H]
+    \to     k[G] \otimes k[H],
+    \quad   (g,h)
+    \mapsto g \otimes h
+  \]
+  is a well-defined isomorphism of $k$-algebras.
+\end{lemma}
+
+
+\begin{proof}
+  The existence and uniqueness of $\varphi$ follows from $G \times H$ being a basis of $k[G \times H]$.
+  Thise basis is bijectively mapped onto the basis $(g \otimes h)_{g \in G, h \in H}$ of $k[G] \otimes k[H]$, which shows that $\varphi$ is bijective.
+  For all $(g_1, h_1), (g_2, h_2) \in G \times H$ we have that
+  \begin{align*}
+      \varphi((g_1, h_1) (g_2, h_2))
+    &= \varphi((g_1 g_2, h_1 h_2))
+     = (g_1 g_2) \otimes (h_1 h_2)  \\
+    &= (g_1 \otimes h_1) (g_2 \otimes h_2)
+     = \varphi((g_1, h_1)) \varphi((g_2, h_2))
+  \end{align*}
+  which shows that $\varphi$ is multiplicative.
+\end{proof}
 
 
 \begin{definition}
   Let $k$ be a field, $V$ a representation of a group $G$ and $W$ a representation of a group $H$.
-  Then we define the representations $V \boxtimes_k W$ of $G \times H$ as the $k$-vector space $V \otimes_k W$ together with the (linear) group action
+  Then we define the representations $V \boxtimes W$ of $G \times H$ as the $k$-vector space $V \otimes W$ together with the (linear) group action
   \[
       (g,h).(v \otimes w)
     = (g.v) \otimes (h.w) \,.
@@ -81,209 +117,42 @@ Too see that $\Irr_k(G)$ is a set notice that irreducible representations of $G$
 \end{definition}
 
 
-To see that $V \boxtimes_k W$ is well-defined notice that the multiplication with $(g,h) \in G \times H$ is given by $\pi_g \otimes \tau_h$ where $\pi_g \colon V \to V$, $v \mapsto g.v$ is the multiplication with $g$ and $\tau_h \colon W \to W, w \mapsto h.w$ is the multiplication with $h$.
+\begin{remark}
+  If we regard $V$ is an $k[G]$-module and $W$ as an $k[H]$-module then the above definition of $V \boxtimes W$ coincides with the one given in \ref{fluff: construction of boxtimes}.
+\end{remark}
 
 
-\begin{theorem}
-  Let $k$ be an algebraically closed field, $G$ and $H$ groups.
-  Then we have a bijection
+\begin{corollary}
+  If $k$ is algebraically closed then the map
   \[
-            \Psi
-    \colon  \irr_k(G) \times \irr_k(H)
+            \irr_k(G) \times \irr_k(H)
     \to     \irr_k(G \times H),
     \quad   ([V],[W])
-    \mapsto [V \boxtimes_k W] \,.
+    \mapsto [V \mathbin{\boxtimes} W]
   \]
-\end{theorem}
-% \begin{proof}
-%   We start by showing that $\Psi$ is well-defined.
-%   We first show that $\Psi$ is independent of the choice of representatives:
-%   Let $V$ and $V'$ be irreducible finite-dimensional representations of $G$ with $\phi_V \colon V \cong V'$ (as representations) and $W$ and $W'$ irreducible finite-dimenisonal representations of $H$ with $\phi_W \colon W \cong W'$.
-%   Then
-%   \[
-%             \phi_V \otimes \phi_W
-%     \colon  V  \otimes_k W
-%     \cong   V' \otimes_k W'
-%   \]
-%   as $k$-vector spaces.
-%   That $\phi_V \otimes \phi_W$ is also $(G \times H)$-equivariant can be seen by calculation since for all $(g,h) \in G \times H$ and simple tensors $v \otimes w \in V \otimes_k W$
-%   \begin{align*}
-%      &\, (\phi_V \otimes \phi_W)((g,h).(v \otimes w))
-%     =    (\phi_V \otimes \phi_W)((g.v) \otimes (h.w)) \\
-%     =&\, (\phi_V(g.v)) \otimes (\phi_W(h.w))
-%     =    (g.\phi_V(v)) \otimes (h.\phi_W(w)) \\
-%     =&\, (g,h).(\phi_V(v) \otimes \phi_W(w))
-%     =    (g,h).((\phi_V \otimes \phi_W)(v \otimes w)) \,.
-%   \end{align*}
-%   Since these simple tensors generate $V \otimes_k W$ as a $k$-vector space it follows that $\phi_V \otimes \phi_W$ is $(G \times H)$-equivariant.
-%   
-%   To show that $\Psi$ is well-defined we still need to show that $V \boxtimes_k W$ is irreducible and finite-dimensional for all $V \in \irr_k(G)$ and $W \in \irr_k(H)$.
-%   That $V \boxtimes_k W$ is finite-dimensional is clear, since
-%   \[
-%       \dim_k V \otimes_k W
-%     = \dim_k V \cdot \dim_k W
-%     < \infty \,.
-%   \]
-%   To show that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$ for every irreducible representation $V$ of 
-%   $G$ and every irreducible representation $W$ of $H$ let
-%   \[
-%             \psi
-%     \colon  k(G \times H)
-%     \to     \End_k(V \otimes_k W)
-%   \]
-%   be the corresponding homomorphism of $k$-algebras.
-%   We also have the homomorphisms of $k$-algebras
-%   \begin{gather*}
-%             \phi_1
-%     \colon  kG
-%     \to     \End_k(V),
-%             a
-%     \mapsto (v \mapsto av)
-%   \shortintertext{and}
-%             \phi_2
-%     \colon  kH
-%     \to     \End_k(W),
-%     \quad   b
-%     \mapsto (w \mapsto bw) \,.
-%   \end{gather*}
-%   By Lemma \ref{lemma: equivalence to irreducible} these homomorphisms are surjective.
-%   Together with the isomorphisms of $k$-algebras
-%   \[
-%             kG \otimes_k kH
-%     \cong   k(G \times H),
-%     \quad   g \otimes h
-%     \mapsto (g,h)
-%   \]
-%   and
-%   \[
-%             \End_k(V) \otimes_k \End_k(W)
-%     \cong   \End(V \otimes_k W),
-%     \quad   f \otimes g
-%     \mapsto f \otimes g
-%   \]
-%   we get the following commutative diagram.
-%   \[
-%     \begin{tikzcd}[column sep = huge]
-%         kG \otimes_k kH
-%         \arrow{r}{\phi_1 \otimes \phi_2}
-%         \arrow[equal]{d}{\wr}
-%       & \End_k(V) \otimes_k \End_k(W)
-%         \arrow[equal]{d}{\wr}
-%       \\
-%         k(G \times H)
-%         \arrow{r}{\psi}
-%       & \End_k(V \otimes_k W)
-%     \end{tikzcd}
-%   \]
-%   Since both $\phi_1$ and $\phi_2$ are surjective $\phi_1 \otimes \phi_2$ is also surjective.
-%   Therefore $\psi$ is surjective.
-%   Since $V \otimes_k W \neq 0$ (since $V \neq 0$ and $W \neq 0$) we find by Lemma \ref{lemma: equivalence to irreducible} that $V \boxtimes_k W$ is irreducible as a representation of $G \times H$.
-%   
-%   Next we show that $\Psi$ is surjective.
-%   For this let $[Z] \in \irr_k(G \times H)$.
-%   By identifying $G$ with the subgroup $G \times 1 \subseteq G \times H$ we can view $Z$ as a representation of $G$.
-%   Since $Z$ is finite-dimensional and $Z \neq 0$ it contains some irreducible subrepresentation $V$ of $G$.
-%   We can turn $\Hom_G(V, Z)$ into a representation of $H$ via
-%   \[
-%       (h.f)(v)
-%     = h.f(v)
-%     \text{ for all }
-%     h \in H \,,\,
-%     f \in \Hom_G(V, Z) \,,\,
-%     v \in V \,,
-%   \]
-%   where we see $Z$ a representation of $H$ via the identification $H \cong 1 \times H \subseteq G \times H$.
-%   To see that $h.f$ is $G$-equivariant for all $h \in H$ and $f \in \Hom_G(V,W)$ notice that the actions of $G$ and $H$ on $Z$ commute, since for all $g \in G$, $h \in H$, $z \in Z$
-%   \[
-%       g.(h.z)
-%     = (g,1).((1,h).z)
-%     = (g,h).z
-%     = (1,h).((g,1).z)
-%     = h.(g.z) \,,
-%   \]
-%   and thus
-%   \[
-%       (h.f)(g.v)
-%     = h.(f(g.v))
-%     = h.(g.f(v))
-%     = g.(h.f(v))
-%     = g.((h.f)(v)) \,.
-%   \]
-%   Since $\Hom_G(V, Z)$ is finite-dimensional and $\Hom_G(V, Z) \neq 0$ (since the inclusion $\iota \colon V \hookrightarrow Z$ is $G$-equivariant and nonzero) it contains some irreducible subrepresentation $W$ of $H$.
-%   
-%   We want to show that $V \boxtimes_k W \cong Z$ as representations of $G \times H$.
-%   For this let
-%   \[
-%             \beta
-%     \colon  V \boxtimes_k \Hom_G(V,Z)
-%     \to     Z,
-%     \quad   (v, f)
-%     \mapsto f(v) \,.
-%   \]
-%   It is clear that $\beta$ is well-defined and $k$-linear.
-%   It is also $(G \times H)$-equivariant, since for or every $v \otimes f \in V \boxtimes_k \Hom_G(V,Z)$ and $(g,h) \in G \times H$ we have
-%   \begin{align*}
-%         \beta((g.h)(v \otimes f))
-%     &=  \beta((g.v) \otimes (h.f))
-%      =  (h.f)(g.v)
-%      =  h.f(g.v)) \\
-%     &=  h.g.f(v)
-%      =  (h,g).f(v)
-%      =  (h,g).\beta(v \otimes f)
-%   \end{align*}
-%   and these simple tensors $v \otimes f$ generate $V \boxtimes_k \Hom_G(V,Z)$ as a $k$-vector space.
-%   By restriction to $V \boxtimes_k W \subseteq V \boxtimes_k \Hom_G(V,Z)$ we get an homomorphism of representations of $(G \times H)$
-%   \[
-%             \gamma
-%     \colon  V \boxtimes_k W
-%     \to     Z,
-%     \quad   v \otimes f
-%     \mapsto f(v) \,.
-%   \]
-%   We claim that $\gamma$ is an isomorphism.
-%   Since $V \boxtimes_k W$ and $Z$ are both irreducible as representations of $G \times H$ and $k$ is algebraically closed it is enough to show $\gamma \neq 0$ by Schur’s Lemma.
-%   Since $W \neq 0$ there exists some $f \in W$ with $f \neq 0$.
-%   Since $f \neq 0$ there exists some $v \in V$ with $f(v) \neq 0$.
-%   Therefore we have $v \otimes f \in V \boxtimes_k W$ with
-%   \[
-%           \gamma(v \otimes f)
-%     =     f(v)
-%     \neq  0 \,,
-%   \]
-%   so $\gamma \neq 0$.
-%   
-%   Last we show that $\Psi$ is injective.
-%   For this let $[M], [M'] \in \irr_k(G)$ and $[N], [N'] \in \irr_k(H)$ with
-%   \[
-%             \alpha
-%     \colon  M  \boxtimes_k N
-%     \cong   M' \boxtimes_k N'
-%   \]
-%   As representations of $G$ (!) we have
-%   \[
-%           M \boxtimes_k N
-%     \cong \underbrace{ M \oplus \dotsb \oplus M }_{ \dim_k(N) \text{ copies} }
-%   \]
-%   and
-%   \[
-%           M' \boxtimes_k N'
-%     \cong \underbrace{ M' \oplus \dotsb \oplus M' }_{ \dim_k(N') \text{ copies} }\,.
-%   \]
-%   Since $\alpha$ is a $(G \times H)$-equivariant also $G$-equivariant and therefore an isomorphism of representations of $G$.
-%   Therefore we we have $M \cong M'$.
-%   In the same way we find that $N \cong N'$.
-%   This shows that $\Psi$ is injective.
-% \end{proof}
+  is a well-defined bijection.
+\end{corollary}
 
 
-\subsection*{Characters}
+\begin{proof}
+  This follows from Theorem~\ref{theorem: simple modules over tensor products} because of Lemma~\ref{lemma: group algebra of product}.
+\end{proof}
+
+
+
+
+
+\subsection{Characters}
+
+
+\begin{fluff}
+  We now return to the theory of characters, which has many nice properties for representations of groups.
+\end{fluff}
 
 
 \begin{lemma}
   Let $V, W$ be finite-dimensional representations of a group $G$.
   \begin{enumerate}[label=\emph{\alph*)},leftmargin=*,resume]
-    \item
-      We have $\chi_V(e) = \dim_k V \bmod \kchar k$.
     \item
       We have $\chi_V(hgh^{-1}) = \chi_V(g)$.
     \item
@@ -292,77 +161,6 @@ To see that $V \boxtimes_k W$ is well-defined notice that the multiplication wit
       When taking $V^*$ as a representation of $G$ in the usual way we have $\chi_{V^*}(g) = \chi_V(g^{-1})$.
   \end{enumerate}
 \end{lemma}
-
-
-% \begin{proof}
-%   \begin{enumerate}
-%     \item
-%       Let $a \in k[G]$.
-%       Let $M \in \Mat_s(k) = (m_{ij})_{1 \leq i,j \leq s}$ be the representing matrix of $\rho_V(a)$ with respect to the basis $v_1, \dotsc, v_s$ and $N$ the representing matrix of $\rho_W(a)$ with respect to the basis $w_1, \dotsc, w_t$.
-%       Since
-%       \[
-%           \rho_{V \otimes W}(a)
-%         = \rho_V(a) \otimes \rho_W(a)
-%       \]
-%       the representing matrix of $\rho_{V \otimes W}(a)$ with respect to the basis $v_1 \otimes w_1$, $v_1 \otimes w_2, \dotsc, v_r \otimes w_t$ is
-%       \[
-%           M \otimes N
-%         = \begin{bmatrix}
-%             m_{11} N & m_{12} N & \cdots & m_{1s} N \\
-%             m_{21} N & m_{22} N & \cdots & m_{2s} N \\
-%             \vdots   & \vdots   & \ddots & \vdots   \\
-%             m_{s1} N & m_{s2} N & \cdots & m_{ss} N
-%           \end{bmatrix}.
-%       \]
-%       Therefore
-%       \begin{align*}
-%             \chi_{V \otimes W}(a)
-%         &=  \tr \rho_{V \otimes W}(a)
-%          =  \tr M \otimes N
-%          =  \tr M \cdot \tr N \\
-%         &=  \tr \rho_V(a) \cdot \tr \rho_W(a)
-%          =  \chi_V(a) \cdot \chi_W(a) \,.
-%       \end{align*}
-%     \item
-%       The representing matrix of $\rho_V(e)$ (with respect to any $k$-basis of $V$) is the identity matrix $I_s \in \Mat_s(k)$.
-%       Therefore
-%       \[
-%           \chi_V(e)
-%         = \tr \rho_V(e)
-%         = \tr I_s
-%         = s \bmod \kchar k
-%         = \dim_k V \bmod \kchar k
-%       \]
-%     \item
-%       Let $M$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1, \dotsc, v_s$ and $N$ be the representing matrix of $\rho_V(h)$ with respect to the basis $v_1, \dotsc, v_s$.
-%       Then $N^{-1}$ is the representing matrix of $\rho_V(h^{-1}) = \rho_V(h)^{-1}$ with respect to the basis $v_1, \dotsc, v_s$.
-%       Therefore
-%       \begin{align*}
-%             \chi_V\left( hgh^{-1} \right)
-%         &=  \tr \rho_V\left( hgh^{-1} \right)
-%          =  \tr\left( \rho_V(h) \rho_V(g) \rho_V\left( h^{-1} \right) \right) \\
-%         &=  \tr\left( NMN^{-1} \right)
-%          =  \tr M
-%          =  \tr \rho_V(g)
-%          =  \chi_V(g) \,.
-%       \end{align*}
-%     \item
-%       Let $M \in \Mat_s(k)$ be the representing matrix of $\rho_V(g)$ with respect to the basis $v_1, \dotsc, v_s$ and $M^* \in \Mat_s(k)$ be the representing matrix of $\rho_{V^*}(g)$ with respect to the basis $v_1^*, \dotsc, v_s^*$.
-%       Then $M^{-1}$ is the representing matrix of $\rho_V(g^{-1}) = \rho_V(g)^{-1}$ with respect to the basis $v_1, \dotsc, v_s$.
-%       We also know from the tutorial problems that $M^* = \left(A^{-1}\right)^T$.
-%       Therefore
-%       \begin{align*}
-%             \chi_{V^*}(g)
-%         &=  \tr \rho_{V^*}(g)
-%          =  \tr M^*
-%          =  \tr \left(M^{-1}\right)^T \\
-%         &=  \tr M^{-1}
-%          =  \tr \rho_V\left( g^{-1} \right)
-%          =  \chi_V\left( g^{-1} \right) \,.
-%         \qedhere
-%       \end{align*}
-%   \end{enumerate}
-% \end{proof}
 
 
 \begin{corollary}\label{corollary: number of irreducible representations of finite abelian group}
