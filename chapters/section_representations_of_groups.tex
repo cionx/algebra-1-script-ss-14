@@ -106,6 +106,15 @@
       The action of $G$ on $G$ corresponds to a group homomorphism $\varphi \colon G \to \GL(V^X)$ given by $\varphi(g)(x) = g.x$ for all $g \in G$, $x \in X$.
       The composition $\rho \circ \varphi \colon S(X) \to \GL(V^X)$ is again a group homomorphism, and the corresponding linear action of $G$ on $V^X$ is the one described above.
     \item
+      Let $X$ be a $G$-set and let $V$ be the free vector space on $X$, i.e.\ $V$ has a basis $(e_x)_{x \in X}$.
+      Then the action of $G$ on $X$ extends to a linear action of $G$ on $V$ via
+      \[
+          g.e_x
+        = e_{g.x}
+      \]
+      for all $g \in G$, $x \in X$.
+      This representation is the \emph{permutation representation associated to $X$}.
+    \item
       For every $k$-vector space $V$ the symmetric group $S_n$ also acts linearly on $V^{\otimes n}$ via
       \[
           \sigma.(v_1 \otimes \dotsb \otimes v_n)
@@ -172,7 +181,7 @@
       \]
       for all $g \in G$, $v \in V$, i.e.\ such the actions on $V^*$ and $V$ are compatible with the canonical bilinear form
       \[
-                \bil{-}{-}
+                \innerp{-,-}
         \colon  V^* \times V
         \to     k \,,
         \quad   (\varphi, v)
@@ -468,6 +477,18 @@
 \begin{warning}
   Example~\ref{example: upper triangular action on C2} also show that subrepresentations do not necessarily have direct complements which are again subrepresentations.
 \end{warning}
+
+
+\begin{lemma}
+  \label{lemma: irred rep of finite groups are fd}
+  If $G$ is a finite groups then every irreducible representation of $G$ is finite-dimensional.
+\end{lemma}
+
+
+\begin{proof}
+  If $V$ is an irreducible representation then $V$ is nonzero so there exists some nonzero $v \in V$.
+  Then $\gen{ g.v \suchthat g \in G }_k$ is a nonzero subrepresentation of $V$ and it follows that $V = \gen{ g.v \suchthat g \in G }_k$ from the irreducibility of $V$.
+\end{proof}
 
 
 \begin{lemma}\label{lemma: direct sum and invariants commute}

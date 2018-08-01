@@ -33,7 +33,6 @@
 \end{remark}
 
 
-
 \begin{example}
   \label{example: subrepresentations of natural action of Sn}
   Let $n \geq 2$ and let the symmetric group $S_n$ acts on $k^n$ so that
@@ -283,46 +282,46 @@
   \label{fluff: orthogonality proof of Maschke}
   It is worthwhile to mention another proof of Maschke’s theorem for the case that $k \in \{\Rational, \Real, \Complex\}$:
   
-  Suppose first that $V$ is endowed with an inner product $\bil{\cdot}{\cdot}$ which is $G$-invariant in the sense that
+  Suppose first that $V$ is endowed with an inner product $\innerp{-,-}$ which is $G$-invariant in the sense that
   \[
-      \bil{g.v_1}{g.v_2}
-    = \bil{v_1}{v_2}
+      \innerp{g.v_1, g.v_2}
+    = \innerp{v_1, v_2}
   \]
   for all $g \in G$, $v_1, v_2 \in V$.
   Then for every subrepresentation $U \subseteq V$ the orthogonal complement $U^\perp \subseteq V$ is again a subrepresentation:
   It is a linear subspace, and for all $g \in G$, $v \in U^\perp$ one has that
   \[
-      \bil{g.v}{u}
-    = \bil{g.v}{g.g^{-1}.u}
-    = \bil{v}{g^{-1}.u}
+      \innerp{g.v, u}
+    = \innerp{g.v, g.g^{-1}.u}
+    = \innerp{v, g^{-1}.u}
     = 0
   \]
   for every $u \in U$ because $g^{-1}.u \in U$.
   It follows that for every subrepresentation $U \subseteq V$ there exists a subrepresentation $W \subseteq V$ with $V = U \oplus W$, namely $W = U^\perp$.
   
   It remains to show that there exists a $G$-invariant inner product on $V$.
-  For this we start off with an arbitrary inner product $\bil{\cdot}{\cdot}$ on $V$ and then define $\bil{\cdot}{\cdot}'$ by
+  For this we start off with an arbitrary inner product $\innerp{-,-}$ on $V$ and then define $\innerp{-,-}'$ by
   \[
-              \bil{v_1}{v_2}'
-    \defined  \frac{1}{|G|} \sum_{g \in G} \bil{g.v_1}{g.v_2}
+              \innerp{v_1, v_2}'
+    \defined  \frac{1}{|G|} \sum_{g \in G} \innerp{g.v_1, g.v_2}
   \]
   for all $v_1, v_2 \in V$.
-  Then $\bil{\cdot}{\cdot}'$ is also an inner product on $V$:
-  The bilinearity (resp.\ sesquilinearity) of $\bil{\cdot}{\cdot}'$ follows from the one of $\bil{\cdot}{\cdot}$ and the linearity of the $G$-action.
+  Then $\innerp{-,-}'$ is also an inner product on $V$:
+  The bilinearity (resp.\ sesquilinearity) of $\innerp{-,-}'$ follows from the one of $\innerp{-,-}$ and the linearity of the $G$-action.
   For every $v \in V$ with $v \neq 0$ we have that
   \[
-              \bil{v}{v}'
-    \defined  \frac{1}{|G|} \bil{g.v}{g.v}
-    \geq      \frac{\bil{v}{v}}{|G|}
+              \innerp{v,v}'
+    \defined  \frac{1}{|G|} \innerp{g.v, g.v}
+    \geq      \frac{\innerp{v, v}}{|G|}
     >         0 \,,
   \]
-  so that $\bil{\cdot}{\cdot}'$ is positive definite.
-  This new inner product $\bil{\cdot}{\cdot}'$ is $G$-invariant because
+  so that $\innerp{-,-}'$ is positive definite.
+  This new inner product $\innerp{-,-}'$ is $G$-invariant because
   \[
-      \bil{g.v_1}{g.v_2}'
-    = \frac{1}{|G|} \sum_{h \in G} \bil{h.g.v_1}{h.g.v_2}
-    = \frac{1}{|G|} \sum_{h' \in G} \bil{h'.v_1}{h'.v_2}
-    = \bil{v_1}{v_2}
+      \innerp{g.v_1, g.v_2}'
+    = \frac{1}{|G|} \sum_{h \in G} \innerp{h.g.v_1, h.g.v_2}
+    = \frac{1}{|G|} \sum_{h' \in G} \innerp{h'.v_1, h'.v_2}
+    = \innerp{v_1, v_2}
   \]
   for all $v_1, v_2 \in V$.
 \end{fluff}
@@ -377,7 +376,7 @@
   \]
   for all $g \in G$, $v_1, v_2 \in V$.
   Then the bilinear (resp.\ sesquilinear) form $\beta$ is invariant in the sense of \ref{fluff: orthogonality proof of Maschke} if and only if it is invariant in the sense of groups actions.
-  It is then only natural to construct the required invariant inner product $\bil{\cdot}{\cdot}'$ by projection the given inner product $\bil{\cdot}{\cdot}$ onto the invariants $\operatorname{BF}(V)^G$ (resp.\ $\operatorname{SF}(V)^G$).
+  It is then only natural to construct the required invariant inner product $\innerp{-,-}'$ by projection the given inner product $\innerp{-,-}$ onto the invariants $\operatorname{BF}(V)^G$ (resp.\ $\operatorname{SF}(V)^G$).
 \end{remark}
 
 

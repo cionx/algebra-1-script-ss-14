@@ -304,15 +304,37 @@
 
 \begin{corollary}[Artin--Wedderburn]
   \label{corollary: semisimple algebra product of matrix algebras}
-  Let $A$ be finite-dimensional and semisimple.
-  If $k$ is algebraically closed then $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras with $r \geq 0$ an $n_1, \dotsc, n_r \geq 1$.
-  The number $r$ is unique and the numbers $n_1, \dotsc, n_r$ are unique up to permutation.
+  Let $k$ be algebraically closed and let $A$ be finite-dimensional and semisimple.
+  \begin{enumerate}
+    \item
+      We have that $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras with $r \geq 0$ an $n_1, \dotsc, n_r \geq 1$.
+      The number $r$ is uniquely determined as the number of simple $A$-modules up to isomorphism, and if $V_1, \dotsc, V_r$ is a set of representatives for the isomorphism classes of simple $A$-modules then the numbers $n_1, \dotsc, n_r$ agree with the numbers $\dim V_1, \dotsc, \dim V_r$ up to permutation.
+    \item
+      The following conditions are equivalent:
+      \begin{enumerate}
+        \item
+          The $k$-algebra $A$ is commutative.
+        \item
+          All simple $A$-modules are one-dimensional.
+        \item
+          
+      \end{enumerate}
+  \end{enumerate}
 \end{corollary}
 
 
 \begin{proof}
-  This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\dim \End_A(M) = 1$ for every simple $A$-module $M$.
+  This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\End_A(M) = k$ for every simple $A$-module $M$.
 \end{proof}
+
+
+\begin{corollary}
+  \label{corollary: dimension of center is number of simple modules}
+  If $k$ is algebraically closed and $A$ is finite-dimensional and semisimple then $\dim_k \ringcenter(A)$ is the number of isomorphism classes of simple $A$-modules.
+\end{corollary}
+
+
+% TODO: Add a proof.
 
 
 \begin{fluff}
@@ -471,7 +493,7 @@
 \end{proof}
 
 
-\begin{theorem}[Density theorem]
+\begin{theorem}[Density theorem, {\cite[Theorem~2.5]{Etingofetc2011}}]
   \label{theorem: density theorem}
   Let $k$ be algebraically closed.
   \begin{enumerate}
