@@ -1,5 +1,11 @@
-\subsection{Homomorphims Between Direct Sums}
+\section{Homomorphims Between Direct Sums}
 \label{appendix: homomorphisms between direct sums}
+
+
+
+
+
+\subsection{For Finite Direct Sums}
 
 
 \begin{conventions}
@@ -413,90 +419,90 @@
 
 
 
-\subsubsection{Compatibility with Module Structures}
+% \subsection{Compatibility with Module Structures}
+% 
+% 
+% \begin{fluff}
+%   The abelian group $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ carries the structure of a left $\End(N_1 \oplus \dotsb \oplus N_s)$-module via postcomposition
+%   \[
+%       g \cdot f
+%     = g \circ f
+%   \]
+%   for all $g \in \End(N_1 \oplus \dotsb \oplus N_s)$, $f \in \Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$.
+%   Similarly, the abelian group
+%   \begin{equation}
+%     \label{equation: homomorphism matrices}
+%     \begin{bmatrix}
+%       \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
+%       \vdots          & \ddots  & \vdots          \\
+%       \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
+%     \end{bmatrix}
+%   \end{equation}
+%   carries the structure of a left $E$-module for
+%   \[
+%               E
+%     \defined  \begin{bmatrix}
+%                 \Hom(N_1, N_1)  & \cdots  & \Hom(N_s, N_1)  \\
+%                 \vdots          & \ddots  & \vdots          \\
+%                 \Hom(N_1, N_s)  & \cdots  & \Hom(N_s, N_s)
+%               \end{bmatrix}
+%   \]
+%   via  matrix multiplication.
+%   It follows from Proposition~\ref{proposition: representing matrix is multiplicative} that the isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and the isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with this module structures.
+%   
+%   In the same way we can consider the right $\End(M_1 \oplus \dotsb \oplus M_t)$-module structure on $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ given by precomposition, and the $E'$-module structure on \eqref{equation: homomorphism matrices} for
+%   \[
+%               E'
+%     \defined  \begin{bmatrix}
+%                 \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
+%                 \vdots          & \ddots  & \vdots          \\
+%                 \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
+%               \end{bmatrix}
+%   \]
+%   given by matrix multiplication, and find by Proposition~\ref{proposition: representing matrix is multiplicative} that the isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and the isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with this right module structures.
+%   
+%   Each left module structure is also compatible with the corresponding right module structure, resulting in compatibilities of bimodule structures.
+%   We thus arrive at the following results:
+% \end{fluff}
+% 
+% 
+% \begin{proposition}
+%   The isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with the $\End(N_1 \oplus \dotsb \oplus N_s)$-$\End(M_1 \oplus \dotsb \oplus M_t)$-bimodule structure of $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ which is given by postcomposition-precomposition and the $E$-$E'$-bimodule structure of
+%   \[
+%     \begin{bmatrix}
+%       \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
+%       \vdots          & \ddots  & \vdots          \\
+%       \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
+%     \end{bmatrix}
+%   \]
+%   for the rings
+%   \begin{align*}
+%               E
+%     &\defined \begin{bmatrix}
+%                 \Hom(N_1, N_1)  & \cdots  & \Hom(N_s, N_1)  \\
+%                 \vdots          & \ddots  & \vdots          \\
+%                 \Hom(N_1, N_s)  & \cdots  & \Hom(N_s, N_s)
+%               \end{bmatrix},
+%     \\
+%               E'
+%     &\defined \begin{bmatrix}
+%                 \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
+%                 \vdots          & \ddots  & \vdots          \\
+%                 \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
+%               \end{bmatrix}
+%   \end{align*}
+%   which is given by left-right matrix multiplication.
+% \end{proposition}
 
 
-\begin{fluff}
-  The abelian group $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ carries the structure of a left $\End(N_1 \oplus \dotsb \oplus N_s)$-module via postcomposition
-  \[
-      g \cdot f
-    = g \circ f
-  \]
-  for all $g \in \End(N_1 \oplus \dotsb \oplus N_s)$, $f \in \Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$.
-  Similarly, the abelian group
-  \begin{equation}
-    \label{equation: homomorphism matrices}
-    \begin{bmatrix}
-      \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
-      \vdots          & \ddots  & \vdots          \\
-      \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
-    \end{bmatrix}
-  \end{equation}
-  carries the structure of a left $E$-module for
-  \[
-              E
-    \defined  \begin{bmatrix}
-                \Hom(N_1, N_1)  & \cdots  & \Hom(N_s, N_1)  \\
-                \vdots          & \ddots  & \vdots          \\
-                \Hom(N_1, N_s)  & \cdots  & \Hom(N_s, N_s)
-              \end{bmatrix}
-  \]
-  via  matrix multiplication.
-  It follows from Proposition~\ref{proposition: representing matrix is multiplicative} that the isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and the isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with this module structures.
-  
-  In the same way we can consider the right $\End(M_1 \oplus \dotsb \oplus M_t)$-module structure on $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ given by precomposition, and the $E'$-module structure on \eqref{equation: homomorphism matrices} for
-  \[
-              E'
-    \defined  \begin{bmatrix}
-                \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
-                \vdots          & \ddots  & \vdots          \\
-                \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
-              \end{bmatrix}
-  \]
-  given by matrix multiplication, and find by Proposition~\ref{proposition: representing matrix is multiplicative} that the isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and the isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with this right module structures.
-  
-  Each left module structure is also compatible with the corresponding right module structure, resulting in compatibilities of bimodule structures.
-  We thus arrive at the following results:
-\end{fluff}
-
-
-\begin{proposition}
-  The isomorphism of abelian groups from Theorem~\ref{theorem: bijection homomorphisms matrices} and isomorphism of rings from Corollary~\ref{corollary: endomorphisms of direct sum} are compatible with the $\End(N_1 \oplus \dotsb \oplus N_s)$-$\End(M_1 \oplus \dotsb \oplus M_t)$-bimodule structure of $\Hom(M_1 \oplus \dotsb \oplus M_t, N_1 \oplus \dotsb \oplus N_s)$ which is given by postcomposition-precomposition and the $E$-$E'$-bimodule structure of
-  \[
-    \begin{bmatrix}
-      \Hom(M_1, N_1)  & \cdots  & \Hom(M_t, N_1)  \\
-      \vdots          & \ddots  & \vdots          \\
-      \Hom(M_1, N_s)  & \cdots  & \Hom(M_t, N_s)
-    \end{bmatrix}
-  \]
-  for the rings
-  \begin{align*}
-              E
-    &\defined \begin{bmatrix}
-                \Hom(N_1, N_1)  & \cdots  & \Hom(N_s, N_1)  \\
-                \vdots          & \ddots  & \vdots          \\
-                \Hom(N_1, N_s)  & \cdots  & \Hom(N_s, N_s)
-              \end{bmatrix},
-    \\
-              E'
-    &\defined \begin{bmatrix}
-                \Hom(M_1, M_1)  & \cdots  & \Hom(M_t, M_1)  \\
-                \vdots          & \ddots  & \vdots          \\
-                \Hom(M_1, M_t)  & \cdots  & \Hom(M_t, M_t)
-              \end{bmatrix}
-  \end{align*}
-  which is given by left-right matrix multiplication.
-\end{proposition}
 
 
 
-
-
-\subsubsection{Generalizations to Infinite Direct Sums}
+\subsection{Generalizations to Infinite Direct Sums}
 
 
 \begin{conventions}
-  In the following $(M_i)_{i \in I}$ and $(N_i)_{i \in I}$ are two-families of $R$-modules and $M$ is an $R$-module.
+  In the following, $(M_i)_{i \in I}$ and $(N_i)_{i \in I}$ are two-families of $R$-modules and $M$ is an $R$-module.
 \end{conventions}
 
 
