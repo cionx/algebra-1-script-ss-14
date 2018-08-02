@@ -1,10 +1,5 @@
 % all the packages
 \usepackage{gitinfo2}
-\usepackage{silence}    % to make tocstyle shut up
-\WarningFilter{tocstyle}{THIS IS AN ALPHA VERSION!}
-\WarningFilter{tocstyle}{Usage of `tocstyle' with new `tocbasic' detected.}
-\usepackage{tocstyle}   % less problems with toc
-\usepackage{tocstyle}   % less problems with toc
 \usepackage{appendix}   % for the appendix
 \usepackage{amsmath, amssymb, amsthm, mathtools}      % general math stuff
 \usepackage{stmaryrd}   % \mapsfrom
@@ -37,10 +32,9 @@
 \automark{section}
 
 
-% no subsections in the toc
-\usetocstyle{KOMAlike}
-\setcounter{tocdepth}{2}
-\renewcommand{\@pnumwidth}{1.65em} % more space for page numbers, default is 1.55
+% table of contents
+\setcounter{tocdepth}{1}        % no subsections in the toc
+\renewcommand{\@pnumwidth}{2em} % more space for page numbers, default is 1.55
 
 
 % no unplaned surprises with \cite
@@ -64,16 +58,6 @@
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
 \relpenalty=\maxdimen
-
-
-% settings for list like environments
-\setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
-\setlist[enumerate, 2]{leftmargin=*, label=\arabic*)}
-\setlist[description, 1]{leftmargin=*,font=\normalfont}
-\setlist[description, 2]{leftmargin=*,font=\normalfont}
-\setlist[itemize, 1]{leftmargin=*}
-\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
-\setlist[itemize, 3]{leftmargin=*}
 
 
 % theorem like environments
@@ -101,13 +85,24 @@
 
 
 % how counters are printed
-\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thepart}{\Roman{part}}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \renewcommand{\theeverything}{\thesection.\arabic{everything}}
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand*{\partformat}{\partname~\thepart}
+
+
+% settings for list like environments
+\setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
+\setlist[enumerate, 2]{leftmargin=*, label=\arabic*)}
+\setlist[description, 1]{leftmargin=*,font=\normalfont}
+\setlist[description, 2]{leftmargin=*,font=\normalfont}
+\setlist[itemize, 1]{leftmargin=*}
+\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+\setlist[itemize, 3]{leftmargin=*}
 
 
 % relations and binary operations
