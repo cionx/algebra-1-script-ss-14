@@ -327,8 +327,8 @@
         & {}
       \end{tikzcd}
     \]
-    It therefore follows from $\Phi(f - g) = 0$ that $X_n \mid (f-g)$.
-    Because $f-g$ is symmetric (because both $f$ and $g$ are symmetric) it follows that $X_i \mid (f-g)$ for all $1 \leq i \leq n$, and therefore that $X_1 \dotsm X_n \mid (f-g)$.
+    It therefore follows from $\Phi(f - g) = 0$ that $X_n \divides (f-g)$.
+    Because $f-g$ is symmetric (because both $f$ and $g$ are symmetric) it follows that $X_i \divides (f-g)$ for all $1 \leq i \leq n$, and therefore that $X_1 \dotsm X_n \divides (f-g)$.
     We can thus consider the polynomial
     \[
                 h
@@ -388,7 +388,7 @@
     &=  F \left( e^{n-1}_1, \dotsc, e^{(n-1)}_{n-1}, e^{(n-1)}_n \right)
      =  F \left( e^{n-1}_1, \dotsc, e^{(n-1)}_{n-1}, 0 \right).
   \end{align*}
-  From the induction hypothesis it follows that $F(Y_1, \dotsc, Y_{n-1}, 0) = 0$, and therefore that $Y_n \mid F$.
+  From the induction hypothesis it follows that $F(Y_1, \dotsc, Y_{n-1}, 0) = 0$, and therefore that $Y_n \divides F$.
   So there exists some polynomial $\hat{F} \in k[Y_1, \dotsc, Y_n]$ with $F = Y_n \hat{F}$.
   Note that $\hat{F} \neq 0$ since $F \neq 0$, and that $\deg \hat{F}  <\deg F$.
   We then have

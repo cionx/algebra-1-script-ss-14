@@ -249,7 +249,11 @@
       For every $d \geq 0$ let
       \[
                   k[X_1, \dotsc, X_n]_d
-        \defined  \gen{ X_1^{d_1} \dotsm X_n^{d_n} \mid d_1 + \dotsb + d_n = d }
+        \defined  \gen{
+                    X_1^{d_1} \dotsm X_n^{d_n}
+                  \suchthat
+                    d_1 + \dotsb + d_n = d
+                  }_k
       \]
       and consider the resulting decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresenations.
       If $\kchar k = 0$ then it follows from Maschke’s theorem that every $k[X_1, \dotsc, X_n]_d$ is completely reducible.
@@ -265,7 +269,7 @@
       Note that for $|S_n| = n!$ and that for every field $k$ we have that $\kchar k \nmid n!$ if and only if $\kchar k \nmid n$.
       This holds because $\kchar k$ is either $0$ or prime.
       Note however that in Example~\ref{example: subrepresentations of natural action of Sn} the converse of Maschke’s theorem does also hold:
-      If $\kchar K \mid |S_n|$, then the given representations is not completely reducible.
+      If $\kchar K \divides |S_n|$, then the given representations is not completely reducible.
       This is not a complete coincide:
   \end{enumerate}
 \end{example}

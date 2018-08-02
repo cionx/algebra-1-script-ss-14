@@ -375,7 +375,11 @@
       For every degree $d \geq 0$ let
       \[
                   k[X_1, \dotsc, X_n]_d
-        \defined  \gen{ X_1^{d_1} \dotsm X_n^{d_n} \mid d_1 + \dotsb + d_n = d } \,.
+        \defined  \gen{
+                    X_1^{d_1} \dotsm X_n^{d_n}
+                  \suchthat
+                    d_1 + \dotsb + d_n = d
+                  }_k \,.
       \]
       Then $k[X_1, \dotsc, X_n]_d$ is a subrepresentation of $k[X_1, \dotsc, X_n]$ because the action of $S_n$ on the monomials preserves the degree.
       Hence
@@ -419,10 +423,8 @@
                   a & b \\
                   0 & c
                 \end{bmatrix}
-              \,\middle|\,
-                a, b, c \in \Complex
-                \text{ and }
-                a, c \neq 0
+              \suchthat*
+                \text{$a, b, c \in \Complex$ and $a, c \neq 0$}
               \right\} .
   \]
   be the group of upper, triangular, complex $(2 \times 2)$-matrices.
