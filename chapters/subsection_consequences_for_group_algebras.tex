@@ -1,0 +1,137 @@
+\subsection{Consequences for Group Algebras}
+
+
+\begin{fluff}
+  We start by collecting some direct consequences of previous results.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: every irrep is onedimen iff abelian}
+  If $k$ is algebraically closed and $G$ is finite with $\ringchar(k) \ndivides |G|$ then $G$ is abelian if and only if every irreducible representation of $G$ is one-dimensional.
+\end{lemma}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: semisimple algebra product of matrix algebras} because the group algebra $k[G]$ is commutative if and only if the group $G$ is abelian.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: equivalence to irreducible}
+  If $k$ is algebraically closed then the following are equivalent:
+  \begin{enumerate}
+    \item \label{enum: V irreducible}
+      The representation $V$ is irreducible.
+    \item \label{enum: V simple kG-module}
+      The representation $V$ is simple as a $k[G]$-module.
+    \item \label{enum: surjective algebra homo}
+      The algebra homomorphism $k[G] \to \End_k(V)$, $a \mapsto (v \mapsto av)$ is surjective.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  The equivalence of \ref*{enum: V simple kG-module} and \ref*{enum: surjective algebra homo} follows from the \hyperref[theorem: density theorem]{density theorem}.
+\end{proof}
+
+
+\begin{definition}
+  We set
+  \begin{align*}
+              \Irr_k(G)
+    &\defined \{ \text{isomorphism classes of irreducible $k$-representations of $G$} \}
+  \shortintertext{and}
+              \irr_k(G)
+    &\defined \{
+                [V] \in \Irr_k(G)
+              \suchthat
+                \text{$V$ is finite-dimensional}
+              \} \,.
+  \end{align*}
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: order of group decomposes into dim of irrep}
+  Let $G$ be finite with $\ringchar(k) \ndivides |G|$.
+  \begin{enumerate}
+    \item
+      We have that
+      \[
+          |G|
+        = \sum_{i=1}^n \frac{ (\dim_k V_i)^2 }{\dim \End_G(V_i)}
+      \]
+      where $V_1, \dotsc, V_n$ is a set of representatives for the isomorphism classes of irreducible $k$-representations of $G$.
+    \item
+      If $k$ is algebraically closed then $|G| = \sum_{i=1}^n (\dim_k V_i)^2$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  This follows from Propositon~\ref{proposition: decomposition of fd ss algebra} because the group algebra $k[G]$ is semisimple with $\dim k[G] = |G|$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: group algebra of product}
+  The $k$-linear map
+  \[
+            \varphi
+    \colon  k[G \times H]
+    \to     k[G] \tensor k[H],
+    \quad   (g,h)
+    \mapsto g \tensor h
+  \]
+  is a well-defined isomorphism of $k$-algebras.
+\end{lemma}
+
+
+\begin{proof}
+  The existence and uniqueness of $\varphi$ follows from $G \times H$ being a basis of $k[G \times H]$.
+  Thise basis is bijectively mapped onto the basis $(g \tensor h)_{g \in G, h \in H}$ of $k[G] \tensor k[H]$, which shows that $\varphi$ is bijective.
+  For all $(g_1, h_1), (g_2, h_2) \in G \times H$ we have that
+  \begin{align*}
+      \varphi((g_1, h_1) (g_2, h_2))
+    &= \varphi((g_1 g_2, h_1 h_2))
+     = (g_1 g_2) \tensor (h_1 h_2)  \\
+    &= (g_1 \tensor h_1) (g_2 \tensor h_2)
+     = \varphi((g_1, h_1)) \varphi((g_2, h_2))
+  \end{align*}
+  which shows that $\varphi$ is multiplicative.
+\end{proof}
+
+
+\begin{definition}
+  The representations $V \outertensor W$ of $G \times H$ is the $k$-vector space $V \tensor W$ together with the (linear) group action
+  \[
+      (g,h).(v \tensor w)
+    = (g.v) \tensor (h.w) \,.
+  \]
+\end{definition}
+
+
+\begin{remark}
+  If we regard $V$ is an $k[G]$-module and $W$ as an $k[H]$-module then the above definition of $V \outertensor W$ coincides with the one given in \ref{fluff: construction of boxtimes}.
+\end{remark}
+
+
+\begin{corollary}
+  \label{corollary: irr rep of products}
+  If $k$ is algebraically closed then the map
+  \[
+            \irr_k(G) \times \irr_k(H)
+    \to     \irr_k(G \times H),
+    \quad   ([V],[W])
+    \mapsto [V \mathbin{\outertensor} W]
+  \]
+  is a well-defined bijection.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Theorem~\ref{theorem: simple modules over tensor products} because of Lemma~\ref{lemma: group algebra of product}.
+\end{proof}
+
+
+
+
