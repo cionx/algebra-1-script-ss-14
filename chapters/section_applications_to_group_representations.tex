@@ -1173,7 +1173,7 @@
 
 
 \begin{example}
-  Let $Q \defined \{ \pm 1, \pm i, \pm j, \pm k \} \subseteq \Hamilton^\times$ be the quaternion group.
+  Let $Q \defined \{ \pm 1, \pm i, \pm j, \pm k \} \subseteq \Quaternion^\times$ be the quaternion group.
   The five conjugacy classes of $Q$ are given by $\{1\}, \{-1\}, \{i, -i\}, \{j, -j\}, \{k, -k\}$.
   
   Let $\triv$ be the trivial irreducible representation of $Q$.
@@ -1358,16 +1358,16 @@
   \]
   
   We can also explicity construct the missing two-dimensional irreducible representation $W$:
-  The quaternion group acts on the quaternions $\Hamilton$ via
+  The quaternion group acts on the quaternions $\Quaternion$ via
   \[
       q.x
     = qx
   \]
-  for all $q \in Q$, $x \in \Hamilton$.
-  Because $\Complex \subseteq \Hamilton$ is a subring we can regard $\Hamilton$ as a right\footnote{
-  We can regard $\Hamilton$ as both a left and a right $\Complex$-vector space.
-  But because $\Complex$ is not contained in $\ringcenter(\Hamilton) = \Real$ we have to distinguish between these two vector space structures.
-  Our goal is to have $Q$ act $\Complex$-linearly on $\Hamilton$, and for this we need $Q$ and $\Complex$ to act from different sides on $\Hamilton$.
+  for all $q \in Q$, $x \in \Quaternion$.
+  Because $\Complex \subseteq \Quaternion$ is a subring we can regard $\Quaternion$ as a right\footnote{
+  We can regard $\Quaternion$ as both a left and a right $\Complex$-vector space.
+  But because $\Complex$ is not contained in $\ringcenter(\Quaternion) = \Real$ we have to distinguish between these two vector space structures.
+  Our goal is to have $Q$ act $\Complex$-linearly on $\Quaternion$, and for this we need $Q$ and $\Complex$ to act from different sides on $\Quaternion$.
   We have choosen to let $Q$ act from the left and $\Complex$ from the right.
   }
   $\Complex$-vector space via
@@ -1375,15 +1375,15 @@
       x \cdot \lambda
     = x \lambda
   \]
-  for all $\lambda \in \Complex$, $x \in \Hamilton.$
+  for all $\lambda \in \Complex$, $x \in \Quaternion.$
   This right vector space structure over $\Complex$ corresponds to a left vector space structure over $\Complex^\op = \Complex$ given by
   \[
       \lambda * x
     = x \cdot \lambda
     = x \lambda
   \]
-  for all $\lambda \in \Complex$, $x \in \Hamilton$.
-  The elements $1, j$ then form a $\Complex$-basis of $\Hamilton$ with
+  for all $\lambda \in \Complex$, $x \in \Quaternion$.
+  The elements $1, j$ then form a $\Complex$-basis of $\Quaternion$ with
   \begin{align*}
         a + bi + cj + dk
      =  a + bi + cj - dji
@@ -1391,7 +1391,7 @@
     &=  (a + bi) * 1 + (c - di) * j
   \end{align*}
   for all $a, b, c, d \in \Real$.
-  The above action of $Q$ on $\Hamilton$ is then $\Complex$-linear with respect to this left $\Complex$-vector space structure because
+  The above action of $Q$ on $\Quaternion$ is then $\Complex$-linear with respect to this left $\Complex$-vector space structure because
   \[
       q.(\lambda * x)
     = q.(x \lambda) 
@@ -1399,10 +1399,10 @@
     = (q.x) \lambda
     = \lambda * (q.x)
   \]
-  for all $q \in Q$, $\lambda \in \Complex$, $x \in \Hamilton$.
-  We have thus constructed a two-dimensional representation $W = \Hamilton$ of $Q$ over $\Complex$.
-  Note that every subrepresentation of $W$ is already invariant under $\gen{Q}_\Real = \Hamilton$ and thus a left-ideal of $\Hamilton$.
-  Because $\Hamilton$ is a skew field the only nonzero subrepresentation is $\Hamilton$ itself.
+  for all $q \in Q$, $\lambda \in \Complex$, $x \in \Quaternion$.
+  We have thus constructed a two-dimensional representation $W = \Quaternion$ of $Q$ over $\Complex$.
+  Note that every subrepresentation of $W$ is already invariant under $\gen{Q}_\Real = \Quaternion$ and thus a left-ideal of $\Quaternion$.
+  Because $\Quaternion$ is a skew field the only nonzero subrepresentation is $\Quaternion$ itself.
   This shows that $W$ is irreducible.
   
   With respect to the basis $1, j$ the action of $Q$ on $\Complex$ is given by the following matrices:
