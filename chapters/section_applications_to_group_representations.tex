@@ -25,6 +25,17 @@
 
 
 \begin{lemma}
+  \label{lemma: every irrep is onedimen iff abelian}
+  If $k$ is algebraically closed and $G$ is finite with $\kchar(k) \ndivides |G|$ then $G$ is abelian if and only if every irreducible representation of $G$ is one-dimensional.
+\end{lemma}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: semisimple algebra product of matrix algebras} because the group algebra $k[G]$ is commutative if and only if the group $G$ is abelian.
+\end{proof}
+
+
+\begin{lemma}
   \label{lemma: equivalence to irreducible}
   If $k$ is algebraically closed then the following are equivalent:
   \begin{enumerate}
@@ -59,7 +70,7 @@
 
 \begin{lemma}
   \label{lemma: order of group decomposes into dim of irrep}
-  Let $G$ be finite with $\kchar(k) \ndivides |G|$
+  Let $G$ be finite with $\kchar(k) \ndivides |G|$.
   \begin{enumerate}
     \item
       We have that
@@ -1160,6 +1171,185 @@
 \end{example}
 
 
+\begin{example}
+  Let $Q \defined \{ \pm 1, \pm i, \pm j, \pm k \} \subseteq \Hamilton^\times$ be the quaternion group.
+  The five conjugacy classes of $Q$ are given by $\{1\}, \{-1\}, \{i, -i\}, \{j, -j\}, \{k, -k\}$.
+  
+  Let $\triv$ be the trivial irreducible representation of $Q$.
+  It follows from
+  \[
+      8
+    = \sum_{[V] \in \Irr(R)} \dim(V)^2
+    = 1 + \sum_{[V] \in \Irr(R), V \ncong \triv}  \dim(V)^2
+  \]
+  that $Q$ has up to isomorphism either eight one-dimensional irreducible representations or four one-dimensional irreducible representations (including $\triv$) and one two-dimensional irreducible irreducible representation.
+  The groups $Q$ is not abelian and has therefore a non-one-dimensional irreducible representation by Lemma~\ref{lemma: every irrep is onedimen iff abelian}.
+  We thus find that $Q$ has up to isomorphism precisely four one-dimensional irreducible represenations as well as one two-dimensional irreducible representation.
+  
+  To find the one-dimensional irreducible representations we use that $\groupcenter(Q) = \{\pm 1\}$ is a normal subgroup of index $2$ and that $Q/\groupcenter(Q)$ is therefore a group of order $4$, which is either isomorphic to $\Integer/4$ or to $\Integer/2 \times \Integer/2$.
+  For every $g \in Q$ we have that $g^2 = \pm 1 \in \groupcenter(Q)$ so it follows that every nontrivial element of $Q/\groupcenter(Q)$ has order $2$, which shows that $Q/\groupcenter(Q)$.
+  We can given an explicit isomorphism via
+  \[
+            Q/\groupcenter(Q)
+    \to     \Integer/2 \times \Integer/2
+    \quad   \begin{cases}
+              \class{1} \mapsto (\class{0}, \class{0}) \,,  \\
+              \class{i} \mapsto (\class{1}, \class{0}) \,,  \\
+              \class{j} \mapsto (\class{0}, \class{1}) \,,  \\
+              \class{k} \mapsto (\class{1}, \class{1}) \,.
+            \end{cases}
+  \]
+  We can use the resulting surjective groups homomorphism $Q \to \Integer/2 \times \Integer/2$ to pull back the four irreducible representations of $\Integer/2 \times \Integer/2$ to representations of $Q$, each of which is one-dimensional and again irreducible.
+  
+  The resulting representations $V_{++}, V_{+-}, V_{-+}, V_{--}$ have $\Complex$ as its underlying vector space, the action of $\pm i$ on $V_{\varepsilon_1 \varepsilon_2}$ is given by multiplication with $\varepsilon_1$, the action of $\pm j$ is given by multiplication with $\varepsilon_2$, and the action of $\pm k$ is given by multiplication with $\varepsilon_1 \varepsilon 2$.
+  We therefore get the following entries for the character table of $Q$:
+  \[
+    \begingroup
+    \renewcommand{\arraystretch}{1.1}
+    \begin{array}{|c|c||c|c|c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{Q}
+      & V_{++}
+      & V_{+-}
+      & V_{-+}
+      & V_{--}
+      & ?
+      \\
+      \hline
+       \phantom{-}1
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}1
+      & \phantom{-}1
+      & ?
+      \\
+        -1
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}1
+      & \phantom{-}1
+      & ?
+      \\
+        \pm i
+      & 2
+      &            1
+      & \phantom{-}1
+      &           -1
+      &           -1
+      & ?
+      \\
+        \pm j
+      & 2
+      &            1
+      &           -1
+      & \phantom{-}1
+      &           -1
+      & ?
+      \\
+        \pm k
+      & 2
+      &            1
+      &           -1
+      &           -1
+      & \phantom{-}1
+      & ?
+      \\
+      \hline
+    \end{array}
+    \endgroup
+  \]
+  The last column of the character table, corresponding to the missing two-dimensional irreducible representation $W$, can be calculated using the orthonormality relation of the columns:
+  If $a, b, c, d, e$ are the entries of the last column then
+  \[
+    \left\{
+      \begin{array}{lllllcl}
+        a   & + b   & + 2c    & + 2d    & + 2e    &=& 0 \,, \\
+        a   & + b   & + 2c    & - 2d    & - 2e    &=& 0 \,, \\
+        a   & + b   & - 2c    & + 2d    & - 2e    &=& 0 \,, \\
+        a   & + b   & - 2c    & - 2d    & + 2e    &=& 0 \,, \\
+        a^2 & + b^2 & + 2c^2  & + 2d^2  & + 2 e^2 &=& |Q| = 8  \,.
+      \end{array}
+    \right.
+  \]
+  We know that $a = \dim W = 2$ so we can simplify the above equation system to
+  \[
+    \left\{
+      \begin{array}{lllllcl}
+        b   & + 2c    & + 2d    & + 2e    &=&           -2 \,, \\
+        b   & + 2c    & - 2d    & - 2e    &=&           -2 \,, \\
+        b   & - 2c    & + 2d    & - 2e    &=&           -2 \,, \\
+        b   & - 2c    & - 2d    & + 2e    &=&           -2 \,, \\
+        b^2 & + 2c^2  & + 2d^2  & + 2e^2  &=& \phantom{-}4 \,.
+      \end{array}
+    \right.
+  \]
+  Solving this equation system results in
+  \[
+      (a,b,c,d,e)
+    = (2,-2,0,0,0) \,.
+  \]
+  With this we have arrived at the following character table:
+  \[
+    \begingroup
+    \renewcommand{\arraystretch}{1.1}
+    \begin{array}{|c|c||c|c|c|c|c|}
+      \hline
+        \multicolumn{2}{|c||}{Q}
+      & V_{++}
+      & V_{+-}
+      & V_{-+}
+      & V_{--}
+      & W
+      \\
+      \hline
+       \phantom{-}1
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}1
+      & \phantom{-}1
+      & \phantom{-}2
+      \\
+        -1
+      & 1
+      &            1
+      & \phantom{-}1
+      & \phantom{-}1
+      & \phantom{-}1
+      &           -2
+      \\
+        \pm i
+      & 2
+      &            1
+      & \phantom{-}1
+      &           -1
+      &           -1
+      & \phantom{-}0
+      \\
+        \pm j
+      & 2
+      &            1
+      &           -1
+      & \phantom{-}1
+      &           -1
+      & \phantom{-}0
+      \\
+        \pm k
+      & 2
+      &            1
+      &           -1
+      &           -1
+      & \phantom{-}1
+      & \phantom{-}0
+      \\
+      \hline
+    \end{array}
+    \endgroup
+  \]
+% TODO: Add explicit construction of the 2-dim irrep of Q.
+\end{example}
 
 
 

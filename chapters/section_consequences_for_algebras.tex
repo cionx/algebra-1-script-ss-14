@@ -146,147 +146,6 @@
 
 
 
-% \subsection*{Isotypical Components}
-% 
-% 
-% \begin{conventions}
-%   We will write $\tensor_k \defines \tensor$.
-% \end{conventions}
-% 
-% 
-% \begin{fluff}
-%   If $N$ is a $k$-vector space and $M$ is an $A$-module then $A \tensor M$ can be endowed with structure of an $A$-module via
-%   \[
-%       a \cdot (n \tensor m)
-%     = n \tensor (am)
-%   \]
-%   for all $a \in A$ and simple tensors $n \tensor m \in N \tensor M$.
-%   This can be used to give an alternative description of the isotypical components of an $A$-module:
-% \end{fluff}
-% 
-% 
-% \begin{proposition}
-%   \label{proposition: isotypical components via hom tensor}
-%   Let $M$ be an $A$-module and let $E$ be a simple $A$-module.
-%   \begin{enumerate}
-%     \item
-%       The image of the linear map
-%       \[
-%                 \Phi
-%         \colon  \Hom_A(E,M) \tensor E
-%         \to     M,
-%         \quad   f \tensor e
-%         \mapsto f(e)
-%       \]
-%       is the $E$-isotypical component $M_E$.
-%     \item
-%       When the $k$-vector space $\Hom_A(E,M) \tensor E$ is endowed with the structure of an $A$-module via
-%       \[
-%           a \cdot (f \tensor e)
-%         = f \tensor (a e)
-%       \]
-%       for all $a \in A$ and simple tensors $f \tensor e \in \Hom_A(E,M) \tensor E$ then $\Phi$ is $A$-linear.
-%     \item
-%       If $k$ is algebraically closed and $M_E$ is finite-dimensional then $\Phi$ is bijective and thus an isomorphism of $A$-modules.
-%   \end{enumerate}
-% \end{proposition}
-% 
-% 
-% \begin{proof}
-%   \leavevmode
-%   \begin{enumerate}
-%     \item
-%       Every homomorphism of $A$-modules $f \colon E \to M$ restricts to a homomorphism between $E$-isotypical components $ E \to M_E$, i.e.\ we have that $f(E) \subseteq M_E$.
-%       This shows that $\Phi(f \tensor e) = f(e) \in M_E$ for every simple tensor $f \tensor e \in \Hom_A(E,M) \tensor E$, which shows that $\im(\Phi) \subseteq M_E$.
-%       
-%       Suppose on the other hand that $L \moduleleq M$ is a submodule with $L \cong E$.
-%       Then there exists an isomorphism $E \to L$, which extends to an element $f \in \Hom_A(E,M)$.
-%       We then have that
-%       \[
-%                   L
-%         =         f(E)
-%         =         \Phi(f \tensor E)
-%         \subseteq \im(\Phi) \,.
-%       \]
-%       This shows that $M_E = \sum_{L \moduleleq M, L \cong E} L \subseteq \im(\Phi)$.
-%     \item
-%       We have for every simple tensor $f \tensor e \in \Hom_A(E,M) \tensor E$ and $a \in A$ that
-%       \[
-%           \Phi(a (f \tensor e))
-%         = \Phi(f \tensor (ae))
-%         = f(ae)
-%         = a f(e)
-%         = a \, \Phi(f \tensor e) \,.
-%       \]
-%     \item
-%       If $E$ is infinite-dimensional then $M_E = 0$ by the finite-dimensionality of $M_E$.
-%       It then also follows that $\Hom_A(E, M) \cong \Hom_A(E, M_E) = 0$.
-%       This shows the claim for this case.
-%       
-%       If $E$ is finite-dimensional then consider a decomposition $M_E = \bigoplus_{i=1}^n L_i$ into simple submodules $L_i \moduleleq M_E$.
-%       Note that every $L_i$ is necessarily isomorphic to $E_i$, and that $\Hom_A(E,L_i)$ is therefore one-dimensional by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}.
-%       There are now two possible ways to proceed:
-%       \begin{itemize}
-%         \item
-%           For every $i = 1, \dotsc, n$ let $f_i \colon E \to L_i$ be a nonzero homomorphism, which is then an isomorphism by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}.
-%           It follows that $\Hom_A(E,L_i) = k f_i$ for every $i = 1, \dotsc, n$.
-%           We may extend every $f_i$ to a homomorphism $E \to M$ and thus regard $f_i$ as an element of $\Hom_A(E,M)$.
-%           It then follows from the isomorphism
-%           \[
-%                   \Hom_A(E,M)
-%             \cong \Hom_A(E,M_E)
-%             =     \Hom_A\left( E, \bigoplus_{i=1}^n L_i \right)
-%             \cong \prod_{i=1}^n \Hom_A( E, L_i )
-%           \]
-%           that $\Hom_A(E, M) = k f_1 \oplus \dotsb \oplus k f_n$.
-%           Then $\Phi$ maps $f_i \tensor E$ bijectively onto the submodule $L_i \moduleleq M$ (because $f_i$ is a bijection).
-%           This shows that $\Phi$ maps the $i$-th summand of
-%           \[
-%               \Hom_A(E, M) \tensor E
-%             = \bigoplus_{i=1}^n k f_i \tensor E
-%             = \bigoplus_{i=1}^n f_i \tensor E
-%           \]
-%           bijectively onto the $i$-th summand of $\bigoplus_{i=1}^n L_i = M_E$ for every $i = 1, \dotsc, n$.
-%           This shows that $\Phi$ is bijective.
-%         \item
-%           Together with the isomorphism of $k$-vector spaces
-%           \[
-%                   \Hom_A(E,M)
-%             \cong \Hom_A(E,M_E)
-%             \cong \Hom_A\left( E, \bigoplus_{i=1}^n L_i \right)
-%             \cong \prod_{i=1}^n \Hom_A( E, L_i )
-%           \]
-%           it follows that $\dim \Hom_A(E,M_E) = n$ and therefore that
-%           \[
-%               \dim (\Hom_A(E,M_E) \tensor E)
-%             = n \dim E
-%             = \dim \bigoplus_{i=1}^n L_i
-%             = M_E \,.
-%           \]
-%           This shows that the surjective homomorphism $\Phi$ is already an isomorphism.
-%         \qedhere
-%       \end{itemize}
-%   \end{enumerate}
-% \end{proof}
-
-
-% \begin{corollary}
-%   Let $(E_i)_{i \in I}$ be a set of representatives for the isomorphism classes of finite-dimensional simple $A$-modules.
-%   Then for every finite-dimensional semisimple $A$-module $M$ the map
-%   \[
-%             \bigoplus_{i \in I} \Hom_A(E_i, M) \tensor E_i
-%     \to     M \,,
-%     \quad   f \tensor e
-%     \mapsto f(e)
-%   \]
-%   is an isomorphism of $A$-modules.
-% \end{corollary}
-
-
-
-
-
-
 \subsection*{The Theorems of Artin--Wedderburn and Wedderburn}
 
 
@@ -307,6 +166,7 @@
   Let $k$ be algebraically closed and let $A$ be finite-dimensional and semisimple.
   \begin{enumerate}
     \item
+      \label{enumerate: ss algebra is product of matrix rings}
       We have that $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras with $r \geq 0$ an $n_1, \dotsc, n_r \geq 1$.
       The number $r$ is uniquely determined as the number of simple $A$-modules up to isomorphism, and if $V_1, \dotsc, V_r$ is a set of representatives for the isomorphism classes of simple $A$-modules then the numbers $n_1, \dotsc, n_r$ agree with the numbers $\dim V_1, \dotsc, \dim V_r$ up to permutation.
     \item
@@ -315,16 +175,24 @@
         \item
           The $k$-algebra $A$ is commutative.
         \item
+          We have that $A \cong k \times \dotsb \times k$.
+        \item
           All simple $A$-modules are one-dimensional.
         \item
-          
+          The algebra $A$ has precisely $\dim A$ many simple modules up to isomorphism.
       \end{enumerate}
   \end{enumerate}
 \end{corollary}
 
 
 \begin{proof}
-  This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\End_A(M) = k$ for every simple $A$-module $M$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\End_A(M) = k$ for every simple $A$-module $M$.
+    \item
+      This follows from part~\ref*{enumerate: ss algebra is product of matrix rings}.
+  \end{enumerate}
 \end{proof}
 
 
