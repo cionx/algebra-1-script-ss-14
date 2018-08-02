@@ -2,7 +2,7 @@
 
 
 \begin{fluff}
-  Example~\ref{example: invariant ring for finite groups finitely generated} shows that the invariant ring $\mc{P}(V)^G$ is finitely generated whenever $G$ is finite with $\kchar{k} \ndivides |G|$, but we do not have any restrictions on the needed generators.
+  Example~\ref{example: invariant ring for finite groups finitely generated} shows that the invariant ring $\mc{P}(V)^G$ is finitely generated whenever $G$ is finite with $\ringchar(k) \ndivides |G|$, but we do not have any restrictions on the needed generators.
   The following theorem by E.\ Noether (\cite{Noether1915}) gives a bound on the degree of the generators\footnote{
   To quote Noether herself:
   \enquote{Im folgenden soll ein ganz elementarer [\dots] Endlichkeitsbesweis der Invarianten \emph{endlicher} Gruppen gebracht werden, der zugleich eine \emph{wirkliche Angabe des vollen Systems} liefert;
@@ -13,7 +13,7 @@
 
 
 \begin{theorem}[Noether]
-  Let $V$ be a finite-dimensional representation of a finite group $G$ over a field $k$ of characteristic $\kchar{k} = 0$.
+  Let $V$ be a finite-dimensional representation of a finite group $G$ over a field $k$ of characteristic $\ringchar(k) = 0$.
   Then the invariant ring $\mc{P}(V)^G$ is generated as a $k$-algebra by the invariants of degree $\leq |G|$.
 \end{theorem}
 
@@ -115,7 +115,7 @@
                       \text{$V$ is a finite-dimensional representation of $G$ over $k$}
                     \} \,.
   \]
-  Noether’s theorem shows that $\beta(G) \leq |G|$ if $\kchar k = 0$, which is known as the \emph{Noether bound}.
+  Noether’s theorem shows that $\beta(G) \leq |G|$ if $\ringchar(k) = 0$, which is known as the \emph{Noether bound}.
   This result can be strengthened in various ways:
   \begin{itemize}
     \item
@@ -124,12 +124,12 @@
       Fleischmann~\cite{Fleischmann2000} showed the more general result that if $H \ngroupleq G$ is a normal subgroup whose index $[G : H]$ is invertible in $k$, then $\beta(V,G) \leq \beta(V,H) \cdot [G : H]$.
       (For $G = H$ we get the above result.)
     \item
-      In the case of $\kchar{k} = 0$ it was proven by Schmid~\cite{Schmid1991} that $\beta(G) \leq \beta(H)[G : H]$ for every subgroup $H \groupleq G$, and that $\beta(G) \leq \beta(H)\beta(G/H)$ if $H \ngroupleq G$ is normal.
+      In the case of $\ringchar(k) = 0$ it was proven by Schmid~\cite{Schmid1991} that $\beta(G) \leq \beta(H)[G : H]$ for every subgroup $H \groupleq G$, and that $\beta(G) \leq \beta(H)\beta(G/H)$ if $H \ngroupleq G$ is normal.
     \item
-      Schmid also showed for $\kchar k = 0$ that $\beta(G) < |G|$ if $G$ is not cyclic, and that $\beta(\Integer/n) = n$ if $k$ contains a primitive $n$-th root of unity.
-      (\cite{Schmid1991} seems to only consider the case that $k$ is algebraically closed, but according to \cite[Theorem~3.7]{Wehlau2006} the bound $\beta(G) < |G|$ is shown for $\kchar k = 0$.)
+      Schmid also showed for $\ringchar(k) = 0$ that $\beta(G) < |G|$ if $G$ is not cyclic, and that $\beta(\Integer/n) = n$ if $k$ contains a primitive $n$-th root of unity.
+      (\cite{Schmid1991} seems to only consider the case that $k$ is algebraically closed, but according to \cite[Theorem~3.7]{Wehlau2006} the bound $\beta(G) < |G|$ is shown for $\ringchar(k) = 0$.)
     \item
-      According to \cite[Remark 3.6]{Wehlau2006} and \cite[Remark~3.2.5]{Derksen2015} it is not know if $\beta(G) \leq \beta(H)[G : H]$ holds for every subgroup $H \groupleq G$ if $\kchar k \ndivides [G : H]$. 
+      According to \cite[Remark 3.6]{Wehlau2006} and \cite[Remark~3.2.5]{Derksen2015} it is not know if $\beta(G) \leq \beta(H)[G : H]$ holds for every subgroup $H \groupleq G$ if $\ringchar(k) \ndivides [G : H]$. 
   \end{itemize}
 \end{remark}
 
@@ -150,7 +150,7 @@
 
 \begin{theorem}[Fundamental theorem of vector invariants for the symmetric group]
   \label{theorem: fundamental theorem of vector invariants for the symmetric group}
-  Let $k$ be a field with $\kchar k = 0$.
+  Let $k$ be a field with $\ringchar(k) = 0$.
   Let $n, m \geq 1$ and let $S_n$ act on
   \[
               V
@@ -342,7 +342,7 @@
   \]
 
   
-  In the case of $\kchar{k} = 0$ we see via the formula
+  In the case of $\ringchar(k) = 0$ we see via the formula
   \[
       f(x)
     = \frac{1}{|G|} \sum_{g \in G} f(g.x)

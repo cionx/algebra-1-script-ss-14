@@ -41,7 +41,7 @@
   \]
   for all $\sigma \in S_n$, $i = 1, \dotsc, n$, where $e_1, \dotsc, e_n$ denotes the standard basis of $k^n$.
   We denote this representation by $V$.
-  We will show that $V$ is reducible, but completely reducible if and only if $\kchar k \ndivides n$.
+  We will show that $V$ is reducible, but completely reducible if and only if $\ringchar(k) \ndivides n$.
 
   For this we consider the linear subspaces $U_1, U_2 \subseteq k^n$ given by
   \begin{align*}
@@ -102,7 +102,7 @@
       The representation $U_1$ is one-dimensional, and therefore irreducible.
       As every subrepresentation of $U_2$ is also a subrepresentation of $V$ it follows that $U_2$ is irreducible if and only if $U_1$ is not a proper subrepresentation of $U_2$.
   \end{itemize}
-  Hence $V$ is completely reducible if and only if $U_1 \nsubseteq U_2$, which is equivalent to $\kchar k \ndivides n$.
+  Hence $V$ is completely reducible if and only if $U_1 \nsubseteq U_2$, which is equivalent to $\ringchar(k) \ndivides n$.
 \end{example}
 
 
@@ -146,13 +146,13 @@
       is non-zero.
       The resulting decomposition $V = U_0 \oplus \dotsb \oplus U_{n-1}$ is a decomposition into one-dimensional subrepresentations.
     \item
-      More generally, let $G$ be a finite abelian groups and $k$ an algebraically closed field with $\kchar k = 0$.
+      More generally, let $G$ be a finite abelian groups and $k$ an algebraically closed field with $\ringchar(k) = 0$.
       Then every representation $V$ of $G$ over $k$ is completely reducible, with the irreducible subrepresentations being one-dimensional by Corollary~\ref{corollary: irreducible representation of abelian groups}:
     
       Let $|G| = n$ and let $\rho \colon G \to \GL(V)$ be the group homomorphism which corresponds to the linear action of $G$ on $V$.
       Then $\rho(g)^n = \rho(g^n) = \rho(1) = \id_V$ for every $g \in G$, so that every endomorphism $\rho(g) \colon V \to V$ satisfies the polynomial identity $\rho(g)^n - \id_V = 0$, i.e.\ satisfies the polynomial $p(t) \defined t^n - 1 \in k[t]$.
       The polynomials $p(t)$ decomposes into linear factors because $k$ is algebraically closed.
-      The roots of $p(t)$ are the $n$-th roots of unity $w_1, \dotsc, w_n$, which are pairwise different because $\kchar k = 0$.
+      The roots of $p(t)$ are the $n$-th roots of unity $w_1, \dotsc, w_n$, which are pairwise different because $\ringchar(k) = 0$.
       Hence $\rho(g)$ satisfies the polynomial $p(t)$ which decomposes into pairwise different linear factors $p(t) = (t - w_1) \dotsm (t - w_n)$.
       It follows from linear algebra that every $\rho(g)$ is diagonalizable with possible eigenvalues $w_1, \dotsc, w_n$.
       
@@ -171,7 +171,7 @@
 
 \begin{theorem}[Maschke’s theorem]
   \label{theorem: maschkes theorem}
-  Let $G$ be a finite group and let $k$ be a field such that $\kchar k \ndivides |G|$.
+  Let $G$ be a finite group and let $k$ be a field such that $\ringchar(k) \ndivides |G|$.
   Then any finite-dimensional representation of $G$ over $k$ is completely reducible.
 \end{theorem}
 
@@ -194,7 +194,7 @@
               \hat{p}(v)
     \defined  \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v) \,.
   \]
-  The sum is well defined because $|G|$ is finite, and $|G| \in k$ is nonzero because $\kchar k \ndivides |G|$.
+  The factor $1/|G|$ is well-defined because $|G|$ is finite and $|G|$ is nonzero as an element of $k$ because $\ringchar(k) \ndivides |G|$.
   
   For all $g \in G$, $v \in V$ we have that $p(g.v) \in \im p = U$, and because $U$ is a subrepresentation therefore also $g^{-1}.p(g.v) \in U$.
   It follows that $\im \hat{p} \subseteq U$.
@@ -256,7 +256,7 @@
                   }_k
       \]
       and consider the resulting decomposition $k[X_1, \dotsc, X_n] = \bigoplus_{d \geq 0} k[X_1, \dotsc, X_n]_d$ into finite-dimensional subrepresenations.
-      If $\kchar k = 0$ then it follows from Maschke’s theorem that every $k[X_1, \dotsc, X_n]_d$ is completely reducible.
+      If $\ringchar(k) = 0$ then it follows from Maschke’s theorem that every $k[X_1, \dotsc, X_n]_d$ is completely reducible.
       Hence $k[X_1, \dotsc, X_n]$ is completely reducible.
     \item
       By combining Maschke’s theorem with Corollary~\ref{corollary: irreducible representation of abelian groups} we can reconstruct the result from Example~\ref{example: complex representations of finite abelian groups are completely reducible}:
@@ -266,17 +266,17 @@
       
     \item
       Maschke’s theorem confirmes our result from Example~\ref{example: subrepresentations of natural action of Sn}:
-      Note that for $|S_n| = n!$ and that for every field $k$ we have that $\kchar k \ndivides n!$ if and only if $\kchar k \ndivides n$.
-      This holds because $\kchar k$ is either $0$ or prime.
+      Note that for $|S_n| = n!$ and that for every field $k$ we have that $\ringchar(k) \ndivides n!$ if and only if $\ringchar(k) \ndivides n$.
+      This holds because $\ringchar(k)$ is either $0$ or prime.
       Note however that in Example~\ref{example: subrepresentations of natural action of Sn} the converse of Maschke’s theorem does also hold:
-      If $\kchar K \divides |S_n|$, then the given representations is not completely reducible.
+      If $\ringchar(k) \divides |S_n|$, then the given representations is not completely reducible.
       This is not a complete coincide:
   \end{enumerate}
 \end{example}
 
 
 \begin{warning}
-  If $\kchar k$ divides $|G|$ then Maschke’s theorem does not hold:
+  If $\ringchar(k)$ divides $|G|$ then Maschke’s theorem does not hold:
   The left regular representation $k[G]$ is then not completely reducible.
   We will later give a proof of this, when we have another characterization of complete reducibility available.
 \end{warning}
@@ -340,7 +340,7 @@
 \begin{remark}
   \label{remark: projection onto invariants}
   Both proofs of Maschke’s theorem make use of a powerful technique, the so called \emph{projection onto the invariants}:
-  If $V$ is a representation of a finite group $G$ over a field $k$ with $\kchar k \ndivides |G|$, then consider the map
+  If $V$ is a representation of a finite group $G$ over a field $k$ with $\ringchar(k) \ndivides |G|$, then consider the map
   \[
               \widehat{(-)} \;
     \colon    V

@@ -346,7 +346,7 @@
   \begin{enumerate}
     \item
       \label{enumerate: characters are linearly independent}
-      If $\kchar k = 0$ or $k$ is algebraically closed then the irreducible characters of $A$ are linearly independent.
+      If $\ringchar(k) = 0$ or $k$ is algebraically closed then the irreducible characters of $A$ are linearly independent.
     \item
       If $k$ is algebraically closed and $A$ is finite-dimensional and semisimple then the irreducible chararacters form a $k$-basis of $(A/[A,A])^*$.
   \end{enumerate}
@@ -359,7 +359,7 @@
     \item
       Let $M_1, \dotsc, M_r$ be pairwise non-isomorphic finite-dimensional simple $A$-modules and let $\sum_{i=1}^r \lambda_i \chi_{M_i} = 0$.
       
-      Suppose first that $\kchar k = 0$
+      Suppose first that $\ringchar(k) = 0$
       Then there exists by Corollary~\ref{corollary: existence of projection operators} for every $i = 1, \dotsc, r$ some $a_i \in A$ wich acts on $M_i$ as the identity and on $M_j$ for $j \neq i$ as the zero endomorphism.
       It follows that
       \[
@@ -373,7 +373,7 @@
         = \sum_{i=1}^r \lambda_i \chi_{M_i}(a_j)
         = \lambda_i \dim M_i
       \]
-      for all $i = 1, \dotsc, r$, and thus $\lambda_i = 0$ for all $i = 1, \dotsc, r$ because $\kchar k \neq 0$.
+      for all $i = 1, \dotsc, r$, and thus $\lambda_i = 0$ for all $i = 1, \dotsc, r$ because $\ringchar(k) \neq 0$.
       
       Suppose that $k$ is algebraically closed.
       For every $i = 1, \dotsc, r$ let $f_i \in \End_k(M_i)$ be an endomorphism with $\tr(f_i) = 1$.
@@ -401,7 +401,7 @@
 
 
 \begin{corollary}
-  Suppose that $\kchar k = 0$.
+  Suppose that $\ringchar(k) = 0$.
   If $M, N$ are semisimple with $\chi_M = \chi_N$ then $M \cong N$.
 \end{corollary}
 
@@ -414,7 +414,7 @@
     \chi_N &= n_1 \chi_{S_1} + \dotsb + n_r \chi_{S_r}
   \end{align*}
   and it follows that $m_i = n_i$ in $k$ for all $i = 1, \dotsc, r$.
-  It follows from $\kchar k = 0$ that already $m_i = n_i$ for all $i = 1, \dotsc, r$.
+  It follows from $\ringchar(k) = 0$ that already $m_i = n_i$ for all $i = 1, \dotsc, r$.
 \end{proof}
 
 

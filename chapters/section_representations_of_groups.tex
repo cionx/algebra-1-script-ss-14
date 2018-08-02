@@ -572,7 +572,7 @@
   \end{align*}
   Then $e_1 \tensor e_2 + e_2 \tensor e_1 \in (V \tensor W)^G$ is not contained in $V^G \tensor W^G$.
   
-  We can look at the case $G = S_2 = \{1, s\}$ with $\kchar k \neq 2$ in a bit more detail:
+  We can look at the case $G = S_2 = \{1, s\}$ with $\ringchar(k) \neq 2$ in a bit more detail:
   Then the linear map
   \[
             f
@@ -582,7 +582,7 @@
     \mapsto s.v
   \]
   satisfies $f^2 = \id_V$ and thus satisfies the polynomial $X^2 - 1 = (X-1)(X+1) \in k[X]$.
-  It follows from $\kchar k \neq 2$ that this polynomial decomposes into pairwise different linear factors, and therefore that $f$ is diagonalizable with possible eigenvalues $1, -1$.
+  It follows from $\ringchar(k) \neq 2$ that this polynomial decomposes into pairwise different linear factors, and therefore that $f$ is diagonalizable with possible eigenvalues $1, -1$.
   We therefore have that
   \[
       V
@@ -619,7 +619,7 @@
   \end{align*}
   We that that compared to $V^G \tensor W^G = V_+ \tensor W_+$ we gain the additional summand $V_- \tensor W_-$, which is invariant because the actions of $s$ on the factors cancels out.
   
-  In the previous example we have for $\kchar k \neq 2$ that
+  In the previous example we have for $\ringchar(k) \neq 2$ that
   \[
     V_+ = W_+ = \gen{ e_1 + e_2 }_k \,,
     \qquad

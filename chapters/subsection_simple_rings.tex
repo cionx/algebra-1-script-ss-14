@@ -142,7 +142,7 @@
 
 \begin{example}
   \label{example: simple but not semisimple}
-  Let $\kchar k = 0$.
+  Let $\ringchar(k) = 0$.
   The (first) Weyl algebra $\weyl = \weyl_1$ from subsection~\ref{subsection: first weyl algebra} is simple but not semisimple:
   
   To show that $\weyl$ is not semisimple it sufficies by Corollary~\ref{corollary: semisimple rings are notherian artinian} to observe that $\weyl$ is not artinian:
@@ -196,7 +196,7 @@
     = p'
   \]
   for all $p \in k[X]$.
-  It follows for $d \defined \deg_X p_m$ that $p^{(d)} \in I$ is a non-zero constant polynomial (because $\kchar k \neq 0$).
+  It follows for $d \defined \deg_X p_m$ that $p^{(d)} \in I$ is a non-zero constant polynomial (because $\ringchar(k) \neq 0$).
   This shows that $I$ contains a unit, which shows that $I = \weyl$.
 \end{example}
 
@@ -204,9 +204,9 @@
 \begin{remark}
   We have given in Remark~\ref{remark: skew polynomial rings} a short overview how the Weyl algebra $\weyl$ can be understood as a skew polyonmial ring over $k[X]$ with respect to the $k$-derivation $\del \colon k[X] \to k[X]$.
   
-  It can be shown more generally that for a field of characteristic $\kchar k = 0$ and an $k$-algebra $A$ a skew polynomial ring $A[x;\delta]$ (with respect to a $k$-derivation $\delta \colon A \to A$) is simple if and only if $A$ is $\delta$-simple and $\delta$ is not an inner derivation;
+  It can be shown more generally that for a field of characteristic $\ringchar(k) = 0$ and an $k$-algebra $A$ a skew polynomial ring $A[x;\delta]$ (with respect to a $k$-derivation $\delta \colon A \to A$) is simple if and only if $A$ is $\delta$-simple and $\delta$ is not an inner derivation;
   proofs of this can be found in \cite[Theorem~3.15]{Lam1991First} and \cite[Proposition~2.1]{NoncommutativeNoetherian}.
-  If $\kchar k = 0$ then it also holds for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ that the skew polynomial ring $A[x;\delta]$ is a nonartinian simple ring; a proof of this can be found in \cite[Corollary~3.16]{Lam1991First}.
+  If $\ringchar(k) = 0$ then it also holds for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ that the skew polynomial ring $A[x;\delta]$ is a nonartinian simple ring; a proof of this can be found in \cite[Corollary~3.16]{Lam1991First}.
   
   In this way we can construct simple rings which are not semisimple.
 \end{remark}

@@ -26,7 +26,7 @@
 
 \begin{lemma}
   \label{lemma: every irrep is onedimen iff abelian}
-  If $k$ is algebraically closed and $G$ is finite with $\kchar(k) \ndivides |G|$ then $G$ is abelian if and only if every irreducible representation of $G$ is one-dimensional.
+  If $k$ is algebraically closed and $G$ is finite with $\ringchar(k) \ndivides |G|$ then $G$ is abelian if and only if every irreducible representation of $G$ is one-dimensional.
 \end{lemma}
 
 
@@ -70,7 +70,7 @@
 
 \begin{lemma}
   \label{lemma: order of group decomposes into dim of irrep}
-  Let $G$ be finite with $\kchar(k) \ndivides |G|$.
+  Let $G$ be finite with $\ringchar(k) \ndivides |G|$.
   \begin{enumerate}
     \item
       We have that
@@ -167,7 +167,7 @@
 
 
 % \begin{corollary}\label{corollary: number of irreducible representations of finite abelian group}
-%   If $k$ is algebraically closed and $G$ a finite and abelian group with $\kchar(k) \ndivides |G|$ then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
+%   If $k$ is algebraically closed and $G$ a finite and abelian group with $\ringchar(k) \ndivides |G|$ then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
 % \end{corollary}
 % 
 % 
@@ -229,7 +229,7 @@
 
 \begin{proposition}
   \label{proposition: conjugation classes and irreducible representations}
-  Let $k$ an algebraically closed and let $G$ be finite with $\kchar(k) \ndivides |G|$.
+  Let $k$ an algebraically closed and let $G$ be finite with $\ringchar(k) \ndivides |G|$.
   \begin{enumerate}
     \item
       \label{enumerate: characters are basis of class functions}
@@ -260,7 +260,7 @@
 
 \begin{example}
   \label{example: irrep of finite abelian groups}
-  If $k$ is algebraically closed and $G$ is finite abelian with $\kchar(k) \ndivides |G|$ then $G$ has up to isomorphism precisely $|G|$ irreducible representations.
+  If $k$ is algebraically closed and $G$ is finite abelian with $\ringchar(k) \ndivides |G|$ then $G$ has up to isomorphism precisely $|G|$ irreducible representations.
   We can see this in many ways:
   \begin{enumerate}
     \item
@@ -272,7 +272,7 @@
       The exponent $r$ is the number of irreducible representations of $G$ and is also given by $r = \dim k[G] = |G|$.
   \end{enumerate}
   For $G = \Integer/n_1 \times \dotsb \times \Integer/n_r$ with $n_1, \dotsc, n_r \geq 1$ we can describe the irreducible representations of $G$ explicitely:
-  It follows from $\kchar(k) \ndivides |G| = n_1 \dotsm n_r$ that $\kchar(k) \ndivides n_i$ for all $i = 1, \dotsc, r$, which is why the $n_i$-th roots of unity $\omega_{i,1}, \dotsc, \omega_{i,n_i} \in k^\times$ are pairwise different.
+  It follows from $\ringchar(k) \ndivides |G| = n_1 \dotsm n_r$ that $\ringchar(k) \ndivides n_i$ for all $i = 1, \dotsc, r$, which is why the $n_i$-th roots of unity $\omega_{i,1}, \dotsc, \omega_{i,n_i} \in k^\times$ are pairwise different.
   It follows from Example~\ref{example: irreducible representations for Zn} and Corollary~\ref{corollary: irr rep of products} that the irreducible represenations of $G$ are given by $V_{j_1, \dotsc, j_r}$ with $j_i = 1, \dotsc, n_i$, each of which has $k$ as its underlying vector space and the action of $G$ is given by
   \[
       (\class{m_1}, \dotsc, \class{m_r}) . x
@@ -326,7 +326,7 @@
   \]
   with $(n_1, \dotsc, n_r) \in \Par(n)$ are a set of representatives of the conjugacy classes of $S_n$.
   
-  It follows that the number of irreducible representations of $S_n$ over an algebraically closed field $k$ with $\kchar k \ndivides |S_n| = n!$ (i.e.\ $\kchar k = 0$ or $\kchar k > n$) is precisely the number of partitions of $n$.
+  It follows that the number of irreducible representations of $S_n$ over an algebraically closed field $k$ with $\ringchar(k) \ndivides |S_n| = n!$ (i.e.\ $\ringchar(k) = 0$ or $\ringchar(k) > n$) is precisely the number of partitions of $n$.
 \end{example}
 
 
@@ -355,7 +355,7 @@
 
 
 \begin{conventions}
-  In the following $G$ is finite with $\kchar(k) \ndivides |G|$.
+  In the following $G$ is finite with $\ringchar(k) \ndivides |G|$.
 \end{conventions}
 
 
