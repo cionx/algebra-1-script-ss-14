@@ -167,7 +167,7 @@
 
 
 % \begin{corollary}\label{corollary: number of irreducible representations of finite abelian group}
-%   If $k$ is algebraically closed and $G$ a finite and abelian group with $\kchar(k) \nmid |G|$ then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
+%   If $k$ is algebraically closed and $G$ a finite and abelian group with $\kchar(k) \ndivides |G|$ then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
 % \end{corollary}
 % 
 % 
@@ -325,7 +325,7 @@
   \]
   with $(n_1, \dotsc, n_r) \in \Par(n)$ are a set of representatives of the conjugacy classes of $S_n$.
   
-  It follows that the number of irreducible representations of $S_n$ over an algebraically closed field $k$ with $\kchar k \nmid |S_n| = n!$ (i.e.\ $\kchar k = 0$ or $\kchar k > n$) is precisely the number of partitions of $n$.
+  It follows that the number of irreducible representations of $S_n$ over an algebraically closed field $k$ with $\kchar k \ndivides |S_n| = n!$ (i.e.\ $\kchar k = 0$ or $\kchar k > n$) is precisely the number of partitions of $n$.
 \end{example}
 
 
@@ -425,6 +425,10 @@
 \end{fluff}
 
 
+
+\subsubsection{Character tables}
+
+
 \begin{fluff}
   Let $g_1, \dotsc, g_r$ is a set of representatives for the conjugacy clases of $G$ such that the conjugacy class of $g_i$ has $n_i$ elements.
   Let $V_1, \dotsc, V_r$ be a set of representatives for the isomorphism classes of irreducible representations of $G$ over $k$ with corresponding irreducible characters $\chi_1, \dotsc, \chi_r$.
@@ -479,10 +483,6 @@
   \]
   We will now determine the character tables of some groups over the ground field $k = \Complex$:
 \end{fluff}
-
-
-
-\subsubsection{Character tables}
 
 
 \begin{example}[Character table of $\Integer/n$]

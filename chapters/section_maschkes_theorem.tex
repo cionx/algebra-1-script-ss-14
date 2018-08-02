@@ -41,7 +41,7 @@
   \]
   for all $\sigma \in S_n$, $i = 1, \dotsc, n$, where $e_1, \dotsc, e_n$ denotes the standard basis of $k^n$.
   We denote this representation by $V$.
-  We will show that $V$ is reducible, but completely reducible if and only if $\kchar k \nmid n$.
+  We will show that $V$ is reducible, but completely reducible if and only if $\kchar k \ndivides n$.
 
   For this we consider the linear subspaces $U_1, U_2 \subseteq k^n$ given by
   \begin{align*}
@@ -102,7 +102,7 @@
       The representation $U_1$ is one-dimensional, and therefore irreducible.
       As every subrepresentation of $U_2$ is also a subrepresentation of $V$ it follows that $U_2$ is irreducible if and only if $U_1$ is not a proper subrepresentation of $U_2$.
   \end{itemize}
-  Hence $V$ is completely reducible if and only if $U_1 \nsubseteq U_2$, which is equivalent to $\kchar k \nmid n$.
+  Hence $V$ is completely reducible if and only if $U_1 \nsubseteq U_2$, which is equivalent to $\kchar k \ndivides n$.
 \end{example}
 
 
@@ -194,7 +194,7 @@
               \hat{p}(v)
     \defined  \frac{1}{|G|} \sum_{g \in G} g^{-1}.p(g.v) \,.
   \]
-  The sum is well defined because $|G|$ is finite, and $|G| \in k$ is nonzero because $\kchar k \nmid |G|$.
+  The sum is well defined because $|G|$ is finite, and $|G| \in k$ is nonzero because $\kchar k \ndivides |G|$.
   
   For all $g \in G$, $v \in V$ we have that $p(g.v) \in \im p = U$, and because $U$ is a subrepresentation therefore also $g^{-1}.p(g.v) \in U$.
   It follows that $\im \hat{p} \subseteq U$.
@@ -266,7 +266,7 @@
       
     \item
       Maschke’s theorem confirmes our result from Example~\ref{example: subrepresentations of natural action of Sn}:
-      Note that for $|S_n| = n!$ and that for every field $k$ we have that $\kchar k \nmid n!$ if and only if $\kchar k \nmid n$.
+      Note that for $|S_n| = n!$ and that for every field $k$ we have that $\kchar k \ndivides n!$ if and only if $\kchar k \ndivides n$.
       This holds because $\kchar k$ is either $0$ or prime.
       Note however that in Example~\ref{example: subrepresentations of natural action of Sn} the converse of Maschke’s theorem does also hold:
       If $\kchar K \divides |S_n|$, then the given representations is not completely reducible.
@@ -340,7 +340,7 @@
 \begin{remark}
   \label{remark: projection onto invariants}
   Both proofs of Maschke’s theorem make use of a powerful technique, the so called \emph{projection onto the invariants}:
-  If $V$ is a representation of a finite group $G$ over a field $k$ with $\kchar k \nmid |G|$, then consider the map
+  If $V$ is a representation of a finite group $G$ over a field $k$ with $\kchar k \ndivides |G|$, then consider the map
   \[
               \widehat{(-)} \;
     \colon    V
