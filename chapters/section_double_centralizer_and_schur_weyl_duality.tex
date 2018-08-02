@@ -359,7 +359,132 @@
 % TODO: Show that Alt^n and Sym^n are irreducible as GL(V) representations.
 
 
-(The last few lectures, in which some basic facts about the irreducible representations of the symmetric group $S_n$ were presented without (much) proof, are missing from these notes.)
+\begin{fluff}
+  The Schur--Weyl duality leads to the following questions:
+  \begin{itemize}
+    \item
+      Which representations of $S_d$ occur in $V^{\otimes d}$?
+    \item
+      Do all irreducible representations of $S_d$ occur in $V^{\otimes d}$ for some $d \geq 1$?
+    \item
+      What is a good indexing set $\Delta$?
+    \item
+      What are explicit descriptions for $V_\lambda$ and $S_\lambda$?
+  \end{itemize}
+  These questions lead to the following:
+\end{fluff}
+
+
+
+
+
+\subsection*{Outlook: Representation Theory of $S_n$}
+
+
+\begin{fluff}
+  Suppose that $\kchar(k) = 0$.
+  Then the group algebra $k[S_d]$ semisimple and we know from Example~\ref{example: conjugacy classes of symmetric group} that the number of irreducible representations of $S_d$ coincides with the number of partitions of $d$.
+  One of the main goals of the representation theory of $S_d$ is the construction of an explicit bijection between irreducible representations of $S_d$ and partitions of $d$.
+\end{fluff}
+
+
+\begin{definition}
+  Given a partition $\lambda$ of $d$ a \emph{standard tableau} (plural: tableaux) of \emph{shape} $\lambda$ if a filling of the Young diagram of $\lambda$ with the numbers $1, \dotsc, d$ which is increasing in both rows and columns.
+\end{definition}
+
+
+\begin{example}
+  The standard Young tabelaux for $d = 3$ are as follows:
+  \[
+    \begin{ytableau}
+      1 & 2 & 3
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 2 \\
+      3 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 3 \\
+      2 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 \\
+      2 \\
+      3
+    \end{ytableau}
+  \]
+  The standard Young tabelaux for $d = 4$ are the following:
+  \begin{gather*}
+    \begin{ytableau}
+      1 & 2 & 3 & 4
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 2 & 3 \\
+      4
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 2 & 4 \\
+      3
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 3 & 4 \\
+      2
+    \end{ytableau}
+  \\
+    \begin{ytableau}
+      1 & 2 \\
+      3 & 4 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 3 \\
+      2 & 4 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 2 \\
+      3 \\
+      4 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 3 \\
+      2 \\
+      4 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 & 4 \\
+      2 \\
+      3 \\
+    \end{ytableau}
+    \qquad
+    \begin{ytableau}
+      1 \\
+      2 \\
+      3 \\
+      4
+    \end{ytableau}
+  \end{gather*}
+\end{example}
+
+
+\begin{theorem}
+  For every partition $\lambda$ of $d$ let $S_\lambda$ be the free vector space on the set of standard Young tableaux of shape $\lambda$.
+  Then every $S_\lambda$ can be endowed with the structure of a representation of $S_d$ such that
+  \begin{itemize}
+    \item
+      every representation $S_\lambda$ is irreducible, and
+    \item
+      every irreducible representation of $S_d$ is isomorphis to precisely one $S_\lambda$.
+  \end{itemize}
+\end{theorem}
 
 
 
