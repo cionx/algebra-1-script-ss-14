@@ -65,7 +65,7 @@
       \[
                     M
         =           M_E
-        =           \sum_{L' \moduleleq M, L' \cong E} L'
+        =           \sum_{\subalign{L' &\moduleleq M \\ L' &\cong E}} L'
         \moduleleq  N \,,
       \]
       which shows that $M = N$.
@@ -88,7 +88,7 @@
 
 \begin{proof}
     The two-sided ideal of $R$ are precisely those left ideals which are also invariant under right multiplication with elements of $R$.
-    It follows from the isomorphism $R^\op \cong \End_R(R)$ from Lemma~\ref{lemma: End_R(R) = Rop} that for a left ideal, invariance under right multiplication is the same as $\End_R(R)$-invariance.
+    By using the isomorphism $R^\op \cong \End_R(R)$, $r^\op \mapsto (x \mapsto xr)$ from Lemma~\ref{lemma: End_R(R) = Rop} we find that for any left ideal, invariance under right multiplication is the same as $\End_R(R)$-invariance.
     The two-sided ideals of $R$ are therefore precisely those left ideals which are $\End_R(R)$-invariant.
     
     With this observation the claims follow from Lemma~\ref{lemma: submodules which are End invariant}.
@@ -97,8 +97,12 @@
 
 \begin{corollary}
   \label{corollary: semisimple ring has only finitely many two sided ideals}
-  If $R$ is semisimple then $R$ contains only finite many two-sided ideals, namely $2^n$ many where $n = |{\Irr(R)}|$.
+  If $R$ is semisimple then $R$ contains only finitely many two-sided ideals, namely $2^n$ many where $n = |{\Irr(R)}|$.
 \end{corollary}
+
+
+% TODO: Example for rings which have finitely many two-sided ideals but are not noetherian/artinian:
+% End(V) for V countable infinite dimensional
 
 
 \begin{remark}
@@ -106,7 +110,7 @@
   We may assume that the semisimple ring $R$ is given by $R = \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ with $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
   Then every two-sided ideal $I \idealleq R$ is of the form $I = I_1 \times \dotsb \times I_r$ for unique two-sided ideals $I_j \idealleq \Mat_{n_j}(D_j)$ by Remark~\ref{remark: right and two-sided ideals in products of rings}.
   It follows for every $j = 1, \dotsc, r$ that either $I_j = 0$ or $I_j = \Mat_{n_j}(D_j)$ because the matrix rings $\Mat_{n_j}(D_j)$ are simple.
-  Thus it follows that $R$ contains precisely $2^r$ two-sided ideals, with $r = |{\Irr(R)}|$.
+  It thus follows that $R$ contains precisely $2^r$ two-sided ideals, with $r = |{\Irr(R)}|$.
 \end{remark}
 
 
@@ -116,11 +120,18 @@
   The \hyperref[theorem: isotypical decomposition]{isotypical decomposition} then reads
   \[
       R
-    = R_{E_1} \times \dotsb \times R_{E_r}
+    = R_{E_1} \oplus \dotsb \oplus R_{E_r}
   \]
   and each $R_{E_i}$ is a non-trivial two-sided ideal by Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and Corollary~\ref{corollary: isotypical components as two sided ideals}.
   
-  Each $R_{E_i}$ is then itself a ring with respect to the addition and multiplication inherited from $R$ as explained in Proposition~\ref{proposition: factor ideals are again rings}.
+  Each $R_{E_i}$ is then itself a ring with respect to the addition and multiplication inherited from $R$ and the map
+  \[
+            R_{E_1} \times \dotsb \times R_{E_r}
+    \to     R,
+    \quad   (r_1, \dotsc, r_n)
+    \mapsto r_1 + \dotsb + r_n
+  \]
+  is an isomorphism of rings, as explained in Proposition~\ref{proposition: factor ideals are again rings}.
   Each $R_{E_i}$ is itself semisimple by Proposition~\ref{proposition: product of semisimple} with $E_i$ being its only simple module up to isomorphism.
   The rings $R_{E_i}$ are simple, as can be seen in two ways:
   \begin{itemize}
@@ -134,8 +145,8 @@
   We would now like to rewoke \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} to conclude that each factor $R_{E_i}$ is already of the form $R_{E_i} \cong \Mat_{n_i}(D_i)$ for some $n_i \geq 1$ and skew field $D_i$.
   
   But in the proof of \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} we actually used the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}, which are trying to avoid.
-  However, by taking a careful look at the given proof of \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} we see that we only used the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} for one of the implications.
-  We will therefore now give another proof, which does not rely on the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
+  However, by taking a careful look at the \hyperref[proof: wedderburns theorem first proof]{given proof} of \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} we see that we only used the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} for one of the implications.
+  We will therefore now give another proof of \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} which does not rely on the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}.
   The main tool is the following observation due to \cite{Rieffel}.
 %   and can also be found in \cite[Chapter~XVII, Theorem~5.4]{LangAlgebra2005} and \cite[Theorem~3.11]{Lam1991First}.
 \end{fluff}
@@ -149,7 +160,7 @@
       \varphi \cdot x
     = \varphi(x)
   \]
-  for all $\varphi \in D$, $x \in I$, and the map
+  for all $\varphi \in D$, $x \in I$ and the map
   \[
             \Phi    
     \colon  R
@@ -167,7 +178,7 @@
   The $R$-module structure of $I$ corresponds to a ring homomorphism $\Phi' \colon R \to \End_\Integer(I)$, $r \mapsto (x \mapsto rx)$, which restrict to the desired ring homomorphism $\Phi$ because the actions of $R$ and $D$ on $I$ commute (by definition of $D$).
   
   It follows from $I \neq 0$ that $D \neq 0$ and therefore that $\Phi \neq 0$.
-  The kernel $\ker(\Phi)$ is a therefore a proper two-sided ideal of $R$, and must be trivial by the simplicity of $R$.
+  The kernel $\ker(\Phi)$ is therefore a proper two-sided ideal of $R$, and must be trivial by the simplicity of $R$.
   This shows that $\Phi$ is injective.
   
   The key observation behind the surjectivity of $\Phi$ is that $\Phi(I)$ is a left-ideal in $\End_D(I)$:
@@ -194,7 +205,7 @@
     \subseteq \Phi(I) \Phi(R)
     =         \Phi(R) \,.
   \]
-  Because the left ideal $\Phi(R)$ contains the identity $1_{\End_D(I)} = \Phi(1)$ it follows that $\Phi(R) = \End_D(I)$, showing the surjecitvity of $R$.
+  Because the left ideal $\Phi(R)$ contains $1 = \Phi(1)$ it follows that $\Phi(R) = \End_D(I)$, showing the surjecitvity of $R$.
 \end{proof}
 
 
@@ -206,7 +217,7 @@
     \item[\ref*{enumerate: simple and minimal left ideal} $\implies$ \ref*{enumerate: matrix algebra over skew field}]
       It follows from Lemma~\ref{lemma: rieffels theorem} that $R \cong \End_D(I)$ for $D \defined \End_R(I)$.
       It follows from $I$ being simple as an $R$-module that $D$ is a skew field.
-      If $I$ were not finite-dimensional as a $D$-vector space then it would follows as in Example~\ref{example: simple but not semisimple endorphism ring} that
+      If $I$ were not finite-dimensional as a $D$-vector space then it would follow as in Example~\ref{example: simple but not semisimple endorphism ring} that
       \[
         \{
           f \in \End_D(I)
@@ -215,7 +226,8 @@
         \}
       \]
       is a nonzero proper two-ideal in $\End_D(I)$, which would contradict $R$ being simple.
-      We thus find that $I$ is finite-dimensional as a $D$-vector space of dimension $n \defined \dim_D(I)$.
+      We thus find that $I$ is finite-dimensional as a $D$-vector space.
+      Let $n \defined \dim_D(I)$.
       By linear algebra we find that $I \cong D^n$ as $D$-vector spaces;
       contrary to our usual convention we will regard $D^n$ as the space of \emph{row} vectors of width $n$.
       It then follows from linear algebra that every $D$-endomorphism $f \colon D^n \to D^n$ is given by right multiplication with a matrix $A \in \Mat_n(D)$, resulting in an isomorphism of rings $\End_D(D^n) \cong \Mat_n(D)^\op$.
@@ -248,7 +260,7 @@
   \]
   where $E_1, \dotsc, E_n$ is a set of representatives for the isomorphism classes of simple $R$-modules.
   This is a decomposition into two-sided ideals, and therefore a decomposition of $R$ into a direct products of rings $R_{E_1}, \dotsc, R_{E_n}$.
-  Then each factor $R_{E_i}$ is a ring which is both simple and semisimple.
+  Each factor $R_{E_i}$ is then a ring which is both simple and semisimple.
   By \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem} each factor $R_{E_i}$ isomorphic to a matrix ring $R_{E_i} \cong \Mat_{n_i}(D_i)$ where $n_i$ is the multiplicity of $E_i$ in $R_{E_i}$, which is the same as the multiplicity of $E_i$ in $R$, and $D_i = \End_{R_{E_i}}(E_i)^\op = \End_R(E_i)^\op$ is a skew field.
   
   We can also give an alternative proof of the uniqueness of the Artin--Wedderburn decomposition (up to isomorphism):
@@ -268,14 +280,14 @@
   \[
     K = K_1 \oplus \dotsb \oplus K_n
   \]
-  for unique two-sided ideals $K_i \idealleq I_i$;
-  the component $K_i$ can equivalently be described as $K_i = K \cap I_i$.
+  for unique two-sided ideals $K_i \idealleq I_i$, and the component $K_i$ can be described as $K_i = K \cap I_i$.
   We thus find for all $j = 1, \dotsc, m$ that
   \[
     J_j = (J_j \cap I_1) \oplus \dotsb \oplus (J_j \cap I_n) \,.
   \]
   The intersections $J_j \cap I_i$ are again two-sided ideals.
   It therefore follows from the minimality of $J_j$ that there exists a unique index $1 \leq \tau(j) \leq n$ with $J_j = J_j \cap I_{\tau(j)}$, which can be rephrased as $J_j \subseteq I_{\tau(j)}$.
+  (For $k = 1, \dotsc, n$ with $k \neq j$ we have that $J_j \cap I_k = 0$.)
   
   We find in the same way that there exists for every $i = 1, \dotsc, n$ some $1 \leq \sigma(i) \leq m$ with $I_i \subseteq J_{\sigma(i)}$.
   It follows for every $i = 1, \dotsc, n$ that
@@ -300,8 +312,8 @@
     = R J_j
     = \bigoplus_{i=1}^n I_i J_j    
   \]
-  with $I_i J_j$ being two-sided ideals which are contained in $J_j$.
-  It follows from the minimality of $J_j$ that there exists a unique index $\tau(j) \in \{1, \dotsc, n\}$  with $J_j = I_{\tau(i)} J_j$, and thus $J_j \subseteq I_{\tau(i)}$.
+  with the summands $I_i J_j$ being two-sided ideals which are contained in $J_j$.
+  It follows from the minimality of $J_j$ that there exists a unique index $1 \leq \tau(j) \leq n$  with $J_j = I_{\tau(i)} J_j$ and thus $J_j \subseteq I_{\tau(i)}$.
   We can now proceed as in the first proof.
 \end{proof}
 
@@ -312,7 +324,7 @@
   Then the factors $\Mat_{n_i}(D_i)$ corresponding precisely to the isotypical components of $R$, as can be seen in two ways:
   \begin{itemize}
     \item
-      The factors $\Mat_{n_i}(D_i)$ are the isotyipical components of $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$, and thus are mapped by every isomorphism $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \to R$ bijectively onto the isotypical components of $R$.
+      The factors $\Mat_{n_i}(D_i)$ are the isotypical components of $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ and are thus mapped by every isomorphism $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \to R$ bijectively onto the isotypical components of $R$.
     \item
       The product structure of $\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)$ correspondings to a decomposition $R = I_1 \oplus \dotsb \oplus I_r$ into two-sided ideals.
       The ideals $I_i$ are minimal nonzero two-sided ideals because the rings $\Mat_{n_i}(D_i)$ are simple.
@@ -324,7 +336,7 @@
 
 
 \begin{fluff}
-  Altogether we have shown that every semisimple ring $R$ has a unique decomposition into a product of simple rings, and that each factor is then isomorphic to matrix ring $\Mat_{n_i}(D_i)$ over a skew field $D_i$ by \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}, with $n_i$ being uniquely determined and $D_i$ being unique up to isomorphism.
+  Altogether we have shown that every semisimple ring $R$ has a unique decomposition into a product of simple rings, and that each factor is isomorphic to matrix ring $\Mat_{n_i}(D_i)$ over a skew field $D_i$ by \hyperref[theorem: wedderburns theorem]{Wedderburn’s theorem}, with $n_i$ being uniquely determined and $D_i$ being unique up to isomorphism.
 \end{fluff}
 
 

@@ -41,13 +41,11 @@
       \} \,.
   \]
   Then $I_{ij}$ is a two-sided ideal in $R$:
-  The projection $\pi_{ij} \colon \Mat_n(R) \to R$ onto the $ij$-th coefficient is a homomorphism of both left and right $R$-modules.
-  The two-sided ideal $J$ is both a left and right $R$-submodule of $\Mat_n(R)$.
-  Thus $\pi_{ij}(J)$ is both a left and right $R$-submodule of $R$, i.e.\ a two-sided ideal.
+  The projection $\pi_{ij} \colon \Mat_n(R) \to R$ onto the $ij$-th coefficient is a homomorphism of both left and right $R$-modules and the two-sided ideal $J$ is both a left and right $R$-submodule of $\Mat_n(R)$.
+  It follows that $\pi_{ij}(J)$ is both a left and right $R$-submodule of $R$, i.e.\ a two-sided ideal.
   
-  By multiplying a matrix $A \in J$ with an permutation matrices from the left and from the right we can move every coefficient of $A$ to every other position without leaving $J$.
-  It follows that $I_{ij}$ does not depend on the position $i,j$.
-  For the two-sided ideal $I \idealleq R$ with $I_{ij} = I$ for all $i, j = 1, \dotsc, n$ we then have have that $J = \Mat_n(I)$.
+  By multiplying a matrix $A \in J$ with permutation matrices from the left and from the right we can move every coefficient of $A$ to every other position without leaving $J$.
+  It follows that the ideal $I \defined I_{ij}$ does not depend on the position $i,j$, and we have have that $J = \Mat_n(I)$ by construction of $I$.
 \end{proof}
 
 
@@ -132,12 +130,9 @@
 % \end{proof}
 
 
-
-
-
-\begin{fluff}
-  Despite its name not every simple ring is semisimple:
-\end{fluff}
+\begin{warning}
+  Not every simple ring is semisimple, despite its name:
+\end{warning}
 
 
 \begin{example}
@@ -146,11 +141,12 @@
   The (first) Weyl algebra $\weyl = \weyl_1$ from subsection~\ref{subsection: first weyl algebra} is simple but not semisimple:
   
   To show that $\weyl$ is not semisimple it sufficies by Corollary~\ref{corollary: semisimple rings are notherian artinian} to observe that $\weyl$ is not artinian:
-  We have seen that $\weyl$ has basis given by $X^n \del^m$ with $n, m \geq 0$.
+  We have seen that $\weyl$ has a basis given by $X^n \del^m$ with $n, m \geq 0$.
   It then follows for every $i \geq 0$ that
   \[
       \weyl \del^i
-    = \gen{ X^n \del^{m+i} \suchthat n, m \geq 0 }_k \,,
+    = \gen{ X^n \del^{m+i} \suchthat n, m \geq 0 }_k
+    = \gen{ X^n \del^m \suchthat n \geq 0, m \geq i }_k  \,,
   \]
   which shows that
   \[
@@ -160,7 +156,7 @@
     \idealgneq  \weyl \del^2
     \idealgneq  \dotsb
   \]
-  is a strictly decreasing sequence of ideals of $\weyl$.
+  is a strictly decreasing sequence of left ideals of $\weyl$.
   
   To show that $\weyl$ is simple let $I \idealleq \weyl$ be a two-sided ideal and let $f \in I$ be non-zero.
   We can then write $f$ uniquely as
@@ -176,16 +172,18 @@
   \]
   for all $n \geq 0$.
   It follows that
-  \[
-      f X - X f
-    = \sum_{m \geq 0} m p_m \del^{m-1} \,.
-  \]
+  \begin{align*}
+        f X - X f
+    &=  \sum_{m \geq 0} \left( p_m \del^m X - X p_m \del^m \right)  \\
+    &=  \sum_{m \geq 0} \left( p_m X \del^m + m p_m \del^{m-1} - p_m X \del^m \right)
+     =  \sum_{m \geq 0} m p_m \del^{m-1} \,.
+  \end{align*}
   For the maximal index $m \geq 0$ with $p_m \neq 0$ it follows that $m! p_m \in I$ and therefore that
   \[
     p_m \in I \,.
   \]
   This shows that $I$ already contains a non-zero polynomial from $k[X] \subseteq \weyl$.
-  We have seen in subsection~\ref{subsection: first weyl algebra} that
+  We have seen in subsection~\ref{subsection: first weyl algebra} (namely Equation~\eqref{equation: motivation skew polynomial ring}) that the formula $\del X = X \del + 1$ generalizes to
   \[
     \del p = p \del + p'
   \]
@@ -196,19 +194,19 @@
     = p'
   \]
   for all $p \in k[X]$.
-  It follows for $d \defined \deg_X p_m$ that $p^{(d)} \in I$ is a non-zero constant polynomial (because $\ringchar(k) \neq 0$).
+  It follows for $d \defined \deg_X(p_m)$ that $p^{(d)} \in I$ is a non-zero constant polynomial (because $\ringchar(k) \neq 0$).
   This shows that $I$ contains a unit, which shows that $I = \weyl$.
 \end{example}
 
 
 \begin{remark}
-  We have given in Remark~\ref{remark: skew polynomial rings} a short overview how the Weyl algebra $\weyl$ can be understood as a skew polyonmial ring over $k[X]$ with respect to the $k$-derivation $\del \colon k[X] \to k[X]$.
+  We have given in Remark~\ref{remark: skew polynomial rings} a short overview how the Weyl algebra $\weyl$ can be understood as a skew polyonmial ring over the ground ring $k[X]$ with respect to the $k$-derivation $\del \colon k[X] \to k[X]$.
   
-  It can be shown more generally that for a field of characteristic $\ringchar(k) = 0$ and an $k$-algebra $A$ a skew polynomial ring $A[x;\delta]$ (with respect to a $k$-derivation $\delta \colon A \to A$) is simple if and only if $A$ is $\delta$-simple and $\delta$ is not an inner derivation;
-  proofs of this can be found in \cite[Theorem~3.15]{Lam1991First} and \cite[Proposition~2.1]{NoncommutativeNoetherian}.
-  If $\ringchar(k) = 0$ then it also holds for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ that the skew polynomial ring $A[x;\delta]$ is a nonartinian simple ring; a proof of this can be found in \cite[Corollary~3.16]{Lam1991First}.
+  It can be shown more generally that for a field of characteristic $\ringchar(k) = 0$ and a $k$-algebra $A$ a skew polynomial ring $A[y;\delta]$ (with respect to a $k$-derivation $\delta \colon A \to A$) is simple if and only if $A$ is \emph{$\delta$-simple} and $\delta$ is not an \emph{inner derivation};
+  proofs of this can be found in \cite[Theorem~3.15]{Lam1991First} and \cite[Proposition~2.1]{NoncommutativeNoetherian} (where definitions of the above terms can also be found).
+  If $\ringchar(k) = 0$ then it also holds for every simple $k$-algebra $A$ and every non-inner derivation $\delta \colon A \to A$ that the skew polynomial ring $A[y;\delta]$ is a nonartinian simple ring; a proof of this can be found in \cite[Corollary~3.16]{Lam1991First}.
   
-  In this way we can construct simple rings which are not semisimple.
+  This gives a recipe for constructing simple rings which are not semisimple.
 \end{remark}
 
 
@@ -245,7 +243,7 @@
   This shows that the two-sided ideal generated by $f$ is already $\End(V)$ itself.
   
   It follows from the maximality of $I$ that $\End(V)/I$ is simple.
-  We now show that $\End(V)/I$ is not noetherian, from which it follows from Corollary~\ref{corollary: semisimple rings are notherian artinian} that $\End(V)/I$ is not semisimple.
+  We now show that $\End(V)/I$ is not noetherian, from which it follows by Corollary~\ref{corollary: semisimple rings are notherian artinian} that $\End(V)/I$ is not semisimple.
   
   We choose a basis $(b_{i,j})_{i,j \geq 0}$ of $V$, and for every $n \geq 0$ we consider the left ideal of $\End(V)$ given by
   \[
@@ -263,13 +261,13 @@
   \end{claim}
   
   \begin{proof}
-    It sufficies to show that $J_{n+1} \idealnleq I + J_n$.
-    For this consider an element $f \in J_{n+1}$ with
+    It sufficies to show that $J_{n+1} \idealnleq I + J_n$:
+    Consider an element $f \in J_{n+1}$ with
     \[
       f(b_{n+1, j}) = b_{n+1,j}
     \]
     for all $j \geq 0$.
-    If $f \in I + J_n$ then there would exist some $g \in I$, $f' \in J_n$ with $f = g + f'$.
+    If $f \in I + J_n$ then there would exist $g \in I$, $f' \in J_n$ with $f = g + f'$.
     It then follows that
     \[
         b_{n+1,j}
@@ -294,8 +292,7 @@
     \ideallneq  I + J_2
     \ideallneq  \dotsb
   \]
-  is a strictly increasing sequence of ideals in $\End(V)$ which does not stabilize.
-  It then follows that
+  is a strictly increasing sequence of ideals in $\End(V)$ and it follows that
   \[
                 0
     =           (I + J_0)/I
@@ -303,7 +300,7 @@
     \ideallneq  (I + J_2)/I
     \ideallneq  \dotsb
   \]
-  is a strictly increasing sequence of ideals in $\End(V)/I$ which does not stabilize.
+  is a strictly increasing sequence of ideals in $\End(V)/I$.
   This shows that $\End(V)/I$ is not noetherian.
 \end{example}
 
@@ -315,9 +312,9 @@
 
 
 \begin{proof}
-  The isotypical component $R_E$ is a submodule of $R$, and therefore a left ideal.
+  The isotypical component $R_E$ is a submodule of $R$ and therefore a left ideal.
   For every $r \in R$ the map $R \to R$, $x \mapsto xr$ is a homomorphism of $R$-modules and therefore maps $R_E$ into $R_E$ by Lemma~\ref{lemma: functoriality of isotypical components}.
-  Therefore $R_E$ is also a right ideal.
+  This shows that $R_E$ is also a right ideal.
 \end{proof}
 
 
@@ -341,7 +338,7 @@
       \label{enumerate: matrix algebra over skew field}
       We have that $R \cong \Mat_n(D)$ for some $n \geq 1$ and skew field $D$.
   \end{enumerate}
-  The skew field $D$ is then uniquely determined up to isomorphism as $D \cong \End_R(I)^\op$, with $I$ as above being the unique simple $R$-module up to isomorphism.
+  The skew field $D$ is then up to isomorphism uniquely determined as $D \cong \End_R(I)^\op$, with $I$ as above being the unique simple $R$-module up to isomorphism.
   The number $n$ is uniquely determined as the multiplicity of $I$ in $R$.
 \end{theorem}
 

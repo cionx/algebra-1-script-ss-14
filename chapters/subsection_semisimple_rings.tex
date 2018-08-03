@@ -31,7 +31,7 @@
                     \text{$A$ has nonzero entries only in the $i$-th column}
                   \} \,,
       \]
-      and we have that $C_i \cong D^n$ for every $i = 1, \dotsc, n$.
+      and we have that $C_i \cong D^n$ as $\Mat_n(D)$-modules for every $i = 1, \dotsc, n$.
       
       Note that with respect to Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} this decomposition corresponds to the complete set of parwise orthogonal idempotents $E_{11}, \dotsc, E_{nn} \in \Mat_n(D)$.
       Indeed, we have for every $i = 1, \dotsc, n$ that $C_i = \Mat_n(D) E_{ii}$.
@@ -46,7 +46,7 @@
 
 
 \begin{proposition}
-  The $R$ is semisimple if and only if every $R$-module is semisimple.
+  The ring $R$ is semisimple if and only if every $R$-module is semisimple.
 \end{proposition}
 
 
@@ -58,7 +58,7 @@
 
 \begin{lemma}
   \label{lemma: simple module of semisimple ring is direct summand}
-  Let $R$ be semisimple with $R = \bigoplus_{i \in I} L_i$ for simple submodules then $L_i \moduleleq R$.
+  Let $R$ be semisimple with $R = \bigoplus_{i \in I} L_i$ for simple submodules $L_i \moduleleq R$.
   Then every simple $R$-module is isomorphic to some $L_i$.
 \end{lemma}
 
@@ -80,26 +80,26 @@
 
 \begin{lemma}
   \label{lemma: ring is already finite sum of submodules}
-  Let $R$ be semisimple with $R = \sum_{i \in I} M_i$ for submodules $M_i \moduleleq R$.
-  Then $R = \sum_{j \in J} M_j$ for some finite subset $J \subseteq I$.
+  Let $R$ be semisimple with $R = \sum_{i \in I} L_i$ for submodules $L_i \moduleleq R$.
+  Then $R = \sum_{j \in J} L_j$ for some finite subset $J \subseteq I$.
 \end{lemma}
 
 
 \begin{proof}
-  We can decompose $1 \in R$ as $1 = \sum_{i \in I} e_i$ with $e_i \in M_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$.
+  We can decompose $1 \in R$ as $1 = \sum_{i \in I} e_i$ with $e_i \in L_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$.
   For
   \[
               J
     \defined  \{ i \in I \suchthat e_i \neq 0 \} \,.
   \]
-  the sum $\sum_{j \in J} M_i$ is a submodule of $R$, i.e.\ an ideal in $R$, which therefore contains $1$.
-  Thus $\sum_{j \in J} M_i = R$.
+  the sum $\sum_{j \in J} L_j$ is a submodule of $R$, i.e.\ an ideal in $R$, which therefore contains $1$.
+  It follows that $\sum_{j \in J} L_j = R$.
 \end{proof}
 
 
 \begin{corollary}
   \label{corollary: semisimple ring is already a finite sum}
-  If $R$ is semisimple then $R$ is a finite direct of simple submodules.
+  If $R$ is semisimple then $R$ is a finite direct sum of simple submodules.
 \end{corollary}
 
 
@@ -148,7 +148,7 @@
 \begin{example}
   \label{example: infinite matrix ring not semisimple}
   Let $R$ be a nonzero ring.
-  For an infinite set $I$ the ring $\Mat_I^{\cf}(R)$ of column finite $(I \times I)$-matrices is not semisimple:
+  If $I$ is an infinite ring then the ring $\Mat_I^{\cf}(R)$ of column finite $(I \times I)$-matrices is not semisimple:
   There exist a stricty increasing sequence of subsets
   \[
                 I_0
@@ -167,7 +167,7 @@
               \}
   \]
   is a left ideal of $\Mat_I^{\cf}(R)$.
-  The stricty decreasing sequence
+  The existence of the stricty decreasing sequence of left ideals
   \[
                 J_0
     \supsetneq  J_1
@@ -185,10 +185,10 @@
 
 
 \begin{fluff}
-  We start by taking a closer look at matrix rings over skew fields, and how products of those kind of rings behave.
-  For this we will need some understanding of how modules over a products of rings $R_1 \times \dotsb \times R_n$ look like.
+  We start by taking a closer look at matrix rings over skew fields and how products of those kind of rings behave.
+  For this we will need some understanding of how modules over a product  $R_1 \times \dotsb \times R_n$ of rings $R_1, \dotsc, R_n$ look like.
   An explanation of this can be found in appendix~\ref{appendix: modules over products of rings}.
-  We will also use some of the notation introduced in this appendix.
+  We will also use some of the notation introduced there.
 \end{fluff}
 
 
@@ -214,7 +214,7 @@
       is a well-defined bijection.
     \item
       \label{enumerate: when boxplus is semisimple}
-      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is semisimple if and only if $M_i$ is semisimple as an $R_i$-module for $i = 1, 2$.
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is semisimple if and only if $M_i$ is semisimple as an $R_i$-module for both $i = 1, 2$.
     \item
       The ring $R_1 \times R_2$ is semisimple if and only if both $R_1$ and $R_2$ are semisimple.
   \end{enumerate}
@@ -238,16 +238,16 @@
         |\mc{S}| = |\mc{S}_1| \cdot |\mc{S}_2| \,.
       \]
       The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if $|\mc{S}| = 2$.
-      This is the case if and only if either ($|\mc{S}_1| = 2$ and $|\mc{S}_2| = 1$) or ($|\mc{S}_1| = 1$ and $|\mc{S}_2| = 2$), which is equivalent to ($M_1$ simple, $M_2 = 0$), resp.\ ($M_1 = 0$ and $M_2$ simple).
+      This is the case if and only if either ($|\mc{S}_1| = 2$ and $|\mc{S}_2| = 1$) or ($|\mc{S}_1| = 1$ and $|\mc{S}_2| = 2$), which is equivalent to ($M_1$ simple and $M_2 = 0$), resp.\ ($M_1 = 0$ and $M_2$ simple).
     \item
       This follows by restricting the bijection from Corollary~\ref{corollary: isomorphism classes of modules over products} according to part~\ref*{enumerate: when boxplus is simple}.
         \item
-      This can be seen in two ways:
+      This can be seen in (at least) two ways:
       
       \begin{itemize}
         \item
           Every submodule $N \moduleleq M_1 \boxplus M_2$ is of the form $N = N_1 \boxplus N_2$ for unique $R_i$-submodules $N_i \moduleleq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
-          It thus follows from Corollary~\ref{corollary: direct summands for modules over products} that every submodule of $M_1 \boxplus M_2$ has a direct complement if and only if every submodules of $M_i$ has a direct complement for both $i = 1, 2$.
+          It thus follows from Corollary~\ref{corollary: direct summands for modules over products} that every submodule of $M_1 \boxplus M_2$ is a direct summand if and only if for both $i = 1, 2$ every submodules of $M_i$ is a direct summand.
         \item
           Suppose that $M_1, M_2$ are semisimple.
           Then $M_i = \bigoplus_{j \in J_i} L^j_1$ for simple submodules $L^j_i \moduleleq M_i$.
@@ -275,7 +275,7 @@
             = \{ j \in J \suchthat L^j_1 = 0 \}
           \]
           and that $L^j_i$ is simple for every $j \in L_i$.
-          It follows that
+          It thus follows that
           \begingroup
           \allowdisplaybreaks
           \begin{align*}
@@ -304,7 +304,7 @@
                 \left( \bigoplus_{j \in J_2} L^j_2 \right)
           \end{align*}
           \endgroup
-          and therefore that $M_i = \bigoplus_{j \in J_i} L^j_i$ is a direct sum of simple modules.
+          and therefore that $M_i = \bigoplus_{j \in J_i} L^j_i$ is a direct sum of simple modules for both $i = 1,2$.
       \end{itemize}
     \item
       We have that $R_1 \times R_2 = R_1 \boxplus R_2$ as $(R_1 \times R_2)$-modules.
@@ -341,7 +341,7 @@
 
 \begin{lemma}
   \label{lemma: matrix vector space correspondence for skew fields}
-  Let $D$ be a skew-field and $n \geq 1$.
+  Let $D$ be a skew-field and let $n \geq 1$.
   Then the map
   \[
             \Phi 
@@ -400,7 +400,7 @@
     = e_1 d
   \]
   for some $d \in D$.
-  For every other $x \in D^n$ there exists some $A \in \Mat_n(D)$ with $Ae_1 = x$ (take $x$ as the first column of $A$) and it follows that
+  For every $x \in D^n$ there exists some $A \in \Mat_n(D)$ with $Ae_1 = x$ (take $x$ as the first column of $A$) and it follows that
   \[
       f(x)
     = f(A e_1)
@@ -414,12 +414,21 @@
 
 \begin{remark}
   \label{remark: infinite matrix vector space correspondence for skew fields}
-  It follows more generally for every nonempty index set $I$ in the same way that $\End_{\Mat_I^{\cf}(D)}( D^{\oplus I} ) \cong D^\op$ where we identify $D^{\oplus I}$ with the space of (column finite) column vectors $\Mat^{\cf}(I \times 1, D)$ and the action of $\Mat_I^{\cf}(D)$ on $D^{\oplus I} = \Mat^{\cf}(I \times 1, D)$ is given by matrix-vector multiplication.
+  It follows more generally for every nonempty index set $I$ in the same way as above that
+  \[
+          \End_{\Mat_I^{\cf}(D)}( D^{\oplus I} )
+    \cong D^\op
+  \]
+  where we identify $D^{\oplus I}$ with the space of (column finite) column vectors $\Mat^{\cf}(I \times 1, D)$ and the action of $\Mat_I^{\cf}(D)$ on $D^{\oplus I} = \Mat^{\cf}(I \times 1, D)$ is given by matrix-vector multiplication.
   
   One can also identify $D^{\oplus I}$ with the space of (row finite) row vectors $\Mat^{\rf}(1 \times I, D)$, which we denote by $(D^{\oplus I})^T$.
   Then $(D^{\oplus I})^T$ is a right $\Mat_I^{\rf}(D)$-module via vector-matrix multiplication.
-  It can be shown as above that the endomorphism ring of this right module structure is given by $D$, where $D$ acts on $(D^{\oplus I})^T$ by left multiplication.
-  Since we are working mostly with left module structures we can replace this right $\Mat_I^{\rf}(D)$-module structure by the corresponding left $\Mat_I^{\rf}(D)^\op$-module structure and get that $\Hom_{\Mat_I^{\rf}(D)^\op}\left( (D^{\oplus I})^T \right) \cong D$.
+  It can be shown in the same way as above that the endomorphism ring of this right module structure is given by $D$, with $D$ acting on $(D^{\oplus I})^T$ by left multiplication.
+  Since we are working mostly with left module structures we can replace this right $\Mat_I^{\rf}(D)$-module structure by the corresponding left $\Mat_I^{\rf}(D)^\op$-module structure and find that
+  \[
+          \End_{\Mat_I^{\rf}(D)^\op}\left( (D^{\oplus I})^T \right)
+    \cong D \,.
+  \]
 \end{remark}
 
 
@@ -432,10 +441,15 @@
 \begin{proof}
   We have that
   \begin{align*}
-            \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(S_i)
-    &\cong  0 \times \dotsb \times 0 \times \End_{\Mat_{n_i}(D_i)}(D^{n_i}) \times 0 \times \dotsb \times 0 \\
-    &\cong  \End_{\Mat_{n_i}(D_i)}(D^{n_i})
-     \cong  D_i^\op
+         &\,  \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(S_i)  \\
+    \cong&\,  \End_{\Mat_{n_1}(D_1)}(0)
+              \times \dotsb \times
+              \End_{\Mat_{n_i}(D_i)}(D^{n_i}) 
+              \times \dotsb \times
+              \End_{\Mat_{n_r}(D_r)}(0) \\
+        =&\,  0 \times \dotsb \times 0 \times \End_{\Mat_{n_i}(D_i)}(D^{n_i}) \times 0 \times \dotsb \times 0 \\
+    \cong&\,  \End_{\Mat_{n_i}(D_i)}(D^{n_i}) \\
+    \cong&\,  D_i^\op
   \end{align*}
   by Corollary~\ref{label: endomorphism ring of boxsum}.
 \end{proof}
@@ -444,8 +458,8 @@
 
 \begin{notation}
   \label{notation: simple modules over products of matrix rings}
-  By abuse of notation we will often denote the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple} instead by $D_1^{n_1}, \dotsc, D_r^{n_r}$.
-  Note that we then have that
+  By abuse of notation we will often denote the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple} by $D_1^{n_1}, \dotsc, D_r^{n_r}$.
+  We then have that
   \[
           \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(D_i^{n_i})
     \cong D_i^\op
@@ -467,16 +481,11 @@
   Let $R$ be semisimple.
   \begin{enumerate}
     \item
-      If
-      \[
-              R
-        \cong E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}
-      \]
-      for some $r \geq 0$, pairwise non-isomorphic simple $R$-modules $E_1, \dotsc, E_r$ and suitable $n_1, \dotsc, n_r \geq 1$, then
+      If $R \cong E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}$ for some $r \geq 0$, pairwise non-isomorphic simple $R$-modules $E_1, \dotsc, E_r$ and $n_1, \dotsc, n_r \geq 1$, then
       \begin{align*}
-                R
-        &\cong  \End_R(E_1^{\oplus n_1}) \times \dotsb \times \End_R(E_r^{\oplus n_r})  \\
-        &\cong  \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+              R
+        \cong \End_R(E_1^{\oplus n_1}) \times \dotsb \times \End_R(E_r^{\oplus n_r})
+        \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
       \end{align*}
       as rings with $D_i = \End(E_i)^\op$ for every $i = 1, \dotsc, r$.
       If $R$ is a $k$-algebra then this is an isomorphism of $k$-algebras.
@@ -535,8 +544,8 @@
         \cong {D'_1}^{\oplus m_1} \oplus \dotsb \oplus {D'_1}^{\oplus m_1}
       \]
       into simple submodules coincide up to permutation and isomorphism:
-      We have that $r = s$ and there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ for every $i = 1, \dotsc, r$ and $D'_{\pi(i)} \cong E_i$ for every $i = 1, \dotsc, r$.
-      By again using Corollary~\ref{corollary: artin wedderburn rings are semisimple} we find that
+      We have that $r = s$ and there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ for every $i = 1, \dotsc, r$ and $D'_{\pi(i)} \cong E_i$ as $R$-modules for every $i = 1, \dotsc, r$.
+      We also find that
       \[
               D_i
         =     \End_R(E_i)^\op
@@ -564,26 +573,25 @@
 
 
 \begin{proof}
-  By the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have an isomorphism of rings
+  By the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have that
   \[
           R
     \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
   \]
-  for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
-  It then follows that
+  as rings for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  It follows that
   \begin{align*}
             R^\op
     &\cong  \left( \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \right)^\op \\
     &=      \Mat_{n_1}(D_1)^\op \times \dotsm \times \Mat_{n_r}(D_r)^\op \\
     &=      \Mat_{n_1}\left( D_1^\op \right) \times \dotsm \times \Mat_{n_r}\left( D_r^\op \right).
   \end{align*}
-  The rings $D_i^\op$ are skew fields because the $D_i$ are skew fields.
-  It follows from Corollary~\ref{corollary: artin wedderburn rings are semisimple} that $R^\op$ is semisimple.
+  The rings $D_i^\op$ are skew fields because the $D_i$ are skew fields, so it follows from Corollary~\ref{corollary: artin wedderburn rings are semisimple} that $R^\op$ is semisimple.
 \end{proof}
 
 
 \begin{definition}
-  An $R$-module $M$ is \emph{faithful} if for every $r_1, r_2 \in R$ with $r_1 \neq r_2$ there exists some $m \in M$ with $r m_1 \neq r m_2$.
+  An $R$-module $M$ is \emph{faithful} if for all $r_1, r_2 \in R$ with $r_1 \neq r_2$ there exists some $m \in M$ with $r_1 m \neq r_2 m$.
 \end{definition}
 
 
@@ -609,7 +617,7 @@
 
 \begin{corollary}
   \label{corollary: faithful over ss contains ever simple}
-  If $R$ is semisimple and $M$ a faithful $R$-module then the isotypical components of $M$ are all nonzero, i.e.\ $M$ contains every simple $R$-module up to isomorphism.
+  If $R$ is semisimple and $M$ is a faithful $R$-module then the isotypical components of $M$ are all nonzero, i.e.\ $M$ contains every simple $R$-module up to isomorphism.
 \end{corollary}
 
 
@@ -618,12 +626,12 @@
   \[
     R = M_{n_1}(D_1) \times \dotsb \times M_{n_r}(D_r)
   \]
-  for $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew field $D_1, \dotsc, D_r$.
-  Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ form a complete set of representatives of $\Irr(R)$.
+  for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew field $D_1, \dotsc, D_r$.
+  Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ form a set of representatives for the isomorphism classes of simple $R$-modules.
   For every $i = 1, \dotsc, r$ let $M_i$ be the $D_i^{n_i}$-isotypical component of $M$.
   
-  The module $M$ is semisimple because $R$ is semisimpe, so there exists a decomposition into isotypical components $M = \bigoplus_{i=1}^r M_i$.
-  If $M_i = 0$ for some $1 \leq i \leq r$ then every element $A \in \Mat_{n_i}(D_i) \subseteq R$ would act by multiplication with zero on $M$, which would contradicts the faithfulness of $M$.
+  The module $M$ is semisimple because $R$ is semisimple, so there exists a decomposition into isotypical components $M = \bigoplus_{i=1}^r M_i$.
+  If $M_i = 0$ for some $i$ then every element $A \in \Mat_{n_i}(D_i) \subseteq R$ would act by multiplication with zero on $M$, which would contradicts the faithfulness of $M$.
   The isotypical components $M_i$ are therefore all nonzero.
 \end{proof}
 
