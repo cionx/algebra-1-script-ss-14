@@ -14,7 +14,7 @@
 
 
 \begin{fluff}
-  While every semisimple $R$-module $M$ can be decomposed into a direct sum of simple $R$-modules, this decomposition is generally not unique as seen in Example~\ref{example: semisimple modules}, part~\ref*{enumerate: vector spaces are semisimple}.
+  While every semisimple $R$-module $M$ can be decomposed into a direct sum of simple $R$-modules, this decomposition is generally not unique as seen in part~\ref*{enumerate: vector spaces are semisimple} of Example~\ref{example: semisimple modules}.
   We will now show that every semisimple module has a canonical decomposition into isotypical components.
 \end{fluff}
 
@@ -23,7 +23,7 @@
   The \emph{$E$-isotypical component} of $M$ is
   \[
               M_E
-    \defined  \sum_{L \moduleleq M, L \cong E} L \,.
+    \defined  \sum_{\subalign{L &\moduleleq M \\ L &\cong E}} L \,.
   \]
   The module $M$ is \emph{$E$-isotypical} if $M = M_E$.
 \end{definition}
@@ -38,11 +38,11 @@
   We have that
   \[
       (M_E)_E
-    = \sum_{L \moduleleq M_E, L \cong E} L
-    = \sum_{L \moduleleq M, L \cong E} L
+    = \sum_{\substack{L \moduleleq M_E \\ L \cong E}} L
+    = \sum_{\subalign{L &\moduleleq M \\ L &\cong E}} L
     = M_E
   \]
-  because every submodule $L \moduleleq M$ isomorphic to $E$ is already contained in $M_E$.
+  because every submodule $L \moduleleq M$ which is isomorphic to $E$ is contained in $M_E$.
 \end{proof}
 
 
@@ -60,20 +60,20 @@
 
 \begin{lemma}
   \label{lemma: intersection of semisimple sums}
-  Let $N, N' \moduleleq M$ be semisimple submodules with $N = \sum_{i \in I} L_i$, $N' = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleleq N$, $L'_j \moduleleq N'$.
-  If $N \cap N' \neq 0$ then $L_i \cong L'_j$ for some $i, j$.
+  Let $N, N' \moduleleq M$ be semisimple submodules with $N = \sum_{i \in I} L_i$ and $N' = \sum_{j \in J} L'_j$ for simple submodules $L_i, L'_j \moduleleq M$.
+  If $N \cap N' \neq 0$ then $L_i \cong L'_j$ for some $i \in I$, $j \in J$.
 \end{lemma}
 
 
 \begin{proof}
-  The module $N \cap N'$ is again semisimple because it is a submodule of $N, N'$.
+  The module $N \cap N'$ is again semisimple because it is a submodule of the semisimple modules $N, N'$.
   It follows from $N \cap N' \neq 0$ that $N \cap N'$ contains a simple module $L$.
-  By applying Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusions $L \inclusion N$ and $L \inclusion N'$ it follows that $L \cong L_i$ and $L \cong L'_j$ for some $i, j$.
+  By applying Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusions $L \inclusion N$ and $L \inclusion N'$ it follows that $L \cong L_i$ and $L \cong L'_j$ for some $i \in I$, $j \in J$.
 \end{proof}
 
 
 \begin{definition}
-  The set of isomorphism classes of simple $R$-modules is $\Irr(R)$.
+  The set $\Irr(R)$ is the set of isomorphism classes of simple $R$-modules.
 \end{definition}
 
 
@@ -97,7 +97,7 @@
   and if $M = \sum_{i \in I} L_i$ for simple submodules $L_i \moduleleq M$ then
   \[
       M_E
-    = \sum_{i \in I, L_i \cong E} L_i
+    = \sum_{\substack{i \in I \\ L_i \cong E}} L_i
   \]
   for every $[E] \in \Irr(R)$.
 \end{theorem}
@@ -108,13 +108,19 @@
   \[
               M
     =         \sum_{i \in I} L_i
-    =         \sum_{[E] \in \Irr(R)} \sum_{i \in I, L_i \cong E} L_i
+    =         \sum_{[E] \in \Irr(R)}
+              \underbrace{
+                \sum_{\substack{i \in I \\ L_i \cong E}} L_i
+              }_{\moduleleq M_E}
     \moduleleq \sum_{[E] \in \Irr(R)} M_E \,.
   \]
-  with $\sum_{i \in I, L_i \cong E} L_i \moduleleq M_E$ for every $E \in \Irr(R)$.
   It thus sufficies to show that the sum $M  = \sum_{[E] \in \Irr(R)} M_E$ is direct, i.e. that
   \[
-          M_E \cap \left( \sum_{[F] \in \Irr(R), [F] \neq [E]} M_F \right)
+          M_E
+          \cap 
+          \left(
+            \sum_{\substack{[F] \in \Irr(R) \\ [F] \neq [E]}} M_F
+          \right)
     \neq  0
   \]
   for every $[E] \in \Irr(R)$.
@@ -148,7 +154,7 @@
 
 
 \begin{corollary}
-  If $M$ is $E$-isotypical then every submodule $N \moduleleq M$ is again $E$-isotypical.
+  If $M$ is $E$-isotypical then every submodule $N \moduleleq M$ is $E$-isotypical.
 \end{corollary}
 
 
@@ -158,13 +164,17 @@
 
 
 \begin{lemma}
-  If $M$ is semisimple and $M = \bigoplus_{i \in I} L_i$ a decomposition into simple submodules $L_i \moduleleq M$, then for every simple submodule $E \moduleleq M$ there then exists some $i \in I$ with $E \cong L_i$.
+  If $M$ is semisimple and $M = \bigoplus_{i \in I} L_i$ is a decomposition into simple submodules $L_i \moduleleq M$ then for every simple submodule $E \moduleleq M$ there then exists some $i \in I$ with $E \cong L_i$.
 \end{lemma}
 
 
-\begin{proof}
+\begin{proof}[First proof]
   This follows from $0 \neq E \moduleleq M_E \moduleleq \bigoplus_{i \in I, L_i \cong E} L_i$.
-  Alternatively, apply Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusion $E \hookrightarrow M = \sum_{i \in I} L_i$.
+\end{proof}
+
+
+\begin{proof}[Second proof]
+  Apply Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules} to the inclusion $E \inclusion M = \sum_{i \in I} L_i$.  
 \end{proof}
 
 
@@ -175,14 +185,17 @@
 
 
 \begin{proof}
-  For every simple submodule $L \moduleleq M$ the restriction $\restrict{f}{L}$ is either zero or injective, so that either $f(L) = 0$ or $f(L) \cong L$.
+  For every simple submodule $L \moduleleq M$ the restriction $\restrict{f}{L}$ is either zero or injective, and it follows that either $f(L) = 0$ or $f(L) \cong L$.
   It follows that
   \[
-              f(M_E)
-    \moduleleq f\left(\sum_{L \moduleleq M, L \cong E} L \right)
-    =         \sum_{L \moduleleq M, L \cong E} f(L)
-    \moduleleq \sum_{L' \moduleleq N, L' \cong E} L'
-    =         N_E \,,
+                f(M_E)
+    \moduleleq  f
+                \left(
+                  \sum_{\subalign{L &\moduleleq M \\ L &\cong E}} L
+                \right)
+    =           \sum_{\subalign{L &\moduleleq M \\ L &\cong E}} f(L)
+    \moduleleq  \sum_{\subalign{L' &\moduleleq N \\ L' &\cong E}} L'
+    =           N_E \,,
   \]
   which proves the claim.
 \end{proof}
@@ -206,7 +219,7 @@
 
 
 \begin{proof}
-  This follows from Lemma~\ref{lemma: functoriality of isotypical components} that every endomorphism $f \colon M \to M$ restrict for every $E \in \Irr(R)$ to an endomorphism $f_E \colon M_E \to M_E$.
+  It follows from Lemma~\ref{lemma: functoriality of isotypical components} that every endomorphism $f \colon M \to M$ restrict for every $E \in \Irr(R)$ to an endomorphism $f_E \colon M_E \to M_E$.
   The statement therefore follows from Corollary~\ref{corollary: decomposition of endomorphism ring into product}.
 \end{proof}
 
@@ -218,7 +231,7 @@
 
 
 \begin{fluff}
-  We know from linear algebra that for a $k$-vector space $V$ with $V \cong k^{\oplus I}$ the cardinality $|I|$ is unique.
+  We know from linear algebra that for a $k$-vector space $V$ with $V \cong k^{\oplus I}$ the cardinality $|I|$ (i.e.\ the dimension of $V$) is unique.
   We will now show how this generalizes to semisimple modules.
 \end{fluff}
 
@@ -232,7 +245,7 @@
     = L'_1 \oplus \dotsb \oplus L'_{n'}
   \]
   be two decompositions into finitely many simple submodules $L_i, L'_j \moduleleq M$.
-  Then this decomposition is unique up to permutation of isomorphism, i.e.\ it follows that $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ with $L'_{\pi(i)} \cong L_i$ for every $i = 1, \dotsc, n$.
+  Then this decomposition is unique up to permutation and isomorphism, i.e.\ it follows that $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ with $L'_{\pi(i)} \cong L_i$ for every $i = 1, \dotsc, n$.
 \end{lemma}
 
 
@@ -265,23 +278,25 @@
   Suppose that
   \[
           M
-    \cong E_1^{n_1} \oplus \dotsb \oplus E_r^{n_r}
-    \cong E_1^{n'_r} \oplus \dotsb \oplus E_r^{n'_r}
+    \cong E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}
+    \cong E_1^{\oplus n'_r} \oplus \dotsb \oplus E_r^{\oplus m_r}
   \]
-  for simple, pairwise non-isomorphic $R$-modules $E_1, \dotsc, E_r$ and $n_i, n'_i \geq 0$ for every $i = 1, \dotsc, r$.
-  We need to show that $n_i = n'_i$ for every $i = 1, \dotsc, r$.
+  for simple, pairwise non-isomorphic $R$-modules $E_1, \dotsc, E_r$ and $n_i, m_i \geq 0$ for every $i = 1, \dotsc, r$.
+  We need to show that $n_i = m_i$ for every $i = 1, \dotsc, r$.
   
-  For every $i = 1, \dotsc, r$ we have that $M_{E_i} \cong E_i^{n_i} \cong E_i^{n'_i}$ by Theorem~\ref{theorem: isotypical decomposition}.
-  It therefore sufficies to show that for every simple $R$-module $E$ and all $n, n' \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus n'}$ that $n = n'$.
+  For every $i = 1, \dotsc, r$ we have that $M_{E_i} \cong E_i^{\oplus n_i}$ and $M_{E_i} \cong E_i^{\oplus m_i}$ by Theorem~\ref{theorem: isotypical decomposition}.
+  It therefore sufficies to show that for every simple $R$-module $E$ and all $n, m \geq 0$ it follows from $E^{\oplus n} \cong E^{\oplus m}$ that $n = m$.
   
-  Let $f \colon E^{\oplus n} \to E^{\oplus n'}$ be an isomorphism of $R$-modules.
-  Then for $D \defined \End_R(M)$ we may represent $f$ as a matrix $A \in \Mat(n' \times n, D)$ and $f^{-1} \colon E^{\oplus n'} \to E^{\oplus n}$ as a matrix $B \in \Mat(n \times n', D)$ (see Appendix~\ref{appendix: homomorphisms between direct sums} for a more detailed explanation on this).
-  It then follows from $f \circ f^{-1} = \id_{E^{\oplus n'}}$ and $f^{-1} \circ f = \id_{E^{\oplus n}}$ that $AB = I_n$ and $BA = I_m$.
+  Let $f \colon E^{\oplus n} \to E^{\oplus m}$ be an isomorphism of $R$-modules.
+  Then for $D \defined \End_R(M)$ we may represent $f$ as a matrix $A \in \Mat(m \times n, D)$ and $f^{-1} \colon E^{\oplus m} \to E^{\oplus n}$ as a matrix $B \in \Mat(n \times m, D)$ (see Appendix~\ref{appendix: homomorphisms between direct sums} for a more detailed explanation on this).
+  It then follows from $f \circ f^{-1} = \id_{E^{\oplus m}}$ and $f^{-1} \circ f = \id_{E^{\oplus n}}$ that $AB = I_n$ and $BA = I_m$.
   
   The matrix is $A$ is therefore invertible with $A^{-1} = B$.
-  It follows that $A$ defines an isomorphism of right $D$-vector spaces $D^n \to D^{n'}$ by left multiplication.
-  It follows that $n = n'$ because the dimension of a vector space over a skew field is well-defined.
+  It follows that $A$ defines an isomorphism of right $D$-vector spaces $D^n \to D^{m}$ by left multiplication, from which it then further follows that $n = m$
 \end{proof}
+
+
+% TODO: How do E^n and D^n relate to each other?
 
 
 % \begin{proof}[Alternative proof]
@@ -326,8 +341,8 @@
   We know from Theorem~\ref{theorem: isotypical decomposition} that
   \[
       M_E
-    = \bigoplus_{i \in I, L_i \cong E} L_i
-    = \bigoplus_{j \in J, L_j \cong E} L_j \,.
+    = \bigoplus_{\substack{i \in I \\ L_i \cong E}} L_i
+    = \bigoplus_{\substack{j \in J \\ L_j \cong E}} L_j \,.
   \]
   We may therefore replace $M$ by $M_E$ and thus assume that $M$ is $E$-isotypical.
   We then have that $L_i, L'_j \cong E$ for all $i, j$, and we need to show that $\card{I} = \card{J}$.
@@ -350,13 +365,13 @@
       If $I$ and $J$ are both finite then the theorem follows from Lemma~\ref{lemma: multiplicities for finite length}.
     \item
       If $J$ is finite then by the above claim that there exists a finite subset $I' \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I} L_i$ for every $j \in J$.
-      It then follows that $M = \bigoplus_{i \in I} L_i$ and therefore that $I = I'$ is already finite.
-      The theorem then follows from the first case.
+      It then follows that $M = \bigoplus_{i \in I'} L_i$ and therefore that $I = I'$.
+      Then both $I, J$ are finite and the theorem follows from the first case.
     \item
-      If $I$ is finite then we find in the same way as above that $J$ is finite and the theorem follows from the first case.
+      If $I$ is finite then we find in the same way as above that $J$ is finite and that the theorem follows from the first case.
     \item
       Suppose now that both $I$ and $J$ are infine.
-      It follows from the above claim that there exists for every $j \in J$ some finite subset $I_j \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I} L_i$.
+      It follows from the above claim that there exists for every $j \in J$ some finite subset $I_j \subseteq I$ with $L'_j \moduleleq \bigoplus_{i \in I_j} L_i$.
       For $I' \defined \bigcup_{j \in J} I_j$ we then have that $L'_j \moduleleq \bigoplus_{i \in I'} L_i$ for every $j \in J$.
       It follows that $M = \bigoplus_{i \in I'} L_i$ and therefore that $I = I'$.
       Note that $I = I' = \bigcup_{j \in J} I_j$ has at most the cardinality of $J$ because $J$ is infinite and every $I_j$ is finite.
@@ -371,13 +386,12 @@
 
 \begin{remark}
   \label{remark: uniqueness of multiplicities alternative formulation}
-  Theorem~\ref{theorem: multiplicity well-defined} states that there exists a bijection $\pi \colon I \to J$ with $L'_{\pi(i)} \cong L_i$ for every $i \in I$.
+  Theorem~\ref{theorem: multiplicity well-defined} can be reformulated as stating that there exists a bijection $\pi \colon I \to J$ with $L'_{\pi(i)} \cong L_i$ for every $i \in I$.
 \end{remark}
 
 
 \begin{definition}
   If $M = \bigoplus_{i \in I} L_i$ is any decomposition into simple submodules $L_i \moduleleq M$ then the cardinality of the set $\{i \in I \suchthat L_i \cong E\}$ is the \emph{multiplicity of $E$ in $M$}.
-  (Theorem~\ref{theorem: multiplicity well-defined} shows that this multiplicity is well-defined.)
 \end{definition}
 
 
@@ -388,7 +402,7 @@
 
 
 \begin{fluff}
-  Another approach to both isotypical components and multiplicities are multiplicity spaces.
+  Another approach to both isotypical components and multiplicities is given by multiplicity spaces.
   For this we will require tensor products of modules, a nice introduction to which can be found in \cite[Chapter 10.4]{DummitFoote2004}.
 \end{fluff}
 
@@ -416,20 +430,20 @@
   But this map will in general not be injective, which we can fix by tensoring over $\End_R(E)$ instead of $\Integer$:
   
   We also know from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that the endomorphism ring $D \defined \End_R(E)$ is a skew field.
-  The $R$-module $E$ is also a left $\End_R(E)$-module, i.e.\ left $D$-vector space, via
+  The $R$-module $E$ is also a left $D$-vector space via
   \[
       \varphi \cdot e
     = \varphi(e)
   \]
-  for all $\varphi \in \End_R(E) = D$, $e \in E$.
-  This also induces a right $\End_R(E)$-module structure, i.e.\ right $D$-vector space structure on the $\Hom_R(E,M)$ via precomposition, i.e.\ via
+  for all $\varphi \in D$, $e \in E$.
+  This also induces a right $D$-vector space structure on the $\Hom_R(E,M)$ via precomposition, i.e.\ via
   \[
       f \cdot \varphi
     = f \circ \varphi
   \]
-  for all $f \in \Hom_R(E,M)$, $\varphi \in \End_R(E) = D$.
-  The evaluation map~\eqref{equation: raw evalution map for multiplicity spaces} is $D$-balenced and thus induces a well-defined map
-  \[            
+  for all $f \in \Hom_R(E,M)$, $\varphi \in D$.
+  The evaluation map~\eqref{equation: raw evalution map for multiplicity spaces} is $D$-balenced and thus induces a well-defined additive map
+  \[
             \Hom_R(E,M) \tensor_D E
     \to     M,
     \quad   f \tensor e
@@ -462,7 +476,8 @@
     = f \tensor (e \cdot r^\op)
     = f \tensor (r e)
   \]
-  for all $r \in R$, which corresponds to the claimed left $R$-module structure.
+  for all $r \in R$.
+  The corresponding left $R$-module structure is then as claimed.
 \end{fluff}
 
 
@@ -483,7 +498,7 @@
     \item
       \label{enumerate: basis of multiplicity space}
       Let $M_E = \bigoplus_{i \in I} L_i$ be a decomposition into simple $R$-module, each of which (necessarily) isomorphic to $E$.
-      For every $i \in I$ let $\tilde{f}_i \colon E \to L_i$ be an isomorphism of $R$-modules, and let $f_i \colon E \to M$ be the extension of $\tilde{f}_i$ to a homomorphism $E \to M$.
+      For every $i \in I$ let $\tilde{f}_i \colon E \to L_i$ be an isomorphism of $R$-modules and let $f_i \colon E \to M$ be the extension of $\tilde{f}_i$ to a homomorphism $E \to M$.
       Then the family $(f_i)_{i \in I}$ is a right $D$-basis for $\Hom_R(E,M)$.
     \item
       The evaluation map
@@ -541,12 +556,12 @@
         = \bigoplus_{i \in I} (f_i D) \tensor_D E
         = \bigoplus_{i \in I} (f_i \tensor E) \,.
       \]
-      The map $\Phi$ maps the summand $f_i \tensor E$ onto the summand $f_i(E) = L_i$, and because $f_i$ is an isomorphism it does so bijectively.
+      Observe that $\Phi$ maps the summand $f_i \tensor E$ onto the summand $f_i(E) = L_i$ and because $f_i$ is an isomorphism it does so bijectively.
       (Here we use that $D$ a skew field:
       The map $E \to \Hom_R(E, M) \tensor_D E$, $e \mapsto f_i \tensor e$ is injective because $\Hom_R(E,M)$ is free as a right $D$-module.)
       It follows that $\Phi \colon \bigoplus_{i \in I} (f_i \tensor_D E) \to \bigoplus_{i \in I} L_i$ is also bijective.
       
-      For all $r \in R$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor E$ we have that
+      For all $r \in R$ and simple tensors $f \tensor e \in \Hom_R(E,M) \tensor_D E$ we have that
       \[
           \Phi(r \cdot (f \tensor e))
         = \Phi(f \tensor (re))
@@ -562,7 +577,7 @@
 
 \begin{corollary}
   \label{corollary: dimension of multiplicity space is multiplicity}
-  For $D \defined \End_R(E)$ the right $D$-dimension of the multiplicity space $\Hom_R(E,M)$ is given by the multiplicity of $E$ in $M$.
+  The $\End_R(E)$-dimension of $\Hom_R(E,M)$ is given by the multiplicity of $E$ in $M$.
 \end{corollary}
 
 

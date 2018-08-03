@@ -3,7 +3,7 @@
 
 \begin{proposition}[Schur’s lemma]
   \label{proposition: schurs lemma for modules}
-  Let be a $M, N$ be $R$-modules and let $f \colon M \to N$ be a nonzero homomorphism of $R$-modules.
+  Let $M, N$ be $R$-modules and let $f \colon M \to N$ be a nonzero homomorphism of $R$-modules.
   \begin{enumerate}
     \item
       \label{enumerate: Schur injective}
@@ -21,11 +21,11 @@
       \label{enumerate: Schur endomorphism ring}
       The endomorphism ring $\End_R(M)$ is a skew field.
   \end{enumerate}
-  If $R$ has the additional structure of a $k$-algebra we also have the following:
+  If $R$ has the additional structure of a $k$-algebra then we also have the following:
   \begin{enumerate}[resume]
     \item
       \label{enumerate: Schur divison algebra}
-      The endomorphism ring $\End_R(M)$ is a division algebra over $k$.
+      The endomorphism ring $\End_R(M)$ is a division $k$-algebra.
     \item
       \label{enumerate: Schur scalar for fd}
       If $k$ is algebraically closed and $M$ is finite-dimensional over $k$ then $\End_R(M) = k$.
@@ -39,7 +39,7 @@
     \item
       The kernel $\ker(f)$ is a proper submodule of $M$, so $\ker(f) = 0$.
     \item
-      The image $\im(f)$ is a nonzero submodule of $N$, so $\im(f) = 0$.
+      The image $\im(f)$ is a nonzero submodule of $N$, so $\im(f) = N$.
     \item
       This follows from parts~\ref*{enumerate: Schur injective}, \ref*{enumerate: Schur surjective}.
     \item
@@ -48,39 +48,39 @@
     \item
       This is a combination of part~\ref*{enumerate: Schur divison algebra} and the $k$-algebra structure of $\End_R(M)$.
     \item
-      It follows that $\End_R(M)$ is a finite-dimensional divison algebra over $k$ by part~\ref*{enumerate: Schur scalar for fd}.
-      It follows that $\End_R(M) = k$ because the algebraically closed field $k$ admits no non-trivially skew field extension.
+      It follows from part~\ref*{enumerate: Schur scalar for fd} that $\End_R(M)$ is a finite-dimensional skew field extension.
+      It follows that $\End_R(M) = k$ because $k$ is algebraically closed.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
 \begin{remark}
-  \hyperref[proposition: Schurs lemma representations]{Schur’s~lemma for representation of groups} can be derived from the one for algebras by the usual correspondence between representations of a group and modules over the group algebra.
+  \hyperref[proposition: Schurs lemma representations]{Schur’s~lemma for representation of groups} can be derived from \hyperref[proposition: schurs lemma for modules]{Schur’s~lemma for modules} by using the correspondence between $k$-representations of a group $G$ and modules over the group algebra $k[G]$.
 \end{remark}
 
 
 \begin{corollary}
   \label{corollary: no nonzero homomorphisms between disjoint semisimple modules}
   Let $M, M'$ be semisimple $R$-modules with $M = \sum_{i \in I} L_i$ and $N = \sum_{j \in J} L'_j$ for simple submodules $L_i \moduleleq M$, $L'_j \moduleleq M'$.
-  If there exists a nonzero homomorphism of $R$-modules $f \colon M \to M'$ then $L_i \cong L'_j$ for some $i, j$.
+  If there exists a nonzero homomorphism of $R$-modules $f \colon M \to M'$ then $L_i \cong L'_j$ for some $i \in I$, $j \in J$.
 \end{corollary}
 
 
 \begin{proof}
   It follows that $\restrict{f}{L_i} \neq 0$ for some $i \in I$.
-  There then exists some $x \in L_i$ with $f(x) \neq 0$, where $f(x) = \sum_{j \in J} y_j$ with $y_j \in L'_j$ for every $j \in J$.
-  It follows that $y_j \neq 0$ for some $j \in J$.
-  There then exists a direct complement $C \moduleleq M'$ of $L_j$, and the composition
-  \[
-                        L_i
+  By Remark~\ref{remark: can replace sum by direct sum for ss} we may assume that the sum $\sum_{j \in J} L'_j$ is direct by shrinking $J$ if necessary.
+  It then follows from $\restrict{f}{L_i} \neq 0$ that there exists some $j \in J$ for which the decomposition
+    \[
+                        f'
+    \colon              L_i
     \inclusion          M
     \xlongrightarrow{f} M'
-    =                   C \oplus L_j
-    \projection         L_j
+    =                   \bigoplus_{k \in J} L'_k
+    \projection         L'_j
   \]
-  is nonzero because it maps $x$ to $y_j$.
-  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that this composition is an isomorphism, so that $L_i \cong L'_j$.
+  is nonzero.
+  It then follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $f'$ is an isomorphism, which shows that $L_i \cong L'_j$.
 \end{proof}
 
 
@@ -114,7 +114,7 @@
                 f
         \mapsto \left( \restrict*{f}{M_i^{\oplus J_i}} \right)_{i \in I} \,.
       \]
-      (Here $\Mat_{J_i}^{\cf}( D_i )$ denotes the ring of column finite $(J_i \times J_i)$-matrices with entries in $D_i$, see Definition~\ref{definition: infinite matrices}.)
+      Here $\Mat_{J_i}^{\cf}( D_i )$ denotes the ring of column finite $(J_i \times J_i)$-matrices with entries in $D_i$ (see Definition~\ref{definition: infinite matrices} and Lemma~\ref{lemma: structure on infinite matrices}).
   \end{enumerate}
   If $R$ is a $k$-algebra, then these are isomorphisms of $k$-algebras.
 \end{corollary}
@@ -148,57 +148,48 @@
   Part~\ref*{enumerate: Schur scalar for fd} of \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $M$, i.e.\ as long as $\card k > \dim_k M$.
   This generalizes \ref*{enumerate: morphism space is one-dimensional} because every algebraically closed field is infinite.
 
-  We prove this in two steps:
-  We first show that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$.
-  We then show that $f = \lambda \id_M$ where $\lambda \in k$ is a root of $p(t)$.
-  \begin{enumerate}[label=\arabic*)]
+  We prove this generalization by showing that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$ (i.e.\ that $f$ is algebraic over $k$).
+  This then shows that $\End_R(M)$ is an algebraic skew field extension of $k$, from which it follows that $\End_R(M) = k$ because $k$ is algebraically closed.
+  The idea of this proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
+
+  If $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$ then $p(f) \colon M \to M$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_R(M)$ is a skew field.
+  It follows that the $k$-vector space structure of $M$ can be extended to a $k(t)$-vector space structure given by
+  \[
+              \frac{p(t)}{q(t)} \cdot m
+    \defined  \left( p(f) q(f)^{-1} \right)(m)
+  \]
+  for all $p(t)/q(t) \in k(t)$, $m \in M$.
+  
+  Note that this is just the universal property of the localization:
+  The ring homomorphism $\varphi \colon k[t] \to \End_R(M)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
+  \[
+            \Phi
+    \colon  k(t)
+    =       S^{-1} k[t]
+    \to     \End_R(M) \,,
+    \quad   \frac{p(t)}{q(t)}
+    \mapsto p(f) q(f)^{-1} \,.
+  \]
+  By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(M)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $M$.
+  This is precisely the $k(t)$-vector space structure from above.
+  
+  It follows that
+  \[
+          \dim_k M
+    =     \dim_{k(t)} M \cdot \dim_k k(t)
+    \geq  1 \cdot \card k
+    =     \card k \,,
+  \]
+  where we are using the following facts from linear algebra:
+  \begin{itemize}
     \item
-      If $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$ then $p(f) \colon M \to M$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_R(M)$ is a skew field.
-      It follows that the $k$-vector space structure of $M$ can be extended to a $k(t)$-vector space structure given by
-      \[
-                  \frac{p(t)}{q(t)} \cdot m
-        \defined  \left( p(f) q(f)^{-1} \right)(m)
-      \]
-      for all $p(t)/q(t) \in k(t)$, $m \in M$.
-      
-      Note that this is just the universal property of the localization:
-      The ring homomorphism $\varphi \colon k[t] \to \End_R(M)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
-      \[
-                \Phi
-        \colon  k(t)
-        =       S^{-1} k[t]
-        \to     \End_R(M) \,,
-        \quad   p(t)/q(t)
-        \mapsto p(f) q(f)^{-1} \,.
-      \]
-      By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(M)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $M$.
-      This is precisely the $k(t)$-vector space structure from above.
-      
-      Because $M$ is a nonzero $k(t)$-vector space it follows that
-      \[
-              \dim_k M
-        =     \dim_k k(t) \cdot \dim_{k(t)} M
-        \geq  \card k \cdot 1
-        =     \card k \,,
-      \]
-      which contradicts $\card k > \dim_k M$.
-      For the (in)equalities we used the following facts from linear algebra:
-      \begin{itemize}
-        \item
-          For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $M$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(c_j b_i)_{i \in I, j \in J}$ is a $k$-basis of $M$.
-        \item
-          For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
-        \item
-          That $\dim_{k(t)} M \geq 1$ follows from $M$ being nonzero.
-      \end{itemize}
-      This contradiction shows that $p(f) \neq 0$ for some nonzero $p(t) \in k[t]$.
-      We may assume w.l.o.g.\ that $p(t)$ is monic.
-      
+      For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $M$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(b_i c_j)_{i \in I, j \in J}$ is a $k$-basis of $M$.
     \item
-      We have seen that $\End_R(M)$ is an algebraic skew field extension of $k$.
-      It thus follows from $k$ being algebraically closed that $\End_R(M) = k$ since $k$ admits no non-trivial algebraic skew field extensions.
-  \end{enumerate}
-  The idea of the above proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
+      For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
+    \item
+      That $\dim_{k(t)} M \geq 1$ follows from $M$ being nonzero.
+  \end{itemize}
+  This contradicts the assumption that $\card k > \dim_k M$, which shows that $p(f) \neq 0$ for some nonzero $p(t) \in k[t]$.
 \end{remark}
 
 

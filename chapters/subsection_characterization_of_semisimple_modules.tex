@@ -3,6 +3,7 @@
 
 \begin{conventions}
   We require all occuring rings to be unitary, but we do not require them to be commutative.
+  My \emph{module} we mean \emph{left module} unless otherwise stated.
   We require all occuring modules to be unitary, i.e.\ if $R$ is a ring and $M$ is an $R$-module then
   \[
       1 \cdot m
@@ -10,12 +11,12 @@
   \]
   for every $m \in M$.
   We also require all $k$-algebras to be unitary.
-  All modules over $k$-algebras are therefore in particular $k$-vector spaces and module homomorphisms are always $k$-linear.
+  A module over a $k$-algebra is therefore in particular a $k$-vector spaces, and module homomorphisms are always $k$-linear.
 \end{conventions}
 
 
 \begin{conventions}
-  In this section $R$ denotes a ring.
+  In this section, $R$ denotes a ring.
 \end{conventions}
 
 
@@ -26,7 +27,8 @@
     \item
       The module $M$ is \emph{simple} if $M$ is nonzero and $0, M$ are the only submodules of $M$.
     \item
-      A submodule $N \moduleleq M$ is \emph{maximal} if it is a maximal proper submodule, i.e.\ $N$ is a proper submodule and for every submodule $N' \moduleleq M$ with $N \moduleleq N'$ we have that $N' = N$ or $N' = M$.
+      A submodule $N \moduleleq M$ is \emph{maximal} if it is a maximal proper submodule.
+      In other words, $N$ is a proper submodule and for every submodule $N' \moduleleq M$ with $N \moduleleq N'$ we have that $N' = N$ or $N' = M$.
   \end{enumerate}
 \end{definition}
 
@@ -41,17 +43,18 @@
     \item
       If $k$ be a field.
       Then a $k$-vector space $V$ is simple (as a $k$-module) if and only if $V$ is one-dimensional.
+      The same holds for vector spaces over a skew field $D$.
     \item
-      If $D$ is a skew field then $D^n$ is simple as an $\Mat_n(D)$-module:
+      If $D$ is a skew field and $n \geq 1$ then $D^n$ is simple as an $\Mat_n(D)$-module:
       Let $U \moduleleq D^n$ be a nonzero submodule and let $x \in U$ with $x \neq 0$.
-      It then follows that $x_i \neq 0$ for some $i = 1, \dotsc, n$;
-      if $D \in \Mat_n(D)$ is the diagonal matrix with $D_{ii} = x_i^{-1}$ and $D_{jj} = 0$ for $j \neq i$ then it follows that
+      It then follows that $x_i \neq 0$ for some $i = 1, \dotsc, n$.
+      If $D \in \Mat_n(D)$ is the diagonal matrix with $D_{ii} = x_i^{-1}$ and $D_{jj} = 0$ for $j \neq i$ then it follows that
       \[
             e_i
         =   D x
         \in U \,.
       \]
-      For every $j = 1, \dotsc, n$ it follows by using a suitable permutation matrix $P \in \Mat_n(K)$ that
+      For every $j = 1, \dotsc, n$ it then follows by using a suitable permutation matrix $P \in \Mat_n(D)$ that
       \[
             e_j
         =   P e_i
@@ -60,7 +63,8 @@
       This shows that $e_1, \dotsc, e_n \in U$ and therefore that $U = D^n$.
     \item
       \label{enumerate: D^I simple as a Matcf module}
-      If more generally $D$ is a skew field and $I$ is any nonempty index set, then $D^{\oplus I}$ is simple as an $\Mat_I^{\cf}(D)$-module, where $\Mat_I^{\cf}(D)$ denotes the ring of column finite $(I \times I)$-matrices with entries in $D$ (see Definition~\ref{definition: infinite matrices} and Lemma~\ref{lemma: structure on infinite matrices}).
+      If more generally $D$ is a skew field and $I$ is any nonempty index set then $D^{\oplus I}$ is simple as an $\Mat_I^{\cf}(D)$-module.
+      Here $\Mat_I^{\cf}(D)$ denotes the ring of column finite $(I \times I)$-matrices with entries in $D$ (see Definition~\ref{definition: infinite matrices} and Lemma~\ref{lemma: structure on infinite matrices}).
       This can be seen in the same way as in the finite case $I = \{1, \dotsc, n\}$ above.
   \end{enumerate}
 \end{example}
@@ -68,23 +72,9 @@
 
 \begin{remark}
   \label{remark: alternative formulation of simple and maximal}
-  One can also reformulate the definitions of an simple module and maximal submodule:
-  An $R$-module $M$ is simple if and only if $M$ contains precisely two submodules, and a submodule $N \moduleleq M$ is maximal if and only if there exists precisely two submodules $N' \moduleleq M$ with $N \moduleleq N'$.
+  One can also reformulate the definitions of simple modules and maximal submodules:
+  An $R$-module $M$ is simple if and only if $M$ contains precisely two submodules, and a submodule $N \moduleleq M$ is maximal if and only if there exists precisely two submodules $N'$ between $N$ and $M$.
 \end{remark}
-
-
-\begin{lemma}
-  \label{lemma: simple iff every cyclic generator}
-  A nonzero $R$-module $M$ is simple if and only if every nonzero $x \in M$ is a cyclic generator of $M$. 
-\end{lemma}
-
-
-\begin{proof}
-  If $M$ is simple then for every nonzero $x \in M$ the cyclic submodule $Rx$ of $M$ is nonzero, from which it follows that $Rx = M$.
-  
-  Suppose that every nonzero $x \in M$ is a cyclic generator of $M$.
-  Every nonzero submodule $N \moduleleq M$ contains some nonzero $x \in N$, for which it then follows that $M = Rx \moduleleq N$ and therefore $M = N$.
-\end{proof}
 
 
 \begin{lemma}
@@ -97,7 +87,7 @@
 \begin{proof}
   This follows from the $1$:$1$-correspondence
   \begin{align*}
-    \{ \text{submodules $N' \moduleleq M$ with $N \moduleleq N'$} \}
+    \{ \text{submodules $N' \moduleleq M$ with $N \moduleleq N' \moduleleq M$} \}
     &\longleftrightarrow
     \{ \text{submodules $P \moduleleq M/N$} \}
     \\
@@ -110,18 +100,32 @@
 
 \begin{corollary}
   Let $M$ be an $R$-module and let $N, P \moduleleq M$ be submodule with $M = N \oplus P$.
-  Then $S$ is simple if and only if $P$ is maximal.
+  Then $N$ is simple if and only if $P$ is maximal.
 \end{corollary}
 
 
 \begin{proof}
-  This follows from Lemma~\ref{lemma: maximal iff quotient is simple} because $M/P \cong S$.
+  This follows from Lemma~\ref{lemma: maximal iff quotient is simple} because $M/P \cong N$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: simple iff every cyclic generator}
+  A nonzero $R$-module $M$ is simple if and only if every nonzero $x \in M$ is a cyclic generator of $M$. 
+\end{lemma}
+
+
+\begin{proof}
+  If $M$ is simple then for every nonzero $x \in M$ the cyclic submodule $Rx$ is nonzero, from which it then follows that $Rx = M$ by the simplicity of $M$.
+  
+  Suppose on the other hand that every nonzero $x \in M$ is a cyclic generator of $M$.
+  Every nonzero submodule $N \moduleleq M$ contains some nonzero $x \in N$, for which it then follows that $M = Rx \moduleleq N$ and therefore that $M = N$.
 \end{proof}
 
 
 \begin{corollary}
   \label{corollary: simple modules are quotients by maximal ideals}
-  The simple $R$-modules are up to isomorphism precisely those of the form $R/I$ where $I \idealleq R$ is a maximal left ideal.
+  The simple $R$-modules are up to isomorphism precisely those $R$-modules of the form $R/I$ for a maximal left ideal $I \idealleq R$.
 \end{corollary}
 
 
@@ -158,19 +162,17 @@
   \]
   by Lemma~\ref{lemma: modularity of submodule lattice}.
   We thus have that
-  \[
+  \begin{gather*}
       P \cap (C \cap N)
     = P \cap C \cap N
     = 0 \cap N
     = 0
-  \]
-  as well as
-  \[
+  \shortintertext{as well as}
       P + (C \cap N)
     = (P + C) \cap N
     = M \cap N
     = N \,,
-  \]
+  \end{gather*}
   which proves the claim.
 \end{proof}
 
@@ -178,8 +180,8 @@
 \begin{proof}[Second proof]
   Let $\pi \colon M \to M$ be the projection onto $P$ along the decomposition $M = P \oplus C$.
   It follows from $P \moduleleq N$ that $\pi(N) = P$.
-  It follows that $\pi$ restrict to an endomorphism $\restrict{\pi}{N} \colon N \to N$ with $\im \restrict{\pi}{N} = P$ and $\ker \restrict{\pi}{N} = \ker \pi \cap N = C \cap N$.
-  The restriction $\restrict{\pi}{N}$ is again idempotent, resulting in a decomposition
+  It further follows that $\pi$ restrict to an endomorphism $\restrict{\pi}{N} \colon N \to N$ with $\im \restrict{\pi}{N} = P$ and $\ker \restrict{\pi}{N} = \ker \pi \cap N = C \cap N$.
+  The restriction $\restrict{\pi}{N}$ is again idempotent and thus corresponds to a decomposition
   \[
       N
     = \im \restrict{\pi}{N} \oplus \ker \restrict{\pi}{N}
@@ -187,6 +189,9 @@
   \]
   as desired.
 \end{proof}
+
+
+% TODO: Add reference to appendix in the above proof.
 
 
 \begin{proposition}
@@ -206,11 +211,14 @@
 \end{proposition}
 
 
+% TODO: Fix indentation for descriptions.
+
+
 \begin{proof}
   \leavevmode
   \begin{description}
     \item[\ref*{enumerate: direct sum of simple} $\implies$ \ref*{enumerate: sum of simple}:]
-      Every direct sum is a sum.
+      Every direct sum is in particular a sum.
     \item[\ref*{enumerate: sum of simple} $\implies$ \ref*{enumerate: direct complements}:]
       Suppose that $M = \sum_{i \in I} L_i$ where every $L_i$ is a simple submodule of $M$, and let $N \moduleleq M$ be any submodule.
       For every $J \subseteq I$ let
@@ -229,20 +237,19 @@
         = N \oplus P \oplus L_i
         = N \oplus P'
       \]
-      and thus $N \cap P' = 0$ for $P' \defined P + L_i = M_{J'}$ with $J' = J \cup \{i\}$.
+      and thus $N \cap P' = 0$ for $P' \defined P \oplus L_i = M_{J'}$ with $J' = J \cup \{i\}$.
       It follows from $L_i \nmoduleleq N \oplus M_J$ that $i \notin J$ and thus $J \subsetneq J'$.
       This contradicts the maximality of $J$.
     \item[\ref*{enumerate: direct complements} $\implies$ \ref*{enumerate: direct sum of simple}:]
       It follows from Corollary~\ref{lemma: direct complements in submodules} that for all submodules $N \moduleleq C \moduleleq M$ the module $N$ also has a direct complement in $C$.
       
       Let $S \moduleleq M$ be the sum of all simple submodules of $M$ and suppose that $S \neq M$.
-      Let $P \neq 0$ be a direct complement of $S$ so that $M = S \oplus P$.
-      Then $P$ does not contain any simple submodule.
+      Let $P$ be a direct complement of $S$ so that $M = S \oplus P$.
+      Then $P \neq 0$ does not contain any simple submodule.
       
       For $x \in P$ with $x \neq 0$ the cyclic submodule $C \defined Rx \moduleleq P$ contains a maximal submodule $N \modulelneq C$ by Lemma~\ref{lemma: fg modules contain max submodules}.
       As noted above there exists a submodule $S' \moduleleq C$ with $C = N \oplus S'$.
-      Then $S'$ is simple by Lemma~\ref{lemma: maximal iff quotient is simple}.
-      This shows that $P$ contains a simple submodule $S'$, a contradiction.
+      Then $S'$ is simple by Lemma~\ref{lemma: maximal iff quotient is simple}, which shows that $P$ contain a simple submodule.
     \qedhere
   \end{description}
 \end{proof}
@@ -253,6 +260,33 @@
 \end{definition}
 
 
+\begin{remark}
+  \label{remark: can replace sum by direct sum for ss}
+  If $L_i \moduleleq M$, $i \in I$ is a collection of simple modules then there exists a subset $J \subseteq I$ with $\sum_{i \in I} L_i = \bigoplus_{j \in J} L_j$.
+  To see this we may assume w.l.o.g.\ that $M = \sum_{i \in I} L_i$.
+  
+  By Zorn’s~lemma there exists a maximal subset $J \subseteq I$ for which the sum $\sum_{j \in J} L_j$:
+  Indeed, let $(J_k)_{k \in K}$ be a chain of subsets $J_k \subseteq I$ such that for every $k \in K$ the sum $\sum_{j \in J_k} L_j$ is direct.
+  If for $J' \defined \bigcup_{k \in K} J_k$ the sum $\sum_{j \in J'} L_j$ were not direct then there would exist a non-trivial linear combination $0 = \sum_{j \in J'} m_j$ with $m_j \in L_j$ for every $j \in J$.
+  There would then exist some $k \in K$ such that every of the finitely many $j \in J'$ with $m_j \neq 0$ is already contained in $J_k$.
+  The existence of the non-trivial linear combination $0 = \sum_{j \in J'} m_j = \sum_{j \in J_k} m_j$ would then contradict the directness of the sum $\bigoplus_{j \in J_k} M_j$.
+  This shows that conditions for Zorn’s~lemma are satisfied.
+  (Note that for the empty set $\emptyset$ the sum $\sum_{j \in \emptyset} L_j$ is direct.)
+  
+  Let $N \defined \sum_{j \in J} M_j$.
+  If $N \neq M$ then there would exist some $i \in J$ with $L_i \nmoduleleq N$.
+  It would then follows that $L_i \cap N$ is a proper submodule of $L_i$ which would show that $L_i \cap N = 0$.
+  For $K \defined J \cap \{i\}$ the sum $\sum_{k \in K} L_k$ wolud then still finite, but it would follows from $L_i \nmoduleleq N$ that $i \notin J$, which would then contradict the maximality of $J$.
+  We thus have that $M = N = \bigoplus_{j \in J} L_j$.
+  
+  Note that this gives a proof of the implication \ref*{enumerate: sum of simple} $\implies$ \ref*{enumerate: direct sum of simple} of Proposition~\ref{proposition: characterisation semisimple modules}.
+\end{remark}
+
+
+
+% TODO: This does not hold for arbitary modules.
+
+
 \begin{example}
   \label{example: semisimple modules}
   \leavevmode
@@ -261,7 +295,7 @@
       \label{enumerate: vector spaces are semisimple}
       If $k$ is a field then every $k$-module is a sum of one-dimensional, und thus simple, submodules.
       This shows that every $k$-module is semisimple.
-      Note however that a decomposition of a $k$-vector space into a direct sum one-dimensional subspaces is far from unique.
+      Note however that a decomposition of a $k$-vector space into a direct sum one-dimensional subspaces is far from unique, as it corresponds to the choice of a basis of $V$ (up to scaling of the basis vectors).
     \item
       Let $k$ be a field and let
       \[
@@ -276,7 +310,6 @@
                   \right\}
         \subseteq \Mat_2(k) \,.
       \]
-      The only submodules of 
       Then $M \defined k^2$ is not semisimple as an $R$-module because the only nonzero submodule of $k^2$ is
       \[
                   N
@@ -295,7 +328,7 @@
           \vect{x \\ y}
         = \vect{ax + by \\ cy},
       \]
-      so if a submodule $N' \moduleleq k^2$ contains an element $(x,y)^T \in k^2$ with $y \neq 0$ then it contains both
+      so if a submodule $N' \moduleleq k^2$ contains an element $[x,y]^T$ with $y \neq 0$ then it contains both
       \begin{align*}
             \begin{bmatrix}
               0 & y^{-1} \\
@@ -311,7 +344,7 @@
             \vect{x \\ y}
         &=  \vect{0 \\ 1}
       \end{align*}
-      and therefore $M = k^2$.
+      and it follows that $M = k^2$.
     \item
       If $G$ is a finite group and $k$ is a field with $\ringchar(k) \ndivides |G|$ then every finite-dimensional representation of $G$ over $k$ is semisimple by \hyperref[theorem: maschkes theorem]{Maschke’s theorem}, and therefore semisimple as a $k[G]$-module.
       This shows in particular that the regular $k[G]$-module, i.e.\ $k[G]$ itself, is semisimple.
@@ -319,7 +352,7 @@
 \end{example}
 
 
-% TODO: Add example: Semisimple Endorphisms
+% TODO: Add example: semisimple endorphisms of vector spaces.
 
 
 \begin{lemma}
@@ -327,9 +360,9 @@
   Let $R$ be a ring.
   \begin{enumerate}
     \item
-      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is also semisimple.
+      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-modules then $\bigoplus_{i \in I} M_i$ is semisimple.
     \item
-      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-submodules $M_i \moduleleq M$ then $\sum_{i \in I} M_i$ is semisimple.
+      If $(M_i)_{i \in I}$ is a collection of semisimple $R$-submodules $M_i \moduleleq M$ then $\sum_{i \in I} M_i$ is again semisimple.
     \item
       If $M$ is a semisimple $R$-module and $N \moduleleq M$ a submodule then $N$ is semisimple.
     \item
@@ -349,7 +382,7 @@
           \bigoplus_{i \in I} M_i
         = \bigoplus_{i \in I} \bigoplus_{j \in J_i} L^i_j
       \]
-      is the direct sum of submodules and therefore semisimple.
+      is a decomposition into simple submodules.
     \item
       Every $M_i$ is a sum $M_i = \sum_{j \in J_i} L^i_j$ of simple $R$-modulse $L^i_j$.
       It follows that $\sum_{i \in I} M_i = \sum_{i \in I} \sum_{j \in J_i} L^i_j$ is sum of simple modules.
@@ -376,7 +409,7 @@
 
 
 \begin{remark}
-  If $M$ is an $R$-module then $\soc(V)$ is the biggest semisimple submodule of $M$, and $M$ is semisimple if and only if $M = \soc(M)$.
+  If $M$ is an $R$-module then $\soc(M)$ is the biggest semisimple submodule of $M$, and $M$ is semisimple if and only if $M = \soc(M)$.
   We have already encountered the socle in the proof of Proposition~\ref{proposition: characterisation semisimple modules} where $S = \soc(M)$.
 \end{remark}
 
