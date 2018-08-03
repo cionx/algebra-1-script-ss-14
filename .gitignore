@@ -5,6 +5,7 @@
 *.bcf
 *.blg
 *.dpth
+*.kate-swp
 .kile/
 *.kilepr
 *.log
