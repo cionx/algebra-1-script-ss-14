@@ -3,12 +3,12 @@
 
 
 \begin{conventions}
-  In the following $R, S$ denotes a ring.
+  In the following $R, S$ denote rings.
 \end{conventions}
 
 
 \begin{definition}
-  The \emph{opposite ring} $R^\op$ has the same underlying additive group as $R$, and the multiplication is given by
+  The \emph{opposite ring} $R^\op$ has the same underlying additive group as $R$ and the multiplication $*$ is given by
   \[
               a * b
     \defined  b \cdot a
@@ -25,7 +25,12 @@
       a^\op \, b^\op
     = b a \,.
   \]
+  Note that the multiplication on the left hand side is the one of $R^\op$ whereas the on the right hand side is the one of $R$.
+  We will try to avoid expressions of the form $a^\op b$ with $a, b \in R$ for which it is not clear which multiplication is to be used.
 \end{notation}
+
+
+% TODO: Make this more sophisticated.
 
 
 \begin{lemma}
@@ -44,9 +49,9 @@
 \end{lemma}
 
 
-\begin{example}
-  If $G$ is a group and $k$ a field then the group isomorphism $G^\op \to G$, $g^\op \mapsto g^{-1}$ induces a $k$-algebra isomorphism $k[G]^\op \to k[G^\op] \to k[G]$.
-\end{example}
+% \begin{example}
+%   If $G$ is a group and $k$ a field then the group isomorphism $G^\op \to G$, $g^\op \mapsto g^{-1}$ induces a $k$-algebra isomorphism $k[G]^\op = k[G^\op] \to k[G]$.
+% \end{example}
 
 
 \begin{definition}
@@ -63,18 +68,18 @@
   \leavevmode
   \begin{enumerate}
      \item
-      For every $n \geq 0$ the map $R \to R^\op$, $a \mapsto a^\op$ is an antiisomorphism.
+      The map $R \to R^\op$, $a \mapsto a^\op$ is an antiisomorphism.
      \item
       If $f \colon R \to S$ and $g \colon S \to T$ are antihomomorphisms then $g \circ f$ is a homomorphism.
-      If one of the maps $f, g$ is and antimorphism and the other is a homomorphism then the composition $g \circ f$ is an antihomomorphism.
+      If one of the maps $f, g$ is an antihomomorphism and the other is a homomorphism then the composition $g \circ f$ is an antihomomorphism.
     \item
-      If $f \colon R \to S$ is an antiisomorphism then $f^{-1} \colon S \to R$ is again an antihomomorphism.
+      If $f \colon R \to S$ is an antiisomorphism then $f^{-1} \colon S \to R$ is again an antiisomorphism.
   \end{enumerate}
 \end{example}
 
 
 \begin{lemma}
-  For a map $f \colon R \to S$ the following conditions are equivalent:
+  For any map $f \colon R \to S$ the following conditions are equivalent:
   \begin{enumerate}
     \item
       The map $f$ is a homomorphism $R \to S$.
@@ -93,18 +98,18 @@
   The map
   \[
             \Mat_n(R)^\op
-    \to     \Mat_n(R^\op)
+    \to     \Mat_n(R^\op),
     \quad   A^\op
     =       \left( (A_{ij})_{ij} \right)^{\op}
     \mapsto (A_{ji}^\op)_{ij}
-    =       A^T \,,
+    =       A^T
   \]
   is an isomorphism of rings.
 \end{lemma}
 
 
 \begin{proof}
-  The map $\Mat_n(R) \to \Mat_n(R^\op)$, $(A_{ij})_{ij} \mapsto A^T = (A^\op_{ji})_{ij}$ is an antiisomorphism of rings, and thus results in an isomorphism of rings $\Mat_n(R)^\op \to \Mat_n(R^\op)$, $A^\op \mapsto A^T$.
+  The map $\Mat_n(R) \to \Mat_n(R^\op)$, $A \mapsto A^T$ is an antiisomorphism of rings and thus results in an isomorphism of rings $\Mat_n(R)^\op \to \Mat_n(R^\op)$, $A^\op \mapsto A^T$.
 \end{proof}
 
 
@@ -113,7 +118,7 @@
   If $I$ is any index set then we similarly get an isomorphism
   \[
             \Mat_I^\cf(R)^\op
-    \xlongrightarrow{\sim}
+    \to
             \Mat_I^{\rf}(R^\op),
     \quad   A^\op
     =       \left( (A_{ij})_{ij} \right)^{\op}
@@ -139,18 +144,17 @@
 
 
 \begin{proof}
-  The additivity of $\Phi(a^\op)$ for every $a \in R$ follows from the distributivity of $R$.
-  For every $a \in R$ we have that
+  The additivity of $\Phi(a^\op)$ for every $a \in R$ follows from the distributivity of $R$, and for every $a \in R$ we have that
   \[
       \Phi(a^\op)(rx)
     = r x a
     = r \Phi(a^\op(x)
   \]
-  for all $r' \in R$, $x \in R$.
+  for all $r \in R$, $x \in R$.
   Together this shows that $\Phi(a^\op)$ is $R$-linear for every $a \in R$, which shows that $\Phi$ is well-defined.
   
   The additivity of $\Phi$ also follows from the distributivity of $R$, and we have that $\Phi(1_{R^\op}) = \Phi(1_R^\op) = \id_R$.
-  For all $a, b \in R$ we have that
+  We have that
   \begin{align*}
         \Phi(a^\op b^\op)(x)
      =  \Phi((ba)^\op)(x)
@@ -159,8 +163,7 @@
     &=  \Phi(a^\op)(\Phi(b^\op)(x))
      =  (\Phi(a^\op) \circ \Phi(b^\op))(x)
   \end{align*}
-  for every $x \in R$ and thus $\Phi(a^\op b^\op) = \Phi(a^\op) \circ \Phi(b^\op)$.
-  This shows that $\Phi$ is multiplicative.
+  for all $a, b \in R$, $x \in R$, which shows that $\Phi$ is multiplicative.
   
   For every $a \in R$ we have that $\Phi(a^\op)(1) = a$, which shows that $\Phi$ is injective.
   For every $\varphi \in \End_R(R)$ we have for $a \defined \varphi(1)$ that
@@ -202,7 +205,7 @@
   This shows that left modules over $R$ are \enquote{the same} as right modules over $R^\op$.
   \begin{enumerate}[resume]
     \item
-      If $M, N$ are two left $R$-modules, then a map $f \colon M \to N$ is a homomorphism of left $R$-modules if and only if it is a homomorphism of right $R^\op$-modules.
+      If $M, N$ are two left $R$-modules then a map $f \colon M \to N$ is a homomorphism of left $R$-modules if and only if it is a homomorphism of right $R^\op$-modules.
   \end{enumerate}
 \end{proposition}
 
@@ -216,7 +219,7 @@
 
 
 \begin{example}[Duality for finite-dimensional modules over $k$-algebras]
-  Let $A$ be a $k$-algebra.
+  Let $k$ be a field and let $A$ be a $k$-algebra.
   
   For every left $A$-module $M$ its the dual space $M^*$ carries the structure of a right $A$-module via
   \[
@@ -227,10 +230,10 @@
   \[
       (a^\op * \varphi)(m)
     = (\varphi \cdot a)(m)
-    = \varphi(a \cdot m)
+    = \varphi(a m)
   \]
   for all $a \in A$, $\varphi \in M^*$, $m \in M$.
-  If $f \colon M \to N$ is a homomorphis of left $A$-modules then $f^* \colon N^* \to M^*$ is a homomorphism of right $A$-modules, and therefore a homomorphism of left $A^\op$-modules.
+  If $f \colon M \to N$ is a homomorphis of left $A$-modules then $f^* \colon N^* \to M^*$ is a homomorphism of right $A$-modules and therefore a homomorphism of left $A^\op$-modules.
   Together this shows that dualizing results in a contravariant functor
   \[
             (-)^*
@@ -241,18 +244,18 @@
   It similarly follows that for every right $A$-module $M$ its dual $M^*$ carries the structure of a left $A$-module via
   \[
       (a \cdot \varphi)(m)
-    = \varphi(m \cdot a)
+    = \varphi(m a)
   \]
   for all $a \in A$, $\varphi \in M^*$, $m \in M$, which then corresponds to a right $A^\op$-module structure on $M^*$ given by
   \[
       (\varphi * a^\op)(m)
     = (a \cdot \varphi)(m)
-    = \varphi(m \cdot a)
+    = \varphi(m a)
   \]
   for all $a \in A$, $\varphi \in A$, $m \in M$.
-  As above we find that the dual of a homomorphism of right $A$-modules is an homomorphism of left $A$-modules, and therefore a homomorphism of right $A^\op$-modules.
+  As above we find that the dual of a homomorphism of right $A$-modules is an homomorphism of left $A$-modules and therefore a homomorphism of right $A^\op$-modules.
   
-  If $M$ is a left $A$-module then it follows that $(M^*)^*$ carries the structure of a left $A$-module via
+  If $M$ is a left $A$-module then it follows that $M^{**}$ carries the structure of a left $A$-module via
   \[
       (a \cdot \beta)(\varphi)
     = \beta(\varphi \cdot a)
@@ -260,31 +263,33 @@
   for all $a \in A$, $\beta \in (M^*)^*$, $\varphi \in M^*$.
   The canonical homomorphism
   \[
-            \varepsilon_M
+            \eta_M
     \colon  M
-    \to     (M^*)^*,
+    \to     M^{**},
     \quad   m
     \mapsto (\varphi \mapsto \varphi(m))
   \]
   is then a homomorphism of left $A$-modules because
   \[
-      (a \cdot \varepsilon_M(m))(\varphi)
-    = \varepsilon_M(m)(\varphi \cdot a)
+      (a \cdot \eta_M(m))(\varphi)
+    = \eta_M(m)(\varphi \cdot a)
     = (\varphi \cdot a)(m)
-    = \varphi(a \cdot m)
-    = \varepsilon_M(a \cdot m)(\varphi)
+    = \varphi(a m)
+    = \eta_M(a m)(\varphi)
   \]
   for all $a \in A$, $m \in M$, $\varphi \in M^*$.
-  The analogous results holds for right $A$-modules.
+  
+  The analogous results for right $A$-modules also hold by similar arguments.
 
-  Let $\cModfd{A}$ be the category of finite-dimensional left $A$-modules and similary $\cModfd{A^\op}$ the category of finite-dimensional $A^\op$-modules.
+  Let $\cModfd{A}$ be the category of finite-dimensional left $A$-modules and let similary $\cModfd{A^\op}$ be the category of finite-dimensional $A^\op$-modules.
   It follows from the above discussion that dualizing defines a duality of categories
   \[
             (-)^*
     \colon  \cModfd{A}
-    \to     \cModfd{A^\op} \,.
+    \to     \cModfd{A^\op}
   \]
-  So whenever we have a theorem which holds for finite-dimensional modules over an arbitrary $k$-algebras (or at least for a class of $k$-algebras which is closed under $(-)^\op$) then we get a dual theorem for free.
+  with inverse being again given by dualizing $(-)^*$.
+  So whenever we have a theorem which holds for finite-dimensional modules over an arbitrary $k$-algebras (or at least for a class of $k$-algebras which is closed under $(-)^\op$) we then get a dual theorem for free.
   This applies to the following two classes of $k$-algebras:
   \begin{enumerate}
     \item

@@ -7,7 +7,7 @@
 
 
 \begin{fluff}
-  We give a brief explanation under what conditions an $R$-moudule $M$ can be decomposed into a finite direct sum $M = M_1 \oplus \dotsb \oplus M_n$, and under what conditions $R$ can be decomposed as a product $R \cong R_1 \times \dotsb \times R_n$ of suitable rings $R_1, \dotsc, R_n$.
+  We give explain under what conditions an $R$-moudule $M$ can be decomposed into a finite direct sum $M = M_1 \oplus \dotsb \oplus M_n$ of submodules $M_1, \dotsc, M_n \moduleleq M$, and under what conditions the ring $R$ can be decomposed into a finite product $R \cong R_1 \times \dotsb \times R_n$ of suitable rings $R_1, \dotsc, R_n$.
 \end{fluff}
 
 
@@ -57,7 +57,7 @@
     &\longmapsto  (\im(e_1), \dotsc, \im(e_n))
   \end{align*}
   is a well-defined bijection.
-  For every family $(M_1, \dotsc, M_n)$ of submodules $M_i \moduleleq M$ with $M = M_1 \oplus \dotsb \oplus M_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by
+  For every family $(M_1, \dotsc, M_n)$ of submodules $M_i \moduleleq M$ with $M = M_1 \oplus \dotsb \oplus M_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by the projections
   \[
       e_i(m_1 + \dotsb + m_n)
     = m_i
@@ -67,7 +67,7 @@
 
 
 \begin{proof}
-  Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotent endomorphisms $e_i \colon M \to M$, and for every $i = 1, \dotsc, n$ let $M_i \defined \im(e_i)$.
+  Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotent endomorphisms $e_i \colon M \to M$ and for every $i = 1, \dotsc, n$ let $M_i \defined \im(e_i)$.
   For every $m \in M$ we have that
   \[
         m
@@ -86,7 +86,7 @@
     = m_i \,.
   \]
   This shows that this decomposition $m = m_1 + \dotsb + m_n$ is unique, which shows the directness of the sum $M = M_1 + \dotsb + M_n$.
-  This shows alltogether that $M = M_1 \oplus \dotsb \oplus M_n$.
+  This shows altogether that $M = M_1 \oplus \dotsb \oplus M_n$.
   This shows that the given map is well-defined.
   
   Suppose that $M = M_1 \oplus \dotsb \oplus M_n$ for submodules $M_i \moduleleq M$.
@@ -149,7 +149,7 @@
     &\longmapsto  (Re_1, \dotsc, Re_n)
   \end{align*}
   is a well-defined bijection.
-  For every family $(I_1, \dotsc, I_n)$ of submodules $I_j \moduleleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by the unique $e_j \in I_j$ with $1 = e_1 + \dotsb + e_n$.
+  For every family $(I_1, \dotsc, I_n)$ of submodules $I_j \moduleleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by the unique elements $e_j \in I_j$ with $1 = e_1 + \dotsb + e_n$.
 \end{corollary}
 
 
@@ -157,7 +157,7 @@
 
 
 \begin{remark}
-  The analogous result of Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} for right ideal also holds, and can be proven in the same way.
+  The analogous result of Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} for right ideal also holds and can be proven in the same way.
   Note that the left ideals $R e_i$ have to be replaced by the right ideals $e_i R$.
 \end{remark}
 
@@ -190,12 +190,13 @@
     \item
       The submodule $N$ is a direct summand of $M$.
     \item
-      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im(e) = N$.
+      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im e = N$.
     \item
-      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\ker(e) = N$.
+      There exists an idempotent $R$-module endomorphism $e' \colon M \to M$ with $\ker e' = N$.
     \item
-      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im(e) \moduleleq N$ and $e(n) = n$ for every $n \in N$.
+      There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im e \moduleleq N$ and $e(n) = n$ for every $n \in N$.
   \end{enumerate}
+  The above endomorphisms are then related by $e' = 1 - e$.
 \end{corollary}
 
 
@@ -207,12 +208,12 @@
 
 
 \begin{fluff}
-  If $R_1, R_2$ are nonzero rings, then $R_1 \times 0$ and $0 \times R_2$ are not subrings of $R_1 \times R_2$ (because they do not contain $1_{R_1 \times R_2} = (1_{R_1}, 1_{R_2})$) but two-sided ideals.
+  If $R_1, R_2$ are nonzero rings, then $R_1 \times 0$ and $0 \times R_2$ are not subrings of $R_1 \times R_2$ (because they do not contain $1_{R_1 \times R_2} = (1_{R_1}, 1_{R_2})$) but are two-sided ideals.
 \end{fluff}
 
 
 \begin{lemma}
-  Let $R_1, \dotsc, R_n$ be rings, and for every $j = 1, \dotsc, n$ let
+  Let $R_1, \dotsc, R_n$ be rings and for every $j = 1, \dotsc, n$ let
   \[
               I_j
     \defined  0 \times \dotsb \times 0 \times R_j \times 0 \times \dotsb \times 0
@@ -226,13 +227,13 @@
 
 
 \begin{fluff}
-  We will now discuss under what conditions a ring $R$ may be decomposed as $R \cong R_1 \times \dotsb \times R_n$ for rings $R_1, \dotsc, R_n$.
+  We will now discuss under what conditions a ring $R$ can be decomposed as $R \cong R_1 \times \dotsb \times R_n$ for rings $R_1, \dotsc, R_n$.
   We have already seen that $R_1, \dotsc, R_n$ must appear as two-sided ideals in $R$.
 \end{fluff}
 
 
 \begin{definition}
-  An element $z \in R$ is \emph{central} if $rz = zr$ for all $r \in R$.
+  An element $z \in R$ is \emph{central} if $rz = zr$ for every $r \in R$.
 \end{definition}
 
 
@@ -243,7 +244,7 @@
     \item
       For all $i \neq j$ we have that $I_i I_j = 0$, and for all $i = 1, \dotsc, n$ we have that $I_i^2 = I_i$.
     \item
-      If $1_R = e_1 + \dotsb + e_n$ is the unique decomposition of $1_R$ with $e_j \in I_j$ for every $j = 1, \dotsc, n$, then $e_1, \dotsc, e_n$ is a complete collection of pairwise orthogonal central idempotents of $R$. 
+      If $1_R = e_1 + \dotsb + e_n$ is the unique decomposition of $1_R$ with $e_j \in I_j$ for every $j = 1, \dotsc, n$ then $e_1, \dotsc, e_n$ is a complete collection of pairwise orthogonal central idempotents of $R$. 
     \item
       Every $I_j$ is a ring with the addition and multiplication inherited from $R$ and $1_{I_j} = e_j$ for every $i = 1, \dotsc, n$.
     \item
@@ -289,20 +290,10 @@
       \right\},
     \\
                   (e_1, \dotsc, e_n)
-    &\longmapsto  (R e_1 R, \dotsc, R e_n R)
+    &\longmapsto  (R e_1, \dotsc, R e_n)
   \end{align*}
-  is a well-defined bijection, where we denote for every $x \in R$ by
-  \[
-      R x R
-    = \left\{
-        \sum_{k=1}^m r_k x r'_k
-      \suchthat*
-        m \geq 0,
-        r_k, r'_k \in R
-      \right\}
-  \]
-  the two-sided ideal generated by $x$.
-  For every family  $(I_1, \dotsc, I_n)$ of two-sided ideals $I_j \idealleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the corresponding family $(e_1, \dotsc, e_n)$ is given by the unique $e_j \in I_j$ with $1_R = e_1 + \dotsb + e_n$.
+  is a well-defined bijection.
+  For every family  $(I_1, \dotsc, I_n)$ of two-sided ideals $I_j \idealleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the corresponding family $(e_1, \dotsc, e_n)$ is given by the unique elements $e_j \in I_j$ with $1_R = e_1 + \dotsb + e_n$.
 \end{theorem}
 
 

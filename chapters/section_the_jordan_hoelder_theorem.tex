@@ -1,4 +1,4 @@
-\section{The Jordan-Hölder Theorem}
+\section{The Jorda--Hölder Theorem}
 \label{appendix: jordan hoelder}
 
 
@@ -9,7 +9,7 @@
 
 \begin{definition}
   \label{definition: filtration}
-  A \emph{filtration} of $M$ is an increasing chain
+  A \emph{filtration} of $M$ is an increasing sequence
   \[
                 0
     =           M_0
@@ -26,14 +26,14 @@
 
 
 \begin{definition}
-  A filtration $(M'_j)_{j=0}^{n'}$ is an \emph{refinement} of a filtration $(M_i)_{i=0}^n$ if $(M_i)_{i=0}^n$ is a subsequence of $(M'_j)_{j=0}^{n'}$.
+  A filtration $(M'_j)_{j=0}^m$ is an \emph{refinement} of a filtration $(M_i)_{i=0}^n$ if $(M_i)_{i=0}^n$ is a subsequence of $(M'_j)_{j=0}^m$.
 \end{definition}
 
 
 \begin{definition}
-  Two filtrations $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^{n'}$ are equivalent if they have the same factors up to permutation and isomorphism, i.e.\ if $n = n'$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, n'\}$ such that
+  Two filtrations $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^m$ are equivalent if they have the same factors up to permutation and isomorphism, i.e.\ if $n = m$ and there exists a bijection $\pi \colon \{1, \dotsc, n\} \to \{1, \dotsc, m\}$ such that
   \[
-          M'_{\pi(i)} / M_{\pi(i)-1}
+          M'_{\pi(i)} / M'_{\pi(i)-1}
     \cong M_i / M_{i-1}
   \]
   for all $i = 1, \dotsc, n$.
@@ -41,7 +41,7 @@
 
 
 \begin{remark}
-  Two filtrations $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^{n'}$ are equivalent if and only if the familes $(M_i/M_{i-1})_{i=1}^n$ and $(M'_j/M_{j-1})_{j=1}^{n'}$ are the same up to reordering and isomorphism.
+  Two filtrations $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^m$ are equivalent if and only if the familes $(M_i/M_{i-1})_{i=1}^n$ and $(M'_j/M_{j-1})_{j=1}^m$ are the same up to reordering and isomorphism.
 \end{remark}
 
 
@@ -77,7 +77,7 @@
 
 
 \begin{remark}
-  Lemma~\ref{lemma: modularity of submodule lattice} states that the lattice of submodules of $M$ is \emph{modular}.
+  Lemma~\ref{lemma: modularity of submodule lattice} shows that the lattice of submodules of $M$ is \emph{modular}.
 \end{remark}
 
 
@@ -102,18 +102,18 @@
       & P_1 + N_2 \cap P_2
       \\
         N_1 + P_1 \cap N_2
-        \arrow[-, very thick]{u}
+        \arrow[-]{u}
       & N_2 \cap P_2
-        \arrow[-]{lu}
-        \arrow[-]{ru}
+        \arrow[-, dashed]{lu}
+        \arrow[-, dashed]{ru}
       & P_1 + N_1 \cap P_2
-        \arrow[-, very thick]{u}
+        \arrow[-]{u}
       \\
         {}
       & (N_1 \cap P_2) + (N_2 \cap P_1)
-        \arrow[-]{lu}
-        \arrow[-, very thick]{u}
-        \arrow[-]{ru}
+        \arrow[-, dashed]{lu}
+        \arrow[-]{u}
+        \arrow[-, dashed]{ru}
       & {}
     \end{tikzcd}
   \]
@@ -121,32 +121,32 @@
   The butterfly~lemma states that the quotients associated to the three vertical edges are isomorphic.
   
   This image also explains how to prove the butterfly~lemma:
-  Recall that the third isomorphism theory states that for all submodule $N', P' \moduleleq M$ we have that
+  Recall that the third isomorphism theory states that for all submodule $N, P \moduleleq M$ we have that
   \[
-          (N' + P')/P'
-    \cong N'/(N' \cap P') \,,
+          (N + P)/P
+    \cong N/(N \cap P) \,,
   \]
   i.e.\ that in the Hasse diagram
   \[
     \begin{tikzcd}
         {}
-      & N' + P'
+      & N + P
       & {}
       \\
-        N'
-        \arrow[-,very thick]{ru}
+        N
+        \arrow[-, dashed]{ru}
       & {}
-      & P'
+      & P
         \arrow[-]{lu}
       \\
         {}
-      & N' \cap P'
+      & N \cap P
         \arrow[-]{lu}
-        \arrow[-,very thick]{ru}
+        \arrow[-, dashed]{ru}
       & {}
     \end{tikzcd}
   \]
-  the quotients associated to two parallel egdes are isomorphic.
+  the quotients associated to any two parallel egdes are isomorphic.
 \end{fluff}
 
 
@@ -174,20 +174,20 @@
     =&\,  N_1 + (P_2 \cap N_2)                  \\
     =&\,  N_1 + P_2 \cap N_2 \,,
   \end{align*}
-  and the equality~\ref*{enumerate: butterfly left top} holds because
+  and the equality~\ref*{enumerate: butterfly left bottom} holds because
   \begin{align*}
      &\,  (N_1 + P_1 \cap N_2) \cap (N_2 \cap P_2)    \\
     =&\,  ((N_2 \cap P_1) + N_1) \cap (N_2 \cap P_2)  \\
     =&\,  (N_2 \cap P_1) + (N_1 \cap (N_2 \cap P_2))  \\
     =&\,  (N_2 \cap P_1) + (N_1 \cap P_2) \,,
   \end{align*}
-  where we used for the second equality that $N_2 \cap P_1 \moduleleq N_2 \cap P_2$ to apply Lemma~\ref{lemma: modularity of submodule lattice}.
+  where we use for the second equality that $N_2 \cap P_1 \moduleleq N_2 \cap P_2$ to apply Lemma~\ref{lemma: modularity of submodule lattice}.
 \end{proof}
 
 
 \begin{theorem}[Schreier]
-  \label{theorem: Schreiers theorem}
-  Every two filtration of $M$ have equivalent refinements.
+  \label{theorem: schreiers theorem}
+  Any two filtration of $M$ have equivalent refinements.
 \end{theorem}
 
 
@@ -197,11 +197,11 @@
     \label{equation: Schreier starting filtration one}
                 0
     =           M_0
-    \modulelneq  M_1
-    \modulelneq  M_2
-    \modulelneq  M_3
-    \modulelneq  \dotsb
-    \modulelneq  M_n
+    \modulelneq M_1
+    \modulelneq M_2
+    \modulelneq M_3
+    \modulelneq \dotsb
+    \modulelneq M_n
     =           M
   \end{equation}
   and
@@ -209,114 +209,116 @@
     \label{equation: Schreier starting filtration two}
                 0
     =           M'_0
-    \modulelneq  M'_1
-    \modulelneq  M'_2
-    \modulelneq  M'_3
-    \modulelneq  \dotsb
-    \modulelneq  M'_{n'}
+    \modulelneq M'_1
+    \modulelneq M'_2
+    \modulelneq M'_3
+    \modulelneq \dotsb
+    \modulelneq M'_m
     =           M
   \end{equation}
   be two filtrations of $M$.
   We refine the filtration~\eqref{equation: Schreier starting filtration one} to an increasing sequence of submodules
-  \[
+  \begin{equation}
+    \label{equation: schreier intermediate filtration one}
     \begingroup
       \renewcommand{\arraycolsep}{1pt}
       \renewcommand{\arraystretch}{1.5}
       \begin{array}{ccccccccccccc}
-                    0
-        &=&         M_0 + M'_0    \cap M_1
-        &\moduleleq& M_0 + M'_1    \cap M_1
-        &\moduleleq& \dotsb
-        &\moduleleq& M_0 + M'_{n'} \cap M_1
-        &(=&        M_1)
-        &  &        {}
+                      0
+        &=&           M_0 + M'_0 \cap M_1
+        &\moduleleq&  M_0 + M'_1 \cap M_1
+        &\moduleleq&  \dotsb
+        &\moduleleq&  M_0 + M'_m \cap M_1
+        &(=&          M_1)
+        &  &          {}
         \\
-                    {}
-        &=&         M_1 + M'_0    \cap M_2
-        &\moduleleq& M_1 + M'_1    \cap M_2
-        &\moduleleq& \dotsb
-        &\moduleleq& M_1 + M'_{n'} \cap M_2
-        &(=&        M_2)
-        &  &        {}
+                      {}
+        &=&           M_1 + M'_0 \cap M_2
+        &\moduleleq&  M_1 + M'_1 \cap M_2
+        &\moduleleq&  \dotsb
+        &\moduleleq&  M_1 + M'_m \cap M_2
+        &(=&          M_2)
+        &  &          {}
         \\
-                    {}
-        &\vdots&    {}
-        & &         {}
-        & &         {}
-        & &         {}
-        & &         {}
-        & &         {}
+                      {}
+        &\vdots&      {}
+        & &           {}
+        & &           {}
+        & &           {}
+        & &           {}
+        & &           {}
         \\
-                    {}
-        &=&         M_{n-1} + M'_0    \cap M_n
-        &\moduleleq& M_{n-1} + M'_1    \cap M_n
-        &\moduleleq& \dotsb
-        &\moduleleq& M_{n-1} + M'_{n'} \cap M_n
-        &(=&        M_n)
-        &=&         M \,,
+                      {}
+        &=&           M_{n-1} + M'_0 \cap M_n
+        &\moduleleq&  M_{n-1} + M'_1 \cap M_n
+        &\moduleleq&  \dotsb
+        &\moduleleq&  M_{n-1} + M'_m \cap M_n
+        &(=&          M_n)
+        &=&           M \,,
       \end{array}
     \endgroup
-  \]
+  \end{equation}
   and we can similarly refine the filtration~\eqref{equation: Schreier starting filtration two} to an increasing sequence of submodules
-  \[
+  \begin{equation}
+    \label{equation: schreier intermediate filtration two}
     \begingroup
       \renewcommand{\arraycolsep}{1pt}
       \renewcommand{\arraystretch}{1.5}
       \begin{array}{ccccccccccccc}
-                    0
-        &=&         M'_0 + M_0  \cap M'_1
-        &\moduleleq& M'_0 + M_1  \cap M'_1
-        &\moduleleq& \dotsb
-        &\moduleleq& M'_0 + M_n  \cap M'_1
-        &(=&        M'_1)
-        &  &        {}
+                      0
+        &=&           M'_0 + M_0 \cap M'_1
+        &\moduleleq&  M'_0 + M_1 \cap M'_1
+        &\moduleleq&  \dotsb
+        &\moduleleq&  M'_0 + M_n \cap M'_1
+        &(=&          M'_1)
+        &  &          {}
         \\
-                    {}
-        &=&         M'_1 + M_0  \cap M'_2
-        &\moduleleq& M'_1 + M_1  \cap M'_2
-        &\moduleleq& \dotsb
-        &\moduleleq& M'_1 + M_n  \cap M'_2
-        &(=&        M'_2)
-        &  &        {}
+                      {}
+        &=&           M'_1 + M_0 \cap M'_2
+        &\moduleleq&  M'_1 + M_1 \cap M'_2
+        &\moduleleq&  \dotsb
+        &\moduleleq&  M'_1 + M_n \cap M'_2
+        &(=&          M'_2)
+        &  &          {}
         \\
-                    {}
-        &\vdots&    {}
-        & &         {}
-        & &         {}
-        & &         {}
-        & &         {}
-        & &         {}
+                      {}
+        &\vdots&      {}
+        & &           {}
+        & &           {}
+        & &           {}
+        & &           {}
+        & &           {}
         \\
-                    {}
-        &=&         M'_{n-1} + M_0  \cap M'_n
-        &\moduleleq& M'_{n-1} + M_1  \cap M'_n
-        &\moduleleq& \dotsb
-        &\moduleleq& M'_{n-1} + M_n  \cap M'_n
-        &(=&        M'_{n'})
-        &=&         M \,.
+                      {}
+        &=&           M'_{n-1} + M_0 \cap M'_m
+        &\moduleleq&  M'_{n-1} + M_1 \cap M'_m
+        &\moduleleq&  \dotsb
+        &\moduleleq&  M'_{n-1} + M_n \cap M'_m
+        &(=&          M'_m)
+        &=&           M \,.
       \end{array}
     \endgroup
-  \]
+  \end{equation}
   The modules in the first sequence are given by
   \[
               N_{ij}
     \defined  M_{i-1} + M'_j \cap M_i
   \]
-  with $i = 1, \dotsc, n$, $j = 0, \dotsc, n'$, and the modules in the second sequence are given by
+  with $i = 1, \dotsc, n$, $j = 0, \dotsc, m$, and the modules in the second sequence are given by
   \[
               N'_{ji}
     \defined  M'_{j-1} + M_i \cap M'_j \,,
   \]
-  with $j = 1, \dotsc, n'$, $i = 0, \dotsc, n$.
+  with $j = 1, \dotsc, m$, $i = 0, \dotsc, n$.
   
   The factors of the first sequence are therefore given by
   \[
               F_{ij}
     \defined  N_{ij}/N_{i,j-1}
   \]
-  for $i = 1, \dotsc, n$, $j = 1, \dotsc, n'$ together with the trivial factors
+  for $i = 1, \dotsc, n$, $j = 1, \dotsc, m$ together with the trivial factors
   \[
-      N_{i0}/N_{i-1,n'}
+      N_{i0}/N_{i-1,m}
     = M_{i-1}/M_{i-1}
     = 0
   \]
@@ -326,14 +328,14 @@
               F'_{ji}
     \defined  N'_{ji}/N_{j,i-1}
   \]
-  for $j = 1, \dotsc, n'$, $i = 1, \dotsc, n$ together with the trivial factors
+  for $j = 1, \dotsc, m$, $i = 1, \dotsc, n$ together with the trivial factors
   \[
       N'_{j0}/N'_{j-1,n}
     = M'_{j-1}/M'_{j-1}
     = 0
   \]
-  for every $j = 2, \dotsc, n'$.
-  It follows for all $i = 1, \dotsc, n$ and $j = 1, \dotsc, n'$ from the \hyperref[lemma: butterfly lemma]{butterfly~lemma} that
+  for every $j = 2, \dotsc, m$.
+  It follows for all $i = 1, \dotsc, n$ and $j = 1, \dotsc, m$ from the \hyperref[lemma: butterfly lemma]{butterfly~lemma} that
   \begin{align*}
             F_{ij}
     &=      N_{ij}/N_{i,j-1}  \\
@@ -342,20 +344,20 @@
     &=      N_{ji}/N_{j,i-1}
      =      F'_{ji} \,.
   \end{align*}
-  This shows that both sequences have the same non-trivial factors up to permutation and isomorphism.
-  By removing all repetition from this sequences we thus arrive at two equivalent filtrations of $M$.
-  These resulting filtrations are refinements of \eqref{equation: Schreier starting filtration one}, resp.\ \eqref{equation: Schreier starting filtration two} because the $M_i$ appear in the first sequence in the $M'_j$ appear in the second sequence.
+  This shows that the sequences \eqref{equation: schreier intermediate filtration one} and \eqref{equation: schreier intermediate filtration two} have the same non-trivial factors up to permutation and isomorphism.
+  By removing all repetition from the sequences \eqref{equation: schreier intermediate filtration one} and \eqref{equation: schreier intermediate filtration two} we thus arrive at two equivalent filtrations of $M$.
+  These resulting filtrations are refinements of \eqref{equation: Schreier starting filtration one} and \eqref{equation: Schreier starting filtration two} because the $M_i$ appear in the first sequence in the $M'_j$ appear in the second sequence.
 \end{proof}
 
 
 
 
 
-\subsection{The Jordan-Hölder Theorem}
+\subsection{The Jorda--Hölder Theorem}
 
 
 \begin{fluff}
-  We will now require the notion of a simple module, as introduced in Definition~\ref{definition: simple and maximal modules}.
+  For the follwing discussion we will require the notion of a \emph{simple module} as introduced in Definition~\ref{definition: simple and maximal modules}.
 \end{fluff}
 
 
@@ -382,20 +384,20 @@
   \leavevmode
   \begin{enumerate}
     \item
-      Every filtration of $M$ which is equivalent to $(M_i)_{i=0}^n$ has the same factors as $(M_i)_{i=0}^n$, which are then all simple.
+      Every filtration of $M$ which is equivalent to $(M_i)_{i=0}^n$ has up to isomorphism the same factors as $(M_i)_{i=0}^n$, which are then all simple.
     \item
-      Let $(M_j)_{j=0}^{n'}$ be a refinement of $(M_i)_{i=0}^n$.
-      For every $j = 0, \dotsc, n'$ there then exists some some $i = 1, \dotsc, n$ with $M_{i-1} \leq M'_j \leq M_i$.
+      Let $(M'_j)_{j=0}^m$ be a refinement of $(M_i)_{i=0}^n$.
+      For every $j = 0, \dotsc, m$ there then exists some some $i = 1, \dotsc, n$ with $M_{i-1} \leq M'_j \leq M_i$.
       Then $M'_j/M_{i-1}$ is a submodule of the simple module $M_i/M_{i-1}$, and it follows that $M'_j/M_{i-1} = 0$ or $M'_j/M_{i-1} = M_i/M_{i-1}$.
       In the first case we have that $M'_j = M_{i-1}$ and in the second case we have that $M'_j = M_i$.
       
-      This shows that every term of $(M_j)_{j=0}^{n'}$ already appers in $(M_i)_{i=0}^n$, which shows that $(M_j)_{j=0}^{n'} = (M_i)_{i=0}^n$.
+      This shows that every term of $(M'_j)_{j=0}^m$ already appers in $(M_i)_{i=0}^n$, which shows that $(M'_j)_{j=0}^m = (M_i)_{i=0}^n$.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
-\begin{theorem}[Jordan-Hölder]
+\begin{theorem}[Jordan--Hölder]
   \label{theorem: jordan hoelder theorem}
   Suppose that $M$ admits a composition series.
   \begin{enumerate}
@@ -411,12 +413,12 @@
   Let $(M_i)_{i=0}^n$ be a composition series for $M$.
   \begin{enumerate}
     \item
-      Let $(M'_j)_{j=0}^{n'}$ be another filtration of $M$.
-      Then $(M'_j)_{j=0}^{n'}$ and $(M_i)_{i=0}^n$ have equivalent refinements by \hyperref[theorem: Schreiers theorem]{Schreier’s theorem}.
-      It follows from Lemma~\ref{lemma: preparation for jordan hoelder} that $(M'_j)_{j=0}^{n'}$ admits a refinements that is equivalent to $(M_i)_{i=0}^n$, and is therefore itself a composition serie.
+      Let $(M'_j)_{j=0}^m$ be another filtration of $M$.
+      Then $(M'_j)_{j=0}^m$ and $(M_i)_{i=0}^n$ have equivalent refinements by \hyperref[theorem: schreiers theorem]{Schreier’s theorem}.
+      It follows from Lemma~\ref{lemma: preparation for jordan hoelder} that $(M'_j)_{j=0}^m$ admits a refinements that is equivalent to $(M_i)_{i=0}^n$ and which is therefore itself a composition series.
     \item
-      Let $(M'_j)_{j=0}^{n'}$ be another composition series of $M$.
-      The above argument shows that $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^{n'}$ have equivalent refinements, which by Lemma~\ref{lemma: preparation for jordan hoelder} are just the compositions series themselves.
+      Let $(M'_j)_{j=0}^m$ be another composition series of $M$.
+      Then $(M_i)_{i=0}^n$ and $(M'_j)_{j=0}^m$ have equivalent refinements by \hyperref[theorem: schreiers theorem]{Schreier’s theorem}, which are then just the compositions series themselves by Lemma~\ref{lemma: preparation for jordan hoelder}.
     \qedhere
   \end{enumerate}
 \end{proof}
@@ -428,12 +430,12 @@
   \begin{enumerate}
     \item
       \label{enumerate: composition series have same length and factors}
-      Every two composition series of $M$ have the same length, and up to permutation and isomorphism the same composition factors.
+      Every two composition series of $M$ have the same length and up to permutation and isomorphism the same composition factors.
     \item
       \label{enumerate: filtration maximal length of composition series}
-      If $M$ admits a composition series of length $n$ then every filtration of $M$ has at most length $n$.
+      If $M$ admits a composition series of length $n$ then every filtration of $M$ has length~$\leq n$.
     \item
-      A filtration is a composition series if and only if it has maximal length among all filtrations.
+      A filtration of $M$ is a composition series if and only if it has maximal length among all filtrations.
   \end{enumerate}
 \end{corollary}
 
@@ -446,66 +448,61 @@
     \item
       This follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan Hölder theorem}.
     \item
-      If $(M_i)_{i=0}^n$ is a composition series of $M$ then every filtration $(M'_j)_{j=0}^{n'}$ of $M$ has a refinements $(M''_k)_{k=0}^{n''}$ which is equivalent to $M$.
-      It follows with part~\ref*{enumerate: composition series have same length and factors} that $n = n'' \geq n'$.
+      If $(M_i)_{i=0}^n$ is a composition series of $M$ then every filtration $(M'_j)_{j=0}^m$ of $M$ has a refinements $(M''_k)_{k=0}^{\ell}$ which is equivalent to $(M_i)_{i=0}^n$.
+      It follows from part~\ref*{enumerate: composition series have same length and factors} that $n = \ell \geq m$.
       This shows that composition series have maximal length among all filtrations.
       
-      If $M_i/M_{i-1}$ were not simple for some $i = 1, \dotsc, n$ then $M_i/M_{i-1}$ would have a nonzero proper submodule, which would then correspond to a proper submodule $N \moduleleq M_i$ with $M_{i-1} \moduleleq M_i$.
+      Suppose that a $(M_i)_{i=0}^n$ of $M$ is not a composition series.
+      Then there exists some $i = 1, \dotsc, n$ for which the factor $M_i/M_{i-1}$ is not simple.
+      Then $M_i/M_{i-1}$ contains a nonzero proper submodule, which then correspond to a proper submodule $N \modulelneq M_i$ with $M_{i-1} \modulelneq N$.
       Then
       \[
                     0
         =           M_0
-        \modulelneq  M_1
-        \modulelneq  \dotsb
-        \modulelneq  M_{i-1}
-        \modulelneq  N
-        \modulelneq  M_i
-        \modulelneq  \dotsb
-        \modulelneq  M_n
+        \modulelneq M_1
+        \modulelneq \dotsb
+        \modulelneq M_{i-1}
+        \modulelneq N
+        \modulelneq M_i
+        \modulelneq \dotsb
+        \modulelneq M_n
         =           M
       \]
-      is a refinement of $(M_i)_{i=0}^n$ of length $n+1$.
-      Thus $(M_i)_{i=0}^n$ would not be a filtration of maximal length.
+      is a refinement of $(M_i)_{i=0}^n$ of length $n+1$, which shows that $(M_i)_{i=0}^n$ does not have maximal length among all filtrations.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
+\begin{fluff}
+  We finish by showing that an $R$-module admits a composition series if and only if it is both noetherian and artinian.
+  We will not use this result during the main text.
+\end{fluff}
+
+
 \begin{lemma}
   \label{lemma: artinian contains simple}
-  Every nonzero artinian $R$-module contains a simple submodule.
+  If $M$ is artinian then it contains a simple submodule.
 \end{lemma}
 
 
 \begin{proof}
-  Suppose that $M$ is a nonzero artinian $R$-module which contains no simple submodule.
-  Then $M \defines M_0$ is not simple itself and thus contains a nonzero proper submodule $M_1$, which must also not contain a simple submodule.
-  This constructes inductivey a strictly decreasing sequence of submodules
-  \[
-                M
-    =           M_0
-    \modulegneq M_1
-    \modulegneq M_2
-    \modulegneq \dotsb
-  \]
-  which does not stabilize.
-  This contradicts $M$ being artinian.
+  The set of nonzero submodules of $M$ contains a minimal element, which is then a simple submodule.
 \end{proof}
 
 
 \begin{proposition}
-  The $R$-module $M$ has a composition series iff and only if it is both noetherian and artinian.
+  The $R$-module $M$ has a composition series if and only if it is both noetherian and artinian.
 \end{proposition}
 
 
 \begin{proof}
   Suppose that $M$ has a composition series of length $n$.
-  Then every strictly increasing (resp.\ strictly decreasing) sequence of submodules of $M$ has at most length $n$ by Corollary~\ref{corollary: consequences of jordan hoelder}, part~\ref*{enumerate: filtration maximal length of composition series}.
-  It follows that every strictly increasing (resp.\ strictly decreasing) sequence of submodule of $M$ stabilizies after at most $n$ steps.
+  Then every strictly increasing (resp.\ strictly decreasing) sequence of submodules of $M$ has at most length~$n$ by part~\ref*{enumerate: filtration maximal length of composition series} of Corollary~\ref{corollary: consequences of jordan hoelder}.
   This shows that $M$ is both noetherian and artinian.
   
   Suppose that $M$ is both noetherian and artinian.
-  If $M = 0$ then $M$ has a (unique) composition series of length $0$, so suppose that $M \neq 0$.
+  If $M = 0$ then $M$ has a (unique) composition series of length $0$ so suppose that $M \neq 0$.
   It then follows that $M$ contains a simple submodule $M_1$ by Lemma~\ref{lemma: artinian contains simple}.
   If $M/M_1 = 0$ then $M = M_1$ and
   \[
@@ -513,7 +510,7 @@
     =           M_0
     \modulelneq M_1
     =           M
-  \]
+    \]
   is a composition series of $M$.
   Otherwise the quotient $M/M_1$ is nonzero and again artinian by Proposition~\ref{proposition: noether artin ses} and thus contains a simple submodule.
   This simple submodule is then of the form $M_2/M_1$ for some submodule $M_2 \moduleleq M$ with $M_1 \modulelneq M_2$.
@@ -529,7 +526,7 @@
     =           M
   \]
   with simple factors $M_i/M_{i-1}$ for $i = 1, \dotsc, n$, i.e.\ at a composition series of $M$.
-  Otherwise we would have constructed a strictly increasing sequence
+  Otherwise we would construct a strictly increasing sequence of submodules
   \[
                  0
     =            M_0
@@ -537,8 +534,7 @@
     \modulelneq  M_2
     \modulelneq  \dotsb
   \]
-  which does not stabilize.
-  But this contradicts $M$ being noetherian.
+  which would contradict $M$ being noetherian.
 \end{proof}
 
 

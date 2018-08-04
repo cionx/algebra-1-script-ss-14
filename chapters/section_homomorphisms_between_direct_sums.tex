@@ -9,8 +9,8 @@
 
 
 \begin{conventions}
-  We denote by $R$ a ring and abbreviate $\Hom_R$ as $\Hom$.
-  In the following, $M_1, \dotsc, M_t, M, N_1, \dotsc, N_t, N$ are $R$-modules.
+  In the following $R$ denotes a ring, $M, M_1, \dotsc, M_t, N, N_1, \dotsc, N_s$ denote $R$-modules.
+  We abbreviate $\Hom_R \defines \Hom$.
 \end{conventions}
 
 
@@ -25,7 +25,7 @@
   Let
   \[
           \pi_i
-  \colon  N_1 \oplus \dotsb \oplus N_t
+  \colon  N_1 \oplus \dotsb \oplus N_s
   \to     N_i
   \]
   denotes the projection onto the $i$-th summand for $i = 1, \dotsc, s$, and let
@@ -42,8 +42,8 @@
   For every homomorphism of $R$-modules
   \[
             f
-    \colon  M_1 \oplus \dotsb \oplus M_s
-    \to     N_1 \oplus \dotsb \oplus N_t
+    \colon  M_1 \oplus \dotsb \oplus M_t
+    \to     N_1 \oplus \dotsb \oplus N_s
   \]
   its \emph{$(ij)$-th component} is given by
   \[
@@ -83,31 +83,36 @@
     &\longmapsto
     [f]
   \end{align*}
-  is an isomorphism of abelian groups, and an isomorphism of $k$-vector spaces if $R$ is a $k$-algebra.
+  is an isomorphism of abelian groups.
+  If $R$ is a $k$-algebra then it is an isomorphism of $k$-vector spaces.
 \end{theorem}
 
 
 \begin{proof}
-  A homomorphisn $f \colon M_1 \oplus \dotsb \oplus M_t \to N_1 \oplus \dotsb \oplus N_s$ is uniquely determined by the colllection of its restrictions $f \circ \iota_j \colon M_j \to N_1 \oplus \dotsb \oplus N_s$, which is turns it uniquely determined by the collections of its components $\pi_i \circ f \circ \iota_j \colon M_j \to N_i$.
-  This shows that $[\,\cdot\,]$ is injective.
+  A homomorphisn $f \colon M_1 \oplus \dotsb \oplus M_t \to N_1 \oplus \dotsb \oplus N_s$ is uniquely determined by the collection of its restrictions $f \circ \iota_j \colon M_j \to N_1 \oplus \dotsb \oplus N_s$, which is turns it uniquely determined by the collections of its components $\pi_i \circ f \circ \iota_j \colon M_j \to N_i$.
+  This shows that~$[\,\cdot\,]$ is injective.
   
-  For all $j = 1, \dotsc, t$, $i = 1, \dotsc, s$ we have that
-  \begin{align*}
-        [f+g]_{ij}
-    &=  \pi_i \circ (f+g) \circ \iota_j
-     =  \pi_i \circ ((f \circ \iota_j) + (g \circ \iota_j)) \\
-    &=  (\pi_i \circ f \circ \iota_j) + (\pi_i \circ g \circ \iota_j)
-     =  [f]_{ij} + [g]_{ij} \,,
-  \end{align*}
+  For all $i = 1, \dotsc, s$, $j = 1, \dotsc, t$ we have that
+  \[
+      [f+g]_{ij}
+    = \pi_i \circ (f+g) \circ \iota_j
+    = (\pi_i \circ f \circ \iota_j) + (\pi_i \circ g \circ \iota_j)
+    = [f]_{ij} + [g]_{ij} \,,
+  \]
   which shows that $[\,\cdot\,]_{ij}$ is additive.
   It follows that $[\,\cdot\,]$ additive.
-  If $R$ is a $k$-algebra then the components $[\,\cdot\,]_{ij} = \pi_i \circ (\,\cdot\,) \circ \iota_j$ are already $k$-linear for all $i, j$, and it follows that $[\,\cdot\,]$ is $k$-linear.
+  If $R$ is a $k$-algebra then the component map $[\,\cdot\,]_{ij} = \pi_i \circ (\,\cdot\,) \circ \iota_j$ are $k$-linear for all $i, j$, and it follows that~$[\,\cdot\,]$ is $k$-linear.
   
   To show that $[\,\cdot\,]$ is surjective let $\pi'_j \colon M_1 \oplus \dotsb \oplus M_t \to M_j$ be the projection onto the $j$-th summand for every $j = 1, \dotsc, t$, and let $\iota_i \colon N_i \to N_1 \oplus \dotsb \oplus N_s$ be the inclusion of the $i$-th summand.
-  For a collection $(f_{ij})^{j = 1, \dotsc, t}_{i = 1, \dotsc, s}$ of homomorphisms $f_{ij} \colon M_j \to N_i$ we then have the homomorphism $f \colon M \to N$ given by
+  For a collection
+  \[
+    (f_{ij})^{j = 1, \dotsc, t}_{i = 1, \dotsc, s}
+  \]
+  of homomorphisms $f_{ij} \colon M_j \to N_i$ we then have the homomorphism $f \colon M \to N$ given by
   \[
       f
-    = \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}} (\iota_{i'} \circ f_{i'j'} \circ \pi'_{j'}) \,,
+    = \sum_{\subalign{j' &= 1, \dotsc, t \\ i' &= 1, \dotsc, s}}
+      (\iota_{i'} \circ f_{i'j'} \circ \pi'_{j'}) \,,
   \]
   whose $(ij)$-th component is given by
   \begin{align*}
@@ -116,17 +121,18 @@
     &=  \pi_i
         \circ
         \left(
-          \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}} (\iota_{i'} \circ f_{i'j'} \circ \pi'_{j'})
+          \sum_{\subalign{j' &= 1, \dotsc, t \\ i' &= 1, \dotsc, s}}
+          (\iota_{i'} \circ f_{i'j'} \circ \pi'_{j'})
         \right)
         \circ
         \iota_j \\
-    &=  \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}}
+    &=  \sum_{\subalign{j' &= 1, \dotsc, t \\ i' &= 1, \dotsc, s}}
         \big(
-        \pi_i \circ \iota_{i'} \circ f_{i'j'} \circ \pi'_{j'} \circ \iota_j
+          \pi_i \circ \iota_{i'} \circ f_{i'j'} \circ \pi'_{j'} \circ \iota_j
         \big) \\
-    &=  \sum_{\substack{j' = 1, \dotsc, t \\ i' = 1, \dotsc, s}}
+    &=  \sum_{\subalign{j' &= 1, \dotsc, t \\ i' &= 1, \dotsc, s}}
         \big(
-        (\delta_{i,i'} \id) \circ f_{i'j'} \circ (\delta_{j,j'} \id)
+          (\delta_{i,i'} \id) \circ f_{i'j'} \circ (\delta_{j,j'} \id)
         \big)
      =  f_{ij} \,.
   \end{align*}
@@ -154,12 +160,27 @@
     \quad         f
     &\longmapsto  (f \circ \iota_1, \dotsc, f \circ \iota_t)
   \end{align*}
-  are isomorphism of abelian groups, and isomorphism of $k$-vector spaces if $R$ is a $k$-algebra.
+  are isomorphism of abelian groups.
+  If $R$ is a $k$-algebra then these are isomorphisms of $k$-vector spaces.
 \end{corollary}
 
 
 \begin{remark}
-  The second isomorphism of Corollary~\ref{corollary: Hom on direct sums} holds for arbitrary direct sums, while the first isomorphism holds for arbitrary \emph{products} instead of finite direct sums.
+  The second isomorphism of Corollary~\ref{corollary: Hom on direct sums} holds for arbitrary direct sums, while the first isomorphism holds for arbitrary \emph{products}:
+  For all families $(M_j)_{j \in J}$ and $(N_i)_{i \in I}$ of $R$-modules the maps
+  \begin{alignat*}{3}
+              \Hom\left( M, \prod_{i \in I} N_i \right)
+    &\longto& \prod_{i \in I} \Hom(M, N_i),
+    \quad         f
+    &\longmapsto& ( \pi_i \circ f )_{i \in I}
+  \shortintertext{and}
+              \Hom\left( \bigoplus_{j \in J} M_j, N \right)
+    &\longto& \prod_{j \in J} \Hom(M_j, N),
+    \quad         f
+    &\longmapsto& ( f \circ \iota_j )_{j \in J}
+  \end{alignat*}
+  are isomorphism of abelian groups.
+  If $R$ is a $k$-algebra, then these are isomorphisms of $k$-vector spaces.
 \end{remark}
 
 
@@ -169,9 +190,9 @@
   \[
     \vect{m_1 \\ \vdots \\ m_t}
   \]
-  with $m_j \in M_j$ for every $j = 1, \dotsc, t$;
-  the elements of $N_1 \oplus \dotsb \oplus N_s$ can be represented as column vectors in the same way.
-  For every $R$-module homomorphism $f \colon M \to N$ with
+  with $m_j \in M_j$ for every $j = 1, \dotsc, t$.
+  The elements of $N_1 \oplus \dotsb \oplus N_s$ can be represented as column vectors in the same way.
+  For every $R$-module homomorphism $f \colon M \to N$ with matrix representation
   \[
       f
     = \begin{bmatrix}
@@ -215,9 +236,9 @@
       \vect{m_1 \\ \vdots \\ m_t} \,,
   \end{align*}
   % TODO: Fix the spacing of the vertical dots in the vectors.
-  where the matrix-vector product in the last step is taken in the naive sense.
+  where the matrix-vector product in the last expression is taken in the naive sense.
   
-  This shows that when representing a homomorphism by a matrix, we can represent application of this homomorphism by matrix-vector multiplication.
+  This shows that when representing a homomorphism by a matrix we can represent application of this homomorphism by matrix-vector multiplication.
 \end{fluff}
 
 
@@ -225,7 +246,7 @@
   Let $k$ be a field and let $V, W$ be finite-dimensional $k$-vector spaces.
   A choice of a basis $b_1, \dotsc, b_t$ of $V$ is then the same as an isomorphism $\varphi \colon V \to k^t$, and a choice of a basis $c_1, \dotsc, c_s$ of $W$ is the same as an isomorphism $\psi \colon W \to k^s$.
   We also have that $k \xrightarrow{\sim} \Hom(k,k)$ where for $\lambda \in k$ the linear map $k \to k$ is given by $x \mapsto \lambda x$.
-  Alltogether this results in an isomorphism
+  Altogether this results in an isomorphism
   \begin{align*}
       \Hom(V,W)
     \xlongrightarrow{\sim}
@@ -281,9 +302,9 @@
     \xlongrightarrow{\pi'_i}    N_i \,,
     \\
                               P_1 \oplus &\dotsb \oplus P_r
-    \xlongrightarrow{\pi''_r} P_r \,.
+    \xlongrightarrow{\pi''_k} P_r \,.
   \end{align*}
-  For all $j = 1, \dotsc, t$, $k = 1, \dotsc, r$ we then have that
+  For all $k = 1, \dotsc, r$, $j = 1, \dotsc, t$ we then have that
   \begin{align*}
         (g \circ f)_{kj}
     &=  \pi_k \circ g \circ f \circ \iota_j
@@ -310,7 +331,8 @@
                   f
     &\longmapsto  [f]
   \end{align*}
-  is an isomorphism of rings, and an isomorphism of $k$-algebras if $R$ is a $k$-algebra.
+  is an isomorphism of rings.
+  If $R$ is a $k$-algebra then this is an isomorphism of $k$-algebras.
 \end{corollary}
 
 
@@ -376,7 +398,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      For $n \geq 0$ the map
+      For every $n \geq 0$ the map
       \begin{align*}
                   \End(M^{\oplus n})
         &\longto  \begin{bmatrix}
@@ -389,9 +411,10 @@
                       f
         &\longmapsto  [f]
       \end{align*}
-      is an isomorphism of rings, and an isomorphism of $k$-algebras if $R$ is a $k$-algebra.
+      is an isomorphism of rings.
+      If $R$ is a $k$-algebra then it is an isomorphism of $k$-algebras.
     \item
-      If more generally $M_1, \dotsc, M_t$ there exist no nonzero homomorphism $M_i \to M_j$ for all $i, j$ then for $n_1, \dotsc, n_t \geq 0$ the map
+      Suppose more generally that for all $i \neq j$ there exists no nonzero $R$-module homomorphism $M_i \to M_j$. Then for all $n_1, \dotsc, n_t \geq 0$ the map
       \begin{align*}
                   \End(M_1^{\oplus n_1} \oplus \dotsb \oplus M_t^{\oplus n_t})
         &\longto  \begin{bmatrix}
@@ -411,7 +434,8 @@
                       f
         &\longmapsto  [f]
       \end{align*}
-      is a well-defined isomorphism of rings, and an isomorphism of $k$-algebras if $R$ is a $k$-algebra.
+      is a well-defined isomorphism of rings.
+      If $R$ is a $k$-algebra then it is an isomorphism of $k$-algebras.
   \end{enumerate}
 \end{corollary}
 
@@ -502,7 +526,7 @@
 
 
 \begin{conventions}
-  In the following, $(M_i)_{i \in I}$ and $(N_i)_{i \in I}$ are two-families of $R$-modules and $M$ is an $R$-module.
+  In the following $(M_i)_{i \in I}$ and $(N_i)_{i \in I}$ denote two-families of $R$-modules and $M$ is an $R$-module.
 \end{conventions}
 
 
@@ -581,7 +605,7 @@
 
 
 \begin{fluff}
-  For every $i \in I$ let $\iota_i \colon M_i \to \bigoplus_{j \in J} M_j$ be the inclusion of the $i$-th summand, and for every $i \in I$ let $\pi_i \colon \bigoplus_{j \in J} N_j \to N_i$ be the projection onto the $i$-th summand.
+  For every $i \in I$ let $\iota_i \colon M_i \to \bigoplus_{i' \in I} M_{i'}$ be the inclusion of the $i$-th summand, and for every $i \in I$ let $\pi_i \colon \bigoplus_{i' \in I} N_{i'} \to N_i$ be the projection onto the $i$-th summand.
 \end{fluff}
 
 
@@ -596,6 +620,7 @@
     \mapsto (f_i)_{i \in I}
   \]
   is a well-defined isomorphism of abelian groups.
+  If $R$ is a $k$-algebra then it is an isomorphism of $k$-vector spaces.
 \end{lemma}
 
 
@@ -608,7 +633,7 @@
   \begin{itemize}
     \item
       Let $(X_{ij})_{i \in I, j \in J}$ be a family of sets.
-      The space of all $(I \times J)$-matrices with entries in the $X_{ij}$ is denoted by
+      The space of all $(I \times J)$-matrices whose $(ij)$-th entry is contained in $X_{ij}$ is denoted by
       \[
           \Mat( X_{ij} \suchthat i \in I, j \in J)
         = \{
@@ -664,6 +689,7 @@
         = \sum_{j \in I} A_{ij} B_{jk}
       \]
       for all $A, B \in \Mat^{\cf}_I(R)$ and all $i, k \in I$.
+      If $R$ is a $k$-algebra then this makes $\Mat^{\cf}_I(R)$ into a $k$-algebra.
   \end{enumerate}
   The analogous results for row finite matrices also hold.
 \end{lemma}
@@ -677,7 +703,7 @@
     \colon    M_j
     \to       N_i
   \]
-  be its $(i,j)$-th component for all $i, j \in I$.
+  be its $(ij)$-th component for all $i, j \in I$.
   If $M_i$ is finitely generated for every $i \in I$, then the map
   \[
             \Hom_R\left( \bigoplus_{i \in I} M_i, \bigoplus_{i \in I} N_i \right)
@@ -702,7 +728,7 @@
     \colon    M
     \to       M
   \]
-  be its $(i,j)$-th component for all $i, j \in I$.
+  be its $(ij)$-th component for all $i, j \in I$.
   If $M$ is finitely generated then the map
     \[
             \End_R\left( M^{\oplus I} \right)
