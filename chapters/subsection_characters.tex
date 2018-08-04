@@ -218,10 +218,8 @@
 \end{conventions}
 
 
-% TODO: Add a proof.
-
-
 \begin{lemma}
+  \label{lemma: dimension of invariants via character}
   We have that
   \[
       \dim V^G
@@ -230,10 +228,34 @@
 \end{lemma}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  The Reynolds~operator $R \colon V \to V$ given by
+  \[
+              R(v)
+    \defined  \frac{1}{|G|} \sum_{g \in G} g.v
+  \]
+  is a projection onto $V^G$, which is why
+  \[
+      \dim V^G
+    = \tr R \,.
+  \]
+  Note that $R = |G|^{-1} \sum_{g \in G} \rho(g)$ where $\rho \colon G \to \GL(V)$ is the group homomorphism corresponding to the representation $V$.
+  It follows that
+  \[
+      \dim V^G
+    = \tr R
+    = \frac{1}{|G|} \sum_{g \in G} \tr \rho(g)
+    = \frac{1}{|G|} \sum_{g \in G} \chi_V(g)
+  \]
+  as desired.
+\end{proof}
+
+
+% TODO: Projectiont onto invariants expressed by characters.
 
 
 \begin{corollary}
+  \label{corollary: dim of Hom via characters}
   We have that
   \[
       \dim \Hom_G(V,W)
@@ -242,7 +264,17 @@
 \end{corollary}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  It follows from Lemma~\ref{lemma: dimension of invariants via character} that
+  \begin{align*}
+        \dim \Hom_G(V,W)
+     =  \dim \Hom(V,W)^G
+    &=  \frac{1}{|G|} \sum_{g \in G} \chi_{\Hom(V,W)}(g)  \\
+    &=  \frac{1}{|G|} \sum_{g \in G} \chi_V(g^{-1}) \chi_W(g)
+  \end{align*}
+  as claimed.
+\end{proof}
+
 
 
 \begin{fluff}
@@ -267,6 +299,7 @@
   Let $k$ be algebraically closed.
   \begin{enumerate}
     \item
+      \label{enumerate: irred char are onb}
       The irreducible characters of $G$ form an orthonormal basis of $C(G)$ with respect to the bilinear form $(-,-)$.
     \item
       If $V \cong V_1^{\oplus n_1} \oplus \dotsb \oplus V_r^{\oplus n_r}$ and $W \cong V_1^{\oplus m_1} \oplus \dotsb \oplus V_r^{\oplus m_r}$ for pairwise non-isomorpic irreducible representations $V_1, \dotsc, V_r$ and $n_1, \dotsc, n_r, m_1, \dotsc, m_r \geq 0$ then
@@ -276,12 +309,28 @@
       \]
       It follows in particular that $(\chi_{V_i}, \chi_V) = n_i$ is the multiplicity of $V_i$ in $V$ for all $i = 1, \dotsc, r$.
     \item
-      The representation $V$ is irreducible if and only if $(\chi_V, \chi_V) = 1$.
+      If $\ringchar(k) = 0$ then the representation $V$ is irreducible if and only if $(\chi_V, \chi_V) = 1$.
   \end{enumerate}
 \end{theorem}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The irreducible characters form a basis of $C(G)$ by Propositon~\ref{proposition: conjugacy classes and irreducible representations} and they are orthonormal with respect to $(-,-)$ by Corollary~\ref{corollary: dim of Hom via characters} and \hyperref[proposition: Schurs lemma representations]{Schur’s Lemma}.
+    \item
+      This follows from part~\ref*{enumerate: irred char are onb} because $\chi_V = \sum_{i=1}^r n_i \chi_{V_i}$ and $\chi_W = \sum_{i=1}^r m_i \chi_{V_i}$.
+    \item 
+      If $V = V_1^{\oplus n_1} \oplus \dotsb \oplus V_r^{n_r}$ for pairwise non-isomorphic irreducible representations $V_1, \dotsc, V_r$ and $n_1, \dotsc, n_r \geq 0$ then
+      \[
+          ( \chi_V, \chi_V )
+        = \sum_{i=1}^r n_i^2
+      \]
+      and it follows that $(\chi_V, \chi_V) = 1$ if and only if there exists some $i = 1, \dotsc, r$ with $n_i = 1$ and $n_j = 0$ for $j \neq i$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 % TODO: Add reference to previous mention of this orthogonality in the first chapter.
