@@ -2,7 +2,7 @@
 
 
 \begin{conventions}
-  In the following $k$ is a field and $A, B$ are two $k$-algebras.
+  In the following $k$ denotes a field and $A, B$ are two $k$-algebras.
   We abbreviate $\tensor_k \defines \tensor$.
 \end{conventions}
 
@@ -29,7 +29,7 @@
   are injective $k$-algebra homomorphism.
   We may therefore regard $A$ and $B$ as $k$-subalgebras of $A \tensor B$ by identifying them with $A \tensor 1$ and $1 \tensor B$.
   
-  Note that when we identify an element $a \in A$ with $a \tensor 1 \in A \tensor B$ and an element $b \in B$ with $1 \tensor b \in A \tensor B$ then the \enquote{the elements $a$ and $b$ commute} in the sense that
+  Note that when we identify an element $a \in A$ with $a \tensor 1 \in A \tensor B$ and an element $b \in B$ with $1 \tensor b \in A \tensor B$ then the \enquote{the elements $a$ and $b$ commute in $A \tensor B$} in the sense that
   \[
       (a \tensor 1)(1 \tensor b)
     = a \tensor b
@@ -49,7 +49,7 @@
     &\colon   A
      \to      C,
      \quad    a
-     \mapsto  f(a \tensor 1)
+     \mapsto  f(a \tensor 1) \,,
   \\
               f_2
     &\colon   B
@@ -106,7 +106,7 @@
 
 \begin{fluff}
   \label{fluff: commuting modules structures for tensor products}
-  If $P$ is a $k$-vector space then $(A \tensor B)$-module structures on $P$ are in $1$:$1$-correspondence with $k$-algebra homomorphisms $A \tensor B \to \End_k(P)$, where for every $k$-algebra homomorphism $f$ the corresponding module structure is given by
+  If $P$ is a $k$-vector space then $(A \tensor B)$-module structures on $P$ are in $1$:$1$-correspondence with $k$-algebra homomorphisms $A \tensor B \to \End_k(P)$, where for every $k$-algebra homomorphism $f \colon A \tensor B \to \End_k(P)$ the corresponding module structure is given by
   \[
       (a \tensor b) \cdot p
     = f(a \tensor b)(p)
@@ -124,7 +124,7 @@
     = (1 \tensor b) p
   \]
   for all $a \in A$, $b \in B$, $p \in P$.
-  This actions commute in the sense that
+  These actions of $A, B$ on $P$ commute in the sense that
   \begin{align*}
         a \cdot (b \cdot p)
     &=  (a \tensor 1) \cdot ( (1 \tensor b) \cdot p )
@@ -146,8 +146,8 @@
     = a \cdot (b \cdot p)
     = b \cdot (a \cdot p)
   \]
-  for all simple tensors $a \tensor b \in A \tensor B$ and $p \in P$ defines an $(A \tensor B)$-module structure on $P$:
-  We have that $(1 \tensor 1) \cdot p = p$ for all $p \in P$, and for all simple tensors $a \tensor b, a' \tensor b' \in A \tensor B$ and all $p \in P$ we have that
+  for all simple tensors $a \tensor b \in A \tensor B$ and all $p \in P$ defines an $(A \tensor B)$-module structure on $P$:
+  We have that $(1 \tensor 1) \cdot p = p$ for every $p \in P$, and for all simple tensors $a \tensor b, a' \tensor b' \in A \tensor B$ and all $p \in P$ we have that
   \begin{align*}
         (a \tensor b) \cdot ( (a' \tensor b') \cdot p )
     &=  a \cdot (b \cdot (a' \cdot (b' \cdot p)))
@@ -161,14 +161,14 @@
     \item
       An $(A \tensor B)$-module structure on $A$.
     \item
-      A pair of commuting $A$-module and $B$-module structuren on $A$.
+      A pair of commuting $A$-module and $B$-module structures on $A$.
     \item
       A $k$-algebra homomorphism $A \tensor B \to \End_k(P)$.
     \item
       A pair of $k$-algebra homomorphisms $A \to \End_k(P)$ and $B \to \End_k(P)$ whose images commute with each other.
   \end{enumerate}
   
-  We can also give another description of $(A \tensor B)$-modules:
+  We can also give yet another description of $(A \tensor B)$-modules:
   A pair of $A$-module and $B$-module structures on $P$ commute if and only if for every $a \in A$ the map $P \to P$, $p \mapsto ap$ is a homomorphism of $B$-modules, and equivalently if for every $b \in B$ the map $P \to P$, $p \mapsto bp$ is a homomorphism of $A$-modules.
   This is equivalent to the $k$-algebra homomorphisms $A \to \End_k(P)$ restricting to a homomorphism $A \to \End_B(P)$, and equivalently to the $k$-algebra homomorphisms $B \to \End_k(P)$ restricting to a homomorphism $B \to \End_A(P)$.
   With this we can continue the above list:
@@ -198,9 +198,7 @@
   These two module structures commute because
   \[
       a \cdot (b \cdot (m \tensor n))
-    = a \cdot (m \tensor (bn))
     = (am) \tensor (bn)
-    = b \cdot ((am) \tensor n)
     = b \cdot (a \cdot (m \tensor n))
   \]
   for all $a \in A$, $b \in B$, $m \tensor n \in M \tensor N$.
@@ -209,8 +207,8 @@
       (a \tensor b) \cdot (m \tensor n)
     = (am) \tensor (bn)
   \]
-  for all simple tensors $a \tensor b \in A \tensor B$, $m \tensor n \in M \tensor N$.
-  We will denote the resulting $(A \tensor B)$-module by
+  for all simple tensors $a \tensor b \in A \tensor B$ and $m \tensor n \in M \tensor N$.
+  We will denote this $(A \tensor B)$-module by
   \[
     M \outertensor N \,.
   \]
@@ -235,10 +233,9 @@
 
 \begin{proof}
   It follows that $M, N \neq 0$ because $M \outertensor N \neq 0$.
-  If $M$ were not semisimple then there would exist a proper nonzero $A$-submodule $M' \modulelneq M$.
+  If $M$ were not simple then there would exist a proper nonzero $A$-submodule $M' \modulelneq M$.
   Then $M' \outertensor N$ would be a proper nonzero $(A \tensor B)$-submodule of $M \outertensor N$, which would contradict $M \outertensor N$ being simple.
-  It follows that $M$ must be simple.
-  We find in the same way that $N$ is simple.
+  This shows that $M$ is simple and we find in the same way that $N$ is simple.
 \end{proof}
 
 
@@ -252,10 +249,11 @@
   By the \hyperref[theorem: density theorem]{density theorem} the $k$-algebra homomorphisms $\Phi \colon A \to \End_k(M)$ and $\Psi \colon B \to \End_k(M)$ corresponding to the module structures are surjective.
   It follows that the $k$-algebra homomorphism
   \[
-                            \Phi \tensor \Psi
-    \colon                  A \tensor B
-    \to                     \End_k(M) \tensor \End_k(N)
-    \xlongrightarrow{\sim}  \End_k(M \tensor N)
+            \Phi \tensor \Psi
+    \colon  A \tensor B
+    \to     \End_k(M) \tensor \End_k(N)
+    \xlongrightarrow[f \tensor g \mapsto f \tensor g]{\sim} 
+            \End_k(M \tensor N)
   \]
   is also surjective.
   This is the $k$-algebra homomorphism corresponding to the module structure of $M \outertensor N$ so it follows from the \hyperref[theorem: density theorem]{density theorem} that $M \outertensor N$ is simple.
@@ -318,8 +316,8 @@
 \begin{proof}
   That $\Phi$ is well-defined follows from Lemma~\ref{lemma: tensor product of modules is again simple}.
   
-  To see that $\Phi$ is injective let $[M], [M'] \in \irr(A)$ and $[N], [N'] \in \irr(B)$ be isomorphism classes such that $M \outertensor N \cong M' \outertensor N'$.
-  Then $M \outertensor N \cong M' \outertensor N'$ as $A$-modules where $A$ acts on $M \outertensor N$ by $a \cdot (m \tensor n) = (am) \tensor n$ for all $a \in A$ and simple tensors $m \tensor n \in M \tensor N$, and similarly for $M' \outertensor N'$.
+  To see that $\Phi$ is injective let $[M], [M'] \in \irr(A)$ and $[N], [N'] \in \irr(B)$ such that $M \outertensor N \cong M' \outertensor N'$.
+  Then $M \outertensor N \cong M' \outertensor N'$ as $A$-modules where $A$ acts on $M \outertensor N$ via $a \cdot (m \tensor n) = (am) \tensor n$ for all $a \in A$ and simple tensors $m \tensor n \in M \tensor N$, and similarly for $M' \outertensor N'$.
   We then have that
   \begin{align*}
             M \outertensor N
@@ -329,8 +327,8 @@
     &\cong  \underbrace{ M' \oplus \dotsb \oplus M' }_{\text{$\dim(N')$ many}} \,.
   \end{align*}
   as $A$-modules.
-  It then follows from that $M \cong M'$ as $A$-modules because $M, M'$ are simple.
-  In the same way it can be shown that $N \cong N'$ as $B$-modules.
+  It then follows that $M \cong M'$ as $A$-modules because $M, M'$ are simple.
+  It can be shown in the same way that $N \cong N'$ as $B$-modules.
   
   To see that $\Phi$ is surjective let $[P] \in \irr(A \tensor B)$.
   We can regard $P$ as a $B$-module by restriction, i.e.\ via the action given by
@@ -348,7 +346,7 @@
     \quad   f \tensor n
     \mapsto f(n)
   \]
-  is a homomorphis of $B$-modules which restrict to an isomorphism $\Hom_B(N,P) \to N_E$, where $B$ acts on $\Hom_B(N,P) \tensor N$ via
+  is a homomorphis of $B$-modules which restrict to an isomorphism $\Hom_B(N,P) \to N_P$, where $B$ acts on $\Hom_B(N,P) \tensor N$ via
   \[
       b \cdot (f \tensor n)
     = f \tensor (bn)
@@ -356,20 +354,20 @@
   for all $b \in B$ and simple tensors $f \tensor n \in \Hom_B(N,P) \tensor N$.
   
   The $(A \tensor B)$-module structure on $P$ also corresponds to a $k$-algebra homomorphism $A \to \End_B(P)$ given by $b \mapsto (p \mapsto bp)$ as seen in \ref{fluff: commuting modules structures for tensor products}. 
-  The multiplicity space $\Hom_B(N,P)$ carries the structure of an $\End_B(P)$-module via postcomposition, so it follows that $\Hom_B(N,P)$ carries the structure of a $A$-module via
+  The multiplicity space $\Hom_B(N,P)$ carries the structure of a left $\End_B(P)$-module via postcomposition, so it follows that $\Hom_B(N,P)$ carries the structure of an $A$-module via
   \[
       (a \cdot f)(n)
     = a \cdot f(n)
   \]
   for all $a \in A$, $f \in \Hom_B(N,P)$, $n \in N$.
-  We can therefore enhance the $k$-vector space $\Hom_B(N,P) \tensor N$ to the $(A \tensor B)$-module $\Hom_B(N,P) \tensor N$.
+  We can therefore enhance the $k$-vector space $\Hom_B(N,P) \tensor N$ to the $(A \tensor B)$-module $\Hom_B(N,P) \outertensor N$.
   The $k$-linear map
   \[
             \psi
     \colon  \Hom_B(N,P) \outertensor N
     \to     P
   \]
-  is already a homomorphism of $(A \tensor B)$-modules because
+  is then a homomorphism of $(A \tensor B)$-modules because
   \begin{align*}
         \psi((a \tensor b) \cdot (f \tensor n))
     &=  \psi((af) \tensor (bn))
@@ -380,7 +378,7 @@
      =  (a \tensor b) f(n)
      =  (a \tensor b) \psi(f \tensor n)
   \end{align*}
-  for all simple tensors $a \tensor b \in A \tensor B$, $f \tensor n \in \Hom_B(N,P) \tensor N$.
+  for all simple tensors $a \tensor b \in A \tensor B$ and $f \tensor n \in \Hom_B(N,P) \tensor N$.
   
   Because $P$ is simple and $\psi$ is nonzero it follows that $\psi$ is surjective.
   Together with the injectivity of $\psi$ this shows that $\psi$ is an isomorphism of $(A \tensor B)$-modules, which shows that $P \cong \Hom_B(N,P) \outertensor N$ as $(A \tensor B)$-modules.
