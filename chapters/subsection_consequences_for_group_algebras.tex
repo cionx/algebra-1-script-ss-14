@@ -2,19 +2,8 @@
 
 
 \begin{fluff}
-  We start by collecting some direct consequences of previous results.
+  We start by collecting some direct consequences of our previous results.
 \end{fluff}
-
-
-\begin{lemma}
-  \label{lemma: every irrep is onedimen iff abelian}
-  If $k$ is algebraically closed and $G$ is finite with $\ringchar(k) \ndivides |G|$ then $G$ is abelian if and only if every irreducible representation of $G$ is one-dimensional.
-\end{lemma}
-
-
-\begin{proof}
-  This follows from Corollary~\ref{corollary: semisimple algebra product of matrix algebras} because the group algebra $k[G]$ is commutative if and only if the group $G$ is abelian.
-\end{proof}
 
 
 \begin{lemma}
@@ -30,6 +19,7 @@
   \end{enumerate}
 \end{lemma}
 \begin{proof}
+  We have already remarked on the equivalence of \ref*{enum: V irreducible} and \ref*{enum: V simple kG-module} in part~\ref*{enumerate: irreducible is simple} of Example~\ref{example: simple modules}.
   The equivalence of \ref*{enum: V simple kG-module} and \ref*{enum: surjective algebra homo} follows from the \hyperref[theorem: density theorem]{density theorem}.
 \end{proof}
 
@@ -87,8 +77,8 @@
 
 
 \begin{proof}
-  The existence and uniqueness of $\varphi$ follows from $G \times H$ being a basis of $k[G \times H]$.
-  Thise basis is bijectively mapped onto the basis $(g \tensor h)_{g \in G, h \in H}$ of $k[G] \tensor k[H]$, which shows that $\varphi$ is bijective.
+  That $\varphi$ is well-defined follows from $G \times H$ being a basis of $k[G \times H]$.
+  This basis is bijectively mapped onto the basis $(g \tensor h)_{g \in G, h \in H}$ of $k[G] \tensor k[H]$, which shows that $\varphi$ is bijective.
   For all $(g_1, h_1), (g_2, h_2) \in G \times H$ we have that
   \begin{align*}
       \varphi((g_1, h_1) (g_2, h_2))
@@ -102,16 +92,18 @@
 
 
 \begin{definition}
-  The representations $V \outertensor W$ of $G \times H$ is the $k$-vector space $V \tensor W$ together with the (linear) group action
+  The $k$-representations $V \outertensor W$ of $G \times H$ is the $k$-vector space $V \tensor W$ together with the (linear) group action given by
   \[
       (g,h).(v \tensor w)
-    = (g.v) \tensor (h.w) \,.
+    = (g.v) \tensor (h.w)
   \]
+  for all $(g, h) \in G \times H$ and simple tensors $v \otimes w \in V \otimes W$.
 \end{definition}
 
 
 \begin{remark}
-  If we regard $V$ is an $k[G]$-module and $W$ as an $k[H]$-module then the above definition of $V \outertensor W$ coincides with the one given in \ref{fluff: construction of boxtimes}.
+  \label{remark: definitions of boxtimes coincide}
+  If we regard $V$ is a $k[G]$-module and $W$ as a $k[H]$-module then the above definition of $V \outertensor W$ coincides with the one given in \ref{fluff: construction of boxtimes}.
 \end{remark}
 
 
@@ -129,7 +121,26 @@
 
 
 \begin{proof}
-  This follows from Theorem~\ref{theorem: simple modules over tensor products} because of Lemma~\ref{lemma: group algebra of product}.
+  This follows from Theorem~\ref{theorem: simple modules over tensor products} because of Lemma~\ref{lemma: group algebra of product} and Remark~\ref{remark: definitions of boxtimes coincide}.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: every irrep is onedimen iff abelian iff number of irrep}
+  If $k$ is algebraically closed and $G$ is finite with $\ringchar(k) \ndivides |G|$ then the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The group $G$ is abelian.
+    \item
+      All irreducible representations of $G$ are one-dimensional.
+    \item
+      The group $G$ has precisely $|G|$ many irreducible representations up to isomorphism.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: semisimple algebra product of matrix algebras} because $\dim k[G] = |G|$ and the group algebra $k[G]$ is commutative if and only if the group $G$ is abelian.
 \end{proof}
 
 

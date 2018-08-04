@@ -4,9 +4,8 @@
 \begin{fluff}
   We now revisit the theory of characters, which has many nice properties for representations of groups.
   
-  If $V$ is finite-dimensional then we have previously defined its character (as a finite-dimensional $k[G]$-module) as the $k$-linear map $\chi_V \colon k[G] \to k$ given by $\chi_V(a) = \tr(\rho(a))$ where $\rho \colon k[G] \to \End_k(V)$ is the $k$-algebra homomorphism $a \mapsto (v \mapsto av)$ associated to the $k[G]$-module structure of $V$.
-  
-  We can equivalently regard $\rho$ as a group homomorphism $G \to \GL(V)$ and the character $\chi_V$ as a map $G \to k$.
+  If $V$ is finite-dimensional then we have previously defined its character (as a finite-dimensional $k[G]$-module) as the $k$-linear map $\chi_V \colon k[G] \to k$ given by $\chi_V(a) = \tr(\rho(a))$, where $\rho \colon k[G] \to \End_k(V)$ is the $k$-algebra homomorphism $a \mapsto (v \mapsto av)$ associated to the $k[G]$-module structure of $V$.
+  We can now equivalently regard $\rho$ as a group homomorphism $G \to \GL(V)$ and the character $\chi_V$ as a map $G \to k$.
 \end{fluff}
 
 
@@ -35,14 +34,14 @@
 
 
 \begin{definition}
-  A function $f \colon G \to k$ is a \emph{class function} if it is constant on conjugation classes, i.e.\ if it is invariant under conjugation.
+  A function $f \colon G \to k$ is a \emph{class function} if it is constant on conjugacy classes, i.e.\ if it is invariant under conjugation.
   The $k$-vector space of class function $G \to k$ is denoted by $C(G)$.
 \end{definition}
 
 
 \begin{lemma}
   \label{lemma: characterisation class functions}
-  Let $f \colon G \to k$ be a map and let $F \colon k[G] \to k$ be its $k$-linear extension.
+  Let $f \colon G \to k$ be a map and let $F \colon k[G] \to k$ be its $k$-linear extension given by $F(\sum_{g \in G} a_g g) = \sum_{g \in G} a_g f(g)$.
   Then the following are equivalent:
   \begin{enumerate}
     \item \label{enum: class function}
@@ -54,7 +53,7 @@
     \item
       The restriction $\restrict{F}{[kG,kG]}$ is the zero map.
   \end{enumerate}
-  If $G$ is finite we have additionally the following equivalent condition:
+  If $G$ is finite we additionally have the following equivalent condition:
   \begin{enumerate}[resume]
     \item
       \label{enum: center of group algebra}
@@ -75,7 +74,7 @@
 
 
 \begin{proposition}
-  \label{proposition: conjugation classes and irreducible representations}
+  \label{proposition: conjugacy classes and irreducible representations}
   Let $k$ an algebraically closed and let $G$ be finite with $\ringchar(k) \ndivides |G|$.
   \begin{enumerate}
     \item
@@ -83,10 +82,10 @@
      The characters of the irreducible representations of $G$ form a $k$-basis of $C(G)$.
     \item
       \label{enumerate: number of irr rep is number of conjugacy classes}
-      The number of irreducible representations of $G$ is coincides with the number conjugation classes of $G$.
+      The number of irreducible representations of $G$ coincides with the number conjugacy classes of $G$.
     \item
       \label{enumerate: number of irr rep is dim of center}
-      The number of irreducible representations of $G$ is coincides with $\dim_k Z(kG)$.
+      The number of irreducible representations of $G$ coincides with $\dim_k Z(kG)$.
   \end{enumerate}
 \end{proposition}
 
@@ -97,7 +96,7 @@
     \item
       This follows from Theorem~\ref{theorem: characters as a basis} by identifying $(k[G]/[k[G], k[G]])^*$ with $C(G)$.
     \item
-      If $\mc{O}_1, \dotsc, \mc{O}_n$ are the conjugation classes of $G$ then the characteristic functions $\chi_{\mc{O}_1}, \dotsc, \chi_{\mc{O}_n}$ form a $k$-basis of $C(G)$ so the claim follows from part~\ref*{enumerate: characters are basis of class functions}.
+      If $\mc{O}_1, \dotsc, \mc{O}_n$ are the conjugacy classes of $G$ then the characteristic functions $\chi_{\mc{O}_1}, \dotsc, \chi_{\mc{O}_n}$ form a $k$-basis of $C(G)$ so the claim follows from part~\ref*{enumerate: characters are basis of class functions}.
     \item
       This follows from Corollary~\ref{corollary: dimension of center is number of simple modules}.
     \qedhere
@@ -105,22 +104,26 @@
 \end{proof}
 
 
+% TODO: Remark: Have no bijection between conjugacy classes and irrep.
+
+
 \begin{example}
   \label{example: irrep of finite abelian groups}
-  If $k$ is algebraically closed and $G$ is finite abelian with $\ringchar(k) \ndivides |G|$ then $G$ has up to isomorphism precisely $|G|$ irreducible representations.
-  We can see this in many ways:
+  If $k$ is algebraically closed and $G$ is finite with $\ringchar(k) \ndivides |G|$ and abelian then $G$ has up to isomorphism precisely $|G|$ many irreducible representations.
+  We can see this in various ways:
   \begin{enumerate}
     \item
-      This follows from part~\ref*{enumerate: number of irr rep is number of conjugacy classes} of Proposition~\ref*{proposition: conjugation classes and irreducible representations} because $G$ has $|G|$ conjugacy classes.
+      This follows from part~\ref*{enumerate: number of irr rep is number of conjugacy classes} of Proposition~\ref*{proposition: conjugacy classes and irreducible representations} because $G$ has $|G|$ conjugacy classes.
     \item
-      This follows from part~\ref*{enumerate: number of irr rep is dim of center} of Proposition~\ref*{proposition: conjugation classes and irreducible representations} because $G$ has $|G|$ conjugacy classes because the group algebra $k[G]$ is abelian and thus $\dim_k \ringcenter(k[G]) = \dim_k k[G] = |G|$.
+      This follows from part~\ref*{enumerate: number of irr rep is dim of center} of Proposition~\ref*{proposition: conjugacy classes and irreducible representations} because the group algebra $k[G]$ is abelian and thus $\dim_k \ringcenter(k[G]) = \dim_k k[G] = |G|$.
     \item
-      It follows from Corollary~\ref{corollary: semisimple algebra product of matrix algebras} that $k[G] \cong k \times \dotsb \times k = k^{\times r}$ becaus $k[G]$ is abelian.
-      The exponent $r$ is the number of irreducible representations of $G$ and is also given by $r = \dim k[G] = |G|$.
+      This is part of Lemma~\ref*{lemma: every irrep is onedimen iff abelian iff number of irrep}.
+    \item
+      \dots and many more.
   \end{enumerate}
   For $G = \Integer/n_1 \times \dotsb \times \Integer/n_r$ with $n_1, \dotsc, n_r \geq 1$ we can describe the irreducible representations of $G$ explicitely:
   It follows from $\ringchar(k) \ndivides |G| = n_1 \dotsm n_r$ that $\ringchar(k) \ndivides n_i$ for all $i = 1, \dotsc, r$, which is why the $n_i$-th roots of unity $\omega_{i,1}, \dotsc, \omega_{i,n_i} \in k^\times$ are pairwise different.
-  It follows from Example~\ref{example: irreducible representations for Zn} and Corollary~\ref{corollary: irr rep of products} that the irreducible represenations of $G$ are given by $V_{j_1, \dotsc, j_r}$ with $j_i = 1, \dotsc, n_i$, each of which has $k$ as its underlying vector space and the action of $G$ is given by
+  It follows from Example~\ref{example: irreducible representations for Zn} and Corollary~\ref{corollary: irr rep of products} that the irreducible representations of $G$ are given by $V_{j_1, \dotsc, j_r}$ with $j_i = 1, \dotsc, n_i$, each of which is one-dimension and with the action of $G$ being given by
   \[
       (\class{m_1}, \dotsc, \class{m_r}) . x
     = \omega_{1,j_1}^{m_1} \dotsm \omega_{r,j_r}^{m_r} x
@@ -129,29 +132,35 @@
 \end{example}
 
 
+% TODO: Don’t need outer tensor product, can directy determine group rep
+
+
 \begin{example}
   \label{example: conjugacy classes of symmetric group}
-  The conjugation class of the symmetric group $S_n$ correspond to the partitions of $n$ in the following way:
+  The conjugacy classes of the symmetric group $S_n$ correspond bijectively to partitions of $n$, as we will now explain:
+  
   We can write every permutation $\pi \in S_n$ as a product of cycles
   \[
       \pi
     = \left( x^1_1, \dotsc, x^1_{n_1} \right)
       \dotsm
-      \left( x^r_1, \dotsc, x^r_{n_r} \right) \,,
+      \left( x^r_1, \dotsc, x^r_{n_r} \right)
   \]
-  with $n_1 \geq \dotsb \geq n_r \geq 1$ which is unique up to permutation of the cycles of the same length as well as cyclic permuation of $x^i_1, \dotsc, x^i_{n_i}$.
+  with $n_1 \geq \dotsb \geq n_r \geq 1$, and this decomposition is unique up to permutation of cycles of the same length as well as cyclic permuation of $x^i_1, \dotsc, x^i_{n_i}$.
+  It follows that the partition $(n_1, \dotsc, n_r)$ of $n$ does only depend on $\pi$ and not on the choice of decomposition.
+  This partition is the \emph{cycle type} of $\pi$.
   For every $\sigma \in S_n$ we have that
   \[
       \sigma \pi \sigma^{-1}
     = \left( \sigma(x^1_1), \dotsc, \sigma(x^1_{n_1}) \right)
       \dotsm
-      \left( \sigma(x^r_1), \dotsc, \sigma(x^r_{n_r}) \right) \,.
+      \left( \sigma(x^r_1), \dotsc, \sigma(x^r_{n_r}) \right) \,,
   \]
-  So for every $m \geq 1$ the number of cycles in $\pi$ of length $m$ is invariant under conjugation.
-  The patition $(n_1, \dotsc, n_r)$ of $n$ is the \emph{cycle type} of $\pi$.
+  which shows that conjugated permutations have the same cycle type.
+  The converse also holds:
   
   \begin{claim}
-    Two permutations are conjugated if and only if they have the same cycle type.
+    Two permutations $\pi_1, \pi_2 \in S_n$ are conjugated if and only if they have the same cycle type.
   \end{claim}
   
   \begin{proof}
@@ -165,7 +174,7 @@
     \]
     and are therefore also conjugated to each other.
   \end{proof}
-  We thus find that find that the permutations
+  We thus find that the permutations
   \[
             (1, \dotsc, n_1)
     \cdot   (n_1 + 1, \dotsc, n_1 + n_2)
@@ -182,7 +191,7 @@
 
 
 \begin{conventions}
-  In the following, $V, W$ are finite-dimensional representations of $G$ over $k$.
+  In the following $V, W$ denote finite-dimensional representations of $G$ over $k$.
 \end{conventions}
 
 \begin{lemma}
@@ -251,23 +260,21 @@
 \end{fluff}
 
 
+% TODO: Can think about (-,-) as decategorification/linearization of Hom.
+
+
 \begin{theorem}
   Let $k$ be algebraically closed.
   \begin{enumerate}
     \item
-      The irreducible characters of $G$ form an orthonormal basis of $C(G)$ with respect to $(-,-)$.
+      The irreducible characters of $G$ form an orthonormal basis of $C(G)$ with respect to the bilinear form $(-,-)$.
     \item
-      If $V \cong V_1^{\oplus n_1} \oplus \dotsb V_r^{\oplus n_r}$ and $W \cong V_1^{\oplus m_1} \oplus \dotsb V_r^{\oplus m_r}$ for pairwise non-isomorpic irreducible representations $V_1, \dotsc, V_r$ and $n_1, \dotsc, n_r, m_1, \dotsc, m_r \geq 0$ then
+      If $V \cong V_1^{\oplus n_1} \oplus \dotsb \oplus V_r^{\oplus n_r}$ and $W \cong V_1^{\oplus m_1} \oplus \dotsb \oplus V_r^{\oplus m_r}$ for pairwise non-isomorpic irreducible representations $V_1, \dotsc, V_r$ and $n_1, \dotsc, n_r, m_1, \dotsc, m_r \geq 0$ then
       \[
           (\chi_V, \chi_W)
         = \sum_{i=1}^r n_i m_i \,.
       \]
-      It follows in particular that
-      \[
-          (\chi_{V_i}, \chi_V)
-        = n_i
-      \]
-      is the multiplicity of $V_i$ in $V$ for all $i = 1, \dotsc, r$.
+      It follows in particular that $(\chi_{V_i}, \chi_V) = n_i$ is the multiplicity of $V_i$ in $V$ for all $i = 1, \dotsc, r$.
     \item
       The representation $V$ is irreducible if and only if $(\chi_V, \chi_V) = 1$.
   \end{enumerate}
@@ -277,13 +284,16 @@
 % TODO: Add a proof.
 
 
+% TODO: Add reference to previous mention of this orthogonality in the first chapter.
+
+
 \begin{fluff}
-  For $k = \Complex$ we have an inner product $\innerp{-,-}$ on $C(G)$ given by
+  For $k = \Complex$ we also have an inner product $\innerp{-,-}$ on $C(G)$ which is given by
   \[
               \innerp{f_1, f_2}
-    \defined  \frac{1}{|G|} \sum_{g \in G} \overline{f_1(g)} f_2(g) \,,
+    \defined  \frac{1}{|G|} \sum_{g \in G} \overline{f_1(g)} f_2(g)
   \]
-   and by Lemma~\ref{lemma: more characters for groups} we have that $(\chi_V, \chi_W) = \innerp{\chi_V, \chi_W}$.
+  for all $f_1, f_2 \in C(G)$ and by Lemma~\ref{lemma: more characters for groups} we have that $(\chi_V, \chi_W) = \innerp{\chi_V, \chi_W}$.
    We may therefore replace $(-,-)$ by $\innerp{-,-}$ in the above discussion.
 \end{fluff}
 

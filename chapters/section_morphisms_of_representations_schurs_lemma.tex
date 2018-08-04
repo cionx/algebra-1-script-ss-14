@@ -271,9 +271,9 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
   \label{example: irreducible representations for Zn}
   Let $k$ be algebraically closed and consider the finite abelian group $\Integer/n$.
   Then every irreducible representation of $\Integer/n$ over $k$ is one-dimensional.
-  To classify these representations we thus need to understand the groups homomorphisms $\rho \colon \Integer/n \to \GL_1(k) = k^\times$.
+  To classify these representations we therefore need to understand the group homomorphisms $\rho \colon \Integer/n \to \GL_1(k) = k^\times$.
   
-  For every $n$-th root of unity $\omega_1, \dotsc, \omega_n \in k^\times$ the map
+  For the $n$-th roots of unity $\omega_1, \dotsc, \omega_n \in k^\times$ the map
   \[
             \rho_i
     \colon  \Integer/n
@@ -283,26 +283,22 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
   \]
   is a group homomorphism.
   Every group homomorphisms $\rho \colon \Integer/n \to k^\times$ is determined by the image $\rho(\class{1})$, which needs to satisfy $\rho(\class{1})^n = 1$, so it follows that $\rho$ must be of the form $\rho = \rho_i$ for some $i$.
-  It follows that the irreducible representations of $\Integer/n$ are given by $V_1, \dotsc, V_n$, where $V_i$ is the $k$-vector space $k$ together with the action $\Integer/n$ given by
-  \[
-      \class{m}.x
-    = \omega_i^m x
-  \]
-  for all $\class{m} \in \Integer/n$, $x \in V_i$.
+  It follows that the irreducible representations of $\Integer/n$ are given by $V_1, \dotsc, V_n$, where $V_i$ is one-dimensional and $\class{m} \in \Integer/n$ acts by multiplication with $\omega_i^m$.
+  
   For $\omega_i \neq \omega_j$ the representations $V_i$ and $V_j$ are isomorphic if and only if $\omega_i = \omega_j$.
   The roots of unity $\omega_1, \dotsc, \omega_n$ are pairwise different if and only if the polynomial $X^n - 1 \in k[X]$ is separable, which holds if and only if $\ringchar(k) \ndivides n$.
   \begin{enumerate}
     \item
-      It follows for $\ringchar(k) = 0$ that $\Integer/n$ has precisely $n$ pairwise non-isomorphic irreducible representations over $k$.
+      It follows for $\ringchar(k) = 0$ that $\Integer/n$ has up to isomorphism precisely $n$ pairwise different irreducible representations over $k$.
     \item
-      If $\ringchar(k) = p$ and $n = p^r n'$ with $p \ndivides n'$ then
+      If $\ringchar(k) = p$ and $n = p^r m$ with $p \ndivides m$ then
       \[
           X^n - 1
-        = X^{p^r n'} - 1^{p^r}
-        = (X^{n'} - 1)^{p^r}
+        = X^{p^r m} - 1^{p^r}
+        = (X^m - 1)^{p^r}
       \]
       with the map $k \to k$, $x \mapsto x^{p^r}$ being bijective (because $k$ is perfect as it is algebraically closed).
-      It then follows that the $n$-th roots of unity are precisely the $n'$-th roots of unity, so $\Integer/n$ has precisely $n'$ pairwise non-isomorphic irreducible representations over $k$.
+      It then follows that the $n$-th roots of unity are precisely the $m$-th roots of unity, so $\Integer/n$ has precisely $m$ pairwise non-isomorphic irreducible representations over $k$.
   \end{enumerate}
 \end{example}
 

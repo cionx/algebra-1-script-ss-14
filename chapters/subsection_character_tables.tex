@@ -2,7 +2,9 @@
 
 
 \begin{fluff}
-  Let $g_1, \dotsc, g_r$ is a set of representatives for the conjugacy clases of $G$ such that the conjugacy class of $g_i$ has $n_i$ elements.
+  Let $k$ be algebraically closed and let $G$ be finite with $\ringchar(k) \ndivides |G|$.
+  
+  Let $g_1, \dotsc, g_r$ be a set of representatives for the conjugacy classes of $G$ such that the conjugacy class of $g_i$ has $n_i$ elements.
   Let $V_1, \dotsc, V_r$ be a set of representatives for the isomorphism classes of irreducible representations of $G$ over $k$ with corresponding irreducible characters $\chi_1, \dotsc, \chi_r$.
   Then the table
   \[
@@ -42,13 +44,13 @@
     \end{array}
   \]
   is the \emph{character table} of $G$ over $k$.
-  In the case of $k = \Complex$ the orthonormality of the irreducible characters then reads as
+  In the case of $k = \Complex$ the orthonormality of the irreducible characters then reads
   \[
       \delta_{ij}
     = \frac{1}{|G|} \sum_{m=1}^r n_m \overline{\chi_i(g_m)} \chi_j(g_m)
   \]
-  for all $i, j = 1, \dotsc, n$
-  This means that the columns of the character table are orthonormal with respect to the inner product $\innerp{-,-}'$ on $\Complex^r$ given by
+  for all $i, j = 1, \dotsc, n$.
+  This means that the columns of the character table are orthonormal with respect to the inner product $\innerp{-,-}'$ on $\Complex^r$ which is given by
   \[
       \innerp{x,y}'
     = \frac{1}{|G|} \sum_{m=1}^r n_m \overline{x_m} y_m \,.
@@ -59,13 +61,13 @@
 
 \begin{example}[Character table of $\Integer/n$]
   Let $n \geq 1$ and let $\omega_0, \dotsc, \omega_{n-1} \in \Complex^\times$ be the $n$-th roots of unity with $\omega_k = e^{2 \pi i k / n}$ for all $k = 0, \dotsc, n-1$.
-  By Example~\ref{example: irrep of finite abelian groups} the irreducible representations of $\Integer/n$ are $V_0, \dotsc, V_{n-1}$ where $\class{m} \in \Integer/n$ acts on $V_k$ by multiplication with $\omega_k^m$.
+  By Example~\ref{example: irrep of finite abelian groups} the irreducible representations of $\Integer/n$ are $V_0, \dotsc, V_{n-1}$ where each $V_k$ is irreducible and $\class{m} \in \Integer/n$ acts on $V_k$ by multiplication with $\omega_k^m$.
   The character table of $\Integer/n$ is thus as follows:
   \[
     \begin{array}{|c|c||c|c|c|c|}
       \hline
         \multicolumn{2}{|c||}{\Integer/n}
-      & V_0
+      & V_0 = \triv
       & V_1
       & \cdots
       & V_{n-1}
@@ -107,7 +109,7 @@
 
 \begin{example}[Character table of $\Integer/2 \times \Integer/2$]
   Let $\triv$ be the trivial irreducible representation of $\Integer/2$ and let $\sgn$ be the sign representation of $\Integer/2$, i.e.\ $\sgn$ is one-dimensional and $\overline{1} \in \Integer/2$ acts on $\sgn$ by multiplication with $-1$.
-  It then follows from Example~\ref{example: irrep of finite abelian groups} that the character table of $\Integer/2 \times \Integer/2$ is given as follows:
+  It then follows from Example~\ref{example: irrep of finite abelian groups} that the character table of $\Integer/2 \times \Integer/2$ is as follows:
   \[
     \begingroup
     \renewcommand{\arraystretch}{1.1}
@@ -173,7 +175,7 @@
       \}
   \]
   is a two-dimensional irreducible subrepresentation.
-  With respect to the basis $b_1, b_2$ of $V$ with $b_1 \defined e_1 - e_2$ and $b_2 \defined e_2 - e_3$ the action of the elements of $S_3$ is represented by the following matrices:
+  With respect to the basis $b_1, b_2$ of $V$ with $b_1 \defined e_1 - e_2$ and $b_2 \defined e_2 - e_3$ the action of the elements of $S_3$ on $V$ is represented by the following matrices:
   \begin{equation}
     \label{equation: representing matrix for 2dim irrep of S3}
     \begin{array}{cccccc}
@@ -212,7 +214,7 @@
     \end{array}
   \end{equation}
   We can directy read off the character $\chi_V$ from this.
-  The representations $\triv, \sgn, V$ are a complete set of representatives of $S_3$ as can be seen in the following ways:
+  The representations $\triv, \sgn, V$ are a set of representatives for the isomorphism classes of irreducible complex representatinos of $S_3$ as can be seen in the following ways:
   \begin{itemize}
     \item
       We have that
@@ -226,7 +228,7 @@
       \]
       so the claim follows from Lemma~\ref{lemma: order of group decomposes into dim of irrep}.
     \item
-      The groups $S_3$ has three conjugacy classes, and thus three irreducible complex representations.
+      The groups $S_3$ has three conjugacy classes and thus three irreducible complex representations.
   \end{itemize}
   We find that the character table of $S_3$ is given as follows:
   \[
@@ -259,20 +261,20 @@
       \hline
     \end{array}
   \]
-  The third row can also be deduced from the first two by using the orthonormality relations:
-  If $a, b, c$ are the entries of the last row then we need that
+  The third column can also be deduced from the first two columns by using the orthonormality relations of the columns:
+  If $a, b, c$ are the entries of the last column then we need that
   \[
     \left\{
       \begin{array}{lllcl}
-         a   & + 3b & + 2c    &=& 0 \,, \\
-         a   & - 3b & + 2c    &=& 0 \,, \\
-         a^2 &      & + 2c^2  &=& |S_3| = 6 \,.
+         a   & + 3b   & + 2c    &=& 0 \,, \\
+         a   & - 3b   & + 2c    &=& 0 \,, \\
+         a^2 &  +3b^2 & + 2c^2  &=& |S_3| = 6 \,.
       \end{array}
     \right.
   \]
   It follows from the first two equations that $b = 0$ and that $a = -2c$.
   From the third equation it then follows that $6c^2 = 6$ and thus either $(a,b,c) = (-2,0,1)$ or $(a,b,c) = (2,0,-1)$.
-  We have that $a > 0$ because $a$ is precisely the dimension of the missing irreducible representation and thus $(a,b,c) = (2,0,-1)$.
+  We have that $a > 0$ because $a$ is precisely the dimension of the missing irreducible representation and thus arrive at $(a,b,c) = (2,0,-1)$.
 \end{example}
 
 
@@ -339,7 +341,7 @@
       \sigma.e_i
     = e_{\sigma(i)}
   \]
-  for all $i = 1, 2, 3, 4$, and it follows from Example~\ref{example: subrepresentations of natural action of Sn} that
+  for all $i = 1, 2, 3, 4$ and it follows from Example~\ref{example: subrepresentations of natural action of Sn} that
   \[
       V
     = \{
@@ -393,7 +395,7 @@
       & (1,2)(3,4)
     \end{array}
   \]
-  We can read off another column of the character table:
+  From this we can read off another column of the character table:
   \[
     \begin{array}{|c|c||c|c|c|c|c|}
       \hline
@@ -448,7 +450,7 @@
       \hline
     \end{array}
   \]
-  To find another irreducible representation we the three-dimensional representation consider $V \tensor \sgn$, whose character is given as follows:
+  To find another irreducible representation we consider the three-dimensional representation $V \tensor \sgn$, whose character is given as follows:
   \[
     \begin{array}{|c|c||c|}
       \hline
@@ -676,7 +678,7 @@
     = (2,3) \,,
   \end{gather*}
   which shows in particular that $\varphi$ is surjective.
-  We can there pull back the two-dimensional irreducible representation $W$ of $S_3$ (see Example~\ref{example: character table S3}) to a two-di\-men\-sion\-al irreducible representation of $S_4$ given by
+  We can therefore pull back the two-dimensional irreducible representation $W$ of $S_3$ (see Example~\ref{example: character table S3}) to a two-di\-men\-sion\-al irreducible representation of $S_4$ via
   \[
       \sigma . w
     = \varphi(\sigma) . w
@@ -705,7 +707,7 @@
         \varphi( (1,2) (3,4) )
     &=  \varphi( (1,2) ) \varphi( (3,4) )
      =  (2,3) (2,3)
-     =  \id
+     =  \id \,,
   \end{align*}
   so by using the representing matrices from \eqref{equation: representing matrix for 2dim irrep of S3} we find that with respect to a suitable basis $b_1, b_2$ of $W$ the action of $S_4$ on $W$ is represented by the following matrices:
   \[
@@ -739,7 +741,7 @@
       & (1,2)(3,4)
     \end{array}
   \]
-  With this we get the last column of the character table as calculated above.
+  By reading off the traces of this matrices we get the last column of the character table as calculated above.
 \end{example}
 
 
@@ -752,8 +754,8 @@
   \[
       8
     = |Q|
-    = \sum_{[V] \in \Irr(R)} (\dim V)^2
-    = 1 + \sum_{\subalign{ [V] &\in \Irr(R) \\ V &\ncong \triv }} (\dim V)^2
+    = \sum_{[V] \in \irr(Q)} (\dim V)^2
+    = 1 + \sum_{\subalign{ [V] &\in \irr(Q) \\ V &\ncong \triv }} (\dim V)^2
   \]
   that $Q$ has up to isomorphism
   \begin{itemize}
@@ -762,12 +764,12 @@
     \item
       four one-dimensional irreducible representations (including $\triv$) and one two-di\-men\-sion\-al irreducible  representation.
   \end{itemize}
-  The group $Q$ is not abelian and has therefore a non-one-dimensional irreducible representation by Lemma~\ref{lemma: every irrep is onedimen iff abelian}.
+  The group $Q$ is not abelian and has therefore by Lemma~\ref{lemma: every irrep is onedimen iff abelian iff number of irrep} a non-one-dimensional irreducible representation.
   We thus find that $Q$ has up to isomorphism precisely four one-dimensional irreducible represenations as well as one two-dimensional irreducible representation.
   
   To find the one-dimensional irreducible representations we use that $\groupcenter(Q) = \{\pm 1\}$ is a normal subgroup of index $2$ and that $Q/{\groupcenter(Q)}$ is therefore a group of order $4$, which is either isomorphic to $\Integer/4$ or to $\Integer/2 \times \Integer/2$.
   For every $g \in Q$ we have that $g^2 = \pm 1 \in \groupcenter(Q)$ so it follows that every nontrivial element of $Q/{\groupcenter(Q)}$ has order $2$, which shows that $Q/{\groupcenter(Q)} \cong \Integer/2 \times \Integer/2$.
-  We can given an explicit isomorphism via
+  An explicit isomorphism is given by
   \[
             Q/{\groupcenter(Q)}
     \to     \Integer/2 \times \Integer/2,
@@ -936,10 +938,9 @@
   \]
   for all $q \in Q$, $x \in \Quaternion$.
   Because $\Complex \subseteq \Quaternion$ is a subring we can regard $\Quaternion$ as a right\footnote{
-  We can regard $\Quaternion$ as both a left and a right $\Complex$-vector space.
-  But because $\Complex$ is not contained in $\ringcenter(\Quaternion) = \Real$ we have to distinguish between these two vector space structures.
-  Our goal is to have $Q$ act $\Complex$-linearly on $\Quaternion$, and for this we need $Q$ and $\Complex$ to act from different sides on $\Quaternion$.
-  We have choosen to let $Q$ act from the left and $\Complex$ from the right.
+  We can regard $\Quaternion$ as both a left and a right $\Complex$-vector space, but because $\Complex$ is not contained in $\ringcenter(\Quaternion) = \Real$ we have to distinguish between these two vector space structures.
+  It is our goal to have $Q$ act $\Complex$-linearly on $\Quaternion$, and for this we need $Q$ and $\Complex$ to act from different sides on $\Quaternion$.
+  We have choosen to let $Q$ act while $\Complex$ acts from the right.
   }
   $\Complex$-vector space via
   \[
@@ -947,7 +948,7 @@
     = x \lambda
   \]
   for all $\lambda \in \Complex$, $x \in \Quaternion.$
-  This right vector space structure over $\Complex$ corresponds to a left vector space structure over $\Complex^\op = \Complex$ given by
+  This right $\Complex$-vector space structure corresponds to a left $\Complex^\op$-vector space structure, and thus left $\Complex$-vector space structure, given by
   \[
       \lambda * x
     = x \cdot \lambda
@@ -971,12 +972,12 @@
     = \lambda * (q.x)
   \]
   for all $q \in Q$, $\lambda \in \Complex$, $x \in \Quaternion$.
-  We have thus constructed a two-dimensional representation $W = \Quaternion$ of $Q$ over $\Complex$.
+  We have thus constructed a two-dimensional complex representation $W = \Quaternion$ of $Q$.
   Note that every subrepresentation of $W$ is already invariant under $\gen{Q}_\Real = \Quaternion$ and thus a left-ideal of $\Quaternion$.
   Because $\Quaternion$ is a skew field the only nonzero subrepresentation is $\Quaternion$ itself.
   This shows that $W$ is irreducible.
   
-  With respect to the basis $1, j$ the action of $Q$ on $\Complex$ is given by the following matrices:
+  With respect to the $\Complex$-basis $1, j$ of $W$ the action of $Q$ on $W$ is represented by the following matrices:
   \[
     \begin{array}{ccccc}
         \pm
