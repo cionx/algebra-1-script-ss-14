@@ -218,7 +218,20 @@
 \end{proof}
 
 
-% TODO: Does not hold for non ss modules.
+\begin{warning}
+  If $M$ is not semisimple then $\Hom_R(E,M)$ is non necessarily simple as an $R'$-module, as the following counterexample from \cite{MS2859823} shows:
+  Consider the ring $R = k[X,Y]$, the ideal $I \defined (X,Y)$ and the $R$-modules $M \defined R/I^2$.
+  Then $E \defined R/I$ is simple (because it is one-dimensional) with
+  \[
+          \Hom_R(E,M)
+    =     \Hom_R(R/I, R/I^2)
+    \cong I/I^2 \,.
+  \]
+  We have that $\End_R(E) = \End_R(R/I) \cong R/I \cong k$ but $I/I^2$ is two-dimensional and therefore not simple as an $\End_R(E)$-module.
+\end{warning}
+
+
+% TODO: Is Hom(E,M) semisimple as an End(E)-module?
 
 
 \begin{fluff}
