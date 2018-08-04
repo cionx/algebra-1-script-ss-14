@@ -13,6 +13,27 @@
 \end{conventions}
 
 
+\begin{lemma}
+  \label{lemma: simple modules over fd algebras are fd}
+  If $A$ is a finite-dimensional $k$-algebra then every simple $A$-module is also finite-dimensional.
+\end{lemma}
+
+
+\begin{proof}
+  Every simple $A$-module $M$ is of the form $A/I$ for a maximal left ideal $I \idealleq A$.
+\end{proof}
+
+
+\begin{notation}
+  The set of isomorphism classes of finite-dimensional simple $A$-mod\-ules is denoted by $\irr(A)$.
+\end{notation}
+
+
+\begin{fluff}
+  Note that if $A$ is finite-dimensional then $\irr(A) = \Irr(A)$ by Lemma~\ref{lemma: simple modules over fd algebras are fd}.
+\end{fluff}
+
+
 
 
 
@@ -153,17 +174,6 @@
 
 
 \subsection*{The Theorems of Artin--Wedderburn and Wedderburn}
-
-
-\begin{lemma}
-  \label{lemma: simple modules over fd algebras are fd}
-  If $A$ is a finite-dimensional $k$-algebra then every simple $A$-module is also finite-dimensional.
-\end{lemma}
-
-
-\begin{proof}
-  Every simple $A$-module $M$ is of the form $A/I$ for a (maximal) left ideal $I \idealleq A$.
-\end{proof}
 
 
 \begin{corollary}[Artin--Wedderburn]
@@ -366,6 +376,21 @@
 \end{proof}
 
 
+\begin{corollary}
+  If $A$ is finite dimensional then there exist at most $\dim A$ many simple $A$-modules up to isomorphism.
+\end{corollary}
+
+
+\begin{proof}
+  If $M_1, \dotsc, M_r$ are pairwise non-isomorphic simple $A$-modules then they are finite-dimensional by Lemma~\ref{lemma: simple modules over fd algebras are fd}.
+  It then follows that there exist elements $a_1, \dotsc, a_r$ such that $a_i$ acts on $M_1 \oplus \dotsb \oplus M_r$ by the projection $\pi_i$ onto the $i$-th summand $M_i$.
+  The projections $\pi_1, \dotsc, \pi_n$ are linearly independent elements of $\End_k(M_1 \oplus \dotsb \oplus M_r)$ so it follows that $a_1, \dotsc, a_r$ are also linearly independent elements of $A$.
+\end{proof}
+
+
+% TODO: Does not hold for infinite cardinalities, use K[X].
+
+
 \begin{theorem}[Density theorem, {\cite[Theorem~2.5]{Etingofetc2011}}]
   \label{theorem: density theorem}
   Let $k$ be algebraically closed.
@@ -453,31 +478,6 @@
 
 
 % TODO: Give counterexample for non-algebraically closed fields.
-
-
-\begin{notation}
-  We denote by $\irr(A)$ the set of isomorphism classes of finite-dimen\-sional $A$-modules.
-\end{notation}
-
-
-\begin{fluff}
-  Note that if $A$ is finite-dimensional then $\irr(A) = \Irr(A)$ by Lemma~\ref{lemma: simple modules over fd algebras are fd}.
-\end{fluff}
-
-
-\begin{corollary}
-  If $k$ is algebraically closed and $A$ is finite-dimensional then
-  \[
-          |{\irr(A)}|
-    =     |{\Irr(A)}|
-    \leq  \dim A \,.
-  \]
-\end{corollary}
-
-
-\begin{proof}
-  If $[M_1], \dotsc, [M_n] \in \irr(A)$ with $[M_i] \neq [M_j]$ for $i \neq j$ then it follows from Corollary~\ref{corollary: dimension simple algebra modules} that $n \leq  \dim \prod_{i=1}^n (\dim M_i)^2 \leq \dim A$.
-\end{proof}
 
 
 
