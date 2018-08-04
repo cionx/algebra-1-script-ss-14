@@ -3,7 +3,7 @@
 
 \begin{fluff}
   From now on we will restrict our attention to $k$-algebras, often finite-dimensional and semisimple.
-  In this section we collect some results for semisimple $k$-algebras which follows from the general theory of semisimplicity from the previous section.
+  In this section we collect some results for semisimple $k$-algebras which follows from the general theory of semisimple modules and rings from the previous chapter.
 \end{fluff}
 
 
@@ -54,46 +54,52 @@
 \begin{lemma}
   \label{lemma: multiplicities via dimension of hom}
   Let $M$ be a semisimple $A$-module with $M \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}$ for pairwise non-isomorphic finite-dimensional simple $A$-modules $M_1, \dotsc, M_r$.
-  Then the numbers $n_1, \dotsc, n_r$ are uniquely determined as
-  \begin{align*}
-        n_i
-    &=  \frac{\dim \Hom_A(M_i, M)}{\dim \End_A(M_i)}
-     =  \frac{\dim \Hom_A(M, M_i)}{\dim \End_A(M_i)}\,\cdotp
-  \intertext{If $k$ is algebraically closed then}
-        n_i
-    &=  \dim \Hom_A(M_i, M)
-     =  \dim \Hom_A(M, M_i)\,.
-  \end{align*}
+  \begin{enumerate}
+    \item
+      The numbers $n_1, \dotsc, n_r$ are uniquely determined as
+      \[
+          n_i
+        = \frac{\dim \Hom_A(M_i, M)}{\dim \End_A(M_i)}
+        = \frac{\dim \Hom_A(M, M_i)}{\dim \End_A(M_i)}
+      \]
+      for all $i = 1, \dotsc, r$.
+    \item
+      If $k$ is algebraically closed then $n_i = \dim \Hom_A(M_i, M) = \dim \Hom_A(M, M_i)$ for all $i = 1, \dotsc, r$.
+  \end{enumerate}
 \end{lemma}
 
 
 \begin{proof}
-  We have that
-  \begin{align*}
-            \Hom_A(M_i, M)
-    &=      \Hom_A(M_i, M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}) \\
-    &\cong  \Hom_A(M_i, M_1)^{n_1} \times \dotsb \times \Hom_A(M_i, M_r)^{n_r}
-  \end{align*}
-  as $k$-vector spaces (see Corollary~\ref{corollary: Hom on direct sums}).
-  It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and the simplicity of the $M_i$ that $\Hom(M_i, M_j) = 0$ for all $i \neq j$, and therefore that
-  \[
-          \Hom_A(M_i, M)
-    \cong \Hom_A(M_i, M_i)^{n_i}
-    =     \End_A(M_i)^{n_i}
-  \]
-  as $k$-vector spaces.
-  It follows that
-  \[
-      \dim \Hom_A(M_i, M)
-    = \dim \End_A(M_i)^{n_i}
-    = n_i \dim \End_A(M_i) \,,
-  \]
-  and it follows from the finite-dimensionality of $M_i$ that $\End_A(M_i)$ is finite-dimensional.
-  This shows the first equality of the first formula.
-  The second equality follows from Lemma~\ref{lemma: hom dimension is symmetric}.
-  
-  If $k$ is algebraically closed then $\End_A(M_i) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and therefore $\dim \End_A(M_i) = 1$.
-  The formula thus follows from the first one.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that
+      \begin{align*}
+                \Hom_A(M_i, M)
+        &=      \Hom_A(M_i, M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{\oplus n_r}) \\
+        &\cong  \Hom_A(M_i, M_1)^{n_1} \times \dotsb \times \Hom_A(M_i, M_r)^{n_r}
+      \end{align*}
+      as $k$-vector spaces (see Corollary~\ref{corollary: Hom on direct sums}).
+      It follows from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} and the simplicity of the $M_i$ that $\Hom(M_i, M_j) = 0$ for all $i \neq j$, and therefore that
+      \[
+              \Hom_A(M_i, M)
+        \cong \Hom_A(M_i, M_i)^{n_i}
+        =     \End_A(M_i)^{n_i}
+      \]
+      as $k$-vector spaces.
+      It follows that
+      \[
+          \dim \Hom_A(M_i, M)
+        = \dim \End_A(M_i)^{n_i}
+        = n_i \dim \End_A(M_i) \,,
+      \]
+      and it follows from the finite-dimensionality of $M_i$ that $\End_A(M_i)$ is finite-di\-men\-sion\-al.
+      This shows the first equality of the first formula.
+      The second equality follows from Lemma~\ref{lemma: hom dimension is symmetric}.
+    \item
+      If $k$ is algebraically closed then it follows for every $i = 1, \dotsc, r$ from \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} that $\End_A(M_i) = k$ and therefore that $\dim \End_A(M_i) = 1$.
+    \qedhere
+  \end{enumerate}
 \end{proof}
 
 
@@ -130,14 +136,14 @@
         = n_i \dim \End_A(M_i)
       \]
       by Lemma~\ref{lemma: multiplicities via dimension of hom}.
-      It further follows from the $A \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{n_r}$ that
+      It further follows from $A \cong M_1^{\oplus n_1} \oplus \dotsb \oplus M_r^{n_r}$ that
       \[
           \dim A
         = \sum_{i=1}^r n_i d_i
         = \sum_{i=1}^r \frac{d_i^2}{\dim \End_A(M_i)} \,\cdotp
       \]
     \item
-      If $k$ is algebraically closed then $\dim \End_A(M_i) = 1$ for every $i$ by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}.
+      If $k$ is algebraically closed then $\dim \End_A(M_i) = 1$ by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}.
     \qedhere
   \end{enumerate}
 \end{proof}
@@ -156,8 +162,7 @@
 
 
 \begin{proof}
-  For every simple $A$-module $M$ there exists a surjective homomorphism of $A$-modules $p \colon A \projection M$ because $M$ is cyclic.
-  Then $p$ is in particular $k$-linear, and it follows that $\dim M < \dim A < \infty$.
+  Every simple $A$-module $M$ is of the form $A/I$ for a (maximal) left ideal $I \idealleq A$.
 \end{proof}
 
 
@@ -167,8 +172,8 @@
   \begin{enumerate}
     \item
       \label{enumerate: ss algebra is product of matrix rings}
-      We have that $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras with $r \geq 0$ an $n_1, \dotsc, n_r \geq 1$.
-      The number $r$ is uniquely determined as the number of simple $A$-modules up to isomorphism, and if $V_1, \dotsc, V_r$ is a set of representatives for the isomorphism classes of simple $A$-modules then the numbers $n_1, \dotsc, n_r$ agree with the numbers $\dim V_1, \dotsc, \dim V_r$ up to permutation.
+      We have that $A \cong \Mat_{n_1}(k) \times \dotsm \times \Mat_{n_r}(k)$ as $k$-algebras for some $r \geq 0$ and $n_1, \dotsc, n_r \geq 1$.
+      The number $r$ is uniquely determined as the number of isomorphism classes of simple $A$-modules and if $V_1, \dotsc, V_r$ is a set of representatives for those isomorphism classes then the numbers $n_1, \dotsc, n_r$ agree with the numbers $\dim V_1, \dotsc, \dim V_r$ up to permutation.
     \item
       The following conditions are equivalent:
       \begin{enumerate}
@@ -179,7 +184,7 @@
         \item
           All simple $A$-modules are one-dimensional.
         \item
-          The algebra $A$ has precisely $\dim A$ many simple modules up to isomorphism.
+          There exist precisely $\dim A$ many isomorphism classes of simple modules.
       \end{enumerate}
   \end{enumerate}
 \end{corollary}
@@ -189,7 +194,7 @@
   \leavevmode
   \begin{enumerate}
     \item
-      This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\End_A(M) = k$ for every simple $A$-module $M$.
+      This is a consequence of the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because it follows from Lemma~\ref{lemma: simple modules over fd algebras are fd} and \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\End_A(M) = k$ for every simple $A$-module~$M$.
     \item
       This follows from part~\ref*{enumerate: ss algebra is product of matrix rings}.
     \qedhere
@@ -199,7 +204,7 @@
 
 \begin{corollary}
   \label{corollary: dimension of center is number of simple modules}
-  If $k$ is algebraically closed and $A$ is finite-dimensional and semisimple then $\dim_k \ringcenter(A)$ is the number of isomorphism classes of simple $A$-modules.
+  If $k$ is algebraically closed and $A$ is finite-dimensional and semisimple then $\dim_k \ringcenter(A)$ coincides with the number of isomorphism classes of simple $A$-modules.
 \end{corollary}
 
 
@@ -220,8 +225,7 @@
   as $k$-algebras.
   Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ is another set of representatives for the isomorphism classes of simple $A$-modules, and $\End_A(D_i^{n_i}) \cong D_i^\op$ for every $i = 1, \dotsc, r$.
   We may assume w.l.o.g.\ that $M_i = D_i^{n_i}$ for every $i = 1, \dotsc, r$.
-  We then have that $D_i^\op \cong \End_A(M_i)$ for every $i = 1, \dotsc, r$.
-  It follows that
+  We then have that $D_i^\op \cong \End_A(M_i)$ for every $i = 1, \dotsc, r$ and it follows that
   \[
       d_i
     = \dim M_i
@@ -268,6 +272,7 @@
       We have that $\dim D \leq \dim A < \infty$ so it follows that $D = k$.
     \qedhere
   \end{enumerate}
+  The number $n$ is uniquely determined and the division $k$-algebra $D$ is uniquely determined up to isomorphism.
 \end{proof}
 
 
@@ -281,14 +286,14 @@
 \subsubsection{Centralizers}
 
 \begin{fluff}
-  In our previous discussion about centralizers (subsection~\ref{subsection: centralizers}) we have used the endomorphism ring $\End_\Integer(M)$ of an abelian group.
-  When working with $k$-algebras instead of general rings it is however more natural to replace $\Integer$ by $k$, and thus work with $\End_k(M)$.
-  It turns out that this for computing centralizers it makes no difference if we use $\End_\Integer(M)$ or $\End_k(M)$:
+  In our previous discussion about centralizers (subsection~\ref{subsection: centralizers}) we have used the endomorphism ring $\End_\Integer(M)$ of an abelian group $M$.
+  When working with $k$-algebras instead of general rings it is however more natural to replace $\Integer$ by $k$, requiring $M$ to be a $k$-vector space and working with $\End_k(M)$ instead of $\End_\Integer(M)$.
+  It turns out that it makes no difference if we use $\End_\Integer(M)$ or $\End_k(M)$ if we want to compute centralizers of $k$-subalgebras:
   
   Let $M$ be a $k$-vector space and let $A \subseteq \End_k(M)$ be a $k$-subalgebra.
-  Let $C$ be the centralizer of $A$ in $\End_k(M)$ and let $A'$ be the usual centralizer of $A$ in $\End_\Integer(M)$.
-  Then $C = A'$:
-  It follows from $\End_k(M) \subseteq \End_\Integer(M)$ that $C \subseteq A'$.
+  Let $A'_k$ be the centralizer of $A$ in $\End_k(M)$ and let $A'$ be the usual centralizer of $A$ in $\End_\Integer(M)$.
+  Then $A'_k = A'$:
+  It follows from $\End_k(M) \subseteq \End_\Integer(M)$ that $A'_k \subseteq A'$.
   To show the other inclusion let
   \[
               K
@@ -296,12 +301,12 @@
     \subseteq \End_\Integer(M) \,.
   \]
   Then $\End_k(M) = \centralizer_{\End_\Integer(M)}(K) = K'$ and $K \subseteq A$.
-  It follows that $A' \subseteq K' = \End_k(M)$ and therefore that $A' \subseteq A' \cap \End_k(M) = C$.
+  It follows that $A' \subseteq K' = \End_\Integer(M)$ and therefore that $A' \subseteq A' \cap \End_k(M) = A'_k$.
   
   This shows that we do not have to distinguish between the centralizer of $A$ in $\End_\Integer(M)$ and the centralizer of $A$ in $\End_k(M)$.
   Note also that $A'$ is again a $k$-subalgebra of $A$ because $A \subseteq \End_k(A) = K'$ and thus $A' \supseteq K$.
   
-  If $A$ is any $k$-algebra and $M$ is a $A$-module then by the above disucussion the commutator $A'$ can be computed in $\End_k(A)$ and is a $k$-subalgebra of $\End_k(A)$.
+  If $A$ is any $k$-algebra and $M$ is a $A$-module then by the above disucussion the commutator $A'$ can be computed in $\End_k(A)$ and is again a $k$-subalgebra of $\End_k(A)$.
 \end{fluff}
 
 
@@ -316,10 +321,10 @@
   This hat two main reasons:
   \begin{itemize}
     \item
-      If $M$ is finite-dimensional and $M$ is finitely generated over all occuring $k$-algebras (over which $M$ is a module).
-      This allows use replace the \enquote{density} from the Jacobson density theorems by actual equality, resp.\ surjectivity.
+      If $M$ is finite-dimensional then $M$ is finitely generated over all occuring $k$-algebras (over which $M$ is a module).
+      This allows us to replace the \enquote{density} from the Jacobson density theorems by actual equality, resp.\ surjectivity of the canonical homomorphism $A \to A''(M)$.
     \item
-      If $k$ is algebraically closed and the $A$-module $M$ is finite-dimensional and simple then $\End_A(M) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} and the double centralizer $A''$ just becomes
+      If $k$ is algebraically closed and $M$ is finite-dimensional simple $A$-module then it follows from \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma} that $\End_A(M) = k$ and the double centralizer $A''$ becomes
       \[
           A''
         = \End_{\End_A(M)}(M)
@@ -333,7 +338,7 @@
 
 \begin{lemma}
   \label{lemma: fd balanced are ss}
-  Every finite-dimensional semisimple $A$-module $M$ has the double centralizer property, i.e.\ the canonical homomorphism $A \to A''$ is surjective.
+  Every finite-dimensional semisimple $A$-module $M$ has the double centralizer property, i.e.\ the canonical homomorphism $A \to A''(M)$ is surjective.
 \end{lemma}
 
 
@@ -350,15 +355,14 @@
 
 
 \begin{proof}
-  The $A$-module $M \defined M_1 \oplus \dotsb \oplus M_n$ is finite-dimensional and semisimple.
-  The canonical homomorphism $A \to A'' = \End_{\End_A(M)}(M)$ is therefore surjective.
+  The $A$-module $M \defined M_1 \oplus \dotsb \oplus M_n$ is finite-dimensional and semisimple, which is why the canonical homomorphism $A \to A'' = \End_{\End_A(M)}(M)$ is surjective.
   It therefore sufficies to show that for every $i = 1, \dotsc, n$ the projection $\pi_i \colon M \to M$ onto $M_i$ along the decomposition $M = M_1 \oplus \dotsb \oplus M_n$ is contained in $A''$.
   For this we need to show that for every $f \in A'$, i.e.\ every $A$-linear map $f \colon M \to M$, we have that
   \[
       \pi_i \circ f
-    = f \circ \pi \,.
+    = f \circ \pi_i \,.
   \]
-  This is equivalent to $f(M_i) \subseteq M_i$ which holds because $M_i$ is the $M_i$-isotypical component of $M$.
+  This is equivalent to the inclusion $f(M_i) \subseteq M_i$ which holds because $M_i$ is the $M_i$-isotypical component of $M$.
 \end{proof}
 
 
@@ -394,7 +398,7 @@
       If $M$ is simple then $A' = \End_k(M) = k$ by \hyperref[proposition: schurs lemma for modules]{Schur’s Lemma}, and it follows from Lemma~\ref{lemma: fd balanced are ss} that $\im(\Phi) = A'' = \End_{A'}(M) = \End_k(M)$.
     \item
       Let $f = (f_1, \dotsc, f_n) \in \prod_{i=1}^n \End_k(M_i)$.
-      The $A$-module $M = M_1 \oplus \dotsb \oplus M_n$ is finite-dimensional and semisimple so it follows from Corollary~\ref{corollary: existence of projection operators} that there exists for every $i = 1, \dotsc, n$ some element $e_i \in A$ with $\Phi_i(e_i) = \id_{M_i}$ for every $i = 1, \dotsc, n$ and $\Phi_j(e_i) = 0$ for every $j \neq i$.
+      It follows from Corollary~\ref{corollary: existence of projection operators} that there exists for every $i = 1, \dotsc, n$ some element $e_i \in A$ with $\Phi_i(e_i) = \id_{M_i}$ for every $i = 1, \dotsc, n$ and $\Phi_j(e_i) = 0$ for every $j \neq i$.
       It follows from part~\ref*{enumerate: density theorem for one module} that there exists for every $f_i \in \End_k(M_i)$ some $a_i \in A$ with $\Phi_i(a_i) = f_i$.
       We now have that $\Phi(a_1 e_1 + \dotsb + a_n e_n) = (f_1, \dotsc, f_n)$.
     \qedhere
@@ -408,11 +412,11 @@
 
 
 \begin{remark}
-  Part~\ref*{enumerate: density theorem for one module} of Theorem~\ref{theorem: density theorem} is known as \emph{Burnside’s theorem on matrix algebras}:
-  It states that for an algebraically closed field $k$ the only $k$-subalgebra $A \subseteq \Mat_n(k)$ for which $k^n$ simple as an $A$-module (with respect to the action given by matrix multiplication) is $\Mat_n(k)$ itself.
+  Part~\ref*{enumerate: density theorem for one module} of Theorem~\ref{theorem: density theorem} is known as \emph{Burnside’s theorem \textup(on matrix algebras\textup)}:
+  It states that for an algebraically closed field $k$ the only $k$-subalgebra $A \subseteq \Mat_n(k)$ for which $k^n$ simple as an $A$-module (with respect to the action given by matrix-vector multiplication) is $\Mat_n(k)$ itself.
   More information on Burnside’s~theorem can be found in \cite{ShapiroBurnside}.
   
-  The above proof of Burnside’s~thorem  relies on the \hyperref[theorem: first jacobson density theorem]{first Jacobson density theorem}, but it can also be shown using the \hyperref[theorem: second jacobson density theorem]{second Jacobson density theorem}:
+  The above proof of Burnside’s~thorem  relies on the \hyperref[theorem: first jacobson density theorem]{first Jacobson density theorem} in the guise of the \hyperref[corollary: existence of projection operators]{existence of projection operators}, but Burnside’s~theorem can also be shown using the \hyperref[theorem: second jacobson density theorem]{second Jacobson density theorem}:
 \end{remark}
 
 
@@ -497,8 +501,8 @@
       \]
       into simple $(A' \tensor_k A)$-submodules, and this decomposition coincides with both the $A$-isotypical and the $A'$-isotypical decomposition of $W$.
     \item
-      Each $(A' \tensor_k A)$-submodule $W_i$ is of the form $W_i \cong V'_i \tensor_{D_i} V_i$ for a simple $A$-module $V_i$, a simple $A'$-module $V'_i$ and a skew field $D_i$ with $D_i \cong \End_A(V_i)$ and $D_i^\op \cong \End_{A'}(V'_i)$.
-      The modules $V_i, V'_i$ are unique up to isomorphism.
+      Each $(A' \tensor_k A)$-submodule $W_i$ is of the form $W_i \cong V'_i \tensor_{D_i} V_i$ for a simple $A$-module $V_i$, a simple $A'$-module $V'_i$ and a division $k$-algebra $D_i$ with $D_i \cong \End_A(V_i)$ and $D_i^\op \cong \End_{A'}(V'_i)$.
+      The modules $V_i, V'_i$ and the division $k$-algebra $D_i$ are unique up to isomorphism.
     \item
       The summand $W_i$ is both the $E_i$-isotypical and the $E'_i$-isotypical component of $M$.
     \item
