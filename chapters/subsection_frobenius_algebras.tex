@@ -1,0 +1,302 @@
+\subsection{Frobenius Algebras}
+
+
+\begin{fluff}
+  We will now show that for certain kind of particularly nice $k$-algebras the space $(A/[A,A])^*$ can be identified with the center $\ringcenter(A)$.
+\end{fluff}
+
+
+\begin{definition}
+  A bilinear form $(-,-) \colon A \times A \to k$ is \emph{associative} if $(ab,c) = (a,bc)$ for all $a, b, c \in A$.
+\end{definition}
+
+
+\begin{recall}
+  If $V$ is a $k$-vector space then a $k$-linear map $V \to k$ is a \emph{\textup($k$-\textup)linear~form}.
+\end{recall}
+
+
+\begin{lemma}
+  \label{lemma: correspondence assiative bf and linear maps}
+  The maps
+  \begin{align*}
+    \{ \text{associative bilinear forms $A \times A \to k$} \}
+    &\longleftrightarrow
+    \{ \text{linear forms $A \to k$} \}
+    \\
+    (-,-)
+    &\longmapsto
+    (1,-)
+    \\
+    ((a,b) \mapsto \varepsilon(ab))
+    &\mapsfrom
+    \varepsilon
+  \end{align*}
+  are well-defined mutually inverse bijections.
+\end{lemma}
+
+
+\begin{proof}
+  Both maps are well-defined.
+  If $(-,-) \colon A \times A \to k$ is an associative bilinear form then for $\varepsilon \colon A \to k$ we have that
+  \[
+      \varepsilon(ab)
+    = (1,ab)
+    = (a,b)
+  \]
+  for all $a, b \in A$.
+  If $\varepsilon \colon A \to k$ is a linear form then for the bilinear map $(-,-) \colon A \times A \to k$ with $(a,b) = \varepsilon(ab)$ we have that
+  \[
+      (1,-)
+    = \varepsilon(1 \cdot (-))
+    = \varepsilon(-)
+    = \varepsilon \,.
+  \]
+  This shows that the maps are mutually inverse.
+\end{proof}
+
+
+\begin{remark}
+  If $(-,-) \colon A \times A \to k$ is an associative bilinear form then
+  \[
+      (1,a)
+    = (1, a \cdot 1)
+    = (1 \cdot a, 1)
+    = (1, a)
+  \]
+  for all $a \in A$, and thus $(1,-) = (-,1)$.
+  We have therefore made no unnecessary choice by using $(1,-)$ instead of $(-,1)$ in Lemma~\ref{lemma: correspondence assiative bf and linear maps}.
+\end{remark}
+
+
+\begin{definition}
+  A linear form $\varepsilon \colon A \to k$ is \emph{symmetric} if $\varepsilon(ab) = \varepsilon(ba)$ for all $a, b \in A$.
+\end{definition}
+
+
+\begin{lemma}
+  An associative bilinear form $(-,-) \colon A \times A \to k$ is symmetric if and only if the corresponding linear form $\varepsilon \colon A \to k$ is symmetric.
+\end{lemma}
+
+
+\begin{recall}
+  Recall from linear algebra that a bilinear form $(-,-) \colon V \times W \to k$ on $k$-vector spaces $V,W$ is \emph{non-degenerate in the first variable} if one (and thus all) of the following equivalent conditions are satisfied:
+  \begin{enumerate}
+    \item
+      For all $v_1, v_2 \in V$ with $v_1 \neq v_2$ there exists some $w \in W$ with $(v_1, w) \neq (v_2, w)$.
+    \item
+      For every nonzero $v \in V$ there exists some $w \in W$ with $(v,w) \neq 0$.
+    \item
+      The linear map $V \to W^*$, $v \mapsto (v,-)$ is injective.
+  \end{enumerate}
+  That $(-,-)$ is \emph{non-degenerate in the second variable} is defined is a similar way.
+  The bilinear form $(-,-)$ is \emph{non-degenerate} if it is non-degenerate in both variables.
+  
+  If $V, W$ are finite-dimensional with $\dim V = \dim W$ then $(-,-)$ is non-degenerate in the first variable if and only if it is non-degenerate in the second variable.
+  In this case all three of the above notions coincide.
+  
+  If $V,W$ are finite-dimensional then the bilinear form $(-,-)$ is non-degenerate if and only if $\dim V = \dim W$ and for some basis $v_1, \dotsc, v_n$ of $V$ there exists a dual basis $w_1, \dotsc, w_n$ of $W$ with
+  \[
+      (v_i, w_j)
+    = \delta_{ij}
+  \]
+  for all $i,j = 1, \dotsc, n$.
+  It then follows that there exists for every basis of $V$ a unique corresponding dual basis of $W$, which then leads to a bijection between the bases of $V$ and bases of $W$.
+\end{recall}
+
+
+
+\begin{lemma}
+  \label{proposition: nondegenerate for linear forms}
+  Let $(-,-) \colon A \times A \to k$ be an associative bilinear form with corresponding linear form $\varepsilon \colon A \to k$.
+  Then the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      \label{enumerate: non-degenerate in the first variable}
+      The bilinear form $(-,-)$ is non-degenerate in the first variable.
+    \item
+      \label{enumerate: a on the left}
+      For every nonzero $a \in A$ there exists some $b \in A$ with $\varepsilon(ab) \neq 0$.
+    \item
+      \label{enumerate: no right ideal in kernel}
+      The kernel $\ker \varepsilon$ contains no nonzero right ideal of $A$.
+  \end{enumerate}
+  Similarly, the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The bilinear form $(-,-)$ is non-degenerate in the second variable.
+    \item
+      For every nonzero $a \in A$ there exists some $b \in A$ with $\varepsilon(ba) \neq 0$.
+    \item
+      The kernel $\ker \varepsilon$ contains no nonzero left ideal of $A$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{description}
+    \item[\ref*{enumerate: non-degenerate in the first variable} $\iff$ \ref*{enumerate: a on the left}]
+      This follows from the fact that $(a,b) = \varepsilon(ab)$ for all $a, b \in A$.
+    \item[\ref*{enumerate: a on the left} $\iff$ \ref*{enumerate: no right ideal in kernel}]
+      That $\ker \varepsilon $ contains no nonzero right ideal is equivalent to $\ker \varepsilon $ containing no nonzero principal right ideal, i.e.\ no nonzero right ideal of the form $a A$ with $a \in A$.
+      This happens if and only if for every $a \in A$ there exists some $b \in A$ with $ab \notin \ker \varepsilon$, i.e.\ $\varepsilon(ab) \neq 0$.
+  \end{description}
+  The eqivalence of the other three conditions can be shown in the same way.
+\end{proof}
+
+
+\begin{corollary}
+  A bilinear form $(-,-) \colon A \times A \to k$ is associative, symmetric and non-degenerate if and only if the corresponding linear form $\varepsilon \colon A \to k$ is symmetric and satisfies one (and thus all) of the conditions from Lemma~\ref{proposition: nondegenerate for linear forms}.
+\end{corollary}
+
+
+\begin{definition}
+  A bilinear form $(-,-) \colon A \times A \to k$ which is associative, symmetric and non-degenerate is a \emph{Frobenius bilinear form}.
+  The corresponding linear form $\varepsilon \colon A \to k$ is a \emph{Frobenius linear form}.
+  The term \emph{Frobenius form} refers to both a Frobenius bilinear form and its associated Frobenius linear form.
+\end{definition}
+
+
+\begin{definition}
+  A \emph{Frobenius algebra} is a finite-dimesional $k$-algebra $A$ together with Frobenius form on $A$.
+\end{definition}
+
+
+\begin{remark}
+  Let $A$ be a Frobenius algebra with Frobenius form $(-,-) \colon A \times A \to k$.
+  Then the map
+  \[
+            \varphi
+    \colon  A
+    \to     A^*,
+    \quad   a
+    \mapsto (a,-)
+  \]
+  is injective because $(-,-)$ is non-degenerate,.
+  It follows that $\varphi$ is an isomorphism because $A$ is finite-dimensional.
+\end{remark}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      If $G$ is a finite group then the group algebra $k[G]$ can be endowed with the structure of a Frobenius algebra via the map $\varepsilon \colon k[G] \to k$ given on the basis $G$ of $k[G]$ by
+      \[
+          \varepsilon(g)
+        = \begin{cases}
+            1 & \text{if $g = e$} \,, \\
+            0 & \text{otherwise}  \,,
+          \end{cases}
+      \]
+      for every $g \in G$.
+      In other words, $\varepsilon(\sum_{g \in G} a_g g) = a_e$ is the coefficient of the identity $e \in G$.
+      
+      For all $a, b \in kG$ with $a = \sum_{g \in G} \lambda_g g$ and $b = \sum_{g \in G} \mu_g g$ we have that
+      \[
+          \varepsilon(ab)
+        = \sum_{g \in G} \lambda_g \mu_{g^{-1}}
+        = \sum_{h \in G} \mu_h \lambda_{h^{-1}}
+        = \varepsilon(ba)
+      \]
+      which shows that $\varepsilon$ is symmetric.
+      If $a = \sum_{g \in G} a_g g \in k[G]$ with $a \neq 0$ then $a_g \neq 0$ for some $g \in G$ and it follows that
+      \[
+              \varepsilon(a g^{-1})
+        =     \varepsilon\left( \sum_{h \in G} a_h h g^{-1} \right)
+        =     \varepsilon\left( \sum_{h' \in G} a_{h' g} h' \right)
+        =     a_g
+        \neq  0 \,.
+      \]
+      Together this shows that $\varepsilon$ does indeed define a Frobenius form on $k[G]$.
+      
+      That the bilinear form $(-,-) \colon k[G] \times k[G] \to k$ corresponding to the linear form $\varepsilon$ is non-degenerate can also be seen by noticing that the bases $(g)_{g \in G}$ and $(g^{-1})_{g \in G}$ of $k[G]$ are dual to each other with respect to $(-,-)$.
+    \item
+      Let $k$ be a field and $n \geq 0$.
+      Then $\Mat_n(k)$ can be endowed with the structure of a Frobenius algebra via the trace $\tr \colon \Mat_n(k) \to k$:
+      
+      We already know that $\tr(AB) = \tr(BA)$ for all $A, B \in \Mat_n(k)$.
+      To show that the bilinear form $(-,-) \colon \Mat_n(k) \times \Mat_n(k)$ corresponding to $\varepsilon$ is non-degenerate we use the standard basis $E_{ij}$, $i,j = 1, \dotsc, n$ of $\Mat_n(k)$.
+      We have that
+      \[
+          \tr( E_{ij} E_{pq} )
+        = \tr( \delta_{jp} E_{iq} )
+        = \delta_{jp} \tr(E_{iq})
+        = \delta_{jp} \delta_{iq} \,.
+      \]
+      For all $i,j,p,q = 1, \dotsc, n$, which shows that th two bases $(E_{ij})_{i,j=1,\dotsc,n}$ and $(E_{ji})_{i,j=1, \dotsc, n}$ of $\Mat_n(k)$ are dual to each other with respect to $(-,-)$.
+      Altogether this shows that $\tr$ is a Frobenius form on $\Mat_n(k)$.
+  \end{enumerate}
+\end{example}
+
+
+\begin{lemma}
+  \label{lemma: associative wrt lie bracket}
+  If $(-,-)$ is an associative symmetric bilinear form on $A$ then $(-,-)$ is also associative with respect to $[-,-]$ in the sense that
+  \[
+      ( [a,b], c )
+    = ( a, [b, c] )
+  \]
+  for all $a, b, c \in A$.
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+        ([a,b], c)
+    &=  (ab - ba, c)
+     =  (ab, c) - (ba, c)
+     =  (ab, c) - (c, ba) \\
+    &=  (ab, c) - (cb, a)
+     =  (a, bc) - (a, cb)
+     =  (a, bc - cb)
+     =  (a, [b,c])
+  \end{align*}
+  for all $a, b, c \in A$.
+\end{proof}
+
+
+
+\begin{proposition}
+  If $A$ is a Frobenius algebra with Frobenius form $(-,-)$ then
+  \[
+            \psi
+    \colon  Z(A)
+    \to     (A/[A,A])^*,
+    \quad   a
+    \mapsto (a,-)
+  \]
+  is a well-defined isomorphism of $k$-vector spaces.
+\end{proposition}
+
+
+\begin{proof}
+  The map
+  \[
+            \varphi
+    \colon  A
+    \to     A^*,
+    \quad   a
+    \mapsto (a, -)
+  \]
+  is an isomorphism of $k$-vector spaces because $A$ is finite-dimensional and $(-,-)$ is non-degenerate.
+  By using Lemma~\ref*{lemma: associative wrt lie bracket} and that $(-,-)$ is non-degenerate it follows that
+  \begin{align*}
+          \restrict*{\varphi(z)}{[A,A]} = 0
+    &\iff \forall a,b \in A: \varphi(z)([a,b]) = 0 \\
+    &\iff \forall a,b \in A: (z,[a,b]) = 0  \\
+    &\iff \forall a,b \in A: ([z,a],b) = 0  \\
+    &\iff \forall a \in A:   [z,a] = 0  \\
+    &\iff z \in \ringcenter(A) \,.
+  \end{align*}
+  It follows that $\varphi$ induces the claimed bijection.
+\end{proof}
+
+
+% TODO: Add examples.
+
+
+
+
