@@ -336,6 +336,7 @@
 
 
 \begin{fluff}
+  \label{fluff: associated graded of weyl algebra}
   We have choosen to work with $\weyl' = \freealg{k}{X,D}/(DX-XD-1)$ for the above calculations but via the isomorphism $\Psi \colon \weyl' \to \weyl$ all of our results also hold for the Weyl algebra $\weyl$:
   We have a filtration $F$ on $\weyl$ given by
   \[
@@ -355,7 +356,15 @@
 \end{fluff}
 
 
-% TODO: a monomial basis of A becomes one of gr(A) iff the filtration comes from the free algebra; quote MO
+\begin{remark}
+  We have seen that for the two generators $X, D$ of $\weyl'$ the corresponding elements $[X]_1, [D]_1$ are again generators of $\gr_{F'}(\weyl')$.
+  We may ask ourselves if more generally for every algebra $A$, filtration $F$ of $A$ and $k$-algebra generators $x_i$, $i \in I$ of degree $d_i \defined \deg_F(x_i)$ the elements $[x_i]_{d_i}$, $i \in I$ are again $k$-algebra generators for~$\gr_F(A)$.
+  
+  This is not always the case.
+  It is shown in \cite{MO224454} that for $I = \{1, \dotsc, n\}$ finite this is the case if and only if the filtration $F$ is the one induced from $\freealg{k}{X_1, \dotsc, X_n}$ via the surjective $k$-algebra homomorphism $\phi \colon \freealg{k}{X_1, \dotsc, X_n} \to A$ given by $\phi(X_i) = x_i$ for all $i = 1, \dotsc, n$.
+  
+  Note that this is the case for the filtration $F'$ of $\weyl'$ by definition of $F'$.
+\end{remark}
 
 
 \begin{remark}(Skew polynomial rings)
