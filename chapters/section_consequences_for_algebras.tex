@@ -214,7 +214,7 @@
 
 \begin{corollary}
   \label{corollary: dimension of center is number of simple modules}
-  If $k$ is algebraically closed and $A$ is finite-dimensional and semisimple then $\dim_k \ringcenter(A)$ coincides with the number of isomorphism classes of simple $A$-modules.
+  If $k$ is algebraically closed and $A$ is finite-dimensional and semisimple then $\dim \ringcenter(A)$ coincides with the number of isomorphism classes of simple $A$-modules.
 \end{corollary}
 
 
@@ -460,20 +460,20 @@
 \end{proof}
 
 
-\begin{example}
+\begin{remark}
   Burnside’s~theorem does not hold for non-algebraically closed fields:
-  If $k$ is not algebraically closed then there exists a finite field extension $L/k$ of degree $\dim_k L > 1$.
+  If $k$ is not algebraically closed then there exists a finite field extension $L/k$ of degree $\dim L > 1$.
   The $L$-vector space structure of $L$ itself corresponds to an injective $k$-algebra homomorphism $\Phi \colon L \to \End_k(L)$, $l \mapsto (x \mapsto lx)$.
   It follows for the $k$-subalgebra $A \defined \im(\Phi) \subseteq \End_k(L)$ that $L$ is a simple $A$-module because $L$ is simple as an $L$-module.
   But the strict inequality
   \[
-      \dim_k A
-    = \dim_k L
-    < (\dim_k L)^2
-    = \dim_k \End_k(L)
+      \dim A
+    = \dim L
+    < (\dim L)^2
+    = \dim \End_k(L)
   \]
   shows that $\im(\Phi)$ is a proper subalgebra of $\End_k(L)$.
-\end{example}
+\end{remark}
 
 
 \begin{corollary}
@@ -497,7 +497,16 @@
 \end{proof}
 
 
-% TODO: Give counterexample for non-algebraically closed fields.
+\begin{remark}
+  Corollary~\ref{corollary: dimension simple algebra modules} does not hold for non-algebraically closed fields:
+  If $k$ is not algebraically closed then there exists a finite field extension $L/k$ of degree $\dim L > 1$.
+  It then follows that $M = L$ is a simple $L$-module with
+  \[
+      (\dim M)^2
+    = (\dim L)^2
+    > \dim L \,.
+  \]
+\end{remark}
 
 
 
