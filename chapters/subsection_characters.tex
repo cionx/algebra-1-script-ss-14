@@ -15,18 +15,18 @@
 % 
 % 
 % \begin{proof}
-%   The group algebra $kG$ is finite-dimensional and by Maschke’s Theorem also semisimple.
+%   The group algebra $k[G]$ is finite-dimensional and by Maschke’s Theorem also semisimple.
 %   Therefore
 %   \[
 %       |\Irr_k(G)|
-%     = |\Irr(kG)|
-%     = \dim_k (kG/[kG, kG])^*
-%     = \dim_k kG/[kG, kG] \,.
+%     = |\Irr(k[G])|
+%     = \dim_k (k[G]/[k[G], k[G]])^*
+%     = \dim_k k[G]/[k[G], k[G]] \,.
 %   \]
-%   Since $G$ is abelian the group algebra $kG$ is commutative, so $[kG,kG] = 0$ and
+%   Since $G$ is abelian the group algebra $k[G]$ is commutative, so $[k[G],k[G]] = 0$ and
 %   \[
-%       \dim_k kG/[kG, kG]
-%     = \dim_k kG
+%       \dim_k k[G]/[k[G], k[G]]
+%     = \dim_k k[G]
 %     = |G| \,.
 %     \qedhere
 %   \]
@@ -51,7 +51,7 @@
     \item
       It holds that $F(ab) = F(ba)$ for all $a, b \in k[G]$.
     \item
-      The restriction $\restrict{F}{[kG,kG]}$ is the zero map.
+      The restriction $\restrict{F}{[k[G],k[G]]}$ is the zero map.
   \end{enumerate}
   If $G$ is finite we additionally have the following equivalent condition:
   \begin{enumerate}[resume]
@@ -85,7 +85,7 @@
       The number of irreducible representations of $G$ coincides with the number conjugacy classes of $G$.
     \item
       \label{enumerate: number of irr rep is dim of center}
-      The number of irreducible representations of $G$ coincides with $\dim_k Z(kG)$.
+      The number of irreducible representations of $G$ coincides with $\dim_k Z(k[G])$.
   \end{enumerate}
 \end{proposition}
 
