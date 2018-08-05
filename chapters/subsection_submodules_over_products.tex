@@ -1,0 +1,133 @@
+\subsection{Submodules over Products}
+
+
+\begin{proposition}
+  \label{proposition: submodules of products over rings}
+  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      If $N_i \moduleleq M_i$ is an $R_i$-submodule for $i = 1, 2$ then $N_1 \boxplus N_2$ is an $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$.
+    \item
+      Every $(R_1 \times R_2)$-submodule of $M_1 \boxplus M_2$ is of the form $N_1 \boxplus N_2$ for unique $R_i$ submodules $N_i \moduleleq M_i$.
+  \end{enumerate}
+  We thus have a bijection
+  \begin{align*}
+    \left\{
+      (N_1, N_2)
+    \suchthat*
+      \begin{tabular}{c}
+        $R_i$-submodules  \\
+        $N_i \moduleleq M_i$
+      \end{tabular}
+    \right\}
+    &\longleftrightarrow
+    \left\{
+      \begin{tabular}{c}
+        $(R_1 \times R_2)$-submodules \\
+        of $M_1 \boxplus M_2$
+      \end{tabular}
+    \right\}
+    \\
+    (N_1, N_2)
+    &\longmapsto
+    N_1 \boxplus N_2 \,.
+  \end{align*}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}[start=2]
+    \item
+      If $N_1 \boxplus N_2 = N'_1 \boxplus N'_2$ for $R_i$-modlues $N_i, N'_i$ then $N_i = N'_i$ which shows the claimed uniqueness.
+      To show the existence of $N_1, N_2$ we observe that $[N]_i \moduleleq [M_1 \boxplus M_2]_i$ is again a submodule and set
+      \[
+                    N_i
+        \defined    \beta_{i,M_i}^{-1}( [N]_i )
+        \moduleleq  M_i \,.
+      \]
+      If $\iota \colon N \to M_1 \boxplus M_2$ denotes the inclusion the diagram
+      \[
+        \begin{tikzcd}[row sep = huge, column sep = 6em]
+            M_1 \boxplus M_2
+            \arrow[rounded corners,
+                   equal,
+                   to path =
+                   { -- ([yshift=1cm] \tikztostart.north)
+                     -| (\tikztotarget) }
+                  ]{rr}
+            \arrow{r}[above]{\alpha_{M_1 \boxplus M_2}}
+          & {[M_1 \boxplus M_2]_1} \boxplus {[M_1 \boxplus M_2]_2}
+            \arrow{r}[above]{\beta_{1,M_1}^{-1} \boxplus \, \beta_{2,M_2}^{-1}}
+          & M_1 \boxplus M_2
+          \\
+            N
+            \arrow[hook']{u}[left]{\iota}
+            \arrow{r}[above]{\alpha_N}
+          & {[N]_1 \boxplus [N]_2}
+            \arrow[hook']{u}[left]{[\iota]_1 \boxplus [\iota]_2}
+            \arrow{r}[above]{\beta_{1,M_1}^{-1} \boxplus \, \beta_{2,M_2}^{-1}}
+          & N_1 \boxplus N_2
+            \arrow[hook']{u}
+        \end{tikzcd}
+      \]
+      commutes.
+      It follows that $N = N_1 \boxplus N_2$ because all horizontial maps are isomorphisms.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: ideals in products of rings}
+  Every left ideal in $R_1 \times R_2$ is of the form $J_1 \times J_2$ for unique left ideals $J_i \idealleq R_i$ for $i = 1, 2$.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Propositon~\ref{proposition: submodules of products over rings} because $R_1 \times R_2 = R_1 \boxplus R_2$ as $(R_1 \times R_2)$-modules.
+\end{proof}
+
+
+\begin{remark}
+  \label{remark: right and two-sided ideals in products of rings}
+  The analogous result for right ideals also holds and can be shown in the same way.
+  The analogous result for two-sided ideals also holds and follows as a combination of the other two results.
+\end{remark}
+
+
+\begin{lemma}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $(M^j_i)_{j \in J}$ be a family of $R_i$-modules for $i = 1, 2$.
+      Then
+      \[
+            \left( \bigoplus_{j \in J} M^j_1 \right) \boxplus \left( \bigoplus_{j \in J} M^j_2 \right)
+          = \bigoplus_{j \in J} (M^j_1 \boxplus M^j_2) \,.
+      \]
+    \item
+      For $i = 1, 2$ let $M_i$ be an $R_i$-module and let $(N^j_i)_{j \in J}$ a family of submodules $N^j_i \moduleleq M_i$.
+      Then $M_1 \boxplus M_2 = \bigoplus_{j \in J} (N^j_1 \boxplus N^j_2)$ if and only if both $M_i  = \bigoplus_{j \in J} N^j_i$ for both $i = 1, 2$.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{corollary}
+  \label{corollary: direct summands for modules over products}
+  Let $M_i$ be an $R_i$-module and let $N_i \moduleleq M_i$ an $R_i$-submodule for $i = 1, 2$.
+  Then the submodule $N_1 \boxplus N_2 \moduleleq M_1 \boxplus M_2$ is a direct summand if and only if both $N_1 \moduleleq M_1$ and $N_2 \moduleleq M_2$ are direct summands.
+  \qed
+\end{corollary}
+
+
+\begin{remark}
+  All the results of this section can be generalized to finite products of rings $R_1 \times \dotsb \times R_n$.
+  This can be done directly or by induction over $n$.
+  Instead of using rings $R_1, \dotsc, R_n$, we could also use a ground field $k$ and consider $k$-algebras $A_1, \dotsc, A_n$.
+\end{remark}
+
+
+
+

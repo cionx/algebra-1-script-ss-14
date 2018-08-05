@@ -1,0 +1,279 @@
+\subsection{Modules over Products}
+
+
+\begin{lemma}
+  \label{lemma: outer sum of modules}
+  Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  Then $M_1 \oplus M_2$ carries the structure of an $(R_1 \times R_2)$-module via
+  \[
+      (r_1, r_2) \cdot (m_1, m_2)
+    = (r_1 m_1, r_2 m_2)
+  \]
+  for all $(r_1, r_2) \in R_1 \times R_2$, $(m_1, m_2) \in M_1 \oplus M_2$.
+  \qed
+\end{lemma}
+
+
+\begin{definition}
+  For an $R_1$-module $M_1$ and an $R_2$-module $M_2$ we denote the resulting $(R_1 \times R_2)$-module described in Lemma~\ref{lemma: outer sum of modules} by $M_1 \boxplus M_2$.
+\end{definition}
+
+
+\begin{remark}
+  If $(R_i)_{i \in I}$ is any family of rings and $M_i$ is an $R_i$-module for every $i \in I$ then we can endow both $\bigoplus_{i \in I} M_i$ and $\prod_{i \in I} M_i$ with the structure of an $\prod_{i \in I} R_i$-module as above.
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: restriction of modules}
+  Let $M$ be an $(R_1 \times R_2)$-module and let $M_i \defined e_i M$ for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      \label{enumerate: mi absorbs ei}
+      We have that $e_i m_i = m_i$ for $i = 1, 2$ and $m_i \in M_i$ as well as $e_i M_j = 0$ for $i \neq j$.
+    \item
+      The abelian group p$M_1$ carries the structure of an $R_1$-module via
+      \[
+                  r_1 \cdot m_1
+        \defined  (r_1, 0) m_1
+      \]
+      for all $r_1 \in R_1$, $m_1 \in M_1$, and $M_2$ carries the structure of an $R_2$-module via
+      \[
+                  r_2 \cdot m_2
+        \defined  (0, r_1) m_2
+      \]
+      for all $r_2 \in R_2$, $m_2 \in M_2$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For every $m_i \in M_i$ there exists some $m \in M$ with $m_i = e_i m$ and it follows that
+      \begin{gather*}
+          e_i m_i
+        = e_i^2 m
+        = e_i m
+        = m_i
+      \shortintertext{as well as}
+          e_j m_i
+        = e_j e_i m
+        = 0
+      \end{gather*}
+      for $i \neq j$ because $e_j e_i = 0$.
+    \item
+      We have that
+      \[
+                  R_1 M_1
+        =         (R_1 \times 0) M_1
+        =         e_1 (R_1 \times R_2) M_1
+        \subseteq e_1 (R_1 \times R_2) M
+        \subseteq e_1 M
+        =         M_1 \,,
+      \]
+      which shows that the action of $R_1$ on $M_1$ is well-defined.
+      We also have that
+      \[
+          1_{R_1} \cdot m_1
+        = (1,0) m_1
+        = e_1 m_1
+        = m_1
+      \]
+      for every $m_1 \in M$ by part~\ref*{enumerate: mi absorbs ei}.
+      The other $R_1$-module axioms can be shown by direct calculation.
+      
+      That $M_2$ is a well-defined $R_2$-module can be shown in the same way.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{definition}
+  For an $(R_1 \times R_2)$-module $M$ we denote for $i = 1, 2$ the resulting $R_i$-module as described in Lemma~\ref{lemma: restriction of modules} by $[M]_i$.
+\end{definition}
+
+
+\begin{theorem}
+  \label{theorem: equivalence of modules for objects}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $M$ be an $(R_1 \times R_2)$-module.
+      Then the map
+      \[
+                \alpha_M
+        \colon  M
+        \to     [M]_1 \boxplus [M]_2
+        \quad   m
+        \mapsto (e_1 m, e_2 m)
+      \]
+      is an isomorphism of $(R_1 \times R_2)$-modules, whose inverse is given by
+      \[
+                (m_1, m_2)
+        \mapsto m_1 + m_2 \,.
+      \]
+    \item
+      Let $M_i$ be an $R_i$-module for $i = 1, 2$.
+      Then
+      \begin{align*}
+            [M_1 \boxplus M_2]_1
+        &=  \{ (m_1, 0) \suchthat m_1 \in M_1 \}
+      \shortintertext{and}
+            [M_1 \boxplus M_2]_2
+        &=  \{ (0, m_2) \suchthat m_2 \in M_2 \} \,.
+      \end{align*}
+      The map
+      \[
+                \beta_{1, M_1}
+        \colon  M_1
+        \to     [M_1 \boxplus M_2]_1,
+        \quad   m_1
+        \mapsto (m_1, 0)
+      \]
+      is an isomorphism of $R_1$-modules and the map
+      \[
+                \beta_{2, M_2}
+        \colon  M_2
+        \to     [M_1 \boxplus M_2]_2,
+        \quad   m_2
+        \mapsto (0, m_2)
+      \]
+      is an isomorphism of $R_2$-modules.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have for all $(r_1, r_2) \in R_1 \times R_2$ and $m \in M$ that
+      \begin{align*}
+            \alpha_M((r_1, r_2) m)
+        &=  ( e_1 (r_1, r_2) m, e_2 (r_1, r_2) m )
+         =  ( (r_1, 0) e_1 m, (r_2, 0) e_2 m )  \\
+        &=  ( r_1 e_1 m , r_2 e_2 m )
+         =  (r_1, r_2) \cdot (e_1 m, e_2 m)
+         =  (r_1, r_2) \cdot \alpha_M(m)
+      \end{align*}
+      which shows that $\alpha_M$ is a homomorphism of $(R_1 \times R_2)$-modules.
+      We now show that $\alpha_M$ and the map
+      \[
+                \tilde{\alpha}_M
+        \colon  [M]_1 \boxplus [M]_2
+        \to     M,
+        \quad   (m_1, m_2)
+        \mapsto m_1 + m_2
+      \]
+      are mutually inverse:
+      We have for every $m \in M$ that
+      \begin{align*}
+            \tilde{\alpha}_M( \alpha_M(m) )
+        &=  \tilde{\alpha}_M( (e_1 m, e_2 m) )
+         =  e_1 m + e_2 m \\
+        &=  (e_1 + e_2) m
+         =  (1,1) m
+         =  1_{R_1 \times R_2} m
+         =  m
+      \end{align*}
+      and we have for all $(m_1, m_2) \in [M]_1 \boxplus [M]_2$ that
+      \begin{align*}
+            \alpha_M( \tilde{\alpha}_M( (m_1, m_2) ) )
+        &=  \alpha_M( m_1 + m_2 )
+         =  (e_1 (m_1 + m_2), e_2 (m_1 + m_2))  \\
+        &=  (
+              \underbrace{e_1 m_1}_{= m_1} + \underbrace{e_1 m_2}_{= 0},
+              \underbrace{e_2 m_1}_{= 0} + \underbrace{e_2 m_2}_{= m_2}
+            )
+         =  (m_1, m_2) \,.
+      \end{align*}
+    \item
+      We have that
+      \[
+          [M_1 \boxplus M_2]_1
+        = e_1 (M_1 \boxplus M_2)
+        = \{
+            e_1 (m_1, m_2)
+          \suchthat
+            m_i \in M_i
+          \}
+        = \{
+            (m_1, 0)
+          \suchthat
+            m_1 \in M_1
+          \} \,.
+      \]
+      We have for all $r_1 \in R_1$ and $m_1 \in M_1$ that
+      \[
+          r_1 \cdot \beta_{1, M_1}(m_1)
+        = r_1 \cdot (m_1, 0)
+        = (r_1, 0) \cdot (m_1, 0)
+        = (r_1 m_1, 0)
+        = \beta_{1, M_1}(r_1 m_1)
+      \]
+      which shows that the bijection $\beta_{1,M_1}$ is a homomorphism of $R_1$-modules.
+      It can similarly be shown that $\beta_{2,M_2}$ is a well-defined isomorphism of $R_2$-modules.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: modules over products have components}
+  Every $(R_1 \times R_2)$-module is up to isomorphism of the form $M_1 \boxplus M_2$ for $R_i$-modules $M_i$.
+  \qed
+\end{corollary}
+
+
+\begin{remark}
+  Corollary~\ref{corollary: modules over products have components} does not hold for an infinite products of rings:
+  Let $(R_i)_{i \in I}$ be a family of rings with $R_i \neq 0$ for infinitely many $i \in I$.
+  Then $\bigoplus_{i \in I} R_i$ is a proper ideal of $\prod_{i \in I} R_i$ and the quotient
+  \[
+              M
+    \defined \left. \prod_{i \in I} R_i \middle/ \bigoplus_{i \in I} R_i \right.
+  \]
+  is an $\prod_{i \in I} R_i$-module which is nonzero but is annihilated by every factor $R_i$.
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: expand then collaps boxplus}
+  For all $R_i$-modules $M_i$ with $i = 1, 2$ the diagram
+  \[
+    \begin{tikzcd}[row sep = large]
+        M_1 \boxplus M_2
+        \arrow[equal]{rr}
+        \arrow{dr}[below left]{\alpha_{M_1 \boxplus M_2}}
+      & {}
+      & M_1 \boxplus M_2
+        \arrow{dl}[below right]{\beta_{1,M_1} \boxplus \, \beta_{2,M_2}}
+      \\
+        {}
+      & {[M_1 \boxplus M_2]_1 \boxplus [M_1 \boxplus M_2]_2}
+      & {}
+    \end{tikzcd}
+  \]
+  commutes.
+\end{lemma}
+
+
+\begin{proof}
+  For every element $(m_1, m_2) \in M_1 \boxplus M_2$ we have that
+  \begin{gather*}
+      \alpha_{M_1 \boxplus M_2}( (m_1, m_2) )
+    = ( e_1 (m_1, m_2), e_2 (m_1, m_2) )
+    = ( (m_1, 0), (0, m_2) )
+  \shortintertext{and}
+        (\beta_{1,M_1} \boxplus \beta_{2,M_2})(m_1, m_2)
+      = (\beta_{1,M_1}(m_1), \beta_{2,M_2}(m_2))
+      = ( (m_1, 0), (0, m_2) )
+  \end{gather*}
+  as claimed.
+\end{proof}
+
+
+
+

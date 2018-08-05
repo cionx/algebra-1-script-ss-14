@@ -1,0 +1,348 @@
+\subsection{Homomorphisms of Modules over Products}
+
+
+\begin{lemma}
+  \label{label: outer sum of homomorphisms}
+  Let $f_i \colon M_i \to N_i$ be a homomorphism of $R_i$-modules for $i = 1, 2$.
+  Then the map
+  \[
+            M_1 \boxplus M_2
+    \to     N_1 \boxplus N_2,
+    \quad   (m_1, m_2)
+    \mapsto (f_1(m_1), f_2(m_2))
+  \]
+  is a homomorphism of $(R_1 \times R_2)$-modules.
+  \qed
+\end{lemma}
+
+
+\begin{definition}
+  In the situation of Lemma~\ref{label: outer sum of homomorphisms} we denote the induced homomorphism of $(R_1 \times R_2)$-modules by $f_1 \boxplus f_2$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{lemma: boxplus is functorial}
+  Let $M_i, N_i, P_i$ be $R_i$ modules for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      We have that $\id_{M_1} \boxplus \id_{M_2} = \id_{M_1 \boxplus M_2}$.
+    \item
+      If $f_i \colon M_i \to N_i$, $g_i \colon N_i \to P_i$ ar homomorphisms of $R_i$-modules for $i = 1, 2$ then
+      \[
+          (g_1 \boxplus g_2) \circ (f_1 \boxplus f_2)
+        = (g_1 \circ f_1) \boxplus (g_2 \circ f_2) \,.
+      \]
+    \item
+      We have that
+      \[
+          (f_1 \boxplus f_2) + (g_1 \boxplus g_2)
+        = (f_1 + g_1) \boxplus (f_2 + g_2) \,.
+      \]
+      for all $R_i$-module homomorphisms $f_i, g_i \colon M_i \to N_i$. 
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+% TODO: Add a proof.
+
+
+\begin{remark}
+  \label{remark: functor out of product}
+  Altogether we have shows that $(-) \boxplus (-)$ defines a (bi)functor
+  \[
+        (\cMod{R_1}) \times (\cMod{R_2})
+    \to \cMod{(R_1 \times R_2)} \,.
+  \]
+\end{remark}
+
+
+\begin{lemma}
+  \label{lemma: restrictions of homomorphisms}
+  Let $f \colon M \to N$ be a homomorphism of $(R_1 \times R_2)$-modules.
+  Then $f$ restricts for $i = 1, 2$ to a homomorphism of $R_i$-modules
+  \[
+            [M]_i
+    \to     [N]_i,
+    \quad   m_i
+    \mapsto f(m_i) \,.
+  \]
+  
+\end{lemma}
+
+
+\begin{proof}
+  We have that
+  \[
+              f([M]_i)
+    =         f(e_i M)
+    =         e_i f(M)
+    \subseteq e_i N
+    =         [N]_i \,,
+  \]
+  which shows that $f$ restrict to a map $f_i \colon [M]_i \colon [N]_i$.
+  We have for all $r_i \in R_i$ and $m_i \in [M]_i$ that
+  \[
+      f(r_i \cdot m_i)
+    = f((r_i,0) m_i)
+    = (r_i,0) f(m_i)
+    = r_i \cdot f(m_i) \,,
+  \]
+  which shows that $f_i$ is a homomorphism of $R_i$-modules.
+\end{proof}
+
+
+\begin{definition}
+  In the situation of Lemma~\ref{lemma: restrictions of homomorphisms} we denote for $i = 1, 2$ the induced homomorphisms of $R_i$-modules by $[f]_i$.
+\end{definition}
+
+
+\begin{lemma}
+  Let $M, N, P$ be $(R_1 \times R_2)$-modules.
+  \begin{enumerate}
+    \item
+      We have for $i = 1, 2$ that $[\id_M]_i = \id_{[M]_i}$.
+    \item
+      If $f \colon M \to N$ and $g \colon N \to P$ are homomorphisms of $(R_1 \times R_2)$-modules then for $i = 1, 2$ we have that
+      \[
+          [g \circ f]_i
+        = [g]_i \circ [f]_i \,.
+      \]
+    \item
+      We have that
+      \[
+          [f + g]_i
+        = [f]_i + [g]_i
+      \]
+      for all $i = 1, 2$ and $(R_1 \times R_2)$-module homomorphims $f, g \colon M \to N$.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{remark}
+  \label{remark: functor into product}
+  Altogether we have for $i = 1, 2$ constructed a functor
+  \[
+            [-]_i
+    \colon  \cMod{(R_1 \times R_2)}
+    \to     \cMod{R_i} \,.
+  \]
+  Together these result in a functor
+  \[
+            ([-]_1, [-]_2)
+    \colon  \cMod{(R_1 \times R_2)}
+    \to     (\cMod{R_1}) \times (\cMod{R_2}) \,.
+  \]
+\end{remark}
+
+
+\begin{theorem}
+  \label{theorem: equivalence of modules for morphisms}
+  The isomorphisms from Theorem~\ref{theorem: equivalence of modules for objects} are compatible with homomorphisms in the following sense:
+  \begin{enumerate}
+    \item
+      \label{enumerate: alpha is natural}
+      If $f \colon M \to N$ is a homomorphisms of $(R_1 \times R_2)$-modules then the diagram
+      \[
+        \begin{tikzcd}[sep = huge]
+            M
+            \arrow{r}[above]{f}
+            \arrow{d}[left]{\alpha_M}
+          & N
+            \arrow{d}[right]{\alpha_N}
+          \\
+            {[M]_1} \boxplus {[M]_2}
+            \arrow{r}[above]{{[f]_1} \boxplus {[f]_2}}
+          & {[N]_1} \boxplus {[N]_2}
+        \end{tikzcd}
+      \]
+      commutes.
+    \item
+      \label{enumerate: beta is natural}
+      If $f_i \colon M_i \to N_i$ is a homomorphisms of $R_i$-modules for $i = 1, 2$ then the diagram
+      \[
+        \begin{tikzcd}[sep = huge]
+            M_i
+            \arrow{r}[above]{f_i}
+            \arrow{d}[left]{\beta_{i, M_i}}
+          & N_i
+            \arrow{d}[right]{\beta_{i, N_i}}
+          \\
+            {[M_1 \boxplus M_2]_i}
+            \arrow{r}[above]{{[f_1 \boxplus f_2]_i}}
+          & {[N_1 \boxplus N_2]_i}
+        \end{tikzcd}
+      \]
+      commmutes for $i = 1, 2$.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have for every $m \in M$ that
+      \begin{align*}
+            ([f]_1 \boxplus [f]_2)( \alpha_M(m) )
+        &=  ([f]_1 \boxplus [f]_2)( (e_1 m, e_2 m) )  \\
+        &=  ( f(e_1 m), f(e_2 m) )
+         =  ( e_1 f(m), e_2 f(m) )
+         =  \alpha_N( f(m) ) \,.
+      \end{align*}
+    \item
+      We have for every $m_1 \in M_1$ that
+      \[
+          [f_1 \boxplus f_2]_1( \beta_{1, M_1}( m_1 ) )
+        = [f_1 \boxplus f_2]_1( (m_1, 0) )
+        = ( f_1(m_1), 0 )
+        = \beta_{1, N_1}( f_1(m_1) ) \,,
+      \]
+      which shows that the diagram commutes for $i = 1$.
+      It can be shown in the same way that it commutes for $i = 2$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  This shows that the functors constructed in Remark~\ref{remark: functor out of product} and Remark~\ref{remark: functor into product} (together with $\alpha$ and $\beta$) form an equivalence of categories
+  \[
+            \cMod{(R_1 \times R_2)}
+    \simeq  (\cMod{R_1}) \times (\cMod{R_2}) \,.
+  \]
+\end{remark}
+
+
+\begin{corollary}
+  \label{label: endomorphism ring of boxsum}
+  Let $M_i, N_i$ be $R_i$-modules for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      Every $(R_1 \times R_2)$-module homomorphism $f \colon M_1 \boxplus M_2 \to N_1 \boxplus N_2$ is of the form $f = f_1 \boxplus f_2$ for unique $R_i$-module homomorphisms $f_i \colon M_i \to N_i$.
+    \item
+      The map
+      \begin{align*}
+                  \End_{R_1}(M_1) \times \End_{R_2}(M_2)
+        &\longto  \End_{R_1 \times R_2}(M_1 \boxplus M_2),
+        \\
+                      (f_1, f_2)
+        &\longmapsto  f_1 \boxplus f_2 \,.
+      \end{align*}
+      is a well-defined isomorphism of rings.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The uniqueness of $f_1, f_2$ follows from part~\ref*{enumerate: beta is natural} of Theorem~\ref*{theorem: equivalence of modules for morphisms}.
+      To show the existence we define $f_i \colon M_i \to N_i$ by
+      \[
+          f_i
+        \defined 
+          M_i
+        \xlongrightarrow{\beta_{i,M_i}}
+          [M_1 \boxplus M_2]_i
+        \xlongrightarrow{[f]_i}
+          [N_1 \boxplus N_2]_i
+        \xlongrightarrow{\beta_{i,N_i}^{-1}}
+          N_i \,.
+      \]
+      In the diagram
+      \[
+        \begin{tikzcd}[sep = huge]
+            M_1 \boxplus M_2
+            \arrow{r}[above]{f}
+            \arrow{d}[left]{\alpha_{M_1 \boxplus M_2}}
+            \arrow[rounded corners,
+                   equal,
+                   to path =
+                   { -- ([xshift=-1.5cm] \tikztostart.west)
+                     |- (\tikztotarget) }
+                  ]{dd}
+          & N_1 \boxplus N_2
+            \arrow{d}[right]{\alpha_{N_1 \boxplus N_2}}
+            \arrow[rounded corners,
+                   equal,
+                   to path =
+                   { -- ([xshift=1.5cm]\tikztostart.east)
+                     |- (\tikztotarget) }
+                  ]{dd}
+          \\
+            {[M_1 \boxplus M_2]_1} \boxplus {[M_1 \boxplus M_2]_2}
+            \arrow{r}[above]{[f]_1 \boxplus [f]_2}
+            \arrow{d}[left]{\beta_{1,M_1}^{-1} \boxplus \, \beta_{2,M_2}^{-1}}
+          & {[N_1 \boxplus N_2]_1} \boxplus {[N_1 \boxplus N_2]_2}
+            \arrow{d}[right]{\beta_{1,N_1}^{-1} \boxplus \, \beta_{2,N_2}^{-1}}
+          \\
+            M_1 \boxplus M_2
+            \arrow{r}[above]{{f_1} \boxplus {f_2}}
+          & N_1 \boxplus N_2
+        \end{tikzcd}
+      \]
+      the upper square commutes by part~\ref*{enumerate: alpha is natural} of Theorem~\ref*{theorem: equivalence of modules for morphisms}, the lower square commutes in each coordinate by definition of $f_1, f_2$ and therefore altogether commutes by Lemma~\ref{lemma: boxplus is functorial}, and the triangles on the left and right commute by Lemma~\ref{lemma: expand then collaps boxplus}.
+      It follows that the above diagram commutes and therefore that $f = f_1 \boxplus f_2$.
+    \item
+      The bijectivity follows from part~\ref*{label: endomorphism ring of boxsum} and the additivity and multiplicativity follows from Lemma~\ref{lemma: boxplus is functorial}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: boxplus isomorphic iff summands are}
+  Let $M_i, N_i$ be $R_i$-modules for $i = 1, 2$.
+  Then $M_1 \boxplus M_2 \cong N_1 \boxplus N_2$ as $(R_1 \times R_2)$-modules if and only if $M_i \cong N_i$ as $R_i$-modules for $i = 1, 2$.
+\end{corollary}
+
+
+\begin{proof}
+  It follows from Corollary~\ref{label: endomorphism ring of boxsum} and Corollary~\ref{lemma: boxplus is functorial} that there exists $(R_1 \times R_2)$-homomorphisms $f \colon M_1 \boxplus M_2 \to N_1 \boxplus N_2$ and $g \colon N_1 \boxplus N_2 \to M_1 \boxplus M_2$ with $f \circ g = \id$ and $g \circ f = 0$ if and only if for both $i = 1, 2$ there exists $R_i$-homomorphisms $f_i \colon M_i \to N_i$ and $g_i \colon N_i \to M_i$ with $f_i \circ g_i = \id$ and $g_i \circ f_i = \id$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: isomorphism classes of modules over products}
+  The map
+  \begin{align*}
+    \left\{
+      \begin{tabular}{c}
+        iso.\ classes of  \\
+        $R_1$-modules
+      \end{tabular}
+    \right\}
+    \times
+    \left\{
+      \begin{tabular}{c}
+        iso.\ classes of  \\
+        $R_2$-modules
+      \end{tabular}
+    \right\}
+    &\longto
+    \left\{
+      \begin{tabular}{c}
+        iso.\ classes of \\
+        $(R_1 \times R_2)$-modules
+      \end{tabular}
+    \right\} \,,
+    \\
+    ( [M_1], [M_2] )
+    &\longmapsto
+    [M_1 \boxplus M_2] \,,
+  \end{align*}
+  is a well-defined bijection.
+\end{corollary}
+
+
+\begin{proof}
+  The surjectivity follows from Corollary~\ref{corollary: modules over products have components} and the injectivity follows from Corollary~\ref{corollary: boxplus isomorphic iff summands are}.
+\end{proof}
+
+
+
+
