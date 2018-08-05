@@ -135,6 +135,13 @@
 \end{proof}
 
 
+\begin{example}
+  \label{example: simple modules over PID}
+  If $R$ is a principal ideal domain then the simple $R$-modules are up to isomorphism precisely $R/p$ with $p \in R$ prime.
+  It follows for $R = \Integer$ that the simple $R$-modules are up to isomorphism precisely those of the form $\Integer/p$ with $p$ prime.
+\end{example}
+
+
 \begin{lemma}
   \label{lemma: fg modules contain max submodules}
   Every nonzero finitely generated $R$-module $M$ admits a maximal submodule.
@@ -182,17 +189,14 @@
   Let $\pi \colon M \to M$ be the projection onto $P$ along the decomposition $M = P \oplus C$.
   It follows from $P \moduleleq N$ that $\pi(N) = P$.
   It further follows that $\pi$ restrict to an endomorphism $\restrict{\pi}{N} \colon N \to N$ with $\im \restrict{\pi}{N} = P$ and $\ker \restrict{\pi}{N} = \ker \pi \cap N = C \cap N$.
-  The restriction $\restrict{\pi}{N}$ is again idempotent and thus corresponds to a decomposition
+  The restriction $\restrict{\pi}{N}$ is again idempotent and thus corresponds to a decomposition (see Corollary~\ref{corollary: projections correspond to decompositions}) given by
   \[
       N
     = \im \restrict{\pi}{N} \oplus \ker \restrict{\pi}{N}
-    = P \oplus (C \cap N)
+    = P \oplus (C \cap N) \,,
   \]
   as desired.
 \end{proof}
-
-
-% TODO: Add reference to appendix in the above proof.
 
 
 \begin{proposition}
@@ -284,8 +288,9 @@
 \end{remark}
 
 
-
-% TODO: This does not hold for arbitary modules.
+\begin{warning}
+  Remark~\ref{remark: can replace sum by direct sum for ss} does not generalize to arbitrary sums of submodules, as the example $\Integer = 2\Integer + 3\Integer$ shows.
+\end{warning}
 
 
 \begin{example}
@@ -298,6 +303,7 @@
       This shows that every $k$-module is semisimple.
       Note however that a decomposition of a $k$-vector space into a direct sum one-dimensional subspaces is far from unique, as it corresponds to the choice of a basis of $V$ (up to scaling of the basis vectors).
     \item
+      \label{enumerate: upper triangular matrices}
       Let $k$ be a field and let
       \[
                   R
@@ -397,7 +403,11 @@
 \end{proof}
 
 
-% TODO: Add example: N and M/N both ss, but M not ss
+\begin{warning}
+  If $M$ is an $R$-module and $N \moduleleq M$ is a submodule such that both $N$ and $M/N$ are semisimple then $M$ does not need to be semisimple itself:
+  In part~\ref*{enumerate: upper triangular matrices} of Example~\ref{example: semisimple modules} the module $M$ is not semisimple, but both the submodule $N$ and the qotient $M/N$ are one-dimensional and therefore simple.
+\end{warning}
+
 
 
 \begin{definition}

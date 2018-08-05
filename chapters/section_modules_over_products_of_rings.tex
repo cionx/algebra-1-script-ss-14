@@ -39,6 +39,11 @@
 \end{definition}
 
 
+\begin{remark}
+  If $(R_i)_{i \in I}$ is any family of rings and $M_i$ is an $R_i$-module for every $i \in I$ then we can endow both $\bigoplus_{i \in I} M_i$ and $\prod_{i \in I} M_i$ with the structure of an $\prod_{i \in I} R_i$-module as above.
+\end{remark}
+
+
 \begin{lemma}
   \label{lemma: restriction of modules}
   Let $M$ be an $(R_1 \times R_2)$-module.
@@ -108,6 +113,21 @@
 
 
 % TODO: Add a proof.
+
+
+\begin{remark}
+  The above theorem shows that every $(R_1 \times R_2)$-module is up to isomorphism of the form $M_1 \boxplus M_2$ for $R_i$-modules $M_i$.
+  
+  This does not hold for an infinite products of rings:
+  Let $(R_i)_{i \in I}$ be a family of rings with $R_i \neq 0$ for infinitely many $i \in I$.
+  Then $\bigoplus_{i \in I} R_i$ is a proper ideal of $\prod_{i \in I}$ and the quotient
+  \[
+              M
+    \defined \left. \prod_{i \in I} R_i \middle/ \bigoplus_{i \in I} R_i \right.
+  \]
+  is an $\prod_{i \in I} R_i$-module which is nonzero but annihilated by every factor $R_i$.
+\end{remark}
+
 
 
 
