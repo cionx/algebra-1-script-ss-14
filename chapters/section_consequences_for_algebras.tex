@@ -388,7 +388,14 @@
 \end{proof}
 
 
-% TODO: Does not hold for infinite cardinalities, use K[X].
+\begin{remark}
+  If $A$ is infinite-dimensional then the cardinality $\card \irr(R)$ cannot be bound in terms of $\dim A$:
+  
+  For the countable infinite-dimensional $k$-algebra $A \defined k[X]$ every element $\lambda \in k$ results in a simple $A$-module $M_\lambda \defined k[X]/(X - \lambda)$, which is one-dimensional and on which $X \in A$ acts by multiplication with $\lambda$.
+  Then $M_\lambda$, $\lambda \in k$ are pairwise non-isomorphic simple $A$-modules and it follows that $\card \irr(A) \geq \card k$, independent of the countable dimension of $A$.
+  
+  (Since $A$ contains only $\card k$ many elements, thus at most $\card k$ many principal ideals, and therefore at most $\card k$ many maximal left ideals, it also follows that $\card \Irr(A) \leq \card k$ which then shows that $\card \irr(A) = \card \Irr(A) = \card k$.)
+\end{remark}
 
 
 \begin{theorem}[Density theorem, {\cite[Theorem~2.5]{Etingofetc2011}}]
