@@ -18,8 +18,25 @@
 
 
 \begin{definition}
-  An element $e \in R$ is \emph{idempotent} if $e^2 = e$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      An element $e \in R$ is \emph{idempotent} if $e^2 = e$.
+    \item
+      If $X$ is any set then a map $e \colon X \to X$ is \emph{idempotent} if $e^2 = e$.
+  \end{enumerate}
 \end{definition}
+
+
+\begin{remark}
+  Note that for an $R$-module $M$ and an element $e \in \End_R(M)$ both notions of idempotence coincide.
+\end{remark}
+
+
+\begin{lemma}
+  If $X$ is any set then a map $e \colon X \to X$ is idempotent if and only if $e(y) = y$ for every $y \in \im(e)$.
+  \qed
+\end{lemma}
 
 
 \begin{definition}
@@ -28,137 +45,182 @@
 
 
 \begin{definition}
-  A family of elements $r_1, \dotsc, r_n \in R$ is \emph{complete} if $1_R = r_1 + \dotsb + r_n$.
+  A collection of elements $r_1, \dotsc, r_n \in R$ is \emph{complete} if $1 = r_1 + \dotsb + r_n$.
 \end{definition}
 
 
 \begin{theorem}
   \label{theorem: correspondence idempotents and direct decompositions}
   Let $M$ be an $R$-module.
-  Then the map
-  \begin{align*}
-    \left\{
-      \begin{tabular}{c}
-        complete families of pairwise \\
-        orthogonal idempotents  \\
-        $(e_1, \dotsc, e_n)$ in $\End_R(M)$
-      \end{tabular}
-    \right\}
-    &\longto
-      \left\{
-      \begin{tabular}{c}
-        families $(M_1, \dotsc, M_n)$ of  \\
-        submodules $M_i \moduleleq M$ with \\
-        $M = M_1 \oplus \dotsb \oplus M_n$
-      \end{tabular}
-      \right\},
-    \\
-                  (e_1, \dotsc, e_n)
-    &\longmapsto  (\im(e_1), \dotsc, \im(e_n))
-  \end{align*}
-  is a well-defined bijection.
-  For every family $(M_1, \dotsc, M_n)$ of submodules $M_i \moduleleq M$ with $M = M_1 \oplus \dotsb \oplus M_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by the projections
-  \[
-      e_i(m_1 + \dotsb + m_n)
-    = m_i
-  \]
-  for all $i = 1, \dotsc, n$, $m_1 \in M_1, \dotsc, m_n \in M_n$.
+  \begin{enumerate}
+    \item
+      Let $M = M_1 \oplus \dotsb \oplus M_n$ be a decomposition into submodules $M_1, \dotsc, M_n \moduleleq M$.
+      For every $i = 1, \dotsc, n$ let $e_i \colon M \to M$ be the projection onto the summand $M_i$ alongside this decomposition, i.e.\ the map $e_i$ is given by
+      \[
+          e_i (m_1 + \dotsb + m_n)
+        = m_i
+      \]
+      for all $m_1 \in M_1, \dotsc, m_n \in M_n$.
+      Then $(e_1, \dotsc, e_n)$ is a complete family of pairwise orthogonal idempotents in $\End_R(M)$.
+    \item
+      Let on the other hand $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotents in $\End_R(M)$ and let $M_i \defined \im(e_i)$ for every $i = 1, \dotsc, n$.
+      \begin{enumerate}
+        \item
+          We have that $\restrict{e_i}{M_i} = \id_{M_i}$ for every $i = 1, \dotsc, n$ and $\restrict{e_j}{M_i} = 0$ for all $i \neq j$.
+        \item
+          We have that $M = M_1 \oplus \dotsb \oplus M_n$.
+      \end{enumerate}
+    \item
+      The above two constructions result in mutually inverse bijections
+      \begin{align*}
+        \left\{
+          \begin{tabular}{c}
+            complete families of pairwise \\
+            orthogonal idempotents  \\
+            $(e_1, \dotsc, e_n)$ in $\End_R(M)$
+          \end{tabular}
+        \right\}
+        &\longleftrightarrow
+         \left\{
+          \begin{tabular}{c}
+            families $(M_1, \dotsc, M_n)$ of  \\
+            submodules $M_i \moduleleq M$ with \\
+            $M = M_1 \oplus \dotsb \oplus M_n$
+          \end{tabular}
+          \right\} \cdotp
+      \end{align*}
+  \end{enumerate}
 \end{theorem}
 
 
 \begin{proof}
-  Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotent endomorphisms $e_i \colon M \to M$ and for every $i = 1, \dotsc, n$ let $M_i \defined \im(e_i)$.
-  For every $m \in M$ we have that
-  \[
-        m
-    =   \id_M(m)
-    =   (e_1 + \dotsb + e_n)(m)
-    =   e_1(m) + \dotsb + e_n(m)
-    \in M + \dotsb + M_n \,,
-  \]
-  which shows that $M = M_1 + \dotsb + M_n$.
-  It follows from the orthogonality of the $e_i$ that $\restrict{e_i}{M_j} = 0$ for all $i \neq j$ and it follows from the idempotence of the $e_i$ that $\restrict{e_i}{M_i} = \id_{M_i}$ for every $i$.
-  It follows that for every decomposition $m = m_1 + \dotsb + m_n$ with $m_i \in M_i$ for every $i = 1, \dotsc, n$ we have that
-  \[
-      e_i(m)
-    = e_i(m_1 + \dotsb + m_n)
-    = e_i(m_1) + \dotsb + e_i(m_n)
-    = m_i \,.
-  \]
-  This shows that this decomposition $m = m_1 + \dotsb + m_n$ is unique, which shows the directness of the sum $M = M_1 + \dotsb + M_n$.
-  This shows altogether that $M = M_1 \oplus \dotsb \oplus M_n$.
-  This shows that the given map is well-defined.
-  
-  Suppose that $M = M_1 \oplus \dotsb \oplus M_n$ for submodules $M_i \moduleleq M$.
-  For every $i = 1, \dotsc, n$ let $e_i \colon M \to M$ be the unique endomorphism with
-  \[
-      e_i(m_1 + \dotsb + m_n)
-    = m_i
-  \]
-  for all $m_1 \in M_1, \dotsc, m_n \in M_n$.
-  We then have that $\id_M = e_1 + \dotsb + e_n$, $e_i^2 = e_i$ for all $i = 1, \dotsc, n$ and $e_i e_j = 0$ for all $i \neq j$.
-  This shows that $(e_1, \dotsc, e_n)$ is a complete family of pairwise orthogonal idempotents.
-  
-  These constructions are inverse to each other:
-  
-  Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotents and let $M = M_1 \oplus \dotsb \oplus M_n$ be the associated decomposition.
-  Then for the resulting complete family $(e'_1, \dotsc, e'_n)$ of pairwise orthogonal idempotents we have for all $i \neq j$ that
-  \[
-      \restrict{e_i}{M_j}
-    = 0
-    = \restrict{e'_i}{M_j} \,,
-  \]
-  and for all $i = 1, \dotsc, n$ we have that
-  \[
-      \restrict{e_i}{M_i}
-    = \id_{M_i}
-    = \restrict{e'_i}{M_i} \,.
-  \]
-  It follows that $e_i = e'_i$ for all $i = 1, \dotsc, n$ because $M = M_1 + \dotsb + M_n$.
-  
-  Let $M = M_1 \oplus \dotsb \oplus M_n$ be a decomposition into submodule $M_i \moduleleq M$ and let $(e_1, \dotsc, e_n)$ be the associated complete family of pairwise orthogonal idempotents.
-  For the resulting decomposition $M = M'_1 \oplus \dotsb \oplus M'_n$ we have that $M'_i = \im(e_i)$ for every $i = 1, \dotsc, n$.
-  It then follows for every $i = 1, \dotsc, n$ from $\restrict{e_i}{M_j} = 0$ for $j \neq i$ and $\restrict{e_i}{M_i} = \id_{M_i}$ that $\im(e_i) = M_i$ and therefore that $M_i = M'_i$.s
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Every element $m \in M$ can be written as $m = m_1 + \dotsb + m_n$ for some elements $m_1 \in M_1, \dotsc, m_n \in M_n$ and it follows that
+      \[
+          \id_M(m)
+        = m
+        = m_1 + \dotsb + m_n
+        = e_1(m) + \dotsb + e_n(m)
+        = (e_1 + \dotsb + e_n)(m)
+      \]
+      which shows that $\id_M = e_1 + \dotsb + e_n$.
+      We also have that
+      \[
+        e_i^2(m) = e_i(m_i) = m_i = e_i(m)
+      \]
+      for every $i = 1, \dotsc, n$ which shows that the $e_i$ are idempotent, and we have that
+      \[
+          e_i(e_j(m))
+        = e_i(m_j)
+        = 0
+      \]
+      for all $i \neq j$ which shows that the collection $e_1, \dotsc, e_n$ is pairwise orthogonal.
+    \item
+      \begin{enumerate}
+        \item
+          For every $m_i \in M_i$ there exists $m \in M$ with $m_i = e_i(m)$ and it follows that
+          \begin{gather*}
+              e_i(m_i)
+            = e_i(e_i(m))
+            = e_i(m)
+            = m_i
+          \shortintertext{and that}
+              e_j(m_i)
+            = e_j(e_i(m))
+            = 0 \,.
+          \end{gather*}
+        \item
+          For every $m \in M$ we have that
+          \[
+                m
+            =   \id_M(m)
+            =   (e_1 + \dotsb + e_n)(m)
+            =   e_1(m) + \dotsb + e_n(m)
+            \in M + \dotsb + M_n \,,
+          \]
+          which shows that $M = M_1 + \dotsb + M_n$.
+          If $m \in M$ then for every decomposition $m = m_1 + \dotsb + m_n$ with $m_1 \in M_1, \dotsc, m_n \in M_n$ we have that
+          \[
+              e_i(m)
+            = e_i(m_1 + \dotsb + m_n)
+            = e_i(m_1) + \dotsb + e_i(m_n)
+            = m_i \,.
+          \]
+          This shows that this decomposition $m = m_1 + \dotsb + m_n$ is unique, which in turn shows the directness of the sum $M = M_1 + \dotsb + M_n$.
+      \end{enumerate}
+    \item
+      Let $(e_1, \dotsc, e_n)$ be a complete family of pairwise orthogonal idempotents, let $M = M_1 \oplus \dotsb \oplus M_n$ be the associated decomposition and let $(e'_1, \dotsc, e'_n)$ be the resulting complete family of pairwise orthogonal idempotents.
+      We then have for all $i = 1, \dotsc, n$ that
+      \begin{gather*}
+          \restrict{e_i}{M_i}
+        = \id_{M_i}
+        = \restrict{e'_i}{M_i}
+      \shortintertext{and for all $i \neq j$ that}
+          \restrict{e_i}{M_j}
+        = 0
+        = \restrict{e'_i}{M_j} \,,
+      \end{gather*}
+      which together shows that $e_i = e'_i$ for all $i = 1, \dotsc, n$.
+      
+      Let $M = M_1 \oplus \dotsb \oplus M_n$ be a decomposition into submodule $M_i \moduleleq M$, let $(e_1, \dotsc, e_n)$ be the associated complete family of pairwise orthogonal idempotents and let $M = M'_1 \oplus \dotsb \oplus M'_n$ be the resulting decomposition.
+      It then follows for every $i = 1, \dotsc, n$ from $\restrict{e_i}{M_i} = \id_{M_i}$ and $\restrict{e_i}{M_j} = 0$ for $j \neq i$ that $M_i = \im(e_i) = M_i'$ and therefore that $M_i = M'_i$.
+    \qedhere
+  \end{enumerate}
 \end{proof}
-
-
-% TODO: Make this proof better.
 
 
 \begin{corollary}
   \label{corollary: correspondence idempotents and direct ideal decompositions}
-  The map
-  \begin{align*}
-    \left\{
-      \begin{tabular}{c}
-        complete families of pairwise \\
-        orthogonal idempotents  \\
-        $(e_1, \dotsc, e_n)$ in $R$
-      \end{tabular}
-    \right\}
-    &\longto
+  \leavevmode
+  \begin{enumerate}
+    \item
+    \label{enumerate: idempotent ring elements and decompositions}
+    The map
+    \begin{align*}
       \left\{
-      \begin{tabular}{c}
-        families $(I_1, \dotsc, I_n)$ of  \\
-        ideals $I_j \moduleleq M$ with \\
-        $R = I_1 \oplus \dotsb \oplus I_n$
-      \end{tabular}
-      \right\},
-    \\
-                  (e_1, \dotsc, e_n)
-    &\longmapsto  (Re_1, \dotsc, Re_n)
-  \end{align*}
-  is a well-defined bijection.
-  For every family $(I_1, \dotsc, I_n)$ of submodules $I_j \moduleleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the correpsonding family $(e_1, \dotsc, e_n)$ is given by the unique elements $e_j \in I_j$ with $1 = e_1 + \dotsb + e_n$.
+        \begin{tabular}{c}
+          complete families of pairwise \\
+          orthogonal idempotents  \\
+          $(e_1, \dotsc, e_n)$ in $R$
+        \end{tabular}
+      \right\}
+      &\longto
+        \left\{
+        \begin{tabular}{c}
+          families $(I_1, \dotsc, I_n)$ of    \\
+          left ideals $I_I \moduleleq M$ with \\
+          $R = I_1 \oplus \dotsb \oplus I_n$
+        \end{tabular}
+        \right\},
+      \\
+                    (e_1, \dotsc, e_n)
+      &\longmapsto  (Re_1, \dotsc, Re_n)
+    \end{align*}
+    is a well-defined bijection.
+  \end{enumerate}
+  Let $(I_1, \dotsc, I_n)$ be a family of left ideals $I_i \moduleleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ and let $(e_1, \dotsc, e_n)$ be the corresponding complete family of pairwise orthogonal idempotents.
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: idempotents are projections}
+      The projection onto the summand $I_i$ alongside the decomposition $R = I_1 \oplus \dotsb \oplus I_n$ is given by right multiplication with the idempotent $e_i$.
+    \item 
+      \label{enumerate: idempotents are summands of 1}
+      The idempotents $e_1, \dotsc, e_n$ are the unique elements $e_i \in I_i$ with $1 = e_1 + \dotsb + e_n$.
+  \end{enumerate}
 \end{corollary}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  Part~\ref*{enumerate: idempotent ring elements and decompositions} and part~\ref*{enumerate: idempotents are projections} follow from Theorem~\ref{theorem: correspondence idempotents and direct decompositions} by using the isomorphism $\End_R(R) \cong R^\op$ from Lemma~\ref{lemma: End_R(R) = Rop}.
+  Part~\ref*{enumerate: idempotents are summands of 1} follows from part~\ref*{enumerate: idempotents are projections} by applying the projection onto $I_i$ to the element $1 \in R$.
+\end{proof}
 
 
 \begin{remark}
   The analogous result of Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} for right ideal also holds and can be proven in the same way.
-  Note that the left ideals $R e_i$ have to be replaced by the right ideals $e_i R$.
+  Note that the left ideals $R e_i$ have to be replaced by the right ideals $e_i R$, and the right multiplication with $e_i$ has to be replaced by the left multiplication with $e_i$.
 \end{remark}
 
 
@@ -179,10 +241,38 @@
     &\longmapsto  (\im(e), \ker(e))
   \end{align*}
   is a well-defined bijection.
+  For a pair $(N,P)$ of submodules $N, P \moduleleq M$ with $M = N \oplus P$ the corresponding idempotent $e \in \End_R(M)$ is given by the projection onto $N$ alongside this decomposition.
 \end{corollary}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  This follows from Theorem~\ref{theorem: correspondence idempotents and direct decompositions} by using the bijection
+  \begin{align*}
+    \left\{
+      \begin{tabular}{c}
+        idempotents \\
+        $e \in \End_R(M)$
+      \end{tabular}
+    \right\}
+    &\longleftrightarrow
+    \left\{
+      \begin{tabular}{c}
+        complete families of pairwise \\
+        orthogonal idempotents  \\
+        $(e_1, e_2)$ in $\End_R(M)$
+      \end{tabular} \,,
+    \right\}
+    \\
+    e
+    &\longmapsto
+    (e, 1-e) \,,
+    \\
+    e_1
+    &\longmapsfrom
+    (e_1, e_2)
+  \end{align*}
+  and observing that $\im(e_2) = \ker(e_1)$.
+\end{proof}
 
 
 \begin{corollary}
@@ -197,34 +287,27 @@
     \item
       There exists an idempotent $R$-module endomorphism $e \colon M \to M$ with $\im e \moduleleq N$ and $e(n) = n$ for every $n \in N$.
   \end{enumerate}
-  The above endomorphisms are then related by $e' = 1 - e$.
+  The above endomorphisms $e, e'$ are then related by $e' = 1 - e$.
+  \qed
 \end{corollary}
 
 
-% TODO: Add a proof.
 
 
 
 \subsection{Decomposition of Rings}
 
 
-\begin{fluff}
-  If $R_1, R_2$ are nonzero rings, then $R_1 \times 0$ and $0 \times R_2$ are not subrings of $R_1 \times R_2$ (because they do not contain $1_{R_1 \times R_2} = (1_{R_1}, 1_{R_2})$) but are two-sided ideals.
-\end{fluff}
-
-
 \begin{lemma}
-  Let $R_1, \dotsc, R_n$ be rings and for every $j = 1, \dotsc, n$ let
+  Let $R_1, \dotsc, R_n$ be rings and for every $i = 1, \dotsc, n$ let
   \[
-              I_j
-    \defined  0 \times \dotsb \times 0 \times R_j \times 0 \times \dotsb \times 0
+              I_i
+    \defined  0 \times \dotsb \times 0 \times R_i \times 0 \times \dotsb \times 0
   \]
-  with $R_j$ in the $j$-th position.
+  with $R_i$ in the $i$-th position.
   Then $I_1, \dotsc, I_n$ are two-sided ideals in $R_1 \times \dotsb \times R_n$ with $R_1 \times \dotsb \times R_n = I_1 \oplus \dotsb \oplus I_n$.
+  \qed
 \end{lemma}
-
-
-% TODO: Add a proof.
 
 
 \begin{fluff}
@@ -241,27 +324,57 @@
 \begin{proposition}
   \label{proposition: factor ideals are again rings}
   Let $R$ be a ring and let $I_1, \dotsc, I_n \idealleq R$ be two-sided ideals with $R = I_1 \oplus \dotsb \oplus I_n$.
+  For every $i = 1, \dotsc, n$ let $e_i \in I_i$ be the unique elements such that $1 = e_1 + \dotsb + e_n$.
   \begin{enumerate}
     \item
-      For all $i \neq j$ we have that $I_i I_j = 0$, and for all $i = 1, \dotsc, n$ we have that $I_i^2 = I_i$.
+      For all $i \neq j$ we have that $I_i I_j = 0$.
     \item
-      If $1_R = e_1 + \dotsb + e_n$ is the unique decomposition of $1_R$ with $e_j \in I_j$ for every $j = 1, \dotsc, n$ then $e_1, \dotsc, e_n$ is a complete collection of pairwise orthogonal central idempotents of $R$. 
-    \item
-      Every $I_j$ is a ring with the addition and multiplication inherited from $R$ and $1_{I_j} = e_j$ for every $i = 1, \dotsc, n$.
+      Every summand $I_i$ is a ring with the addition and multiplication inherited from~$R$, and $1_{I_i} = e_i$ for every $i = 1, \dotsc, n$.
     \item
       The map
       \[
-            I_1 \times \dotsb \times I_n
-        \to R,
+                I_1 \times \dotsb \times I_n
+        \to     R,
         \quad   (x_1, \dotsc, x_n)
         \mapsto x_1 + \dotsb + x_n
       \]
       is an isomorphism of rings.
+    \item
+      If $1_R = e_1 + \dotsb + e_n$ is the unique decomposition of $1_R$ with $e_j \in I_j$ for every $j = 1, \dotsc, n$ then $e_1, \dotsc, e_n$ is a complete collection of pairwise orthogonal central idempotents of $R$.
   \end{enumerate}
 \end{proposition}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We have that $I_i I_j \subseteq I_i \cap I_j = 0$.
+    \item
+      The addition and multiplication of $R$ restrict to $I_i$ it only remains to show that $1_{I_i} = e_i$.
+      We have for $x, y \in R$ with $x = \sum_{i=1}^n x_i$ and $y = \sum_{i=1}^n y_i$ where $x_i, y_i \in I_i$ that
+      $x_i y_j \in I_i I_j = 0$ for all $i \neq j$, and it follows that
+      \begin{equation}
+        \label{equation: product is summandwise}
+          x y
+        = \sum_{i,j=1}^n x_i y_j
+        = \sum_{i=1}^n x_i \,.
+      \end{equation}
+      It follows for every $x \in I_i$ that
+      \[
+          x
+        = 1 \cdot x
+        = \sum_{j=1}^n e_j x
+        = e_i x
+      \]
+      which shows that $1_{I_i} = x$.
+    \item
+      The map is bijective and additive becaues $R = I_1 \oplus \dotsb \oplus I_n$ and Equation~\eqref{equation: product is summandwise} shows that the map is also multiplicative.
+    \item
+      It follows from Equation~\eqref{equation: product is summandwise} that $e_i e_j = 0$ for $i \neq j$, and for every $i = 1, \dotsc n$ we have that $e_i^2 = 1_{I_i}^2 = 1_{I_i} = e_i$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{definition}
@@ -272,33 +385,70 @@
 
 \begin{theorem}
   \label{theorem: correspondence central idempotents and direct decompositions}
-  The map
-  \begin{align*}
-    \left\{
-      \begin{tabular}{c}
-        complete families of pairwise \\
-        orthogonal central idempotents  \\
-        $(e_1, \dotsc, e_n)$ in $R$
-      \end{tabular}
-    \right\}
-    &\longto
-      \left\{
-      \begin{tabular}{c}
-        families $(I_1, \dotsc, I_n)$ of  \\
-        two-sided ideals $I_j \idealleq R$ \\
-        with $R = I_1 \oplus \dotsb \oplus I_n$
-      \end{tabular}
-      \right\},
-    \\
-                  (e_1, \dotsc, e_n)
-    &\longmapsto  (R e_1, \dotsc, R e_n)
-  \end{align*}
-  is a well-defined bijection.
-  For every family  $(I_1, \dotsc, I_n)$ of two-sided ideals $I_j \idealleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ the corresponding family $(e_1, \dotsc, e_n)$ is given by the unique elements $e_j \in I_j$ with $1_R = e_1 + \dotsb + e_n$.
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The map
+      \begin{align*}
+        \left\{
+          \begin{tabular}{c}
+            complete families of pairwise \\
+            orthogonal central idempotents  \\
+            $(e_1, \dotsc, e_n)$ in $R$
+          \end{tabular}
+        \right\}
+        \longto&\,
+          \left\{
+          \begin{tabular}{c}
+            families $(I_1, \dotsc, I_n)$ of  \\
+            two-sided ideals $I_j \idealleq R$ \\
+            with $R = I_1 \oplus \dotsb \oplus I_n$
+          \end{tabular}
+          \right\},
+        \\
+          (e_1, \dotsc, e_n)
+        \longmapsto&\,
+          (R e_1, \dotsc, R e_n)
+        \\
+                  =&\, 
+          (e_1 R, \dotsc, e_n R)
+        \\
+                  =&
+          (R e_1 R, \dotsc, R e_n R)
+      \end{align*}
+      is a well-defined bijection.
+  \end{enumerate}
+   Let $(I_1, \dotsc, I_n)$ be a family of two-sided ideals $I_i \moduleleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ and let $(e_1, \dotsc, e_n)$ be the corresponding complete family of pairwise orthogonal central idempotents.
+  \begin{enumerate}[resume]
+    \item
+      \label{enumerate: central idempotents are projections}
+      The projection onto the summand $I_i$ alongside the decomposition $R = I_1 \oplus \dotsb \oplus I_n$ is given by multiplication with the idempotent $e_i$.
+    \item 
+      \label{enumerate: central idempotents are summands of 1}
+      The idempotents $e_1, \dotsc, e_n$ are the unique elements $e_i \in I_i$ with $1 = e_1 + \dotsb + e_n$.
+  \end{enumerate}
 \end{theorem}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  It sufficies to show that the bijection from Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} restricts to the desired bijection:
+  We have to show for every family $(I_1, \dotsc, I_n)$ of left ideals $I_i \idealleq R$ with $R = I_1 \oplus \dotsb \oplus I_n$ and corresponding complete family $(e_1, \dotsc, e_n)$ of pairwise orthogonal idempotents $e_1, \dotsc, e_n \in R$ that the ideals $I_1, \dotsc, I_n$ are two-sided if and only if the idempotents $e_1, \dotsc, e_n$ are central.
+  
+  If $e_i$ is central then $I_i = R e_i = e_i R$ is two-sided.
+  If on the other hand $I_1, \dotsc, I_n$ are two-sided then it follows for every $x \in R$ that
+  \[
+      x e_i
+    = \text{projection of $x$ onto $I_i$}
+    = e_i x
+  \]
+  where the first equality follows from part~\ref*{enumerate: idempotents are projections} of Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} and the second equality follows similarly from the version of Corollary~\ref{corollary: correspondence idempotents and direct ideal decompositions} for right-ideals.
+\end{proof}
+
+
+% TODO: Add examples.
+
+
+% TODO: Decomositions of matricse rings come from decompositions of the ring.
 
 
 
