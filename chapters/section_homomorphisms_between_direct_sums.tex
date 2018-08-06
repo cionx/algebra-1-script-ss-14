@@ -208,7 +208,9 @@
     &=  \vect{
           \pi_1( f( \iota_1(m_1) + \dotsb + \iota_t(m_t) ) )
           \\
+          \phantom{\pi_1( f( \iota_1(m_1) +}
           \vdots
+          \phantom{+ \iota_t(m_t) ) )}
           \\
           \pi_s( f( \iota_1(m_1) + \dotsb + \iota_t(m_t) ) )
         }
@@ -216,7 +218,9 @@
     &=  \vect{
           \pi_1(f(\iota_1(m_1))) + \dotsb + \pi_1(f(\iota_t(m_t)))
           \\
+          \phantom{\pi_1(f(\iota_1(m_1))) +}
           \vdots
+          \phantom{+ \pi_1(f(\iota_t(m_t)))}
           \\
           \pi_s(f(\iota_1(m_1))) + \dotsb + \pi_s(f(\iota_t(m_t)))
         }
@@ -224,7 +228,9 @@
     &=  \vect{
           f_{11}(m_1) + \dotsb + f_{1t}(m_t)
           \\
+          \phantom{f_{11}(m_1) + }
           \vdots
+          \phantom{ + f_{1t}(m_t)}
           \\
           f_{s1}(m_1) + \dotsb + f_{st}(m_t)
         }
@@ -235,7 +241,6 @@
       \end{bmatrix}
       \vect{m_1 \\ \vdots \\ m_t} \,,
   \end{align*}
-  % TODO: Fix the spacing of the vertical dots in the vectors.
   where the matrix-vector product in the last expression is taken in the naive sense.
   
   This shows that when representing a homomorphism by a matrix we can represent application of this homomorphism by matrix-vector multiplication.
