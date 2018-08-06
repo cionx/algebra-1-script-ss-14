@@ -3,6 +3,7 @@
 \usepackage{appendix}   % for the appendix
 \usepackage{amsmath, amssymb, amsthm, mathtools}      % general math stuff
 \usepackage{stmaryrd}   % \mapsfrom
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}           % better interplay with bm
 \usepackage{extarrows}  % \xlongequal
 \usepackage{fontspec}   % for xelatex stuff
 \usepackage{hyperref}   % for internal (and external) links
@@ -17,6 +18,11 @@
 \usepackage{microtype}  % for typography
 \usepackage[backend=biber,style=alphabetic]{biblatex} %for bibliography
 \usepackage{multirow}   % for multicolumn
+\usepackage{bm}         % for bold math symbols
+
+
+
+
 
 
 % fonts for titlepage
@@ -96,10 +102,10 @@
 
 
 % settings for list like environments
-\setlist[enumerate, 1]{leftmargin=*, label=\alph*)}
-\setlist[enumerate, 2]{leftmargin=*, label=\arabic*)}
-\setlist[description, 1]{leftmargin=*,font=\normalfont}
-\setlist[description, 2]{leftmargin=*,font=\normalfont}
+\setlist[enumerate, 1]{leftmargin=*, align=left, label=\alph*)}
+\setlist[enumerate, 2]{leftmargin=*, align=left, label=\arabic*)}
+\setlist[description, 1]{leftmargin=\labelwidth, font=\normalfont}
+\setlist[description, 2]{leftmargin=\labelwidth, font=\normalfont}
 \setlist[itemize, 1]{leftmargin=*}
 \setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
 \setlist[itemize, 3]{leftmargin=*}
@@ -145,7 +151,6 @@
 \newcommand{\cfiltAlg}[1]{\ensuremath{#1\text{-}\catname{filtAlg}}}
 \newcommand{\cpol}[1]{\ensuremath{#1\text{-}\catname{pol}}}
 \newcommand{\cAff}[1]{\ensuremath{#1\text{-}\catname{Aff}}}
-
 
 % numbers and fields
 \newcommand{\Natural}{\mathbb{N}}
@@ -232,6 +237,7 @@
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 % \newcommand{\bil}[2]{\langle #1, #2 \rangle}
 \newcommand{\innerp}[1]{\langle #1 \rangle}
+\newcommand{\mindex}[1]{\bm{#1}}
 \newcommand{\vect}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 \NewDocumentCommand{\restrict}{smmO{}}{

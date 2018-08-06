@@ -1,0 +1,298 @@
+\subsubsection{Products of Matrix Rings over Skew Fields}
+
+
+\begin{fluff}
+  We start by taking a closer look at matrix rings over skew fields and how products of those kind of rings behave.
+  For this we will need some understanding of how modules over a product  $R_1 \times \dotsb \times R_n$ of rings $R_1, \dotsc, R_n$ look like.
+  An explanation of this can be found in appendix~\ref{appendix: modules over products of rings}.
+  We will also use some of the notation introduced there.
+\end{fluff}
+
+
+\begin{proposition}
+  \label{proposition: product of semisimple}
+  Let $R_1, R_2$ be rings and let $M_i$ be an $R_i$-module for $i = 1, 2$.
+  \begin{enumerate}
+    \item
+      \label{enumerate: when boxplus is simple}
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if either ($M_1$ is a simple $R_1$-module and $M_2 = 0$) or ($M_1 = 0$ and $M_2$ is a simple $R_2$-module).
+    \item
+      The map
+      \begin{align*}
+                  \Irr(R_1) \amalg \Irr(R_2)
+        &\longto  \Irr(R_1 \times R_2) \,,
+        \\
+                  [E]
+        &\mapsto  \begin{cases}
+                    E \boxplus 0  & \text{if $[E] \in \Irr(R_1)$} \,, \\
+                    0 \boxplus E  & \text{if $[E] \in \Irr(R_2)$}
+                  \end{cases}
+      \end{align*}
+      is a well-defined bijection.
+    \item
+      \label{enumerate: when boxplus is semisimple}
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is semisimple if and only if $M_i$ is semisimple as an $R_i$-module for both $i = 1, 2$.
+    \item
+      The ring $R_1 \times R_2$ is semisimple if and only if both $R_1$ and $R_2$ are semisimple.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let $\mc{S}_i$ be the set of $R_i$-submodules of $M_i$ for $i = 1, 2$ and let $\mc{S}$ be the set of $(R_1 \times R_2)$-submodules of $M_1 \boxplus M_2$.
+      The map
+      \[
+                  \mc{S}_1 \times \mc{S}_2
+        \to      \mc{S},
+        \quad    (N_1, N_2)
+        \mapsto  N_1 \boxplus N_2
+      \]
+      is a bijection by Proposition~\ref{proposition: submodules of products over rings}, from which it follows that
+      \[
+        |\mc{S}| = |\mc{S}_1| \cdot |\mc{S}_2| \,.
+      \]
+      The $(R_1 \times R_2)$-module $M_1 \boxplus M_2$ is simple if and only if $|\mc{S}| = 2$.
+      This is the case if and only if either ($|\mc{S}_1| = 2$ and $|\mc{S}_2| = 1$) or ($|\mc{S}_1| = 1$ and $|\mc{S}_2| = 2$), which is equivalent to ($M_1$ simple and $M_2 = 0$), resp.\ ($M_1 = 0$ and $M_2$ simple).
+    \item
+      This follows by restricting the bijection from Corollary~\ref{corollary: isomorphism classes of modules over products} according to part~\ref*{enumerate: when boxplus is simple}.
+        \item
+      This can be seen in (at least) two ways:
+      
+      \begin{itemize}
+        \item
+          Every submodule $N \moduleleq M_1 \boxplus M_2$ is of the form $N = N_1 \boxplus N_2$ for unique $R_i$-submodules $N_i \moduleleq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
+          It thus follows from Corollary~\ref{corollary: direct summands for modules over products} that every submodule of $M_1 \boxplus M_2$ is a direct summand if and only if for both $i = 1, 2$ every submodules of $M_i$ is a direct summand.
+        \item
+          Suppose that $M_1, M_2$ are semisimple.
+          Then $M_i = \bigoplus_{j \in J_i} L^j_1$ for simple submodules $L^j_i \moduleleq M_i$.
+          It then follows that
+          \[
+              M_1 \boxplus M_2
+            = \left( \bigoplus_{j \in J_1} L^j_1 \right)
+              \boxplus
+              \left( \bigoplus_{j \in J_2} L^j_2 \right)
+            = \bigoplus_{j \in J_1} (L^j_1 \boxplus 0)
+              \oplus
+              \bigoplus_{j \in J_2} (0 \boxplus L^j_2)
+          \]
+          is a decomposition into submodules which are simple by part~\ref*{enumerate: when boxplus is simple}.
+          
+          Suppose now that $M_1 \boxplus M_2$ is semisimple.
+          Then there exists a decomposition $M_1 \boxplus M_2 = \bigoplus_{j \in J} L^j$ into simple submodules $L^j \moduleleq M_1 \boxplus M_2$.
+          Every $L^j$ is of the form $L^j = L^j_1 \boxplus L^j_2$ for unique $R_i$-submodules $L^j_i \moduleleq M_i$ by Proposition~\ref{proposition: submodules of products over rings}.
+          It follows from part~\ref*{enumerate: when boxplus is simple} that $J$ is the disjoint union of
+          \[
+              J_1
+            = \{ j \in J \suchthat L^j_2 = 0 \}
+            \quad\text{and}\quad
+              J_2
+            = \{ j \in J \suchthat L^j_1 = 0 \}
+          \]
+          and that $L^j_i$ is simple for every $j \in L_i$.
+          It thus follows that
+          \begingroup
+          \allowdisplaybreaks
+          \begin{align*}
+                M_1 \boxplus M_2
+            &=  \bigoplus_{j \in J} L^j
+            =   \bigoplus_{j \in J} ( L^j_1 \boxplus  L^j_2 )
+            \\
+            &=  \left(
+                  \bigoplus_{j \in J_1} ( L^j_1 \boxplus 0 )
+                \right)
+                \oplus
+                \left(
+                  \bigoplus_{j \in J_2} ( 0 \boxplus  L^j_2 )
+                \right)
+            \\
+            &=  \left(
+                  \left( \bigoplus_{j \in J_1} L^j_1 \right) \boxplus 0
+                \right)
+                \oplus
+                \left(
+                  0 \boxplus \left( \bigoplus_{j \in J_2} ( 0 \boxplus  L^j_2 ) \right)
+                \right)
+            \\
+            &=  \left( \bigoplus_{j \in J_1} L^j_1 \right)
+                \boxplus
+                \left( \bigoplus_{j \in J_2} L^j_2 \right)
+          \end{align*}
+          \endgroup
+          and therefore that $M_i = \bigoplus_{j \in J_i} L^j_i$ is a direct sum of simple modules for both $i = 1,2$.
+      \end{itemize}
+    \item
+      We have that $R_1 \times R_2 = R_1 \boxplus R_2$ as $(R_1 \times R_2)$-modules.
+      The claim therefore follows from part~\ref*{enumerate: when boxplus is semisimple}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  \label{remark: infinite products have new simple modules}
+  Lemma~\ref{proposition: product of semisimple} does not hold for infinite products:
+  Let $(R_i)_{i \in I}$ be a family of rings with $R_i \neq 0$ for infinitely many $i \in I$.
+  Then $\bigoplus_{i \in I} R_i$ is a proper ideal in $R$ and is thus (by Zorn’s lemma) contained in a maximal left ideal $I$.
+  The quotient $E \defined R/I$ is then simple as an $R$-module but annihilated by every factor $R_i$.
+\end{remark}
+
+
+\begin{corollary}
+  \label{corollary: artin wedderburn rings are semisimple}
+  Let $D_1, \dotsc, D_r$ be skew fields and let $n_1, \dotsc, n_r \geq 1$.
+  \begin{enumerate}
+    \item
+      The ring $R \defined  \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)$ is semisimple.
+    \item
+      The $R$-modules $S_1, \dotsc, S_r$ with
+      \[
+                  S_i
+        \defined  0 \boxplus \dotsb \boxplus 0 \boxplus D_i^{n_i} \boxplus 0 \boxplus \dotsb \boxplus 0
+      \]
+      where $D_i^{n_i}$ is in the $i$-th position form a set of representatives of the isomorphism classes of simple $R$-modules.
+    \item
+      We have that $R \cong \bigoplus_{i=1}^r S_i^{\oplus n_i}$ as $R$-modules.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{fluff}
+  We will also need the endomorphisms rings of the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple}.
+  From now on we will need some knowledge about the opposite ring $R^\op$, a brief introduction to which can be found in Appendix~\ref{appendix: the opposite ring}.
+\end{fluff}
+
+
+\begin{lemma}
+  \label{lemma: matrix vector space correspondence for skew fields}
+  Let $D$ be a skew-field and let $n \geq 1$.
+  Then the map
+  \[
+            \Phi 
+    \colon  D^\op
+    \to     \End_{\Mat_n(D)}(D^n) \,,
+    \quad   d^\op
+    \mapsto (x \mapsto xd)
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{proof}
+%   We denote the multiplication of $D^\op$ by $*$.
+  
+  The column space $D^n$ carries the structure of a right $D$-module via scalar multiplication from the right.
+  This right $D$-module structure corresponds to a left $D^\op$-modules structure (see Proposition~\ref{proposition: left right modules under op}), which in turn corresponds to a ring homomorphism $\Phi' \colon D^\op \to \End_\Integer(D^n)$ as described above.
+  For every matrix $A \in \Mat_n(D)$, vector $x \in D^n$ and scalar $d \in D$ we have that
+  \[
+      A(xd)
+    = Axd
+    = (Ax)d \,,
+  \]
+  which shows that $\Phi'$ restrict to a ring homomorphism $\Phi \colon D^\op \to \End_{\Mat_n(D)}(D^n)$ as desired.
+  
+  It remains to show that $\Phi$ is bijective.
+  For $d_1, d_2 \in D$ with $d_1 \neq d_2$ we have that
+  \[
+          \Phi(d_1^\op)(e_1)
+    =     e_1 d_1
+    \neq  e_1 d_2
+    =     \Phi(d_2^\op)(e_1) \,,
+  \]
+  which shows that $\Phi$ is injective.
+  To see that $\Phi$ is surjective let $f \in \End_{\Mat_n(D)}(D^n)$.
+  Let $A \in \Mat_n(D)$ be the matrix whose first column is $e_1$ and whose other columns are $0$, so that
+  \[
+      A
+    = \begin{bmatrix}
+        1       & 0       & \cdots  & 0       \\
+        0       & 0       & \cdots  & 0       \\
+        \vdots  & \vdots  & \ddots  & \vdots  \\
+        0       & 0       & \cdots  & 0
+      \end{bmatrix}.
+  \]
+  Then $A e_1 = e_1$ and therefore
+  \[
+      A f(e_1)
+    = f(A e_1)
+    = f(e_1) \,,
+  \]
+  which shows that $f(e_1)$ is of the form
+  \[
+      f(e_1)
+    = \vect{d \\ 0 \\ \vdots \\ 0}
+    = e_1 d
+  \]
+  for some $d \in D$.
+  For every $x \in D^n$ there exists some $A \in \Mat_n(D)$ with $Ae_1 = x$ (take $x$ as the first column of $A$) and it follows that
+  \[
+      f(x)
+    = f(A e_1)
+    = A f(e_1)
+    = A e_1 d
+    = x d \,.
+  \]
+  This shows that $f(x) = xd$ for every $x \in D^n$, which shows that $\Phi$ is surjective.
+\end{proof}
+
+
+\begin{remark}
+  \label{remark: infinite matrix vector space correspondence for skew fields}
+  It follows more generally for every nonempty index set $I$ in the same way as above that
+  \[
+          \End_{\Mat_I^{\cf}(D)}( D^{\oplus I} )
+    \cong D^\op
+  \]
+  where we identify $D^{\oplus I}$ with the space of (column finite) column vectors $\Mat^{\cf}(I \times 1, D)$ and the action of $\Mat_I^{\cf}(D)$ on $D^{\oplus I} = \Mat^{\cf}(I \times 1, D)$ is given by matrix-vector multiplication.
+  
+  One can also identify $D^{\oplus I}$ with the space of (row finite) row vectors $\Mat^{\rf}(1 \times I, D)$, which we denote by $(D^{\oplus I})^T$.
+  Then $(D^{\oplus I})^T$ is a right $\Mat_I^{\rf}(D)$-module via vector-matrix multiplication.
+  It can be shown in the same way as above that the endomorphism ring of this right module structure is given by $D$, with $D$ acting on $(D^{\oplus I})^T$ by left multiplication.
+  Since we are working mostly with left module structures we can replace this right $\Mat_I^{\rf}(D)$-module structure by the corresponding left $\Mat_I^{\rf}(D)^\op$-module structure and find that
+  \[
+          \End_{\Mat_I^{\rf}(D)^\op}\left( (D^{\oplus I})^T \right)
+    \cong D \,.
+  \]
+\end{remark}
+
+
+\begin{corollary}
+  \label{corollary: endomorphism ring of Si}
+  In the situation and notation of Corollary~\ref{corollary: artin wedderburn rings are semisimple} we have that $\End_R(S_i) \cong D_i^\op$ for every $i = 1, \dotsc, r$.
+\end{corollary}
+
+
+\begin{proof}
+  We have that
+  \begin{align*}
+         &\,  \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(S_i)  \\
+    \cong&\,  \End_{\Mat_{n_1}(D_1)}(0)
+              \times \dotsb \times
+              \End_{\Mat_{n_i}(D_i)}(D^{n_i}) 
+              \times \dotsb \times
+              \End_{\Mat_{n_r}(D_r)}(0) \\
+        =&\,  0 \times \dotsb \times 0 \times \End_{\Mat_{n_i}(D_i)}(D^{n_i}) \times 0 \times \dotsb \times 0 \\
+    \cong&\,  \End_{\Mat_{n_i}(D_i)}(D^{n_i}) \\
+    \cong&\,  D_i^\op
+  \end{align*}
+  by Corollary~\ref{label: endomorphism ring of boxsum}.
+\end{proof}
+
+
+
+\begin{notation}
+  \label{notation: simple modules over products of matrix rings}
+  By abuse of notation we will often denote the simple modules $S_1, \dotsc, S_r$ from Corollary~\ref{corollary: artin wedderburn rings are semisimple} by $D_1^{n_1}, \dotsc, D_r^{n_r}$.
+  We then have that
+  \[
+          \End_{\Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)}(D_i^{n_i})
+    \cong D_i^\op
+  \]
+  by Corollary~\ref{corollary: endomorphism ring of Si}, with $d^\op \in D_i^\op$ acting on $D_i^{n_i}$ by right multiplication with $d$.
+\end{notation}
+
+
+
+

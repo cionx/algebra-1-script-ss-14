@@ -1,0 +1,160 @@
+\subsubsection{General Properties of Semisimple Rings}
+
+
+\begin{proposition}
+  The ring $R$ is semisimple if and only if every $R$-module is semisimple.
+\end{proposition}
+
+
+\begin{proof}
+  If every $R$-module $M$ is semisimple then this holds in particular for $M = R$.
+  Every $R$-module is isomorphic to a quotient of a free $R$-moudule, so if $R$ is semisimple then every $R$-module is semisimple by Lemma~\ref{lemma: inherit semisimple}.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: quotients of ss rings are again ss}
+ If $R$ is semisimple and $I \idealleq R$ is a two-sided ideal then the quotient ring $R/I$ is again semisimple. 
+\end{corollary}
+
+
+\begin{proof}
+  The $(R/I)$-submodules of $R$ are precisely the $R$-submodules of $R/I$.
+  It follows from the semisimplicity of $R$ that $R/I$ is a sum of simple $R$-submodules and thus a sum of simple $(R/I)$-submodules.
+\end{proof}
+
+
+\begin{lemma}
+  \label{lemma: simple module of semisimple ring is direct summand}
+  Let $R$ be semisimple with $R = \bigoplus_{i \in I} L_i$ for simple submodules $L_i \moduleleq R$.
+  Then every simple $R$-module is isomorphic to some $L_i$.
+\end{lemma}
+
+
+\begin{warning}
+  \label{warning: non ss ring does not have to contain simple modules}
+  If $R$ is not semisimple then to every simple $R$-module must occur in $R$:
+  For $R = \Integer$ we have seen in Example~\ref{example: semisimple rings} that up to isomorphism the only simple $\Integer$-modules are $\Integer/p$ for $p$ prime, none of which is isomorphic to a submodule of $\Integer$.
+\end{warning}
+
+
+\begin{proof}
+  Let $E$ be a simple $R$-module and let $x \in E$ with $x \neq 0$.
+  Then the map $R \to E$, $r \mapsto rx$ is a nonzero homomorphism of $R$-modules and the claim follows from Corollary~\ref{corollary: no nonzero homomorphisms between disjoint semisimple modules}.
+\end{proof}
+
+
+\begin{example}
+  \label{example: D^n is the only simple M_n(D)-module}
+  It follows from Lemma~\ref{lemma: simple module of semisimple ring is direct summand} and the decompositon of $\Mat_n(D)$ into simple submodules from Example~\ref{example: semisimple rings} that $D^n$ is the only simple $\Mat_n(D)$-module up to isomorphism
+\end{example}
+
+
+\begin{lemma}
+  \label{lemma: ring is already finite sum of submodules}
+  Let $R$ be semisimple with $R = \sum_{i \in I} L_i$ for submodules $L_i \moduleleq R$.
+  Then $R = \sum_{j \in J} L_j$ for some finite subset $J \subseteq I$.
+\end{lemma}
+
+
+\begin{proof}
+  We can decompose $1 \in R$ as $1 = \sum_{i \in I} e_i$ with $e_i \in L_i$ for every $i \in I$ and $e_i = 0$ for all but finitely many $i \in I$.
+  For
+  \[
+              J
+    \defined  \{ i \in I \suchthat e_i \neq 0 \} \,.
+  \]
+  the sum $\sum_{j \in J} L_j$ is a submodule of $R$, i.e.\ an ideal in $R$, which therefore contains $1$.
+  It follows that $\sum_{j \in J} L_j = R$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: semisimple ring is already a finite sum}
+  If $R$ is semisimple then $R$ is a finite direct sum of simple submodules.
+\end{corollary}
+
+
+\begin{proof}
+ The claim follows by applying Lemma~\ref{lemma: ring is already finite sum of submodules} to a decomposition into simple submodules.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: ss rings have only finitely many simple modules}
+  If $R$ is a semisimple then there exist only finitely many simple $R$ modules up to isomorphism.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from Corollary~\ref{corollary: semisimple ring is already a finite sum} and Lemma~\ref{lemma: simple module of semisimple ring is direct summand}.
+\end{proof}
+
+
+\begin{corollary}
+  \label{corollary: semisimple rings are notherian artinian}
+  Every semisimple ring is both noetherian and artinian.
+\end{corollary}
+
+
+\begin{proof}
+  By using Corollary~\ref{corollary: ss rings have only finitely many simple modules} we may write
+  \[
+    R = L_1 \oplus \dotsb \oplus L_n
+  \]
+  for some simple submodules $L_i \moduleleq R$.
+  It then follows that
+  \[
+                0
+    \modulelneq L_1
+    \modulelneq L_1 \oplus L_2
+    \modulelneq \dotsb
+    \modulelneq L_1 \oplus \dotsb \oplus L_n
+    =           R
+  \]
+  is a composition series of $R$ of length $n$.
+  It follows from the \hyperref[theorem: jordan hoelder theorem]{Jordan-Hölder theorem} that every strictly increasing (resp.\ strictly decreasing) sequence of submodules of $R$ stabilizes after at most $n$ steps (see Corollary~\ref{corollary: consequences of jordan hoelder}).
+\end{proof}
+
+
+\begin{example}
+  \leavevmode
+  \label{example: more non ss rings}
+  \begin{enumerate}
+    \item
+      Let $R$ be a nonzero ring.
+      If $I$ is an infinite ring then the ring $\Mat_I^{\cf}(R)$ of column finite $(I \times I)$-matrices is not semisimple:
+      There exist a stricty increasing sequence of subsets
+      \[
+                    I_0
+        \subsetneq  I_1
+        \subsetneq  I_2
+        \subsetneq  \dotsb
+        \subsetneq  I \,,
+      \]
+      and for every $n \geq 0$ the set
+      \[
+                  J_n
+        \defined  \{
+                    A \in \Mat_I^{\cf}(R)
+                  \suchthat
+                    \text{the $i$-th column of $A$ is zero for all $i \in I_n$}
+                  \}
+      \]
+      is a left ideal of $\Mat_I^{\cf}(R)$.
+      The existence of the stricty decreasing sequence of left ideals
+      \[
+                    J_0
+        \supsetneq  J_1
+        \supsetneq  J_2
+        \supsetneq  \dotsb
+      \]
+      shows that $\Mat_I^{\cf}(R)$ is not artinian.
+    \item
+      If $(R_i)_{i \in I}$ is a family of rings with $R_i \neq 0$ for infinitely many $i \in I$ then the product $\prod_{i \in I} R_i$ is neither noetherian nor artinian and therefore not semisimple, even if every factor $R_i$ is semisimple.
+  \end{enumerate}
+\end{example}
+
+
+
+

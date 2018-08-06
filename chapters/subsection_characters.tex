@@ -9,30 +9,6 @@
 \end{fluff}
 
 
-% \begin{corollary}\label{corollary: number of irreducible representations of finite abelian group}
-%   If $k$ is algebraically closed and $G$ a finite and abelian group with $\ringchar(k) \ndivides |G|$ then $G$ has up to isomorphism exactly $|G|$ irreducible representations.
-% \end{corollary}
-% 
-% 
-% \begin{proof}
-%   The group algebra $k[G]$ is finite-dimensional and by Maschke’s Theorem also semisimple.
-%   Therefore
-%   \[
-%       |\Irr_k(G)|
-%     = |\Irr(k[G])|
-%     = \dim_k (k[G]/[k[G], k[G]])^*
-%     = \dim_k k[G]/[k[G], k[G]] \,.
-%   \]
-%   Since $G$ is abelian the group algebra $k[G]$ is commutative, so $[k[G],k[G]] = 0$ and
-%   \[
-%       \dim_k k[G]/[k[G], k[G]]
-%     = \dim_k k[G]
-%     = |G| \,.
-%     \qedhere
-%   \]
-% \end{proof}
-
-
 \begin{definition}
   A function $f \colon G \to k$ is a \emph{class function} if it is constant on conjugacy classes, i.e.\ if it is invariant under conjugation.
   The $k$-vector space of class function $G \to k$ is denoted by $C(G)$.
@@ -97,12 +73,12 @@
 \end{fluff}
 
 
-% TODO: Same as previous identification.
+% TODO (optional): Same as previous identification?
 
 
 \begin{proposition}
   \label{proposition: conjugacy classes and irreducible representations}
-  Let $k$ an algebraically closed and let $G$ be finite with $\ringchar(k) \ndivides |G|$.
+  Let $k$ be algebraically closed and let $G$ be finite with $\ringchar(k) \ndivides |G|$.
   \begin{enumerate}
     \item
       \label{enumerate: characters are basis of class functions}
@@ -125,13 +101,21 @@
     \item
       If $\mc{O}_1, \dotsc, \mc{O}_n$ are the conjugacy classes of $G$ then the characteristic functions $\chi_{\mc{O}_1}, \dotsc, \chi_{\mc{O}_n}$ form a $k$-basis of $C(G)$ so the claim follows from part~\ref*{enumerate: characters are basis of class functions}.
     \item
-      This follows from Corollary~\ref{corollary: dimension of center is number of simple modules}.
+      This follows from part~\ref*{enumerate: characters are basis of class functions} by identifying $C(G)$ with $\ringcenter(k[G])$, as well as from Corollary~\ref{corollary: dimension of center is number of simple modules}.
     \qedhere
   \end{enumerate}
 \end{proof}
 
 
-% TODO: Remark: Have no bijection between conjugacy classes and irrep.
+\begin{remark}
+  \label{remark: bilinear form on characters is bilinear extension of hom}
+  Let $k$ be algebraically closed and let $G$ be finite with $\ringchar(k) \ndivides |G|$.
+  
+  We have shown that the number of isomorphism classes of irreducible representations of $G$ coincides with the number of conjugacy classes of $G$.
+  We have done so by giving two bases of $C(G)$, namely the irreducible characters and the characteristic functions of the conjugacy classes.
+  
+  But it needs to be pointed out that this does not give us a bijection between $\Irr(G)$ and the conjugacy classes of $G$, and that for an arbitrary finite group $G$ with $\ringchar(k) \ndivides |G|$ there is canonical way to associate to a conjugacy class of $G$ a \enquote{corresponding} irreducible representation.
+\end{remark}
 
 
 \begin{example}
@@ -159,7 +143,7 @@
 \end{example}
 
 
-% TODO: Don’t need outer tensor product, can directy determine group rep
+% TODO (optional): Don’t need outer tensor product, can directy determine group rep
 
 
 \begin{example}
@@ -317,7 +301,7 @@
 \end{proof}
 
 
-% TODO: Projectiont onto invariants expressed by characters.
+% TODO (optional): projection onto invariants expressed by characters.
 
 
 \begin{corollary}
@@ -358,9 +342,6 @@
 \end{fluff}
 
 
-% TODO: Can think about (-,-) as decategorification/linearization of Hom.
-
-
 \begin{theorem}
   Let $k$ be algebraically closed.
   \begin{enumerate}
@@ -373,7 +354,7 @@
           (\chi_V, \chi_W)
         = \sum_{i=1}^r n_i m_i \,.
       \]
-      It follows in particular that $(\chi_{V_i}, \chi_V) = n_i$ is the multiplicity of $V_i$ in $V$ for all $i = 1, \dotsc, r$.
+      It follows in particular that $(\chi_{V_i}, \chi_V) = n_i$ is the multiplicity of $V_i$ in $V$.
     \item
       If $\ringchar(k) = 0$ then the representation $V$ is irreducible if and only if $(\chi_V, \chi_V) = 1$.
   \end{enumerate}
@@ -399,7 +380,10 @@
 \end{proof}
 
 
-% TODO: Add reference to previous mention of this orthogonality in the first chapter.
+\begin{remark}
+  If $k$ is algebraically closed then $C(G)$ has the irreducible characters as a basis, so we may think about $C(G)$ as the free vector space on the isomorphism classes of irreducible representations of $G$.
+  The bilinear form $(-,-)$ is then the unique $k$-bilinear extension of $\dim \Hom_G(-,-)$ and the orthonormality of the irreducible characters with respect to $(-,-)$ corresponds to the orthonormality of the isomorphism classes of irreducible representations of $G$ with respect to $\Hom_G(-,-)$.
+\end{remark}
 
 
 \begin{fluff}

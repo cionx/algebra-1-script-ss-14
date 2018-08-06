@@ -476,7 +476,7 @@
 \end{fluff}
 
 
-% TODO: Definition of P(V) without basis as S(V*)
+% TODO (optional): Definition of P(V) without basis as S(V*)
 
 
 
@@ -558,10 +558,10 @@
       To see this we choose a basis $v_1, \dotsc, v_n$ of $V$.
       Then the elements
       \[
-          v_{\underline{i}}
+          v_{\mindex{i}}
         = v_{i_1} \tensor \dotsb \tensor v_{i_r}
         \quad\text{with}\quad
-            \underline{i}
+            \mindex{i}
         =   (i_1, \dotsc, i_r)
         \in \{1, \dotsc, n\}^r
       \]
@@ -573,13 +573,13 @@
         =         \left( \sum_{i=1}^r \lambda_i v_i \right)
           \tensor \dotsb
           \tensor \left( \sum_{i=1}^r \lambda_i v_i \right)
-        = \sum_{\underline{i}} \lambda_{i_1} \dotsm \lambda_{i_r} v_{\underline{i}} \,.
+        = \sum_{\mindex{i}} \lambda_{i_1} \dotsm \lambda_{i_r} v_{\mindex{i}} \,.
       \]
-      For the polynomials $p_{\underline{i}} \defined  X_{i_1} \dotsm X_{i_r}$ and their corresponding polynomial maps $f_{\underline{i}} \colon V \to k$ given by
+      For the polynomials $p_{\mindex{i}} \defined  X_{i_1} \dotsm X_{i_r}$ and their corresponding polynomial maps $f_{\mindex{i}} \colon V \to k$ given by
       \[
-          f_{\underline{i}}\left( \lambda_1 v_1 + \dotsb + \lambda_n v_n \right) = p_{\underline{i}}(\lambda_1, \dotsc, \lambda_r)
+          f_{\mindex{i}}\left( \lambda_1 v_1 + \dotsb + \lambda_n v_n \right) = p_{\mindex{i}}(\lambda_1, \dotsc, \lambda_r)
       \]
-      we thus have that $f(v) = \sum_{\underline{i}} f_{\underline{i}}(v) v_{\underline{i}}$ for every $v \in V$.
+      we thus have that $f(v) = \sum_{\mindex{i}} f_{\mindex{i}}(v) v_{\mindex{i}}$ for every $v \in V$.
   \end{enumerate}
 \end{example}
 

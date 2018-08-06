@@ -1,0 +1,197 @@
+\subsubsection{The Theorem of Artin--Wedderburn}
+
+
+\begin{theorem}[Artin--Wedderburn]
+  \label{theorem: artin wedderburn theorem}
+  Let $R$ be semisimple.
+  \begin{enumerate}
+    \item
+      If $R \cong E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}$ for some $r \geq 0$, pairwise non-isomorphic simple $R$-modules $E_1, \dotsc, E_r$ and $n_1, \dotsc, n_r \geq 1$, then
+      \begin{align*}
+              R
+        \cong \End_R(E_1^{\oplus n_1}) \times \dotsb \times \End_R(E_r^{\oplus n_r})
+        \cong \Mat_{n_1}(D_1) \times \dotsb \times  \Mat_{n_r}(D_r)
+      \end{align*}
+      as rings with $D_i = \End(E_i)^\op$ for every $i = 1, \dotsc, r$.
+      If $R$ is a $k$-algebra then this is an isomorphism of $k$-algebras.
+    \item
+      This decomposition is unique in the following sense:
+      If
+      \[
+              R
+        \cong \Mat_{m_1}(D'_1) \times \dotsb \times \Mat_{m_s}(D'_s)
+      \]
+      for any $s \geq 0$, $m_1, \dotsc, m_s \geq 1$ and skew fields $D'_1, \dotsc, D'_s$ then $r = s$ and the pairs $(D_1, n_1), \dotsc, (D_r, n_r)$ coincide with the pairs $(D'_1, m_1), \dotsc, (D'_s, m_s)$ up to permutation and isomorphism, i.e.\ there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ and $D'_{\pi(i)} \cong D_i$ for every $i = 1, \dotsc, r$.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      It follows from Lemma~\ref{lemma: End_R(R) = Rop} and Corollary~\ref{corollary: End is isomorphic to product of matrix rings Schur style} that
+      \begin{align*}
+                R^\op
+         \cong  \End_R(R)
+        &\cong  \End_R(E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r})  \\
+        &\cong  \End_R(E_1^{\oplus n_1}) \times \dotsb \times \End_R(E_r^{\oplus n_r})  \\
+        &\cong  \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \,.
+      \end{align*}
+      It further follows from Remark~\ref{remark: basic properties of op} and Lemma~\ref{lemma: op of matrix rings} that
+      \begin{align*}
+                R
+        =       (R^\op)^\op
+        &\cong  \left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)^\op \\
+        &=      \Mat_{n_1}(D_1)^\op \times \dotsb \times \Mat_{n_r}(D_r)^\op  \\
+        &\cong  \Mat_{n_1}(D_1^\op) \times \dotsb \times \Mat_{n_r}(D_r^\op) \,.
+      \end{align*}
+    \item
+      Let $\varphi \colon R \to \Mat_{m_1}(D'_1) \times \dotsb \times \Mat_{m_s}(D'_s) \defined R'$ be an isomorphism of rings.
+      By using Corollary~\ref{corollary: artin wedderburn rings are semisimple} (and the Notation of \ref{notation: simple modules over products of matrix rings}) we have that
+      \[
+              R'
+        \cong {D'_1}^{\oplus m_1} \oplus \dotsb \oplus {D'_s}^{\oplus m_s}
+      \]
+      as $R'$-modules.
+      For every $i = 1, \dotsc, r$ we can pull back the $R'$-module structure of ${D'_i}^{\oplus m_i}$ to an $R$-module structure.
+      The ${D'_i}^{\oplus m_i}$ thus become simple pairwise non-isomorpic $R$-modules with
+      \[
+              R
+        \cong {D'_i}^{\oplus m_i} \oplus \dotsb \oplus {D'_i}^{\oplus m_i}
+      \]
+      as $R$-modules.
+      
+      By using the uniqueness of multiplicities of simple summands (see Theorem~\ref{theorem: multiplicity well-defined} and Remark~\ref{remark: uniqueness of multiplicities alternative formulation}) it follows that the two decompositions
+      \[
+              R
+        =     E_1^{\oplus n_1} \oplus \dotsb \oplus E_r^{\oplus n_r}
+        \cong {D'_1}^{\oplus m_1} \oplus \dotsb \oplus {D'_1}^{\oplus m_1}
+      \]
+      into simple submodules coincide up to permutation and isomorphism:
+      We have that $r = s$ and there exists a bijection $\pi \colon \{1, \dotsc, r\} \to \{1, \dotsc, s\}$ such that $m_{\pi(i)} = n_i$ for every $i = 1, \dotsc, r$ and $D'_{\pi(i)} \cong E_i$ as $R$-modules for every $i = 1, \dotsc, r$.
+      We also find that
+      \[
+              D_i
+        =     \End_R(E_i)^\op
+        \cong \End_R({D'_i}^{\oplus m_i})^\op
+        =     \End_{R'}({D'_i}^{\oplus m_i})^\op
+        \cong ((D'_i)^\op)^\op
+        =     D'_i
+      \]
+      as rings.
+      This finishes the proof.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{remark}
+  Corollary~\ref{corollary: artin wedderburn rings are semisimple} and the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} together give a classification of semisimple rings up to isomorphism:
+  Semisimple rings are precisely the products of matrix rings over skew fields.
+\end{remark}
+
+
+\begin{corollary}
+  If $R$ is semisimple then $R^\op$ is also semisimple.
+\end{corollary}
+
+
+\begin{proof}
+  By the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we have that
+  \[
+          R
+    \cong \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r)
+  \]
+  as rings for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  It follows that
+  \begin{align*}
+            R^\op
+    &\cong  \left( \Mat_{n_1}(D_1) \times \dotsm \times \Mat_{n_r}(D_r) \right)^\op \\
+    &=      \Mat_{n_1}(D_1)^\op \times \dotsm \times \Mat_{n_r}(D_r)^\op \\
+    &=      \Mat_{n_1}\left( D_1^\op \right) \times \dotsm \times \Mat_{n_r}\left( D_r^\op \right).
+  \end{align*}
+  The rings $D_i^\op$ are skew fields because the $D_i$ are skew fields, so it follows from Corollary~\ref{corollary: artin wedderburn rings are semisimple} that $R^\op$ is semisimple.
+\end{proof}
+
+
+\begin{definition}
+  An $R$-module $M$ is \emph{faithful} if for all $r_1, r_2 \in R$ with $r_1 \neq r_2$ there exists some $m \in M$ with $r_1 m \neq r_2 m$.
+\end{definition}
+
+
+\begin{example}
+  The $R$-module $R$ is faithful because we can choose $m = 1$.
+\end{example}
+
+
+\begin{recall}
+  For an $R$-module $M$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The module $M$ is faithful.
+    \item
+      For every $r \in R$ with $r \neq 0$ there exists some $m \in M$ with $rm \neq 0$.
+    \item
+      The corresponding ring homomorphism $R \to \End_\Integer(M)$ is injective.
+    \item
+      The annihilator $\Ann_R(M) = \{r \in R \suchthat rm = 0\}$ is $0$.
+  \end{enumerate}
+\end{recall}
+
+
+\begin{corollary}
+  \label{corollary: faithful over ss contains ever simple}
+  If $R$ is semisimple and $M$ is a faithful $R$-module then the isotypical components of $M$ are all nonzero, i.e.\ $M$ contains every simple $R$-module up to isomorphism.
+\end{corollary}
+
+
+\begin{proof}
+  By the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} we may assume w.l.o.g.\ that
+  \[
+    R = M_{n_1}(D_1) \times \dotsb \times M_{n_r}(D_r)
+  \]
+  for some $r \geq 0$, $n_1, \dotsc, n_r \geq 1$ and skew field $D_1, \dotsc, D_r$.
+  Then $D_1^{n_1}, \dotsc, D_r^{n_r}$ form a set of representatives for the isomorphism classes of simple $R$-modules.
+  For every $i = 1, \dotsc, r$ let $M_i$ be the $D_i^{n_i}$-isotypical component of $M$.
+  
+  The module $M$ is semisimple because $R$ is semisimple, so there exists a decomposition into isotypical components $M = \bigoplus_{i=1}^r M_i$.
+  If $M_i = 0$ for some $i$ then every element $A \in \Mat_{n_i}(D_i) \subseteq R$ would act by multiplication with zero on $M$, which would contradicts the faithfulness of $M$.
+  The isotypical components $M_i$ are therefore all nonzero.
+\end{proof}
+
+
+\begin{warning}
+  If $R$ is semisimple then a faithful module does not have to contain a copy of every simple $R$-module:
+  We have seen in Warning~\ref{warning: non ss ring does not have to contain simple modules} that for $R = \Integer$ the faithful $\Integer$-module $M = \Integer$ contains no simple submodules.
+\end{warning}
+
+
+\begin{remark}
+  Let $G$ be a finite group and let $k$ be a field.
+  We have seen in Example~\ref{example: semisimple rings} that the groups algebra $k[G]$ is not semisimple if $\ringchar(k) \divides |G|$.
+  This also follows from the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn}:
+  
+  If $k[G]$ were semisimple then
+  \[
+          k[G]
+    \cong \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r)
+  \]
+  for some $r \geq 1$, $n_1, \dotsc, n_r \geq 1$ and skew fields $D_1, \dotsc, D_r$.
+  The element $x \defined \sum_{g \in G} g$ is central in $k[G]$ in because $g x = x = x g$ for all $g \in G$ and it is nilpotent because $x^2 = |G| x = 0$.
+  The center of $k[G]$ is given by
+  \begin{align*}
+            \ringcenter(k[G])
+    &\cong  \ringcenter\left( \Mat_{n_1}(D_1) \times \dotsb \times \Mat_{n_r}(D_r) \right)  \\
+    &=      \ringcenter(\Mat_{n_1}(D_1)) \times \dotsb \times \ringcenter(\Mat_{n_r}(D_r))  \\
+    &\cong  \ringcenter(D_1) \times \dotsb \times \ringcenter(D_r)
+  \end{align*}
+  where the second isomorphism follows from Lemma~\ref{lemma: center of matrix ring}.
+  The rings $\ringcenter(D_i)$ are fields because the $D_i$ are skew fields.
+  This shows that $\ringcenter(k[G])$ is isomorphic to a product of fields.
+  But $x$ is a nonzero nilpotent element of $\ringcenter(k[G])$, which is absurd.
+\end{remark}
+
+
+
+

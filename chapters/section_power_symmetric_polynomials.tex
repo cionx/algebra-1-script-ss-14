@@ -138,21 +138,21 @@
   
   To show that $p_1, \dotsc, p_n$ are algebraically independent we need to show that the monomials in $p_1, \dotsc, p_n$, i.e.\ the polynomials
   \[
-      p^{\,\underline{\alpha}}
+      p^{\,\mindex{\alpha}}
     = p_1^{\alpha_1} \dotsm p_n^{\alpha_n}
     \quad\text{with}\quad
-        \underline{\alpha}
+        \mindex{\alpha}
     =   (\alpha_1, \dotsc, \alpha_n)
     \in \Natural^n
   \]
   are linearly independent.
   For this it sufficies to show for every $N \geq 1$ that the monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ form a $k$-basis of the $k$-linear space of symmetric polynomials of degree $\leq N$, which we will denote by $V_N$.
   
-  We also denote the number of (not necessarily distinct) monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ by $P_N$, i.e.\ $P_N$ is the number of multi-indices $\underline{\alpha} \in \Natural^n$ with $\deg p^{\,\underline{\alpha}} \leq N$.
+  We also denote the number of (not necessarily distinct) monomials in $p_1, \dotsc, p_n$ of degree $\leq N$ by $P_N$, i.e.\ $P_N$ is the number of multi-indices $\mindex{\alpha} \in \Natural^n$ with $\deg p^{\,\mindex{\alpha}} \leq N$.
   
-  Note that for every $\underline{\alpha} \in \Natural^n$ we have that
+  Note that for every $\mindex{\alpha} \in \Natural^n$ we have that
   \begin{align*}
-        \deg p^{\,\underline{\alpha}}
+        \deg p^{\,\mindex{\alpha}}
     &=  \deg
         p_1^{\alpha_1}
         \dotsm 
@@ -171,7 +171,7 @@
         e_1^{\alpha_1}
         \dotsm 
         e_n^{\alpha_n}
-     =  e^{\,\underline{\alpha}} \,,
+     =  e^{\,\mindex{\alpha}} \,,
   \end{align*}
   so that $P_N$ is also the number of monomials in $e_1, \dotsc, e_n$ of degree $\leq N$.
   Note that these monomials in the $e_i$ are pairwise distinct because the $e_i$ are algebraically independent.

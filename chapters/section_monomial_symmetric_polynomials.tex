@@ -35,30 +35,12 @@
     = \sum_{\class{\pi} \in S_r/U} X_1^{\lambda_{\pi^{-1}(1)}} \dotsm X_r^{\lambda_{\pi^{-1}(r)}}
     = \sum_{\class{\pi} \in S_r/U} X_{\pi(1)}^{\lambda_1} \dotsm X_{\pi(r)}^{\lambda_r} \,.
   \]
-%   Also notice that
-%   \[
-%           U
-%     \cong S_{\nu_0} \times \dotsb \times S_{\nu_m}
-%   \]
-%   where
-%   \[
-%               \nu_n
-%     \defined  \left|
-%                 \left\{
-%                   1 \leq i \leq r
-%                 \suchthat
-%                     \lambda_i
-%                   = n
-%                 \right\}
-%               \right|
-%   \]
-%   and $m \defined \max_{i=1,\dotsc,r} \lambda_i$.
 \end{remark}
 
 
 \begin{fluff}
-  Note that every multi-index $\underline{\alpha} \in \Natural^n$ can be reordered uniquely to a partition $\lambda$ of length $\ell(\lambda) = n$.
-  Then $m_\lambda$ is the “smallest” symmetric polynomial containing the monomial $X^{\,\underline{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$.
+  Note that every multi-index $\mindex{\alpha} \in \Natural^n$ can be reordered uniquely to a partition $\lambda$ of length $\ell(\lambda) = n$.
+  Then $m_\lambda$ is the “smallest” symmetric polynomial containing the monomial $X^{\,\mindex{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$.
   The following result should therefore not be too surprising:
 \end{fluff}
 
@@ -76,17 +58,14 @@
 \end{proposition}
 
 
-% TODO: Find better notation for multi-indices than underline.
-
-
 \begin{notation}
-  Every multi-index $\underline{\alpha} \in \Natural^n$ can be permuted to a unique partition $\lambda \in \Par$ of length $n$.
-  We will refer to $\lambda$ as the \emph{partition associated to $\underline{\alpha}$}.
+  Every multi-index $\mindex{\alpha} \in \Natural^n$ can be permuted to a unique partition $\lambda \in \Par$ of length $n$.
+  We will refer to $\lambda$ as the \emph{partition associated to $\mindex{\alpha}$}.
   
   We will sometimes want to consider a partition $\lambda = (\lambda_1, \dotsc, \lambda_n)$ as a multi-index.
-  When doing so, we will write $\underline{\lambda}$ instead of just $\lambda$.
-  (So technically speaking both $\underline{\lambda}$ and $\lambda$ are the same thing.)
-  Note that $\lambda$ is then the partition associated to $\underline{\lambda}$.
+  When doing so, we will write $\mindex{\lambda}$ instead of just $\lambda$.
+  (So technically speaking both $\mindex{\lambda}$ and $\lambda$ are the same thing.)
+  Note that $\lambda$ is then the partition associated to $\mindex{\lambda}$.
 \end{notation}
 
 
@@ -96,18 +75,18 @@
       X_1^{\alpha_1} \dotsm X_n^{\alpha}
     + \text{all distinct permutations of this monomial}
   \]
-  is precisely the monomial symmetric polynomial $m_\lambda$  of the partition $\lambda$ associated to $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
+  is precisely the monomial symmetric polynomial $m_\lambda$  of the partition $\lambda$ associated to the multiindex $\mindex{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
   
   Let $f \in k[X_1, \dotsc, X_n]^{S_n}$ be a symmetric polynomial.
   Then for every monomial $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $f$, all of its permutations must also occur in $f$, all of them with the same coefficient $c$.
-  By the above observation all of these monomials can be grouped together to the symmetric polynomial $c m_{\lambda}$, where $\lambda$ is the partition associated to $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
+  By the above observation all of these monomials can be grouped together to the symmetric polynomial $c m_{\lambda}$, where $\lambda$ is the partition associated to $\mindex{\alpha} = (\alpha_1, \dotsc, \alpha_n)$.
   
   Since $f - c m_\lambda$ is again symmetric one can then inductively continue this process of grouping together permutated monomials to ultimately express $f$ as a linear combination of monomial symmetric polynomials.
   (Note that no new monomials are introduced during this process, so that it eventually terminates.)
   
   The beginning observation also shows that a partition $\lambda$ is uniquely determined by any of the monomials $X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$.
   It follows that for any two distinct partitions $\lambda \neq \mu$ their monomial symmetric polynomials $m_\lambda$, $m_\mu$ have no common monomonials.
-  As the collection of all monomials $X^{\,\underline{\alpha}}$, $\underline{\alpha} \in \Natural^n$ is linearly independent, it follows that the collection of monomial symmetric polynomials $m_\lambda$, $\lambda \in \Par$ is also linearly independent.
+  As the collection of all monomials $X^{\,\mindex{\alpha}}$, $\mindex{\alpha} \in \Natural^n$ is linearly independent, it follows that the collection of monomial symmetric polynomials $m_\lambda$, $\lambda \in \Par$ is also linearly independent.
 \end{proof}
 
 
@@ -117,10 +96,10 @@
 %   \[
 %               B
 %     \defined  \{
-%                   X^{\,\underline{\alpha}}
+%                   X^{\,\mindex{\alpha}}
 %                 = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
 %               \suchthat
-%                     \underline{\alpha}
+%                     \mindex{\alpha}
 %                 =   (\alpha_1, \dotsc, \alpha_n)
 %                 \in \Natural^n
 %               \} \,.
@@ -131,19 +110,19 @@
 %   
 %   The action of $S_n$ on $B$ is given by
 %   \[
-%       \sigma.X^{\,\underline{\alpha}}
+%       \sigma.X^{\,\mindex{\alpha}}
 %     = \sigma.X_1^{\alpha_1} \dotsm X_n^{\alpha_n}
 %     = X_{\sigma(1)}^{\alpha_1} \dotsm X_{\sigma(n)}^{\alpha_n}
 %     = X_1^{\alpha_{\sigma^{-1}(1)}} \dotsm X_n^{\alpha_{\sigma^{-1}(n)}}
-%     = X^{\sigma.\underline{\alpha}} \,,
+%     = X^{\sigma.\mindex{\alpha}} \,,
 %   \]
 %   and thus corresponds to the permutation action of $S_n$ on $\Natural^n$.
-%   The bijection $\Natural^n \to B$, $\underline{\alpha} \mapsto X^{\,\underline{\alpha}}$ therefore induces a bijection
+%   The bijection $\Natural^n \to B$, $\mindex{\alpha} \mapsto X^{\,\mindex{\alpha}}$ therefore induces a bijection
 %   \[
 %           \Natural^n / S_n
 %     \to   B / S_n \,,
-%     \quad [\underline{\alpha}]
-%     \to   [X^{\,\underline{\alpha}}]
+%     \quad [\mindex{\alpha}]
+%     \to   [X^{\,\mindex{\alpha}}]
 %   \]
 %   With this we can reparametrize the basis
 %   \begin{align*}
@@ -151,10 +130,10 @@
 %     \quad&\text{with}\quad
 %     \mc{O} \in B/S_n
 %   \shortintertext{as}
-%               g_{[\underline{\alpha}]}
-%     \defined  f_{[X^{\,\underline{\alpha}}]}
+%               g_{[\mindex{\alpha}]}
+%     \defined  f_{[X^{\,\mindex{\alpha}}]}
 %     \quad&\text{with}\quad
-%     [\underline{\alpha}] \in \Natural^n/S_n \,.
+%     [\mindex{\alpha}] \in \Natural^n/S_n \,.
 %   \intertext{
 %   The $S_n$-orbits of $\Natural^n$ have the partitions of length $n$ as a representative system.
 %   Thus a basis of $k[X_1, \dotsc, X_n]^{S_n}$ is given by the polynomials
@@ -270,10 +249,10 @@
   
   We will use this to describe the product $m_\lambda m_\mu$ for two partitions $\lambda, \mu \in \Par$ of length $n$ as a linear combination of the basis $m_\nu$, $\nu \in \Par$:
   
-  The monomials $X^{\,\underline{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$ are those for the multi-indices $\underline{\alpha} = (\alpha_1, \dotsc, \alpha_n)$ with associated partition $\lambda$, and the monomials $X^{\,\underline{\beta}}$ occuring in $m_\mu$ are those for the multi-indices $\underline{\beta}$ with associated partition $\mu$.
+  The monomials $X^{\,\mindex{\alpha}} = X_1^{\alpha_1} \dotsm X_n^{\alpha_n}$ occuring in $m_\lambda$ are those for the multi-indices $\mindex{\alpha} = (\alpha_1, \dotsc, \alpha_n)$ with associated partition $\lambda$, and the monomials $X^{\,\mindex{\beta}}$ occuring in $m_\mu$ are those for the multi-indices $\mindex{\beta}$ with associated partition $\mu$.
   
-  In follows that all monomials $X^{\,\underline{\gamma}}$ occuring in $m_\lambda m_\mu$ are of the form $\underline{\gamma} = \underline{\alpha} + \underline{\beta}$ for some $\underline{\alpha}$, $\underline{\beta}$ as above.
-  Given such a $\underline{\gamma}$ and corresponding $\underline{\alpha}, \underline{\beta}$, let $\nu \in \Par$ be the partition associated to $\underline{\gamma}$.
+  In follows that all monomials $X^{\,\mindex{\gamma}}$ occuring in $m_\lambda m_\mu$ are of the form $\mindex{\gamma} = \mindex{\alpha} + \mindex{\beta}$ for some $\mindex{\alpha}$, $\mindex{\beta}$ as above.
+  Given such a $\mindex{\gamma}$ and corresponding $\mindex{\alpha}, \mindex{\beta}$, let $\nu \in \Par$ be the partition associated to $\mindex{\gamma}$.
   
   \begin{claim}
     The partition $\nu$ satisfies $\nu \leq \lambda + \mu$.
@@ -281,12 +260,12 @@
   
   \begin{proof}
     Let $\lambda = (\lambda_1, \dotsc, \lambda_n)$,  $\mu = (\mu_1, \dotsc, \mu_n)$ and $\nu = (\nu_1, \dotsc, \nu_n)$.
-    By definition of $\underline{\alpha}$ and $\underline{\beta}$ there exist permutations $\sigma, \tau \in S_n$ with
+    By definition of $\mindex{\alpha}$ and $\mindex{\beta}$ there exist permutations $\sigma, \tau \in S_n$ with
     \[
-        \underline{\alpha}
+        \mindex{\alpha}
       = ( \lambda_{\sigma(1)}, \dotsc, \lambda_{\sigma(n)} )
       \quad\text{and}\quad
-        \underline{\beta}
+        \mindex{\beta}
       = ( \mu_{\tau(1)}, \dotsc, \mu_{\tau(n)} )
     \]
     and by definition of $\nu$ there exists some permutation $\omega \in S_n$ with
@@ -320,7 +299,7 @@
     As this holds for every $r = 1, \dotsc, n$, this shows that $\nu \leq \mu + \lambda$.
   \end{proof}
   
-  We have shown that for every monomial $X^{\,\underline{\gamma}}$ in $m_\lambda m_\mu$ the partition $\nu$ associated to $\underline{\gamma}$ satisfies $\nu \leq \lambda + \mu$.
+  We have shown that for every monomial $X^{\,\mindex{\gamma}}$ in $m_\lambda m_\mu$ the partition $\nu$ associated to $\mindex{\gamma}$ satisfies $\nu \leq \lambda + \mu$.
   Thus we find that $m_\lambda m_\mu$ is already a linear combination of those $m_\nu$ for which $\nu \leq \mu + \lambda$, i.e. that
   \[
       m_\lambda m_\mu
@@ -336,18 +315,18 @@
     \item
       $\init(f \cdot g) = (\init f) \cdot (\init g)$ for all $f, g \in k[X_1, \dotsc, X_n]$ with $f, g \neq 0$, and
     \item
-      $\init m_\nu = X^{\,\underline{\nu}}$ for every partition $\nu \in \Par$ of length $n$.
+      $\init m_\nu = X^{\,\mindex{\nu}}$ for every partition $\nu \in \Par$ of length $n$.
   \end{itemize}
   With this we find that
   \[
       \init(m_\lambda m_\mu)
     = (\init m_\lambda) (\init m_\mu)
-    = X^{\,\underline{\lambda}} X^{\,\underline{\mu}}
-    = X^{\,\underline{\lambda} + \underline{\mu}}
-    = X^{\,\underline{\lambda + \mu}} \,.
+    = X^{\,\mindex{\lambda}} X^{\,\mindex{\mu}}
+    = X^{\,\mindex{\lambda} + \mindex{\mu}}
+    = X^{\,\mindex{\lambda + \mu}} \,.
   \]
-  Hence the monomial $X^{\,\underline{\lambda + \mu}}$ occurs in $m_\lambda m_\mu$ with coefficient $1$.
-  The partition associated to $\underline{\lambda + \mu}$ is $\lambda + \mu$, so the coefficient of $m_{\lambda + \mu}$ in $m_\lambda m_\mu$ is $1$, i.e.\ $a_{\lambda + \mu} = 1$.
+  Hence the monomial $X^{\,\mindex{\lambda + \mu}}$ occurs in $m_\lambda m_\mu$ with coefficient $1$.
+  The partition associated to $\mindex{\lambda + \mu}$ is $\lambda + \mu$, so the coefficient of $m_{\lambda + \mu}$ in $m_\lambda m_\mu$ is $1$, i.e.\ $a_{\lambda + \mu} = 1$.
   
   Altogether we have proven the following result:
 \end{fluff}
@@ -369,13 +348,11 @@
   Note that the above results about monomial symmetric polynomials also hold when the field $k$ is replaced by an arbitrary non-zero commutative ring.
 \end{remark}
 
-% TODO: Reread and rework this section some time in the future.
 
 
 
 
-
-% TODO: Finding out how Schur polynomials work.
+% TODO (optional): Finding out how Schur polynomials work.
 %
 % \section{Schur Polynomials}
 % 

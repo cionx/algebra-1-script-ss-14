@@ -27,11 +27,9 @@
       \]
       is an isomorphism of abelian groups.
       If $R$ is a $k$-algebra then it is an isomorphism of $k$-vector spaces.
+    \qed
   \end{enumerate}
 \end{proposition}
-
-
-% TODO: Add a proof.
 
 
 \begin{corollary}
@@ -56,11 +54,9 @@
       \]
       is an isomorphism of rings.
       If $R$ is a $k$-algebra then it is an isomorphism of $k$-algebras.
+    \qed
   \end{enumerate}
 \end{corollary}
-
-
-% TODO: Add a proof.
 
 
 \begin{corollary}
@@ -74,10 +70,8 @@
   \]
   is a well-defined isomorphism of rings.
   If $R$ is a $k$-algebra, then it is an isomorphism of $k$-algebras.
+  \qed
 \end{corollary}
-
-
-% TODO: Add a proof.
 
 
 \begin{fluff}
@@ -100,7 +94,29 @@
 \end{lemma}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  We denote the given map by $\Phi$.
+  It sufficies to show that $\Phi$ is well-defined because its inverse is then given by the map $\Psi$ with
+  \[
+      \Psi((f_i)_{i \in I})(m)
+    = ( f_i(m) )_{i \in I}
+  \]
+  for all $(f_i)_{i \in I} \in \bigoplus_{i \in I} \Hom(M, M_i)$ and $m \in M$.
+  
+  Let $x_1, \dotsc, x_n \in M$ be a finite generating set.
+  The set
+  \[
+              I'_j
+    \defined \{
+                i' \in I
+              \suchthat
+                f_{i'}(x_j) \neq 0
+              \}
+  \]
+  is finite for every $j = 1, \dotsc, n$ and it follows that $I' \defined \bigcup_{j=1}^n I'_j$ is finite.
+  For every $i \in I$ with $i \notin I'$ we have that $f_i(x_j) = 0$ for every $j = 1, \dotsc, n$ and therefore $f_i(m) = 0$ for every $m \in M$.
+  This shows that $f_i = 0$ for every $i \in I$ with $i \notin I'$.
+\end{proof}
 
 
 \begin{definition}
@@ -168,6 +184,7 @@
       If $R$ is a $k$-algebra then this makes $\Mat^{\cf}_I(R)$ into a $k$-algebra.
   \end{enumerate}
   The analogous results for row finite matrices also hold.
+  \qed
 \end{lemma}
 
 
@@ -189,10 +206,8 @@
   \]
   is a well-defined isomorphism of abelian groups.
   If $R$ is a $k$-algebra then it is an isomorphism of $k$-vector spaces.
+  \qed
 \end{corollary}
-
-
-% TODO: Add a proof.
 
 
 \begin{corollary}
@@ -214,10 +229,8 @@
   \]
   is an isomorphism of rings.
   If $R$ is a $k$-algebra then it is an isomorphism of $k$-algebras.
+  \qed
 \end{corollary}
-
-
-% TODO: Add a proof.
 
 
 

@@ -61,7 +61,7 @@
 \end{proof}
 
 
-% TODO: Is M_E simple for M not ss?
+% TODO (optional): Is M_E simple for M not ss?
 
 
 \begin{fluff}
@@ -231,7 +231,7 @@
 \end{warning}
 
 
-% TODO: Is Hom(E,M) semisimple as an End(E)-module?
+% TODO (optional): Is Hom(E,M) semisimple as an End(E)-module?
 
 
 \begin{fluff}
@@ -310,10 +310,37 @@
 \end{proof}
 
 
-% TODO: Not every simple R' module must occur in M, even if every simple R module occurs
+\begin{warning}
+  Not every simple $R'$-module needs to occur in $M$ even if $M$ is semisimple:
+  Consider the semisimple $\Integer$-module $M \defined \bigoplus_{\text{$p$ prime}} \Integer/p$.
+  We have that
+  \[
+          R'
+    =     \End_R(M)
+    \cong \prod_{\text{$p$ prime}} \End_\Integer(\Integer/p)
+    \cong \prod_{\text{$p$ prime}} \Integer/p
+  \]
+  and the simple $R'$-module occuring in $M$ are precisely the summands $\Integer/p$.
+  But we have seen in Remark~\ref*{remark: infinite products have new simple modules} that $R'$ admits other simple modules then the $\Integer/p$.
+\end{warning}
 
 
-% TODO: More direct proof that M is semisimple as an R'-module.
+\begin{remark}
+  It can also be shown in a more direct way that $M$ is semisimple as an $R'$-module if it is semisimple as an $R$-module, as explained in \cite[Chapter~IV, Section~2,Theorems~6,7,8]{Behrens1972Ring}.
+  We will sketch of this approach here:
+  \begin{itemize}
+    \item
+      By using the uniqueness of multiplicities it can be shown that every isomorphism $L \to L'$ between simple submodules $L, L' \moduleleq M$ can not only be extended to an endomorphism $M \to M$ but already to an automorphism $M \to M$.
+    \item
+      It then follows that for every simple $R$-module $L \leq M$ and $m \in M$ the cyclic $R'$-module $R' m$ is simple (as in $R'$-module).
+    \item
+      This shows that every element $m \in M$ which is contained in a simple $R$-submodule is also contained in a simple $R'$-submodule.
+      Since $M$ is the sum of its simple $R$-submodules it then follows that $M$ is also the sum of its simple $R'$-submodules.
+  \end{itemize}
+\end{remark}
+
+
+% TODO (optional): Give a full proof.
 
 
 

@@ -11,6 +11,51 @@
 \end{conventions}
 
 
+\begin{lemma}
+  \label{lemma: center of matrix ring}
+  For every $n \geq 0$ the map
+  \[
+            \ringcenter(R)
+    \to     \ringcenter(\Mat_n(R))  \,,
+    \quad   z
+    \mapsto z I_n
+  \]
+  is an isomorphism of rings.
+\end{lemma}
+
+
+\begin{proof}
+  The given map is a well-defined injective ring homomorphism and we need to show that it is surjective, i.e.\ that every $A \in \ringcenter(\Mat_n(R))$ is of the form $A = z I_n$ for some $z \in \ringcenter(R)$.
+  
+  We have for all $i = 1, \dotsc, n$ that
+  \[
+      \text{$i$-th column of $A$}
+    = A e_i
+    = A E_{ii} e_i
+    = E_{ii} A e_i
+    = \vect{ 0 & \cdots & 0 & a_{ii} & 0 & \cdots & 0}^T \,,
+  \]
+  which shows that $A$ is a diagonal matrix.
+  We have for all $i,j = 1, \dotsc, n$ that
+  \[
+      A_{ii} E_{ij}
+    = A E_{ij}
+    = E_{ij} A
+    = A_{jj} E_{ij}
+  \]
+  and therefore $A_{ii} = A_{jj}$.
+  This shows that $A$ is a scalar matrix, i.e.\ that $A = zI_n$ for some $z \in R$.
+  We have for every $r \in R$ that
+  \[
+      (rz) I_n
+    = (r I_n) (z I_n)
+    = (r I_n) A
+    = A (r I_n)
+    = (z I_n) (r I_n)
+    = (z I_n) I_n \,,
+  \]
+  which shows that $rz = zr$ for every $r \in R$ and therefore that $z \in \ringcenter(R)$.
+\end{proof}
 
 
 \input{chapters/subsection_semisimple_rings}

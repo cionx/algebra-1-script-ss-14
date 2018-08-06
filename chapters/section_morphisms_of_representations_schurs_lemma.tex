@@ -304,9 +304,6 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
 \end{example}
 
 
-% TODO: Counterexample for non-algebraically closed.
-
-
 \begin{remark}
   Let $G$ be a group, $k$ an algebraically closed field and $V_1, \dotsc, V_n$ pairwise non-isomorphic irreducible representations of $G$ over $k$.
   Then
@@ -316,27 +313,7 @@ Let $G$ be a group, $k$ a field and let $V$, $W$ be representations of $G$.
   \]
   for all $i,j = 1, \dotsc, n$ by Schur’s lemma.
   Hence the representations $V_1, \dotsc, V_n$ can be thought of as “orthonormal” with respect to $\dim \Hom_G(-,-)$.
-  We will come back to this idea when we encounter characters of representations.
-  % TODO: Add a link.
-\end{remark}
-
-
-\begin{remark}
-  % TODO: Craft a better explanation.
-  % TODO: Add a reference to the chapter about Artin-Wedderburn
-  Assume $k$ is an algebraically closed field and $V$ a finite-dimensional irreducible representation of some group $G$.
-  Then $\End_G(V \oplus \dotsb \oplus V)$ and $\Mat(n \times n, k)$ are isomorpic as $k$-algebras by part~\ref{enumerate: morphism space is one-dimensional} of Schur’s Lemma.
-  (See appendix~\ref{appendix: homomorphisms between direct sums}.)
-  
-  If more generally $V_1, \dotsc, V_r$ are pairwise non-isomorphic irreducible finite dimensional $k$-representations of some group $G$ and $W_i \defined V_i^{\oplus n_i}$, then
-  \begin{align*}
-            \End_G(W_1 \oplus \dotsb \oplus W_r)
-    &=      \End(V_1^{n_1} \oplus \dotsb \oplus V_n^{n_r})
-    \\
-    &\cong  \End(V_1^{n_1}) \times \dotsb \times \End(V_r^{n_r})
-     \cong  \Mat_{n_1}(k) \times \dotsb \oplus \Mat_{n_r}(k)
-  \end{align*}
-  as $k$-algebras.
+  We will come back to this idea in Remark~\ref{remark: bilinear form on characters is bilinear extension of hom} when we encounter characters of representations.
 \end{remark}
 
 

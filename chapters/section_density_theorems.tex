@@ -317,26 +317,10 @@
   \end{align*}
   with the action of $R''$ on $M$ corresponding to the action of $R$ on $M$.
   This shows that every $\varphi \in R''$ is of the form $\varphi(m) = rm$ for some $r \in R$, i.e.\ that the canonical homomorphism $R \to R''$ is surjective.
-% , and that $M = (D_1^{n_1})^{\oplus J_1} \oplus \dotsb \oplus (D_r^{n_r})^{\oplus J_r}$ for some index sets $J_1, \dotsc, J_r$.
-%   It then follows that
-%   \begingroup
-%   \allowdisplaybreaks
-%   \begin{align*}
-%             R'
-%     &=      \End_R(M) \\
-%     &=      \End_R\left( (D_1^{n_1})^{\oplus J_1} \oplus \dotsb \oplus (D_r^{n_r})^{\oplus J_r} \right) \\
-%     &\cong  \End_R( (D_1^{n_1})^{\oplus J_1} ) \times \dotsb \times \End_R( (D_r^{n_r})^{\oplus J_r} )  \\
-%     &\cong  \Mat_{J_1}^{\cf}(\End_R(D_1^{n_1})) \times \dotsb \Mat_{J_1}^{\cf}(\End_R(D_1^{n_1}))       \\
-%     &\cong  \Mat_{J_1}^{\cf}(D_1^{\op}) \times \dotsb \Mat_{J_1}^{\cf}(D_r^{\op})                       \\
-%     &\cong  \Mat_{J_1}^{\cf}(D_1)^\op \times \dotsb \Mat_{J_1}^{\cf}(D_r)^\op                           \\
-%     &\cong  \left( \Mat_{J_1}^{\cf}(D_1) \times \dotsb \Mat_{J_1}^{\cf}(D_r) \right)^\op \,.            \\
-%   \end{align*}
-%   \endgroup
-%   We may think about $$
 \end{proof}
 
 
-% TODO: Find an alternative proof.
+% TODO (optional): Find an alternative proof.
 
 
 
@@ -490,7 +474,14 @@
 \end{proof}
 
 
-% TODO: Add a counterexample when this not holds.
+% TODO (optional): Add a counterexample when this not holds.
 
-% TODO: Add reference that this simple modules are balanced over artinian rings.
+
+\begin{remark}
+  It can be shown that over an artinian ring $R$ every simple $R$-module $E$ is finite-dimensional as an $R'(M)$-module and therefore has the double centralizer property by the the \hyperref[theorem: second jacobson density theorem]{second Jacobson density theorem}.
+  A proof of this finite-dimensionality can be found in \cite[Lemma~13.17]{Isaacs2009Algebra}.
+\end{remark}
+
+
+
 

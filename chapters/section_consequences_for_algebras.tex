@@ -218,7 +218,18 @@
 \end{corollary}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  We have that $A \cong \Mat_{n_1}(k) \times \dotsb \times \Mat_{n_r}(k)$ where $r \geq 0$ is the number of isomorphism classes of simple $A$-modules and $n_1, \dotsc, n_r \geq 1$.
+  It follows that
+  \begin{align*}F
+            \ringcenter(A)
+    &\cong  \ringcenter( \Mat_{n_1}(k) \times \dotsb \times \Mat_{n_r}(k) ) \\
+    &=      \ringcenter(\Mat_{n_1}(k)) \times \dotsb \times \ringcenter(\Mat_{n_r}(k))
+     \cong  k \times \dotsb \times k
+     =      k^{\times r}
+  \end{align*}
+  is $r$-dimensional where the second isomorphism follows from Lemma~\ref{lemma: center of matrix ring}.
+\end{proof}
 
 
 \begin{fluff}
@@ -256,7 +267,7 @@
 \end{proof}
 
 
-% TODO: Alternative proof of Artin-Wedderburn for finite-dimensional semisimple algebras using multiplicities.
+% TODO (optional): Alternative proof of Artin-Wedderburn for finite-dimensional semisimple algebras using multiplicities.
 % (At least for algebraically closed fields.)
 
 
@@ -438,9 +449,9 @@
 \end{proof}
 
 
-% TODO: Corollary: R isomorph to product over endomorphism rings if semisimple
+% TODO (optional): Corollary: R isomorphic to product over endomorphism rings if semisimple
 
-% TODO: Generalization of this to semisimple rings
+% TODO (optional): Generalization of this to semisimple rings
 
 
 \begin{remark}
