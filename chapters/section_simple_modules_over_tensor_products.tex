@@ -260,7 +260,13 @@
 \end{proof}
 
 
-% TODO: Counterexamples for more general cases.
+\begin{warning}
+  Lemma~\ref{lemma: tensor product of modules is again simple} does not hold for non-algebraically closed fields:
+  If $k$ is not algebraically closed then there exists a finite-dimensional field extension $L/k$ of degree $\dim_k L > 1$.
+  Then $L$ itself is simple as an $L$-module, but $L \otimes L$ is not simple as an $(L \otimes L)$-module:
+  The kernel of the multiplication map $m \colon L \otimes L \to L$, $x \otimes y \to xy$ is a proper nonzero ideal because $m$ is surjective but for dimension reasons not injective.
+  Thus $\ker(m)$ is a proper nonzero $(L \otimes L)$-submodule of $L \otimes L$.
+\end{warning}
 
 
 \begin{corollary}
@@ -295,7 +301,39 @@
 \end{proof}
 
 
-% TODO: Counterexample for more general cases.
+\begin{warning}
+  The tensor product of two finite-dimensional semisimple $k$-algebras is in general not again semisimple:
+  
+  Consider the field $k = \Finite_p(t)$ with $p$ prime.
+  The polynomial $f \in k[X]$ given by $f(X) = X^p - t$ is irreducible and the finite field extension $L \defined k[X]/f$ is a finite-dimensional semisimple $k$-algebra.
+  If $L \otimes L$ were again semisimple then
+  \[
+          L \otimes L
+    \cong k_1 \times \dotsb \times k_n
+  \]
+  for some fields $k_1, \dotsc, k_n$ by the \hyperref[theorem: artin wedderburn theorem]{theorem of Artin--Wedderburn} because $L \otimes L$ is commutative.
+  But it follows for the root $\alpha \defined \class{X} \in L$ of $f$ that
+  \[
+      f(X)
+    = X^p - t
+    = X^p - \alpha^p
+    = (X - \alpha)^p
+  \]
+  and therefore that
+  \[
+          L \otimes L
+    =     L \otimes k[X]/f
+    \cong L[X]/f
+    =     L[X]/(X-\alpha)^p \,.
+  \]
+  It follows that $L \otimes L$ contains nonzero nilpotent elements, which contradicts the isomorphism $L \cong k_1 \times \dotsb \times k_n$.
+\end{warning}
+
+
+\begin{remark}
+  It can be shown that if $A$ is a finite-dimensional $k$-algebra and $L/k$ is a finite seperable field extension then $L \otimes A$ is again semisimple.
+  A proof of this can be found in \cite[XVII, Theorem~6.2]{LangAlgebra2005}.
+\end{remark}
 
 
 \begin{theorem}
