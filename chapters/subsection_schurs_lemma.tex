@@ -145,55 +145,127 @@
 
 \begin{remark}
   \label{remark: Schur for cardinality big enough}
-  Part~\ref*{enumerate: Schur scalar for fd} of \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $M$, i.e.\ as long as $\card k > \dim_k M$.
-  This generalizes \ref*{enumerate: morphism space is one-dimensional} because every algebraically closed field is infinite.
-
-  We prove this generalization by showing that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$ (i.e.\ that $f$ is algebraic over $k$).
-  This then shows that $\End_R(M)$ is an algebraic skew field extension of $k$, from which it follows that $\End_R(M) = k$ because $k$ is algebraically closed.
-  The idea of this proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
-
-  If $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$ then $p(f) \colon M \to M$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_R(M)$ is a skew field.
-  It follows that the $k$-vector space structure of $M$ can be extended to a $k(t)$-vector space structure given by
-  \[
-              \frac{p(t)}{q(t)} \cdot m
-    \defined  \left( p(f) q(f)^{-1} \right)(m)
-  \]
-  for all $p(t)/q(t) \in k(t)$, $m \in M$.
+  For an algebraically closed field $k$ we can ask ourselves how part~\ref*{enumerate: Schur scalar for fd} of \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} generalizes to infinite-dimensional $A$-modules, where $A$ is a $k$-algebra.
+  We fix a cardinality $\kappa$ and will examine under what conditions the following holds:
+  \begin{enumerate}
+    \item
+      \label{enumerate: schur holds}
+      It holds that $\End_A(M) = k$ for every $k$-algebra $A$ and every simple $A$-module $M$ of dimension $\dim_k M \leq \card \kappa$.
+  \end{enumerate}
   
-  Note that this is just the universal property of the localization:
-  The ring homomorphism $\varphi \colon k[t] \to \End_R(M)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
+  Note that if $D/k$ is any proper skew field extension then for $A = D$, $M = D$ we have that $\End_A(M) \cong D^\op$ by Lemma~\ref{lemma: End_R(R) = Rop} with $k \subsetneq D^\op$.
+  If on the other hand for any $k$-algebra $A$ and simple $A$-module $M$ the inclusion $k \subsetneq \End_A(M) \defines D$ is proper then we can regard $M$ as a left $D$-vector space via
   \[
-            \Phi
-    \colon  k(t)
-    =       S^{-1} k[t]
-    \to     \End_R(M) \,,
-    \quad   \frac{p(t)}{q(t)}
-    \mapsto p(f) q(f)^{-1} \,.
+      \varphi \cdot m
+    = \varphi(m)
   \]
-  By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(M)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $M$.
-  This is precisely the $k(t)$-vector space structure from above.
-  
-  It follows that
+  for all $\varphi \in \End_R(M)$, $m \in M$ and it follows that
   \[
           \dim_k M
-    =     \dim_{k(t)} M \cdot \dim_k k(t)
-    \geq  1 \cdot \card k
-    =     \card k \,,
+    =     \dim_k D \cdot \underbrace{\dim_D M}_{\geq 1}
+    \geq  \dim_k D \,.
   \]
-  where we are using the following facts from linear algebra:
-  \begin{itemize}
+  Together this shows that condition~\ref*{enumerate: schur holds} is equivalent to the following condition:
+  \begin{enumerate}[resume]
+    \item 
+      \label{enumerate: no proper skew field extension}
+      There exist no proper skew field extension $D/k$ of degree $\dim_k D \leq \kappa$.
+  \end{enumerate}
+  A skew field extension $D/k$ is proper if and only if it is trancendental, i.e.\ if $D$ contains a trancendental element, because $k$ is algebraically closed.
+  We can therefore reformulate condition~\ref*{enumerate: no proper skew field extension} as follows:
+  \begin{enumerate}[resume]
+    \item 
+      There exist no trancendental skew field extension $D/k$ of degree $\dim_k D \leq \kappa$, i.e.\ every transcendental skew field extension $D/k$ has degree $\dim_k D > \kappa$.
+  \end{enumerate}
+  
+  If $D/k$ is a trancendental skew field extension with $\varphi \in D$ trancendental over $k$ then it follows that $D$ contains a copy of the function field $k(t)$, namely $k(\varphi)$.
+  It then follows that $\dim_k D \geq \dim_k k(t)$.
+  We have on the other hand that $k(t)/k$ is a trancendental (skew) field extension.
+  Together this shows that for any cardinality $\kappa'$ there exists a trancendental skew field extension $D/k$ of degree $\dim_k D = \kappa'$ if and only if $\kappa' \geq \dim_k k(t)$.
+  This leads to the following entry to our list of equivalent conditions:
+  \begin{enumerate}[resume]
+    \item 
+     It holds that $\kappa < \dim_k k(t)$.
+  \end{enumerate}
+  
+  We can determine the dimension $\dim_k k(t)$ in question:
+  The elements $1/(t - \lambda) \in k(t)$ with $\lambda \in k$ are linearly independent over $k$, so we find that $\dim_k k(t) \geq \card k$.
+  It follows on the other hand from $k$ being infinite that
+  \[
+      \card k
+    = \card k[t]
+    = \card k(t) \,,
+  \]
+  from which it follows that $\dim_k k(t) \leq \card k$.
+  This shows that $\dim_k k(t) = \card k$.
+  With this we arrive at the last equivalent condition for our list:
+  \begin{enumerate}[resume]
     \item
-      For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $M$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(b_i c_j)_{i \in I, j \in J}$ is a $k$-basis of $M$.
-    \item
-      For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
-    \item
-      That $\dim_{k(t)} M \geq 1$ follows from $M$ being nonzero.
-  \end{itemize}
-  This contradicts the assumption that $\card k > \dim_k M$, which shows that $p(f) \neq 0$ for some nonzero $p(t) \in k[t]$.
+      It holds that $\kappa < \card k$.
+  \end{enumerate}
+  
+  The above disucission is motivated by \cite{Quillen}, which in turn credits \cite{Dixmier}.
+%   
+%   Part~\ref*{enumerate: Schur scalar for fd} of \hyperref[proposition: schurs lemma for modules]{Schur’s lemma} holds true as long as the cardinality of the algebraically closed field $k$ is strictly larger than the $k$-dimension of $M$, i.e.\ as long as $\card k > \dim_k M$.
+%   This generalizes \ref*{enumerate: morphism space is one-dimensional} because every algebraically closed field is infinite.
+% 
+%   We prove this generalization by showing that there exists some nonzero polynomal $p(t) \in k[t]$ with $p(f) = 0$ (i.e.\ that $f$ is algebraic over $k$).
+%   This then shows that $\End_R(M)$ is an algebraic skew field extension of $k$, from which it follows that $\End_R(M) = k$ because $k$ is algebraically closed.
+%   The idea of this proof is taken from \cite{Quillen}, where the argument is attributed to \cite{Dixmier}.
+% 
+%   If $p(f) \neq 0$ for every nonzero polynomial $p(t) \in k[t]$ then $p(f) \colon M \to M$ is an isomorphism for every nonzero $p(t) \in k[t]$ because $\End_R(M)$ is a skew field.
+%   It follows that the $k$-vector space structure of $M$ can be extended to a $k(t)$-vector space structure given by
+%   \[
+%               \frac{p(t)}{q(t)} \cdot m
+%     \defined  \left( p(f) q(f)^{-1} \right)(m)
+%   \]
+%   for all $p(t)/q(t) \in k(t)$, $m \in M$.
+%   
+%   Note that this is just the universal property of the localization:
+%   The ring homomorphism $\varphi \colon k[t] \to \End_R(M)$, $p(t) \mapsto p(f)$ maps every element of $S \defined k[t] \smallsetminus \{0\}$ to a unit, and therefore induces a ring homomorphism
+%   \[
+%             \Phi
+%     \colon  k(t)
+%     =       S^{-1} k[t]
+%     \to     \End_R(M) \,,
+%     \quad   \frac{p(t)}{q(t)}
+%     \mapsto p(f) q(f)^{-1} \,.
+%   \]
+%   By regarding $k(t)$ as a $k$-algebra and the map $\Phi$ as a homomorphism of $k$-algebras $k(t) \to \End_k(M)$, we find that $\Phi$ corresponds to a $k(t)$-module structure on $M$.
+%   This is precisely the $k(t)$-vector space structure from above.
+%   
+%   It follows that
+%   \[
+%           \dim_k M
+%     =     \dim_{k(t)} M \cdot \dim_k k(t)
+%     \geq  1 \cdot \card k
+%     =     \card k \,,
+%   \]
+%   where we are using the following facts from linear algebra:
+%   \begin{itemize}
+%     \item
+%       For the first equality we use that if $(b_i)_{i \in I}$ is a $k(t)$-basis of $M$, and $(c_j)_{j \in J}$ is a $k$-basis of $k(t)$, then $(b_i c_j)_{i \in I, j \in J}$ is a $k$-basis of $M$.
+%     \item
+%       For the inequality we use that the elements $1/(t-\lambda)$ with $\lambda \in k$ are $k$-linearly independent in $k(t)$, so that $\dim_k k(t) \geq \card k$.
+%     \item
+%       That $\dim_{k(t)} M \geq 1$ follows from $M$ being nonzero.
+%   \end{itemize}
+%   This contradicts the assumption that $\card k > \dim_k M$, which shows that $p(f) \neq 0$ for some nonzero $p(t) \in k[t]$.
 \end{remark}
 
 
-% TODO: Counterexample when Schur fails.
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      If $k$ is any algebraically closed field then $k$ is inifinite and we retrieve part~\ref*{enumerate: Schur scalar for fd} of \hyperref[proposition: schurs lemma for modules]{Schur’s lemma}.
+    \item
+      If $A$ is a $\Complex$-algebra and $M$ is a countable-dimensional simple $A$-module then $\End_A(M) = \Complex$.
+    \item
+      For the $\closure{\Rational}$-algebra $A \defined \closure{\Rational}(t)$ the $A$-module $M \defined A$ is simple and countable dimensional over $\overline{\Rational}$ but $\End_A(M) = \closure{\Rational}(t) \supsetneq \overline{\Rational}$.
+  \end{enumerate}
+\end{example}
+
 
 
 
