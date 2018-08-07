@@ -3,20 +3,24 @@ Notes for _Algebra I_, SS 14
 =================
 
 This repository contains my personal notes for the lecture course _Algebra I_, which was held at the University of Bonn in the summer semester of 2014 by Prof. Dr. Catharina Stroppel.
-
-These notes are currently being reworked.
-Especially some of the later parts are currently a mess.
 An up to date compiled version can be found [here][2].
 
----
+Some things to look out for:
 
-For those who want to compile these notes themselves:
+- I’m still changing things from time to time, which can lead to changes in numbering.
 
-- Compiling is intented to be done using `xelatex`.
-- The bibliography is using `biber`.
-- The `gitinfo2` package is used to display the date and hash of the last commit.
+  There is currently no system in place to download older versions.
 
-The included `make` file is intented for remote building via [travis.ci][3] and may not (but should) work on other machines.
+- For those who want to compile these notes themselves:
+
+  - Compiling is intented to be done using `xelatex`.
+  - The bibliography is using `biber`.
+  - The `gitinfo2` package is used to display the date and hash of the last commit.
+
+  The included `make` file is intented for remote building via [travis.ci][3] and may not (but should) work on other machines.
+
+For comments and corrections please contact me at `stelzner (at) uni-bonn.de`.
+
 
 
 
