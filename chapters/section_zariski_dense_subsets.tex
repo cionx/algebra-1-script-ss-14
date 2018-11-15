@@ -679,18 +679,18 @@
 
 
 \begin{proof}
-  The evaluation map
-  \[
-            \varepsilon_a
-    \colon  k[X_1, \dotsc, X_n]
-    \to     k,
-    \quad   f
-    \mapsto f(a)
-  \]
-  is a surjective homomorphism of $k$-algebras with $\ker \varepsilon_a = \mf{m}_a$.
-  It follows that $\mf{m}_a$ is a maximal ideal because $k[X_1, \dotsc, X_n]/\mf{m}_a \cong k$ is a field.
+%   The evaluation map
+%   \[
+%             \varepsilon_a
+%     \colon  k[X_1, \dotsc, X_n]
+%     \to     k,
+%     \quad   f
+%     \mapsto f(a)
+%   \]
+%   is a surjective homomorphism of $k$-algebras with $\ker \varepsilon_a = \mf{m}_a$.
+%   It follows that $\mf{m}_a$ is a maximal ideal because $k[X_1, \dotsc, X_n]/\mf{m}_a \cong k$ is a field.
   
-  The ideal $\mf{m} \defined (X_1 - a_1, \dotsc, X_n - a_n)$ is also maximal:
+  The ideal $\mf{m} \defined (X_1 - a_1, \dotsc, X_n - a_n)$ is maximal:
   
   We consider first the case $a_1 = \dotsb = a_n = 0$.
   Then $\mf{m} = (X_1, \dotsc, X_n)$ has a $k$-basis given by all monomials $X_1^{\alpha_1} \dotsm X_n^{\alpha_n} \neq 1$.
@@ -701,7 +701,10 @@
   For general $a \in k^n$ we observe that there exists an automorphism of $k$-algebras $\Phi \colon k[X_1, \dotsc, X_n] \to k[X_1, \dotsc, X_n]$ with $\Phi(X_i) =  X_i + a_i$ for all $i = 1, \dotsc, n$.
   Then $\Phi(\mf{m}) = (X_1, \dotsc, X_n)$ is maximal as shown above so $\mf{m}$ itself is also maximal.
   
-  It follows that $\mf{m}_a = \mf{m}$ because both ideals are maximal with $\mf{m} \subseteq \mf{m}_a$.
+  The maximal ideal~$\mf{m}$ is contained in the vanishing ideal~$\mf{m}_a$ because~$X_i - a_i \in \mf{m}_a$ for every~$i = 1, \dotsc, n$.
+  It follows that $\mf{m}_a = \mf{m}$ or~$\mf{m}_a = \mc{P}(V)$ because the ideal~$\mf{m}$ is maximal.
+  The case~$\mf{m}_a = \mc{P}(V)$ cannot occur because~$\mf{m}_a$ is a proper ideal, as it does not contain~$1 \in \mc{P}(V)$.
+  Hence~$\mf{m}_a = \mf{m}$.
 \end{proof}
 
 
