@@ -405,7 +405,7 @@
 \end{corollary}
 
 
-\begin{proof}
+\begin{proof}[First proof]
   For every $j \in I$ we have that $\bigcap_{i \in I} U_i \subseteq U_j$, therefore
   \[
               L \tensor_k \left( \bigcap_{i \in I} U_i \right)
@@ -439,3 +439,30 @@
   \]
   This proves the other inclusion.
 \end{proof}
+
+
+
+
+
+\begin{proof}[Second proof]
+  Let~$(b_j)_{j \in J}$ be a~$k$-basis of~$L$.
+  Then
+  \[
+          L \tensor_k V
+    =     \bigoplus_{j \in J} k b_j \tensor V
+    =     \bigoplus_{j \in J} b_j \tensor V
+    \cong V^{\oplus J} \,.
+  \]
+  Under this isomorphism, a subspace of~$L \tensor_k V$ of the form~$L \tensor_k U$ for some linear subspace~$U \subseteq V$ becomes identified with the linear subspace~$U^{\oplus J} \subseteq V^{\oplus J}$.
+  It follows that~$L \tensor_k U_i$ becomes for every~$i \in I$ identified with~$U_i^{\oplus J}$, and hence that~$\bigcap_{i \in I} L \tensor_k U_i$ becomes identified with~$\bigcap_{i \in I} U_i^{\oplus J}$.
+  But
+  \[
+      \bigcap_{i \in I} U_i^{\oplus J}
+    = \left( \bigcap_{i \in I} U_i \right)^{\oplus J} \,,
+  \]
+  and this is precisely the subspace identified with~$L \tensor_k (\bigcap_{i \in I} U_i)$.
+\end{proof}
+
+
+
+
