@@ -3,7 +3,7 @@ Notes for _Algebra I_, SS 14
 =================
 
 This repository contains my personal notes for the lecture course _Algebra I_, which was held at the University of Bonn in the summer semester of 2014 by Prof. Dr. Catharina Stroppel.
-An up to date compiled version can be found [here][2].
+An up to date compiled version can be found [HERE][2].
 
 Some things to look out for:
 
@@ -13,7 +13,7 @@ Some things to look out for:
 
 - For those who want to compile these notes themselves:
 
-  - Compiling is intented to be done using `xelatex`.
+  - Compiling is intented to be done using `lualatex`.
   - The bibliography is using `biber`.
   - The `gitinfo2` package is used to display the date and hash of the last commit.
 
