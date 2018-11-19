@@ -242,7 +242,7 @@
       and thus $N \cap P' = 0$ for $P' \defined P \oplus L_i = M_{J'}$ with $J' = J \cup \{i\}$.
       It follows from $L_i \nmoduleleq N \oplus M_J$ that $i \notin J$ and thus $J \subsetneq J'$.
       This contradicts the maximality of $J$.
-    \item[\ref*{enumerate: direct complements} $\implies$ \ref*{enumerate: direct sum of simple}]
+    \item[\ref*{enumerate: direct complements} $\implies$ \ref*{enumerate: sum of simple}]
       It follows from Corollary~\ref{lemma: direct complements in submodules} that for all submodules $N \moduleleq C \moduleleq M$ the module $N$ also has a direct complement in $C$.
       
       Let $S \moduleleq M$ be the sum of all simple submodules of $M$ and suppose that $S \neq M$.
@@ -252,6 +252,22 @@
       For $x \in P$ with $x \neq 0$ the cyclic submodule $C \defined Rx \moduleleq P$ contains a maximal submodule $N \modulelneq C$ by Lemma~\ref{lemma: fg modules contain max submodules}.
       As noted above there exists a submodule $S' \moduleleq C$ with $C = N \oplus S'$.
       Then $S'$ is simple by Lemma~\ref{lemma: maximal iff quotient is simple}, which shows that $P$ contain a simple submodule.
+    \item[\ref*{enumerate: sum of simple} $\implies$ \ref*{enumerate: direct sum of simple}]
+      Suppose that $M = \sum_{i \in I} L_i$ where each $L_i$ is a simple submodules of $M$.
+      
+      By Zorn’s~lemma there exists a maximal subset $J \subseteq I$ for which the sum $\sum_{j \in J} L_j$ is direct:
+      Indeed, let $(J_k)_{k \in K}$ be a chain of subsets $J_k \subseteq I$ such that for every $k \in K$ the sum $\sum_{j \in J_k} L_j$ is direct.
+      If for $J' \defined \bigcup_{k \in K} J_k$ the sum $\sum_{j \in J'} L_j$ were not direct then there would exist a non-trivial linear combination $0 = \sum_{j \in J'} m_j$ with $m_j \in L_j$ for every $j \in J$.
+      There would then exist some $k \in K$ such that every of the finitely many $j \in J'$ with $m_j \neq 0$ is already contained in $J_k$.
+      The existence of the non-trivial linear combination $0 = \sum_{j \in J'} m_j = \sum_{j \in J_k} m_j$ would then contradict the directness of the sum $\bigoplus_{j \in J_k} L_j$.
+      This shows that conditions for Zorn’s~lemma are satisfied.
+      (Note that for the empty set $\emptyset$ the sum $\sum_{j \in \emptyset} L_j$ is direct.)
+      
+      Let $N \defined \sum_{j \in J} L_j = \bigoplus_{j \in J} L_j$.
+      If $N \neq M$ then there would exist some $i \in J$ with $L_i \nmoduleleq N$.
+      It would then follows that $L_i \cap N$ is a proper submodule of $L_i$ which would show that $L_i \cap N = 0$.
+      For $K \defined J \cap \{i\}$ the sum $\sum_{k \in K} L_k$ would then still direct, but it would follows from $L_i \nmoduleleq N$ that $i \notin J$, which would then contradict the maximality of $J$.
+      We thus have that $M = N = \bigoplus_{j \in J} L_j$.
     \qedhere
   \end{description}
 \end{proof}
@@ -264,24 +280,7 @@
 
 \begin{remark}
   \label{remark: can replace sum by direct sum for ss}
-  If $L_i \moduleleq M$, $i \in I$ is a collection of simple modules then there exists a subset $J \subseteq I$ with $\sum_{i \in I} L_i = \bigoplus_{j \in J} L_j$.
-  To see this we may assume w.l.o.g.\ that $M = \sum_{i \in I} L_i$.
-  
-  By Zorn’s~lemma there exists a maximal subset $J \subseteq I$ for which the sum $\sum_{j \in J} L_j$:
-  Indeed, let $(J_k)_{k \in K}$ be a chain of subsets $J_k \subseteq I$ such that for every $k \in K$ the sum $\sum_{j \in J_k} L_j$ is direct.
-  If for $J' \defined \bigcup_{k \in K} J_k$ the sum $\sum_{j \in J'} L_j$ were not direct then there would exist a non-trivial linear combination $0 = \sum_{j \in J'} m_j$ with $m_j \in L_j$ for every $j \in J$.
-  There would then exist some $k \in K$ such that every of the finitely many $j \in J'$ with $m_j \neq 0$ is already contained in $J_k$.
-  The existence of the non-trivial linear combination $0 = \sum_{j \in J'} m_j = \sum_{j \in J_k} m_j$ would then contradict the directness of the sum $\bigoplus_{j \in J_k} M_j$.
-  This shows that conditions for Zorn’s~lemma are satisfied.
-  (Note that for the empty set $\emptyset$ the sum $\sum_{j \in \emptyset} L_j$ is direct.)
-  
-  Let $N \defined \sum_{j \in J} M_j$.
-  If $N \neq M$ then there would exist some $i \in J$ with $L_i \nmoduleleq N$.
-  It would then follows that $L_i \cap N$ is a proper submodule of $L_i$ which would show that $L_i \cap N = 0$.
-  For $K \defined J \cap \{i\}$ the sum $\sum_{k \in K} L_k$ wolud then still finite, but it would follows from $L_i \nmoduleleq N$ that $i \notin J$, which would then contradict the maximality of $J$.
-  We thus have that $M = N = \bigoplus_{j \in J} L_j$.
-  
-  Note that this gives a proof of the implication \ref*{enumerate: sum of simple} $\implies$ \ref*{enumerate: direct sum of simple} of Proposition~\ref{proposition: characterisation semisimple modules}.
+  If $L_i \moduleleq M$, $i \in I$ is a collection of simple modules then the above proof of Proposition~\ref{proposition: characterisation semisimple modules} shows that there exists a subset $J \subseteq I$ with $\sum_{i \in I} L_i = \bigoplus_{j \in J} L_j$.
 \end{remark}
 
 
